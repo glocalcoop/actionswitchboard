@@ -49,7 +49,8 @@ function og_extras_subscribe($entity_type, $entity) {
   $group = entity_load_single($group_type, $entity->nid);
   list(,, $group_bundle) = entity_extract_ids($group_type, $group);
   $display['settings']['field_name'] = og_get_best_group_audience_field($entity_type, $entity, $group_type, $group_bundle);
-  return drupal_render(og_ui_field_formatter_view($entity_type, $entity, NULL, NULL, NULL, array(), $display));
+  $elements = og_ui_field_formatter_view($entity_type, $entity, NULL, NULL, NULL, array(), $display);
+  return drupal_render($elements);
 }
 
 /**
