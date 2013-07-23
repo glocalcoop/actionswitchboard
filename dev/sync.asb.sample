@@ -29,10 +29,10 @@ echo "Synchronizing files"
 rsync -av --delete $user@$server:$files_path sites/default/files/
 
 echo "Dumping live drupal database"
-ssh $user@$server "cd $HOME/asb.mayfirst.org/web && drush sql-dump > $HOME/asb_drup.sql"
+ssh $user@$server "cd ~/asb.mayfirst.org/web && drush sql-dump > ~/asb_drup.sql"
 
 echo "Dumping live civi database"
-ssh $user@$server "cd $HOME/asb.mayfirst.org/web && drush civicrm-sql-dump > $HOME/asb_civi.sql"
+ssh $user@$server "cd ~/asb.mayfirst.org/web && drush civicrm-sql-dump > ~/asb_civi.sql"
 
 echo "Zipping live database"
 ssh $user@$server "gzip -f asb_drup.sql"
