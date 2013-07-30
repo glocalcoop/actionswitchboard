@@ -1242,6 +1242,9 @@ function ctools_export_default_list($table, $schema) {
     foreach ($keys as $key) {
       if (!empty($item->$key)) {
         $string = $item->$key . " (" . $item->$export_key . ")";
+        if (!empty($item->tag)) {
+          $string .= " [" . $item->tag . "]";
+        }
         break;
       }
     }
