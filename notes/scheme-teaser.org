@@ -1,31 +1,31 @@
-<article class="scheme" id="scheme-{{{scheme-node-id}}}">
-	<img src="" ... width="…" height="…" alt="…" />
-	<h3 class="scheme-name">
-		<a href="{{{scheme-link}}}">
-			{{{scheme-name}}}
-		</a>
+<article class="scheme teaser" id="scheme-{{{scheme-node-id}}}">
+	<img src="" width="…" height="…" alt="…" />
+  <h3 class="scheme-name">
+	 <a href="{{{scheme-link}}}">{{{scheme-name}}}</a>
 	</h3>
 	<section class="scheme-leader">
-		<a href="{{{scheme-leader-profile-link}}}">
-			{{{scheme-leader-name}}}
-		</a>
+		<a href="{{{scheme-leader-profile-link}}}">{{{scheme-leader-name}}}</a>
 	</section>
 	<!-- A bit of a sticking point -->
 	<section class="scheme-location">
 		{{{location}}}
 	</section>
 	<p class="scheme-description">
-		<a href="{{{scheme-link}}}">
-			{{{scheme-short-description}}}
-		</a>
+		<a href="{{{scheme-link}}}">{{{scheme-short-description}}}</a>
 	</p>
 	<section class="scheme-info">
-		<div class="scheme-progress" data-percentcomplete="{{{XX}}}">{{{XX}}% Complete</div>
-		<div class="needs">
-			<a icon="people" href="{{{scheme-link}}}">{{{XXX}}} People Needed</a> 
-			<a icon="stuff" href="{{{scheme-link}}}">{{{XXX}}} Things Needed</a> 
-			<!-- we've repeatedly stated that there's no target amount, but if there really is, we need to aknowledge that -->
-			<a icon="funds" href="{{{scheme-link}}}">${{{XXX}}} Needed</a> 
-		</div>
-	</ssection>
+		<div class="scheme-progress" data-percentcomplete="{{{XX}}}">{{{XX}}}% Complete</div>
+		<ul class="needs">
+			<li>
+        <a class="icon skills" href="{{{scheme-link}}}">{{{XXX}}} Skills Needed</a> 
+			</li>
+      <li>
+        <a icon="icon stuff" href="{{{scheme-link}}}">{{{XXX}}} Things Needed</a> 
+	   		<!-- we've repeatedly stated that there's no target amount, but if there really is, we need to aknowledge that -->
+		  </li>
+      <li>
+      	<a class="icon funds" href="{{{scheme-link}}}">${{{XXX}}} Needed</a> 
+      </li>
+  	</ul>
+	</section>
 </article>
