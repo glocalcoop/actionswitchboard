@@ -11,7 +11,7 @@
 	<section class="scheme-location">
 		{{{location}}}
 	</section>
-	<p class="scheme-description">
+	<p class="scheme-short-description">
 		<a href="{{{scheme-link}}}">{{{scheme-short-description}}}</a>
 	</p>
 	<section class="scheme-info">
