@@ -486,7 +486,6 @@ function msnf_formatter_settings_update(&$step, $settings) {
   // Fetch the step formatter defaults.
   $step_types = msnf_formatter_info();
   $formatter = $step_types[$step->format_type];
-  // dsm($formatter);
   // For format changes we load the defaults.
   if (empty($settings['format_settings']['settings'])) {
     $step->format_settings = array(

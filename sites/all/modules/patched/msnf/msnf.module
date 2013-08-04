@@ -280,11 +280,11 @@ function msnf_form_field_ui_field_overview_form_alter(&$form, &$form_state, $for
  * Implements hook_form_FORM_ID_alter().
  */
 function msnf_form_node_form_alter(&$form, &$form_state, $form_id) {
-  /* if (!empty($form['nid']['#value'])) { */
-  /*     if (variable_get($form['#bundle'] .'_steps_on_edit') == 0) { */
-  /*       unset($form['#steps']); */
-  /*     } */
-  /* } */
+  if (!empty($form['nid']['#value'])) {
+      if (variable_get($form['#bundle'] .'_steps_on_edit') == 0) {
+        unset($form['#steps']);
+      }
+  }
   if (isset($form['#steps'])) {
     // Init static step data.
     $step_data = &drupal_static('msnf_step_data');
