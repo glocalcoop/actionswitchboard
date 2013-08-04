@@ -1,0 +1,6 @@
+name = Custom Scheme Functions
+description = "Any custom functions used for schemes."
+core = 7.x
+package = Action Switchboard
+
+dependencies[] = msnf
