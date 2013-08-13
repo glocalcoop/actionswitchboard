@@ -81,6 +81,19 @@ $font-monospace:   $courier;
 //
 // Colors, etc.
 //
+$accent: #EF3F26; //organge
+$panel: #F3F2E0; //beige background
+$brand: ; #912A1B;//wine
+$backdrop: #2E2E2E;	//dark grey background
+$type: #7C7F7E; // body copy
+$type-prominent: #303332; // dark grey headers
+$button: #826853; // brown
+$membership-backdrop: #E8EAEA; // only used in "scheme leader and membership panel"
+//same as wine, but both things are unique enough to have separate vars
+$skills: #912A1B;
+$funds: #56CBC8;
+$supplies: #5FC86C;
+
 
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
