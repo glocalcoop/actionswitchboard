@@ -224,3 +224,39 @@ function asb_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+
+/**
+ * Implements hook_preprocess_views_view
+ */
+function asb_scheme_preprocess_views_view_field(&$vars) {
+  //$vars['custom_variable'] = 'foo bar';
+  // dsm($vars);
+  if($vars['view']->name == 'scheme_overview') {
+    //$og = og_get_group('scheme', array(1,3));
+    foreach($vars['view']->result as $scheme) {
+      
+      $gid = $scheme->nid;
+      $sql = "SELECT u.uid, name FROM users u 
+              INNER JOIN og_membership ogm ON u.uid = ogm.etid 
+              INNER JOIN og_users_roles our ON ogm.etid = our.uid 
+              WHERE ogm.gid = '$gid'
+              AND ogm.entity_type = 'user' 
+              AND our.rid = 3 AND our.gid = '$gid'";
+
+      $user_list = db_query($sql)->fetchAll();
+      // dsm($user_list);
+      $vars['leader'][$gid] = array('name' => $user_list[0]->name, 
+                              'uid' => $user_list[0]->uid);
+    }
+    /* $yourGroupID = 1; */
+    /* $query = new EntityFieldQuery(); */
+    /* $query */
+    /*   ->entityCondition("entity_type", "og_membership", "=") */
+    /*   ->propertyCondition("gid", $yourGroupID, "="); */
+    /* $result = $query->execute(); */
+    /* dsm($result["og_membership"]); */
+
+  }
+  // dsm($vars);
+}
