@@ -7,7 +7,96 @@
 // curly brackets:
 //   @include mix-in-name;
 
+//
+// mixin for bullet proof font declaration syntax
+// http://pivotallabs.com/bulletproof-font-face-syntax-with-sass/
+// modified to have font-id argument for SVG fonts (otherwise identifier and font id always have to be the same)
+//
 
+@mixin font-face($font-family, $font-id, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+      font-family: $font-family;
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}.woff') format('woff'),
+           url('#{$file-path}.ttf') format('truetype'),
+           url('#{$file-path}.svg##{$font-id}') format('svg');
+      font-weight: $weight;
+      font-style: $style;
+      font-stretch: none;
+  }
+}
+
+@function blackTranslucent($opacity){
+    @return rgba(0,0,0,$opacity)
+}
+@function whiteTranslucent($opacity){
+    @return rgba(255,255,255,$opacity)
+}
+
+@mixin whiteOverlay($opacity){
+  background: whiteTranslucent($opacity);
+}
+
+@mixin blackOverlay($opacity){
+  background: blackTranslucent($opacity);
+}
+
+@mixin abs( $top: 0, $right: none, $bottom: none, $left: 0, $zindex: 0 ){
+  //position the element
+  position: absolute;
+  top: $top;
+  left: $left;
+  z-index: $zindex;
+//  wanted to use the & (parent selector) to set the parent position to relative and call this absRelToParent (or something similar)
+// but it didnt seem to work
+}
+
+@mixin triangle ($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    border-color: transparent;
+    border-style: solid;
+    border-width: $size / 2;
+
+    @if $direction == up {
+      border-bottom-color: $color;
+
+    } @else if $direction == right {
+      border-left-color:   $color;
+
+    } @else if $direction == down {
+      border-top-color:    $color;
+
+    } @else if $direction == left {
+      border-right-color:  $color;
+    }
+  }
+
+  @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $size solid $color;
+
+    @if $direction == up-right {
+      border-left:  $size solid transparent;
+
+    } @else if $direction == up-left {
+      border-right: $size solid transparent;
+    }
+  }
+
+  @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $size solid $color;
+
+    @if $direction == down-right {
+      border-left:  $size solid transparent;
+
+    } @else if $direction == down-left {
+      border-right: $size solid transparent;
+    }
+  }
+}
 // element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 @mixin element-invisible {
   position: absolute !important;
