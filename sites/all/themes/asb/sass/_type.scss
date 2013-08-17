@@ -1,0 +1,27 @@
+//@include establish-baseline;
+
+@include font-face('League', 'leaguegothic', '../fonts/league_gothic' );
+@include font-face('SourceSansPro', 'source_sans_proregular', '../fonts/sourcesanspro-regular' );
+@include font-face('SourceSansPro', 'source_sans_proitalic', '../fonts/sourcesanspro-italic', normal, italic);
+@include font-face('SourceSansPro', 'source_sans_probold', '../fonts/sourcesanspro-bold', bold );
+@include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);
+
+$header-font-family: League, Helvetica, sans;
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $text-color;
+  font-family: $header-font-family;
+  /* this will likely not be this simple */
+  line-height: $header-line-height;
+}
+
+h1 { font-size: $base-font-size * 2.75; } // ~38px
+h2 { font-size: $base-font-size * 2.25; } // ~33px
+h3 { font-size: $base-font-size * 1.875; line-height: 1.125 } // ~27px
+h4 { font-size: $base-font-size * 1.25; } // ~18px
+h5 { font-size: $base-font-size; }
+h6 { font-size: $base-font-size * 0.85; } // ~12px
