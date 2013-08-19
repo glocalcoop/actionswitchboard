@@ -70,6 +70,7 @@
  */
 ?>
 
+
 <div id="page">
 
   <header id="header" role="banner">
@@ -92,48 +93,7 @@
       </section><!-- /#name-and-slogan -->
     <?php endif; ?>
 
-    <?php if ($secondary_menu): ?>
-      <nav id="secondary-menu" role="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => $secondary_menu_heading,
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </nav>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-
-  </header>
-
-  <div id="main">
-
-    <div id="content" class="column" role="main">
-      <?php print render($page['highlighted']); ?>
-      <?php print $breadcrumb; ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
-        <h1 class="title" id="page-title"><?php print $title; ?></h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php print $messages; ?>
-      <?php print render($tabs); ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-      <?php print $feed_icons; ?>
-    </div><!-- /#content -->
-
-    <div id="navigation">
+    <section id="navigation">
 
       <?php if ($main_menu): ?>
         <nav id="main-menu" role="navigation">
@@ -158,25 +118,96 @@
 
       <?php print render($page['navigation']); ?>
 
-    </div><!-- /#navigation -->
+      <?php if ($secondary_menu): ?>
+        <nav id="secondary-menu" role="navigation">
+          <?php print theme('links__system_secondary_menu', array(
+            'links' => $secondary_menu,
+            'attributes' => array(
+              'class' => array('links', 'inline', 'clearfix'),
+            ),
+            'heading' => array(
+              'text' => $secondary_menu_heading,
+              'level' => 'h2',
+              'class' => array('element-invisible'),
+            ),
+          )); ?>
+        </nav>
+      <?php endif; ?>
 
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      $sidebar_first  = render($page['sidebar_first']);
-      $sidebar_second = render($page['sidebar_second']);
-    ?>
+    </section><!-- /#navigation -->
 
-    <?php if ($sidebar_first || $sidebar_second): ?>
+
+    <?php print render($page['header']); ?>
+
+
+  </header>
+
+  <section id="main">
+
+      <header>
+        <div class="content-header">
+          <?php print render($page['highlighted']); ?>
+          <?php //print $breadcrumb; ?>
+          <a id="main-content"></a>
+          <?php print render($title_prefix); ?>
+          <?php if ($title): ?>
+          <h1 class="title" id="page-title"><?php print $title; ?></h1>
+          <?php endif; ?>
+          <?php print render($title_suffix); ?>
+          <?php print $messages; ?>
+          <?php print render($tabs); ?>
+          <?php print render($page['help']); ?>
+          <?php if ($action_links): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+          <?php endif; ?>
+          <?php print $feed_icons; ?>
+        </div>
+      </header>
+
+      <div id="content" class="column" role="main">
+
+
+
+
+      <?php print render($page['content']); ?>
+
+
+      <?php
+        // Render the sidebars to see if there's anything in them.
+        $sidebar_first  = render($page['sidebar_first']);
+        $sidebar_second = render($page['sidebar_second']);
+      ?>
+
+      <?php if ($sidebar_first || $sidebar_second): ?>
       <aside class="sidebars">
         <?php print $sidebar_first; ?>
         <?php print $sidebar_second; ?>
       </aside><!-- /.sidebars -->
-    <?php endif; ?>
+      <?php endif; ?>
 
-  </div><!-- /#main -->
+    </div><!-- /#content -->
+
+  </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>
 
+<!-- @context front -->
+  <div id="header-image-strip">
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
+  </div>
 </div><!-- /#page -->
+
+
 
 <?php print render($page['bottom']); ?>
