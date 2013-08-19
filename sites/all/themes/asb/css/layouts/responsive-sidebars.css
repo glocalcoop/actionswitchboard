@@ -93,7 +93,7 @@ h1#site-name a:visited {
 /*
  * Center the page.
  */
-/* line 57, ../../sass/layouts/responsive-sidebars.scss */
+/* line 55, ../../sass/layouts/responsive-sidebars.scss */
 #header,
 #main > header .content-header,
 #main #content,
@@ -107,7 +107,7 @@ h1#site-name a:visited {
 /*
  * Apply the shared properties of grid items in a single, efficient ruleset.
  */
-/* line 74, ../../sass/layouts/responsive-sidebars.scss */
+/* line 72, ../../sass/layouts/responsive-sidebars.scss */
 #main #content,
 .region-sidebar-first,
 .region-sidebar-second,
@@ -124,7 +124,7 @@ h1#site-name a:visited {
 /*
  * Containers for grid items and flow items.
  */
-/* line 83, ../../sass/layouts/responsive-sidebars.scss */
+/* line 81, ../../sass/layouts/responsive-sidebars.scss */
 #main #content,
 #footer section.content {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.08)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 1200 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(200, 0, 0, 0.075)), color-stop(5.83333%, rgba(200, 0, 0, 0.075)), color-stop(5.83333%, rgba(0, 0, 0, 0)), color-stop(8.33333%, rgba(0, 0, 0, 0)), color-stop(8.33333%, rgba(200, 0, 0, 0.075)), color-stop(14.16667%, rgba(200, 0, 0, 0.075)), color-stop(14.16667%, rgba(0, 0, 0, 0)), color-stop(16.66667%, rgba(0, 0, 0, 0)), color-stop(16.66667%, rgba(200, 0, 0, 0.075)), color-stop(22.5%, rgba(200, 0, 0, 0.075)), color-stop(22.5%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(200, 0, 0, 0.075)), color-stop(30.83333%, rgba(200, 0, 0, 0.075)), color-stop(30.83333%, rgba(0, 0, 0, 0)), color-stop(33.33333%, rgba(0, 0, 0, 0)), color-stop(33.33333%, rgba(200, 0, 0, 0.075)), color-stop(39.16667%, rgba(200, 0, 0, 0.075)), color-stop(39.16667%, rgba(0, 0, 0, 0)), color-stop(41.66667%, rgba(0, 0, 0, 0)), color-stop(41.66667%, rgba(200, 0, 0, 0.075)), color-stop(47.5%, rgba(200, 0, 0, 0.075)), color-stop(47.5%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(200, 0, 0, 0.075)), color-stop(55.83333%, rgba(200, 0, 0, 0.075)), color-stop(55.83333%, rgba(0, 0, 0, 0)), color-stop(58.33333%, rgba(0, 0, 0, 0)), color-stop(58.33333%, rgba(200, 0, 0, 0.075)), color-stop(64.16667%, rgba(200, 0, 0, 0.075)), color-stop(64.16667%, rgba(0, 0, 0, 0)), color-stop(66.66667%, rgba(0, 0, 0, 0)), color-stop(66.66667%, rgba(200, 0, 0, 0.075)), color-stop(72.5%, rgba(200, 0, 0, 0.075)), color-stop(72.5%, rgba(0, 0, 0, 0)), color-stop(75%, rgba(0, 0, 0, 0)), color-stop(75%, rgba(200, 0, 0, 0.075)), color-stop(80.83333%, rgba(200, 0, 0, 0.075)), color-stop(80.83333%, rgba(0, 0, 0, 0)), color-stop(83.33333%, rgba(0, 0, 0, 0)), color-stop(83.33333%, rgba(200, 0, 0, 0.075)), color-stop(89.16667%, rgba(200, 0, 0, 0.075)), color-stop(89.16667%, rgba(0, 0, 0, 0)), color-stop(91.66667%, rgba(0, 0, 0, 0)), color-stop(91.66667%, rgba(200, 0, 0, 0.075)), color-stop(97.5%, rgba(200, 0, 0, 0.075)), color-stop(97.5%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -155,12 +155,12 @@ h1#site-name a:visited {
  * Navigation bar
  */
 @media all and (min-width: 480px) {
-  /* line 93, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 91, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     position: relative;
   }
 
-  /* line 97, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 95, ../../sass/layouts/responsive-sidebars.scss */
   #navigation {
     position: absolute;
     top: 0;
@@ -176,7 +176,7 @@ h1#site-name a:visited {
   /*
    * The layout when there is only one sidebar, the right one.
    */
-  /* line 116, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 114, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second #content {
     /* Span 2 columns, starting in 1st column from left. */
     float: left;
@@ -184,7 +184,7 @@ h1#site-name a:visited {
     margin-left: 0%;
     margin-right: -66.66667%;
   }
-  /* line 120, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 118, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second .region-sidebar-second {
     /* Span 1 column, starting in 3rd column from left. */
     float: left;
@@ -194,12 +194,12 @@ h1#site-name a:visited {
   }
 }
 @media all and (min-width: 960px) {
-  /* line 139, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 137, ../../sass/layouts/responsive-sidebars.scss */
   #page header section#navigation {
     display: inline-block;
   }
 
-  /* line 148, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 146, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second #content article {
     /* Span 4 columns, starting in 1st column from left. */
     float: left;
@@ -207,7 +207,7 @@ h1#site-name a:visited {
     margin-left: -120px;
     margin-right: -600px;
   }
-  /* line 151, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 149, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second .region-sidebar-second {
     /* Span 1 column, starting in 5th column from left. */
     float: left;
@@ -216,25 +216,25 @@ h1#site-name a:visited {
     margin-right: -840px;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
-  #header-image-strip {
-    display: none;
-  }
-
-  /* line 160, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 155, ../../sass/layouts/responsive-sidebars.scss */
   .front #header-image-strip {
     position: absolute;
-    top: 53px;
+    top: 73px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     z-index: -1;
     font-size: 0;
   }
-  /* line 168, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
   .front #header-image-strip img {
     display: inline-block;
     margin: 0;
     padding: 0;
+  }
+
+  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
+  .not-front #header-image-strip {
+    display: none;
   }
 }

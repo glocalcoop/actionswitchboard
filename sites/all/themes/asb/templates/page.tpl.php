@@ -163,7 +163,6 @@
           <?php print $feed_icons; ?>
         </div>
       </header>
-
       <div id="content" class="column" role="main">
 
 
