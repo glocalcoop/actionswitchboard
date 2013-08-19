@@ -212,8 +212,11 @@ function asb_preprocess_region(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-/* -- Delete this line if you want to use this function
+
 function asb_preprocess_block(&$variables, $hook) {
+  if(strpos($variables['block']->delta, 'scheme_overview') !== false) {
+    $variables['classes_array'][] = 'scheme-collection-view';
+  }
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
@@ -223,15 +226,15 @@ function asb_preprocess_block(&$variables, $hook) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('block__no_wrapper'));
   //}
 }
-// */
-
 
 /**
- * Implements hook_preprocess_views_view
+ * Implements hook_preprocess_views_view_field
  */
 function asb_scheme_preprocess_views_view_field(&$vars) {
   //$vars['custom_variable'] = 'foo bar';
   // dsm($vars);
+
+  // Get scheme owner for individual scheme displays
   if($vars['view']->name == 'scheme_overview') {
     //$og = og_get_group('scheme', array(1,3));
     foreach($vars['view']->result as $scheme) {
