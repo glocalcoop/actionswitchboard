@@ -49,10 +49,13 @@ $zen-auto-include-item-base: false;
  * Center the page.
  */
 
-#page,
-.region-bottom {
-  /* For screen sizes larger than 1200px, prevent excessively long lines of text
-     by setting a max-width. */
+#header,
+#main>header .content-header,
+#main #content,
+#footer,
+//.region-bottom
+ {
+  /* For screen sizes larger than 1200px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
@@ -63,12 +66,12 @@ $zen-auto-include-item-base: false;
  */
 // See the note about $zen-auto-include-item-base above.
 
-#header,
-#content,
-#navigation,
+//#header,
+#main #content,
+//#navigation,
 .region-sidebar-first,
 .region-sidebar-second,
-#footer {
+#footer section.content{
   @include zen-grid-item-base();
 }
 
@@ -76,10 +79,10 @@ $zen-auto-include-item-base: false;
  * Containers for grid items and flow items.
  */
 
-#header,
-#main,
-#footer {
+#main #content,
+#footer section.content {
   @include zen-grid-container();
+  @include grid-background;
 }
 
 /*
@@ -88,7 +91,7 @@ $zen-auto-include-item-base: false;
 
 @media all and (min-width: 480px) {
   #main {
-    padding-top: 3em; /* Move all the children of #main down to make room. */
+    // padding-top: 3em; /* Move all the children of #main down to make room. */
     position: relative;
   }
   #navigation {
@@ -130,13 +133,19 @@ $zen-auto-include-item-base: false;
   //
   // The layout when there is only one sidebar, the right one.
   //
-
-  #page{
-    @include grid-background;
-  }
   
+  #page {
+    header {
+      section#navigation {
+        display: inline-block;
+        // width: auto;
+      }
+    }
+  }
+
+
   .sidebar-second {
-    #content { /* Span 4 columns, starting in 1st column from left. */
+    #content article { /* Span 4 columns, starting in 1st column from left. */
       @include zen-grid-item( 6, 0 );
     }
     .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
@@ -144,4 +153,23 @@ $zen-auto-include-item-base: false;
     }
   }
 
+  #header-image-strip {
+    display: none;
+  }
+  .front {
+    #header-image-strip {
+      position: absolute;
+      top: 53px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: -1;
+      font-size: 0;
+      img{ 
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
 }

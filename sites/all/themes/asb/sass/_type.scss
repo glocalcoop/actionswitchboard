@@ -42,7 +42,7 @@ $font-monospace:   $monoFontFamily;
 $header-line-height: 1.2;
 
 @include font-face('League', 'leaguegothic', '../fonts/league_gothic' );
-@include font-face('SourceSansPro', 'source_sans_proregular', '/sites/all/fonts/sourcesanspro-regular' );
+@include font-face('SourceSansPro', 'source_sans_proregular', '../fonts/sourcesanspro-regular' );
 @include font-face('SourceSansPro', 'source_sans_proitalic', '../fonts/sourcesanspro-italic', normal, italic);
 @include font-face('SourceSansPro', 'source_sans_probold', '../fonts/sourcesanspro-bold', bold );
 @include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);

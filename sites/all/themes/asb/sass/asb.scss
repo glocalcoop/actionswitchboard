@@ -4,11 +4,69 @@
 //@import "ui-icons/*.png";
 //@include all-ui-icons-sprites;
 body {
-} 
-
-header {
- background-color: $backdrop;
- #site-name {
-  @include replace-text-with-dimensions("logo.jpg", 0, 0);
- }
+  header#header {
+    position: relative;
+    z-index: 10;
+    height: 75px;
+    h1#site-name {
+      width: 428px; 
+      display: inline-block;
+      a{
+        display: block;
+        text-indent: -9000px;
+        overflow: hidden;
+        text-align: left;
+        background-repeat: no-repeat;
+      }
+    }
+    section#navigation{
+        background-color: $backdrop;
+    }
+  }
 }
+
+#page:before {
+  content: " ";
+  position: absolute;
+  // left: -13px;
+  width: 100%;
+  height: 75px;
+  z-index: 10;
+  background: url( ../images/header-fringe.png ) repeat-x bottom center;    
+}
+
+#main { 
+  position: relative;
+  top: -5px;
+}
+
+#main>header {
+  background-color: $panel;
+}
+
+// inside pages
+#name-and-slogan h1#site-name {
+  height: 75px;
+  a {
+    background-image: url('../images/logo.png?1376927784');
+  }
+}
+
+// homepage style
+.front{
+  #header {
+    height: 162px;
+  }
+  #name-and-slogan {
+    position: relative;
+    h1#site-name {
+      height: 201px;
+      a{
+        background-image: url('../images/logo-home.png?1376927784');
+        position: absolute;
+        z-index: 10;
+      }
+    }
+  }
+}
+

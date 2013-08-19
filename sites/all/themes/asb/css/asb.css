@@ -20,8 +20,8 @@ html {
 
 @font-face {
   font-family: "SourceSansPro";
-  src: url("/sites/all/fonts/sourcesanspro-regular.eot");
-  src: url("/sites/all/fonts/sourcesanspro-regular.eot?#iefix") format("embedded-opentype"), url("/sites/all/fonts/sourcesanspro-regular.woff") format("woff"), url("/sites/all/fonts/sourcesanspro-regular.ttf") format("truetype"), url("/sites/all/fonts/sourcesanspro-regular.svg#source_sans_proregular") format("svg");
+  src: url("../fonts/sourcesanspro-regular.eot");
+  src: url("../fonts/sourcesanspro-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-regular.woff") format("woff"), url("../fonts/sourcesanspro-regular.ttf") format("truetype"), url("../fonts/sourcesanspro-regular.svg#source_sans_proregular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-stretch: none;
@@ -80,18 +80,75 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 9, ../sass/asb.scss */
-header {
-  background-color: #141414;
+/* line 7, ../sass/asb.scss */
+body header#header {
+  position: relative;
+  z-index: 10;
+  height: 75px;
 }
 /* line 11, ../sass/asb.scss */
-header #site-name {
-  text-indent: -119988px;
+body header#header h1#site-name {
+  width: 428px;
+  display: inline-block;
+}
+/* line 14, ../sass/asb.scss */
+body header#header h1#site-name a {
+  display: block;
+  text-indent: -9000px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo.jpg?1376927784');
   background-repeat: no-repeat;
-  background-position: 0 0;
-  width: 428px;
-  height: 69px;
+}
+/* line 22, ../sass/asb.scss */
+body header#header section#navigation {
+  background-color: #2d2d2e;
+}
+
+/* line 28, ../sass/asb.scss */
+#page:before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  z-index: 10;
+  background: url(../images/header-fringe.png) repeat-x bottom center;
+}
+
+/* line 38, ../sass/asb.scss */
+#main {
+  position: relative;
+  top: -5px;
+}
+
+/* line 43, ../sass/asb.scss */
+#main > header {
+  background-color: #f3f2e0;
+}
+
+/* line 48, ../sass/asb.scss */
+#name-and-slogan h1#site-name {
+  height: 75px;
+}
+/* line 50, ../sass/asb.scss */
+#name-and-slogan h1#site-name a {
+  background-image: url("../images/logo.png?1376927784");
+}
+
+/* line 57, ../sass/asb.scss */
+.front #header {
+  height: 162px;
+}
+/* line 60, ../sass/asb.scss */
+.front #name-and-slogan {
+  position: relative;
+}
+/* line 62, ../sass/asb.scss */
+.front #name-and-slogan h1#site-name {
+  height: 201px;
+}
+/* line 64, ../sass/asb.scss */
+.front #name-and-slogan h1#site-name a {
+  background-image: url("../images/logo-home.png?1376927784");
+  position: absolute;
+  z-index: 10;
 }
