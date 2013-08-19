@@ -1,0 +1,90 @@
+<?php
+/**
+ * @file
+ * Code for the ASB Utility module.
+ */
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function asb_util_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function asb_util_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: gbz_listing_thumb.
+  $styles['asb_scheme_preview_thumb'] = array(
+    'name' => 'asb_scheme_preview',
+    'effects' => array(
+      3 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 270,
+          'height' => 260,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+  return $styles;
+}
+
+/**
+ * Implements hook_menu().
+ * displays as a tab our test pages at /kalatheme
+ */
+function asb_util_menu() {
+  $items = array();
+
+  $items['testpages/scheme'] = array(
+    'title' => 'Scheme',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'theme',
+    'page arguments' => array('scheme_layout_test_page'),
+    'access arguments' => array('administer nodes'),
+  );
+
+  $items['testpages/collection'] = array(
+    'title' => 'Home',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'theme',
+    'page arguments' => array('home_layout_test_page'),
+    'access arguments' => array('administer nodes'),
+  );
+
+  return $items;
+}
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function asb_util_theme() {
+  $items = array();
+
+  $items['scheme_layout_test_page'] = array(
+    'template' => 'scheme-layout-test-page',
+  );
+
+  $items['home_test_page'] = array(
+    'template' => 'home-layout-test-page',
+  );
+
+  return $items;
+}
