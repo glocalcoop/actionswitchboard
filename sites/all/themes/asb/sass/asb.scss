@@ -1,3 +1,14 @@
-@import "ui-icons/*.png";
-@include all-ui-icons-sprites;
+// Base:
+@import "base";
 
+//@import "ui-icons/*.png";
+//@include all-ui-icons-sprites;
+body {
+} 
+
+header {
+ background-color: $backdrop;
+ #site-name {
+  @include replace-text-with-dimensions("logo.jpg", 0, 0);
+ }
+}

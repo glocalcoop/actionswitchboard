@@ -9,6 +9,88 @@
    Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
          @see http://snook.ca/archives/html_and_css/no_css_reset/
    ========================================================================== */
+/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+* html {
+  font-size: 87.5%;
+}
+
+/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 14px;
+  line-height: 1.28571em;
+}
+
+@font-face {
+  font-family: "League";
+  src: url("../fonts/league_gothic.eot");
+  src: url("../fonts/league_gothic.eot?#iefix") format("embedded-opentype"), url("../fonts/league_gothic.woff") format("woff"), url("../fonts/league_gothic.ttf") format("truetype"), url("../fonts/league_gothic.svg#leaguegothic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: none;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("/sites/all/fonts/sourcesanspro-regular.eot");
+  src: url("/sites/all/fonts/sourcesanspro-regular.eot?#iefix") format("embedded-opentype"), url("/sites/all/fonts/sourcesanspro-regular.woff") format("woff"), url("/sites/all/fonts/sourcesanspro-regular.ttf") format("truetype"), url("/sites/all/fonts/sourcesanspro-regular.svg#source_sans_proregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: none;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../fonts/sourcesanspro-italic.eot");
+  src: url("../fonts/sourcesanspro-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-italic.woff") format("woff"), url("../fonts/sourcesanspro-italic.ttf") format("truetype"), url("../fonts/sourcesanspro-italic.svg#source_sans_proitalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: none;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../fonts/sourcesanspro-bold.eot");
+  src: url("../fonts/sourcesanspro-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-bold.woff") format("woff"), url("../fonts/sourcesanspro-bold.ttf") format("truetype"), url("../fonts/sourcesanspro-bold.svg#source_sans_probold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: none;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../fonts/sourcesanspro-bolditalic.eot");
+  src: url("../fonts/sourcesanspro-bolditalic.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-bolditalic.woff") format("woff"), url("../fonts/sourcesanspro-bolditalic.ttf") format("truetype"), url("../fonts/sourcesanspro-bolditalic.svg#source_sans_probold_italic") format("svg");
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: none;
+}
+
+/* line 56, ../sass/_type.scss */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+  color: #7c7f7e;
+  font-family: League, Helvetica, sans;
+  font-weight: normal;
+}
+
+/* line 64, ../sass/_type.scss */
+h2#site-name,
+h1#site-name {
+  font-size: 4.5em;
+  color: white;
+}
+/* line 67, ../sass/_type.scss */
+h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
+h1#site-name a,
+h1#site-name a:link,
+h1#site-name a:visited {
+  color: inherit;
+}
+
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -104,14 +186,14 @@ audio:not([controls]) {
  */
 /* line 119, ../sass/normalize.scss */
 html {
-  font-size: 100%;
+  font-size: 87.5%;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
   -ms-text-size-adjust: 100%;
   /* 2 */
   /* Establishes a vertical rhythm unit using $base-line-height. */
-  line-height: 1.5em;
+  line-height: 1.28571em;
 }
 
 /*
@@ -123,7 +205,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  font-family: SourceSansPro, Tahoma, sans-serif;
 }
 
 /*
@@ -175,51 +257,51 @@ a:active {
 /* line 204, ../sass/normalize.scss */
 h1 {
   /* Sets the font-size and line-height while keeping a proper vertical rhythm. */
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: 2.7857em;
+  line-height: 1.38462em;
   /* Sets 1 unit of vertical rhythm on the top and bottom margins. */
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
+  margin-top: 0.46154em;
+  margin-bottom: 0.46154em;
 }
 
 /* line 213, ../sass/normalize.scss */
 h2 {
-  font-size: 1.5em;
-  line-height: 2em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  font-size: 2.7857em;
+  line-height: 1.38462em;
+  margin-top: 0.46154em;
+  margin-bottom: 0.46154em;
 }
 
 /* line 219, ../sass/normalize.scss */
 h3 {
   font-size: 1.17em;
-  line-height: 1.28205em;
-  margin-top: 1.28205em;
-  margin-bottom: 1.28205em;
+  line-height: 2.1978em;
+  margin-top: 1.0989em;
+  margin-bottom: 1.0989em;
 }
 
 /* line 225, ../sass/normalize.scss */
 h4 {
   font-size: 1em;
-  line-height: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  line-height: 1.28571em;
+  margin-top: 1.28571em;
+  margin-bottom: 1.28571em;
 }
 
 /* line 231, ../sass/normalize.scss */
 h5 {
   font-size: 0.83em;
-  line-height: 1.80723em;
-  margin-top: 1.80723em;
-  margin-bottom: 1.80723em;
+  line-height: 1.54905em;
+  margin-top: 1.54905em;
+  margin-bottom: 1.54905em;
 }
 
 /* line 237, ../sass/normalize.scss */
 h6 {
   font-size: 0.75em;
-  line-height: 2em;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  line-height: 1.71429em;
+  margin-top: 1.71429em;
+  margin-bottom: 1.71429em;
 }
 
 /* Thematic break */
@@ -228,7 +310,7 @@ hr {
   height: 1px;
   border: 1px solid #666;
   padding-bottom: -1px;
-  margin: 1.5em 0;
+  margin: 1.28571em 0;
 }
 
 /*
@@ -253,7 +335,7 @@ strong {
 /* line 270, ../sass/normalize.scss */
 blockquote {
   /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
-  margin: 1.5em 30px;
+  margin: 1.28571em 30px;
 }
 
 /*
@@ -280,7 +362,7 @@ mark {
 p,
 pre {
   /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
-  margin: 1.5em 0;
+  margin: 1.28571em 0;
 }
 
 /*
@@ -294,10 +376,10 @@ kbd,
 samp,
 tt,
 var {
-  font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   /* The $font-monospace value ends with ", serif". */
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.28571em;
 }
 
 /*
@@ -370,7 +452,7 @@ ol,
 ul,
 .item-list ul {
   /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
-  margin: 1.5em 0;
+  margin: 1.28571em 0;
 }
 
 /* line 393, ../sass/normalize.scss */
@@ -474,17 +556,17 @@ fieldset {
   margin: 0 2px;
   /* Apply borders and padding that keep the vertical rhythm. */
   border-top-style: solid;
-  border-top-width: 0.0625em;
-  padding-top: 0.4625em;
+  border-top-width: 0.07143em;
+  padding-top: 0.37857em;
   border-bottom-style: solid;
-  border-bottom-width: 0.0625em;
-  padding-bottom: 0.9125em;
+  border-bottom-width: 0.07143em;
+  padding-bottom: 0.76429em;
   border-left-style: solid;
-  border-left-width: 0.0625em;
-  padding-left: 0.9125em;
+  border-left-width: 0.07143em;
+  padding-left: 0.76429em;
   border-right-style: solid;
-  border-right-width: 0.0625em;
-  padding-right: 0.9125em;
+  border-right-width: 0.07143em;
+  padding-right: 0.76429em;
 }
 
 /*
@@ -631,8 +713,8 @@ table {
   /* width: 100%; */
   /* Prevent cramped-looking tables */
   /* Add vertical rhythm margins. */
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 1.28571em;
+  margin-bottom: 1.28571em;
 }
 
 /*
