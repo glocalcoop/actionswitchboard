@@ -199,7 +199,7 @@ h1#site-name a:visited {
     display: inline-block;
   }
 
-  /* line 148, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 147, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second #content article {
     /* Span 4 columns, starting in 1st column from left. */
     float: left;
@@ -207,7 +207,7 @@ h1#site-name a:visited {
     margin-left: -120px;
     margin-right: -600px;
   }
-  /* line 151, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 150, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-second .region-sidebar-second {
     /* Span 1 column, starting in 5th column from left. */
     float: left;
@@ -216,7 +216,7 @@ h1#site-name a:visited {
     margin-right: -840px;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 155, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
     position: absolute;
     top: 73px;
@@ -226,14 +226,14 @@ h1#site-name a:visited {
     z-index: -1;
     font-size: 0;
   }
-  /* line 164, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip img {
     display: inline-block;
     margin: 0;
     padding: 0;
   }
 
-  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
   .not-front #header-image-strip {
     display: none;
   }
