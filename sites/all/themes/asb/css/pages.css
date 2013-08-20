@@ -132,24 +132,9 @@ body {
   vertical-align: bottom;
 }
 
-/* line 61, ../sass/pages.scss */
-#name-and-slogan {
-  /* Wrapper for website name and slogan */
-  float: left;
-}
-
 /* line 65, ../sass/pages.scss */
 #site-name {
   /* The name of the website */
-  margin: 0;
-  font-size: 2em;
-  line-height: 1.5em;
-}
-/* line 71, ../sass/pages.scss */
-#site-name a:link,
-#site-name a:visited {
-  color: #000;
-  text-decoration: none;
 }
 /* line 77, ../sass/pages.scss */
 #site-name a:hover,

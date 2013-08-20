@@ -13,8 +13,8 @@ body {
     z-index: 10;
     height: 75px;
     h1#site-name {
-      width: 428px; 
-      display: inline-block;
+      // width: 428px;
+      margin: 0 auto;
       a{
         display: block;
         text-indent: -9000px;
@@ -64,8 +64,7 @@ body {
   #name-and-slogan {
     h1#site-name {
       width: 428px;
-      display: inline-block;
-      a{
+        a{
         background-image: url('../images/logo-home.png?1376927784');
         height: 201px;
         z-index: 10;
