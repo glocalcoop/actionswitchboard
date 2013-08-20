@@ -121,7 +121,7 @@ body header#header section#navigation {
 }
 
 /* line 43, ../sass/asb.scss */
-#main > header {
+.not-front #main > header .content-header {
   background-color: #f3f2e0;
 }
 
@@ -136,19 +136,16 @@ body header#header section#navigation {
 
 /* line 57, ../sass/asb.scss */
 .front #header {
-  height: 162px;
-}
-/* line 60, ../sass/asb.scss */
-.front #name-and-slogan {
-  position: relative;
-}
-/* line 62, ../sass/asb.scss */
-.front #name-and-slogan h1#site-name {
   height: 201px;
+}
+/* line 61, ../sass/asb.scss */
+.front #name-and-slogan h1#site-name {
+  width: 428px;
+  display: inline-block;
 }
 /* line 64, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
-  position: absolute;
+  height: 201px;
   z-index: 10;
 }

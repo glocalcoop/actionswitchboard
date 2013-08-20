@@ -115,14 +115,15 @@ h1#site-name a:visited {
 #footer {
   padding-left: 10px;
   padding-right: 10px;
-  border: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
   word-wrap: break-word;
 }
 
 /*
  * Containers for grid items and flow items.
  */
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 46, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:before, #header:after,
 #main:before,
 #main:after,
@@ -131,7 +132,7 @@ h1#site-name a:visited {
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 50, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:after,
 #main:after,
 #footer:after {

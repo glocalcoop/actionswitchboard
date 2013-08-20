@@ -138,14 +138,14 @@ h1#site-name a:visited {
   background-size: 100% 18px, auto;
   background-position: left top;
 }
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 46, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #main #content:before, #main #content:after,
 #footer section.content:before,
 #footer section.content:after {
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 50, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #main #content:after,
 #footer section.content:after {
   clear: both;
@@ -218,23 +218,23 @@ h1#site-name a:visited {
 
   /* line 156, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
-    display: none;
-  }
-
-  /* line 160, ../../sass/layouts/responsive-sidebars.scss */
-  .front #header-image-strip {
     position: absolute;
-    top: 53px;
+    top: 73px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     z-index: -1;
     font-size: 0;
   }
-  /* line 168, ../../sass/layouts/responsive-sidebars.scss */
-  .front #header-image-strip img {
+  /* line 164, ../../sass/layouts/responsive-sidebars.scss */
+  #header-image-strip img {
     display: inline-block;
     margin: 0;
     padding: 0;
+  }
+
+  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
+  .not-front #header-image-strip {
+    display: none;
   }
 }
