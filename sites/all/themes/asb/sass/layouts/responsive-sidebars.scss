@@ -52,7 +52,9 @@ $zen-auto-include-item-base: false;
 #header,
 #main>header .content-header,
 #main #content,
-#footer {
+#footer,
+//.region-bottom
+ {
   /* For screen sizes larger than 1200px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
@@ -151,10 +153,13 @@ $zen-auto-include-item-base: false;
     }
   }
 
+  #header-image-strip {
+    display: none;
+  }
   .front {
     #header-image-strip {
       position: absolute;
-      top: 73px;
+      top: 53px;
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
@@ -167,6 +172,4 @@ $zen-auto-include-item-base: false;
       }
     }
   }
-
-  .not-front #header-image-strip { display: none }
 }

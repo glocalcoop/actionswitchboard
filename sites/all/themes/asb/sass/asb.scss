@@ -40,7 +40,7 @@ body {
   top: -5px;
 }
 
-.not-front #main>header .content-header {
+#main>header {
   background-color: $panel;
 }
 
@@ -54,21 +54,19 @@ body {
 
 // homepage style
 .front{
-  header#header {
-    height: 201px;
+  #header {
+    height: 162px;
   }
   #name-and-slogan {
+    position: relative;
     h1#site-name {
-      width: 428px; 
-      display: inline-block;
+      height: 201px;
       a{
         background-image: url('../images/logo-home.png?1376927784');
-        height: 201px;
-        // position: absolute;
+        position: absolute;
         z-index: 10;
       }
     }
   }
 }
-
 
