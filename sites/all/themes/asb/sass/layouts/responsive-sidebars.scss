@@ -48,7 +48,7 @@ $zen-auto-include-item-base: false;
 
 // Center the page.
 header#header,
-header div.content-header,
+header section.content,
 #content-wrapper,
 #footer section.content {
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
@@ -64,9 +64,10 @@ header div.content-header,
 // }
 
 // Containers for grid items and flow items.
-header div.content-header,
+header section.content,
 #content-wrapper,
-#footer section.content {
+#footer section.content,
+.scheme-collection-view {
   @include zen-grid-container();
   @include grid-background;
 }
@@ -135,11 +136,22 @@ header div.content-header,
 
   #content {
     @include zen-grid-item( 6, 0 );
-    margin: 0;
+    margin-left: 0;
   }
 
-  aside#sidebars {
+  aside#sidebar {
     @include zen-grid-item( 2, 6 );
+  }
+
+  .front .scheme-collection-view {
+    @include zen-grid-item( 8, 0 );
+    margin-left: 0;
+  }
+
+  .scheme-collection-view .views-row {
+    @include zen-float();
+    @include zen-grid-flow-item( 2, 8 );
+    background: rgba( 255, 255,255, .4 )
   }
 
   #header-image-strip {

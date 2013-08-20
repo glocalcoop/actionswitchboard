@@ -55,6 +55,7 @@ body {
   height: 75px;
   a {
     background-image: url('../images/logo.png?1376927784');
+    background-position: top center;
   }
 }
 
@@ -68,6 +69,7 @@ body {
       width: 428px;
         a{
         background-image: url('../images/logo-home.png?1376927784');
+        background-position: top center;
         height: 201px;
         z-index: 10;
       }
