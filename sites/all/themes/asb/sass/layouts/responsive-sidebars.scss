@@ -49,16 +49,14 @@ $zen-auto-include-item-base: false;
  * Center the page.
  */
 
-#header,
+header#header,
 #main>header .content-header,
 #main #content,
-#footer
-//.region-bottom
- {
-  /* For screen sizes larger than 1200px, prevent excessively long lines of text by setting a max-width. */
+#footer {
+  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+  max-width: 960px;
 }
 
 /*
@@ -66,7 +64,7 @@ $zen-auto-include-item-base: false;
  */
 // See the note about $zen-auto-include-item-base above.
 
-//#header,
+// #header,
 #main #content,
 //#navigation,
 .region-sidebar-first,
@@ -79,6 +77,7 @@ $zen-auto-include-item-base: false;
  * Containers for grid items and flow items.
  */
 
+// header#header,
 #main #content,
 #footer section.content {
   @include zen-grid-container();
@@ -136,8 +135,13 @@ $zen-auto-include-item-base: false;
   
   #page {
     header {
+      #name-and-slogan{
+        border: 1px #f00 solid;
+        @include zen-grid-item( 4, 1 );        
+      }
       section#navigation {
-        display: inline-block;
+        border: 1px #f00 solid;
+        @include zen-grid-item( 4, 5 );
         // width: auto;
       }
     }

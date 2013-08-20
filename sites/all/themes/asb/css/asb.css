@@ -88,8 +88,7 @@ body header#header {
 }
 /* line 11, ../sass/asb.scss */
 body header#header h1#site-name {
-  width: 428px;
-  display: inline-block;
+  margin: 0 auto;
 }
 /* line 14, ../sass/asb.scss */
 body header#header h1#site-name a {
@@ -141,9 +140,8 @@ body header#header section#navigation {
 /* line 61, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
-  display: inline-block;
 }
-/* line 64, ../sass/asb.scss */
+/* line 63, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   height: 201px;
