@@ -40,7 +40,7 @@ body {
   top: -5px;
 }
 
-#main>header {
+.not-front #main>header .content-header {
   background-color: $panel;
 }
 
@@ -55,15 +55,15 @@ body {
 // homepage style
 .front{
   #header {
-    height: 162px;
+    height: 201px;
   }
   #name-and-slogan {
-    position: relative;
     h1#site-name {
-      height: 201px;
+      width: 428px;
+      display: inline-block;
       a{
         background-image: url('../images/logo-home.png?1376927784');
-        position: absolute;
+        height: 201px;
         z-index: 10;
       }
     }
