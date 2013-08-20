@@ -145,7 +145,7 @@
   <section id="main">
 
       <header>
-        <div class="content-header">
+        <section class="content">
           <?php print render($page['highlighted']); ?>
           <?php //print $breadcrumb; ?>
           <a id="main-content"></a>
@@ -161,7 +161,7 @@
           <ul class="action-links"><?php print render($action_links); ?></ul>
           <?php endif; ?>
           <?php print $feed_icons; ?>
-        </div>
+        </section>
       </header>
 
       <div id="content-wrapper" role="main">
@@ -187,23 +187,6 @@
   </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>
-
-<!-- @context front -->
-  <div id="header-image-strip">
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-  </div>
-</div><!-- /#page -->
 
 
 
