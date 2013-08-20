@@ -14,9 +14,9 @@
 
 
 $grid-background-column-color: rgba( 200, 0, 0, 0.075);
-$grid-background-total-columns: 12;
-$grid-background-column-width: 70px;
-$grid-background-gutter-width: 30px;
+$grid-background-total-columns: 8;
+$grid-background-column-width: 100px;
+$grid-background-gutter-width: 20px;
 $grid-background-baseline-height: 18px;
 $grid-background-baseline-color: rgba(0, 0, 0, 0.08);
 
@@ -45,40 +45,27 @@ $zen-auto-include-item-base: false;
 // $zen-auto-include-flow-item-base: false;
 
 
-/*
- * Center the page.
- */
 
+// Center the page.
 header#header,
-#main>header .content-header,
-#main #content,
-#footer {
+header div.content-header,
+#content-wrapper,
+#footer section.content {
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
 }
 
-/*
- * Apply the shared properties of grid items in a single, efficient ruleset.
- */
-// See the note about $zen-auto-include-item-base above.
+// Apply the shared properties of grid items in a single, efficient ruleset.
+// #content,
+// #footer section.content{
+//   @include zen-grid-item-base();
+// }
 
-// #header,
-#main #content,
-//#navigation,
-.region-sidebar-first,
-.region-sidebar-second,
-#footer section.content{
-  @include zen-grid-item-base();
-}
-
-/*
- * Containers for grid items and flow items.
- */
-
-// header#header,
-#main #content,
+// Containers for grid items and flow items.
+header div.content-header,
+#content-wrapper,
 #footer section.content {
   @include zen-grid-container();
   @include grid-background;
@@ -134,26 +121,25 @@ header#header,
   //
   
   #page {
-    header {
+    #header {
       #name-and-slogan{
-        border: 1px #f00 solid;
-        @include zen-grid-item( 4, 1 );        
+        display: inline-block;
+        width: 428px
       }
       section#navigation {
-        border: 1px #f00 solid;
-        @include zen-grid-item( 4, 5 );
-        // width: auto;
+        display: inline-block;
+        width: auto;
       }
     }
   }
 
-  .sidebar-second {
-    #content article { /* Span 4 columns, starting in 1st column from left. */
-      @include zen-grid-item( 6, 0 );
-    }
-    .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
-      @include zen-grid-item( 2, 6 );
-    }
+  #content {
+    @include zen-grid-item( 6, 0 );
+    margin: 0;
+  }
+
+  aside#sidebars {
+    @include zen-grid-item( 2, 6 );
   }
 
   #header-image-strip {

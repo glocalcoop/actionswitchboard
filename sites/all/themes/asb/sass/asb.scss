@@ -13,7 +13,8 @@ body {
     z-index: 10;
     height: 75px;
     h1#site-name {
-      // width: 428px;
+      width: 428px;
+      display: inline-block;
       margin: 0 auto;
       a{
         display: block;
@@ -41,11 +42,12 @@ body {
 
 #main { 
   position: relative;
-  top: -5px;
+  top: -0.25em;
 }
 
-.not-front #main>header .content-header {
+.not-front #main>header {
   background-color: $panel;
+  padding-top: 1em;
 }
 
 // inside pages
@@ -58,7 +60,7 @@ body {
 
 // homepage style
 .front{
-  #header {
+  header#header {
     height: 201px;
   }
   #name-and-slogan {
@@ -73,3 +75,8 @@ body {
   }
 }
 
+footer#footer {
+  background: $backdrop; 
+  .content {
+  }
+}
