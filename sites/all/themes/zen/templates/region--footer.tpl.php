@@ -9,6 +9,8 @@
 ?>
 <?php if ($content): ?>
   <footer id="footer" class="<?php print $classes; ?>">
-    <?php print $content; ?>
+    <section class="content">
+      <?php print $content; ?>
+    </section>
   </footer>
 <?php endif; ?>
