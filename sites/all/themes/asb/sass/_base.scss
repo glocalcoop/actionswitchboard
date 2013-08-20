@@ -56,6 +56,7 @@ $indent-amount: 30px;
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
 @import "custom";           // Import our custom mixins last.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
+@import "zen/background";
 @import "compass/typography/text/replacement";
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
 @import "type"; // Helps set up a vertical rhythm.

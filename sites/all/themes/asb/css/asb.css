@@ -162,3 +162,8 @@ body header#header section#navigation {
 footer#footer {
   background: #2d2d2e;
 }
+
+/* line 86, ../sass/asb.scss */
+.not-front #header-image-strip {
+  display: none;
+}
