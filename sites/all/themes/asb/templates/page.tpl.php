@@ -167,24 +167,22 @@
       <div id="content-wrapper" role="main">
 
         <div id="content">
-        <?php print render($page['content']); ?>
-        </div>
-
-        <?php
+          <?php print render($page['content']); ?>
+        </div><!-- /#content -->
+  
+       <?php
           // Render the sidebars to see if there's anything in them.
           $sidebar_first  = render($page['sidebar_first']);
           $sidebar_second = render($page['sidebar_second']);
         ?>
-
         <?php if ($sidebar_first || $sidebar_second): ?>
-        <aside class="sidebars">
+        <aside id="sidebar">
           <?php print $sidebar_first; ?>
           <?php print $sidebar_second; ?>
         </aside><!-- /.sidebars -->
         <?php endif; ?>
 
-      </div><!-- /#content -->
-    </div><!-- /#content-wrapper -->
+      </div><!-- /#content-wrapper -->
 
   </section><!-- /#main -->
 
