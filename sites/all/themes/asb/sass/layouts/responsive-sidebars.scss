@@ -147,7 +147,6 @@ header#header,
     }
   }
 
-
   .sidebar-second {
     #content article { /* Span 4 columns, starting in 1st column from left. */
       @include zen-grid-item( 6, 0 );

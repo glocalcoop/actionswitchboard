@@ -1,6 +1,10 @@
 // Base:
 @import "base";
 
+.admin-menu-icon.expandable { 
+  img { width: 16px; }
+}
+
 //@import "ui-icons/*.png";
 //@include all-ui-icons-sprites;
 body {
