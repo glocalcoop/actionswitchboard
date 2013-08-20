@@ -80,17 +80,24 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 7, ../sass/asb.scss */
+/* line 5, ../sass/asb.scss */
+.admin-menu-icon.expandable img {
+  width: 16px;
+}
+
+/* line 11, ../sass/asb.scss */
 body header#header {
   position: relative;
   z-index: 10;
   height: 75px;
 }
-/* line 11, ../sass/asb.scss */
+/* line 15, ../sass/asb.scss */
 body header#header h1#site-name {
+  width: 428px;
+  display: inline-block;
   margin: 0 auto;
 }
-/* line 14, ../sass/asb.scss */
+/* line 19, ../sass/asb.scss */
 body header#header h1#site-name a {
   display: block;
   text-indent: -9000px;
@@ -98,12 +105,12 @@ body header#header h1#site-name a {
   text-align: left;
   background-repeat: no-repeat;
 }
-/* line 22, ../sass/asb.scss */
+/* line 27, ../sass/asb.scss */
 body header#header section#navigation {
   background-color: #2d2d2e;
 }
 
-/* line 28, ../sass/asb.scss */
+/* line 33, ../sass/asb.scss */
 #page:before {
   content: " ";
   position: absolute;
@@ -113,37 +120,45 @@ body header#header section#navigation {
   background: url(../images/header-fringe.png) repeat-x bottom center;
 }
 
-/* line 38, ../sass/asb.scss */
+/* line 43, ../sass/asb.scss */
 #main {
   position: relative;
-  top: -5px;
-}
-
-/* line 43, ../sass/asb.scss */
-.not-front #main > header .content-header {
-  background-color: #f3f2e0;
+  top: -0.25em;
 }
 
 /* line 48, ../sass/asb.scss */
+.not-front #main > header {
+  background-color: #f3f2e0;
+  padding-top: 1em;
+}
+
+/* line 54, ../sass/asb.scss */
 #name-and-slogan h1#site-name {
   height: 75px;
 }
-/* line 50, ../sass/asb.scss */
+/* line 56, ../sass/asb.scss */
 #name-and-slogan h1#site-name a {
   background-image: url("../images/logo.png?1376927784");
+  background-position: top center;
 }
 
-/* line 57, ../sass/asb.scss */
-.front #header {
+/* line 64, ../sass/asb.scss */
+.front header#header {
   height: 201px;
 }
-/* line 61, ../sass/asb.scss */
+/* line 68, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 63, ../sass/asb.scss */
+/* line 70, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
+  background-position: top center;
   height: 201px;
   z-index: 10;
+}
+
+/* line 80, ../sass/asb.scss */
+footer#footer {
+  background: #2d2d2e;
 }
