@@ -5,16 +5,6 @@
  */
 
 /**
- * Implements hook_ctools_plugin_api().
- */
-function asb_util_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "strongarm" && $api == "strongarm") {
-    return array("version" => "1");
-  }
-}
-
-/**
  * Implements hook_image_default_styles().
  */
 function asb_util_image_default_styles() {
@@ -90,6 +80,7 @@ function asb_util_menu() {
   );
 
   return $items;
+
 }
 
 
@@ -101,11 +92,11 @@ function asb_util_theme() {
   $items = array();
 
   $items['scheme_layout_test_page'] = array(
-    'template' => 'scheme-layout-test-page',
+    'template' => 'scheme-layout',
   );
 
   $items['home_test_page'] = array(
-    'template' => 'home-layout-test-page',
+    'template' => 'home-layout',
   );
 
   return $items;
