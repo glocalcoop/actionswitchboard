@@ -67,7 +67,9 @@
       padding: 0 10px;
 
       .field-image img {
-        width: 214px;
+        // width: 214px;
+        width: 100%;
+        max-width: 220px;
         height: auto;
       }
         &.views-row-first {
