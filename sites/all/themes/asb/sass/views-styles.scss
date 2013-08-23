@@ -112,11 +112,11 @@ $needs-layout:horizontal;
           li {
             @include zen-float;
             @include zen-grid-flow-item( 2, 8 );
-            margin-left: 23px;
+            // margin-left: 23px;
             font-weight: bold;
             &.needed-skills {
               @extend .needs-skills;
-              // @include needs-sprite (skills);
+              @include sprite-background-position($needs-sprites, skills, -2, 0);
             };
             &.needed-supplies {
               @extend .needs-supplies;
