@@ -45,7 +45,7 @@
 }
 
 .front .scheme-collection-view {
-  border: 1px solid red; //debugging
+  // border: 1px solid red; //debugging
   color: $text-color;
   
   &.even {
@@ -63,7 +63,7 @@
   .view-content{
 
     .views-row {
-      // border-right: 2px solid $rules-color; // debugging
+      border-right: 2px solid $rules-color; 
       padding: 0 10px;
 
       .field-image img {

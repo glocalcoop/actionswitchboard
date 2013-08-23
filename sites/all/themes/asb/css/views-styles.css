@@ -138,7 +138,6 @@ h1#site-name a:visited {
 
 /* line 47, ../sass/views-styles.scss */
 .front .scheme-collection-view {
-  border: 1px solid red;
   color: #7c7f7e;
 }
 /* line 51, ../sass/views-styles.scss */
@@ -156,6 +155,7 @@ h1#site-name a:visited {
 }
 /* line 65, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row {
+  border-right: 2px solid #e8e8e8;
   padding: 0 10px;
 }
 /* line 69, ../sass/views-styles.scss */
