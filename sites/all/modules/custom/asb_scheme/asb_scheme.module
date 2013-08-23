@@ -5,7 +5,13 @@
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   // Check if the form has steps and add progress markup.
+  // dsm($form_id);
+  if($form_id == 'scheme_node_form') {
+    $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
+  }
+  // dsm($form_state);
   if(!empty($form['#steps']) && arg(2) != 'edit') {
+    // Add scheme title to the steps display
     // TODO: May want to add settings to include images
     // to the progress markup.
     $output = '<div id="step-wapper" style="display:block;height:16px;">';
@@ -28,5 +34,25 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     '#markup' => $output,
     '#weight' => 150,
   );
+    // Add scheme title to each step
+  if(!empty($form_state['values']['title'])) {
+    $title_out = '<h2 class="scheme-title">' .$form_state['values']['title'] .'</h2>';
+    $form['temptitle'] = array(
+      '#markup' => $title_out,
+      '#weight' => -10,
+    );
   }
+  }
+}
+
+/**
+ * Implements hook_form_submit
+ */
+
+function asb_scheme_redirect_success($form, &$form_state) {
+  // Redirect to custom page solution
+  $form_state['redirect'] = 'scheme-created/' .$form_state['nid'];
+  // Use the drupal_set_message solution.
+
+  // dsm($form_state);
 }
