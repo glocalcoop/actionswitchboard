@@ -9,13 +9,13 @@
  */
 /* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
-  font-size: 87.5%;
+  font-size: 75%;
 }
 
 /* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
-  font-size: 14px;
-  line-height: 1.28571em;
+  font-size: 12px;
+  line-height: 1.5em;
 }
 
 @font-face {

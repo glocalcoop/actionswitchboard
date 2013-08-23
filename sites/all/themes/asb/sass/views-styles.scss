@@ -44,17 +44,23 @@
   }
 }
 
+$needs-layout:horizontal; 
+@import "needs/*.png"; 
+@include all-needs-sprites;
+
 .front .scheme-collection-view {
   // border: 1px solid red; //debugging
   color: $text-color;
-  
+
+  a {
+    color: $accent-secondary
+  }
   &.even {
     background: $even-backdrop;
   }
   &.odd {
     background: $odd-backdrop;
   }
-
   h2.block-title {
     padding-right: 10px;
     padding-left: 10px;
@@ -67,7 +73,6 @@
       padding: 0 10px;
 
       .field-image img {
-        // width: 214px;
         width: 100%;
         max-width: 220px;
         height: auto;
@@ -85,16 +90,18 @@
       }
       h3.scheme-name {
         font-family: $font-body;
+        font-weight: bold;
         text-transform: none;
         line-height: $base-line-height;
-        a {
-          color: $accent;
-        }
+        margin: 13px 0 0 0;
       }
       .scheme-leader {
         &:before {
           content: "by ";
         }
+      }
+      .field-body p {
+        margin: 10px 0 12px 0;
       }
       .scheme-info {
         ul.scheme-needs {
@@ -105,8 +112,35 @@
           li {
             @include zen-float;
             @include zen-grid-flow-item( 2, 8 );
+            margin-left: 23px;
+            font-weight: bold;
+            &.needed-skills {
+              @extend .needs-skills;
+              // @include needs-sprite (skills);
+            };
+            &.needed-supplies {
+              @extend .needs-supplies;
+              // @include needs-sprite (supplies);
+            };
+            &.needed-funds {
+              @extend .needs-funds;
+              // @include needs-sprite (funds);
+            };
           }
-
+        }
+        h4 {
+          font-family: $font-body;
+          text-transform: uppercase;
+          color: $text-color-secondary;
+          font-size: $h5-font-size;
+          padding-bottom: 7.5px;
+          border: {
+            bottom: {
+              @include standard-border($rules-color);
+            }
+          }
+          margin-bottom: 4px;
+          
         }
       }
     }

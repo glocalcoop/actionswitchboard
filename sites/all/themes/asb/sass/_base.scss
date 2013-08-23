@@ -30,6 +30,7 @@ $legacy-support-for-ie8: true;
 // Colors, etc.
 //
 $accent: #EF3F26; //orange
+$accent-secondary: #F15D38; //links etc.
 $panel: #F3F2E0; //beige background
 $brand: #912A1B;//wine
 $backdrop: #2D2D2E; //#141414;	//dark grey background
@@ -39,6 +40,7 @@ $rules-color: #e8e8e8; // gray horizontal and vertical rules
 $text-color: #7C7F7E; // body copy
 // $text-color-prominent: #303332; // dark grey headers
 $text-color-prominent: #414042;
+$text-color-secondary: #808080;
 $button: #826853; // brown
 $membership-backdrop: #E8EAEA; // only used in "scheme leader and membership panel"
 //same as wine, but both things are unique enough to have separate vars
@@ -51,12 +53,25 @@ $site-title-color: white;
 $indent-amount: 30px;
 
 //
+// Mixins
+//
+
+@mixin standard-border($color, $width: 1px) {
+    color: $color;
+    width: $width;
+    style: solid;
+}
+
+
+
+//
 // Partials to be shared with all .scss files.
 //
 
 @import "compass/support";  // Add Compass' IE and vendor prefix support variables.
 @import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
 @import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/utilities/sprites/base";
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
 @import "custom";           // Import our custom mixins last.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
