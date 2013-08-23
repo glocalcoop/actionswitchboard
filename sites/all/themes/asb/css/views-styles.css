@@ -135,3 +135,78 @@ h1#site-name a:visited {
   -o-border-radius: 0 0 7px 7px;
   border-radius: 0 0 7px 7px;
 }
+
+/* line 47, ../sass/views-styles.scss */
+.front .scheme-collection-view {
+  border: 1px solid red;
+  color: #7c7f7e;
+}
+/* line 51, ../sass/views-styles.scss */
+.front .scheme-collection-view.even {
+  background: white;
+}
+/* line 54, ../sass/views-styles.scss */
+.front .scheme-collection-view.odd {
+  background: #eff0f0;
+}
+/* line 58, ../sass/views-styles.scss */
+.front .scheme-collection-view h2.block-title {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+/* line 65, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row {
+  padding: 0 10px;
+}
+/* line 69, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .field-image img {
+  width: 214px;
+  height: auto;
+}
+/* line 74, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row.views-row-first.before {
+  content: " < ";
+}
+/* line 78, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row.views-row-last {
+  border-right: none;
+}
+/* line 80, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row.views-row-last.after {
+  content: " > ";
+}
+/* line 84, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row h3.scheme-name {
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  text-transform: none;
+  line-height: 18px;
+}
+/* line 88, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row h3.scheme-name a {
+  color: #ef3f26;
+}
+/* line 93, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .scheme-leader:before {
+  content: "by ";
+}
+/* line 98, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+/* line 103, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  width: 25%;
+  padding-left: 0;
+  padding-right: 15px;
+  margin-right: 5px;
+}

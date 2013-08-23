@@ -110,13 +110,12 @@ header section.content,
 
   .front .scheme-collection-view {
     @include zen-grid-item( 6, 0 );
-    margin-left: 0;
+    // margin-left: 0;
   }
 
   .scheme-collection-view .views-row {
     @include zen-float();
     @include zen-grid-flow-item( 2 );
-    background: rgba( 255, 255,255, .4 )
   }
 
 }

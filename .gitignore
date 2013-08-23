@@ -1,3 +1,5 @@
+.DS_Store
+
 /.htaccess
 /authorize.php
 /cron.php
@@ -11,9 +13,11 @@
 /robots.txt
 /scripts
 /sites/default/
+/sites/all/themes/asb/.sass-cache/
 /themes
 /update.php
 /web.config
 /xmlrpc.php
 *~
 /dev/sync.asb
+/dev/sync.local

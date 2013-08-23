@@ -43,3 +43,71 @@
     }
   }
 }
+
+.front .scheme-collection-view {
+  border: 1px solid red; //debugging
+  color: $text-color;
+  
+  &.even {
+    background: $even-backdrop;
+  }
+  &.odd {
+    background: $odd-backdrop;
+  }
+
+  h2.block-title {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .view-content{
+
+    .views-row {
+      // border-right: 2px solid $rules-color; // debugging
+      padding: 0 10px;
+
+      .field-image img {
+        width: 214px;
+        height: auto;
+      }
+        &.views-row-first {
+          &.before {
+            content: " < ";
+          }
+        }
+        &.views-row-last {
+          border-right: none;
+          &.after {
+            content: " > ";
+        }
+      }
+      h3.scheme-name {
+        font-family: $font-body;
+        text-transform: none;
+        line-height: $base-line-height;
+        a {
+          color: $accent;
+        }
+      }
+      .scheme-leader {
+        &:before {
+          content: "by ";
+        }
+      }
+      .scheme-info {
+        ul.scheme-needs {
+          padding: 0;
+          margin: 0;
+          list-style-type: none;
+
+          li {
+            @include zen-float;
+            @include zen-grid-flow-item( 2, 8 );
+          }
+
+        }
+      }
+    }
+  }
+}
+

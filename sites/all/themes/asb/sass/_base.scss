@@ -29,10 +29,13 @@ $legacy-support-for-ie8: true;
 //
 // Colors, etc.
 //
-$accent: #EF3F26; //organge
+$accent: #EF3F26; //orange
 $panel: #F3F2E0; //beige background
 $brand: #912A1B;//wine
 $backdrop: #2D2D2E; //#141414;	//dark grey background
+$even-backdrop: white;
+$odd-backdrop: #EFF0F0; 
+$rules-color: #e8e8e8; // gray horizontal and vertical rules
 $text-color: #7C7F7E; // body copy
 $text-color-prominent: #303332; // dark grey headers
 $button: #826853; // brown
