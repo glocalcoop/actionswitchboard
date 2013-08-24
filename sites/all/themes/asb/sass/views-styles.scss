@@ -94,7 +94,8 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         font-weight: bold;
         text-transform: none;
         line-height: $base-line-height;
-        margin: 13px 0 0 0;
+        font-size: $h4-font-size + 1;
+        margin: 0;
       }
       .scheme-leader {
         &:before {
@@ -102,7 +103,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         }
       }
       .field-body p {
-        margin: 10px 0 12px 0;
+        margin: 5px 0 12px 0;
       }
       .scheme-info {
         ul.scheme-needs {
@@ -114,8 +115,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             @include zen-float;
             @include zen-grid-flow-item( 2, 8 );
             width: 33%;
-            padding-left: 23px;
-            padding-right: 0;
+            padding: 0 0 4px 23px;
             margin-right: 0;
             height: 12px;
             line-height: 12px;
@@ -142,7 +142,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           text-transform: uppercase;
           color: $text-color-secondary;
           font-size: $h5-font-size;
-          padding-bottom: 7.5px;
+          padding-bottom: 4px;
           border: {
             bottom: {
               @include standard-border($rules-color);

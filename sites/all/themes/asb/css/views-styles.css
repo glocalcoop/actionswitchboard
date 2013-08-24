@@ -10,7 +10,7 @@
 /* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
-  line-height: 1.5em;
+  line-height: 1.2em;
 }
 
 @font-face {
@@ -205,24 +205,25 @@ h1#site-name a:visited {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
   text-transform: none;
-  line-height: 18px;
-  margin: 13px 0 0 0;
+  line-height: 14.4px;
+  font-size: 13px;
+  margin: 0;
 }
-/* line 100, ../sass/views-styles.scss */
+/* line 101, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-leader:before {
   content: "by ";
 }
-/* line 104, ../sass/views-styles.scss */
+/* line 105, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .field-body p {
-  margin: 10px 0 12px 0;
+  margin: 5px 0 12px 0;
 }
-/* line 108, ../sass/views-styles.scss */
+/* line 109, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0 0 20px 0;
   margin: 0;
   list-style-type: none;
 }
-/* line 113, ../sass/views-styles.scss */
+/* line 114, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -237,8 +238,7 @@ h1#site-name a:visited {
   padding-right: 15px;
   margin-right: 5px;
   width: 33%;
-  padding-left: 23px;
-  padding-right: 0;
+  padding: 0 0 4px 23px;
   margin-right: 0;
   height: 12px;
   line-height: 12px;
@@ -251,7 +251,7 @@ h1#site-name a:visited {
   text-transform: uppercase;
   color: gray;
   font-size: 9.96px;
-  padding-bottom: 7.5px;
+  padding-bottom: 4px;
   border-bottom-color: #e8e8e8;
   border-bottom-width: 1px;
   border-bottom-style: solid;

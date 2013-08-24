@@ -23,7 +23,7 @@ $base-font-size:   12px; // The font size set on the root html element.
 // it was resulting in the following error
 // error sass/normalize.scss (Line 108 of _vertical_rhythm.scss: 0.08571em/px isn't a valid CSS value.) 
 // this is a vertical rhythm bug
-$base-line-height: 18px; // This line-height determines the basic unit of vertical rhythm.
+$base-line-height: 14.4px; // This line-height determines the basic unit of vertical rhythm.
 
 
 $h1-font-size: 2.7857 * $base-font-size;
