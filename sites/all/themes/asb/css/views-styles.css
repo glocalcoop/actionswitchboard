@@ -238,10 +238,6 @@ h1#site-name a:visited {
   margin-right: 5px;
   font-weight: bold;
 }
-/* line 117, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
-  background-position: -20px 0;
-}
 /* line 131, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
   font-family: SourceSansPro, Tahoma, sans-serif;
