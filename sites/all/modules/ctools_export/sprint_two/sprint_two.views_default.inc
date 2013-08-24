@@ -1439,6 +1439,14 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['id'] = 'field_issues_goals_target_id';
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['table'] = 'field_data_field_issues_goals';
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['field'] = 'field_issues_goals_target_id';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['id'] = 'reverse_field_issues_goals_node';
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['field'] = 'reverse_field_issues_goals_node';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1472,23 +1480,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/y';
-  /* Field: Content: Issues/Goals */
-  $handler->display->display_options['fields']['field_issues_goals']['id'] = 'field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['table'] = 'field_data_field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['field'] = 'field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['label'] = '';
-  $handler->display->display_options['fields']['field_issues_goals']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_issues_goals']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_issues_goals']['type'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_issues_goals']['settings'] = array(
-    'view_mode' => 'teaser',
-    'links' => 1,
-  );
-  $handler->display->display_options['fields']['field_issues_goals']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['multi_type'] = 'ul';
-  $handler->display->display_options['fields']['field_issues_goals']['field_api_classes'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1524,35 +1515,39 @@ function sprint_two_views_default_views() {
   /* Display: Attachment */
   $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['id'] = 'field_issues_goals_target_id';
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['table'] = 'field_data_field_issues_goals';
+  $handler->display->display_options['relationships']['field_issues_goals_target_id']['field'] = 'field_issues_goals_target_id';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['id'] = 'reverse_field_issues_goals_node';
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_issues_goals_node']['field'] = 'reverse_field_issues_goals_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Created';
-  $handler->display->display_options['fields']['created']['element_type'] = 'span';
-  $handler->display->display_options['fields']['created']['element_class'] = 'scheme-created';
-  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/y';
-  /* Field: Content: Issues/Goals */
-  $handler->display->display_options['fields']['field_issues_goals']['id'] = 'field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['table'] = 'field_data_field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['field'] = 'field_issues_goals';
-  $handler->display->display_options['fields']['field_issues_goals']['label'] = '';
-  $handler->display->display_options['fields']['field_issues_goals']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_issues_goals']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_issues_goals']['type'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_issues_goals']['settings'] = array(
-    'view_mode' => 'teaser',
-    'links' => 1,
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_issues_goals_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scheme' => 'scheme',
   );
-  $handler->display->display_options['fields']['field_issues_goals']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_issues_goals']['multi_type'] = 'ul';
-  $handler->display->display_options['fields']['field_issues_goals']['field_api_classes'] = TRUE;
   $handler->display->display_options['displays'] = array(
     'block' => 'block',
     'default' => 0,

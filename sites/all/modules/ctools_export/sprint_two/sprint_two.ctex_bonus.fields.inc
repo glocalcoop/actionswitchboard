@@ -12,25 +12,28 @@
 function sprint_two_drush_ctex_bonus_fields() {
   $fields = array();
 
-  $fields['group_group'] = array(
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'Not a group',
-        1 => 'Group',
-      ),
-      'allowed_values_function' => '',
+  $fields['comment_body'] = array(
+    'entity_types' => array(
+      0 => 'comment',
     ),
-    'entity_types' => array(),
     'translatable' => '0',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
+    'settings' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'table' => 'filter_format',
+        'columns' => array(
+          'format' => 'format',
+        ),
       ),
     ),
-    'field_name' => 'group_group',
-    'type' => 'list_boolean',
-    'module' => 'list',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'field_name' => 'comment_body',
+    'type' => 'text_long',
+    'module' => 'text',
     'active' => '1',
     'locked' => '0',
     'cardinality' => '1',
@@ -59,6 +62,169 @@ function sprint_two_drush_ctex_bonus_fields() {
     'field_name' => 'body',
     'type' => 'text_with_summary',
     'module' => 'text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_tags'] = array(
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'tags',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(
+      'tid' => array(
+        'table' => 'taxonomy_term_data',
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'field_name' => 'field_tags',
+    'type' => 'taxonomy_term_reference',
+    'module' => 'taxonomy',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_image'] = array(
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => 0,
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(
+      'fid' => array(
+        'table' => 'file_managed',
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+      ),
+    ),
+    'field_name' => 'field_image',
+    'type' => 'image',
+    'module' => 'image',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_document_type'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'page_types',
+          'parent' => '0',
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'tid' => array(
+        'table' => 'taxonomy_term_data',
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'field_name' => 'field_document_type',
+    'type' => 'taxonomy_term_reference',
+    'module' => 'taxonomy',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_issue_reference'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'goal' => 'goal',
+          'issue' => 'issue',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_issue_reference',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['group_group'] = array(
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Not a group',
+        1 => 'Group',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'field_name' => 'group_group',
+    'type' => 'list_boolean',
+    'module' => 'list',
     'active' => '1',
     'locked' => '0',
     'cardinality' => '1',
@@ -205,35 +371,6 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['field_image'] = array(
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'settings' => array(
-      'uri_scheme' => 'public',
-      'default_image' => 0,
-    ),
-    'entity_types' => array(),
-    'translatable' => '0',
-    'foreign keys' => array(
-      'fid' => array(
-        'table' => 'file_managed',
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-      ),
-    ),
-    'field_name' => 'field_image',
-    'type' => 'image',
-    'module' => 'image',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
   $fields['field_private_description'] = array(
     'translatable' => '0',
     'entity_types' => array(),
@@ -359,97 +496,6 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['comment_body'] = array(
-    'entity_types' => array(
-      0 => 'comment',
-    ),
-    'translatable' => '0',
-    'settings' => array(),
-    'foreign keys' => array(
-      'format' => array(
-        'table' => 'filter_format',
-        'columns' => array(
-          'format' => 'format',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'field_name' => 'comment_body',
-    'type' => 'text_long',
-    'module' => 'text',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
-    'deleted' => '0',
-  );
-
-  $fields['field_tags'] = array(
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'entity_types' => array(),
-    'translatable' => '0',
-    'foreign keys' => array(
-      'tid' => array(
-        'table' => 'taxonomy_term_data',
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'field_name' => 'field_tags',
-    'type' => 'taxonomy_term_reference',
-    'module' => 'taxonomy',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
-  $fields['message_text'] = array(
-    'entity_types' => array(
-      0 => 'message_type',
-    ),
-    'translatable' => '1',
-    'settings' => array(
-      'message_text' => TRUE,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'table' => 'filter_format',
-        'columns' => array(
-          'format' => 'format',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'field_name' => 'message_text',
-    'type' => 'text_long',
-    'module' => 'text',
-    'active' => '1',
-    'locked' => '1',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
   $fields['og_user_node'] = array(
     'settings' => array(
       'handler' => 'og',
@@ -531,79 +577,33 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['field_issue_reference'] = array(
-    'translatable' => '0',
-    'entity_types' => array(),
+  $fields['message_text'] = array(
+    'entity_types' => array(
+      0 => 'message_type',
+    ),
+    'translatable' => '1',
     'settings' => array(
-      'target_type' => 'node',
-      'handler' => 'base',
-      'handler_settings' => array(
-        'target_bundles' => array(
-          'goal' => 'goal',
-          'issue' => 'issue',
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-      ),
+      'message_text' => TRUE,
     ),
     'foreign keys' => array(
-      'node' => array(
-        'table' => 'node',
+      'format' => array(
+        'table' => 'filter_format',
         'columns' => array(
-          'target_id' => 'nid',
+          'format' => 'format',
         ),
       ),
     ),
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'format' => array(
+        0 => 'format',
       ),
     ),
-    'field_name' => 'field_issue_reference',
-    'type' => 'entityreference',
-    'module' => 'entityreference',
+    'field_name' => 'message_text',
+    'type' => 'text_long',
+    'module' => 'text',
     'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
-    'deleted' => '0',
-  );
-
-  $fields['field_document_type'] = array(
-    'translatable' => '0',
-    'entity_types' => array(),
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'page_types',
-          'parent' => '0',
-        ),
-      ),
-    ),
-    'foreign keys' => array(
-      'tid' => array(
-        'table' => 'taxonomy_term_data',
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'field_name' => 'field_document_type',
-    'type' => 'taxonomy_term_reference',
-    'module' => 'taxonomy',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
+    'locked' => '1',
+    'cardinality' => '-1',
     'deleted' => '0',
   );
 
@@ -615,1326 +615,6 @@ function sprint_two_drush_ctex_bonus_fields() {
  */
 function sprint_two_drush_ctex_bonus_instances() {
   $instances = array();
-
-  $instances['node:scheme:group_group'] = array(
-    'label' => 'Group',
-    'description' => 'Determine if this is an OG group.',
-    'display_label' => 1,
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(
-        'og_hide' => TRUE,
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => '7',
-    ),
-    'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
-    ),
-    'view modes' => array(
-      'full' => array(
-        'label' => 'Full',
-        'type' => 'og_group_subscribe',
-        'custom settings' => FALSE,
-      ),
-      'teaser' => array(
-        'label' => 'Teaser',
-        'type' => 'og_group_subscribe',
-        'custom settings' => FALSE,
-      ),
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'og_group_subscribe',
-        'weight' => '0',
-        'settings' => array(
-          'field_name' => FALSE,
-        ),
-        'module' => 'og_ui',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'required' => FALSE,
-    'field_name' => 'group_group',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:body'] = array(
-    'label' => 'Public Description',
-    'widget' => array(
-      'weight' => '3',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '1',
-      'display_summary' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => '1',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'weight' => '1',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'This is what you tell the world while you are working on your scheme.  <a href="/" target="_blank">Here are some guidelines</a>.',
-    'default_value' => array(
-      0 => array(
-        'summary' => 'Replace this text with a brief (status update/tweet length) public summary.',
-        'value' => '',
-        'format' => 'filtered_html',
-      ),
-    ),
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_brief_internal_description'] = array(
-    'label' => 'Brief (internal) description',
-    'widget' => array(
-      'weight' => '2',
-      'type' => 'text_textarea',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '5',
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'weight' => '2',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 1,
-    'description' => 'Give us a brief description (internal to us) about the scheme.',
-    'default_value' => NULL,
-    'field_name' => 'field_brief_internal_description',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_video'] = array(
-    'label' => 'Video',
-    'widget' => array(
-      'weight' => '4',
-      'type' => 'media_generic',
-      'module' => 'media',
-      'active' => 1,
-      'settings' => array(
-        'allowed_types' => array(
-          'video' => 'video',
-          'audio' => 0,
-          'image' => 0,
-          'default' => 0,
-        ),
-        'allowed_schemes' => array(
-          'vimeo' => 'vimeo',
-          'youtube' => 'youtube',
-          'public' => 'public',
-        ),
-        'progress_indicator' => 'throbber',
-      ),
-    ),
-    'settings' => array(
-      'file_directory' => '',
-      'file_extensions' => 'txt',
-      'max_filesize' => '',
-      'description_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'file_rendered',
-        'weight' => '3',
-        'settings' => array(
-          'file_view_mode' => 'media_preview',
-        ),
-        'module' => 'file_entity',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'field_name' => 'field_video',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_people_needs'] = array(
-    'label' => 'People Needs',
-    'widget' => array(
-      'weight' => '6',
-      'type' => 'text_textfield',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'size' => '60',
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'weight' => '5',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'List the types of help you need from other people.  One need per field.',
-    'default_value' => NULL,
-    'field_name' => 'field_people_needs',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_material_needs'] = array(
-    'label' => 'Material Needs',
-    'widget' => array(
-      'weight' => '7',
-      'type' => 'text_textfield',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'size' => '60',
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'weight' => '6',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'List the different materials you will need for your scheme, i.e. camera, poster board, arduino board.',
-    'default_value' => NULL,
-    'field_name' => 'field_material_needs',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_funding_needs'] = array(
-    'label' => 'Funding Needs',
-    'widget' => array(
-      'weight' => '8',
-      'type' => 'text_textfield',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'size' => '60',
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'weight' => '7',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'How much do you expect this scheme to cost?',
-    'default_value' => NULL,
-    'field_name' => 'field_funding_needs',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_image'] = array(
-    'label' => 'Images',
-    'widget' => array(
-      'weight' => '5',
-      'type' => 'image_miw',
-      'module' => 'multiupload_imagefield_widget',
-      'active' => 1,
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-        'insert' => 0,
-        'insert_absolute' => 0,
-        'insert_styles' => array(
-          'auto' => 'auto',
-          'link' => 0,
-          'icon_link' => 0,
-          'image' => 0,
-          'image_large' => 0,
-          'image_medium' => 0,
-          'image_square_thumbnail' => 0,
-          'image_thumbnail' => 0,
-        ),
-        'insert_default' => 'auto',
-        'insert_class' => '',
-        'insert_width' => '',
-      ),
-    ),
-    'settings' => array(
-      'file_directory' => 'scheme-images',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => 1,
-      'title_field' => 1,
-      'default_image' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'weight' => '9',
-        'settings' => array(
-          'image_style' => 'square_thumbnail',
-          'image_link' => '',
-        ),
-        'module' => 'image',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_private_description'] = array(
-    'label' => 'Private Description',
-    'widget' => array(
-      'weight' => '2',
-      'type' => 'text_textarea',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '10',
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'weight' => '10',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'This is how you describe your project within the trust circle of your scheme. <br /> <big>Some guidelines are ... add guides </big> <a href="/">What\'s this?</a>',
-    'default_value' => NULL,
-    'field_name' => 'field_private_description',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_issues_goals'] = array(
-    'label' => 'Issues/Goals',
-    'widget' => array(
-      'weight' => '25',
-      'type' => 'options_buttons',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'status' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'entityreference_label',
-        'weight' => '11',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'module' => 'entityreference',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'Choose the Issue and Goals your scheme seeks to address.',
-    'fences_wrapper' => 'div',
-    'default_value' => NULL,
-    'default_value_function' => '',
-    'field_name' => 'field_issues_goals',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_location'] = array(
-    'label' => 'Location',
-    'widget' => array(
-      'weight' => '24',
-      'type' => 'taxonomy_hs',
-      'module' => 'hs_taxonomy',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => '12',
-        'settings' => array(),
-        'module' => 'taxonomy',
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'fences_wrapper' => 'div',
-    'default_value' => NULL,
-    'field_name' => 'field_location',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:scheme:field_featured'] = array(
-    'label' => 'Featured',
-    'widget' => array(
-      'weight' => '0',
-      'type' => 'options_onoff',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(
-        'display_label' => 1,
-      ),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '13',
-        'settings' => array(),
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'type' => 'hidden',
-        'weight' => '0',
-        'settings' => array(),
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'Check this box to make this scheme appear in the featured list.',
-    'fences_wrapper' => 'div',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'field_name' => 'field_featured',
-    'entity_type' => 'node',
-    'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => -4,
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:field_tags'] = array(
-    'label' => 'Tags',
-    'description' => 'Enter a comma-separated list of words to describe your content.',
-    'widget' => array(
-      'type' => 'taxonomy_autocomplete',
-      'weight' => -4,
-      'settings' => array(
-        'size' => 60,
-        'autocomplete_path' => 'taxonomy/autocomplete',
-      ),
-      'module' => 'taxonomy',
-    ),
-    'display' => array(
-      'default' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-        'label' => 'above',
-        'settings' => array(),
-        'module' => 'taxonomy',
-      ),
-      'teaser' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-        'label' => 'above',
-        'settings' => array(),
-        'module' => 'taxonomy',
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'required' => FALSE,
-    'default_value' => NULL,
-    'field_name' => 'field_tags',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:field_image'] = array(
-    'label' => 'Image',
-    'description' => 'Upload an image to go with this article.',
-    'required' => FALSE,
-    'settings' => array(
-      'file_directory' => 'field/image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => TRUE,
-      'title_field' => '',
-      'default_image' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'type' => 'image_image',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_styles' => array(
-          0 => 'auto',
-        ),
-        'insert_default' => array(
-          0 => 'auto',
-        ),
-        'insert_class' => '',
-        'insert_width' => '',
-      ),
-      'weight' => -1,
-      'module' => 'image',
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array(
-          'image_style' => 'large',
-          'image_link' => '',
-        ),
-        'weight' => -1,
-        'module' => 'image',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array(
-          'image_style' => 'medium',
-          'image_link' => 'content',
-        ),
-        'weight' => -1,
-        'module' => 'image',
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'deleted' => '0',
-  );
-
-  $instances['node:page:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => -4,
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'page',
-    'deleted' => '0',
-  );
-
-  $instances['node:document:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => '3',
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'document',
-    'deleted' => '0',
-    'default_value' => NULL,
-  );
-
-  $instances['node:document:field_document_type'] = array(
-    'label' => 'Document Type',
-    'widget' => array(
-      'weight' => '1',
-      'type' => 'options_select',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'taxonomy_term_reference_link',
-        'settings' => array(),
-        'module' => 'taxonomy',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'fences_wrapper' => 'div',
-    'default_value' => array(
-      0 => array(
-        'tid' => '7',
-      ),
-    ),
-    'field_name' => 'field_document_type',
-    'entity_type' => 'node',
-    'bundle' => 'document',
-    'deleted' => '0',
-  );
-
-  $instances['node:goal:body'] = array(
-    'label' => 'Description',
-    'widget' => array(
-      'weight' => '31',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'display_summary' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => '0',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'goal',
-    'deleted' => '0',
-  );
-
-  $instances['node:goal:field_issue_reference'] = array(
-    'label' => 'Issue Reference',
-    'widget' => array(
-      'weight' => '32',
-      'type' => 'options_select',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'status' => 1,
-          'action' => 'hide',
-          'action_on_edit' => 0,
-          'fallback' => 'none',
-          'skip_perm' => '0',
-          'og_context' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'type' => 'entityreference_label',
-        'weight' => '1',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'module' => 'entityreference',
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 1,
-    'description' => 'What Issue does this goal fall under?',
-    'default_value' => NULL,
-    'default_value_function' => 'entityreference_prepopulate_field_default_value',
-    'field_name' => 'field_issue_reference',
-    'entity_type' => 'node',
-    'bundle' => 'goal',
-    'deleted' => '0',
-  );
-
-  $instances['node:issue:body'] = array(
-    'label' => 'Description',
-    'widget' => array(
-      'weight' => '31',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '1',
-      'display_summary' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 1,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'issue',
-    'deleted' => '0',
-  );
-
-  $instances['node:update:og_group_ref'] = array(
-    'label' => 'Groups audience',
-    'widget' => array(
-      'type' => 'og_complex',
-      'module' => 'og',
-      'settings' => array(),
-      'weight' => '0',
-    ),
-    'settings' => array(
-      'behaviors' => array(
-        'og_widget' => array(
-          'status' => TRUE,
-          'default' => array(
-            'widget_type' => 'options_select',
-          ),
-          'admin' => array(
-            'widget_type' => 'entityreference_autocomplete',
-          ),
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'view modes' => array(
-      'full' => array(
-        'label' => 'Full',
-        'type' => 'og_list_default',
-        'custom settings' => FALSE,
-      ),
-      'teaser' => array(
-        'label' => 'Teaser',
-        'type' => 'og_list_default',
-        'custom settings' => FALSE,
-      ),
-    ),
-    'display' => array(
-      'default' => array(
-        'type' => 'og_list_default',
-        'label' => 'above',
-        'settings' => array(),
-        'module' => 'og_ui',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'og_group_ref',
-    'entity_type' => 'node',
-    'bundle' => 'update',
-    'deleted' => '0',
-  );
-
-  $instances['node:update:body'] = array(
-    'label' => 'Update Text',
-    'widget' => array(
-      'weight' => '31',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '1',
-      'display_summary' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 1,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'update',
-    'deleted' => '0',
-  );
-
-  $instances['node:update:field_image'] = array(
-    'label' => 'Images',
-    'widget' => array(
-      'weight' => '33',
-      'type' => 'image_image',
-      'module' => 'image',
-      'active' => 1,
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-        'insert' => 1,
-        'insert_absolute' => 0,
-        'insert_styles' => array(
-          'auto' => 'auto',
-          'link' => 0,
-          'icon_link' => 0,
-          'image' => 0,
-          'image_large' => 0,
-          'image_medium' => 0,
-          'image_square_thumbnail' => 0,
-          'image_thumbnail' => 0,
-        ),
-        'insert_default' => 'auto',
-        'insert_class' => 'inserted-images',
-        'insert_width' => '',
-      ),
-    ),
-    'settings' => array(
-      'file_directory' => 'scheme-update-images',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => 0,
-      'title_field' => 0,
-      'default_image' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'image',
-        'settings' => array(
-          'image_style' => '',
-          'image_link' => '',
-        ),
-        'module' => 'image',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'Upload images to show your to your scheme members and followers.',
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'bundle' => 'update',
-    'deleted' => '0',
-  );
-
-  $instances['node:update:field_video'] = array(
-    'label' => 'Videos',
-    'widget' => array(
-      'weight' => '35',
-      'type' => 'media_generic',
-      'module' => 'media',
-      'active' => 1,
-      'settings' => array(
-        'allowed_types' => array(
-          'video' => 'video',
-          'audio' => 0,
-          'image' => 0,
-          'default' => 0,
-        ),
-        'allowed_schemes' => array(
-          'vimeo' => 'vimeo',
-          'youtube' => 'youtube',
-          'public' => 0,
-        ),
-        'progress_indicator' => 'throbber',
-      ),
-    ),
-    'settings' => array(
-      'file_directory' => '',
-      'file_extensions' => 'txt',
-      'max_filesize' => '',
-      'description_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'file_default',
-        'settings' => array(),
-        'module' => 'file',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'issues_goals' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => 'Add a Vimeo or Youtube link here, if you want to share a video with your scheme members or followers.',
-    'field_name' => 'field_video',
-    'entity_type' => 'node',
-    'bundle' => 'update',
-    'deleted' => '0',
-  );
 
   $instances['comment:comment_node_article:comment_body'] = array(
     'label' => 'Comment',
@@ -2157,6 +837,1176 @@ function sprint_two_drush_ctex_bonus_instances() {
     'field_name' => 'comment_body',
     'entity_type' => 'comment',
     'bundle' => 'comment_node_update',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => -4,
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:field_tags'] = array(
+    'label' => 'Tags',
+    'description' => 'Enter a comma-separated list of words to describe your content.',
+    'widget' => array(
+      'type' => 'taxonomy_autocomplete',
+      'weight' => -4,
+      'settings' => array(
+        'size' => 60,
+        'autocomplete_path' => 'taxonomy/autocomplete',
+      ),
+      'module' => 'taxonomy',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+        'label' => 'above',
+        'settings' => array(),
+        'module' => 'taxonomy',
+      ),
+      'teaser' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+        'label' => 'above',
+        'settings' => array(),
+        'module' => 'taxonomy',
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'required' => FALSE,
+    'default_value' => NULL,
+    'field_name' => 'field_tags',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:field_image'] = array(
+    'label' => 'Image',
+    'description' => 'Upload an image to go with this article.',
+    'required' => FALSE,
+    'settings' => array(
+      'file_directory' => 'field/image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => TRUE,
+      'title_field' => '',
+      'default_image' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'type' => 'image_image',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_class' => '',
+        'insert_width' => '',
+      ),
+      'weight' => -1,
+      'module' => 'image',
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => 'large',
+          'image_link' => '',
+        ),
+        'weight' => -1,
+        'module' => 'image',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => 'medium',
+          'image_link' => 'content',
+        ),
+        'weight' => -1,
+        'module' => 'image',
+      ),
+    ),
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:page:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => -4,
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'page',
+    'deleted' => '0',
+  );
+
+  $instances['node:document:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => '3',
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'document',
+    'deleted' => '0',
+    'default_value' => NULL,
+  );
+
+  $instances['node:document:field_document_type'] = array(
+    'label' => 'Document Type',
+    'widget' => array(
+      'weight' => '1',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'taxonomy_term_reference_link',
+        'settings' => array(),
+        'module' => 'taxonomy',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => array(
+      0 => array(
+        'tid' => '7',
+      ),
+    ),
+    'field_name' => 'field_document_type',
+    'entity_type' => 'node',
+    'bundle' => 'document',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:body'] = array(
+    'label' => 'Description',
+    'widget' => array(
+      'weight' => '31',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'display_summary' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '0',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:field_issue_reference'] = array(
+    'label' => 'Issue Reference',
+    'widget' => array(
+      'weight' => '32',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 1,
+          'action' => 'hide',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'skip_perm' => '0',
+          'og_context' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'type' => 'entityreference_label',
+        'weight' => '1',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 1,
+    'description' => 'What Issue does this goal fall under?',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'field_name' => 'field_issue_reference',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:issue:body'] = array(
+    'label' => 'Description',
+    'widget' => array(
+      'weight' => '31',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '1',
+      'display_summary' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'required' => 1,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'issue',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:group_group'] = array(
+    'label' => 'Group',
+    'description' => 'Determine if this is an OG group.',
+    'display_label' => 1,
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'og_hide' => TRUE,
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => '7',
+    ),
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'Full',
+        'type' => 'og_group_subscribe',
+        'custom settings' => FALSE,
+      ),
+      'teaser' => array(
+        'label' => 'Teaser',
+        'type' => 'og_group_subscribe',
+        'custom settings' => FALSE,
+      ),
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'og_group_subscribe',
+        'weight' => '0',
+        'settings' => array(
+          'field_name' => FALSE,
+        ),
+        'module' => 'og_ui',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'required' => FALSE,
+    'field_name' => 'group_group',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:body'] = array(
+    'label' => 'Public Description',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '1',
+      'display_summary' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '1',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'weight' => '1',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+      ),
+    ),
+    'required' => 0,
+    'description' => 'This is what you tell the world while you are working on your scheme.  <a href="/" target="_blank">Here are some guidelines</a>.',
+    'default_value' => array(
+      0 => array(
+        'summary' => 'Replace this text with a brief (status update/tweet length) public summary.',
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+    ),
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_brief_internal_description'] = array(
+    'label' => 'Brief (internal) description',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'text_textarea',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '5',
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '2',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 1,
+    'description' => 'Give us a brief description (internal to us) about the scheme.',
+    'default_value' => NULL,
+    'field_name' => 'field_brief_internal_description',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_video'] = array(
+    'label' => 'Video',
+    'widget' => array(
+      'weight' => '4',
+      'type' => 'media_generic',
+      'module' => 'media',
+      'active' => 1,
+      'settings' => array(
+        'allowed_types' => array(
+          'video' => 'video',
+          'audio' => 0,
+          'image' => 0,
+          'default' => 0,
+        ),
+        'allowed_schemes' => array(
+          'vimeo' => 'vimeo',
+          'youtube' => 'youtube',
+          'public' => 'public',
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+    ),
+    'settings' => array(
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'description_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'file_rendered',
+        'weight' => '3',
+        'settings' => array(
+          'file_view_mode' => 'media_preview',
+        ),
+        'module' => 'file_entity',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'field_name' => 'field_video',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_people_needs'] = array(
+    'label' => 'People Needs',
+    'widget' => array(
+      'weight' => '6',
+      'type' => 'text_textfield',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'size' => '60',
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '5',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'List the types of help you need from other people.  One need per field.',
+    'default_value' => NULL,
+    'field_name' => 'field_people_needs',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_material_needs'] = array(
+    'label' => 'Material Needs',
+    'widget' => array(
+      'weight' => '7',
+      'type' => 'text_textfield',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'size' => '60',
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '6',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'List the different materials you will need for your scheme, i.e. camera, poster board, arduino board.',
+    'default_value' => NULL,
+    'field_name' => 'field_material_needs',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_funding_needs'] = array(
+    'label' => 'Funding Needs',
+    'widget' => array(
+      'weight' => '8',
+      'type' => 'text_textfield',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'size' => '60',
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '7',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'How much do you expect this scheme to cost?',
+    'default_value' => NULL,
+    'field_name' => 'field_funding_needs',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_image'] = array(
+    'label' => 'Images',
+    'widget' => array(
+      'weight' => '5',
+      'type' => 'image_miw',
+      'module' => 'multiupload_imagefield_widget',
+      'active' => 1,
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+        'insert' => 0,
+        'insert_absolute' => 0,
+        'insert_styles' => array(
+          'auto' => 'auto',
+          'link' => 0,
+          'icon_link' => 0,
+          'image' => 0,
+          'image_large' => 0,
+          'image_medium' => 0,
+          'image_square_thumbnail' => 0,
+          'image_thumbnail' => 0,
+        ),
+        'insert_default' => 'auto',
+        'insert_class' => '',
+        'insert_width' => '',
+      ),
+    ),
+    'settings' => array(
+      'file_directory' => 'scheme-images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => 1,
+      'title_field' => 1,
+      'default_image' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'weight' => '9',
+        'settings' => array(
+          'image_style' => 'square_thumbnail',
+          'image_link' => '',
+        ),
+        'module' => 'image',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_private_description'] = array(
+    'label' => 'Private Description',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'text_textarea',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '10',
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '10',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'This is how you describe your project within the trust circle of your scheme. <br /> <big>Some guidelines are ... add guides </big> <a href="/">What\'s this?</a>',
+    'default_value' => NULL,
+    'field_name' => 'field_private_description',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_issues_goals'] = array(
+    'label' => 'Issues/Goals',
+    'widget' => array(
+      'weight' => '25',
+      'type' => 'options_buttons',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'entityreference_label',
+        'weight' => '11',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'Choose the Issue and Goals your scheme seeks to address.',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_issues_goals',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_location'] = array(
+    'label' => 'Location',
+    'widget' => array(
+      'weight' => '24',
+      'type' => 'taxonomy_hs',
+      'module' => 'hs_taxonomy',
+      'active' => 1,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => '12',
+        'settings' => array(),
+        'module' => 'taxonomy',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'field_name' => 'field_location',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_featured'] = array(
+    'label' => 'Featured',
+    'widget' => array(
+      'weight' => '0',
+      'type' => 'options_onoff',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'display_label' => 1,
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '13',
+        'settings' => array(),
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => 'Check this box to make this scheme appear in the featured list.',
+    'fences_wrapper' => 'div',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'field_name' => 'field_featured',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:update:og_group_ref'] = array(
+    'label' => 'Groups audience',
+    'widget' => array(
+      'type' => 'og_complex',
+      'module' => 'og',
+      'settings' => array(),
+      'weight' => '0',
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'status' => TRUE,
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'Full',
+        'type' => 'og_list_default',
+        'custom settings' => FALSE,
+      ),
+      'teaser' => array(
+        'label' => 'Teaser',
+        'type' => 'og_list_default',
+        'custom settings' => FALSE,
+      ),
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'og_list_default',
+        'label' => 'above',
+        'settings' => array(),
+        'module' => 'og_ui',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'og_group_ref',
+    'entity_type' => 'node',
+    'bundle' => 'update',
+    'deleted' => '0',
+  );
+
+  $instances['node:update:body'] = array(
+    'label' => 'Update Text',
+    'widget' => array(
+      'weight' => '31',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '1',
+      'display_summary' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 1,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'update',
+    'deleted' => '0',
+  );
+
+  $instances['node:update:field_image'] = array(
+    'label' => 'Images',
+    'widget' => array(
+      'weight' => '33',
+      'type' => 'image_image',
+      'module' => 'image',
+      'active' => 1,
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+        'insert' => 1,
+        'insert_absolute' => 0,
+        'insert_styles' => array(
+          'auto' => 'auto',
+          'link' => 0,
+          'icon_link' => 0,
+          'image' => 0,
+          'image_large' => 0,
+          'image_medium' => 0,
+          'image_square_thumbnail' => 0,
+          'image_thumbnail' => 0,
+        ),
+        'insert_default' => 'auto',
+        'insert_class' => 'inserted-images',
+        'insert_width' => '',
+      ),
+    ),
+    'settings' => array(
+      'file_directory' => 'scheme-update-images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => 0,
+      'title_field' => 0,
+      'default_image' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => '',
+          'image_link' => '',
+        ),
+        'module' => 'image',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'Upload images to show your to your scheme members and followers.',
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'bundle' => 'update',
+    'deleted' => '0',
+  );
+
+  $instances['node:update:field_video'] = array(
+    'label' => 'Videos',
+    'widget' => array(
+      'weight' => '35',
+      'type' => 'media_generic',
+      'module' => 'media',
+      'active' => 1,
+      'settings' => array(
+        'allowed_types' => array(
+          'video' => 'video',
+          'audio' => 0,
+          'image' => 0,
+          'default' => 0,
+        ),
+        'allowed_schemes' => array(
+          'vimeo' => 'vimeo',
+          'youtube' => 'youtube',
+          'public' => 0,
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+    ),
+    'settings' => array(
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'description_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'file_default',
+        'settings' => array(),
+        'module' => 'file',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'Add a Vimeo or Youtube link here, if you want to share a video with your scheme members or followers.',
+    'field_name' => 'field_video',
+    'entity_type' => 'node',
+    'bundle' => 'update',
     'deleted' => '0',
   );
 
