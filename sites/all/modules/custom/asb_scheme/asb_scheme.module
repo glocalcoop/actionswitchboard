@@ -58,6 +58,17 @@ function asb_scheme_redirect_success($form, &$form_state) {
 }
 
 /**
+* Implements hook_entity_info_alter().
+* Adding view mode for Issues/Goals.
+*/
+/* function asb_scheme_entity_info_alter(&$entity_info) { */
+/*   $entity_info['node']['view modes']['issues_goals'] = array( */
+/*     'label' => t('Issues/Goals'), */
+/*     'custom settings' => TRUE, */
+/*   ); */
+/* } */
+
+/**
  * Implements hook_block_info().
  *
  * Add a custom group statistics and attendees blocks.
@@ -133,7 +144,7 @@ function asb_scheme_block_view($delta = '') {
 }
 
 /**
- * Creates the Group create content links.
+ * Creates the scheme create content links.
  */
 function asb_scheme_node_links() {
   $group = og_context();
