@@ -56,3 +56,97 @@ function asb_scheme_redirect_success($form, &$form_state) {
 
   // dsm($form_state);
 }
+
+/**
+ * Implements hook_block_info().
+ *
+ * Add a custom group statistics and attendees blocks.
+ */
+function asb_scheme_block_info() {
+  $blocks['group_info'] = array(
+    'info' => t('Scheme Leader'),
+    'cache' => DRUPAL_NO_CACHE
+    // DRUPAL_CACHE_PER_ROLE will be assumed if not set.
+  );
+  $blocks['node_links'] = array(
+    'info' => t('Scheme content links'),
+    'cache' => DRUPAL_NO_CACHE
+    // DRUPAL_CACHE_PER_ROLE will be assumed if not set.
+  );
+  return $blocks;
+}
+
+/**
+ * Implement hook_theme().
+ */
+function asb_scheme_theme() {
+  $module_path = drupal_get_path('module', 'asb_scheme');
+
+  $base = array(
+    'file' => 'theme.inc',
+    'path' => "$module_path/theme",
+  );
+
+  return array(
+    'asb_scheme_group_info' => $base + array(
+      'render element' => 'element',
+      'template' => 'asb-scheme-group-info',
+    ),
+    'asb_scheme_group_links' => $base + array(
+      'render element' => 'element',
+      'template' => 'og-extras-group-links',
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Add a custom group statistics and create content blocks.
+ */
+function asb_scheme_block_view($delta = '') {
+
+  $block = array();
+
+  switch ($delta) {
+    case 'group_info':
+      // The info block is visible to everyone, group member or not.
+      $content = theme('asb_scheme_group_info');
+      if (!empty($content)) {
+        $block['subject'] = t('Scheme Leader');
+        $block['content'] = $content;
+        // $block['content'] = "Hi schemer!";
+      }
+      break;
+
+    case 'node_links':
+      // Links are visible to people with permissions.
+      $content = theme('asb_scheme_group_links');
+      if (!empty($content)) {
+        $block['subject'] = t('Create content');
+        $block['content'] = $content;
+      }
+      break;
+
+  }
+  return $block;
+}
+
+/**
+ * Creates the Group create content links.
+ */
+function asb_scheme_node_links() {
+  $group = og_context();
+
+  $types = array();
+  foreach (node_type_get_types() as $type) {
+    if (og_is_group_content_type('node', $type->type)) {
+      $types[$type->type] = $type->type;
+    }
+  }
+
+  $content = og_node_create_links($group['group_type'], $group['gid'], OG_AUDIENCE_FIELD, NULL, $types);
+
+  return drupal_render($content);
+}
+
