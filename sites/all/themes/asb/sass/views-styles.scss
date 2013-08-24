@@ -44,7 +44,8 @@
   }
 }
 
-$needs-layout:horizontal; 
+// $needs-layout:horizontal; 
+$needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @import "needs/*.png"; 
 @include all-needs-sprites;
 
@@ -105,26 +106,34 @@ $needs-layout:horizontal;
       }
       .scheme-info {
         ul.scheme-needs {
-          padding: 0;
+          padding: 0 0 20px 0;
           margin: 0;
           list-style-type: none;
 
           li {
             @include zen-float;
             @include zen-grid-flow-item( 2, 8 );
-            // margin-left: 23px;
+            width: 33%;
+            padding-left: 23px;
+            padding-right: 0;
+            margin-right: 0;
+            height: 12px;
+            line-height: 12px;
+            overflow: hidden;
             font-weight: bold;
             &.needed-skills {
               @extend .needs-skills;
-              @include sprite-background-position($needs-sprites, skills, -2, 0);
+              // @include sprite-background-position($needs-sprites, skills, 2, 0);
             };
             &.needed-supplies {
               @extend .needs-supplies;
               // @include needs-sprite (supplies);
+              // @include sprite-background-position($needs-sprites, supplies, 2, 0);
             };
             &.needed-funds {
               @extend .needs-funds;
               // @include needs-sprite (funds);
+              // @include sprite-background-position($needs-sprites, funds, 2, 0);
             };
           }
         }

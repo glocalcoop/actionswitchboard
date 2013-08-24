@@ -138,69 +138,69 @@ h1#site-name a:visited {
 
 /* line 58, needs/*.png */
 .needs-sprite, .needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds, .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills, .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
-  background: url('../images/needs-sd07cce03db.png') no-repeat;
+  background: url('../images/needs-sa39b67d2f3.png') no-repeat;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
-  background-position: 0 0;
+  background-position: 0 -12px;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
-  background-position: -18px 0;
+  background-position: 0 -24px;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
-  background-position: -36px 0;
+  background-position: 0 0;
 }
 
-/* line 51, ../sass/views-styles.scss */
+/* line 52, ../sass/views-styles.scss */
 .front .scheme-collection-view {
   color: #7c7f7e;
 }
-/* line 55, ../sass/views-styles.scss */
+/* line 56, ../sass/views-styles.scss */
 .front .scheme-collection-view a {
   color: #f15d38;
 }
-/* line 58, ../sass/views-styles.scss */
+/* line 59, ../sass/views-styles.scss */
 .front .scheme-collection-view.even {
   background: white;
 }
-/* line 61, ../sass/views-styles.scss */
+/* line 62, ../sass/views-styles.scss */
 .front .scheme-collection-view.odd {
   background: #eff0f0;
 }
-/* line 64, ../sass/views-styles.scss */
+/* line 65, ../sass/views-styles.scss */
 .front .scheme-collection-view h2.block-title {
   padding-right: 10px;
   padding-left: 10px;
 }
-/* line 71, ../sass/views-styles.scss */
+/* line 72, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row {
   border-right: 2px solid #e8e8e8;
   padding: 0 10px;
 }
-/* line 75, ../sass/views-styles.scss */
+/* line 76, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .field-image img {
   width: 100%;
   max-width: 220px;
   height: auto;
 }
-/* line 81, ../sass/views-styles.scss */
+/* line 82, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row.views-row-first.before {
   content: " < ";
 }
-/* line 85, ../sass/views-styles.scss */
+/* line 86, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row.views-row-last {
   border-right: none;
 }
-/* line 87, ../sass/views-styles.scss */
+/* line 88, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row.views-row-last.after {
   content: " > ";
 }
-/* line 91, ../sass/views-styles.scss */
+/* line 92, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row h3.scheme-name {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
@@ -208,21 +208,21 @@ h1#site-name a:visited {
   line-height: 18px;
   margin: 13px 0 0 0;
 }
-/* line 99, ../sass/views-styles.scss */
+/* line 100, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-leader:before {
   content: "by ";
 }
-/* line 103, ../sass/views-styles.scss */
+/* line 104, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .field-body p {
   margin: 10px 0 12px 0;
 }
-/* line 107, ../sass/views-styles.scss */
+/* line 108, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
-  padding: 0;
+  padding: 0 0 20px 0;
   margin: 0;
   list-style-type: none;
 }
-/* line 112, ../sass/views-styles.scss */
+/* line 113, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -236,9 +236,16 @@ h1#site-name a:visited {
   padding-left: 0;
   padding-right: 15px;
   margin-right: 5px;
+  width: 33%;
+  padding-left: 23px;
+  padding-right: 0;
+  margin-right: 0;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
   font-weight: bold;
 }
-/* line 131, ../sass/views-styles.scss */
+/* line 140, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
   font-family: SourceSansPro, Tahoma, sans-serif;
   text-transform: uppercase;
