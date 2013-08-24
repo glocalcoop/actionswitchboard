@@ -138,7 +138,7 @@ h1#site-name a:visited {
 
 /* line 58, needs/*.png */
 .needs-sprite, .needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds, .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills, .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
-  background: url('../images/needs-sf979a815be.png') no-repeat;
+  background: url('../images/needs-sd07cce03db.png') no-repeat;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
@@ -148,12 +148,12 @@ h1#site-name a:visited {
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
-  background-position: -48px 0;
+  background-position: -18px 0;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
-  background-position: -96px 0;
+  background-position: -36px 0;
 }
 
 /* line 51, ../sass/views-styles.scss */
@@ -240,7 +240,7 @@ h1#site-name a:visited {
 }
 /* line 117, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
-  background-position: -50px 0;
+  background-position: -20px 0;
 }
 /* line 131, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
