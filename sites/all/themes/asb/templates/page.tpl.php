@@ -143,51 +143,22 @@
   </header>
 
   <section id="main">
-
-      <header>
-        <section class="content">
-          <?php print render($page['highlighted']); ?>
-          <?php //print $breadcrumb; ?>
-          <a id="main-content"></a>
-          <?php print render($title_prefix); ?>
-          <?php if ($title): ?>
-          <h1 class="title" id="page-title"><?php print $title; ?></h1>
-          <?php endif; ?>
-          <?php print render($title_suffix); ?>
-          <?php print $messages; ?>
-          <?php print render($tabs); ?>
-          <?php print render($page['help']); ?>
-          <?php if ($action_links): ?>
-          <ul class="action-links"><?php print render($action_links); ?></ul>
-          <?php endif; ?>
-          <?php print $feed_icons; ?>
-        </section>
-      </header>
-
-      <div id="content-wrapper" role="main">
-
-        <div id="content">
-          <?php print render($page['content']); ?>
-        </div><!-- /#content -->
   
-       <?php
-          // Render the sidebars to see if there's anything in them.
-          $sidebar_first  = render($page['sidebar_first']);
-          $sidebar_second = render($page['sidebar_second']);
-        ?>
-        <?php if ($sidebar_first || $sidebar_second): ?>
-        <aside id="sidebar">
-          <?php print $sidebar_first; ?>
-          <?php print $sidebar_second; ?>
-        </aside><!-- /.sidebars -->
-        <?php endif; ?>
+  <?php print $messages; ?>
+  <?php print render($page['help']); ?>
 
-      </div><!-- /#content-wrapper -->
+    <div id="content">
+
+      <?php print render($page['content']); ?>
+
+    </div><!-- /#content -->
 
   </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>
 
 
+</div>
 
 <?php print render($page['bottom']); ?>
+
