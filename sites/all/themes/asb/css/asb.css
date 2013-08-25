@@ -1,9 +1,9 @@
-/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -80,24 +80,30 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 5, ../sass/asb.scss */
+/* line 4, ../sass/asb.scss */
+div.messages {
+  margin: 0;
+  padding-top: 1em;
+}
+
+/* line 7, ../sass/asb.scss */
 .admin-menu-icon.expandable img {
   width: 16px;
 }
 
-/* line 11, ../sass/asb.scss */
+/* line 13, ../sass/asb.scss */
 body header#header {
   position: relative;
   z-index: 10;
   height: 75px;
 }
-/* line 15, ../sass/asb.scss */
+/* line 17, ../sass/asb.scss */
 body header#header h1#site-name {
   width: 428px;
   display: inline-block;
   margin: 0 auto;
 }
-/* line 19, ../sass/asb.scss */
+/* line 21, ../sass/asb.scss */
 body header#header h1#site-name a {
   display: block;
   text-indent: -9000px;
@@ -105,12 +111,12 @@ body header#header h1#site-name a {
   text-align: left;
   background-repeat: no-repeat;
 }
-/* line 27, ../sass/asb.scss */
+/* line 29, ../sass/asb.scss */
 body header#header section#navigation {
   background-color: #2d2d2e;
 }
 
-/* line 33, ../sass/asb.scss */
+/* line 35, ../sass/asb.scss */
 #page:before {
   content: " ";
   position: absolute;
@@ -120,37 +126,37 @@ body header#header section#navigation {
   background: url(../images/header-fringe.png) repeat-x bottom center;
 }
 
-/* line 43, ../sass/asb.scss */
+/* line 45, ../sass/asb.scss */
 #main {
   position: relative;
-  top: -0.25em;
+  top: -0.425em;
 }
 
-/* line 48, ../sass/asb.scss */
-.not-front #main > header {
+/* line 50, ../sass/asb.scss */
+#content article > header {
   background-color: #f3f2e0;
   padding-top: 1em;
 }
 
-/* line 54, ../sass/asb.scss */
+/* line 56, ../sass/asb.scss */
 #name-and-slogan h1#site-name {
   height: 75px;
 }
-/* line 56, ../sass/asb.scss */
+/* line 58, ../sass/asb.scss */
 #name-and-slogan h1#site-name a {
   background-image: url("../images/logo.png?1376927784");
   background-position: top center;
 }
 
-/* line 64, ../sass/asb.scss */
+/* line 66, ../sass/asb.scss */
 .front header#header {
   height: 201px;
 }
-/* line 68, ../sass/asb.scss */
+/* line 70, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 70, ../sass/asb.scss */
+/* line 72, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
@@ -158,12 +164,27 @@ body header#header section#navigation {
   z-index: 10;
 }
 
-/* line 80, ../sass/asb.scss */
+/* line 82, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 86, ../sass/asb.scss */
+/* line 88, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
+}
+
+/* line 90, ../sass/asb.scss */
+ul.tags {
+  list-style: none;
+}
+/* line 92, ../sass/asb.scss */
+ul.tags li {
+  display: inline-block;
+}
+/* line 94, ../sass/asb.scss */
+ul.tags li a {
+  display: block;
+  padding: .25em .5em;
+  background: white;
 }

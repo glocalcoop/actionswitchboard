@@ -45,9 +45,10 @@ body {
   top: -0.25em;
 }
 
-.not-front #main>header {
+#content article>header {
   background-color: $panel;
   padding-top: 1em;
+  border: 2px #f00 solid;
 }
 
 // inside pages
@@ -84,3 +85,16 @@ footer#footer {
 }
 
 .not-front #header-image-strip { display: none }
+
+ul.tags {
+  list-style:none;
+  li {
+    display: inline-block;
+    a {
+      display: block;
+      padding: .25em .5em;
+      background: white; 
+    }
+  }
+
+}

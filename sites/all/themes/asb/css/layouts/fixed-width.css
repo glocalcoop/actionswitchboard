@@ -10,13 +10,13 @@
  */
 /* line 61, ../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
-  font-size: 87.5%;
+  font-size: 75%;
 }
 
 /* line 64, ../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
-  font-size: 14px;
-  line-height: 1.28571em;
+  font-size: 12px;
+  line-height: 1.5em;
 }
 
 @font-face {
@@ -71,7 +71,7 @@ h3,
 h4,
 h5 {
   text-transform: uppercase;
-  color: #7c7f7e;
+  color: #414042;
   font-family: League, Helvetica, sans;
   font-weight: normal;
 }
