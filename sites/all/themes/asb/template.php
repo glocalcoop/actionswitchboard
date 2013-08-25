@@ -160,7 +160,7 @@ function asb_preprocess_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("node" in this case.)
  */
-function asb_preprocess_node_scheme(&$variables, $hook) {
+function asb_preprocess_node(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
