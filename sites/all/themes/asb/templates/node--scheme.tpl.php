@@ -183,7 +183,7 @@
   ?>
 
   <aside id="sidebar">
-    <h1>Hi!</h1>
+    <h1>Sidebar! Hi!</h1>
 
     <?php print $sidebar_second; ?>
   </aside><!-- /.sidebars -->
