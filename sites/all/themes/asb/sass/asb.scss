@@ -1,6 +1,8 @@
 // Base:
 @import "base";
 
+div.messages { margin: 0; padding-top: 1em; }
+
 .admin-menu-icon.expandable { 
   img { width: 16px; }
 }
@@ -42,13 +44,12 @@ body {
 
 #main { 
   position: relative;
-  top: -0.25em;
+  top: -0.425em;
 }
 
 #content article>header {
   background-color: $panel;
   padding-top: 1em;
-  border: 2px #f00 solid;
 }
 
 // inside pages

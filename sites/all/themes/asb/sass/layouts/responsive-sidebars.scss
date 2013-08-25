@@ -44,12 +44,12 @@ $zen-auto-include-item-base: false;
 header#header,
 #content article>header .wrapper,
 #content article>.wrapper,
-#footer section.content {
+#footer section.content,
+.messages__list{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
-  border: 1px #000 solid;
 }
 
 // Apply the shared properties of grid items in a single, efficient ruleset.
@@ -123,26 +123,14 @@ header#header,
 
 @media all and (min-width: 960px) {
 
-  // $grid-background-column-color: rgba( 200, 0, 0, 0.075);
-  // $grid-background-total-columns: 8;
-  // $grid-background-column-width: 100px;
-  // $grid-background-gutter-width: 20px;
-  // $grid-background-baseline-height: 18px;
-  // $grid-background-baseline-color: rgba(0, 0, 0, 0.08);
-
   $zen-grid-width: 960px;
   // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
   $zen-column-count: 8;
-
-  //
-  // The layout when there is only one sidebar, the right one.
-  //
   
   header#header,
   #content,
   footer#footer section.content {
     @include zen-grid-container();
-    border: 1px #0af solid;
   }
 
   #page {
@@ -170,7 +158,6 @@ header#header,
   #content aside.scheme-meta,
   #content aside#sidebar {
     @include zen-grid-item( 2, 6 );
-    background:#0af;
   }
 
   .front .scheme-collection-view {
