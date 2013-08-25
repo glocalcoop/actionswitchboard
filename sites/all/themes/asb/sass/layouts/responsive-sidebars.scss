@@ -44,6 +44,7 @@ $zen-auto-include-item-base: false;
 header#header,
 #content article>header .wrapper,
 #content article>.wrapper,
+.scheme-collection-view .view-scheme-overview,
 #footer section.content,
 .messages__list{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
