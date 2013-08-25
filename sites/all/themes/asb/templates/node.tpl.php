@@ -85,36 +85,110 @@
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-    <header>
-      <?php print render($title_prefix); ?>
-      <?php if (!$page && $title): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
+      <header>
 
-      <?php if ($display_submitted): ?>
-        <p class="submitted">
-          <?php print $user_picture; ?>
-          <?php print $submitted; ?>
-        </p>
-      <?php endif; ?>
+        <div class="wrapper">
 
-      <?php if ($unpublished): ?>
-        <p class="unpublished"><?php print t('Unpublished'); ?></p>
-      <?php endif; ?>
-    </header>
-  <?php endif; ?>
+          <section class="content">
+          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+
+            <?php print render($page['highlighted']); ?>
+            <?php //print $breadcrumb; ?>
+            <a id="main-content"></a>
+
+            <?php print render($title_prefix); ?>
+            
+            <section class="status-info">
+              <h6>Status:</h6>
+              <span class="state">Open</span>
+              <a href="editLink" class="icon edit">Edit</a>
+            </section>
+
+            <?php if ($title): ?>
+            <h1 class="title" id="page-title"><?php print $title; ?></h1>
+            <?php endif; ?>
+
+            <?php print render($title_suffix); ?>
+
+            <section class="methods">
+              <a class="ui-button" href="Follow Scheme">Follow Scheme</a>
+              <a class="ui-button" href="Request Membership">Request Membership</a>
+            </section>
+
+
+            <?php if ($action_links): ?>
+            <ul class="action-links"><?php print render($action_links); ?></ul>
+            <?php endif; ?>
+            <?php print $feed_icons; ?>
+
+          </section>
+
+          <aside class="scheme-meta">
+
+            <section class="created">
+              <h6>Created</h6>
+              <time>{{{Date created}}}</time>
+            </section>
+
+            <dl class="issue">
+              <dt>Issue</dt>
+              <dd>{{{Environment}}}</dd>
+            </dl>
+
+            <section class="goals">
+              <h6>Goals</h6>
+              <ul class="tags">
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+                <li><a href="{{{#}}}">Goal</a></li>
+              </ul>
+            </section>
+
+          </aside>      
+
+        </div>
+
+      </header>
+
+
+  
+    <?php endif; ?>
+
+<div class="wrapper">
+
+  <section class='content'>
+  <?php print render($tabs); ?>
+  <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
+
+    <?php print render($content['links']); ?>
+
+    <?php print render($content['comments']); ?>
+
+  </section>
+
 
   <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
+    // Render the sidebars to see if there's anything in them.
+    $sidebar_second = render($page['sidebar_second']);
   ?>
 
-  <?php print render($content['links']); ?>
+  <aside id="sidebar">
+    <h1>Hi!</h1>
 
-  <?php print render($content['comments']); ?>
+    <?php print $sidebar_second; ?>
+  </aside><!-- /.sidebars -->
+
+  
+</div>
 
 </article><!-- /.node -->
