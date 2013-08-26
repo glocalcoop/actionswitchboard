@@ -106,20 +106,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         margin: 5px 0 12px 0;
       }
       .scheme-info {
-        h4 {
-          padding-bottom: 4px;
-          margin-bottom: 4px;
-          line-height: inherit;
-          font-family: $font-body;
-          text-transform: uppercase;
-          color: $text-color-secondary;
-          font-size: $h5-font-size;
-          border: {
-            bottom: {
-              @include standard-border($rules-color);
-            }
-          }
-        }
+
         ul.scheme-needs {
           padding: 0 0 20px 0;
           margin: 0;
@@ -128,13 +115,27 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           li {
             @include zen-float;
             @include zen-grid-flow-item( 2, 8 );
-            width: 33%;
+            width: 23%;
             padding: 0 0 4px 23px;
             margin-right: 0;
             height: 12px;
             line-height: 12px;
             overflow: hidden;
             font-weight: bold;
+            h4 {
+              padding-bottom: 4px;
+              margin-bottom: 4px;
+              line-height: inherit;
+              font-family: $font-body;
+              text-transform: uppercase;
+              color: $text-color-secondary;
+              font-size: $h5-font-size;
+              border: {
+                bottom: {
+                  @include standard-border($rules-color);
+                }
+              }
+            }            
             &.needed-skills {
               @extend .needs-skills;
               // @include sprite-background-position($needs-sprites, skills, 2, 0);
@@ -149,6 +150,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               // @include needs-sprite (funds);
               // @include sprite-background-position($needs-sprites, funds, 2, 0);
             };
+
           }
         }
         h4 {

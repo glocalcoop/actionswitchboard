@@ -216,26 +216,13 @@ a, a:link, a:visited {
 .front .scheme-collection-view .view-content .views-row .field-body p {
   margin: 5px 0 12px 0;
 }
-/* line 109, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info h4 {
-  padding-bottom: 4px;
-  margin-bottom: 4px;
-  line-height: inherit;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  text-transform: uppercase;
-  color: gray;
-  font-size: 9.96px;
-  border-bottom-color: #e8e8e8;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}
-/* line 123, ../sass/views-styles.scss */
+/* line 110, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0 0 20px 0;
   margin: 0;
   list-style-type: none;
 }
-/* line 128, ../sass/views-styles.scss */
+/* line 115, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -249,7 +236,7 @@ a, a:link, a:visited {
   padding-left: 0;
   padding-right: 15px;
   margin-right: 5px;
-  width: 33%;
+  width: 23%;
   padding: 0 0 4px 23px;
   margin-right: 0;
   height: 12px;
@@ -257,7 +244,20 @@ a, a:link, a:visited {
   overflow: hidden;
   font-weight: bold;
 }
-/* line 154, ../sass/views-styles.scss */
+/* line 125, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li h4 {
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  line-height: inherit;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  text-transform: uppercase;
+  color: gray;
+  font-size: 9.96px;
+  border-bottom-color: #e8e8e8;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 156, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
   padding-bottom: 4px;
   margin-bottom: 4px;
