@@ -222,9 +222,6 @@ function asb_preprocess_block(&$variables, $hook) {
   //}
 }
 
-/**
- * Implements hook_preprocess_views_view_field
- */
 function asb_scheme_preprocess_views_view_field(&$vars) {
   //$vars['custom_variable'] = 'foo bar';
   // dsm($vars);
@@ -257,4 +254,18 @@ function asb_scheme_preprocess_views_view_field(&$vars) {
 
   }
   // dsm($vars);
+}
+
+function asb_menu_item_link($link) {
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
+  }
+  $link_options = $link['localized_options'];
+  $link_options['html'] = TRUE; 
+  if ($link['menu_name'] == "primary-links"){
+  drupal_set_message(dsm($link)); 
+  $link['title'] .= '<span class="description">'.$link['description'].'</span>';
+  }
+
+  return l('<span>'.$link['title'].'</span>', $link['href'], $link_options);
 }
