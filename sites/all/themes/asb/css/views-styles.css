@@ -84,6 +84,11 @@ h1#site-name a:visited {
   color: inherit;
 }
 
+/* line 72, ../sass/_type.scss */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
 /*
  * Views' admin tabs
  *
@@ -247,13 +252,14 @@ h1#site-name a:visited {
 }
 /* line 140, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  line-height: inherit;
   font-family: SourceSansPro, Tahoma, sans-serif;
   text-transform: uppercase;
   color: gray;
   font-size: 9.96px;
-  padding-bottom: 4px;
   border-bottom-color: #e8e8e8;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  margin-bottom: 4px;
 }

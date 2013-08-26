@@ -89,6 +89,11 @@ h1#site-name a:visited {
   color: inherit;
 }
 
+/* line 72, ../sass/_type.scss */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
 /*
  * Basic positioning styles shared by primary and secondary tabs.
  */

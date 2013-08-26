@@ -138,17 +138,18 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           }
         }
         h4 {
+          padding-bottom: 4px;
+          margin-bottom: 4px;
+          line-height: inherit;
           font-family: $font-body;
           text-transform: uppercase;
           color: $text-color-secondary;
           font-size: $h5-font-size;
-          padding-bottom: 4px;
           border: {
             bottom: {
               @include standard-border($rules-color);
             }
           }
-          margin-bottom: 4px;
           
         }
       }

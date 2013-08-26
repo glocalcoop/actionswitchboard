@@ -84,6 +84,11 @@ h1#site-name a:visited {
   color: inherit;
 }
 
+/* line 72, ../sass/_type.scss */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
 /* line 9, ../sass/comments.scss */
 .comments {
   /* Wrapper for the list of comments and its title */

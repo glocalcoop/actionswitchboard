@@ -52,15 +52,6 @@ $site-title-color: white;
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
 
-//
-// Mixins
-//
-
-@mixin standard-border($color, $width: 1px) {
-    color: $color;
-    width: $width;
-    style: solid;
-}
 
 //
 // Partials to be shared with all .scss files.

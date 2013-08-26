@@ -147,4 +147,10 @@
   }
 }
 
+@mixin standard-border($color, $width: 1px) {
+    color: $color;
+    width: $width;
+    style: solid;
+}
+
 
