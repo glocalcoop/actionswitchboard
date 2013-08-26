@@ -211,7 +211,9 @@ function asb_preprocess_region(&$variables, $hook) {
 function asb_preprocess_block(&$variables, $hook) {
   if(strpos($variables['block']->delta, 'scheme_overview') !== false) {
     $variables['classes_array'][] = 'scheme-collection-view';
+    $variables['theme_hook_suggestions'][] = 'block__views__scheme_overview';
   }
+  // dsm($variables);
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
