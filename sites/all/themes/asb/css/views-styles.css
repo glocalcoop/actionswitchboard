@@ -216,25 +216,28 @@ a, a:link, a:visited {
   height: 275px;
 }
 /* line 81, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row:first-child:before {
+  float: left;
+  margin-left: -33px;
+  content: " < ";
+}
+/* line 88, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row:last-child:before {
+  float: right;
+  content: " > ";
+  margin-right: -33px;
+}
+/* line 95, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .field-image img {
   width: 100%;
   max-width: 220px;
   height: auto;
 }
-/* line 87, ../sass/views-styles.scss */
-.scheme-collection-view .view-content .views-row.views-row-first.before {
-  margin-left: -33px;
-  content: " < ";
-}
-/* line 92, ../sass/views-styles.scss */
+/* line 102, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row.views-row-last {
   border-right: none;
 }
-/* line 94, ../sass/views-styles.scss */
-.scheme-collection-view .view-content .views-row.views-row-last.after {
-  content: " > ";
-}
-/* line 98, ../sass/views-styles.scss */
+/* line 106, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row h3.scheme-name {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
@@ -242,15 +245,15 @@ a, a:link, a:visited {
   font-size: 13px;
   margin: 0;
 }
-/* line 106, ../sass/views-styles.scss */
+/* line 114, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-leader:before {
   content: "by ";
 }
-/* line 110, ../sass/views-styles.scss */
+/* line 118, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .field-body p {
   margin: 5px 0 12px 0;
 }
-/* line 113, ../sass/views-styles.scss */
+/* line 121, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info {
   margin-top: 6px;
   padding: 4px 0;
@@ -260,7 +263,7 @@ a, a:link, a:visited {
   border-top-width: 1px;
   border-top-style: solid;
 }
-/* line 123, ../sass/views-styles.scss */
+/* line 131, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info h4 {
   float: left;
   margin: 0 10px 0 0;
@@ -271,14 +274,14 @@ a, a:link, a:visited {
   color: gray;
   font-size: 9.96px;
 }
-/* line 134, ../sass/views-styles.scss */
+/* line 142, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0;
   margin: 0;
   list-style-type: none;
   float: left;
 }
-/* line 140, ../sass/views-styles.scss */
+/* line 148, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -296,7 +299,7 @@ a, a:link, a:visited {
   margin-right: 0;
   font-weight: bold;
 }
-/* line 152, ../sass/views-styles.scss */
+/* line 160, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
   white-space: nowrap;
 }

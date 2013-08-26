@@ -77,23 +77,31 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       border-right: 2px solid $rules-color; 
       padding: 0 10px;
       height: 275px;
-
+      &:first-child {
+        &:before {
+          @include zen-float(left);
+          margin-left: -33px;
+          content: " < ";
+        }
+      }
+      &:last-child {
+        &:before {
+          @include zen-float(right);
+          content: " > ";
+          margin-right: -33px;
+        }
+      }
+      
       .field-image img {
         width: 100%;
         max-width: 220px;
         height: auto;
       }
         &.views-row-first {
-          &.before {
-            margin-left: -33px;
-            content: " < ";
           }
-        }
         &.views-row-last {
           border-right: none;
-          &.after {
-            content: " > ";
-        }
+          
       }
       h3.scheme-name {
         font-family: $font-body;

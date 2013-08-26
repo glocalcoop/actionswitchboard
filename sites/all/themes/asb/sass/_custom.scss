@@ -168,13 +168,6 @@
     background-size: $size $size;
 }
 
-@mixin zigzag-border-top ($foreground-color: transparent, $background-color: #fff, $angle: 45deg, $size: 30px) {
-    background: linear-gradient(-$angle, $foreground-color 75%, $background-color 75%) 0 50%,
-                linear-gradient( $angle, $foreground-color 75%, $background-color 75%) 0 50%;
-    background-repeat: repeat-x;
-    background-size:$size $size, $size $size;
-}
-
 @mixin shadow ($h-shadow: 10px, $v-shadow: 10px, $blur: 5px, $spread: 5px, $color: #888888){
   box-shadow: $h-shadow $v-shadow $blur $spread $color;
 }
