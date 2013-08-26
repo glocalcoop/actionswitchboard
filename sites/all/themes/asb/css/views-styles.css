@@ -2,12 +2,12 @@
  * @file
  * Views Styling
  */
-/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -146,17 +146,17 @@ a, a:link, a:visited {
   background: url('../images/needs-sa39b67d2f3.png') no-repeat;
 }
 
-/* line 60, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
   background-position: 0 -12px;
 }
 
-/* line 60, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
   background-position: 0 -24px;
 }
 
-/* line 60, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
   background-position: 0 0;
 }
@@ -176,11 +176,6 @@ a, a:link, a:visited {
 /* line 62, ../sass/views-styles.scss */
 .front .scheme-collection-view.odd {
   background: #eff0f0;
-}
-/* line 65, ../sass/views-styles.scss */
-.front .scheme-collection-view h2.block-title {
-  padding-right: 10px;
-  padding-left: 10px;
 }
 /* line 72, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row {
@@ -210,7 +205,6 @@ a, a:link, a:visited {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
   text-transform: none;
-  line-height: 14.4px;
   font-size: 13px;
   margin: 0;
 }
@@ -223,12 +217,25 @@ a, a:link, a:visited {
   margin: 5px 0 12px 0;
 }
 /* line 109, ../sass/views-styles.scss */
+.front .scheme-collection-view .view-content .views-row .scheme-info h4 {
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  line-height: inherit;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  text-transform: uppercase;
+  color: gray;
+  font-size: 9.96px;
+  border-bottom-color: #e8e8e8;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 123, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0 0 20px 0;
   margin: 0;
   list-style-type: none;
 }
-/* line 114, ../sass/views-styles.scss */
+/* line 128, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -250,7 +257,7 @@ a, a:link, a:visited {
   overflow: hidden;
   font-weight: bold;
 }
-/* line 140, ../sass/views-styles.scss */
+/* line 154, ../sass/views-styles.scss */
 .front .scheme-collection-view .view-content .views-row .scheme-info h4 {
   padding-bottom: 4px;
   margin-bottom: 4px;
