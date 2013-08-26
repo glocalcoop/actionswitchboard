@@ -1,14 +1,6 @@
 // Base:
 @import "base";
 
-a, 
-a:link,
-a:visited {
-  color: $accent;
-  text-decoration: none;
-}
-
-
 div.messages { margin: 0; padding-top: 1em; }
 
 .admin-menu-icon.expandable { 
@@ -27,7 +19,6 @@ body {
       display: inline-block;
       margin: 0 auto;
       a{
-        height:76px;
         display: block;
         text-indent: -9000px;
         overflow: hidden;
@@ -90,7 +81,8 @@ body {
 
 footer#footer {
   background: $backdrop; 
-  .content {}
+  .content {
+  }
 }
 
 .not-front #header-image-strip { display: none }
@@ -105,4 +97,5 @@ ul.tags {
       background: white; 
     }
   }
+
 }

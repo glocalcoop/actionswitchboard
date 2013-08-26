@@ -84,9 +84,27 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 72, ../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
+/* line 74, ../sass/_type.scss */
+#block-system-user-menu span.title,
+#block-menu-block-1 ul li span.title {
+  font-size: 15px;
+  color: white;
+}
+/* line 79, ../sass/_type.scss */
+#block-system-user-menu span.username,
+#block-system-user-menu span.description,
+#block-menu-block-1 ul li span.username,
+#block-menu-block-1 ul li span.description {
+  display: block;
+  clear: both;
+  color: #7c7f7e;
+}
+/* line 86, ../sass/_type.scss */
+#block-system-user-menu a.login,
+#block-system-user-menu a.logout,
+#block-menu-block-1 ul li a.login,
+#block-menu-block-1 ul li a.logout {
+  color: white;
 }
 
 /*
@@ -176,25 +194,25 @@ a, a:link, a:visited {
 }
 /* line 54, ../sass/views-styles.scss */
 .scheme-collection:nth-child(even) {
-  background: linear-gradient(-140deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(140deg, #ffffff 5px, #eff0f0 0%) 0 5px;
-  background-image: -webkit-gradient(-140deg, white 5px, transparent 0) 0 5px, -webkit-gradient(140deg, white 5px, #eff0f0 0) 0 5px;
+  background: linear-gradient(-45deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(45deg, #ffffff 5px, #eff0f0 0%) 0 5px;
+  background-image: -webkit-gradient(-45deg, white 5px, transparent 0) 0 5px, -webkit-gradient(45deg, white 5px, #eff0f0 0) 0 5px;
   background-color: white;
   background-position: left bottom;
   background-position-x: left;
   background-position-y: bottom;
   background-repeat: repeat-x;
-  background-size: 15px 15px;
+  background-size: 12px 12px;
 }
 /* line 57, ../sass/views-styles.scss */
 .scheme-collection:nth-child(odd) {
-  background: linear-gradient(-140deg, #eff0f0 5px, transparent 0%) 0 5px, linear-gradient(140deg, #eff0f0 5px, #ffffff 0%) 0 5px;
-  background-image: -webkit-gradient(-140deg, #eff0f0 5px, transparent 0) 0 5px, -webkit-gradient(140deg, #eff0f0 5px, white 0) 0 5px;
+  background: linear-gradient(-45deg, #eff0f0 5px, transparent 0%) 0 5px, linear-gradient(45deg, #eff0f0 5px, #ffffff 0%) 0 5px;
+  background-image: -webkit-gradient(-45deg, #eff0f0 5px, transparent 0) 0 5px, -webkit-gradient(45deg, #eff0f0 5px, white 0) 0 5px;
   background-color: #eff0f0;
   background-position: left bottom;
   background-position-x: left;
   background-position-y: bottom;
   background-repeat: repeat-x;
-  background-size: 15px 15px;
+  background-size: 12px 12px;
 }
 
 /* line 62, ../sass/views-styles.scss */
