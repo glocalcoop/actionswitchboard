@@ -1,9 +1,9 @@
-/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -80,7 +80,37 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 72, ../sass/_type.scss */
+/* line 74, ../sass/_type.scss */
+#block-system-user-menu span.title,
+#block-menu-block-1 ul li span.title {
+  font-size: 15px;
+  color: white;
+}
+/* line 79, ../sass/_type.scss */
+#block-system-user-menu span.username,
+#block-system-user-menu span.description,
+#block-menu-block-1 ul li span.username,
+#block-menu-block-1 ul li span.description {
+  display: block;
+  clear: both;
+  color: #7c7f7e;
+}
+/* line 84, ../sass/_type.scss */
+#block-system-user-menu a, #block-system-user-menu a:link, #block-system-user-menu a:visited,
+#block-menu-block-1 ul li a,
+#block-menu-block-1 ul li a:link,
+#block-menu-block-1 ul li a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 88, ../sass/_type.scss */
+#block-system-user-menu a.login, #block-system-user-menu a.logout,
+#block-menu-block-1 ul li a.login,
+#block-menu-block-1 ul li a.logout {
+  color: white;
+}
+
+/* line 92, ../sass/_type.scss */
 a, a:link, a:visited {
   text-decoration: none;
 }
@@ -110,18 +140,19 @@ body header#header h1#site-name {
 }
 /* line 21, ../sass/asb.scss */
 body header#header h1#site-name a {
+  height: 76px;
   display: block;
   text-indent: -9000px;
   overflow: hidden;
   text-align: left;
   background-repeat: no-repeat;
 }
-/* line 29, ../sass/asb.scss */
+/* line 30, ../sass/asb.scss */
 body header#header section#navigation {
   background-color: #2d2d2e;
 }
 
-/* line 35, ../sass/asb.scss */
+/* line 36, ../sass/asb.scss */
 #page:before {
   content: " ";
   position: absolute;
@@ -131,37 +162,37 @@ body header#header section#navigation {
   background: url(../images/header-fringe.png) repeat-x bottom center;
 }
 
-/* line 45, ../sass/asb.scss */
+/* line 46, ../sass/asb.scss */
 #main {
   position: relative;
   top: -0.425em;
 }
 
-/* line 50, ../sass/asb.scss */
+/* line 51, ../sass/asb.scss */
 #content article > header {
   background-color: #f3f2e0;
   padding-top: 1em;
 }
 
-/* line 56, ../sass/asb.scss */
+/* line 57, ../sass/asb.scss */
 #name-and-slogan h1#site-name {
   height: 75px;
 }
-/* line 58, ../sass/asb.scss */
+/* line 59, ../sass/asb.scss */
 #name-and-slogan h1#site-name a {
   background-image: url("../images/logo.png?1376927784");
   background-position: top center;
 }
 
-/* line 66, ../sass/asb.scss */
+/* line 67, ../sass/asb.scss */
 .front header#header {
   height: 201px;
 }
-/* line 70, ../sass/asb.scss */
+/* line 71, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 72, ../sass/asb.scss */
+/* line 73, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
@@ -169,25 +200,25 @@ body header#header section#navigation {
   z-index: 10;
 }
 
-/* line 82, ../sass/asb.scss */
+/* line 83, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 88, ../sass/asb.scss */
+/* line 89, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
 }
 
-/* line 90, ../sass/asb.scss */
+/* line 91, ../sass/asb.scss */
 ul.tags {
   list-style: none;
 }
-/* line 92, ../sass/asb.scss */
+/* line 93, ../sass/asb.scss */
 ul.tags li {
   display: inline-block;
 }
-/* line 94, ../sass/asb.scss */
+/* line 95, ../sass/asb.scss */
 ul.tags li a {
   display: block;
   padding: .25em .5em;

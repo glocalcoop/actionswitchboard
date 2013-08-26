@@ -4,12 +4,12 @@
  *
  * Add wireframes to the basic layout elements.
  */
-/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -86,7 +86,37 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 72, ../sass/_type.scss */
+/* line 74, ../sass/_type.scss */
+#block-system-user-menu span.title,
+#block-menu-block-1 ul li span.title {
+  font-size: 15px;
+  color: white;
+}
+/* line 79, ../sass/_type.scss */
+#block-system-user-menu span.username,
+#block-system-user-menu span.description,
+#block-menu-block-1 ul li span.username,
+#block-menu-block-1 ul li span.description {
+  display: block;
+  clear: both;
+  color: #7c7f7e;
+}
+/* line 84, ../sass/_type.scss */
+#block-system-user-menu a, #block-system-user-menu a:link, #block-system-user-menu a:visited,
+#block-menu-block-1 ul li a,
+#block-menu-block-1 ul li a:link,
+#block-menu-block-1 ul li a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+/* line 88, ../sass/_type.scss */
+#block-system-user-menu a.login, #block-system-user-menu a.logout,
+#block-menu-block-1 ul li a.login,
+#block-menu-block-1 ul li a.logout {
+  color: white;
+}
+
+/* line 92, ../sass/_type.scss */
 a, a:link, a:visited {
   text-decoration: none;
 }
