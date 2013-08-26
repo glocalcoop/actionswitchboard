@@ -153,4 +153,31 @@
     style: solid;
 }
 
+@mixin zigzag-border ($foreground-color: a, $background-color: #fff, $angle: 140deg, $size: 15px) {
+    background:
+      linear-gradient(-$angle, $foreground-color 5px, transparent 0) 0 5px,
+      linear-gradient($angle, $foreground-color 5px, $background-color 0) 0 5px;
+    background-image: 
+      -webkit-gradient(-$angle, $foreground-color 5px, transparent 0) 0 5px,
+      -webkit-gradient($angle, $foreground-color 5px, $background-color 0) 0 5px;
+    background-color: $foreground-color;
+    background-position: left bottom;
+    background-position-x: left;
+    background-position-y: bottom;
+    background-repeat: repeat-x;
+    background-size: $size $size;
+}
+
+@mixin zigzag-border-top ($foreground-color: transparent, $background-color: #fff, $angle: 45deg, $size: 30px) {
+    background: linear-gradient(-$angle, $foreground-color 75%, $background-color 75%) 0 50%,
+                linear-gradient( $angle, $foreground-color 75%, $background-color 75%) 0 50%;
+    background-repeat: repeat-x;
+    background-size:$size $size, $size $size;
+}
+
+@mixin shadow ($h-shadow: 10px, $v-shadow: 10px, $blur: 5px, $spread: 5px, $color: #888888){
+  box-shadow: $h-shadow $v-shadow $blur $spread $color;
+}
+
+
 

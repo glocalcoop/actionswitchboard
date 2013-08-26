@@ -49,18 +49,22 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @import "needs/*.png"; 
 @include all-needs-sprites;
 
+.front .scheme-collection {
+    padding-bottom: 10px;
+    &:nth-child(even) {
+      @include zigzag-border ($even-backdrop, $odd-backdrop);
+    }
+    &:nth-child(odd) {
+      @include zigzag-border ($odd-backdrop, $even-backdrop);
+    }
+  }
+
 .front .scheme-collection-view {
   // border: 1px solid red; //debugging
   color: $text-color;
 
   a {
     color: $accent-secondary
-  }
-  &.even {
-    background: $even-backdrop;
-  }
-  &.odd {
-    background: $odd-backdrop;
   }
   h2.block-title {
     // padding-right: 10px;
@@ -93,7 +97,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         font-family: $font-body;
         font-weight: bold;
         text-transform: none;
-        // line-height: $base-line-height;
         font-size: $h4-font-size + 1;
         margin: 0;
       }
@@ -106,67 +109,50 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         margin: 5px 0 12px 0;
       }
       .scheme-info {
-
-        ul.scheme-needs {
-          padding: 0 0 20px 0;
-          margin: 0;
-          list-style-type: none;
-
-          li {
-            @include zen-float;
-            @include zen-grid-flow-item( 2, 8 );
-            width: 23%;
-            padding: 0 0 4px 23px;
-            margin-right: 0;
-            height: 12px;
-            line-height: 12px;
-            overflow: hidden;
-            font-weight: bold;
-            h4 {
-              padding-bottom: 4px;
-              margin-bottom: 4px;
-              line-height: inherit;
-              font-family: $font-body;
-              text-transform: uppercase;
-              color: $text-color-secondary;
-              font-size: $h5-font-size;
-              border: {
-                bottom: {
-                  @include standard-border($rules-color);
-                }
-              }
-            }            
-            &.needed-skills {
-              @extend .needs-skills;
-              // @include sprite-background-position($needs-sprites, skills, 2, 0);
-            };
-            &.needed-supplies {
-              @extend .needs-supplies;
-              // @include needs-sprite (supplies);
-              // @include sprite-background-position($needs-sprites, supplies, 2, 0);
-            };
-            &.needed-funds {
-              @extend .needs-funds;
-              // @include needs-sprite (funds);
-              // @include sprite-background-position($needs-sprites, funds, 2, 0);
-            };
-
+        margin-top: 6px;
+        padding: 4px 0;
+        line-height: 12px;
+        height: 12px;
+        border: {
+          top: {
+            @include standard-border($rules-color);
           }
         }
         h4 {
-          padding-bottom: 4px;
-          margin-bottom: 4px;
+          @include zen-float;
+          margin: 0 10px 0 0;
+          padding: 0;
           line-height: inherit;
           font-family: $font-body;
           text-transform: uppercase;
           color: $text-color-secondary;
           font-size: $h5-font-size;
-          border: {
-            bottom: {
-              @include standard-border($rules-color);
-            }
+        }
+
+        ul.scheme-needs {
+          padding: 0;
+          margin: 0;
+          list-style-type: none;
+          @include zen-float;
+
+          li {
+            @include zen-float;
+            @include zen-grid-flow-item( 1, 3 );
+            padding-left: 23px;
+            margin-right: 0;
+            font-weight: bold;            
+            &.needed-skills {
+              @extend .needs-skills;
+            };
+            &.needed-supplies {
+              @extend .needs-supplies;
+            };
+            &.needed-funds {
+              @extend .needs-funds;
+              white-space: nowrap;
+            };
+
           }
-          
         }
       }
     }
