@@ -107,24 +107,12 @@ h1#site-name a:visited {
   clear: both;
   color: #7c7f7e;
 }
-/* line 84, ../sass/_type.scss */
-#block-system-user-menu a, #block-system-user-menu a:link, #block-system-user-menu a:visited,
-#block-menu-block-1 ul li a,
-#block-menu-block-1 ul li a:link,
-#block-menu-block-1 ul li a:visited {
-  color: inherit;
-  text-decoration: none;
-}
-/* line 88, ../sass/_type.scss */
-#block-system-user-menu a.login, #block-system-user-menu a.logout,
+/* line 86, ../sass/_type.scss */
+#block-system-user-menu a.login,
+#block-system-user-menu a.logout,
 #block-menu-block-1 ul li a.login,
 #block-menu-block-1 ul li a.logout {
   color: white;
-}
-
-/* line 92, ../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
 }
 
 /*

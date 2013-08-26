@@ -101,3 +101,27 @@ li a.active {
 
 .block-menu-block {
 }
+
+
+
+header#header section#navigation {
+  display: block;
+  line-height: 15px;
+  #block-menu-block-1 {
+    vertical-align: top;
+    display: inline-block;
+    ul li {
+      display: inline-block;
+      padding: 1em;
+      height: 100%;
+      border-right: 1px $text-color solid;
+      margin-right: .5em;
+    }
+  }
+  #block-system-user-menu {
+      vertical-align: bottom;
+    padding: 1em;
+    display: inline-block;
+  }
+}
+

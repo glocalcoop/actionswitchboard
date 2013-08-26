@@ -99,24 +99,12 @@ h1#site-name a:visited {
   clear: both;
   color: #7c7f7e;
 }
-/* line 84, ../sass/_type.scss */
-#block-system-user-menu a, #block-system-user-menu a:link, #block-system-user-menu a:visited,
-#block-menu-block-1 ul li a,
-#block-menu-block-1 ul li a:link,
-#block-menu-block-1 ul li a:visited {
-  color: inherit;
-  text-decoration: none;
-}
-/* line 88, ../sass/_type.scss */
-#block-system-user-menu a.login, #block-system-user-menu a.logout,
+/* line 86, ../sass/_type.scss */
+#block-system-user-menu a.login,
+#block-system-user-menu a.logout,
 #block-menu-block-1 ul li a.login,
 #block-menu-block-1 ul li a.logout {
   color: white;
-}
-
-/* line 92, ../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
 }
 
 /*
@@ -211,13 +199,15 @@ li a.active {
  */
 /* line 107, ../sass/navigation.scss */
 header#header section#navigation {
-  display: inline-block;
+  display: block;
+  line-height: 15px;
 }
-/* line 109, ../sass/navigation.scss */
+/* line 110, ../sass/navigation.scss */
 header#header section#navigation #block-menu-block-1 {
+  vertical-align: top;
   display: inline-block;
 }
-/* line 111, ../sass/navigation.scss */
+/* line 113, ../sass/navigation.scss */
 header#header section#navigation #block-menu-block-1 ul li {
   display: inline-block;
   padding: 1em;
@@ -225,7 +215,9 @@ header#header section#navigation #block-menu-block-1 ul li {
   border-right: 1px #7c7f7e solid;
   margin-right: .5em;
 }
-/* line 119, ../sass/navigation.scss */
+/* line 121, ../sass/navigation.scss */
 header#header section#navigation #block-system-user-menu {
+  vertical-align: bottom;
+  padding: 1em;
   display: inline-block;
 }

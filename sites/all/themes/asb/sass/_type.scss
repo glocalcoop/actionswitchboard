@@ -69,6 +69,21 @@ h1#site-name {
   }
 }
 
-a, a:link, a:visited {
-	text-decoration: none;
+#block-system-user-menu,
+#block-menu-block-1 ul li {
+  span.title {
+    font-size: 15px;
+    color: $nav-title-color;
+  }
+  span.username,
+  span.description {
+    display: block;
+    clear: both;
+    color: $nav-description-color;
+  }
+
+  a.login,
+  a.logout { color: $nav-title-color; }
+
 }
+
