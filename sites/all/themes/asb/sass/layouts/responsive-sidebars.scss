@@ -44,7 +44,7 @@ $zen-auto-include-item-base: false;
 header#header,
 #content article>header .wrapper,
 #content article>.wrapper,
-.scheme-collection-view .view-scheme-overview,
+#content .scheme-collection-view,
 #footer section.content,
 .messages__list{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
@@ -52,6 +52,7 @@ header#header,
   margin-right: auto;
   max-width: 960px;
 }
+
 
 // Apply the shared properties of grid items in a single, efficient ruleset.
 // #content,
@@ -95,7 +96,7 @@ header#header,
   }
 
   header section.content,
-  #content-wrapper,
+  #content .scheme-collection-view,
   #footer section.content {
     @include zen-grid-background();
     @include zen-grid-container();
@@ -110,10 +111,10 @@ header#header,
     @include zen-grid-item( 6, 0 );
   }
 
-  .front .scheme-collection-view {
-    @include zen-grid-item( 6, 0 );
-    // margin-left: 0;
-  }
+  // .front .scheme-collection-view {
+  //   @include zen-grid-item( 6, 0 );
+  //   // margin-left: 0;
+  // }
 
   .scheme-collection-view .views-row {
     @include zen-float();
@@ -161,10 +162,9 @@ header#header,
     @include zen-grid-item( 2, 6 );
   }
 
-  .front .scheme-collection-view {
-    @include zen-grid-item( 8, 0 );
-    margin-left: 0;
-  }
+  // .front .scheme-collection-view {
+  //   @include zen-grid-item( 8, 0 );
+  // }
 
   .scheme-collection-view .views-row {
     @include zen-float;
