@@ -91,7 +91,7 @@
 
           <section class="content">
           <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-          <?php if ($highlighted): ?>
+          <?php if (isset($highlighted)): ?>
             <?php print render($highlighted); ?>
           <?php endif; ?>
             <?php //print $breadcrumb; ?>

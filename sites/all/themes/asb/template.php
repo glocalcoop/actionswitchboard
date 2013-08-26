@@ -173,6 +173,9 @@ function asb_preprocess_node(&$variables, $hook) {
   if ($blocks = block_get_blocks_by_region('highlighted')) {
       $variables['highlighted'] = $blocks;
   }
+  $variables['action_links'] = menu_local_actions();
+  $variables['feed_icons'] = drupal_get_feeds();
+  $variables['tabs'] = menu_local_tabs();
 }
 
 /**
