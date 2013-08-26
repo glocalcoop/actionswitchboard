@@ -169,7 +169,6 @@ header#header,
   .scheme-collection-view .views-row {
     @include zen-float;
     @include zen-grid-flow-item( 2, 8 );
-    background: rgba( 255, 255,255, .4 )
   }
 
   #header-image-strip {

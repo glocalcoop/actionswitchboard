@@ -51,12 +51,16 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
 .front .scheme-collection {
     padding-bottom: 10px;
+    // @include zen-clear();
     &:nth-child(even) {
       @include zigzag-border ($even-backdrop, $odd-backdrop);
     }
     &:nth-child(odd) {
       @include zigzag-border ($odd-backdrop, $even-backdrop);
     }
+    // &:after {
+    //   @include zen-clear();
+    // }
   }
 
 .front .scheme-collection-view {
@@ -72,6 +76,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
   .view-content{
+    @include zen-clear();
 
     .views-row {
       border-right: 2px solid $rules-color; 

@@ -262,10 +262,9 @@ header#header,
     width: 240px;
     padding-left: 0;
     padding-right: 10px;
-    background: rgba(255, 255, 255, 0.4);
   }
 
-  /* line 175, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 174, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
     position: absolute;
     top: 73px;
@@ -275,7 +274,7 @@ header#header,
     z-index: -1;
     font-size: 0;
   }
-  /* line 183, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 182, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip img {
     display: inline-block;
     margin: 0;
