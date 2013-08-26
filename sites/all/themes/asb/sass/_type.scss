@@ -69,21 +69,22 @@ h1#site-name {
   }
 }
 
-#block-system-user-menu,
-#block-menu-block-1 ul li {
-  span.title {
-    font-size: 15px;
-    color: $nav-title-color;
-  }
-  span.username,
-  span.description {
-    display: block;
-    clear: both;
-    color: $nav-description-color;
-  }
+header#header {
+  #block-system-user-menu,
+  .block-menu-block ul li {
+    span.title {
+      font-size: 15px;
+      color: $nav-title-color;
+    }
+    span.username,
+    span.description {
+      display: block;
+      clear: both;
+      color: $nav-description-color;
+    }
 
-  a.login,
-  a.logout { color: $nav-title-color; }
-
+    a.login,
+    a.logout { color: $nav-title-color; }
+  }
 }
 

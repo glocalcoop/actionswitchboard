@@ -91,26 +91,26 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 74, ../sass/_type.scss */
-#block-system-user-menu span.title,
-#block-menu-block-1 ul li span.title {
+/* line 75, ../sass/_type.scss */
+header#header #block-system-user-menu span.title,
+header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 79, ../sass/_type.scss */
-#block-system-user-menu span.username,
-#block-system-user-menu span.description,
-#block-menu-block-1 ul li span.username,
-#block-menu-block-1 ul li span.description {
+/* line 80, ../sass/_type.scss */
+header#header #block-system-user-menu span.username,
+header#header #block-system-user-menu span.description,
+header#header .block-menu-block ul li span.username,
+header#header .block-menu-block ul li span.description {
   display: block;
   clear: both;
   color: #7c7f7e;
 }
-/* line 86, ../sass/_type.scss */
-#block-system-user-menu a.login,
-#block-system-user-menu a.logout,
-#block-menu-block-1 ul li a.login,
-#block-menu-block-1 ul li a.logout {
+/* line 87, ../sass/_type.scss */
+header#header #block-system-user-menu a.login,
+header#header #block-system-user-menu a.logout,
+header#header .block-menu-block ul li a.login,
+header#header .block-menu-block ul li a.logout {
   color: white;
 }
 
