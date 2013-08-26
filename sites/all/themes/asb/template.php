@@ -166,6 +166,13 @@ function asb_preprocess_node(&$variables, $hook) {
   if (function_exists($function)) {
     $function($variables, $hook);
   }
+  // dsm(block_get_blocks_by_region('sidebar_second'));
+  if ($blocks = block_get_blocks_by_region('sidebar_second')) {
+      $variables['sidebar_second'] = $blocks;
+  }
+  if ($blocks = block_get_blocks_by_region('highlighted')) {
+      $variables['highlighted'] = $blocks;
+  }
 }
 
 /**

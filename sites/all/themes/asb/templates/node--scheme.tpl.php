@@ -91,8 +91,9 @@
 
           <section class="content">
           <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-
-            <?php print render($page['highlighted']); ?>
+          <?php if ($highlighted): ?>
+            <?php print render($highlighted); ?>
+          <?php endif; ?>
             <?php //print $breadcrumb; ?>
             <a id="main-content"></a>
 
@@ -176,19 +177,16 @@
 
   </section>
 
-
-  <?php
-    // Render the sidebars to see if there's anything in them.
-    $sidebar_second = render($page['sidebar_second']);
-  ?>
-
+  <?php if($sidebar_second): ?>
   <aside id="sidebar">
-    <h1>Sidebar! Hi!</h1>
+    <?php
+      // Render the sidebars to see if there's anything in them.
+      print render($sidebar_second);
+    ?>
+b  </aside><!-- /.sidebars -->
+  <?php endif; ?>
 
-    <?php print $sidebar_second; ?>
-  </aside><!-- /.sidebars -->
 
-  
 </div>
 
 </article><!-- /.node -->
