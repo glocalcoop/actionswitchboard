@@ -98,11 +98,6 @@
 
             <?php print render($title_prefix); ?>
             
-            <section class="status-info">
-              <h6>Status:</h6>
-              <span class="state">Open</span>
-              <a href="editLink" class="icon edit">Edit</a>
-            </section>
 
             <?php if ($title): ?>
             <h1 class="title" id="page-title"><?php print $title; ?></h1>
@@ -110,46 +105,13 @@
 
             <?php print render($title_suffix); ?>
 
-            <section class="methods">
-              <a class="ui-button" href="Follow Scheme">Follow Scheme</a>
-              <a class="ui-button" href="Request Membership">Request Membership</a>
-            </section>
-
-
             <?php if ($action_links): ?>
             <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
             <?php print $feed_icons; ?>
 
           </section>
-
-          <aside class="scheme-meta">
-
-            <section class="created">
-              <h6>Created</h6>
-              <time>{{{Date created}}}</time>
-            </section>
-
-            <dl class="issue">
-              <dt>Issue</dt>
-              <dd>{{{Environment}}}</dd>
-            </dl>
-
-            <section class="goals">
-              <h6>Goals</h6>
-              <ul class="tags">
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-              </ul>
-            </section>
-
-          </aside>      
+    
 
         </div>
 
@@ -175,19 +137,6 @@
     <?php print render($content['comments']); ?>
 
   </section>
-
-
-  <?php
-    // Render the sidebars to see if there's anything in them.
-    $sidebar_second = render($page['sidebar_second']);
-  ?>
-
-  <aside id="sidebar">
-    <h1>Hi!</h1>
-
-    <?php print $sidebar_second; ?>
-  </aside><!-- /.sidebars -->
-
   
 </div>
 
