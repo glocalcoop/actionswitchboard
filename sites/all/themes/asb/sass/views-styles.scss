@@ -44,27 +44,22 @@
   }
 }
 
-// $needs-layout:horizontal; 
 $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @import "needs/*.png"; 
 @include all-needs-sprites;
 
-.front .scheme-collection {
+.scheme-collection {
+    @include zen-grid-container;
     padding-bottom: 10px;
-    // @include zen-clear();
     &:nth-child(even) {
       @include zigzag-border ($even-backdrop, $odd-backdrop);
     }
     &:nth-child(odd) {
       @include zigzag-border ($odd-backdrop, $even-backdrop);
     }
-    // &:after {
-    //   @include zen-clear();
-    // }
   }
 
-.front .scheme-collection-view {
-  // border: 1px solid red; //debugging
+.scheme-collection-view {
   color: $text-color;
 
   a {
@@ -81,6 +76,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     .views-row {
       border-right: 2px solid $rules-color; 
       padding: 0 10px;
+      height: 275px;
 
       .field-image img {
         width: 100%;
@@ -89,6 +85,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
         &.views-row-first {
           &.before {
+            margin-left: -33px;
             content: " < ";
           }
         }

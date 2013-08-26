@@ -142,31 +142,40 @@ a, a:link, a:visited {
 }
 
 /* line 58, needs/*.png */
-.needs-sprite, .needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds, .needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills, .needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
+.needs-sprite, .needs-funds, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds, .needs-skills, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills, .needs-supplies, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
   background: url('../images/needs-sa39b67d2f3.png') no-repeat;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.needs-funds, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
+.needs-funds, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
   background-position: 0 -12px;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.needs-skills, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
+.needs-skills, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-skills {
   background-position: 0 -24px;
 }
 
 /* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.needs-supplies, .front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
+.needs-supplies, .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-supplies {
   background-position: 0 0;
 }
 
-/* line 52, ../sass/views-styles.scss */
-.front .scheme-collection {
+/* line 51, ../sass/views-styles.scss */
+.scheme-collection {
   padding-bottom: 10px;
 }
-/* line 55, ../sass/views-styles.scss */
-.front .scheme-collection:nth-child(even) {
+/* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.scheme-collection:before, .scheme-collection:after {
+  content: "";
+  display: table;
+}
+/* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.scheme-collection:after {
+  clear: both;
+}
+/* line 54, ../sass/views-styles.scss */
+.scheme-collection:nth-child(even) {
   background: linear-gradient(-140deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(140deg, #ffffff 5px, #eff0f0 0%) 0 5px;
   background-image: -webkit-gradient(-140deg, white 5px, transparent 0) 0 5px, -webkit-gradient(140deg, white 5px, #eff0f0 0) 0 5px;
   background-color: white;
@@ -176,8 +185,8 @@ a, a:link, a:visited {
   background-repeat: repeat-x;
   background-size: 15px 15px;
 }
-/* line 58, ../sass/views-styles.scss */
-.front .scheme-collection:nth-child(odd) {
+/* line 57, ../sass/views-styles.scss */
+.scheme-collection:nth-child(odd) {
   background: linear-gradient(-140deg, #eff0f0 5px, transparent 0%) 0 5px, linear-gradient(140deg, #eff0f0 5px, #ffffff 0%) 0 5px;
   background-image: -webkit-gradient(-140deg, #eff0f0 5px, transparent 0) 0 5px, -webkit-gradient(140deg, #eff0f0 5px, white 0) 0 5px;
   background-color: #eff0f0;
@@ -188,59 +197,61 @@ a, a:link, a:visited {
   background-size: 15px 15px;
 }
 
-/* line 66, ../sass/views-styles.scss */
-.front .scheme-collection-view {
+/* line 62, ../sass/views-styles.scss */
+.scheme-collection-view {
   color: #7c7f7e;
 }
-/* line 70, ../sass/views-styles.scss */
-.front .scheme-collection-view a {
+/* line 65, ../sass/views-styles.scss */
+.scheme-collection-view a {
   color: #f15d38;
 }
-/* line 78, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content {
+/* line 73, ../sass/views-styles.scss */
+.scheme-collection-view .view-content {
   clear: left;
 }
-/* line 81, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row {
+/* line 76, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row {
   border-right: 2px solid #e8e8e8;
   padding: 0 10px;
+  height: 275px;
 }
-/* line 85, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .field-image img {
+/* line 81, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .field-image img {
   width: 100%;
   max-width: 220px;
   height: auto;
 }
-/* line 91, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row.views-row-first.before {
+/* line 87, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row.views-row-first.before {
+  margin-left: -33px;
   content: " < ";
 }
-/* line 95, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row.views-row-last {
+/* line 92, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row.views-row-last {
   border-right: none;
 }
-/* line 97, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row.views-row-last.after {
+/* line 94, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row.views-row-last.after {
   content: " > ";
 }
-/* line 101, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row h3.scheme-name {
+/* line 98, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row h3.scheme-name {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
   text-transform: none;
   font-size: 13px;
   margin: 0;
 }
-/* line 109, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-leader:before {
+/* line 106, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-leader:before {
   content: "by ";
 }
-/* line 113, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .field-body p {
+/* line 110, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .field-body p {
   margin: 5px 0 12px 0;
 }
-/* line 116, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info {
+/* line 113, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-info {
   margin-top: 6px;
   padding: 4px 0;
   line-height: 12px;
@@ -249,8 +260,8 @@ a, a:link, a:visited {
   border-top-width: 1px;
   border-top-style: solid;
 }
-/* line 126, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info h4 {
+/* line 123, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-info h4 {
   float: left;
   margin: 0 10px 0 0;
   padding: 0;
@@ -260,15 +271,15 @@ a, a:link, a:visited {
   color: gray;
   font-size: 9.96px;
 }
-/* line 137, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
+/* line 134, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0;
   margin: 0;
   list-style-type: none;
   float: left;
 }
-/* line 143, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
+/* line 140, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
   padding-right: 10px;
@@ -285,7 +296,7 @@ a, a:link, a:visited {
   margin-right: 0;
   font-weight: bold;
 }
-/* line 155, ../sass/views-styles.scss */
-.front .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
+/* line 152, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
   white-space: nowrap;
 }
