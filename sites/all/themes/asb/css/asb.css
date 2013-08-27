@@ -182,13 +182,13 @@ body header#header section#navigation {
 
 /* line 75, ../sass/asb.scss */
 .front header#header {
-  height: 201px;
+  height: 75px;
 }
-/* line 79, ../sass/asb.scss */
+/* line 80, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 81, ../sass/asb.scss */
+/* line 82, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
@@ -196,25 +196,25 @@ body header#header section#navigation {
   z-index: 10;
 }
 
-/* line 91, ../sass/asb.scss */
+/* line 92, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 96, ../sass/asb.scss */
+/* line 97, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
 }
 
-/* line 98, ../sass/asb.scss */
+/* line 99, ../sass/asb.scss */
 ul.tags {
   list-style: none;
 }
-/* line 100, ../sass/asb.scss */
+/* line 101, ../sass/asb.scss */
 ul.tags li {
   display: inline-block;
 }
-/* line 102, ../sass/asb.scss */
+/* line 103, ../sass/asb.scss */
 ul.tags li a {
   display: block;
   padding: .25em .5em;
