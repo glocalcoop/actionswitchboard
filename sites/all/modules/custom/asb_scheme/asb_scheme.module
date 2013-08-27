@@ -156,8 +156,7 @@ function asb_scheme_node_links() {
     }
   }
 
-  $content = og_node_create_links($group['group_type'], $group['gid'], OG_AUDIENCE_FIELD, NULL, $types);
-
+  $content = og_node_create_links($group['group_type'], $group['gid'], OG_AUDIENCE_FIELD, NULL, NULL);
   return drupal_render($content);
 }
 
@@ -171,6 +170,46 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         '#weight' => 100, // place it at the bottom
         '#markup' => '<div class="add-goal">' .l('Recommend a goal', 'node/add/goal', array('query' => array('field_issue_reference' => $node->nid))) .'</div>',
       );
+    case 'scheme':
+      if (isset($node->field_issues_goals['und'])) {
+        $issues_goals = asb_scheme_format_issues_goals($node);
+        /* Add markup for issues */
+        $node->content['issues'] = array(
+          '#weight' => -100,
+          '#markup' => $issues_goals['issues'],
+        );
+        /* Add markup for goals */
+        $node->content['goals'] = array(
+          '#weight' => -99,
+          '#markup' => $issues_goals['goals'],
+        );
+      }
+      /* Here we unset images if a video exists. */
+      if (isset($node->content['field_video'])) {
+          unset($node->content['field_image']);
+      }
+      $node->content['format_created'] = array(
+        '#weight' => -101,
+        '#markup' => date('j/m/y', $node->created),
+      );
+      $node->content['group_group'][0]['#title'] = "Request Membership";
       break;
   }
+}
+
+/**
+ * Format issues and goals for a scheme.
+ */
+function asb_scheme_format_issues_goals($node) {
+  $output['issues'] = '';
+  $output['goals'] = '';
+  foreach ($node->field_issues_goals['und'] as $key => $value) {
+    if ($value['entity']->type == 'issue') {
+      $output['issues'] = $value['entity']->title;
+    }elseif ($value['entity']->type == 'goal') {
+      $output['goals'] .= '<li><a href="/node/"' .$value['target_id'] .'>'
+        .$value['entity']->title .'</a></li>';
+    }
+  }
+  return $output;
 }

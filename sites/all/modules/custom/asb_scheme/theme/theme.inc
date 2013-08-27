@@ -85,7 +85,7 @@ function asb_scheme_preprocess_asb_scheme_group_info(&$variables) {
 /**
  * Create variables for the group links block.
  */
-function asb_scheme_preprocess_og_extras_group_links(&$variables) {
+function asb_scheme_preprocess_asb_scheme_group_links(&$variables) {
   $group = og_context();
 
   $variables['group_node_links'] = array();
@@ -96,7 +96,7 @@ function asb_scheme_preprocess_og_extras_group_links(&$variables) {
   if (empty($group)) {
     return NULL;
   }
-  $variables['group_node_links'] = og_extras_node_links();
+  $variables['group_node_links'] = asb_scheme_node_links();
   $variables['gid'] = $group['gid'];
   $variables['group_type'] = $group['group_type'];
   $variables['group_node'] = node_load($group['gid']);

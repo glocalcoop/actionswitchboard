@@ -82,8 +82,11 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
-dsm($content);
-
+hide($content['field_issues_goals']);
+hide($content['issues']);
+hide($content['goals']);
+hide($content['format_created']);
+hide($content['group_group']);
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -103,8 +106,8 @@ dsm($content);
             
             <section class="status-info">
               <h6>Status:</h6>
-              <span class="state">Open</span>
-              <a href="editLink" class="icon edit">Edit</a>
+              <span class="state"><?php print $node->workflow_state_name; ?></span>
+              <a href="<?php print '/node/' .$node->nid .'/edit'; ?>" class="icon edit">Edit</a>
             </section>
 
             <?php if ($title): ?>
@@ -114,8 +117,10 @@ dsm($content);
             <?php print render($title_suffix); ?>
 
             <section class="methods">
-              <a class="ui-button" href="Follow Scheme">Follow Scheme</a>
-              <a class="ui-button" href="Request Membership">Request Membership</a>
+              <ul id="ui-button">
+              <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
+              
+              <li class="ui-button"><?php print render($content['group_group']); ?></li>
             </section>
 
 
@@ -130,25 +135,18 @@ dsm($content);
 
             <section class="created">
               <h6>Created</h6>
-              <time>{{{Date created}}}</time>
+              <time><?php print render($content['format_created']); ?></time>
             </section>
 
             <dl class="issue">
               <dt>Issue</dt>
-              <dd>{{{Environment}}}</dd>
+              <dd><?php print render($content['issues']); ?></dd>
             </dl>
 
             <section class="goals">
               <h6>Goals</h6>
               <ul class="tags">
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
-                <li><a href="{{{#}}}">Goal</a></li>
+              <?php print render($content['goals']); ?>
               </ul>
             </section>
 
@@ -185,7 +183,7 @@ dsm($content);
       // Render the sidebars to see if there's anything in them.
       print render($sidebar_second);
     ?>
-b  </aside><!-- /.sidebars -->
+  </aside><!-- /.sidebars -->
   <?php endif; ?>
 
 
