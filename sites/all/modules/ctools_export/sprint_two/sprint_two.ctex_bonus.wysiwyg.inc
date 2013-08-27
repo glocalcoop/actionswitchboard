@@ -15,25 +15,25 @@ function sprint_two_drush_ctex_bonus_wysiwyg() {
   $wysiwyg['filtered_html'] = array(
     'format' => 'filtered_html',
     'editor' => '',
-    'settings' => NULL,
+    'settings' => 'N;',
   );
 
   $wysiwyg['full_html'] = array(
     'format' => 'full_html',
     'editor' => '',
-    'settings' => NULL,
+    'settings' => 'N;',
   );
 
   $wysiwyg['php_code'] = array(
     'format' => 'php_code',
     'editor' => '',
-    'settings' => NULL,
+    'settings' => 'N;',
   );
 
   $wysiwyg['plain_text'] = array(
     'format' => 'plain_text',
     'editor' => '',
-    'settings' => NULL,
+    'settings' => 'N;',
   );
 
   return $wysiwyg;

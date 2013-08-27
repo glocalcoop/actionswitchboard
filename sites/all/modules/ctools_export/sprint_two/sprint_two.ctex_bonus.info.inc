@@ -36,6 +36,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'media_internet',
     'menu',
     'message',
+    'modernizr',
     'msnf',
     'multiupload_imagefield_widget',
     'node',

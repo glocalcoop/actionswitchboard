@@ -42,7 +42,7 @@ function sprint_two_drush_ctex_bonus_ctypes() {
     'modified' => '1',
     'locked' => '0',
     'disabled' => '0',
-    'orig_type' => 'docs',
+    'orig_type' => 'document',
     'disabled_changed' => FALSE,
   );
 
