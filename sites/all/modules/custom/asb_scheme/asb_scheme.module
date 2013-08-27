@@ -161,3 +161,16 @@ function asb_scheme_node_links() {
   return drupal_render($content);
 }
 
+/**
+ * Implements hook_node_view
+ */
+function asb_scheme_node_view($node, $view_mode, $langcode){
+  switch ($node->type) {
+    case 'issue':
+      $node->content['links']['issue_reference_link'] = array(
+        '#weight' => 100, // place it at the bottom
+        '#markup' => '<div class="add-goal">' .l('Recommend a goal', 'node/add/goal', array('query' => array('field_issue_reference' => $node->nid))) .'</div>',
+      );
+      break;
+  }
+}
