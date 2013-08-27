@@ -82,6 +82,8 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
+dsm($content);
+
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 

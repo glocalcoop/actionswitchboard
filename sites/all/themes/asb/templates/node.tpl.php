@@ -90,15 +90,16 @@
         <div class="wrapper">
 
           <section class="content">
-          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || $title): ?>
 
-            <?php print render($page['highlighted']); ?>
-            <?php //print $breadcrumb; ?>
+            <?php if (isset($highlighted)): ?>
+              <?php print $highlighted; ?>
+            <?php endif; ?>
+
             <a id="main-content"></a>
-
+            
             <?php print render($title_prefix); ?>
             
-
             <?php if ($title): ?>
             <h1 class="title" id="page-title"><?php print $title; ?></h1>
             <?php endif; ?>
@@ -132,9 +133,9 @@
       print render($content);
     ?>
 
-    <?php print render($content['links']); ?>
+  <?php print render($content['links']); ?>
 
-    <?php print render($content['comments']); ?>
+  <?php print render($content['comments']); ?>
 
   </section>
   
