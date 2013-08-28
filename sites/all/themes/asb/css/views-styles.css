@@ -254,17 +254,23 @@ header#header .block-menu-block ul li a.logout {
 }
 /* line 97, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row {
-  border-right: 2px solid #e8e8e8;
+  border-right-color: #e8e8e8;
+  border-right-width: 2px;
+  border-right-style: solid;
   padding: 0 10px;
   height: 275px;
 }
-/* line 101, ../sass/views-styles.scss */
+/* line 103, ../sass/views-styles.scss */
+.scheme-collection-view .view-content .views-row:last-child {
+  border: none;
+}
+/* line 107, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .field-image img {
   width: 100%;
   max-width: 220px;
   height: auto;
 }
-/* line 106, ../sass/views-styles.scss */
+/* line 112, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row h3.scheme-name {
   font-family: SourceSansPro, Tahoma, sans-serif;
   font-weight: bold;
@@ -272,15 +278,15 @@ header#header .block-menu-block ul li a.logout {
   font-size: 13px;
   margin: 0;
 }
-/* line 114, ../sass/views-styles.scss */
+/* line 120, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-leader:before {
   content: "by ";
 }
-/* line 118, ../sass/views-styles.scss */
+/* line 124, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .field-body p {
   margin: 5px 0 12px 0;
 }
-/* line 121, ../sass/views-styles.scss */
+/* line 127, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info {
   margin-top: 6px;
   padding: 4px 0;
@@ -290,7 +296,7 @@ header#header .block-menu-block ul li a.logout {
   border-top-width: 1px;
   border-top-style: solid;
 }
-/* line 131, ../sass/views-styles.scss */
+/* line 137, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info h4 {
   float: left;
   margin: 0 10px 0 0;
@@ -301,14 +307,14 @@ header#header .block-menu-block ul li a.logout {
   color: gray;
   font-size: 9.96px;
 }
-/* line 142, ../sass/views-styles.scss */
+/* line 148, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs {
   padding: 0;
   margin: 0;
   list-style-type: none;
   float: left;
 }
-/* line 148, ../sass/views-styles.scss */
+/* line 154, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li {
   float: left;
   padding-left: 10px;
@@ -326,7 +332,7 @@ header#header .block-menu-block ul li a.logout {
   margin-right: 0;
   font-weight: bold;
 }
-/* line 160, ../sass/views-styles.scss */
+/* line 166, ../sass/views-styles.scss */
 .scheme-collection-view .view-content .views-row .scheme-info ul.scheme-needs li.needed-funds {
   white-space: nowrap;
 }

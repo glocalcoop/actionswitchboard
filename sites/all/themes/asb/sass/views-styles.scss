@@ -95,9 +95,15 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include zen-clear();
 
     .views-row {
-      border-right: 2px solid $rules-color; 
+      border-right: {
+        @include standard-border($rules-color, 2px);
+      }
       padding: 0 10px;
       height: 275px;
+      &:last-child {
+        border: none;
+      }
+
       .field-image img {
         width: 100%;
         max-width: 220px;
