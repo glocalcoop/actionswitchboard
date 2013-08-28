@@ -153,7 +153,7 @@
     style: solid;
 }
 
-@mixin zigzag-border ($foreground-color: #333538, $background-color: #fff, $angle: 45deg, $size: 12px) {
+@mixin zigzag-border ($foreground-color: $odd-backdrop, $background-color: $even-backdrop, $angle: 135deg, $size: 12px) {
     background:
       linear-gradient(-$angle, $foreground-color 5px, transparent 0) 0 5px,
       linear-gradient($angle, $foreground-color 5px, $background-color 0) 0 5px;

@@ -194,8 +194,8 @@ header#header .block-menu-block ul li a.logout {
 }
 /* line 54, ../sass/views-styles.scss */
 .scheme-collection:nth-child(even) {
-  background: linear-gradient(-45deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(45deg, #ffffff 5px, #eff0f0 0%) 0 5px;
-  background-image: -webkit-gradient(-45deg, white 5px, transparent 0) 0 5px, -webkit-gradient(45deg, white 5px, #eff0f0 0) 0 5px;
+  background: linear-gradient(-135deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #eff0f0 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #eff0f0 0) 0 5px;
   background-color: white;
   background-position: left bottom;
   background-position-x: left;
@@ -205,8 +205,8 @@ header#header .block-menu-block ul li a.logout {
 }
 /* line 57, ../sass/views-styles.scss */
 .scheme-collection:nth-child(odd) {
-  background: linear-gradient(-45deg, #eff0f0 5px, transparent 0%) 0 5px, linear-gradient(45deg, #eff0f0 5px, #ffffff 0%) 0 5px;
-  background-image: -webkit-gradient(-45deg, #eff0f0 5px, transparent 0) 0 5px, -webkit-gradient(45deg, #eff0f0 5px, white 0) 0 5px;
+  background: linear-gradient(-135deg, #eff0f0 5px, transparent 0%) 0 5px, linear-gradient(135deg, #eff0f0 5px, #ffffff 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, #eff0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #eff0f0 5px, white 0) 0 5px;
   background-color: #eff0f0;
   background-position: left bottom;
   background-position-x: left;
