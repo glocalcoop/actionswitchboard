@@ -209,8 +209,8 @@ function sprint_two_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '200',
-          'height' => '150',
+          'width' => '214',
+          'height' => '123',
         ),
         'weight' => '1',
       ),

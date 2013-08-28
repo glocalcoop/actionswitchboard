@@ -1701,7 +1701,7 @@ function sprint_two_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Popular';
+  $handler->display->display_options['title'] = 'Recently Added';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1846,8 +1846,6 @@ function sprint_two_views_default_views() {
 
   /* Display: SO Recent */
   $handler = $view->new_display('block', 'SO Recent', 'block_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recently Added';
   $handler->display->display_options['display_description'] = 'Display a recent list of schemes.';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
@@ -1893,6 +1891,22 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_location']['element_wrapper_class'] = 'scheme-location';
+  $handler->display->display_options['fields']['field_location']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_location']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_location']['delta_offset'] = '1';
+  $handler->display->display_options['fields']['field_location']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_location']['field_api_classes'] = TRUE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -1900,7 +1914,8 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_type'] = '0';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'scheme-description';
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
@@ -1915,7 +1930,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_people_needs']['label'] = '';
   $handler->display->display_options['fields']['field_people_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_people_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_people_needs']['alter']['alt'] = 'People Needs';
   $handler->display->display_options['fields']['field_people_needs']['alter']['link_class'] = 'icon skills';
@@ -1932,7 +1946,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_material_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_material_needs']['label'] = '';
   $handler->display->display_options['fields']['field_material_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_material_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_material_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_material_needs']['alter']['alt'] = 'Material Needs';
   $handler->display->display_options['fields']['field_material_needs']['alter']['link_class'] = 'icon supplies';
@@ -1951,7 +1964,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_funding_needs']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['text'] = '$[field_funding_needs]';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alt'] = 'Funding Needs';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['link_class'] = 'icon funds';
@@ -1964,7 +1976,9 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info"><ul class="scheme-needs"><li class="skills-needed">[field_people_needs]</li><li class="supplies-needed">[field_material_needs]</li><li class="funds-needed">[field_funding_needs]</li></ul></div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info">
+<h4>Needs</h4>
+<ul class="scheme-needs"><li class="needed-skills">[field_people_needs]</li><li class="needed-supplies">[field_material_needs]</li><li class="needed-funds">[field_funding_needs]</li></ul></div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
@@ -1974,9 +1988,12 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
   /* Display: SO Popular */
   $handler = $view->new_display('block', 'SO Popular', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Popular';
   $handler->display->display_options['display_description'] = 'Display a popular list of schemes.';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
@@ -2022,6 +2039,22 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_location']['element_wrapper_class'] = 'scheme-location';
+  $handler->display->display_options['fields']['field_location']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_location']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_location']['delta_offset'] = '1';
+  $handler->display->display_options['fields']['field_location']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_location']['field_api_classes'] = TRUE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -2029,7 +2062,8 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_type'] = '0';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'scheme-description';
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
@@ -2044,7 +2078,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_people_needs']['label'] = '';
   $handler->display->display_options['fields']['field_people_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_people_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_people_needs']['alter']['alt'] = 'People Needs';
   $handler->display->display_options['fields']['field_people_needs']['alter']['link_class'] = 'icon skills';
@@ -2061,7 +2094,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_material_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_material_needs']['label'] = '';
   $handler->display->display_options['fields']['field_material_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_material_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_material_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_material_needs']['alter']['alt'] = 'Material Needs';
   $handler->display->display_options['fields']['field_material_needs']['alter']['link_class'] = 'icon supplies';
@@ -2080,7 +2112,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_funding_needs']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['text'] = '$[field_funding_needs]';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alt'] = 'Funding Needs';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['link_class'] = 'icon funds';
@@ -2093,150 +2124,19 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info"><ul class="scheme-needs"><li class="skills-needed">[field_people_needs]</li><li class="supplies-needed">[field_material_needs]</li><li class="funds-needed">[field_funding_needs]</li></ul></div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info">
+<h4>Needs</h4>
+<ul class="scheme-needs"><li class="needed-skills">[field_people_needs]</li><li class="needed-supplies">[field_material_needs]</li><li class="needed-funds">[field_funding_needs]</li></ul></div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-
-  /* Display: SO Featured */
-  $handler = $view->new_display('block', 'SO Featured', 'block_3');
-  $handler->display->display_options['display_description'] = 'Display a list of featured schemes.';
-  $handler->display->display_options['defaults']['group_by'] = FALSE;
-  $handler->display->display_options['group_by'] = TRUE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
-  $handler->display->display_options['fields']['path']['id'] = 'path';
-  $handler->display->display_options['fields']['path']['table'] = 'node';
-  $handler->display->display_options['fields']['path']['field'] = 'path';
-  $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['path']['element_type'] = '0';
-  $handler->display->display_options['fields']['path']['element_label_type'] = '0';
-  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['path']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
-  /* Field: Content: Images */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'scheme_overview',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_image']['group_column'] = 'entity_id';
-  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_class'] = 'scheme-name';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['element_type'] = '0';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '600',
-  );
-  $handler->display->display_options['fields']['body']['group_column'] = 'entity_id';
-  $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
-  /* Field: Content: People Needs */
-  $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['group_type'] = 'count_distinct';
-  $handler->display->display_options['fields']['field_people_needs']['label'] = '';
-  $handler->display->display_options['fields']['field_people_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs']['alter']['path'] = '[path]';
-  $handler->display->display_options['fields']['field_people_needs']['alter']['alt'] = 'People Needs';
-  $handler->display->display_options['fields']['field_people_needs']['alter']['link_class'] = 'icon skills';
-  $handler->display->display_options['fields']['field_people_needs']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_people_needs']['element_class'] = 'people-needs';
-  $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['separator'] = ', ';
-  /* Field: Content: Material Needs */
-  $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
-  $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
-  $handler->display->display_options['fields']['field_material_needs']['field'] = 'field_material_needs';
-  $handler->display->display_options['fields']['field_material_needs']['group_type'] = 'count_distinct';
-  $handler->display->display_options['fields']['field_material_needs']['label'] = '';
-  $handler->display->display_options['fields']['field_material_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_material_needs']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_material_needs']['alter']['path'] = '[path]';
-  $handler->display->display_options['fields']['field_material_needs']['alter']['alt'] = 'Material Needs';
-  $handler->display->display_options['fields']['field_material_needs']['alter']['link_class'] = 'icon supplies';
-  $handler->display->display_options['fields']['field_material_needs']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_material_needs']['element_class'] = 'supplies-needed';
-  $handler->display->display_options['fields']['field_material_needs']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_material_needs']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_material_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_material_needs']['separator'] = ', ';
-  /* Field: Content: Funding Needs */
-  $handler->display->display_options['fields']['field_funding_needs']['id'] = 'field_funding_needs';
-  $handler->display->display_options['fields']['field_funding_needs']['table'] = 'field_data_field_funding_needs';
-  $handler->display->display_options['fields']['field_funding_needs']['field'] = 'field_funding_needs';
-  $handler->display->display_options['fields']['field_funding_needs']['group_type'] = 'sum';
-  $handler->display->display_options['fields']['field_funding_needs']['label'] = '';
-  $handler->display->display_options['fields']['field_funding_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['text'] = '$[field_funding_needs]';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['path'] = '[path]';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['alt'] = 'Funding Needs';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['link_class'] = 'icon funds';
-  $handler->display->display_options['fields']['field_funding_needs']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_funding_needs']['element_class'] = 'funds-need';
-  $handler->display->display_options['fields']['field_funding_needs']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_funding_needs']['element_default_classes'] = FALSE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info"><ul class="scheme-needs"><li class="skills-needed">[field_people_needs]</li><li class="supplies-needed">[field_material_needs]</li><li class="funds-needed">[field_funding_needs]</li></ul></div>';
-  $handler->display->display_options['fields']['nothing']['element_type'] = '0';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
   /* Display: SO Completed */
-  $handler = $view->new_display('block', 'SO Completed', 'block_4');
+  $handler = $view->new_display('block', 'SO Completed', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Recently Completed';
   $handler->display->display_options['display_description'] = 'Display a list of completed schemes.';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
@@ -2282,6 +2182,22 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_location']['element_wrapper_class'] = 'scheme-location';
+  $handler->display->display_options['fields']['field_location']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_location']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_location']['delta_offset'] = '1';
+  $handler->display->display_options['fields']['field_location']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_location']['field_api_classes'] = TRUE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -2289,7 +2205,8 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_type'] = '0';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'scheme-description';
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
@@ -2304,7 +2221,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_people_needs']['label'] = '';
   $handler->display->display_options['fields']['field_people_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_people_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_people_needs']['alter']['alt'] = 'People Needs';
   $handler->display->display_options['fields']['field_people_needs']['alter']['link_class'] = 'icon skills';
@@ -2321,7 +2237,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_material_needs']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['field_material_needs']['label'] = '';
   $handler->display->display_options['fields']['field_material_needs']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_material_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_material_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_material_needs']['alter']['alt'] = 'Material Needs';
   $handler->display->display_options['fields']['field_material_needs']['alter']['link_class'] = 'icon supplies';
@@ -2340,7 +2255,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_funding_needs']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['text'] = '$[field_funding_needs]';
-  $handler->display->display_options['fields']['field_funding_needs']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_funding_needs']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['alt'] = 'Funding Needs';
   $handler->display->display_options['fields']['field_funding_needs']['alter']['link_class'] = 'icon funds';
@@ -2353,17 +2267,157 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info"><ul class="scheme-needs"><li class="skills-needed">[field_people_needs]</li><li class="supplies-needed">[field_material_needs]</li><li class="funds-needed">[field_funding_needs]</li></ul></div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info">
+<h4>Needs</h4>
+<ul class="scheme-needs"><li class="needed-skills">[field_people_needs]</li><li class="needed-supplies">[field_material_needs]</li><li class="needed-funds">[field_funding_needs]</li></ul></div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+
+  /* Display: SO Featured */
+  $handler = $view->new_display('block', 'SO Featured', 'block_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Featured Schemes';
+  $handler->display->display_options['display_description'] = 'Display a list of featured schemes.';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_type'] = '0';
+  $handler->display->display_options['fields']['path']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
+  /* Field: Content: Images */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'scheme_overview',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_image']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'scheme-name';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_location']['element_wrapper_class'] = 'scheme-location';
+  $handler->display->display_options['fields']['field_location']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_location']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_location']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_location']['delta_offset'] = '1';
+  $handler->display->display_options['fields']['field_location']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_location']['field_api_classes'] = TRUE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'scheme-description';
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
+  $handler->display->display_options['fields']['body']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
+  /* Field: Content: People Needs */
+  $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['field_people_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_people_needs']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_people_needs']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_people_needs']['alter']['alt'] = 'People Needs';
+  $handler->display->display_options['fields']['field_people_needs']['alter']['link_class'] = 'icon skills';
+  $handler->display->display_options['fields']['field_people_needs']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_people_needs']['element_class'] = 'people-needs';
+  $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['separator'] = ', ';
+  /* Field: Content: Material Needs */
+  $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['field'] = 'field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['field_material_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_material_needs']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_material_needs']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_material_needs']['alter']['alt'] = 'Material Needs';
+  $handler->display->display_options['fields']['field_material_needs']['alter']['link_class'] = 'icon supplies';
+  $handler->display->display_options['fields']['field_material_needs']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_material_needs']['element_class'] = 'supplies-needed';
+  $handler->display->display_options['fields']['field_material_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_material_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_material_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_material_needs']['separator'] = ', ';
+  /* Field: Content: Funding Needs */
+  $handler->display->display_options['fields']['field_funding_needs']['id'] = 'field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['table'] = 'field_data_field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['field'] = 'field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['group_type'] = 'sum';
+  $handler->display->display_options['fields']['field_funding_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_funding_needs']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_funding_needs']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_funding_needs']['alter']['text'] = '$[field_funding_needs]';
+  $handler->display->display_options['fields']['field_funding_needs']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_funding_needs']['alter']['alt'] = 'Funding Needs';
+  $handler->display->display_options['fields']['field_funding_needs']['alter']['link_class'] = 'icon funds';
+  $handler->display->display_options['fields']['field_funding_needs']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_funding_needs']['element_class'] = 'funds-need';
+  $handler->display->display_options['fields']['field_funding_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_funding_needs']['element_default_classes'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="scheme-info">
+<h4>Needs</h4>
+<ul class="scheme-needs"><li class="needed-skills">[field_people_needs]</li><li class="needed-supplies">[field_material_needs]</li><li class="needed-funds">[field_funding_needs]</li></ul></div>';
+  $handler->display->display_options['fields']['nothing']['element_type'] = '0';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
   $views['scheme_overview'] = $view;
 
   $view = new view();

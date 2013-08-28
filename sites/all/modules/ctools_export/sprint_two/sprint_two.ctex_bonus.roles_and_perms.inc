@@ -110,6 +110,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'administer media' => TRUE,
       'administer menu' => TRUE,
       'administer message types' => TRUE,
+      'administer modernizr' => TRUE,
       'administer modules' => TRUE,
       'administer nodes' => TRUE,
       'administer pathauto' => TRUE,

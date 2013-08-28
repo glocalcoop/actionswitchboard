@@ -80,26 +80,26 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 74, ../sass/_type.scss */
-#block-system-user-menu span.title,
-#block-menu-block-1 ul li span.title {
+/* line 75, ../sass/_type.scss */
+header#header #block-system-user-menu span.title,
+header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 79, ../sass/_type.scss */
-#block-system-user-menu span.username,
-#block-system-user-menu span.description,
-#block-menu-block-1 ul li span.username,
-#block-menu-block-1 ul li span.description {
+/* line 80, ../sass/_type.scss */
+header#header #block-system-user-menu span.username,
+header#header #block-system-user-menu span.description,
+header#header .block-menu-block ul li span.username,
+header#header .block-menu-block ul li span.description {
   display: block;
   clear: both;
   color: #7c7f7e;
 }
-/* line 86, ../sass/_type.scss */
-#block-system-user-menu a.login,
-#block-system-user-menu a.logout,
-#block-menu-block-1 ul li a.login,
-#block-menu-block-1 ul li a.logout {
+/* line 87, ../sass/_type.scss */
+header#header #block-system-user-menu a.login,
+header#header #block-system-user-menu a.logout,
+header#header .block-menu-block ul li a.login,
+header#header .block-menu-block ul li a.logout {
   color: white;
 }
 
@@ -173,13 +173,13 @@ body header#header section#navigation {
 
 /* line 66, ../sass/asb.scss */
 .front header#header {
-  height: 201px;
+  height: 75px;
 }
-/* line 70, ../sass/asb.scss */
+/* line 71, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 72, ../sass/asb.scss */
+/* line 73, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
@@ -187,25 +187,25 @@ body header#header section#navigation {
   z-index: 10;
 }
 
-/* line 82, ../sass/asb.scss */
+/* line 83, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 88, ../sass/asb.scss */
+/* line 89, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
 }
 
-/* line 90, ../sass/asb.scss */
+/* line 91, ../sass/asb.scss */
 ul.tags {
   list-style: none;
 }
-/* line 92, ../sass/asb.scss */
+/* line 93, ../sass/asb.scss */
 ul.tags li {
   display: inline-block;
 }
-/* line 94, ../sass/asb.scss */
+/* line 95, ../sass/asb.scss */
 ul.tags li a {
   display: block;
   padding: .25em .5em;

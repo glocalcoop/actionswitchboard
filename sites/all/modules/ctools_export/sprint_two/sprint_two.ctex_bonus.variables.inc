@@ -412,7 +412,7 @@ function sprint_two_drush_ctex_bonus_variables() {
         'og_extras_nodes_entity_view_1' => array(
           'default' => array(
             'weight' => '10',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '10',
@@ -421,8 +421,8 @@ function sprint_two_drush_ctex_bonus_variables() {
         ),
         'workflow_current_state' => array(
           'default' => array(
-            'weight' => '-99',
-            'visible' => TRUE,
+            'weight' => '5',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '-99',
@@ -431,8 +431,8 @@ function sprint_two_drush_ctex_bonus_variables() {
         ),
         'workflow' => array(
           'default' => array(
-            'weight' => '99',
-            'visible' => TRUE,
+            'weight' => '14',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '99',
@@ -754,7 +754,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['theme_default'] = 'asb';
 
-  $variables['update_last_email_notification'] = 1377316807;
+  $variables['update_last_email_notification'] = 1377584341;
 
   $variables['update_notify_emails'] = array(
     0 => 'ross@mayfirst.org',
@@ -882,7 +882,7 @@ Your account on [site:name] has been canceled.
 
   $variables['user_pictures'] = 1;
 
-  $variables['user_picture_default'] = 'public://pictures/profile-shadow.png';
+  $variables['user_picture_default'] = 'public://pictures/pupstache.png';
 
   $variables['user_picture_dimensions'] = '1024x1024';
 

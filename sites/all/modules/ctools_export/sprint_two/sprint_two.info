@@ -27,6 +27,7 @@ dependencies[] = media
 dependencies[] = media_internet
 dependencies[] = menu
 dependencies[] = message
+dependencies[] = modernizr
 dependencies[] = multiupload_imagefield_widget
 dependencies[] = node
 dependencies[] = og

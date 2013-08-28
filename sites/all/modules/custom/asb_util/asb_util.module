@@ -83,8 +83,6 @@ function asb_util_menu() {
 
 }
 
-
-
 /**
  * Implements hook_theme().
  */
@@ -101,3 +99,25 @@ function asb_util_theme() {
 
   return $items;
 }
+
+/**
+ * Implements hook_menu_block_blocks().
+ */
+function asb_util_menu_block_blocks() {
+  // The array key is the block delta used by menu block.
+  return array(
+    'asb_util-1' => array(
+      'menu_name'   => 'main-menu',
+      'parent_mlid' => 0,
+      'title_link'  => 0,
+      'admin_title' => '',
+      'level'       => 1,
+      'follow'      => 0,
+      'depth'       => 1,
+      'expanded'    => 0,
+      'sort'        => 0,
+    ),
+  );
+}
+
+
