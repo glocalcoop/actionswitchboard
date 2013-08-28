@@ -213,3 +213,65 @@ function asb_scheme_format_issues_goals($node) {
   }
   return $output;
 }
+
+/**
+ * Function to get needs contribute row counts
+ * to show total Material and Skills needs
+ *
+ * TODO: Expand this to include funding needs
+ * once we have a mechanism to measure that.
+ */
+function asb_scheme_get_view_rowcount(){
+  $view = views_get_current_view();
+
+  // Check view need_type and return markup for the template.
+  if(!empty($view->need_type)) {
+    if($view->need_type == 'funds') {
+      $funds_raised = asb_scheme_funds_raised();
+      return '<h1 class="funds-raised">$' .$funds_raised .'</h1>';
+    }
+    if($view->need_type == 'skill') {
+      $text = "skills displayed.";
+    }elseif($view->need_type == 'supplies') {
+      $text = "supplies displayed.";
+    }
+    $page_total = count($view->result);
+    if(isset($view->total_rows)){
+      return '<h6 class="needs-count">' . $page_total . " of " . $view->total_rows ." " .$text ."</h6><!-- printed by asb_scheme module -->";
+    } else {
+      return '<h6 class="needs-count">' . $page_total . " of " . $page_total ." " .$text ."</h6><!-- printed by asb_scheme module -->";
+    }
+  }
+}
+
+/**
+ * Add designation for skills v. supplies in
+ * scheme_contribute view.  For populating
+ * correct text to the view template for counts
+ * of completed schemes.
+ *
+ * used by asb_scheme_get_view_rowcount
+ */
+function asb_scheme_views_pre_render(&$view) {
+  if($view->name == 'scheme_contribute') {
+    if($view->current_display == 'block') {
+      $view->need_type = 'skill';
+    }
+    if($view->current_display == 'block_1') {
+      $view->need_type = 'supplies';
+    }
+    if($view->current_display == 'block_2') {
+      $view->need_type = 'funds';
+    }
+  }
+}
+
+/**
+ * helper function to get the amount of funds
+ * raised for the specific scheme.
+ * TODO: Get actual funds raised.
+ */
+function asb_scheme_funds_raised() {
+  $raised = rand(1, 1000);
+  return $raised;
+}

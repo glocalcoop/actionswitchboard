@@ -223,7 +223,8 @@ function asb_preprocess_block(&$variables, $hook) {
     $variables['classes_array'][] = 'scheme-collection-view';
     $variables['theme_hook_suggestions'][] = 'block__views__scheme_overview';
   }
-  // dsm($variables);
+  // asb_scheme_check_block($variables);
+  //dsm($variables);
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
