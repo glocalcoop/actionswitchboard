@@ -70,13 +70,18 @@ h5 {
   font-weight: normal;
 }
 
-/* line 64, ../sass/_type.scss */
+/* line 63, ../sass/_type.scss */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+/* line 68, ../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 67, ../sass/_type.scss */
+/* line 71, ../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -84,13 +89,13 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 75, ../sass/_type.scss */
+/* line 79, ../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 80, ../sass/_type.scss */
+/* line 84, ../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -99,7 +104,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 87, ../sass/_type.scss */
+/* line 91, ../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
