@@ -70,6 +70,27 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     // padding-left: 10px;
   }
 
+  ul.pager {
+    li {
+      $pager-hmargin: -33px;
+      $pager-font-size: 75px;
+      margin-top: (-275px/2) - $pager-font-size;
+      &.pager-next {
+        @include zen-float(right);
+        margin-right: $pager-hmargin;
+      }
+      &.pager-previous {
+        @include zen-float(left);
+        margin-left: $pager-hmargin;
+      }
+      a {
+        line-height: $pager-font-size;
+        font-size: $pager-font-size;
+        color: $rules-color;
+      }
+    }
+  }
+
   .view-content{
     @include zen-clear();
 
@@ -77,31 +98,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       border-right: 2px solid $rules-color; 
       padding: 0 10px;
       height: 275px;
-      &:first-child {
-        &:before {
-          @include zen-float(left);
-          margin-left: -33px;
-          content: " < ";
-        }
-      }
-      &:last-child {
-        &:before {
-          @include zen-float(right);
-          content: " > ";
-          margin-right: -33px;
-        }
-      }
-      
       .field-image img {
         width: 100%;
         max-width: 220px;
         height: auto;
-      }
-        &.views-row-first {
-          }
-        &.views-row-last {
-          border-right: none;
-          
       }
       h3.scheme-name {
         font-family: $font-body;
