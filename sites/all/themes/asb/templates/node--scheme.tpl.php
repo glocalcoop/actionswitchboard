@@ -87,6 +87,7 @@ hide($content['issues']);
 hide($content['goals']);
 hide($content['format_created']);
 hide($content['group_group']);
+global $user;
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -107,7 +108,9 @@ hide($content['group_group']);
             <section class="status-info">
               <h6>Status:</h6>
               <span class="state"><?php print $node->workflow_state_name; ?></span>
-              <a href="<?php print '/node/' .$node->nid .'/edit'; ?>" class="icon edit">Edit</a>
+              <?php if(!empty($edit_me)): ?>
+                <?php print $edit_me; ?>
+              <?php endif; ?>
             </section>
 
             <?php if ($title): ?>
@@ -119,8 +122,10 @@ hide($content['group_group']);
             <section class="methods">
               <ul id="ui-button">
               <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
-              
+              <?php $account = user_load($user->uid); ?>
+              <?php if (!og_is_member('node', $node->nid, 'user', $account)): ?>
               <li class="ui-button"><?php print render($content['group_group']); ?></li>
+              <?php endif; ?>
             </section>
 
 

@@ -176,6 +176,12 @@ function asb_preprocess_node(&$variables, $hook) {
   $variables['action_links'] = menu_local_actions();
   $variables['feed_icons'] = drupal_get_feeds();
   $variables['tabs'] = menu_local_tabs();
+  if (!node_access('update', $variables['node'])) {
+    $variables['edit_me'] = "";
+  }else{
+    $variables['edit_me'] = l(t('Edit'), 'node/'.$variables['nid'] .'/edit',
+                            array('attributes' => array('class' =>'icon edit') ));
+  }
 }
 
 /**

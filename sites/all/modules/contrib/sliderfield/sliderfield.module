@@ -1,0 +1,162 @@
+<?php
+/**
+ * Implements hook_element_info().
+ *
+ * To keep the various pieces of the example together in external files,
+ * this just returns _form_example_elements().
+ */
+function sliderfield_element_info() {
+  require_once('sliderfield_element_sliderfield.inc');
+  $data1 = _sliderfield_element_info_sliderfield();
+  require_once('sliderfield_element_transfer_slider.inc');
+  $data2 = _sliderfield_element_info_transfer_slider();
+  $data = array_merge($data1, $data2);
+  return $data;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * The only theme implementation is by the element example. To keep the various
+ * parts of the example together, this actually returns
+ * _form_example_element_theme().
+ */
+function sliderfield_theme($existing, $type, $theme, $path) {
+  require_once('sliderfield_element_sliderfield.inc');
+  $data1 = _sliderfield_theme_sliderfield($existing, $type, $theme, $path);
+  require_once('sliderfield_element_transfer_slider.inc');
+  $data2 = _sliderfield_theme_transfer_slider($existing, $type, $theme, $path);
+  $data = array_merge($data1, $data2);
+  return $data;
+}
+
+/**
+ * @return array
+ */
+function sliderfield_field_widget_info() {
+  require_once('sliderfield_element_sliderfield.inc');
+  $data = _sliderfield_field_widget_info_sliderfield();
+  //$data = array_merge($data1, $data2);
+  return $data;
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * @param $field
+ * @param $instance
+ * @param $langcode
+ * @param $items
+ * @param $delta
+ * @param $element
+ * @return mixed
+ */
+function sliderfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  require_once('sliderfield_element_sliderfield.inc');
+  $data = _sliderfield_field_widget_form($form, $form_state, $field, $instance, $langcode, $items, $delta, $element);
+  //$data = array_merge($data1, $data2);
+  return $data;
+}
+
+/**
+ * @param $field
+ * @param $instance
+ * @return mixed
+ */
+function sliderfield_field_widget_settings_form($field, $instance) {
+  require_once('sliderfield_element_sliderfield.inc');
+  $data = _sliderfield_field_widget_settings_form_sliderfield($field, $instance);
+  //$data = array_merge($data1, $data2);
+  return $data;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function sliderfield_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
+  require_once('sliderfield_element_sliderfield.inc');
+  _sliderfield_form_field_ui_field_edit_form_alter_sliderfield($form, $form_state);
+}
+
+/**
+ * Implements hook_field_validate().
+ */
+function sliderfield_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  require_once('sliderfield_element_sliderfield.inc');
+  _sliderfield_sliderfield_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, $errors);
+}
+
+/**
+ * Function to validate integer numbers
+ *
+ * @param $element
+ * @param $form_state
+ */
+function sliderfield_validate_integer($element, &$form_state) {
+  return sliderfield_validate_number($element, $form_state);
+}
+
+/**
+ * Function to validate integer numbers
+ *
+ * @param $element
+ * @param $form_state
+ */
+function sliderfield_validate_number($element, &$form_state) {
+  //!ctype_digit($element['#value'])
+  if (!is_numeric($element['#value'])) {
+    form_error($element, t('The value should be a valid number'));
+	return TRUE;
+  }
+}
+
+/**
+ * Function to validate integer numbers
+ *
+ * @param $element
+ * @param $form_state
+ */
+function sliderfield_validate_positive_number($element, &$form_state) {
+  if (sliderfield_validate_number($element, $form_state)) {
+    if ($element['#value'] > 0) {
+      form_error($element, t('The value should be a valid positive number'));
+	}
+  }
+}
+
+
+/**
+ *
+ */
+function sliderfield_get_styles($default = FALSE) {
+  $items = array(
+    '' => t('Default'),
+    'red' => t('Red'),
+    'green' => t('Green'),
+    'blue' => t('Blue'),
+    'orange' => t('Orange'),
+    'purple' => t('Purple'),
+    'steel-blue' => t('Steel Blue'),
+    'tiger-orange' => t('Tiger Orange'),
+    'wild-blue-yonder' => t('Wild Blue Yonder'),
+    'cinereous' => t('Cinereous'),
+    'laurel-green' => t('Laurel Green')
+  );
+  if (!$default) {
+    array_shift($items);
+  }
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * Add a css class to adjustment form elements, to enable them to be targeted
+ * by the appropriate javascript.
+ */
+function sliderfield_field_widget_form_alter(&$element, &$form_state, $context) {
+  require_once('sliderfield_element_sliderfield.inc');
+  _sliderfield_sliderfield_widget_field_widget_form_alter($element, $form_state, $context);
+}

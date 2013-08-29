@@ -1,0 +1,11 @@
+.progress-bar {
+  border: 1px solid #777;
+}
+
+.progress {
+  background-color: #FF3333;
+}
+
+#scheme-images {
+  width: 90%;
+}
