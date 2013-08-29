@@ -22,6 +22,10 @@ body {
 #page {
 }
 
+#first-time {
+  display: none;
+}
+
 /*
  * The skip-link link will be completely hidden until a user tabs to the link.
  * See the element-focusable rule in system.base.css.
@@ -100,6 +104,7 @@ body {
  */
 
 #content {
+  @include zen-clear();
 }
 
 .region-highlighted {
