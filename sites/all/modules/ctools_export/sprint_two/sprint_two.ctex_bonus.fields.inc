@@ -359,6 +359,25 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
+  $fields['field_progress'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'precision' => '10',
+      'scale' => '2',
+      'decimal_separator' => '.',
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_progress',
+    'type' => 'number_decimal',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
   $fields['comment_body'] = array(
     'entity_types' => array(
       0 => 'comment',
@@ -694,7 +713,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'text_default',
-        'weight' => '4',
+        'weight' => '5',
         'settings' => array(),
         'module' => 'text',
       ),
@@ -742,7 +761,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '6',
+        'weight' => '7',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -834,7 +853,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '7',
+        'weight' => '8',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -873,7 +892,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '8',
+        'weight' => '9',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -911,7 +930,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '9',
+        'weight' => '10',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -972,7 +991,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'image',
-        'weight' => '3',
+        'weight' => '4',
         'settings' => array(
           'image_style' => 'large',
           'image_link' => '',
@@ -1013,7 +1032,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '11',
+        'weight' => '12',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -1091,7 +1110,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'hidden',
         'type' => 'hidden',
-        'weight' => '12',
+        'weight' => '13',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -1129,7 +1148,7 @@ function sprint_two_drush_ctex_bonus_instances() {
       'default' => array(
         'label' => 'above',
         'type' => 'hidden',
-        'weight' => '13',
+        'weight' => '14',
         'settings' => array(),
       ),
       'teaser' => array(
@@ -1148,6 +1167,72 @@ function sprint_two_drush_ctex_bonus_instances() {
       ),
     ),
     'field_name' => 'field_featured',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_progress'] = array(
+    'label' => 'Progress',
+    'widget' => array(
+      'weight' => '26',
+      'type' => 'sliderfield',
+      'module' => 'sliderfield',
+      'active' => 1,
+      'settings' => array(
+        'sliderfield_settings' => array(
+          'adjust_field_min' => '',
+          'adjust_field_max' => '',
+          'animate' => '1',
+          'orientation' => 'horizontal',
+          'range' => '1',
+          'step' => '1',
+          'slider_style' => 'red',
+          'display_values' => 1,
+          'display_values_format' => '%{value}%',
+          'display_bubble' => 0,
+          'display_bubble_format' => '%{value}%',
+          'slider_length' => '',
+          'hide_inputs' => 1,
+        ),
+      ),
+    ),
+    'settings' => array(
+      'min' => '0',
+      'max' => '99.99',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_decimal',
+        'weight' => '3',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 2,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => array(
+      0 => array(
+        'value' => '0',
+      ),
+    ),
+    'field_name' => 'field_progress',
     'entity_type' => 'node',
     'bundle' => 'scheme',
     'deleted' => '0',

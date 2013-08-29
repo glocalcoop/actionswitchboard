@@ -87,6 +87,10 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['botcha_secret'] = 'a7728c4421164f41303d8bb721bfbc9d';
 
+  $variables['civicrmtheme_theme_admin'] = '0';
+
+  $variables['civicrmtheme_theme_public'] = '0';
+
   $variables['clean_url'] = '1';
 
   $variables['comment_anonymous_document'] = 0;
@@ -411,7 +415,7 @@ function sprint_two_drush_ctex_bonus_variables() {
       'display' => array(
         'og_extras_nodes_entity_view_1' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '11',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -421,7 +425,7 @@ function sprint_two_drush_ctex_bonus_variables() {
         ),
         'workflow_current_state' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -431,7 +435,7 @@ function sprint_two_drush_ctex_bonus_variables() {
         ),
         'workflow' => array(
           'default' => array(
-            'weight' => '14',
+            'weight' => '15',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -576,7 +580,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['menu_parent_update'] = 'main-menu:0';
 
-  $variables['node_admin_theme'] = '1';
+  $variables['node_admin_theme'] = 1;
 
   $variables['node_options_document'] = array(
     0 => 'status',
@@ -754,7 +758,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['theme_default'] = 'asb';
 
-  $variables['update_last_email_notification'] = 1377584341;
+  $variables['update_last_email_notification'] = 1377712698;
 
   $variables['update_notify_emails'] = array(
     0 => 'ross@mayfirst.org',

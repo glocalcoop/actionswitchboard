@@ -88,8 +88,8 @@ function sprint_two_msnf_step_info() {
     'label' => 'Step 4 Media',
     'weight' => '3',
     'children' => array(
-      0 => 'field_image',
-      1 => 'field_video',
+      0 => 'field_video',
+      1 => 'field_image',
     ),
     'format_type' => 'default',
     'format_settings' => array(

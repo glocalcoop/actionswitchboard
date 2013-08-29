@@ -1250,6 +1250,190 @@ function sprint_two_views_default_views() {
   $views['rules_scheduler'] = $view;
 
   $view = new view();
+  $view->name = 'scheme_contribute';
+  $view->description = 'Contribute blocks for scheme display';
+  $view->tag = 'ross';
+  $view->base_table = 'node';
+  $view->human_name = 'Scheme Contribute';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Needed Skills';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '7';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  /* Field: Content: People Needs */
+  $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_people_needs']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['multi_type'] = 'ul';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scheme' => 'scheme',
+  );
+  /* Filter criterion: Content: People Needs (field_people_needs) */
+  $handler->display->display_options['filters']['field_people_needs_value']['id'] = 'field_people_needs_value';
+  $handler->display->display_options['filters']['field_people_needs_value']['table'] = 'field_data_field_people_needs';
+  $handler->display->display_options['filters']['field_people_needs_value']['field'] = 'field_people_needs_value';
+  $handler->display->display_options['filters']['field_people_needs_value']['operator'] = 'not empty';
+
+  /* Display: Needed Skills Block */
+  $handler = $view->new_display('block', 'Needed Skills Block', 'block');
+  $handler->display->display_options['display_description'] = 'A list of unfilled needs for the scheme.';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: People Needs */
+  $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_people_needs']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_people_needs']['multi_type'] = 'ul';
+  /* Field: COUNT(Content: People Needs) */
+  $handler->display->display_options['fields']['field_people_needs_1']['id'] = 'field_people_needs_1';
+  $handler->display->display_options['fields']['field_people_needs_1']['table'] = 'field_data_field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs_1']['field'] = 'field_people_needs';
+  $handler->display->display_options['fields']['field_people_needs_1']['group_type'] = 'count';
+  $handler->display->display_options['fields']['field_people_needs_1']['label'] = '';
+  $handler->display->display_options['fields']['field_people_needs_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_people_needs_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_people_needs_1']['alter']['text'] = '[field_people_needs_1] skills contributed.';
+  $handler->display->display_options['fields']['field_people_needs_1']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_people_needs_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_needs_1']['element_default_classes'] = FALSE;
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['block_description'] = 'Needed Skills';
+
+  /* Display: Needed Materials Block */
+  $handler = $view->new_display('block', 'Needed Materials Block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Needed Supplies';
+  $handler->display->display_options['display_description'] = 'A list of unfilled material needs for the scheme.';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Material Needs */
+  $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['field'] = 'field_material_needs';
+  $handler->display->display_options['fields']['field_material_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_material_needs']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_material_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_material_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_material_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_material_needs']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_material_needs']['multi_type'] = 'ul';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scheme' => 'scheme',
+  );
+  /* Filter criterion: Content: Material Needs (field_material_needs) */
+  $handler->display->display_options['filters']['field_material_needs_value']['id'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['table'] = 'field_data_field_material_needs';
+  $handler->display->display_options['filters']['field_material_needs_value']['field'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['operator'] = 'not empty';
+  $handler->display->display_options['block_description'] = 'Needed Materials';
+
+  /* Display: Needed Funds */
+  $handler = $view->new_display('block', 'Needed Funds', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Funds Raised';
+  $handler->display->display_options['display_description'] = 'Amount of funding needed.';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Funding Needs */
+  $handler->display->display_options['fields']['field_funding_needs']['id'] = 'field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['table'] = 'field_data_field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['field'] = 'field_funding_needs';
+  $handler->display->display_options['fields']['field_funding_needs']['label'] = '';
+  $handler->display->display_options['fields']['field_funding_needs']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_funding_needs']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_funding_needs']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_funding_needs']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scheme' => 'scheme',
+  );
+  /* Filter criterion: Content: Material Needs (field_material_needs) */
+  $handler->display->display_options['filters']['field_material_needs_value']['id'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['table'] = 'field_data_field_material_needs';
+  $handler->display->display_options['filters']['field_material_needs_value']['field'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['operator'] = 'not empty';
+  $handler->display->display_options['block_description'] = 'Needed Funds';
+  $views['scheme_contribute'] = $view;
+
+  $view = new view();
   $view->name = 'scheme_created_help_page_';
   $view->description = 'Show special created message on initial scheme submission.';
   $view->tag = 'default';
