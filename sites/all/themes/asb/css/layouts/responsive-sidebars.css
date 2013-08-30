@@ -250,15 +250,16 @@ header#header,
   }
 
   /* line 155, ../../sass/layouts/responsive-sidebars.scss */
-  .wrapper > section.content {
+  article .wrapper > section.content {
     float: left;
     width: 720px;
     margin-left: -120px;
     margin-right: -600px;
     margin-left: 0;
+    border: 1px #f00 solid;
   }
 
-  /* line 161, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 162, ../../sass/layouts/responsive-sidebars.scss */
   #content aside.scheme-meta,
   #content aside#sidebar {
     float: left;
@@ -267,7 +268,7 @@ header#header,
     margin-right: -840px;
   }
 
-  /* line 169, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
   .scheme-collection-view .views-row {
     float: left;
     padding-left: 5px;
@@ -282,7 +283,7 @@ header#header,
     padding-right: 10px;
   }
 
-  /* line 174, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 175, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
     position: absolute;
     top: 73px;
@@ -292,7 +293,7 @@ header#header,
     z-index: -1;
     font-size: 0;
   }
-  /* line 182, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 183, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip img {
     display: inline-block;
     margin: 0;
