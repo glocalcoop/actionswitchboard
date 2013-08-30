@@ -1,9 +1,9 @@
-/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -178,39 +178,54 @@ body header#header section#navigation {
 
 /* line 66, ../sass/asb.scss */
 .front header#header {
-  height: 75px;
+  height: 201px;
 }
-/* line 71, ../sass/asb.scss */
+/* line 70, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 73, ../sass/asb.scss */
+/* line 72, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
-  height: 201px;
+  height: 75px;
   z-index: 10;
 }
+/* line 79, ../sass/asb.scss */
+.front #name-and-slogan h2#what-is-an-action-switchboard {
+  margin: 0;
+}
+/* line 81, ../sass/asb.scss */
+.front #name-and-slogan h2#what-is-an-action-switchboard a {
+  display: block;
+  height: 125px;
+  width: 428px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url("../images/logo-home.png?1376927784");
+  background-position: bottom center;
+}
 
-/* line 83, ../sass/asb.scss */
+/* line 94, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 89, ../sass/asb.scss */
+/* line 100, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
 }
 
-/* line 91, ../sass/asb.scss */
+/* line 102, ../sass/asb.scss */
 ul.tags {
   list-style: none;
 }
-/* line 93, ../sass/asb.scss */
+/* line 104, ../sass/asb.scss */
 ul.tags li {
   display: inline-block;
 }
-/* line 95, ../sass/asb.scss */
+/* line 106, ../sass/asb.scss */
 ul.tags li a {
   display: block;
   padding: .25em .5em;

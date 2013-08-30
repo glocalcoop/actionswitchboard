@@ -64,19 +64,30 @@ body {
 // homepage style
 .front{
   header#header {
-    // height: 201px;
-    height: 75px;
+    height: 201px;
   }
   #name-and-slogan {
     h1#site-name {
       width: 428px;
-        a{
+      a{
         background-image: url('../images/logo-home.png?1376927784');
         background-position: top center;
-        height: 201px;
+        height: 75px;
         z-index: 10;
       }
     }
+    h2#what-is-an-action-switchboard {
+      margin: 0;
+      a {
+        display: block;
+        height: 125px;
+        width: 428px;
+        @include hide-text;
+        background-image: url('../images/logo-home.png?1376927784');
+        background-position: bottom center;
+      }
+    }
+
   }
 }
 
