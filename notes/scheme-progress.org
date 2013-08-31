@@ -1,0 +1,7 @@
+<h4 class="progress-title">Progress</h4>
+<div class="scheme-progress">
+	<div class="progress" data-progress=".18" style="width: 18%;"></div>
+</div>
+<div class="scheme-major-ticks">
+	<div class="scheme-minor-ticks"></div>
+</div>

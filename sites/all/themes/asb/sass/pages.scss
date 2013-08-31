@@ -152,6 +152,7 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 
 .field-progress {
   height: 12px;
+  width: 100%;
   padding-top: 6px;
   background-image: 
     linear-gradient(90deg, $text-color-prominent 1px, transparent 1px),
