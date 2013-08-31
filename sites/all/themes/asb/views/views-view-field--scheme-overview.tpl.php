@@ -22,25 +22,25 @@
  * the view is modified.
  */
 
-// dsm($leader);
 ?>
 <?php $count = 0; ?>
-<?php foreach($field as $key => $value) {
-if($key = 'field_info') {
-//    dsm($key);
+<?php 
+foreach($field as $key => $value) {
+  if($key = 'field_info') {
     if(is_array($value)) {
-        if(!empty($value['field_name']) && $value['field_name'] == 'body' && $count < 1) {
-            //dsm($value['field_name']);
-            //dsm($leader);
-          /* if($value->field_name == 'field_body') { */
-              $leader_markup = '<div class="scheme-leader"><a href="/user/' .$leader[$row->nid]['uid'] .'">';
-              $leader_markup .= $leader[$row->nid]['name'] .'</a></div>';
-              $output .= $leader_markup;
-              $count += 1;
-          /* } */}
-        
+      if(!empty($value['field_name'])) {
+        if($value['field_name'] == 'field_location' && $count < 1) {
+          $leader_markup = '<div class="scheme-leader"><a href="/user/' .$leader[$row->nid]['uid'] .'">';
+          $leader_markup .= $leader[$row->nid]['name'] .'</a></div>';
+          $leader_markup .= '<!-- Added in views-view-field--scheme-overview.tpl.php -->';
+          $output = $leader_markup .$output;
+          $count += 1;
+        }elseif($value['field_name'] == 'field_progress') {
+          $output = $progress;
         }
       }
+    }
+  }
 }
 ?>
 <?php print $output; ?>

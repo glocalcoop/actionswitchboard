@@ -242,12 +242,8 @@ function asb_preprocess_block(&$variables, $hook) {
 }
 
 function asb_scheme_preprocess_views_view_field(&$vars) {
-  //$vars['custom_variable'] = 'foo bar';
-  // dsm($vars);
-
   // Get scheme owner for individual scheme displays
   if($vars['view']->name == 'scheme_overview') {
-    //$og = og_get_group('scheme', array(1,3));
     foreach($vars['view']->result as $scheme) {
       
       $gid = $scheme->nid;
@@ -259,20 +255,21 @@ function asb_scheme_preprocess_views_view_field(&$vars) {
               AND our.rid = 3 AND our.gid = '$gid'";
 
       $user_list = db_query($sql)->fetchAll();
-      // dsm($user_list);
       $vars['leader'][$gid] = array('name' => $user_list[0]->name, 
                               'uid' => $user_list[0]->uid);
     }
-    /* $yourGroupID = 1; */
-    /* $query = new EntityFieldQuery(); */
-    /* $query */
-    /*   ->entityCondition("entity_type", "og_membership", "=") */
-    /*   ->propertyCondition("gid", $yourGroupID, "="); */
-    /* $result = $query->execute(); */
-    /* dsm($result["og_membership"]); */
 
+    if(isset($vars['row']->field_data_field_progress_field_progress_value)) {
+      $progress = $vars['row']->field_data_field_progress_field_progress_value;
+    }else{
+      $progress = 0;
+    }
+    $progress_decimal = asb_scheme_val_to_dec($progress);
+    $vars['progress'] = '<div class="progress-bar scheme-overview" data-progress="' .$progress_decimal[1]; 
+    $vars['progress'] .= '"><div class="progress" style="width:'.$progress_decimal[0] .'%;background-color:red;">&nbsp;</div></div>';
+    $vars['progress'] .= '<!-- Progress bar code built in template.php preprecess_views_view_field';
+    $vars['progress'] .= ' variable used in views-view-field--scheme-overview.tpl.php -->';
   }
-  // dsm($vars);
 }
 
 function asb_menu_link(array $variables) {
