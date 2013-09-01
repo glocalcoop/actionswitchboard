@@ -172,6 +172,13 @@
   box-shadow: $h-shadow $v-shadow $blur $spread $color;
 }
 
+@mixin vertical-ticks ($angle: 90deg, $color: $text-color-secondary, $width: 1px, $spacing: 50%) {
+    background-image: 
+      linear-gradient($angle, $color $width, transparent $width);
+    background-size: $spacing;
+    background-position: -$width;
+}
+
 
 
 
