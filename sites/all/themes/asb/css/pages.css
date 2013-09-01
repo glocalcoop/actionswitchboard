@@ -253,32 +253,6 @@ div.messages ul {
   margin-bottom: 0;
 }
 
-/* line 153, ../sass/pages.scss */
-.field-progress {
-  height: 12px;
-  width: 100%;
-  padding-top: 6px;
-  background-image: linear-gradient(90deg, #414042 1px, transparent 1px), linear-gradient(90deg, #414042 1px, transparent 1px);
-  background-size: 50% 50%;
-  background-position: -1px -1px;
-}
-/* line 162, ../sass/pages.scss */
-.field-progress .progress-bar {
-  height: 12px;
-  background-color: #cccccc;
-  border-radius: 8px;
-  border: none;
-  background-image: linear-gradient(90deg, #414042 1px, transparent 1px);
-  background-size: 5%;
-  background-position: -1px -1px;
-}
-/* line 170, ../sass/pages.scss */
-.field-progress .progress-bar .progress {
-  height: 12px;
-  background: #ef3f26;
-  border-radius: 8px;
-}
-
 /* line 178, ../sass/pages.scss */
 div.status {
   /* Normal priority messages */
