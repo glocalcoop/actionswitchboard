@@ -269,9 +269,11 @@ function asb_scheme_views_pre_render(&$view) {
  * helper function to turn value into decimal string.
  */
 function asb_scheme_val_to_dec($num) {
+  $num_var = array();
   $num = strval(round($num));
   $decimal = "." .$num;
-  $num_var = [$num, $decimal];
+  $num_var[] = $num;
+  $num_var[] = $decimal;
   return $num_var;
 }
 
