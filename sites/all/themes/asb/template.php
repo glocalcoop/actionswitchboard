@@ -267,6 +267,7 @@ function asb_scheme_preprocess_views_view_field(&$vars) {
     $progress_decimal = asb_scheme_val_to_dec($progress);
     $vars['progress'] = '<div class="progress-bar scheme-overview" data-progress="' .$progress_decimal[1]; 
     $vars['progress'] .= '"><div class="progress" style="width:'.$progress_decimal[0] .'%;background-color:red;">&nbsp;</div></div>';
+    $vars['progress'] .= '<div class="scheme-major-ticks"><div class="scheme-minor-ticks"></div></div>';
     $vars['progress'] .= '<!-- Progress bar code built in template.php preprecess_views_view_field';
     $vars['progress'] .= ' variable used in views-view-field--scheme-overview.tpl.php -->';
   }
