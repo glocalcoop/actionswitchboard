@@ -79,15 +79,14 @@
 .progress-bar {
 	width: 100%;
 	height: 12px;
-	position: relative;
 	background-color: $membership-backdrop;
 	border-radius: 6px;
+	border: none;
 	z-index: -2;
 
 	.progress {
-		height: 12px;
 		width: 100%;
-		position: relative;
+		height: 12px;
 		margin: -12px 0 0 0;
 		background-color: $accent !important;
 		border-radius: 6px;
@@ -95,11 +94,8 @@
 	}
 }
 .view-scheme-overview .progress-bar {
-	position: inherit;
 	margin-top: 20px;
-	.progress {
-		position: inherit;
-	}
+	.progress { }
 	.scheme-major-ticks {
 		display: none;
 		.scheme-minor-ticks {
@@ -108,21 +104,32 @@
 	}
 }
 
-
-.node-scheme .scheme-major-ticks {
-	width: 98%;
-	height: 16px;
+.field-progress {
 	position: relative;
-	margin: -16px auto 0 auto;
-	@include vertical-ticks;
-	z-index: 100;
-	.scheme-minor-ticks {
-		@include vertical-ticks($spacing: 5%);	
-		height: 6px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		z-index: 200;
+	margin: 20px 0;
+
+	.progress-bar {
+		z-index: -2;
+		.progress { 
+			z-index: -1;
+		}
+	}
+
+	.scheme-major-ticks {
+		width: 98%;
+		height: 16px;
+		position: relative;
+		margin: -16px auto 0 auto;
+		@include vertical-ticks;
+		z-index: 100;
+		.scheme-minor-ticks {
+			@include vertical-ticks($spacing: 5%);	
+			height: 6px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			z-index: 200;
+		}
 	}
 }
 

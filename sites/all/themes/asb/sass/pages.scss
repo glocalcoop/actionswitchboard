@@ -150,31 +150,6 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 }
 
 
-// .field-progress {
-//   height: 12px;
-//   width: 100%;
-//   padding-top: 6px;
-//   background-image: 
-//     linear-gradient(90deg, $text-color-prominent 1px, transparent 1px),
-//     linear-gradient(90deg, $text-color-prominent 1px, transparent 1px);
-//   background-size: 50% 50%;
-//   background-position: -1px -1px;
-//   .progress-bar {
-//     height: 12px;
-//     background-color: $gray-medium;
-//     border-radius: 8px;
-//     border: none;
-//     background-image: linear-gradient(90deg, $text-color-prominent 1px, transparent 1px);
-//     background-size: 5%;
-//     background-position: -1px -1px;
-//     .progress {
-//       height: 12px;
-//       background: $accent;
-//       border-radius: 8px;
-//     }
-//   }
-// }
-
 div.status { /* Normal priority messages */
 }
 

@@ -66,7 +66,7 @@ html {
   font-stretch: none;
 }
 
-/* line 56, ../sass/_type.scss */
+/* line 64, ../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -78,18 +78,18 @@ h5 {
   font-weight: normal;
 }
 
-/* line 63, ../sass/_type.scss */
+/* line 71, ../sass/_type.scss */
 a, a:link, a:visited {
   text-decoration: none;
 }
 
-/* line 68, ../sass/_type.scss */
+/* line 76, ../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 71, ../sass/_type.scss */
+/* line 79, ../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -97,13 +97,13 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 79, ../sass/_type.scss */
+/* line 87, ../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 84, ../sass/_type.scss */
+/* line 92, ../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -112,7 +112,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 91, ../sass/_type.scss */
+/* line 99, ../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
@@ -149,42 +149,49 @@ header#header .block-menu-block ul li a.logout {
 .progress-bar {
   width: 100%;
   height: 12px;
-  position: relative;
   background-color: #e8eaea;
   border-radius: 6px;
+  border: none;
   z-index: -2;
 }
 /* line 87, ../sass/fields.scss */
 .progress-bar .progress {
-  height: 12px;
   width: 100%;
-  position: relative;
+  height: 12px;
   margin: -12px 0 0 0;
   background-color: #ef3f26 !important;
   border-radius: 6px;
   z-index: -1;
 }
 
-/* line 97, ../sass/fields.scss */
+/* line 96, ../sass/fields.scss */
 .view-scheme-overview .progress-bar {
-  position: inherit;
   margin-top: 20px;
 }
-/* line 100, ../sass/fields.scss */
-.view-scheme-overview .progress-bar .progress {
-  position: inherit;
-}
-/* line 103, ../sass/fields.scss */
+/* line 99, ../sass/fields.scss */
 .view-scheme-overview .progress-bar .scheme-major-ticks {
   display: none;
 }
-/* line 105, ../sass/fields.scss */
+/* line 101, ../sass/fields.scss */
 .view-scheme-overview .progress-bar .scheme-major-ticks .scheme-minor-ticks {
   display: none;
 }
 
-/* line 112, ../sass/fields.scss */
-.node-scheme .scheme-major-ticks {
+/* line 107, ../sass/fields.scss */
+.field-progress {
+  position: relative;
+  margin: 20px 0;
+}
+/* line 111, ../sass/fields.scss */
+.field-progress .progress-bar {
+  z-index: -2;
+}
+/* line 113, ../sass/fields.scss */
+.field-progress .progress-bar .progress {
+  z-index: -1;
+}
+/* line 118, ../sass/fields.scss */
+.field-progress .scheme-major-ticks {
   width: 98%;
   height: 16px;
   position: relative;
@@ -194,8 +201,8 @@ header#header .block-menu-block ul li a.logout {
   background-position: -1px;
   z-index: 100;
 }
-/* line 119, ../sass/fields.scss */
-.node-scheme .scheme-major-ticks .scheme-minor-ticks {
+/* line 125, ../sass/fields.scss */
+.field-progress .scheme-major-ticks .scheme-minor-ticks {
   background-image: linear-gradient(90deg, #808080 1px, transparent 1px);
   background-size: 5%;
   background-position: -1px;
@@ -209,7 +216,7 @@ header#header .block-menu-block ul li a.logout {
 /*
  * Field types (Contrib)
  */
-/* line 134, ../sass/fields.scss */
+/* line 141, ../sass/fields.scss */
 .field-type-datetime {
   /* Always use "datetime" when creating new CCK date fields. "date" and "datestamp" are legacy types. */
 }
@@ -217,7 +224,7 @@ header#header .block-menu-block ul li a.logout {
 /*
  * Named fields
  */
-/* line 156, ../sass/fields.scss */
+/* line 163, ../sass/fields.scss */
 .field-name-field-FIELDNAME {
   /* Underscores in field name are replaced with dashes. */
 }

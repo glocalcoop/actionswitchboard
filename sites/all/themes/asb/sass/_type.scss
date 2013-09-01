@@ -49,6 +49,14 @@ $header-line-height: 1.2;
 
 $header-font-family: League, Helvetica, sans;
 
+@mixin header-style ($family: $header-font-family, $size: $h2-font-size, $transform: uppercase, $color: $text-color-prominent, $weight: normal) {
+  font-size: $size;
+  font-family: $family;
+  color: $color;
+  text-transform: $transform;
+  weight: $weight;
+}
+
 h1,
 h2,
 h3,
