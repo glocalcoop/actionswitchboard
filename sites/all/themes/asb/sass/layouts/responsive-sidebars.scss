@@ -155,7 +155,6 @@ header#header,
   article .wrapper>section.content{
     @include zen-grid-item( 6, 0 );
     margin-left: 0;
-    border: 1px #f00 solid;
   }
 
   #content aside.scheme-meta,
