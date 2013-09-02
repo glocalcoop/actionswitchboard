@@ -365,12 +365,14 @@ header#header .block-menu-block ul li a.logout {
   white-space: nowrap;
 }
 
-/* line 194, ../sass/views-styles.scss */
-.view-scheme-contribute .view-footer {
+/* line 196, ../sass/views-styles.scss */
+.block-views .view-scheme-contribute .view-footer,
+.block-views .view-scheme-contribute .donate-button {
   width: 100%;
 }
-/* line 197, ../sass/views-styles.scss */
-.view-scheme-contribute .view-footer a {
+/* line 198, ../sass/views-styles.scss */
+.block-views .view-scheme-contribute .view-footer a,
+.block-views .view-scheme-contribute .donate-button a {
   display: block;
   width: 100%;
   height: 58px;
@@ -382,5 +384,31 @@ header#header .block-menu-block ul li a.logout {
   text-transform: uppercase;
   weight: normal;
   border-radius: 4px;
+}
+/* line 207, ../sass/views-styles.scss */
+.block-views .view-scheme-contribute .view-footer.skills a,
+.block-views .view-scheme-contribute .donate-button.skills a {
   background: #ef3f26;
+}
+/* line 210, ../sass/views-styles.scss */
+.block-views .view-scheme-contribute .view-footer.supplies a,
+.block-views .view-scheme-contribute .donate-button.supplies a {
+  background: #74CCD4;
+}
+/* line 213, ../sass/views-styles.scss */
+.block-views .view-scheme-contribute .view-footer.funds a,
+.block-views .view-scheme-contribute .donate-button.funds a {
+  background: #85C770;
+}
+/* line 219, ../sass/views-styles.scss */
+.block-views:nth-child(3) .view-scheme-contribute .view-footer a {
+  background: #ef3f26;
+}
+/* line 224, ../sass/views-styles.scss */
+.block-views:nth-child(4) .view-scheme-contribute .view-footer a {
+  background: #74CCD4;
+}
+/* line 229, ../sass/views-styles.scss */
+.block-views:nth-child(5) .view-scheme-contribute .view-footer a {
+  background: #85C770;
 }

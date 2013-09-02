@@ -190,26 +190,46 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-.view-scheme-contribute {
-  .view-footer {
-    // display: table;
-    width: 100%;
-     a {
-      display: block;
+.block-views {
+  .view-scheme-contribute {
+    .view-footer,
+    .donate-button {
       width: 100%;
-      height: 58px;
-      line-height: 58px;
-      text-align: center;
-      @include header-style ($color: #fff);
-      border-radius: 4px;
-
-      // Will be dependend on which contribute box it is
+       a {
+        display: block;
+        width: 100%;
+        height: 58px;
+        line-height: 58px;
+        text-align: center;
+        @include header-style ($color: #fff);
+        border-radius: 4px;
+      }
+      &.skills a {
+        background: $accent;
+      }
+      &.supplies a {
+        background: #74CCD4;
+      }
+      &.funds a {
+        background: #85C770;
+      }
+    }
+  }
+  &:nth-child(3) {
+    .view-scheme-contribute .view-footer a {
       background: $accent;
-      
-      .skills-needed {}
-      .supplies-needed {}
-      .funds-needed {}
+    }
+  }
+  &:nth-child(4) {
+    .view-scheme-contribute .view-footer a {
+      background: #74CCD4;
+    }
+  }
+  &:nth-child(5) {
+    .view-scheme-contribute .view-footer a {
+      background: #85C770;
     }
   }
 }
+
 
