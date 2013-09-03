@@ -190,6 +190,38 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
+//Once styles specified in scheme-layout.tpl.php are implemented, these styles will apply
+#needs {
+  a#bigbutton {
+    width: 100%;
+    display: block;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    @include header-style ($color: #fff);
+    border-radius: 4px;
+  }
+  #needs-skills {
+
+    a#bigbutton {
+      background: $accent;
+    }
+  }
+  #needs-supplies {
+
+    a#bigbutton {
+      background: #74CCD4;
+    }
+  }
+  #needs-funds {
+
+    a#bigbutton {
+      background: #85C770;
+    }
+  }
+}
+
+//Temporary until scheme-layout.tpl.php are implemented
 .block-views {
   .view-scheme-contribute {
     .view-footer,

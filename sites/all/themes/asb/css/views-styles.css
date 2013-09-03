@@ -365,12 +365,39 @@ header#header .block-menu-block ul li a.logout {
   white-space: nowrap;
 }
 
-/* line 196, ../sass/views-styles.scss */
+/* line 195, ../sass/views-styles.scss */
+#needs a#bigbutton {
+  width: 100%;
+  display: block;
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  font-size: 33.4284px;
+  font-family: League, Helvetica, sans;
+  color: white;
+  text-transform: uppercase;
+  weight: normal;
+  border-radius: 4px;
+}
+/* line 206, ../sass/views-styles.scss */
+#needs #needs-skills a#bigbutton {
+  background: #ef3f26;
+}
+/* line 212, ../sass/views-styles.scss */
+#needs #needs-supplies a#bigbutton {
+  background: #74CCD4;
+}
+/* line 218, ../sass/views-styles.scss */
+#needs #needs-funds a#bigbutton {
+  background: #85C770;
+}
+
+/* line 228, ../sass/views-styles.scss */
 .block-views .view-scheme-contribute .view-footer,
 .block-views .view-scheme-contribute .donate-button {
   width: 100%;
 }
-/* line 198, ../sass/views-styles.scss */
+/* line 230, ../sass/views-styles.scss */
 .block-views .view-scheme-contribute .view-footer a,
 .block-views .view-scheme-contribute .donate-button a {
   display: block;
@@ -385,30 +412,30 @@ header#header .block-menu-block ul li a.logout {
   weight: normal;
   border-radius: 4px;
 }
-/* line 207, ../sass/views-styles.scss */
+/* line 239, ../sass/views-styles.scss */
 .block-views .view-scheme-contribute .view-footer.skills a,
 .block-views .view-scheme-contribute .donate-button.skills a {
   background: #ef3f26;
 }
-/* line 210, ../sass/views-styles.scss */
+/* line 242, ../sass/views-styles.scss */
 .block-views .view-scheme-contribute .view-footer.supplies a,
 .block-views .view-scheme-contribute .donate-button.supplies a {
   background: #74CCD4;
 }
-/* line 213, ../sass/views-styles.scss */
+/* line 245, ../sass/views-styles.scss */
 .block-views .view-scheme-contribute .view-footer.funds a,
 .block-views .view-scheme-contribute .donate-button.funds a {
   background: #85C770;
 }
-/* line 219, ../sass/views-styles.scss */
+/* line 251, ../sass/views-styles.scss */
 .block-views:nth-child(3) .view-scheme-contribute .view-footer a {
   background: #ef3f26;
 }
-/* line 224, ../sass/views-styles.scss */
+/* line 256, ../sass/views-styles.scss */
 .block-views:nth-child(4) .view-scheme-contribute .view-footer a {
   background: #74CCD4;
 }
-/* line 229, ../sass/views-styles.scss */
+/* line 261, ../sass/views-styles.scss */
 .block-views:nth-child(5) .view-scheme-contribute .view-footer a {
   background: #85C770;
 }
