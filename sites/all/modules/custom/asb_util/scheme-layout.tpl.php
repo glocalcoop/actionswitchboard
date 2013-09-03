@@ -111,8 +111,11 @@
 
           
         <aside id="sidebar">
+
           <section class="region region-sidebar-first">
+
             <h5 class="big-label">Scheme Leader</h5>
+            
             <section id="scheme-leader-widget">
               <a title="{{Scheme Leader Name}}" href="{{LINK TO SCHEME LEADER PROFILE}}">
                 <img src="/sites/all/themes/asb/images-fpo/schemer-60x60.png" width="60" height="60" alt="Image of Scheme Leader — {{NAME}}" />
@@ -122,8 +125,11 @@
               </h3>
               <a class="icon contact inline-label" href="{{LINK TO MESSAGE MEMBER}}">Contact Me</a>    
             </section>
+
             <section id="scheme-members">
+
               <h4>Band of Schemers</h4>
+
               <ul class="schemers">
                 <li>
                   <a title="View {{Scheme Member Name}}'s Profile" href="{{Link to Profile}}">
@@ -172,7 +178,41 @@
                 </li>
               </ul>
             </section><!-- /.scheme-mbmebers -->
+
+            <section id="neds">
+
+              <h2>How to Contribute</h2>
+
+              <section id="needs-skills">
+
+                <h3>Needed Skills</h3>
+                <p><span class="fulfilled">7</span> skills contributed of <span class="total-needs">12</span>
+                <ul id="needs-skills">
+                  <li>{{{Need Name}}}</li>
+                  …
+                </ul>
+                <a href="" class="bigbutton"/>Donate Skills
+              </section>
+
+              <section id="needs-supplies">
+                <h3>Needed Supplies</h3>
+                <ul id="material-needs">
+                  <li>{{{Need Name}}}</li>
+                  …
+                </ul>
+              </section>
+
+              <section id="needs-funds">
+                <h3>Needed Funds</h3>
+                <div id="funding-needs">
+                  <span class="funds-callout">$360</span> funds contributed.
+                </div>
+              </section>
+
+            </section>
+
           </section><!-- /.region-sidebar-first -->
+
         </aside><!-- /#sidebar -->
 
       </div><!-- /div.wrapper -->
