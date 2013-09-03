@@ -52,7 +52,10 @@
     <span class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></span>
     <a class="logout" href="<?php print url('user/logout'); ?>">Logout</a>
   <?php else:?>
-    <a class="login" href="<?php print url('user/logout'); ?>">Login</a>
+    <a class="login" href="<?php print url('user'); ?>">Login</a>
+    or<br/>
+    <a class="register" href="<?php print url('user/register'); ?>">Register</a>
+
   <?php endif;?>
 
 </nav>

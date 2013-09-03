@@ -8,12 +8,12 @@
  *
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
-/* line 61, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -64,7 +64,7 @@ html {
   font-stretch: none;
 }
 
-/* line 64, ../../sass/_type.scss */
+/* line 56, ../../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -76,18 +76,18 @@ h5 {
   font-weight: normal;
 }
 
-/* line 71, ../../sass/_type.scss */
+/* line 63, ../../sass/_type.scss */
 a, a:link, a:visited {
   text-decoration: none;
 }
 
-/* line 76, ../../sass/_type.scss */
+/* line 68, ../../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 79, ../../sass/_type.scss */
+/* line 71, ../../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -95,13 +95,13 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 87, ../../sass/_type.scss */
+/* line 79, ../../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 92, ../../sass/_type.scss */
+/* line 84, ../../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -110,7 +110,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 99, ../../sass/_type.scss */
+/* line 91, ../../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
@@ -243,27 +243,28 @@ header#header,
     display: inline-block;
     width: 428px;
   }
-  /* line 144, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
   #page #header section#navigation {
     display: inline-block;
     width: auto;
   }
 
-  /* line 151, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 152, ../../sass/layouts/responsive-sidebars.scss */
   #content article > header {
     overflow: hidden;
   }
 
-  /* line 155, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
   article .wrapper > section.content {
     float: left;
     width: 720px;
     margin-left: -120px;
     margin-right: -600px;
     margin-left: 0;
+    border: 1px #f00 solid;
   }
 
-  /* line 161, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
   #content aside.scheme-meta,
   #content aside#sidebar {
     float: left;
@@ -272,7 +273,7 @@ header#header,
     margin-right: -840px;
   }
 
-  /* line 169, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
   .scheme-collection-view .views-row {
     float: left;
     padding-left: 5px;
@@ -287,7 +288,7 @@ header#header,
     padding-right: 10px;
   }
 
-  /* line 174, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 176, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
     position: absolute;
     top: 73px;
@@ -297,7 +298,7 @@ header#header,
     z-index: -1;
     font-size: 0;
   }
-  /* line 182, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 184, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip img {
     display: inline-block;
     margin: 0;
