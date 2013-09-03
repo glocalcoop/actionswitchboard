@@ -179,7 +179,7 @@
               </ul>
             </section><!-- /.scheme-mbmebers -->
 
-            <section id="neds">
+            <section id="needs">
 
               <h2>How to Contribute</h2>
 
@@ -191,15 +191,16 @@
                   <li>{{{Need Name}}}</li>
                   …
                 </ul>
-                <a href="" class="bigbutton"/>Donate Skills
+                <a href="" class="bigbutton">Donate Skills </a>
               </section>
 
               <section id="needs-supplies">
                 <h3>Needed Supplies</h3>
                 <ul id="material-needs">
                   <li>{{{Need Name}}}</li>
-                  …
+                  … 
                 </ul>
+                <a href="" class="bigbutton">Donate Supplies</a>
               </section>
 
               <section id="needs-funds">
@@ -207,6 +208,7 @@
                 <div id="funding-needs">
                   <span class="funds-callout">$360</span> funds contributed.
                 </div>
+                <a href="" class="bigbutton">Donate Funds</a>
               </section>
 
             </section>
