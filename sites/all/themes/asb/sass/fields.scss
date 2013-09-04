@@ -87,14 +87,12 @@
 	.progress {
 		width: 100%;
 		height: 12px;
-		margin: -12px 0 0 0;
 		background-color: $accent !important;
 		border-radius: 6px;
 		z-index: -1;
 	}
 }
 .view-scheme-overview .progress-bar {
-	margin-top: 20px;
 	.progress { }
 	.scheme-major-ticks {
 		display: none;

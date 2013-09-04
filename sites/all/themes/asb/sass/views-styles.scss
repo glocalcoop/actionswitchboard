@@ -66,7 +66,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     color: $accent-secondary
   }
   h2.block-title {
-    @include zen-clear();
+    @include zen-clear(both);
     // padding-right: 10px;
     // padding-left: 10px;
   }
@@ -76,11 +76,20 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
     $pager-height: image-height('pager/previous.png');
     $pager-width: image-width('pager/previous.png');
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
     li {
       $pager-hmargin: -35px;
       $pager-font-size: 0px;
-      margin-top: (-275px/2) - $pager-height;
+      margin-top: (-300px/2) - $pager-height/2;
       padding: 0;
+      &.pager-current,
+      &.pager-item,
+      &.pager-first,
+      &.pager-last {
+        display: none;
+      }
       a {
         display: block;
         height: $pager-height;
@@ -115,15 +124,15 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       border-right: {
         @include standard-border($rules-color, 2px);
       }
+      min-height: 300px;
       padding: 0 10px;
-      height: 275px;
       &:last-child {
         border: none;
       }
 
-      .field-image img {
+      img {
         width: 100%;
-        max-width: 220px;
+        max-width: 240px;
         height: auto;
       }
       h3.scheme-name {
@@ -138,39 +147,55 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           content: "by ";
         }
       }
-      .field-body p {
-        margin: 5px 0 12px 0;
+      h4 {
+        margin: 0;
+        padding: 0;
+        line-height: inherit;
+        font-family: $font-body;
+        text-transform: uppercase;
+        color: $text-color-secondary;
+        font-size: $h5-font-size;
+      }
+      .scheme-progress {
+      @include zen-clear(both);
+      padding-bottom: 12px;
+        h4 {
+          @include zen-float;
+          width: 25%;
+        }
+        .scheme-progress-bar {
+          @include zen-float;
+          width: 75%;
+          margin: 0;
+          padding: 0;
+          line-height: inherit;
+        }
       }
       .scheme-info {
-        margin-top: 6px;
-        padding: 4px 0;
+        @include zen-clear(both);
         line-height: 12px;
         height: 12px;
+        margin-top: 8px;
+        padding-top: 8px;
         border-top: {
           @include standard-border($rules-color);
         }
         h4 {
           @include zen-float;
-          margin: 0 10px 0 0;
-          padding: 0;
-          line-height: inherit;
-          font-family: $font-body;
-          text-transform: uppercase;
-          color: $text-color-secondary;
-          font-size: $h5-font-size;
         }
 
         ul.scheme-needs {
+          @include zen-float;
           padding: 0;
           margin: 0;
           list-style-type: none;
-          @include zen-float;
 
           li {
             @include zen-float;
-            @include zen-grid-flow-item( 1, 3 );
+            // @include zen-grid-flow-item( 1, 3 );
             padding-left: 23px;
             margin-right: 0;
+            margin-left: 10px;
             font-weight: bold;            
             &.needed-skills {
               @extend .needs-skills;
