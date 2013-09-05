@@ -111,3 +111,35 @@ ul.tags {
 
 }
 
+$headers: sprite-map("headers/*.png", $position: -4px);
+// $header-icons-spacing: 15px;
+// $header-icons-position: 2px;
+// $header-icons-repeat: no-repeat;
+@import "headers/*.png";
+@include all-headers-sprites;
+
+.scheme-collection {
+  h2.block-title {
+    padding-left: 50px;
+    margin-bottom: 4px;
+  }
+  #block-views-scheme-overview-block-1 {
+    h2.block-title {
+      @extend .headers-added;
+      background-position: sprite-position( $headers, added, 0, -2px);
+    }
+  }
+  #block-views-scheme-overview-block-2 {
+    h2.block-title {
+      @extend .headers-popular;
+      background-position: sprite-position( $headers, popular, 0, -2px);
+    }
+  }
+  #block-views-scheme-overview-block-3 {
+    h2.block-title {
+      @extend .headers-completed;
+      background-position: sprite-position( $headers, completed, 0, -2px);
+    }
+  }
+}
+

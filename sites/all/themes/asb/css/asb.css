@@ -230,3 +230,56 @@ ul.tags li a {
   display: block;
   padding: .25em .5em;
 }
+
+/* line 82, headers/*.png */
+.headers-sprite, .headers-added, .scheme-collection #block-views-scheme-overview-block-1 h2.block-title, .headers-completed, .scheme-collection #block-views-scheme-overview-block-3 h2.block-title, .headers-featured, .headers-following, .headers-leading, .headers-popular, .scheme-collection #block-views-scheme-overview-block-2 h2.block-title {
+  background: url('../images/headers-s0351238bef.png') no-repeat;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-added, .scheme-collection #block-views-scheme-overview-block-1 h2.block-title {
+  background-position: 0 -45px;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-completed, .scheme-collection #block-views-scheme-overview-block-3 h2.block-title {
+  background-position: 0 -135px;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-featured {
+  background-position: 0 -90px;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-following {
+  background-position: 0 -225px;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-leading {
+  background-position: 0 -180px;
+}
+
+/* line 60, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.headers-popular, .scheme-collection #block-views-scheme-overview-block-2 h2.block-title {
+  background-position: 0 0;
+}
+
+/* line 122, ../sass/asb.scss */
+.scheme-collection h2.block-title {
+  padding-left: 50px;
+  margin-bottom: 4px;
+}
+/* line 127, ../sass/asb.scss */
+.scheme-collection #block-views-scheme-overview-block-1 h2.block-title {
+  background-position: 4px -47px;
+}
+/* line 133, ../sass/asb.scss */
+.scheme-collection #block-views-scheme-overview-block-2 h2.block-title {
+  background-position: 4px -2px;
+}
+/* line 139, ../sass/asb.scss */
+.scheme-collection #block-views-scheme-overview-block-3 h2.block-title {
+  background-position: 4px -137px;
+}
