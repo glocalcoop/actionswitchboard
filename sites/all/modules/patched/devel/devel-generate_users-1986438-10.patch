@@ -1,0 +1,13 @@
+diff --git a/devel_generate/devel_generate.fields.inc b/devel_generate/devel_generate.fields.inc
+index b98c068..bcd3c23 100644
+--- a/devel_generate/devel_generate.fields.inc
++++ b/devel_generate/devel_generate.fields.inc
+@@ -65,7 +65,7 @@ function devel_generate_fields(&$object, $obj_type, $bundle) {
+     // initializes the property with incorrect data.
+     // @see http://drupal.org/node/652176
+     $object->{$field['field_name']} = array(
+-      $field['translatable'] ?  $object->language : LANGUAGE_NONE => $object_field,
++      $field['translatable'] ?  $object->language : LANGUAGE_NONE,
+     );
+   }
+ }
