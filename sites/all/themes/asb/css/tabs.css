@@ -63,7 +63,15 @@ html {
   font-stretch: none;
 }
 
-/* line 64, ../sass/_type.scss */
+@font-face {
+  font-family: "entypo";
+  src: url('fonts/entypo.eot');
+  src: url('fonts/entypo.eot?#iefix') format("embedded-opentype"), url('fonts/entypo.woff') format("woff"), url('fonts/entypo.ttf') format("truetype"), url('fonts/entypo.svg#entypo') format("svg"), url('fonts/entypo.otf') format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 65, ../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -75,18 +83,18 @@ h5 {
   font-weight: normal;
 }
 
-/* line 71, ../sass/_type.scss */
+/* line 72, ../sass/_type.scss */
 a, a:link, a:visited {
   text-decoration: none;
 }
 
-/* line 76, ../sass/_type.scss */
+/* line 77, ../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 79, ../sass/_type.scss */
+/* line 80, ../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -94,13 +102,13 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 87, ../sass/_type.scss */
+/* line 88, ../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 92, ../sass/_type.scss */
+/* line 93, ../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -109,7 +117,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 99, ../sass/_type.scss */
+/* line 100, ../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,

@@ -179,6 +179,48 @@
     background-position: -$width;
 }
 
+@mixin font-icon-family($family:"iconic", $file:"iconic") {
+  @if $family == "iconic" {
+    $family:"IconicFill";
+    $file:"iconic";
+  }
+  @else if $family == "entypo" {
+    $family:"entypo";
+    $file:"entypo";
+  }
+  @font-face {
+    font-family: '#{$family}'; 
+    src: font-url('#{$file}.eot'); 
+    src: font-url('#{$file}.eot?#iefix') format('embedded-opentype'),
+         font-url('#{$file}.woff') format('woff'),
+         font-url('#{$file}.ttf') format('truetype'),
+         font-url('#{$file}.svg##{$family}') format('svg'),
+         font-url('#{$file}.otf') format('opentype');
+    font-weight: normal; font-style: normal;
+  }
+
+}
+
+@mixin font-icon-base($family:"iconic", $font-size: 1em, $width: 1em, $margin: 0.8em) {
+  @if $family == "iconic" {
+    $family:"IconicFill";
+    $file:"iconic";
+  }
+  @else if $family == "entypo" {
+    $family:"entypo";
+    $file:"entypo";
+  }
+  &:before {
+    font-family: "#{$family}";
+    font-style: normal;
+    font-size: $font-size;
+    margin-right: $margin;
+    text-align: center;
+    display: inline-block;
+    width: $width;
+  }
+}
+
 
 
 

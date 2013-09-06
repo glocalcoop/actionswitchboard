@@ -46,6 +46,7 @@ $header-line-height: 1.2;
 @include font-face('SourceSansPro', 'source_sans_proitalic', '../fonts/sourcesanspro-italic', normal, italic);
 @include font-face('SourceSansPro', 'source_sans_probold', '../fonts/sourcesanspro-bold', bold );
 @include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);
+@include font-icon-family(entypo);
 
 $header-font-family: League, Helvetica, sans;
 
