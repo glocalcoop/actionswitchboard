@@ -4,8 +4,11 @@
  * Implements hook_form_alter()
  */
 function asb_modal_form_alter(&$form, &$form_state, $form_id) {
-  if($form_id == 'update_node_form' && $form['#action'] == '/asb-modal-callback/ajax') {
-    dsm($form_state);
+  // Check for update_node_form as a modal and set the og_context
+  // for the node to be created and remove access to the form.
+  if($form_id == 'update_node_form' && strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
+    $form['og_group_ref']['und'][0]['default']['#default_value'] = $form_state['og_context'];
+    $form['og_group_ref']['#access'] = false;
   }
 }
 
@@ -14,9 +17,9 @@ function asb_modal_form_alter(&$form, &$form_state, $form_id) {
  */
 function asb_modal_menu() {
   // Create an ajax path for the modal
-  $items['asb-modal-callback/%ctools_js'] = array(
+  $items['asb-modal-callback/%ctools_js/%'] = array(
     'page callback' => 'asb_modal_modal_callback',
-    'page arguments' => array(1),
+    'page arguments' => array(1,2),
     'access arguments' => array('create update content'),
     'type' => MENU_CALLBACK,
   );
@@ -37,16 +40,18 @@ function asb_modal_block_view($block_name) {
     ctools_include('modal');
     ctools_include('ajax');
     ctools_modal_add_js();
-   
+    $group = og_context();
+    // dsm($group);
     return array(
       'subject' => t('Modal Update Title!'),
-      'content' => ctools_modal_text_button(t('Click Here!'),'asb-modal-callback/nojs',t('Click Here!')),
+      'content' => ctools_modal_text_button(t('Click Here!'),'asb-modal-callback/nojs/' .$group['gid'], t('Click Here!')),
     );
   }
 }
 
-function asb_modal_modal_callback($js = false) {
+function asb_modal_modal_callback($js = false, $gid = NULL) {
   // If the user doesn't have javascript, redirect them to the normal node/add/article page
+  $js = true;
   if (!$js) {
     drupal_goto('node/add/update');
   }
@@ -71,6 +76,7 @@ function asb_modal_modal_callback($js = false) {
       'ajax' => true,
       'title' => t('Add Update'),
       'node' => $node,
+      'og_context' => $gid,
     );
 
     // Do the ctools_modal_form_wrapping of the node form.  Returns a set of
