@@ -162,31 +162,36 @@ header#header .block-menu-block ul li a.logout {
 
 /* line 6, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
 article.comment .contact-me:before,
-.scheme-leader-contact .contact-me:before {
+.scheme-leader-contact .contact-me:before,
+.status-info .contact-me:before {
   content: "✉";
 }
 
 /* line 20, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
 article.comment ul.links.inline li.comment-delete a:before,
-.scheme-leader-contact ul.links.inline li.comment-delete a:before {
+.scheme-leader-contact ul.links.inline li.comment-delete a:before,
+.status-info ul.links.inline li.comment-delete a:before {
   content: "✕";
 }
 
 /* line 45, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
 article.comment ul.links.inline li.comment-reply a:before,
-.scheme-leader-contact ul.links.inline li.comment-reply a:before {
+.scheme-leader-contact ul.links.inline li.comment-reply a:before,
+.status-info ul.links.inline li.comment-reply a:before {
   content: "";
 }
 
 /* line 51, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
-.status-info a.icon:before, article.comment ul.links.inline li.comment-edit a:before,
-.scheme-leader-contact ul.links.inline li.comment-edit a:before {
+.status-info a.icon:before, article.comment a.edit:before,
+.scheme-leader-contact a.edit:before,
+.status-info a.edit:before, article.comment ul.links.inline li.comment-edit a:before,
+.scheme-leader-contact ul.links.inline li.comment-edit a:before,
+.status-info ul.links.inline li.comment-edit a:before {
   content: "✎";
 }
 
 /* line 62, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
-.field-location:before,
-.icon:before {
+.field-location:before {
   content: "";
 }
 
@@ -395,58 +400,62 @@ ul.tags li a {
   background-position: 4px -137px;
 }
 
-/* line 163, ../sass/asb.scss */
-.field-location,
-.icon {
+/* line 162, ../sass/asb.scss */
+.field-location {
   color: #7c7f7e;
 }
 /* line 32, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_font-mixins.scss */
-.field-location:before,
-.icon:before {
+.field-location:before {
   font-family: "entypo";
   font-style: normal;
-  font-size: 1em;
-  margin-right: 0.8em;
+  font-size: 1.2em;
+  margin-right: 0.2em;
   text-align: center;
   display: inline-block;
-  width: 1em;
+  width: 0.5em;
+}
+/* line 166, ../sass/asb.scss */
+.field-location:before {
+  text-align: left;
 }
 
-/* line 168, ../sass/asb.scss */
+/* line 170, ../sass/asb.scss */
 .status-info a.icon {
   color: #7c7f7e;
 }
 
-/* line 175, ../sass/asb.scss */
+/* line 178, ../sass/asb.scss */
 article.comment a,
-.scheme-leader-contact a {
+.scheme-leader-contact a,
+.status-info a {
   color: #7c7f7e;
 }
 /* line 32, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_font-mixins.scss */
 article.comment a:before,
-.scheme-leader-contact a:before {
+.scheme-leader-contact a:before,
+.status-info a:before {
   font-family: "entypo";
   font-style: normal;
-  font-size: 1em;
-  margin-right: 0.8em;
+  font-size: 1.2em;
+  margin-right: 0.3em;
   text-align: center;
   display: inline-block;
   width: 1em;
 }
 
-/* line 190, ../sass/asb.scss */
+/* line 193, ../sass/asb.scss */
 aside.scheme-meta h6 {
   padding: 0;
   margin: 0;
 }
 
-/* line 198, ../sass/asb.scss */
+/* line 201, ../sass/asb.scss */
 ul#ui-button,
 ul.tags {
   margin: 0;
   padding: 0;
 }
-/* line 201, ../sass/asb.scss */
+/* line 204, ../sass/asb.scss */
 ul#ui-button li,
 ul.tags li {
   list-style-type: none;
@@ -460,23 +469,23 @@ ul.tags li li {
   padding: 0px;
   display: inline;
 }
-/* line 204, ../sass/asb.scss */
+/* line 207, ../sass/asb.scss */
 ul#ui-button li:nth-child(2),
 ul.tags li:nth-child(2) {
   padding-left: 10px;
 }
 
-/* line 209, ../sass/asb.scss */
+/* line 212, ../sass/asb.scss */
 ul.tags li a {
   padding: 0;
 }
 
-/* line 214, ../sass/asb.scss */
+/* line 217, ../sass/asb.scss */
 aside .item-list ul {
   margin: 0;
   padding: 0;
 }
-/* line 217, ../sass/asb.scss */
+/* line 220, ../sass/asb.scss */
 aside .item-list ul li {
   list-style: none;
   padding: 5px 0;
@@ -487,13 +496,13 @@ aside .item-list ul li {
   border-bottom-style: solid;
 }
 
-/* line 230, ../sass/asb.scss */
+/* line 233, ../sass/asb.scss */
 dl.issue dd {
   margin: 0;
   padding: 0;
 }
 
-/* line 237, ../sass/asb.scss */
+/* line 240, ../sass/asb.scss */
 a.ui-button,
 .ui-button a {
   display: inline-block;

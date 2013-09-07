@@ -159,11 +159,13 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 //Icons
-.field-location,
-.icon {
-  @include font-icon-base(entypo);
+.field-location {
+  @include font-icon-base($family:"entypo", $font-size: 1.2em, $width: 0.5em, $margin: 0.2em);
   @extend %entypo-location;
   color: $text-color;
+  &:before{
+    text-align: left;
+  }
 }
 .status-info a.icon {
   @extend %entypo-pencil;
@@ -171,11 +173,12 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 article.comment,
-.scheme-leader-contact  {
+.scheme-leader-contact,
+.status-info  {
   a {
-      // @include hidden-text;
-      @include font-icon-base(entypo);
+      @include font-icon-base($family:"entypo", $font-size: 1.2em, $margin: 0.3em);
       color: $text-color;
+      &.edit { @extend %entypo-pencil; }
   }
   ul.links.inline li {
     &.comment-delete a{ @extend %entypo-cancel; }
