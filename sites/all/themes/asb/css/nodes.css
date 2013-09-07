@@ -82,7 +82,7 @@ h5 {
 
 /* line 81, ../sass/_type.scss */
 h1 {
-  font-size: 57.96px;
+  font-size: 58.2px;
 }
 
 /* line 85, ../sass/_type.scss */
@@ -130,7 +130,7 @@ h1#site-name a:visited {
 
 /* line 116, ../sass/_type.scss */
 h1#page-title {
-  font-size: 57.96px;
+  font-size: 58.2px;
   line-height: 1.1em;
 }
 
@@ -263,17 +263,29 @@ header#header .block-menu-block ul li a.logout {
   float: right;
   margin-top: 28px;
 }
-
-/* line 78, ../sass/nodes.scss */
-aside .contextual-links-region {
+/* line 75, ../sass/nodes.scss */
+.node-type-scheme h3.field-label {
+  margin: 0;
+  padding: 12px 0 0 0;
+  border-top-color: gray;
+  border-top-width: 1px;
+  border-top-style: solid;
+  font-size: 17.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  weight: bold;
+}
+/* line 84, ../sass/nodes.scss */
+.node-type-scheme aside .contextual-links-region {
   background-color: #ebebeb;
 }
-/* line 81, ../sass/nodes.scss */
-aside .contextual-links-region:nth-child(1), aside .contextual-links-region:nth-child(2) {
+/* line 87, ../sass/nodes.scss */
+.node-type-scheme aside .contextual-links-region:nth-child(1), .node-type-scheme aside .contextual-links-region:nth-child(2) {
   background-color: #e1eaea;
 }
 
-/* line 89, ../sass/nodes.scss */
+/* line 99, ../sass/nodes.scss */
 article.comment .user-picture img {
   width: 30px;
   height: 30px;

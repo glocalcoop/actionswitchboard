@@ -37,6 +37,12 @@
  * Field types (Core)
  */
 
+.field-video {
+	width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+}
+
 .field-type-text {
 }
 
@@ -105,6 +111,10 @@
 .field-progress {
 	position: relative;
 	margin: 20px 0;
+	padding-bottom: 20px;
+    border-bottom: {
+      @include standard-border($color: $text-color-secondary);
+    }
 
 	.progress-bar {
 		z-index: -2;

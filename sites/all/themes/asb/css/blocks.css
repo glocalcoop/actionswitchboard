@@ -80,7 +80,7 @@ h5 {
 
 /* line 81, ../sass/_type.scss */
 h1 {
-  font-size: 57.96px;
+  font-size: 58.2px;
 }
 
 /* line 85, ../sass/_type.scss */
@@ -128,7 +128,7 @@ h1#site-name a:visited {
 
 /* line 116, ../sass/_type.scss */
 h1#page-title {
-  font-size: 57.96px;
+  font-size: 58.2px;
   line-height: 1.1em;
 }
 
@@ -200,162 +200,225 @@ aside .block {
 /* line 34, ../sass/blocks.scss */
 aside .block:first-child {
   /* The first block in the region */
-  margin-top: 1.5em;
-  margin-bottom: 0;
-  background-color: #e1eaea;
 }
 /* line 40, ../sass/blocks.scss */
-aside .block:nth-child(2) {
-  background-color: #e1eaea;
-}
-/* line 44, ../sass/blocks.scss */
 aside .block.last {
   /* The last block in the region */
 }
-/* line 47, ../sass/blocks.scss */
+/* line 43, ../sass/blocks.scss */
 aside .block.odd {
   /* Zebra striping for each block in the region */
 }
-/* line 50, ../sass/blocks.scss */
+/* line 46, ../sass/blocks.scss */
 aside .block.even {
   /* Zebra striping for each block in the region */
 }
-/* line 53, ../sass/blocks.scss */
+/* line 49, ../sass/blocks.scss */
 aside .block h2.block-title {
   /* Block title */
 }
 
-/* line 59, ../sass/blocks.scss */
+/* line 56, ../sass/blocks.scss */
+.node-type-scheme aside .block {
+  /* Block wrapper */
+  margin-bottom: 1.5em;
+  padding: 12px;
+  background: #ebebeb;
+}
+/* line 64, ../sass/blocks.scss */
+.node-type-scheme aside .block.block-asb-scheme .scheme-leader-name {
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  weight: bold;
+}
+/* line 67, ../sass/blocks.scss */
+.node-type-scheme aside .block.block-asb-scheme .scheme-leader-thumb {
+  float: left;
+  width: 71px;
+}
+/* line 75, ../sass/blocks.scss */
+.node-type-scheme aside .block:first-child {
+  /* The first block in the region */
+  display: block;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+  min-height: 120px;
+  background-color: #e1eaea;
+}
+/* line 81, ../sass/blocks.scss */
+.node-type-scheme aside .block:first-child h2.block-title {
+  font-size: 17.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  weight: bold;
+}
+/* line 86, ../sass/blocks.scss */
+.node-type-scheme aside .block:nth-child(2) {
+  background-color: #e1eaea;
+}
+/* line 88, ../sass/blocks.scss */
+.node-type-scheme aside .block:nth-child(2) h2.block-title {
+  padding-top: 10px;
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  weight: bold;
+  border-top-color: gray;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+/* line 97, ../sass/blocks.scss */
+.node-type-scheme aside .block.last {
+  /* The last block in the region */
+}
+/* line 100, ../sass/blocks.scss */
+.node-type-scheme aside .block.odd {
+  /* Zebra striping for each block in the region */
+}
+/* line 103, ../sass/blocks.scss */
+.node-type-scheme aside .block.even {
+  /* Zebra striping for each block in the region */
+}
+/* line 106, ../sass/blocks.scss */
+.node-type-scheme aside .block h2.block-title {
+  /* Block title */
+}
+
+/* line 113, ../sass/blocks.scss */
 #block-aggregator-category-1 {
   /* Block for the latest news items in the first category */
 }
 
-/* line 62, ../sass/blocks.scss */
+/* line 116, ../sass/blocks.scss */
 #block-aggregator-feed-1 {
   /* Block for the latest news items in the first feed */
 }
 
-/* line 65, ../sass/blocks.scss */
+/* line 119, ../sass/blocks.scss */
 #block-block-1 {
   /* First block created with "Add block" link */
 }
 
-/* line 68, ../sass/blocks.scss */
+/* line 122, ../sass/blocks.scss */
 #block-blog-recent {
   /* "Recent blog posts" block */
 }
 
-/* line 71, ../sass/blocks.scss */
+/* line 125, ../sass/blocks.scss */
 #block-book-navigation {
   /* "Book navigation" block for the current book's table of contents */
 }
 
-/* line 74, ../sass/blocks.scss */
+/* line 128, ../sass/blocks.scss */
 #block-comment-recent {
   /* "Recent comments" block */
 }
 
-/* line 77, ../sass/blocks.scss */
+/* line 131, ../sass/blocks.scss */
 #block-forum-active {
   /* "Active forum topics" block */
 }
 
-/* line 80, ../sass/blocks.scss */
+/* line 134, ../sass/blocks.scss */
 #block-forum-new {
   /* "New forum topics" block */
 }
 
-/* line 83, ../sass/blocks.scss */
+/* line 137, ../sass/blocks.scss */
 #block-locale-language {
   /* Language switcher block */
 }
 
-/* line 86, ../sass/blocks.scss */
+/* line 140, ../sass/blocks.scss */
 #block-menu-menu-NAME {
   /* Custom menu block */
 }
 
-/* line 89, ../sass/blocks.scss */
+/* line 143, ../sass/blocks.scss */
 #block-node-recent {
   /* "Recent content" block */
 }
 
-/* line 92, ../sass/blocks.scss */
+/* line 146, ../sass/blocks.scss */
 #block-node-syndicate {
   /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
 }
 
-/* line 95, ../sass/blocks.scss */
+/* line 149, ../sass/blocks.scss */
 #block-poll-recent {
   /* "Most recent poll" block */
 }
 
-/* line 98, ../sass/blocks.scss */
+/* line 152, ../sass/blocks.scss */
 #block-profile-author-information {
   /* "Author information" block for the profile of the page's author */
 }
 
-/* line 101, ../sass/blocks.scss */
+/* line 155, ../sass/blocks.scss */
 #block-search-form {
   /* "Search form" block */
 }
 
-/* line 104, ../sass/blocks.scss */
+/* line 158, ../sass/blocks.scss */
 #block-shortcut-shortcuts {
   /* "Shortcuts" block */
 }
 
-/* line 107, ../sass/blocks.scss */
+/* line 161, ../sass/blocks.scss */
 #block-statistics-popular {
   /* "Popular content" block */
 }
 
-/* line 110, ../sass/blocks.scss */
+/* line 164, ../sass/blocks.scss */
 #block-system-main-menu {
   /* "Main menu" block */
 }
 
-/* line 113, ../sass/blocks.scss */
+/* line 167, ../sass/blocks.scss */
 #block-system-management {
   /* "Management" block for Drupal management menu */
 }
 
-/* line 116, ../sass/blocks.scss */
+/* line 170, ../sass/blocks.scss */
 #block-system-navigation {
   /* "Navigation" block for Drupal navigation menu */
 }
 
-/* line 119, ../sass/blocks.scss */
+/* line 173, ../sass/blocks.scss */
 #block-system-user-menu {
   /* "User menu" block for Drupal user menu */
 }
 
-/* line 122, ../sass/blocks.scss */
+/* line 176, ../sass/blocks.scss */
 #block-system-help {
   /* "System help" block */
 }
 
-/* line 125, ../sass/blocks.scss */
+/* line 179, ../sass/blocks.scss */
 #block-system-main {
   /* "Main page content" block */
 }
 
-/* line 128, ../sass/blocks.scss */
+/* line 182, ../sass/blocks.scss */
 #block-system-powered-by {
   /* "Powered by Drupal" block */
 }
 
-/* line 131, ../sass/blocks.scss */
+/* line 185, ../sass/blocks.scss */
 #block-user-login {
   /* "User login form" block */
 }
 
-/* line 134, ../sass/blocks.scss */
+/* line 188, ../sass/blocks.scss */
 #block-user-new {
   /* "Who's new" block for a list of the newest users */
 }
 
-/* line 137, ../sass/blocks.scss */
+/* line 191, ../sass/blocks.scss */
 #block-user-online {
   /* "Who's online" block for a list of the online users */
 }

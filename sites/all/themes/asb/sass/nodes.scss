@@ -72,17 +72,27 @@
     @include zen-float(right);
     margin-top: 28px;
   }
-}
-
-aside {
-  .contextual-links-region {
-    background-color: $sidebar-panel-primary;
-    &:nth-child(1),
-    &:nth-child(2) {
-      background-color: $sidebar-panel-secondary;
+  h3.field-label {
+    margin: 0;
+    padding: 12px 0 0 0;
+    border-top: {
+      @include standard-border($color: $text-color-secondary);
     }
+    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
+  }
+  aside {
+    .contextual-links-region {
+      background-color: $sidebar-panel-primary;
+      &:nth-child(1),
+      &:nth-child(2) {
+        background-color: $sidebar-panel-secondary;
+      }
+    }
+
   }
 }
+
+
 
 //Comments
 article.comment {
