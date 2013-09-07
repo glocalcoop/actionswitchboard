@@ -1,6 +1,19 @@
 // Base:
 @import "base";
 
+html, p {
+  @include body-text;
+}
+
+.state {
+  @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
+}
+
+.status-info h6 {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 div.messages { margin: 0; padding-top: 1em; }
 
 .admin-menu-icon.expandable { 
@@ -50,6 +63,12 @@ body {
 #content article>header {
   background-color: $panel;
   padding-top: 1em;
+}
+
+#main #content .wrapper{
+  section.content {
+    padding: 0 10px;
+  }
 }
 
 // inside pages
@@ -108,13 +127,9 @@ ul.tags {
       padding: .25em .5em;
     }
   }
-
 }
 
 $headers: sprite-map("headers/*.png", $position: -4px);
-// $header-icons-spacing: 15px;
-// $header-icons-position: 2px;
-// $header-icons-repeat: no-repeat;
 @import "headers/*.png";
 @include all-headers-sprites;
 
@@ -144,8 +159,84 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 //Icons
-.field-location {
-  @include font-icon-base(entypo); 
+.field-location,
+.icon {
+  @include font-icon-base(entypo);
   @extend %entypo-location;
+  color: $text-color;
 }
+.status-info a.icon {
+  @extend %entypo-pencil;
+  color: $text-color;
+}
+
+article.comment,
+.scheme-leader-contact  {
+  a {
+      // @include hidden-text;
+      @include font-icon-base(entypo);
+      color: $text-color;
+  }
+  ul.links.inline li {
+    &.comment-delete a{ @extend %entypo-cancel; }
+    &.comment-edit a { @extend %entypo-pencil; }
+    &.comment-reply a { @extend %entypo-reply; }
+  }
+  
+  .contact-me { @extend %entypo-mail; }
+}
+
+aside.scheme-meta {
+  h6 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+//List
+ul#ui-button,
+ul.tags {
+  margin: 0;
+  padding: 0;
+  li {
+    @include inline-list;
+    @include zen-float;
+    &:nth-child(2) {
+      padding-left: 10px;
+    }
+  }
+}
+ul.tags li a {
+  padding: 0;
+}
+
+aside {
+  .item-list ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      padding: 5px 0;
+      margin-right: 0;
+      margin-left: 0;
+      border-bottom: {
+        @include standard-border ($color: $text-color);
+      }
+    }
+  }
+}
+
+//Definition list
+dl.issue dd {
+  margin: 0;
+  padding: 0;
+}
+
+//Buttons
+a.ui-button,
+.ui-button a {
+  @include button($color: $button-color-secondary);
+}
+
+
 

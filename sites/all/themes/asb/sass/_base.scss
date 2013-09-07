@@ -32,6 +32,8 @@ $legacy-support-for-ie8: true;
 $accent: #EF3F26; //orange
 $accent-secondary: #F15D38; //links etc.
 $panel: #F3F2E0; //beige background
+$sidebar-panel-primary: #ebebeb;
+$sidebar-panel-secondary: #e1eaea;
 $brand: #912A1B;//wine
 $backdrop: #2D2D2E; //#141414;	//dark grey background
 $even-backdrop: white;
@@ -45,12 +47,13 @@ $button: #826853; // brown
 $membership-backdrop: #E8EAEA; // only used in "scheme leader and membership panel"
 //same as wine, but both things are unique enough to have separate vars
 $skills: #912A1B;
-$funds: #56CBC8;
-$supplies: #5FC86C;
+$supplies: #56CBC8;
+$funds: #5FC86C;
 $site-title-color: white;
 $nav-title-color: white;
 $nav-description-color: $text-color;
 $gray-medium: #ccc;
+$button-color-secondary: #9c897a;
 
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
@@ -64,6 +67,7 @@ $indent-amount: 30px;
 @import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
 @import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
 @import "compass/utilities/sprites/base";
+@import "compass/utilities/lists/inline-list";
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
 @import "custom";           // Import our custom mixins last.
 @import "zen";              // Add the Zen Grids responsive layout mixins.

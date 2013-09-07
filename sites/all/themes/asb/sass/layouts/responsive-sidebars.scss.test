@@ -17,8 +17,8 @@
 
 // We are going to create a 980px wide, 5 column grid with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
-$zen-column-count:  8;
-$zen-gutter-width:  10px;
+$zen-column-count:  4;
+$zen-gutter-width:  20px;
 
 
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
@@ -83,7 +83,7 @@ header#header,
 
   $zen-grid-width: 720px;
   $zen-gutter-width:  10px;
-  $zen-column-count: 6;
+  $zen-column-count: 3;
 
   header#header,
   header section.content,
@@ -103,18 +103,12 @@ header#header,
   }
 
   #content {
-    @include zen-grid-item( 6, 0 );
-    margin-left: 0;
+    @include zen-grid-item( 2, 0 );
+    // margin-left: 0;
   }
 
   aside#sidebar {
-    @include zen-grid-item( 1, 5 );
-  }
-
-
-  .scheme-collection-view .views-row {
-    @include zen-float();
-    @include zen-grid-flow-item( 2 );
+    @include zen-grid-item( 1, 3 );
   }
 
 }
@@ -122,14 +116,13 @@ header#header,
 @media all and (min-width: 960px) {
 
   $zen-grid-width: 960px;
-  $gutter-width: 20px;
   // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
-  $zen-column-count: 8;
+  $zen-column-count: 4;
   
   header#header,
   #content,
   footer#footer section.content {
-    @include zen-grid-container;
+    @include zen-grid-container();
   }
 
   #page {
@@ -151,24 +144,15 @@ header#header,
   }
 
   article .wrapper>section.content{
-    @include zen-grid-item(6, 0);
+    @include zen-grid-item( 3, 0 );
     @include zen-grid-container;
     margin-left: 0;
   }
 
   #content aside.scheme-meta,
   #content aside#sidebar {
-    @include zen-grid-item(2, 6);
-  }
-
-  // .front .scheme-collection-view {
-  //   @include zen-grid-item( 8, 0 );
-  // }
-
-  .scheme-collection-view .views-row {
-    @include zen-float;
-    @include zen-grid-flow-item(2);
-  }
+    @include zen-grid-item( 1, 3 );
+  }  
 
   #header-image-strip {
     position: absolute;

@@ -25,6 +25,36 @@
   }
 }
 
+aside {
+  .block { /* Block wrapper */
+    margin-bottom: 1.5em;
+    padding: 12px;
+    background: $sidebar-panel-primary;
+
+    &:first-child { /* The first block in the region */
+      margin-top: 1.5em;
+      margin-bottom: 0;
+      background-color: $sidebar-panel-secondary;
+    }
+
+    &:nth-child(2) {
+      background-color: $sidebar-panel-secondary;
+    }
+
+    &.last { /* The last block in the region */
+    }
+
+    &.odd { /* Zebra striping for each block in the region */
+    }
+
+    &.even { /* Zebra striping for each block in the region */
+    }
+
+    h2.block-title { /* Block title */
+    }
+  }
+}
+
 
 #block-aggregator-category-1 { /* Block for the latest news items in the first category */
 }

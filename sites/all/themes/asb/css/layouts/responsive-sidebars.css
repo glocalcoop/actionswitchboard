@@ -8,12 +8,12 @@
  *
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
-/* line 61, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -64,7 +64,15 @@ html {
   font-stretch: none;
 }
 
-/* line 64, ../../sass/_type.scss */
+@font-face {
+  font-family: "entypo";
+  src: url('../fonts/entypo.eot');
+  src: url('../fonts/entypo.eot?#iefix') format("embedded-opentype"), url('../fonts/entypo.woff') format("woff"), url('../fonts/entypo.ttf') format("truetype"), url('../fonts/entypo.svg#entypo') format("svg"), url('../fonts/entypo.otf') format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 74, ../../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -76,18 +84,47 @@ h5 {
   font-weight: normal;
 }
 
-/* line 71, ../../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
+/* line 81, ../../sass/_type.scss */
+h1 {
+  font-size: 57.96px;
 }
 
-/* line 76, ../../sass/_type.scss */
+/* line 85, ../../sass/_type.scss */
+h2 {
+  font-size: 33.4284px;
+}
+
+/* line 89, ../../sass/_type.scss */
+h3 {
+  font-size: 14.04px;
+}
+
+/* line 93, ../../sass/_type.scss */
+h4 {
+  font-size: 12px;
+}
+
+/* line 99, ../../sass/_type.scss */
+a,
+a:link,
+h3.scheme-name a {
+  text-decoration: none;
+  color: #ef3f26;
+}
+/* line 102, ../../sass/_type.scss */
+a:hover,
+a:link:hover,
+h3.scheme-name a:hover {
+  color: #a31f0c;
+}
+
+/* line 108, ../../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 79, ../../sass/_type.scss */
+/* line 111, ../../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -95,13 +132,28 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 87, ../../sass/_type.scss */
+/* line 116, ../../sass/_type.scss */
+h1#page-title {
+  font-size: 57.96px;
+  line-height: 1.1em;
+}
+
+/* line 123, ../../sass/_type.scss */
+h6,
+.issue dt {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  font-weight: normal;
+  color: #7c7f7e;
+}
+
+/* line 133, ../../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 92, ../../sass/_type.scss */
+/* line 138, ../../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -110,7 +162,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 99, ../../sass/_type.scss */
+/* line 145, ../../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
@@ -201,12 +253,12 @@ header#header,
   /* line 110, ../../sass/layouts/responsive-sidebars.scss */
   aside#sidebar {
     float: left;
-    width: 720px;
-    margin-left: -120px;
+    width: 120px;
+    margin-left: 480px;
     margin-right: -600px;
   }
 
-  /* line 119, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 115, ../../sass/layouts/responsive-sidebars.scss */
   .scheme-collection-view .views-row {
     float: left;
     padding-left: 5px;
@@ -238,23 +290,23 @@ header#header,
     clear: both;
   }
 
-  /* line 140, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 137, ../../sass/layouts/responsive-sidebars.scss */
   #page #header #name-and-slogan {
     display: inline-block;
     width: 428px;
   }
-  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 142, ../../sass/layouts/responsive-sidebars.scss */
   #page #header section#navigation {
     display: inline-block;
     width: auto;
   }
 
-  /* line 152, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 149, ../../sass/layouts/responsive-sidebars.scss */
   #content article > header {
     overflow: hidden;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 153, ../../sass/layouts/responsive-sidebars.scss */
   article .wrapper > section.content {
     float: left;
     width: 720px;
@@ -262,8 +314,17 @@ header#header,
     margin-right: -600px;
     margin-left: 0;
   }
+  /* line 46, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+  article .wrapper > section.content:before, article .wrapper > section.content:after {
+    content: "";
+    display: table;
+  }
+  /* line 50, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+  article .wrapper > section.content:after {
+    clear: both;
+  }
 
-  /* line 162, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 160, ../../sass/layouts/responsive-sidebars.scss */
   #content aside.scheme-meta,
   #content aside#sidebar {
     float: left;
@@ -272,7 +333,7 @@ header#header,
     margin-right: -840px;
   }
 
-  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 168, ../../sass/layouts/responsive-sidebars.scss */
   .scheme-collection-view .views-row {
     float: left;
     padding-left: 5px;
@@ -287,7 +348,7 @@ header#header,
     padding-right: 10px;
   }
 
-  /* line 175, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 173, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip {
     position: absolute;
     top: 73px;
@@ -297,7 +358,7 @@ header#header,
     z-index: -1;
     font-size: 0;
   }
-  /* line 183, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 181, ../../sass/layouts/responsive-sidebars.scss */
   #header-image-strip img {
     display: inline-block;
     margin: 0;

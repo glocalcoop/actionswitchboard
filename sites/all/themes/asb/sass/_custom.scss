@@ -147,7 +147,7 @@
   }
 }
 
-@mixin standard-border($color, $width: 1px) {
+@mixin standard-border($color: $rules-color, $width: 1px) {
     color: $color;
     width: $width;
     style: solid;
@@ -198,18 +198,11 @@
          font-url('#{$file}.otf') format('opentype');
     font-weight: normal; font-style: normal;
   }
-
 }
 
-@mixin font-icon-base($family:"iconic", $font-size: 1em, $width: 1em, $margin: 0.8em) {
-  @if $family == "iconic" {
-    $family:"IconicFill";
-    $file:"iconic";
-  }
-  @else if $family == "entypo" {
-    $family:"entypo";
-    $file:"entypo";
-  }
+@mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.8em) {
+  $family:"entypo";
+  $file:"entypo";
   &:before {
     font-family: "#{$family}";
     font-style: normal;
@@ -218,6 +211,28 @@
     text-align: center;
     display: inline-block;
     width: $width;
+  }
+}
+
+@mixin hidden-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+@mixin button($height: 24px, $color: $accent, $radius: 4px, $font-size: $base-font-size, $font-color: #fff, $font-family: $base-font-family, $display: inline-block) {
+  display: $display;
+  padding: 0 20px;
+  height: $height;
+  line-height: $height;
+  background-color: $color;
+  color: $font-color;
+  font-size: $font-size;
+  font-family: $font-family;
+  border-radius: $radius;
+  text-align: center;
+  &:hover {
+      color: $font-color;
   }
 }
 

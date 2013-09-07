@@ -58,7 +58,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       @include zigzag-border ($odd-backdrop, $even-backdrop);
     }
   }
-
+// .scheme-collection-view .views-row {
+//     @include zen-float;
+//     @include zen-grid-flow-item(1);
+//   }
 .scheme-collection-view {
   color: $text-color;
 
@@ -76,13 +79,14 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
     $pager-height: image-height('pager/previous.png');
     $pager-width: image-width('pager/previous.png');
+    $scheme-height: 300px;
     line-height: inherit;
     margin: 0;
     padding: 0;
     li {
       $pager-hmargin: -35px;
       $pager-font-size: 0px;
-      margin-top: (-300px/2) - $pager-height/2;
+      margin-top: - $scheme-height + ($pager-height + 35px);
       padding: 0;
       &.pager-current,
       &.pager-item,
@@ -126,6 +130,12 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
       min-height: 300px;
       padding: 0 10px;
+      margin: 0;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
       &:last-child {
         border: none;
       }
@@ -178,7 +188,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         margin-top: 8px;
         padding-top: 8px;
         border-top: {
-          @include standard-border($rules-color);
+          @include standard-border;
         }
         h4 {
           @include zen-float;
@@ -253,38 +263,33 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     .donate-button {
       width: 100%;
        a {
-        display: block;
-        width: 100%;
-        height: 58px;
-        line-height: 58px;
-        text-align: center;
+        @include button($height: 58px, $display: block);
         @include header-style ($color: #fff);
-        border-radius: 4px;
       }
       &.skills a {
-        background: $accent;
+        background: $skills;
       }
       &.supplies a {
-        background: #74CCD4;
+        background: $supplies;
       }
       &.funds a {
-        background: #85C770;
+        background: $funds;
       }
     }
   }
   &:nth-child(3) {
     .view-scheme-contribute .view-footer a {
-      background: $accent;
+      background: $skills;
     }
   }
   &:nth-child(4) {
     .view-scheme-contribute .view-footer a {
-      background: #74CCD4;
+      background: $supplies;
     }
   }
   &:nth-child(5) {
     .view-scheme-contribute .view-footer a {
-      background: #85C770;
+      background: $funds;
     }
   }
 }

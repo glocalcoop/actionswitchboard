@@ -68,7 +68,7 @@ html {
   font-style: normal;
 }
 
-/* line 65, ../sass/_type.scss */
+/* line 74, ../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -80,18 +80,47 @@ h5 {
   font-weight: normal;
 }
 
-/* line 72, ../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
+/* line 81, ../sass/_type.scss */
+h1 {
+  font-size: 57.96px;
 }
 
-/* line 77, ../sass/_type.scss */
+/* line 85, ../sass/_type.scss */
+h2 {
+  font-size: 33.4284px;
+}
+
+/* line 89, ../sass/_type.scss */
+h3 {
+  font-size: 14.04px;
+}
+
+/* line 93, ../sass/_type.scss */
+h4 {
+  font-size: 12px;
+}
+
+/* line 99, ../sass/_type.scss */
+a,
+a:link,
+h3.scheme-name a {
+  text-decoration: none;
+  color: #ef3f26;
+}
+/* line 102, ../sass/_type.scss */
+a:hover,
+a:link:hover,
+h3.scheme-name a:hover {
+  color: #a31f0c;
+}
+
+/* line 108, ../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 80, ../sass/_type.scss */
+/* line 111, ../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -99,13 +128,28 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 88, ../sass/_type.scss */
+/* line 116, ../sass/_type.scss */
+h1#page-title {
+  font-size: 57.96px;
+  line-height: 1.1em;
+}
+
+/* line 123, ../sass/_type.scss */
+h6,
+.issue dt {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  font-weight: normal;
+  color: #7c7f7e;
+}
+
+/* line 133, ../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 93, ../sass/_type.scss */
+/* line 138, ../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -114,7 +158,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 100, ../sass/_type.scss */
+/* line 145, ../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
@@ -207,4 +251,30 @@ header#header .block-menu-block ul li a.logout {
   text-transform: uppercase;
   text-align: center;
   word-wrap: break-word;
+}
+
+/* line 67, ../sass/nodes.scss */
+.node-type-scheme h1#page-title {
+  float: left;
+  padding: 0;
+}
+/* line 71, ../sass/nodes.scss */
+.node-type-scheme section.methods {
+  float: right;
+  margin-top: 28px;
+}
+
+/* line 78, ../sass/nodes.scss */
+aside .contextual-links-region {
+  background-color: #ebebeb;
+}
+/* line 81, ../sass/nodes.scss */
+aside .contextual-links-region:nth-child(1), aside .contextual-links-region:nth-child(2) {
+  background-color: #e1eaea;
+}
+
+/* line 89, ../sass/nodes.scss */
+article.comment .user-picture img {
+  width: 30px;
+  height: 30px;
 }

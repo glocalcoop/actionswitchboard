@@ -62,3 +62,32 @@
     @include unpublished-div;
   }
 }
+
+.node-type-scheme {
+  h1#page-title {
+    @include zen-float(left);
+    padding: 0;
+  }
+  section.methods {
+    @include zen-float(right);
+    margin-top: 28px;
+  }
+}
+
+aside {
+  .contextual-links-region {
+    background-color: $sidebar-panel-primary;
+    &:nth-child(1),
+    &:nth-child(2) {
+      background-color: $sidebar-panel-secondary;
+    }
+  }
+}
+
+//Comments
+article.comment {
+  .user-picture img {
+    width: 30px;
+    height: 30px;
+  }
+}

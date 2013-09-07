@@ -26,7 +26,8 @@ $base-font-size:   12px; // The font size set on the root html element.
 $base-line-height: 14.4px; // This line-height determines the basic unit of vertical rhythm.
 
 
-$h1-font-size: 2.7857 * $base-font-size;
+// $h1-font-size: 2.7857 * $base-font-size;
+$h1-font-size: 4.83 * $base-font-size;
 $h2-font-size: 2.7857 * $base-font-size;
 $h3-font-size: 1.17 * $base-font-size;
 $h4-font-size: 1    * $base-font-size;
@@ -58,6 +59,14 @@ $header-font-family: League, Helvetica, sans;
   weight: $weight;
 }
 
+@mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal) {
+  font-size: $size;
+  font-family: $family;
+  color: $color;
+  weight: $weight;
+  line-height: $base-line-height;
+}
+
 h1,
 h2,
 h3,
@@ -66,11 +75,33 @@ h5 {
   text-transform: uppercase;
   color: $text-color-prominent;
   font-family: $header-font-family;
-  font-weight: normal;
+  font-weight: $header-font-weight;
 }
 
-a, a:link, a:visited {
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+a,
+a:link,
+h3.scheme-name a {
   text-decoration: none;
+  color: $accent;
+  &:hover {
+    color: darken($accent, 20%);
+  }
 }
 
 h2#site-name,
@@ -80,6 +111,20 @@ h1#site-name {
   a, a:link, a:visited {
     color: inherit;
   }
+}
+
+h1#page-title {
+  font-size: $h1-font-size;
+  line-height: 1.1em;
+  // line-height: $h1-font-size;
+}
+
+h6,
+.issue dt {
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $header-font-weight;
+  color: $text-color;
 }
 
 header#header {

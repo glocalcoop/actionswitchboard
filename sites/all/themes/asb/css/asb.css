@@ -62,7 +62,7 @@ html {
   font-style: normal;
 }
 
-/* line 65, ../sass/_type.scss */
+/* line 74, ../sass/_type.scss */
 h1,
 h2,
 h3,
@@ -74,18 +74,47 @@ h5 {
   font-weight: normal;
 }
 
-/* line 72, ../sass/_type.scss */
-a, a:link, a:visited {
-  text-decoration: none;
+/* line 81, ../sass/_type.scss */
+h1 {
+  font-size: 57.96px;
 }
 
-/* line 77, ../sass/_type.scss */
+/* line 85, ../sass/_type.scss */
+h2 {
+  font-size: 33.4284px;
+}
+
+/* line 89, ../sass/_type.scss */
+h3 {
+  font-size: 14.04px;
+}
+
+/* line 93, ../sass/_type.scss */
+h4 {
+  font-size: 12px;
+}
+
+/* line 99, ../sass/_type.scss */
+a,
+a:link,
+h3.scheme-name a {
+  text-decoration: none;
+  color: #ef3f26;
+}
+/* line 102, ../sass/_type.scss */
+a:hover,
+a:link:hover,
+h3.scheme-name a:hover {
+  color: #a31f0c;
+}
+
+/* line 108, ../sass/_type.scss */
 h2#site-name,
 h1#site-name {
   font-size: 4.5em;
   color: white;
 }
-/* line 80, ../sass/_type.scss */
+/* line 111, ../sass/_type.scss */
 h2#site-name a, h2#site-name a:link, h2#site-name a:visited,
 h1#site-name a,
 h1#site-name a:link,
@@ -93,13 +122,28 @@ h1#site-name a:visited {
   color: inherit;
 }
 
-/* line 88, ../sass/_type.scss */
+/* line 116, ../sass/_type.scss */
+h1#page-title {
+  font-size: 57.96px;
+  line-height: 1.1em;
+}
+
+/* line 123, ../sass/_type.scss */
+h6,
+.issue dt {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  font-weight: normal;
+  color: #7c7f7e;
+}
+
+/* line 133, ../sass/_type.scss */
 header#header #block-system-user-menu span.title,
 header#header .block-menu-block ul li span.title {
   font-size: 15px;
   color: white;
 }
-/* line 93, ../sass/_type.scss */
+/* line 138, ../sass/_type.scss */
 header#header #block-system-user-menu span.username,
 header#header #block-system-user-menu span.description,
 header#header .block-menu-block ul li span.username,
@@ -108,7 +152,7 @@ header#header .block-menu-block ul li span.description {
   clear: both;
   color: #7c7f7e;
 }
-/* line 100, ../sass/_type.scss */
+/* line 145, ../sass/_type.scss */
 header#header #block-system-user-menu a.login,
 header#header #block-system-user-menu a.logout,
 header#header .block-menu-block ul li a.login,
@@ -116,35 +160,84 @@ header#header .block-menu-block ul li a.logout {
   color: white;
 }
 
+/* line 6, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
+article.comment .contact-me:before,
+.scheme-leader-contact .contact-me:before {
+  content: "✉";
+}
+
+/* line 20, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
+article.comment ul.links.inline li.comment-delete a:before,
+.scheme-leader-contact ul.links.inline li.comment-delete a:before {
+  content: "✕";
+}
+
+/* line 45, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
+article.comment ul.links.inline li.comment-reply a:before,
+.scheme-leader-contact ul.links.inline li.comment-reply a:before {
+  content: "";
+}
+
+/* line 51, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
+.status-info a.icon:before, article.comment ul.links.inline li.comment-edit a:before,
+.scheme-leader-contact ul.links.inline li.comment-edit a:before {
+  content: "✎";
+}
+
 /* line 62, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_entypo-vars.scss */
-.field-location:before {
+.field-location:before,
+.icon:before {
   content: "";
 }
 
 /* line 4, ../sass/asb.scss */
+html, p {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  weight: normal;
+  line-height: 14.4px;
+}
+
+/* line 8, ../sass/asb.scss */
+.state {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #5fc86c;
+  text-transform: uppercase;
+  weight: normal;
+}
+
+/* line 12, ../sass/asb.scss */
+.status-info h6 {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+/* line 17, ../sass/asb.scss */
 div.messages {
   margin: 0;
   padding-top: 1em;
 }
 
-/* line 7, ../sass/asb.scss */
+/* line 20, ../sass/asb.scss */
 .admin-menu-icon.expandable img {
   width: 16px;
 }
 
-/* line 13, ../sass/asb.scss */
+/* line 26, ../sass/asb.scss */
 body header#header {
   position: relative;
   z-index: 10;
   height: 75px;
 }
-/* line 17, ../sass/asb.scss */
+/* line 30, ../sass/asb.scss */
 body header#header h1#site-name {
   width: 428px;
   display: inline-block;
   margin: 0 auto;
 }
-/* line 21, ../sass/asb.scss */
+/* line 34, ../sass/asb.scss */
 body header#header h1#site-name a {
   display: block;
   text-indent: -9000px;
@@ -152,12 +245,12 @@ body header#header h1#site-name a {
   text-align: left;
   background-repeat: no-repeat;
 }
-/* line 29, ../sass/asb.scss */
+/* line 42, ../sass/asb.scss */
 body header#header section#navigation {
   background-color: #2d2d2e;
 }
 
-/* line 35, ../sass/asb.scss */
+/* line 48, ../sass/asb.scss */
 #page:before {
   content: " ";
   position: absolute;
@@ -167,48 +260,53 @@ body header#header section#navigation {
   background: url(../images/header-fringe.png) repeat-x bottom center;
 }
 
-/* line 45, ../sass/asb.scss */
+/* line 58, ../sass/asb.scss */
 #main {
   position: relative;
   top: -0.425em;
 }
 
-/* line 50, ../sass/asb.scss */
+/* line 63, ../sass/asb.scss */
 #content article > header {
   background-color: #f3f2e0;
   padding-top: 1em;
 }
 
-/* line 56, ../sass/asb.scss */
+/* line 69, ../sass/asb.scss */
+#main #content .wrapper section.content {
+  padding: 0 10px;
+}
+
+/* line 75, ../sass/asb.scss */
 #name-and-slogan h1#site-name {
   height: 75px;
 }
-/* line 58, ../sass/asb.scss */
+/* line 77, ../sass/asb.scss */
 #name-and-slogan h1#site-name a {
   background-image: url("../images/logo.png?1376927784");
   background-position: top center;
 }
 
-/* line 66, ../sass/asb.scss */
+/* line 85, ../sass/asb.scss */
 .front header#header {
   height: 201px;
 }
-/* line 70, ../sass/asb.scss */
+/* line 89, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name {
   width: 428px;
 }
-/* line 72, ../sass/asb.scss */
+/* line 91, ../sass/asb.scss */
 .front #name-and-slogan h1#site-name a {
   background-image: url("../images/logo-home.png?1376927784");
   background-position: top center;
   height: 75px;
   z-index: 10;
 }
-/* line 79, ../sass/asb.scss */
+/* line 98, ../sass/asb.scss */
 .front #name-and-slogan h2#what-is-an-action-switchboard {
   margin: 0;
 }
-/* line 81, ../sass/asb.scss */
+/* line 100, ../sass/asb.scss */
 .front #name-and-slogan h2#what-is-an-action-switchboard a {
   display: block;
   height: 125px;
@@ -220,25 +318,25 @@ body header#header section#navigation {
   background-position: bottom center;
 }
 
-/* line 94, ../sass/asb.scss */
+/* line 113, ../sass/asb.scss */
 footer#footer {
   background: #2d2d2e;
 }
 
-/* line 100, ../sass/asb.scss */
+/* line 119, ../sass/asb.scss */
 .not-front #header-image-strip {
   display: none;
 }
 
-/* line 102, ../sass/asb.scss */
+/* line 121, ../sass/asb.scss */
 ul.tags {
   list-style: none;
 }
-/* line 104, ../sass/asb.scss */
+/* line 123, ../sass/asb.scss */
 ul.tags li {
   display: inline-block;
 }
-/* line 106, ../sass/asb.scss */
+/* line 125, ../sass/asb.scss */
 ul.tags li a {
   display: block;
   padding: .25em .5em;
@@ -279,26 +377,32 @@ ul.tags li a {
   background-position: 0 0;
 }
 
-/* line 122, ../sass/asb.scss */
+/* line 137, ../sass/asb.scss */
 .scheme-collection h2.block-title {
   padding-left: 50px;
   margin-bottom: 4px;
 }
-/* line 127, ../sass/asb.scss */
+/* line 142, ../sass/asb.scss */
 .scheme-collection #block-views-scheme-overview-block-1 h2.block-title {
   background-position: 4px -47px;
 }
-/* line 133, ../sass/asb.scss */
+/* line 148, ../sass/asb.scss */
 .scheme-collection #block-views-scheme-overview-block-2 h2.block-title {
   background-position: 4px -2px;
 }
-/* line 139, ../sass/asb.scss */
+/* line 154, ../sass/asb.scss */
 .scheme-collection #block-views-scheme-overview-block-3 h2.block-title {
   background-position: 4px -137px;
 }
 
+/* line 163, ../sass/asb.scss */
+.field-location,
+.icon {
+  color: #7c7f7e;
+}
 /* line 32, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_font-mixins.scss */
-.field-location:before {
+.field-location:before,
+.icon:before {
   font-family: "entypo";
   font-style: normal;
   font-size: 1em;
@@ -306,4 +410,105 @@ ul.tags li a {
   text-align: center;
   display: inline-block;
   width: 1em;
+}
+
+/* line 168, ../sass/asb.scss */
+.status-info a.icon {
+  color: #7c7f7e;
+}
+
+/* line 175, ../sass/asb.scss */
+article.comment a,
+.scheme-leader-contact a {
+  color: #7c7f7e;
+}
+/* line 32, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/font-icons-1.0.5.beta/stylesheets/base/_font-mixins.scss */
+article.comment a:before,
+.scheme-leader-contact a:before {
+  font-family: "entypo";
+  font-style: normal;
+  font-size: 1em;
+  margin-right: 0.8em;
+  text-align: center;
+  display: inline-block;
+  width: 1em;
+}
+
+/* line 190, ../sass/asb.scss */
+aside.scheme-meta h6 {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 198, ../sass/asb.scss */
+ul#ui-button,
+ul.tags {
+  margin: 0;
+  padding: 0;
+}
+/* line 201, ../sass/asb.scss */
+ul#ui-button li,
+ul.tags li {
+  list-style-type: none;
+  float: left;
+}
+/* line 5, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/lists/_inline-list.scss */
+ul#ui-button li, ul#ui-button li li,
+ul.tags li,
+ul.tags li li {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+/* line 204, ../sass/asb.scss */
+ul#ui-button li:nth-child(2),
+ul.tags li:nth-child(2) {
+  padding-left: 10px;
+}
+
+/* line 209, ../sass/asb.scss */
+ul.tags li a {
+  padding: 0;
+}
+
+/* line 214, ../sass/asb.scss */
+aside .item-list ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 217, ../sass/asb.scss */
+aside .item-list ul li {
+  list-style: none;
+  padding: 5px 0;
+  margin-right: 0;
+  margin-left: 0;
+  border-bottom-color: #7c7f7e;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+/* line 230, ../sass/asb.scss */
+dl.issue dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 237, ../sass/asb.scss */
+a.ui-button,
+.ui-button a {
+  display: inline-block;
+  padding: 0 20px;
+  height: 24px;
+  line-height: 24px;
+  background-color: #9c897a;
+  color: white;
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+}
+/* line 234, ../sass/_custom.scss */
+a.ui-button:hover,
+.ui-button a:hover {
+  color: white;
 }
