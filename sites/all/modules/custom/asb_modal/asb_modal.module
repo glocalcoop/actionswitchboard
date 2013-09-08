@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * Implements hook_init()
+ */
+function asb_modal_init() {
+  //Customize modal window
+  /* drupal_add_js(array( */
+  /*     'asb_modal' => array( */
+  /*       'modalSize' => array( */
+  /*         'type' => 'fixed', */
+  /*         'width' => 300, */
+  /*         'height' => 200, */
+  /*       ), */
+  /*     ), */
+  /*   ), 'setting'); */
+  /* ctools_add_js('asb_modal', 'asb_modal'); */
+}
+
+/**
  * Implements hook_form_alter()
  */
 function asb_modal_form_alter(&$form, &$form_state, $form_id) {
@@ -9,8 +26,43 @@ function asb_modal_form_alter(&$form, &$form_state, $form_id) {
   if($form_id == 'update_node_form' && strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
     $form['og_group_ref']['und'][0]['default']['#default_value'] = $form_state['og_context'];
     $form['og_group_ref']['#access'] = false;
+    $form['field_image']['#access'] = false;
+    $form['field_video']['#access'] = false;
+    // here we remove the label from the body field
+    $form['body']['und'][0]['#title'] = "";
+
+    // Unset the preview button
+    unset($form['actions']['preview']);
+
+    // Remove default option and title from group visibility.
+    $form['group_content_access']['und']['#default_value'] = 1;
+    unset($form['group_content_access']['und']['#options'][0]);
+    unset($form['group_content_access']['und']['#title']);
+    
+    // $form['#pre_render'][] = 'asb_modal_add_settings';
+    // dsm($form_state);
   }
 }
+
+/* function asb_modal_add_settings(&$form, &$form_state) { */
+/*   ctools_include('ajax'); */
+/*   ctools_include('modal'); */
+
+/*   // Add CTools' javascript to the page. */
+/*   ctools_modal_add_js(); */
+      
+/*   drupal_add_js(array( */
+/*       'asb-modal-update' => array( */
+/*         'modalSize' => array( */
+/*           'type' => 'fixed', */
+/*           'width' => 300, */
+/*           'height' => 200, */
+/*         ), */
+/*       ), */
+/*     ), 'setting'); */
+/*   ctools_add_js('asb_modal', 'asb_modal'); */
+/*   return $form; */
+/* } */
 
 /**
  * Implements hook_menu()
@@ -40,11 +92,41 @@ function asb_modal_block_view($block_name) {
     ctools_include('modal');
     ctools_include('ajax');
     ctools_modal_add_js();
+
+    $asb_style = array(
+      'asb-modal-style' => array(
+        'modalSize' => array(
+          'type' => 'scale',
+          'width' => .50,
+          'height' => .50,
+          'addWidth' => 20,
+          'addHeight' => 30,
+          'contentRight' => 10,
+          'contentBottom' => 10,
+        ),
+        'modalOptions' => array(
+          'opacity' => .6,
+          'background-color' => '#684C31',
+        ),
+        'animation' => 'fadeIn',
+        'modalTheme' => 'asb_modal',
+        // Customize the AJAX throbber like so:
+        // This function assumes the images are inside the module directory's "images"
+        // directory:
+        // ctools_image_path($image, $module = 'ctools', $dir = 'images')
+        'throbber' => theme('image', array('path' => ctools_image_path('ajax-loader.gif', 'asb_modal'), 'alt' => t('Loading...'), 'title' => t('Loading'))),
+        'closeImage' => theme('image', array('path' => ctools_image_path('modal-close.png', 'asb_modal'), 'alt' => t('Close window'), 'title' => t('Close window'))),
+      ),
+    );
+    // Add the settings array defined above to Drupal 7's JS settings:
+    drupal_add_js($asb_style, 'setting');
+    ctools_add_js('asb_modal', 'asb_modal');
+    ctools_add_css('asb_modal', 'asb_modal');
     $group = og_context();
     // dsm($group);
     return array(
       'subject' => t('Modal Update Title!'),
-      'content' => ctools_modal_text_button(t('Click Here!'),'asb-modal-callback/nojs/' .$group['gid'], t('Click Here!')),
+      'content' => ctools_modal_text_button(t('Click Here!'),'asb-modal-callback/nojs/' .$group['gid'], t('Click Here!'), 'ctools-modal-asb-modal-style'),
     );
   }
 }
@@ -98,3 +180,43 @@ function asb_modal_modal_callback($js = false, $gid = NULL) {
   }
 } 
 
+/**
+ * Implements hook_element_info_alter
+ */
+function asb_modal_element_info_alter(&$type) {
+  // dsm($type);
+  // Here we process the text_format element and remove
+  // it if it's in the modal view.
+  if (isset($type['form']['#action']) && strpos($type['form']['#action'], '/asb-modal-callback/ajax/') !== false) {
+    if (isset($type['text_format']['#process'])) {
+      foreach ($type['text_format']['#process'] as &$callback) {
+        if ($callback === 'filter_process_format') {
+          $callback = 'asb_modal_process_format';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * format processor called from asb_modal_element_info_alter
+ *
+ * removes the text_format element.
+ */
+function asb_modal_process_format($element) {
+  // dsm($element);
+// array of field names to restrict (add more here as needed)
+  $fields = array(
+    'field_textarea',
+    'comment_body',
+  );
+
+  $element = filter_process_format($element);
+  $element['format']['#attributes']['class'][] = 'element-hidden';
+  // dsm($element);
+// Hide the 'text format' pane below certain text area fields.
+  if (isset($element['#field_name']) && in_array($element['#field_name'], $fields)){
+    $element['format']['#access'] = FALSE;
+  }
+  return $element;
+}
