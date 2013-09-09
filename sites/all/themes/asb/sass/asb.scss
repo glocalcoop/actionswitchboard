@@ -180,8 +180,9 @@ article.comment,
 .scheme-leader-contact,
 .status-info  {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 1.2em, $margin: 0.3em);
+      @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em);
       color: $text-color;
+      text-align: left;
       &.edit { @extend %entypo-pencil; }
   }
   ul.links.inline li {
