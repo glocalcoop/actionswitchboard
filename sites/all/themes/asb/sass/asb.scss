@@ -2,8 +2,6 @@
 
 @import "base";
 
-body{ border: 10px #f00 solid }
-
 html, p {
   @include body-text;
 }
