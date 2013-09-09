@@ -2,12 +2,12 @@
  * @file
  * Comment Styling
  */
-/* line 61, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 75%;
 }
 
-/* line 64, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 12px;
   line-height: 1.2em;
@@ -174,102 +174,102 @@ section#comments.comments article.comment header {
   /* Wrapper for the list of comments and its title */
   margin: 1.5em 0;
 }
-/* line 15, ../sass/comments.scss */
+/* line 16, ../sass/comments.scss */
 .comments h2.title {
   /* Heading for the list of comments */
 }
-/* line 18, ../sass/comments.scss */
+/* line 19, ../sass/comments.scss */
 .comments h2.comment-form {
   /* Heading for the comment form */
 }
-/* line 21, ../sass/comments.scss */
+/* line 22, ../sass/comments.scss */
 .comments .comment {
   /* Wrapper for a single comment */
 }
-/* line 26, ../sass/comments.scss */
+/* line 27, ../sass/comments.scss */
 .comments .comment.comment-preview {
   /* Preview of the comment before submitting new or updated comment */
   background-color: #ffffea;
   /* Drupal core will use a #ffffea background. See #1110842 */
 }
-/* line 30, ../sass/comments.scss */
+/* line 31, ../sass/comments.scss */
 .comments .comment.new {
   /* A new comment since the user last viewed the page. */
 }
-/* line 33, ../sass/comments.scss */
+/* line 34, ../sass/comments.scss */
 .comments .comment.first {
   /* The first comment in the list of comments */
 }
-/* line 36, ../sass/comments.scss */
+/* line 37, ../sass/comments.scss */
 .comments .comment.last {
   /* The last comment in the list of comments */
 }
-/* line 39, ../sass/comments.scss */
+/* line 40, ../sass/comments.scss */
 .comments .comment.odd {
   /* An odd-numbered comment in the list of comments */
 }
-/* line 42, ../sass/comments.scss */
+/* line 43, ../sass/comments.scss */
 .comments .comment.even {
   /* An even-numbered comment in the list of comments */
 }
-/* line 45, ../sass/comments.scss */
+/* line 46, ../sass/comments.scss */
 .comments .comment.comment-by-anonymous {
   /* A comment created by an anonymous user */
 }
-/* line 48, ../sass/comments.scss */
+/* line 49, ../sass/comments.scss */
 .comments .comment.comment-by-node-author {
   /* A comment created by the node's author */
 }
-/* line 51, ../sass/comments.scss */
+/* line 52, ../sass/comments.scss */
 .comments .comment.comment-by-viewer {
   /* A comment created by the current user */
 }
-/* line 54, ../sass/comments.scss */
+/* line 55, ../sass/comments.scss */
 .comments .comment h3.comment-title {
   /* Comment title */
 }
-/* line 57, ../sass/comments.scss */
+/* line 58, ../sass/comments.scss */
 .comments .comment .new {
   /* "New" marker for comments that are new for the current user */
   color: #c00;
 }
-/* line 61, ../sass/comments.scss */
+/* line 62, ../sass/comments.scss */
 .comments .comment .user-picture {
   /* The picture of the comment author */
 }
-/* line 64, ../sass/comments.scss */
+/* line 65, ../sass/comments.scss */
 .comments .comment .submitted {
   /* The "posted by" information */
 }
-/* line 67, ../sass/comments.scss */
+/* line 68, ../sass/comments.scss */
 .comments .comment .permalink {
   /* Comment's permalink wrapper */
   text-transform: uppercase;
   font-size: 75%;
 }
-/* line 72, ../sass/comments.scss */
+/* line 73, ../sass/comments.scss */
 .comments .comment .user-signature {
   /* The user's signature */
 }
-/* line 75, ../sass/comments.scss */
+/* line 76, ../sass/comments.scss */
 .comments .comment ul.links {
   /* Comment links. See also the ul.links declaration in the pages.css. */
 }
 
-/* line 81, ../sass/comments.scss */
+/* line 82, ../sass/comments.scss */
 .indented {
   /* Nested comments are indented */
   margin-left: 30px;
   /* Drupal core uses a 25px left margin */
 }
 
-/* line 85, ../sass/comments.scss */
+/* line 86, ../sass/comments.scss */
 .comment-unpublished {
   /* Unpublished comments */
   /* background-color: #fff4f4; */
   /* Drupal core uses a #fff4f4 background */
 }
-/* line 88, ../sass/comments.scss */
+/* line 89, ../sass/comments.scss */
 .comment-unpublished p.unpublished {
   /* The word "Unpublished" displayed underneath the content. */
   height: 0;
