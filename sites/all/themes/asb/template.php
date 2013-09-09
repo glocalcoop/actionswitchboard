@@ -300,3 +300,11 @@ function asb_menu_link(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
+
+
+/**
+ * Implements HOOK_page_alter
+*/
+function asb_util_page_alter(&$variables) {
+  drupal_add_js('sites/all/themes/asb/js/script.js');
+}
