@@ -26,13 +26,14 @@ body {
   header#header {
     position: relative;
     z-index: 10;
-    height: 75px;
+    height: 76px;
     h1#site-name {
       width: 428px;
       display: inline-block;
       margin: 0 auto;
       a{
         display: block;
+        height: 76px;
         text-indent: -9000px;
         overflow: hidden;
         text-align: left;
@@ -71,13 +72,17 @@ body {
   }
 }
 
+
 // inside pages
 #name-and-slogan h1#site-name {
-  height: 75px;
+  height: 76px;
   a {
     background-image: url('../images/logo.png?1376927784');
-    background-position: top center;
+    background-position: bottom left;
+    height: 76px;
+    z-index: 10;
   }
+
 }
 
 // homepage style
@@ -90,9 +95,7 @@ body {
       width: 428px;
       a{
         background-image: url('../images/logo-home.png?1376927784');
-        background-position: top center;
-        height: 75px;
-        z-index: 10;
+        background-position: top left;
       }
     }
     h2#what-is-an-action-switchboard {

@@ -67,7 +67,8 @@ $indent-amount: 30px;
 @import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
 @import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
 @import "compass/utilities/sprites/base";
-@import "compass/utilities/lists/inline-list";
+//@import "compass/utilities/lists/inline-list";
+@import "compass/typography/lists/inline-list";
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
 @import "custom";           // Import our custom mixins last.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
