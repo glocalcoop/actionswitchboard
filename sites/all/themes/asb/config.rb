@@ -22,7 +22,7 @@ sass_dir        = "sass"
 extensions_dir  = "sass-extensions"
 images_dir      = "images"
 javascripts_dir = "js"
-
+fonts_dir       = "fonts"
 
 # Require any additional compass plugins installed on your system.
 #require 'ninesixty'
