@@ -179,7 +179,7 @@
     background-position: -$width;
 }
 
-@mixin font-icon-family($family:"iconic", $file:"iconic") {
+@mixin font-icon-family($family:"entypo", $file:"entypo") {
   @if $family == "iconic" {
     $family:"IconicFill";
     $file:"iconic";
@@ -199,6 +199,8 @@
     font-weight: normal; font-style: normal;
   }
 }
+
+%entypo-megaphone:before { content: "📣"; }
 
 @mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.2em, $align: left) {
   $family:"entypo";

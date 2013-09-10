@@ -195,6 +195,22 @@ $headers: sprite-map("headers/*.png", $position: -4px);
   color: $text-color;
 }
 
+ul.tabs-primary {
+  li {
+    a {
+      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+    }
+    &.ctools-use-ajax a{ 
+      @extend %entypo-megaphone;
+    }
+    &:first-child a{
+      @extend %entypo-rss;
+    }
+  }
+}
+
+
+
 article.comment,
 .scheme-leader-contact,
 .status-info  {
