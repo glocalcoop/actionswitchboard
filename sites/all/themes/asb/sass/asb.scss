@@ -21,8 +21,6 @@ div.messages { margin: 0; padding-top: 1em; }
   img { width: 16px; }
 }
 
-//@import "ui-icons/*.png";
-//@include all-ui-icons-sprites;
 body {
   header#header {
     position: relative;
@@ -30,7 +28,7 @@ body {
     height: 76px;
     h1#site-name {
       width: 428px;
-      display: inline-block;
+      display: block;
       margin: 0 auto;
       a{
         display: block;
@@ -139,9 +137,11 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .scheme-collection {
   h2.block-title {
+    margin-top: 15px;
     padding-left: 50px;
     margin-bottom: 4px;
   }
+
   #block-views-scheme-overview-block-1 {
     h2.block-title {
       @extend .headers-added;
@@ -167,12 +167,23 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 // search nav item
 #navigation ul.menu .menu-mlid-728 {
   color: #fff;
+  cursor: pointer;
   @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
-  @extend %entypo-sarch;
+  @extend %entypo-search;
+  position: relative;
+  &:before {
+    line-height: .875;
+    position: absolute;
+    width: 80%;
+    padding-top: 0;
+    top: .125em;
+    content: "\1F50D";
+    text-align: right;
+  }
 }
 
 .field-location {
-  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
   color: $text-color;
   &:before{
