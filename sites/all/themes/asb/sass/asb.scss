@@ -163,6 +163,14 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 //Icons
+
+// search nav item
+#navigation ul.menu .menu-mlid-728 {
+  color: #fff;
+  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+  @extend %menu-entypo-sarch;
+}
+
 .field-location {
   @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
   @extend %entypo-location;
@@ -246,5 +254,10 @@ a.ui-button,
   @include button($color: $button-color-secondary);
 }
 
-
+.field-body {
+  vertical-align: top;
+  p {
+    min-height: 80px;
+  }
+}
 
