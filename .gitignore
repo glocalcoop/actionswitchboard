@@ -14,6 +14,7 @@
 /scripts
 /sites/default/
 /sites/all/themes/asb/.sass-cache/
+sites/all/themes/asb/codekit-config.json
 /themes
 /update.php
 /web.config
