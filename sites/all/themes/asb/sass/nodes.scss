@@ -90,9 +90,33 @@
     }
 
   }
+  .view-header {
+    .item-list {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 20px 0;
+        li {
+          margin: 0;
+          padding: 0;
+          a {
+            @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em);
+            color: $text-color;
+          }
+          &:first-child a {
+            @extend %entypo-comment;
+          }
+          &:nth-child(2) a {
+            @extend %entypo-calendar;
+          }
+          &:nth-child(3) a {
+            @extend %entypo-megaphone;
+          }
+        }
+      }
+    }
+  }
 }
-
-
 
 //Comments
 article.comment {
