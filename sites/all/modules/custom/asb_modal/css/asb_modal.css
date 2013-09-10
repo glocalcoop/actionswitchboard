@@ -13,6 +13,18 @@ div.ctools-modal-content .modal-content {
   margin: 0;
 }
 
+.ctools-modal-content .form-item.form-type-textarea label {
+  display: none;
+}
+
 .ctools-modal-asb-modal-update .modal-head-wrapper {
   height: 30px;
+}
+
+div.ctools-modal-content .modal-content .modal-throbber-wrapper {
+  text-align: center;
+}
+
+div.ctools-modal-content .modal-content .modal-throbber-wrapper img {
+  margin-top: 100px;
 }

@@ -4,17 +4,7 @@
  * Implements hook_init()
  */
 function asb_modal_init() {
-  //Customize modal window
-  /* drupal_add_js(array( */
-  /*     'asb_modal' => array( */
-  /*       'modalSize' => array( */
-  /*         'type' => 'fixed', */
-  /*         'width' => 300, */
-  /*         'height' => 200, */
-  /*       ), */
-  /*     ), */
-  /*   ), 'setting'); */
-  /* ctools_add_js('asb_modal', 'asb_modal'); */
+  // Add init functions here
 }
 
 /**
@@ -28,50 +18,33 @@ function asb_modal_form_alter(&$form, &$form_state, $form_id) {
     $form['og_group_ref']['#access'] = false;
     $form['field_image']['#access'] = false;
     $form['field_video']['#access'] = false;
-    // here we remove the label from the body field
-    $form['body']['und'][0]['#title'] = "";
-
-    // Unset the preview button
-    unset($form['actions']['preview']);
 
     // Remove default option and title from group visibility.
     $form['group_content_access']['und']['#default_value'] = 1;
     unset($form['group_content_access']['und']['#options'][0]);
     unset($form['group_content_access']['und']['#title']);
     
-    // $form['#pre_render'][] = 'asb_modal_add_settings';
-    // dsm($form_state);
+  }
+  // Add javascript on all modal form loads to change titles
+  // And remove other unwanted options from modal forms
+  if(strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
+    // Unset the preview button
+    unset($form['actions']['preview']);
+    // here we remove the label from the body field
+    $form['body']['und'][0]['#title'] = "";
+    // add title tranform js
+    ctools_add_js('asb_modal_title', 'asb_modal');
   }
 }
-
-/* function asb_modal_add_settings(&$form, &$form_state) { */
-/*   ctools_include('ajax'); */
-/*   ctools_include('modal'); */
-
-/*   // Add CTools' javascript to the page. */
-/*   ctools_modal_add_js(); */
-      
-/*   drupal_add_js(array( */
-/*       'asb-modal-update' => array( */
-/*         'modalSize' => array( */
-/*           'type' => 'fixed', */
-/*           'width' => 300, */
-/*           'height' => 200, */
-/*         ), */
-/*       ), */
-/*     ), 'setting'); */
-/*   ctools_add_js('asb_modal', 'asb_modal'); */
-/*   return $form; */
-/* } */
 
 /**
  * Implements hook_menu()
  */
 function asb_modal_menu() {
   // Create an ajax path for the modal
-  $items['asb-modal-callback/%ctools_js/%'] = array(
+  $items['asb-modal-callback/%ctools_js/%/%'] = array(
     'page callback' => 'asb_modal_modal_callback',
-    'page arguments' => array(1,2),
+    'page arguments' => array(1,2,3),
     'access arguments' => array('create update content'),
     'type' => MENU_CALLBACK,
   );
@@ -86,6 +59,82 @@ function asb_modal_block_info() {
   return $blocks;
 }
 
+/**
+ * Implements hook_views_pre_view
+ *
+ * Using this to populate the ajaxed scheme content
+ * with add content links.
+ */
+function asb_modal_views_pre_view(&$view, &$display_id, &$args) {
+  if($view->name == 'scheme_content'){
+    // here we call asb_modal_settings to theme
+    // header content add links
+    $header = asb_modal_settings('9', array('update'));
+    // $header = asb_modal_settings();
+    // $header = "This is the text that I want in my footer!!!!";
+    $options = array(
+      'id' => 'area',
+      'table' => 'views',
+      'field' => 'area',
+      'empty' => FALSE,
+      'content' => $header,
+      'format' => 'full_html',
+      'tokenize' => 0,
+    );
+    $view->display_handler->set_option('header', array('text' => $options));
+  }
+}
+
+function asb_modal_settings($gid, $node_types = array()) {
+    ctools_include('modal');
+    ctools_include('ajax');
+    ctools_modal_add_js();
+
+    $asb_style = array(
+      'asb-modal-style' => array(
+        'modalSize' => array(
+          'type' => 'scale',
+          'width' => .50,
+          'height' => .50,
+          'addWidth' => 20,
+          'addHeight' => 30,
+          'contentRight' => 10,
+          'contentBottom' => 10,
+        ),
+        'modalOptions' => array(
+          'opacity' => .6,
+          'background-color' => '#684C31',
+        ),
+        'animation' => 'fadeIn',
+        'modalTheme' => 'asb_modal',
+        // Customize the AJAX throbber like so:
+        // This function assumes the images are inside the module directory's "images"
+        // directory:
+        // ctools_image_path($image, $module = 'ctools', $dir = 'images')
+        'throbber' => theme('image', array('path' => ctools_image_path('ajax-loader.gif', 'asb_modal'), 'alt' => t('Loading...'), 'title' => t('Loading'))),
+        'closeImage' => theme('image', array('path' => ctools_image_path('modal-close.png', 'asb_modal'), 'alt' => t('Close window'), 'title' => t('Close window'))),
+      ),
+    );
+    // Add the settings array defined above to Drupal 7's JS settings:
+    drupal_add_js($asb_style, 'setting');
+    drupal_add_js(array('asb_modal' => array('types' => $node_types)), 'setting');
+    ctools_add_js('asb_modal', 'asb_modal');
+
+    ctools_add_css('asb_modal', 'asb_modal');
+    // $group = og_context();
+    $links = array();
+    foreach($node_types as $key => $type) {
+      $links[] = ctools_modal_text_button(t('Add ' .ucfirst($type)),'asb-modal-callback/nojs/' .$type .'/' .$gid, t('Add ' .ucfirst($type)), 'ctools-modal-asb-modal-style node-add add-' .$type);
+    }
+    $output =  theme('item_list', array('items' => $links));
+    return $output;
+}
+
+/**
+ * modify the block view, add modal settings,
+ * and create modal links.
+ */
+ 
 function asb_modal_block_view($block_name) {
   if ($block_name == 'modal_update') {
    
@@ -120,7 +169,7 @@ function asb_modal_block_view($block_name) {
     );
     // Add the settings array defined above to Drupal 7's JS settings:
     drupal_add_js($asb_style, 'setting');
-    ctools_add_js('asb_modal', 'asb_modal');
+    // ctools_add_js('asb_modal', 'asb_modal');
     ctools_add_css('asb_modal', 'asb_modal');
     $group = og_context();
     // dsm($group);
@@ -131,11 +180,11 @@ function asb_modal_block_view($block_name) {
   }
 }
 
-function asb_modal_modal_callback($js = false, $gid = NULL) {
+function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
   // If the user doesn't have javascript, redirect them to the normal node/add/article page
   $js = true;
   if (!$js) {
-    drupal_goto('node/add/update');
+    drupal_goto('node/add/' .$type);
   }
   else {
     // Javascript is on, prepare ctools modals.
@@ -145,7 +194,7 @@ function asb_modal_modal_callback($js = false, $gid = NULL) {
     // Pull in the global user, and prepare a blank node to pass to the node
     // add form.
     global $user;
-    $node = (object) array('uid' => $user->uid, 'name' => (isset($user->name) ? $user->name : ''), 'type' => 'update', 'language' => LANGUAGE_NONE);
+    $node = (object) array('uid' => $user->uid, 'name' => (isset($user->name) ? $user->name : ''), 'type' => $type, 'language' => LANGUAGE_NONE);
     $node->title = NULL;
     node_object_prepare($node);
 
@@ -156,14 +205,14 @@ function asb_modal_modal_callback($js = false, $gid = NULL) {
     // requires node.
     $form_state = array(
       'ajax' => true,
-      'title' => t('Add Update'),
+      'title' => t('Add '.ucfirst($type)),
       'node' => $node,
       'og_context' => $gid,
     );
 
     // Do the ctools_modal_form_wrapping of the node form.  Returns a set of
     // ajax commands in output.
-    $output = ctools_modal_form_wrapper('update_node_form', $form_state);
+    $output = ctools_modal_form_wrapper( $type .'_node_form', $form_state);
 
     if (!empty($form_state['executed'])) {
 
@@ -173,6 +222,21 @@ function asb_modal_modal_callback($js = false, $gid = NULL) {
       // Create ajax command array, dismiss the modal window.
       $output = array();
       $output[] = ctools_modal_command_dismiss();
+
+      /** TODO: Get ajax to update the view, but seeing some
+       *  js errors that may or may not be related to the failure
+       *  I got it to work exactly once and don't know why I can't repeat it
+       */
+
+      // $html = views_embed_view('scheme_content', 'page', '9');
+      /* $view = views_get_view('scheme_content'); */
+      /* $view->set_display('page'); */
+      /* $view->set_arguments(array('9')); */
+      /* $view->execute(); */
+      /* $output[] = $view->render(); */
+
+      /* // $output[] = asb_scheme_display_view('scheme_content', 'page', '9'); */
+      // ajax_command_html('#scheme-content', $html);
     }
 
     print ajax_render($output);
@@ -219,4 +283,16 @@ function asb_modal_process_format($element) {
     $element['format']['#access'] = FALSE;
   }
   return $element;
+}
+
+
+/**
+ * Implements hook_wysiwyg_editor_settings_alter()
+ **/
+function asb_modal_wysiwyg_editor_settings_alter(&$settings, $context) {
+  if(arg(1) == 'ajax') {
+    if ($context['profile']->editor == 'ckeditor' && isset($settings['height'])) {
+      $settings['height'] = 150;
+    }
+  }
 }

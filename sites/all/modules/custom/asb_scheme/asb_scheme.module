@@ -1,5 +1,197 @@
 <?php
 
+function asb_scheme_init() {
+  ctools_include('ajax');
+}
+
+function asb_scheme_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // dsm($data);
+  // dsm($router_item);
+  // dsm($root_path);
+  // Add a tab linking to ajax loading tab on scheme pages
+  if(isset($router_item['page_arguments'][0]->type)) {
+  if($router_item['page_arguments'][0]->type == 'scheme') {
+    $data['tabs'][0]['output'][] = array(
+      '#theme' => 'menu_local_task',
+      '#link' => array(
+        'title' => t('Updates'),
+        'href' => 'asb_scheme/nojs/scheme_content',
+        'localized_options' => array(
+          'attributes' => array(
+            'title' => t('Show scheme updates'),
+            'id' => 'asb-scheme-ajax-link',
+          ),
+        ),
+      ),
+    
+      // Define whether this link is active. This can be omitted for
+      // implementations that add links to pages outside of the current page
+      // context.
+      '#active' => ($router_item['path'] == $root_path),
+    );
+    $count = count($data['tabs'][0]['output']);
+    $data['tabs'][0]['count'] == $count;
+  }
+  }
+}
+
+function asb_scheme_theme_registry_alter(&$theme_registry) {
+  // dsm($theme_registry);
+  if (isset($theme_registry['menu_local_task'])) {
+    $theme_registry['menu_local_task']['function'] = 'theme_asb_scheme_local_task'; // The new theme function.
+  }
+} 
+
+function theme_asb_scheme_local_task(&$variables) {
+  // dsm($variables);
+  // dsm("Hi dad");
+ $link = $variables['element']['#link'];
+  $link_text = $link['title'];
+
+  if (!empty($variables['element']['#active'])) {
+    // Add text to indicate active tab for non-visual users.
+    $active = '<span class="element-invisible">' . t('(active tab)') . '</span>';
+
+    // If the link does not contain HTML already, check_plain() it now.
+    // After we set 'html'=TRUE the link will not be sanitized by l().
+    if (empty($link['localized_options']['html'])) {
+      $link['title'] = check_plain($link['title']);
+    }
+    $link['localized_options']['html'] = TRUE;
+    $link_text = t('!local-task-title!active', array('!local-task-title' => $link['title'], '!active' => $active));
+  }
+  if(isset($link['localized_options']['attributes']) && $link['localized_options']['attributes']['id'] == 'asb-scheme-ajax-link') {
+    
+    // return '<li' . (!empty($variables['element']['#active']) ? ' class="active ctools-use-ajax"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";   
+    // Returns an ajax response tab containing the scheme updates view url
+    return '<li' . (!empty($variables['element']['#active']) ? ' class="active ctools-use-ajax"' : '') . '>' .ctools_ajax_text_button( 'Updates', 'asb_scheme/nojs/scheme_content/page/' .arg(1), t('Get view content.')) . "</li><!-- Added in asb_scheme module line 61. -->\n";
+  }else{ 
+    return '<li' . (!empty($variables['element']['#active']) ? ' class="active"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
+  }
+}
+
+function asb_scheme_menu() {
+  $items = array();
+  $items['asb_scheme'] = array(
+    'title' => "Ajax Test",
+    'page callback' => 'asb_scheme_test_main',
+    // 'access arguments' => array('access content'),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['asb_scheme/%ctools_js/scheme_content/%/%'] = array(
+    'title' => "Updates",
+    'page callback' => 'asb_scheme_display_view',
+    'page arguments' => array(1,2,3,4),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['asb_test/%ctools_js/hi'] = array(
+    'title' => "Hello World",
+    'page callback' => 'asb_scheme_hi_there',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Renders a view via ajax
+ * @param $view_name
+ *  The view name to render
+ * @param $display_name
+ *  The display name of the view to render
+ * @param $gid
+ *  The organic group id supplied as argument to the view
+ *  and used to render og specific modal dialog forms
+ */
+function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
+  // display view via ajax depending on $view_name and $display name
+   $view = views_get_view($view_name);
+   $view->set_display($display_name);
+   $view->set_arguments(array($gid));
+   // Node types we want modals for.
+   $node_types = array('update');
+   $header = asb_modal_settings($gid, $node_types);
+   $options = array(
+     'id' => 'area',
+     'table' => 'views',
+     'field' => 'area',
+     'empty' => FALSE,
+     'content' => $header,
+     'format' => 'full_html',
+     'tokenize' => 0,
+   );
+   $view->display_handler->set_option('header', array('text' => $options));
+   $view->execute();
+   $output = $view->render();
+
+   if($js) {
+     ctools_include('ajax');
+     $commands = array();
+     // $commands[] = ajax_command_html('#add-view', $output);
+     $commands[] = ajax_command_html('#scheme-content', $output);
+     // $commands[] = ctools_ajax_command_after('#ctools-sample', $output);
+     // $commands[] = ctools_ajax_command_remove('#ctools-sample');
+     print ajax_render($commands);
+     // ctools_ajax_render($commands);
+   }else{
+     return $output;
+   }
+       
+}
+
+function asb_scheme_hi_there($js = NULL) {
+   $view = views_get_view('scheme_content');
+   $view->set_arguments(array(9));
+   $view->execute();
+   $output = $view->render();
+
+   //$output = '<h1>' . t('Hello World') . '</h1>';
+  if ($js) {
+    ctools_include('ajax');
+    $commands = array();
+    $commands[] = ajax_command_html('#add-view', $output);
+    print ajax_render($commands); // this function exits.
+    exit;
+  }
+  else {
+    return $output;
+  }
+}
+
+
+function asb_scheme_test_main() {
+  // Include the CTools tools that we need.
+  ctools_include('ajax');
+  ctools_include('modal');
+
+  // Add CTools' javascript to the page.
+  ctools_modal_add_js();
+
+  $links = array();
+
+  /* $output = l('Updates', 'asb_scheme/nojs/scheme_content', array(
+   'attributes' => array('id' => 'asb-scheme-ajax-link', 'class' => 'ctools-use-ajax')));
+  */
+
+
+
+  // ctools_add_js('ajax-responder');
+  $links[] = ctools_ajax_text_button(t('Hello world!'), "asb_test/nojs/hi", t('Replace text with "hello world"'));
+  $links[] = ctools_ajax_text_button( 'Updates', 'asb_scheme/nojs/scheme_content', t('Get view content.'));
+  $output = '<div id="ctools-sample">';
+  $output .= theme('item_list', array('items' => $links, 'title' => t('Actions')));
+  $output .= '</div><div id="add-view"></div>';
+  // $output = ctools_ajax_text_button(t('Hello world!'), "ctools_ajax_sample/nojs/hello", t('Replace text with "hello world"'));
+
+
+  return array('markup' => array('#markup' => $output));
+}
+
+
 /**
  * Implements hook_form_alter
  */
@@ -155,9 +347,11 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         '#markup' => '<div class="add-goal">' .l('Recommend a goal', 'node/add/goal', array('query' => array('field_issue_reference' => $node->nid))) .'</div>',
       );
     case 'scheme':
+      // Make changes to scheme node views add markup to content variable.
       drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/progress.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
       drupal_add_library('jquery_plugin', 'cycle');
       drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/asb-scheme.js', 'file');
+      // Create progress bar markup
       if (isset($node->field_progress['und'])) {
         $progress = $node->field_progress['und'][0]['value'];
         if( is_numeric($progress) && $progress > 0 && $progress <= 100 ) {
@@ -170,6 +364,7 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         $node->content['field_progress'][0]['#markup'] .= '<div class="scheme-major-ticks"><div class="scheme-minor-ticks"></div></div>';
         $node->content['field_progress'][0]['#markup'] .= '<!-- Progress bar code built in asb_scheme_node_view() -->';
       }
+      // Create issues/goals markup
       if (isset($node->field_issues_goals['und'])) {
         $issues_goals = asb_scheme_format_issues_goals($node);
         /* Add markup for issues */
@@ -206,7 +401,7 @@ function asb_scheme_format_issues_goals($node) {
     if ($value['entity']->type == 'issue') {
       $output['issues'] = $value['entity']->title;
     }elseif ($value['entity']->type == 'goal') {
-      $output['goals'] .= '<li><a href="/node/"' .$value['target_id'] .'>'
+      $output['goals'] .= '<li><a href="/node/' .$value['target_id'] .'">'
         .$value['entity']->title .'</a></li>';
     }
   }

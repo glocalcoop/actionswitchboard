@@ -152,6 +152,31 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 
+
+function asb_local_tasks_alter(&$data, $router_item, $root_path) {
+  dsm($data);
+  dsm($router_item);
+  dsm($root_path);
+  // Add a tab linking to node/add to all pages.
+  $data['tabs'][0]['output'][] = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Example tab'),
+      'href' => 'node/add',
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Add new content'),
+        ),
+      ),
+    ),
+    
+    // Define whether this link is active. This can be omitted for
+    // implementations that add links to pages outside of the current page
+    // context.
+    '#active' => ($router_item['path'] == $root_path),
+  );
+}
+
 /**
  * Override or insert variables into the node templates.
  *
@@ -161,6 +186,7 @@ function asb_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function asb_preprocess_node(&$variables, $hook) {
+
   $variables['sample_variable'] = t('Lorem ipsum.');
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
@@ -176,6 +202,7 @@ function asb_preprocess_node(&$variables, $hook) {
   $variables['action_links'] = menu_local_actions();
   $variables['feed_icons'] = drupal_get_feeds();
   $variables['tabs'] = menu_local_tabs();
+  // dsm($variables['tabs']);
   if (!node_access('update', $variables['node'])) {
     $variables['edit_me'] = "";
   }else{
