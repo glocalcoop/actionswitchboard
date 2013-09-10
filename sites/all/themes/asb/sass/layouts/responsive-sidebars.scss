@@ -46,7 +46,8 @@ header#header,
 #content article>.wrapper,
 #content .scheme-collection-view,
 #footer section.content,
-.messages__list{
+.messages__list,
+.page-node-add-scheme #content{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
@@ -185,5 +186,35 @@ header#header,
     }
   }
 
+  /* node editing */
+  .page-node-add-scheme {
+    background: $panel;
+    #content {
+      width: $zen-grid-width;
+      position: relative;
+      padding-left: 200px;
+    }
+    #stepper-add-scheme {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      ul {
+        li {
+          font-size: 1.5em;
+          span {
+            display: block;
+            @include hide-text;
+          }
+        }
+        li.current{
+          &:before {
+            content: "STEP";
+          }
+          font-size: 2em;
+        }
+      }
+    }
+  }
 
 }

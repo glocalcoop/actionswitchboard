@@ -204,22 +204,18 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // Add scheme title to the steps display
     // TODO: May want to add settings to include images
     // to the progress markup.
-    $output = '<div id="step-wapper" style="display:block;height:16px;">';
+    $output = '<div id="stepper-add-scheme"><ul>';
+    // oldschool
+    $i = 1;
     foreach($form['#steps'] as $step_name => $step) {
-      if($form_state['storage']['step'] == $step_name) {
-        // TODO: Remove inline styling.
-        $output .= '<span class="step-progress-current" ';
-        $output .= 'style="display:inline-block;background:red;width:16px;height:16px;';
-        $output .= 'margin:0 .2em;border-radius:10px;">';
-        $output .= '</span>';
+      if( $form_state['storage']['step'] == $step_name) {
+        $output .= '<li class="current '. $step_name . '">' . $i . '<span>' . $step_name . '</span></li>';
       }else{
-        $output .= '<span class="step-progress" ';
-        $output .= 'style="display:inline-block;background:blue;width:16px;height:16px;';
-        $output .= 'margin:0 .2em;border-radius:10px;">';
-        $output .= '</span>';
+        $output .= '<li class="'. $step_name . '">' . $i . '<span>' . $step_name . '</span></li>';
       }
+      $i ++;
     }
-  $output .= '</div>';
+  $output .= '</ul></div>';
   $form['progress'] = array(
     '#markup' => $output,
     '#weight' => 150,
