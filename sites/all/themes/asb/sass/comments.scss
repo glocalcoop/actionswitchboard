@@ -20,10 +20,13 @@ div#comments{
       #edit-author--2 {
         display: none;
       }
+      @include zen-clear;
+      margin-bottom: 35px;
     }
 
   .comment { /* Wrapper for a single comment */
     position: relative;
+    @include zen-clear;
 
     header {
       background-color: transparent;
@@ -102,7 +105,11 @@ div#comments{
         }
       }
     }
-  }
+    .form-actions {
+      @include zen-float(right);
+    }
+    
+}
 
 .indented { /* Nested comments are indented */
   margin-left: $indent-amount; /* Drupal core uses a 25px left margin */

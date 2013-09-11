@@ -5,6 +5,15 @@
 
 @import "base";
 
+form {
+  input[type="button"], 
+  input[type="reset"], 
+  input[type="submit"]  {
+    @include button($color: $accent, $font-color: #fff, $transform: none);
+    border: none;
+    margin-right: 5px;
+  }
+}
 
 .form-item { /* Wrapper for a form element (or group of form elements) and its label */
   margin: 1.5em 0;
