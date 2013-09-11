@@ -89,11 +89,31 @@
 
     @include box-sizing(content-box);
 
+    margin: 0 10px;
+    padding: 0 10px;
+
     .contextual-links-region {
       background-color: $sidebar-panel-primary;
       &:nth-child(1),
       &:nth-child(2) {
         background-color: $sidebar-panel-secondary;
+      }
+    }
+
+    &.scheme-meta {
+      h6, dt {
+        line-height: $base-line-height;
+      }
+      .created {
+        @include zen-float(left);
+      }
+      .issue {
+        @include zen-float(left);
+        margin: 0 0 0 20px;
+      }
+      .goals {
+        @include zen-clear;
+        padding-top: 10px;
       }
     }
 

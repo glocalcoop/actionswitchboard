@@ -11,9 +11,12 @@ section#comments.comments article.comment header {
 
 .comments { /* Wrapper for the list of comments and its title */
   margin: 1.5em 0;
-  
+  border-top: {
+    @include standard-border;
+  }
 
   h2.title { /* Heading for the list of comments */
+    display: none;
   }
 
   h2.comment-form { /* Heading for the comment form */
@@ -75,6 +78,7 @@ section#comments.comments article.comment header {
 
     ul.links { /* Comment links. See also the ul.links declaration in the pages.css. */
     }
+
   }
 
 }
@@ -89,4 +93,8 @@ section#comments.comments article.comment header {
   p.unpublished { /* The word "Unpublished" displayed underneath the content. */
     @include unpublished-div;
   }
+}
+
+ul.inline li.comment-add {
+  display: none;
 }
