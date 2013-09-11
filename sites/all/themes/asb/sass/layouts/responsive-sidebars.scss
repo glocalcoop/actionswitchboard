@@ -186,6 +186,10 @@ header#header,
     }
   }
 
+  .logged-in.admin-menu #header-image-strip{
+    top: 70px;
+  }
+
   /* node editing */
   .page-node-add-scheme {
     background: $panel;
@@ -202,6 +206,7 @@ header#header,
       ul {
         li {
           font-size: 1.5em;
+          text-align: right;
           span {
             display: block;
             @include hide-text;
