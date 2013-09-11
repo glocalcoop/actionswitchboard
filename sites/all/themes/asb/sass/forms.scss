@@ -13,7 +13,14 @@ form {
     border: none;
     margin-right: 5px;
   }
+  fieldset {
+    border: none;
+  }
+  .form-actions {
+    margin-top: 0;
+  }
 }
+
 
 .form-item { /* Wrapper for a form element (or group of form elements) and its label */
   margin: 1.5em 0;

@@ -92,6 +92,14 @@
     border: 8px solid $rules-color-accent;
   }
 
+  #scheme-content {
+    div.field-body {
+      border-bottom: {
+        @include standard-border;
+      }
+    }
+  }
+
   aside {
 
     @include box-sizing(content-box);
@@ -154,10 +162,4 @@
   }
 }
 
-//Comments
-article.comment {
-  .user-picture img {
-    width: 30px;
-    height: 30px;
-  }
-}
+

@@ -8,20 +8,20 @@
 
 div#comments{
   margin: 1.5em 0;
-  border-top: {
-    @include standard-border;
-  }
 
   h2.title { /* Heading for the list of comments */
   display: none;
   }
 
   .comment-form { 
+      @include zen-clear;
+      margin-bottom: 20px;
+      padding: 10px 20px 35px 20px;
+      background: $panel;
+
       #edit-author--2 {
         display: none;
       }
-      @include zen-clear;
-      margin-bottom: 35px;
     }
 
   .comment { /* Wrapper for a single comment */
@@ -76,6 +76,10 @@ div#comments{
         .user-picture { /* The picture of the comment author */
           @include zen-float;
           margin-right: 10px;
+          img {
+            width: 30px;
+            height: 30px;
+          }
         }
         .permalink { /* Comment's permalink wrapper */
           text-transform: uppercase;
