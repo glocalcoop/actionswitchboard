@@ -179,6 +179,7 @@
     background-position: -$width;
 }
 
+// Font Icon mixins and variables
 @mixin font-icon-family($family:"entypo", $file:"entypo") {
   @if $family == "iconic" {
     $family:"IconicFill";
@@ -200,8 +201,6 @@
   }
 }
 
-%entypo-megaphone:before { content: "📣"; }
-
 @mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.2em, $align: left) {
   $family:"entypo";
   $file:"entypo";
@@ -215,6 +214,8 @@
     width: $width;
   }
 }
+
+%entypo-megaphone:before { content: "📣"; }
 
 @mixin hidden-text {
   font: 0/0 a;
