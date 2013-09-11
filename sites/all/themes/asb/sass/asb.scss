@@ -63,6 +63,7 @@ body {
 #content article>header {
   background-color: $panel;
   padding-top: 1em;
+  min-height: 120px;
 }
 
 #main #content .wrapper{
@@ -209,7 +210,7 @@ ul.tabs-primary {
   }
 }
 
-
+section.content,
 article.comment,
 .scheme-leader-contact,
 .status-info  {
@@ -223,6 +224,7 @@ article.comment,
     &.comment-delete a{ @extend %entypo-cancel; }
     &.comment-edit a { @extend %entypo-pencil; }
     &.comment-reply a { @extend %entypo-reply; }
+    &.comment-add a { @extend %entypo-comment; }
   }
   
   .contact-me { @extend %entypo-mail; }
@@ -235,7 +237,7 @@ aside.scheme-meta {
   }
 }
 
-//List
+//Lists
 ul#ui-button,
 ul.tags {
   margin: 0;
@@ -262,7 +264,7 @@ aside {
       margin-right: 0;
       margin-left: 0;
       border-bottom: {
-        @include standard-border ($color: $text-color);
+        @include standard-border;
       }
     }
   }
@@ -276,8 +278,14 @@ dl.issue dd {
 
 //Buttons
 a.ui-button,
-.ui-button a {
-  @include button($color: $button-color-secondary);
+.ui-button a,
+ul.ui-button li.ui-button a {
+  @include button($color: $button-color-secondary, $font-color: #fff, $transform: none);
+  &:link,
+  &:visited,
+  &:hover {
+    color: #fff;
+  }
 }
 
 .field-body {

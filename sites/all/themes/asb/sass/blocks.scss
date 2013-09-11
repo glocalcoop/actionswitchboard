@@ -7,7 +7,7 @@
 
 
 .block { /* Block wrapper */
-  margin-bottom: 1.5em;
+  margin-bottom: 6px;
 
   &.first { /* The first block in the region */
   }
@@ -25,11 +25,12 @@
   }
 }
 
+
 aside {
   .block { /* Block wrapper */
-    margin-bottom: 1.5em;
     padding: 12px;
     background: $sidebar-panel-primary;
+    color: $text-color-prominent;
 
     &:first-child { /* The first block in the region */
     }
@@ -47,50 +48,142 @@ aside {
     }
 
     h2.block-title { /* Block title */
+      border-bottom: {
+        @include standard-border;
+      }
+    }
+    h6 {
+      color: $text-color-prominent;
+      margin-bottom: 0;
+      &:first-letter {
+        font-size: $h2-font-size - 4px;
+      }
+    }
+  }
+
+  //Once styles specified in scheme-layout.tpl.php are implemented, these styles will apply
+  #needs {
+    a#bigbutton {
+      @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family);
+      width: 100%;
+    }
+    #needs-skills {
+      a#bigbutton {
+        background: $skills;
+      }
+    }
+    #needs-supplies {
+      a#bigbutton {
+        background: $supplies;
+      }
+    }
+    #needs-funds {
+      a#bigbutton {
+        background: $funds;
+      }
+    }
+  }
+
+  //Temporary until scheme-layout.tpl.php are implemented
+  .block-views {
+    .view-scheme-contribute {
+      margin-bottom: 6px;
+      .view-footer,
+      .donate-button {
+        width: 100%;
+        p {
+          margin-bottom: 0;
+        }
+        a {
+
+          @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family, $display: block);
+        }
+        &.skills a {
+          background: $skills;
+        }
+        &.supplies a {
+          background: $supplies;
+        }
+        &.funds a {
+          background: $funds;
+        }
+      }
+    }
+    &:nth-child(3) {
+      .view-scheme-contribute .view-footer a {
+        background: $skills;
+      }
+    }
+    &:nth-child(4) {
+      .view-scheme-contribute .view-footer a {
+        background: $supplies;
+      }
+    }
+    &:nth-child(5) {
+      .view-scheme-contribute .view-footer a {
+        background: $funds;
+      }
     }
   }
 }
 
 .node-type-scheme {
-  aside {
-  .block { /* Block wrapper */
-    margin-bottom: 1.5em;
+  aside > .block { /* Block wrapper */
     padding: 12px;
     background: $sidebar-panel-primary;
 
-    //Scheme Detail
+    .view-header p {
+        margin-top: 0;
+        padding-top: 4px;
+        @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: uppercase, $weight: bold);
+        border-top: {
+          @include standard-border;
+        }
+    }
+
     &.block-asb-scheme {
-      
-      .scheme-leader-name {
-        @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: capitalize, $weight: bold);
+
+      .scheme-leader {
+        min-height: 72px;
+        .scheme-leader-name {
+          @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: capitalize, $weight: bold);
+        }
+        .scheme-leader-thumb {
+          @include zen-float;
+          width: 71px;
+        }
+        .scheme-leader-name,
+        .scheme-leader-contact {}
       }
-      .scheme-leader-thumb {
-        @include zen-float;
-        width: 71px;
-      }
-      .scheme-leader-name,
-      .scheme-leader-contact {}
     }
 
     &:first-child { /* The first block in the region */
       display: block;
       margin-top: 1.5em;
       margin-bottom: 0;
-      min-height: 120px;
       background-color: $sidebar-panel-secondary;
       h2.block-title {
         @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
+        border: none;
       }
     }
 
     &:nth-child(2) {
       background-color: $sidebar-panel-secondary;
+      margin-bottom: 1.5em;
       h2.block-title {
         padding-top: 10px;
         @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: capitalize, $weight: bold);
         border-top: {
-          @include standard-border($color: $text-color-secondary);
+          @include standard-border;
         }
+        border-bottom: none;
+      }
+    }
+
+    &:nth-child(3) {
+      .view-header p {
+        border-top: none;
       }
     }
 
@@ -105,7 +198,6 @@ aside {
 
     h2.block-title { /* Block title */
     }
-  }
 }
 }
 

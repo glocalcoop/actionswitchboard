@@ -38,7 +38,8 @@ $brand: #912A1B;//wine
 $backdrop: #2D2D2E; //#141414;	//dark grey background
 $even-backdrop: white;
 $odd-backdrop: #EFF0F0; 
-$rules-color: #e8e8e8; // gray horizontal and vertical rules
+$rules-color: #cfcfcf; // gray horizontal and vertical rules
+$rules-color-accent: #141414;
 $text-color: #7C7F7E; // body copy
 // $text-color-prominent: #303332; // dark grey headers
 $text-color-prominent: #414042;
@@ -76,3 +77,4 @@ $indent-amount: 30px;
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
 @import "type"; // Helps set up a vertical rhythm.
 @import "font-icons";
+@import "compass/css3/box-sizing";

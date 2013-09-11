@@ -110,6 +110,7 @@ header#header,
 
   aside#sidebar {
     @include zen-grid-item( 1, 5 );
+    @include box-sizing(content-box);
   }
 
 
@@ -160,11 +161,9 @@ header#header,
   #content aside.scheme-meta,
   #content aside#sidebar {
     @include zen-grid-item(2, 6);
+    @include box-sizing(content-box);
   }
 
-  // .front .scheme-collection-view {
-  //   @include zen-grid-item( 8, 0 );
-  // }
 
   .scheme-collection-view .views-row {
     @include zen-float;

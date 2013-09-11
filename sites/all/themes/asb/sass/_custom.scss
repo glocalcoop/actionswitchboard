@@ -222,7 +222,7 @@
   color: transparent;
 }
 
-@mixin button($height: 24px, $color: $accent, $radius: 4px, $font-size: $base-font-size, $font-color: #fff, $font-family: $base-font-family, $display: inline-block) {
+@mixin button($height: 24px, $color: $accent, $radius: 4px, $font-size: $base-font-size, $font-color: #fff, $font-family: $base-font-family, $transform: uppercase, $display: inline-block) {
   display: $display;
   padding: 0 20px;
   height: $height;
@@ -233,6 +233,7 @@
   font-family: $font-family;
   border-radius: $radius;
   text-align: center;
+  text-transform: $transform;
   &:hover {
       color: $font-color;
   }

@@ -113,7 +113,7 @@
 	margin: 20px 0;
 	padding-bottom: 20px;
     border-bottom: {
-      @include standard-border($color: $text-color-secondary);
+      @include standard-border;
     }
 
 	.progress-bar {
