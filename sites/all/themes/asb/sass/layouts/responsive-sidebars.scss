@@ -192,12 +192,13 @@ header#header,
   /* node editing */
   .page-node-add-scheme {
     background: $panel;
-    .page-title {
+    .step-title {
       clear: both; 
       max-width: 960px;
       border-bottom: 1px #dedede solid;
       margin: 1em auto .5em auto;
     }
+    .title-description,
     .scheme-title {
       display: none;
     }
