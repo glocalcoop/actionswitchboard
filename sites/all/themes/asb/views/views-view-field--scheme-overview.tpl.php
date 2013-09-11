@@ -21,7 +21,9 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-
+// dsm(array_keys((array)$field->view));
+//dsm(array_keys((array)$field));
+// dsm($field->field);
 ?>
 <?php $count = 0; ?>
 <?php 
@@ -30,10 +32,12 @@ foreach($field as $key => $value) {
     if(is_array($value)) {
       if(!empty($value['field_name'])) {
         if($value['field_name'] == 'field_location' && $count < 1) {
-          $leader_markup = '<div class="scheme-leader"><a href="/user/' .$leader[$row->nid]['uid'] .'">';
-          $leader_markup .= $leader[$row->nid]['name'] .'</a></div>';
-          $leader_markup .= '<!-- Added in views-view-field--scheme-overview.tpl.php -->';
-          $output = $leader_markup .$output;
+          // TODO: Clean up this template file, want to make sure nothing unexpected breaks first.
+          // $leader_markup = '<div class="scheme-leader"><a href="/user/' .$leader[$row->nid]['uid'] .'">';
+          // $leader_markup .= $leader[$row->nid]['name'] .'</a></div>';
+          // $leader_markup .= '<!-- Added in views-view-field--scheme-overview.tpl.php -->'; */
+            // $output = $leader_markup .$output;
+            $output = "";
           $count += 1;
         }elseif($value['field_name'] == 'field_progress') {
           $output = $progress;
@@ -43,5 +47,11 @@ foreach($field as $key => $value) {
   }
 }
 ?>
+<?php 
+if($field->field == 'body' && $field->view->current_display != 'block_3') { 
+   $output = '<div class="scheme-overview-body-wrap">' .$leader_markup .$location .$output .'</div>'; 
+} 
+?>
+<?php if($field->field == 'field_issues_goals') { $output = $completed; } ?>
 <?php print $output; ?>
 

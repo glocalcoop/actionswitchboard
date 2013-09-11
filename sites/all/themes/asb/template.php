@@ -304,12 +304,36 @@ function asb_scheme_preprocess_views_view_field(&$vars) {
     }else{
       $progress = 0;
     }
+    // generate markup for the leader
+    $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader'][$gid]['uid'] .'">';
+    $vars['leader_markup'] .= $vars['leader'][$gid]['name'] .'</a></div>';
+    
+    // dsm($vars['row']->field_field_location[0]['rendered']);
+    $vars['location'] = $vars['row']->field_field_location[0]['rendered'];
+    if(isset($vars['row']->field_field_issues_goals)) {
+
+      // Here we add markup for completed scheme fans, people, issue ('.scheme-info).
+
+      // dsm($vars['row']->field_field_issues_goals);
+      $place_holder_fans = '1005';
+      $place_holder_people = '69';
+
+      $vars['completed'] = '<div class="scheme-info"><h4>About</h4><ul class="scheme-needs">';
+      $vars['completed'] .= '<li class="sc-fans"><label>Fans:</label>' .$place_holder_fans .'</li>';
+      $vars['completed'] .= '<li class="sc-people"><label>People:</label>' .$place_holder_people .'</li>';
+      $vars['completed'] .= '<li class="sc-issue"><label>Issue:</label>' .$vars['row']->field_field_issues_goals[0]['rendered'] .'</li>';
+      $vars['completed'] .= '</ul></div>';
+      $vars['completed'] .= '<!-- Added in template.php preprocess_views_view_field() TODO: Replace place_holder_{fans,people} with real values -->';
+    }
+    // $vars['row']->field_body[0]['rendered'] = '<div class="scheme-collection-wrapper">' .$vars['row']->field_body[0]['rendered'] ."</div>";
     $progress_decimal = asb_scheme_val_to_dec($progress);
     $vars['progress'] = '<div class="progress-bar scheme-overview" data-progress="' .$progress_decimal[1]; 
     $vars['progress'] .= '"><div class="progress" style="width:'.$progress_decimal[0] .'%;background-color:red;">&nbsp;</div></div>';
     $vars['progress'] .= '<div class="scheme-major-ticks"><div class="scheme-minor-ticks"></div></div>';
     $vars['progress'] .= '<!-- Progress bar code built in template.php preprecess_views_view_field';
     $vars['progress'] .= ' variable used in views-view-field--scheme-overview.tpl.php -->';
+    // foreach($vars['leader'] as $key
+    //$vars['progress'] .= $vars['leader']
   }
 }
 

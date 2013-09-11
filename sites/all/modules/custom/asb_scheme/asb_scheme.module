@@ -456,6 +456,7 @@ function asb_scheme_views_pre_render(&$view) {
       $view->need_type = 'funds';
     }
   }
+  // dsm($view);
 }
 
 /**
