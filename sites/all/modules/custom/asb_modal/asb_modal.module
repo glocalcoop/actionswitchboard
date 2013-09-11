@@ -13,6 +13,7 @@ function asb_modal_init() {
 function asb_modal_form_alter(&$form, &$form_state, $form_id) {
   // Check for update_node_form as a modal and set the og_context
   // for the node to be created and remove access to the form.
+
   if($form_id == 'update_node_form' && strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
     $form['og_group_ref']['und'][0]['default']['#default_value'] = $form_state['og_context'];
     $form['og_group_ref']['#access'] = false;
@@ -290,9 +291,9 @@ function asb_modal_process_format($element) {
  * Implements hook_wysiwyg_editor_settings_alter()
  **/
 function asb_modal_wysiwyg_editor_settings_alter(&$settings, $context) {
-  if(arg(1) == 'ajax') {
-    if ($context['profile']->editor == 'ckeditor' && isset($settings['height'])) {
-      $settings['height'] = 150;
-    }
-  }
+  /* if(arg(1) == 'ajax') { */
+  /*   if ($context['profile']->editor == 'ckeditor' && isset($settings['height'])) { */
+  /*     $settings['height'] = 150; */
+  /*   } */
+  /* } */
 }

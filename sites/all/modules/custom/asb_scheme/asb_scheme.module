@@ -115,19 +115,21 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
    // Node types we want modals for.
    $node_types = array('update');
    $header = asb_modal_settings($gid, $node_types);
+   // dsm($header);
    $options = array(
      'id' => 'area',
      'table' => 'views',
      'field' => 'area',
-     'empty' => FALSE,
+     'empty' => TRUE,
      'content' => $header,
      'format' => 'full_html',
      'tokenize' => 0,
    );
    $view->display_handler->set_option('header', array('text' => $options));
+   // dsm($view->page);
    $view->execute();
    $output = $view->render();
-
+   // dsm($output);
    if($js) {
      ctools_include('ajax');
      $commands = array();

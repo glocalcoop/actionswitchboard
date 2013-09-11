@@ -154,9 +154,9 @@ function asb_preprocess_page(&$variables, $hook) {
 
 
 function asb_local_tasks_alter(&$data, $router_item, $root_path) {
-  dsm($data);
-  dsm($router_item);
-  dsm($root_path);
+  // dsm($data);
+  // dsm($router_item);
+  // dsm($root_path);
   // Add a tab linking to node/add to all pages.
   $data['tabs'][0]['output'][] = array(
     '#theme' => 'menu_local_task',
@@ -272,7 +272,9 @@ function asb_scheme_preprocess_views_view_field(&$vars) {
   // Get scheme owner for individual scheme displays
   if($vars['view']->name == 'scheme_overview') {
     foreach($vars['view']->result as $scheme) {
-      
+      // dsm(array_keys((array)$scheme));
+      // dsm(array_keys((array)$vars['row']));
+
       $gid = $scheme->nid;
       $sql = "SELECT u.uid, name FROM users u 
               INNER JOIN og_membership ogm ON u.uid = ogm.etid 
