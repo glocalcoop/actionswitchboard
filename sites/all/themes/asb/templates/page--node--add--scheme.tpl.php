@@ -113,8 +113,15 @@
   
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
-
-    <h1 class="page-title">Create a Scheme</h1>
+    <h1 class="page-title">
+    <?
+      if( $page['content']['system_main']['title']['#value'] ){
+        print render( $page['content']['system_main']['title']['#value'] );
+      }else{
+        print "Create a Scheme";
+      }
+    ?>
+    </h1>
 
     <div id="content">
 
