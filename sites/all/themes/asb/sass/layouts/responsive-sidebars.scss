@@ -192,10 +192,14 @@ header#header,
   /* node editing */
   .page-node-add-scheme {
     background: $panel;
-    .page-title { 
+    .page-title {
+      clear: both; 
       max-width: 960px;
       border-bottom: 1px #dedede solid;
       margin: 1em auto .5em auto;
+    }
+    .scheme-title {
+      display: none;
     }
     #content {
       width: $zen-grid-width;
