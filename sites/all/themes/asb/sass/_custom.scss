@@ -147,10 +147,10 @@
   }
 }
 
-@mixin standard-border($color: $rules-color, $width: 1px) {
+@mixin standard-border($color: $rules-color, $width: 1px, $style: solid) {
     color: $color;
     width: $width;
-    style: solid;
+    style: $style;
 }
 
 @mixin zigzag-border ($foreground-color: $odd-backdrop, $background-color: $even-backdrop, $angle: 135deg, $size: 12px) {

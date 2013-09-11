@@ -64,6 +64,13 @@
 }
 
 .node-type-scheme {
+
+  article>header section.content {
+    border-right: {
+      @include standard-border($style: dashed);
+    }
+  }
+
   h1#page-title {
     @include zen-float(left);
     padding: 0;
