@@ -152,12 +152,14 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
-  if( $variables['page']['content']['system_main']['title']['#value'] ){
-    $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
-    $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
-    $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
-  }else{
-    $variables['full_title'] = t("Create a Scheme!");
+  if ( isset( $variables['page']['content']['system_main']['#form_id'] ) && $variables['page']['content']['system_main']['#form_id'] == 'scheme_node_form') {
+    if( $variables['page']['content']['system_main']['title']['#value'] ){
+      $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
+      $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
+      $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
+    }else{
+      $variables['full_title'] = t("Create a Scheme!");
+    }
   }
 }
 
