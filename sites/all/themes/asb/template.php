@@ -151,6 +151,15 @@ function asb_preprocess_page(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
+function asb_preprocess_page(&$variables, $hook) {
+  if( $variables['page']['content']['system_main']['title']['#value'] ){
+    $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
+    $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
+    $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
+  }else{
+    $variables['full_title'] = t("Create a Scheme!");
+  }
+}
 
 
 function asb_local_tasks_alter(&$data, $router_item, $root_path) {

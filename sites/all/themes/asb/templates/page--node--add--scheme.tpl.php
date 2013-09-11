@@ -113,15 +113,7 @@
   
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
-    <h2 class="step-title">
-    <?
-      if( $page['content']['system_main']['title']['#value'] ){
-        print $page['content']['system_main']['title']['#value'] . '&mdash;' . $page['content']['system_main']['#steps']['step_add_title_and_description']->label; 
-      }else{
-        print "Create a Scheme";
-      }
-    ?>
-    </h1>
+    <h2 class="step-title"><?php print $full_title;?></h2>
 
     <div id="content">
 
