@@ -9,6 +9,6 @@ asb = {};
 
 Drupal.behaviors.asb = {
 
-  console.log( 'script.js loaded' );
+//  console.log( 'script.js loaded' );
 
 }
