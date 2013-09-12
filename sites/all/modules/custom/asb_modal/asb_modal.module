@@ -216,7 +216,7 @@ function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
     $output = ctools_modal_form_wrapper( $type .'_node_form', $form_state);
 
     if (!empty($form_state['executed'])) {
-
+      ctools_include('ajax');
       // Add the responder javascript, required by ctools
       ctools_add_js('ajax-responder');
 
@@ -228,19 +228,12 @@ function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
        *  js errors that may or may not be related to the failure
        *  I got it to work exactly once and don't know why I can't repeat it
        */
+      $html = views_embed_view('scheme_content', 'page', $gid);
+      $output[] = ajax_command_html('#scheme-content', $html);
 
-      // $html = views_embed_view('scheme_content', 'page', '9');
-      /* $view = views_get_view('scheme_content'); */
-      /* $view->set_display('page'); */
-      /* $view->set_arguments(array('9')); */
-      /* $view->execute(); */
-      /* $output[] = $view->render(); */
-
-      /* // $output[] = asb_scheme_display_view('scheme_content', 'page', '9'); */
-      // ajax_command_html('#scheme-content', $html);
     }
-
     print ajax_render($output);
+
     exit;
   }
 } 

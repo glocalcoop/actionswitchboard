@@ -9,7 +9,7 @@
       });
       $('#modalContent').ajaxComplete(function() {
         var nodeId = $('form.node-form').attr('id');
-        var nodeId = 'update-node-form';
+        // var nodeId = 'update-node-form';
         var nodeType = nodeId.split('-');
         var typeUp = nodeType[0].substr(0,1).toUpperCase()+nodeType[0].substr(1);
         $('.modal-update-title').html('Add ' + typeUp);
