@@ -49,29 +49,165 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @include all-needs-sprites;
 
 .scheme-collection {
-    @include zen-grid-container;
-    padding-bottom: 10px;
-    &:nth-child(even) {
-      @include zigzag-border ($even-backdrop, $odd-backdrop);
-    }
-    &:nth-child(odd) {
-      @include zigzag-border ($odd-backdrop, $even-backdrop);
-    }
+  @include zen-grid-container;
+  padding-bottom: 10px;
+  font-size: $base-font-size + 1px;
+  p {
+    font-size: $base-font-size + 1px;
   }
-// .scheme-collection-view .views-row {
-//     @include zen-float;
-//     @include zen-grid-flow-item(1);
-//   }
-.scheme-collection-view {
-  color: $text-color;
-
+  &:nth-child(even) {
+    @include zigzag-border ($even-backdrop, $odd-backdrop);
+  }
+  &:nth-child(odd) {
+    @include zigzag-border ($odd-backdrop, $even-backdrop);
+  }
+    color: $text-color;
   a {
     color: $accent-secondary
   }
   h2.block-title {
     @include zen-clear(both);
-    // padding-right: 10px;
-    // padding-left: 10px;
+  }
+  .field-body {
+    vertical-align: top;
+    p {
+      min-height: 80px;
+    }
+  }
+
+  h3.scheme-name {
+    @include header-style ($family: $font-body, $size: $h4-font-size + 1, $transform: none, $weight: bold);
+    line-height: $base-line-height;
+    margin: 1px 0 4px 0;
+  }
+  .scheme-leader {
+    &:before {
+      content: "by ";
+    }
+  }
+  h4 {
+    @include header-style ($family: $font-body, $size: $h5-font-size, $transform: uppercase, $color: $text-color-secondary);
+    line-height: inherit;
+  }
+
+  .scheme-info {
+    @include zen-clear(both);
+    line-height: 12px;
+    height: 12px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: {
+      @include standard-border;
+    }
+    // font-size: $h5-font-size;
+    h4 {
+      @include zen-float;
+      margin: 0;
+      padding: 0;
+      // font-size: $h5-font-size;
+    }
+
+    ul.scheme-needs {
+      @include zen-float;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      font-size: $h5-font-size;
+      li {
+        @include zen-float;
+        padding-left: 23px;
+        margin-right: 0;
+        margin-left: 10px;
+        font-weight: bold;            
+        &.needed-skills {
+          @extend .needs-skills;
+        };
+        &.needed-supplies {
+          @extend .needs-supplies;
+        };
+        &.needed-funds {
+          @extend .needs-funds;
+          white-space: nowrap;
+        };
+
+      }
+    }
+  }
+
+  //Completed Schemes
+  &.block-views-scheme-overview-block-3 {
+    .scheme-info {
+      margin-top: 0;
+      padding-top: 0;
+      border: none;
+      h4 {
+        float: none;
+        border-bottom: {
+          @include standard-border;
+        }
+        padding-bottom: 4px;
+      }
+      ul.scheme-needs {
+        width: 100%;
+        padding-top: 4px;
+        li {
+          @include zen-float;
+          width: 30%;
+          padding: 0 4px 4px 0;
+          margin: 0;
+          text-transform: uppercase;
+          text-wrap: normal;
+          label {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+
+  .view-content{
+    @include zen-clear();
+
+    .views-row {
+      border-right: {
+        @include standard-border($rules-color, 2px);
+      }
+
+      min-height: 350px;
+      padding: 0 10px;
+      margin: 1em 0 1.5em 0;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      #scheme-images img {
+        width: 100%;
+        max-width: 240px;
+        height: 123px;
+      }
+      .scheme-progress {
+        @include zen-clear(both);
+        padding-bottom: 12px;
+        h4 {
+          @include zen-float;
+          width: 25%;
+          margin: 0;
+          padding: 0;
+          }
+        .scheme-progress-bar {
+          @include zen-float;
+          width: 75%;
+          margin: 0;
+          padding: 0;
+          line-height: inherit;
+        }
+      }
+    }
   }
 
   ul.pager {
@@ -86,7 +222,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     li {
       $pager-hmargin: -35px;
       $pager-font-size: 0px;
-      margin-top: - $scheme-height + ($pager-height + 35px);
+      margin-top: - $scheme-height - $pager-hmargin;
       padding: 0;
       &.pager-current,
       &.pager-item,
@@ -120,111 +256,13 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
     }
   }
+}
+// .scheme-collection-view .views-row {
+//     @include zen-float;
+//     @include zen-grid-flow-item(1);
+//   }
+.scheme-collection-view {
 
-  .view-content{
-    @include zen-clear();
-
-    .views-row {
-
-      border-right: {
-        @include standard-border($rules-color, 2px);
-      }
-
-      min-height: 300px;
-      padding: 0 10px;
-      margin: 1em 0 1.5em 0;
-
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &:last-child {
-        border: none;
-      }
-
-      #scheme-images img {
-        width: 100%;
-        max-width: 240px;
-        height: 123px;
-      }
-
-      h3.scheme-name {
-        font-family: $font-body;
-        font-weight: bold;
-        text-transform: none;
-        font-size: $h4-font-size + 1;
-        margin: 0;
-      }
-      .scheme-leader {
-        &:before {
-          content: "by ";
-        }
-      }
-      h4 {
-        margin: 0;
-        padding: 0;
-        line-height: inherit;
-        font-family: $font-body;
-        text-transform: uppercase;
-        color: $text-color-secondary;
-        font-size: $h5-font-size;
-      }
-      .scheme-progress {
-      @include zen-clear(both);
-      padding-bottom: 12px;
-        h4 {
-          @include zen-float;
-          width: 25%;
-        }
-        .scheme-progress-bar {
-          @include zen-float;
-          width: 75%;
-          margin: 0;
-          padding: 0;
-          line-height: inherit;
-        }
-      }
-      .scheme-info {
-        @include zen-clear(both);
-        line-height: 12px;
-        height: 12px;
-        margin-top: 8px;
-        padding-top: 8px;
-        border-top: {
-          @include standard-border;
-        }
-        h4 {
-          @include zen-float;
-        }
-
-        ul.scheme-needs {
-          @include zen-float;
-          padding: 0;
-          margin: 0;
-          list-style-type: none;
-
-          li {
-            @include zen-float;
-            padding-left: 23px;
-            margin-right: 0;
-            margin-left: 10px;
-            font-weight: bold;            
-            &.needed-skills {
-              @extend .needs-skills;
-            };
-            &.needed-supplies {
-              @extend .needs-supplies;
-            };
-            &.needed-funds {
-              @extend .needs-funds;
-              white-space: nowrap;
-            };
-
-          }
-        }
-      }
-    }
-  }
 }
 
 

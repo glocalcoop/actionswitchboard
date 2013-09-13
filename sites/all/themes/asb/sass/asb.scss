@@ -189,6 +189,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
   color: $text-color;
   &:before{
     text-align: left;
+    line-height: .875;
   }
 }
 .status-info a.icon {
@@ -219,6 +220,9 @@ article.comment,
       color: $text-color;
       text-align: left;
       &.edit { @extend %entypo-pencil; }
+      &:after {
+        line-height: 1.2em;
+      }
   }
   ul.links.inline li {
     &.comment-delete a{ @extend %entypo-cancel; }
@@ -227,7 +231,10 @@ article.comment,
     &.comment-add a { @extend %entypo-comment; }
   }
   
-  .contact-me { @extend %entypo-mail; }
+  a.contact-me { 
+    @extend %entypo-mail;
+    &:before {}
+  }
 }
 
 aside.scheme-meta {
@@ -280,7 +287,7 @@ dl.issue dd {
 a.ui-button,
 .ui-button a,
 ul.ui-button li.ui-button a {
-  @include button($color: $button-color-secondary, $font-color: #fff, $transform: none);
+  @include button($color: $button-color-secondary, $font-family: $base-font-family, $transform: none);
   &:link,
   &:visited,
   &:hover {
@@ -288,10 +295,4 @@ ul.ui-button li.ui-button a {
   }
 }
 
-.field-body {
-  vertical-align: top;
-  p {
-    min-height: 80px;
-  }
-}
 

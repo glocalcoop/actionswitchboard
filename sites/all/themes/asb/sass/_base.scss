@@ -28,7 +28,7 @@ $legacy-support-for-ie8: true;
 
 //
 // Colors, etc.
-//
+//D4D5D7
 $accent: #EF3F26; //orange
 $accent-secondary: #F15D38; //links etc.
 $panel: #F3F2E0; //beige background
@@ -37,7 +37,7 @@ $sidebar-panel-secondary: #e1eaea;
 $brand: #912A1B;//wine
 $backdrop: #2D2D2E; //#141414;	//dark grey background
 $even-backdrop: white;
-$odd-backdrop: #EFF0F0; 
+$odd-backdrop: #f0f0f0; 
 $rules-color: #cfcfcf; // gray horizontal and vertical rules
 $rules-color-accent: #141414;
 $text-color: #7C7F7E; // body copy
@@ -45,7 +45,7 @@ $text-color: #7C7F7E; // body copy
 $text-color-prominent: #414042;
 $text-color-secondary: #808080;
 $button: #826853; // brown
-$membership-backdrop: #E8EAEA; // only used in "scheme leader and membership panel"
+$membership-backdrop: $sidebar-panel-secondary; // only used in "scheme leader and membership panel"
 //same as wine, but both things are unique enough to have separate vars
 $skills: #912A1B;
 $supplies: #56CBC8;
@@ -54,6 +54,7 @@ $site-title-color: white;
 $nav-title-color: white;
 $nav-description-color: $text-color;
 $gray-medium: #ccc;
+$button-color-primary: #EF3F26;
 $button-color-secondary: #9c897a;
 
 // The amount lists, blockquotes and comments are indented.

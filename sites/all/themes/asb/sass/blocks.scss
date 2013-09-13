@@ -95,7 +95,6 @@ aside {
           margin-bottom: 0;
         }
         a {
-
           @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family, $display: block);
         }
         &.skills a {
@@ -129,7 +128,7 @@ aside {
 
 .node-type-scheme {
   aside > .block { /* Block wrapper */
-    padding: 12px;
+    padding: 18px 15px 10px 15px;
     background: $sidebar-panel-primary;
 
     .view-header p {

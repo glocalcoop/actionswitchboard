@@ -56,14 +56,14 @@ $header-font-family: League, Helvetica, sans;
   font-family: $family;
   color: $color;
   text-transform: $transform;
-  weight: $weight;
+  font-weight: $weight;
 }
 
 @mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal) {
   font-size: $size;
   font-family: $family;
   color: $color;
-  weight: $weight;
+  font-weight: $weight;
   line-height: $base-line-height + 2px;
 }
 
