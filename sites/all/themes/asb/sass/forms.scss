@@ -9,9 +9,10 @@ form {
   input[type="button"], 
   input[type="reset"], 
   input[type="submit"]  {
-    @include button($height: 23px, $font-size: $h3-font-size);
+    @include button($height: 30px, $font-size: $h3-font-size + 6);
     border: none;
     margin-right: 5px;
+    letter-spacing: 0.05em;
   }
   fieldset {
     border: none;
@@ -22,14 +23,13 @@ form {
 }
 
 //Add Scheme buttons are bigger
-.page-node-add-scheme 
-form {
-  input[type="button"], 
-  input[type="reset"], 
-  input[type="submit"]  {
-    @include button($height: 50px, $font-size: $h2-font-size);
-    border: none;
-    margin-right: 5px;
+.page-node-add-scheme {
+  form {
+    input[type="button"], 
+    input[type="reset"], 
+    input[type="submit"]  {
+      @include button($height: 50px, $font-size: $h2-font-size);
+    }
   }
 }
 
