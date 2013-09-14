@@ -1,0 +1,22 @@
+//Modals
+
+@import "base";
+
+#modalContent {
+	span.modal-update-title {
+        @include header-style ($family: $header-font-family, $size: $h2-font-size, $transform: uppercase, $weight: normal);
+	}
+	div.ctools-modal-content {
+		padding: 25px 10px;
+		background: $panel;
+		border: {
+			@include standard-border;
+		}
+		div.modal-head-wrapper {
+			
+		}
+	}
+	div.modal-content {
+		padding: 0;
+	}
+}
