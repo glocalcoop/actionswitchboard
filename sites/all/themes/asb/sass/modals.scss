@@ -9,14 +9,30 @@
 	div.ctools-modal-content {
 		padding: 25px 10px;
 		background: $panel;
+
 		border: {
 			@include standard-border;
 		}
-		div.modal-head-wrapper {
-			
-		}
+		div.modal-head-wrapper {}
 	}
+
 	div.modal-content {
 		padding: 0;
 	}
+
+	div.vertical-tabs {
+		&.clearfix {
+			display: none;
+		}
+		ul.vertical-tabs-list {
+			display: none;
+		}
+		div.vertical-tabs-panes {
+			display: none;
+		}
+	}
+
 }
+
+
+
