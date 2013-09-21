@@ -198,7 +198,6 @@ function asb_local_tasks_alter(&$data, $router_item, $root_path) {
  */
 function asb_preprocess_node(&$variables, $hook) {
 
-  $variables['sample_variable'] = t('Lorem ipsum.');
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);

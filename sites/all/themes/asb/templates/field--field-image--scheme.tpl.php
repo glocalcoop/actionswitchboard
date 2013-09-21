@@ -61,8 +61,15 @@ HTML comment.
   </div>
 </div> -->
 
+<?php if($element['#view_mode'] != 'search_teaser'): ?>
 <div id="scheme-images" class="owl-carousel">
     <?php foreach ($items as $delta => $item): ?>
       <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
     <?php endforeach; ?>
 </div>
+<?php endif; ?>
+<?php if($element['#view_mode'] == 'search_teaser'): ?>
+    <?php foreach ($items as $delta => $item): ?>
+      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
+    <?php endforeach; ?>
+<?php endif; ?>
