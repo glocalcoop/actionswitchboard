@@ -27,6 +27,7 @@ global $user;
   <?php print render($content['body']); ?>
 </div>
 <?php print render($content['field_progress']); ?>
+<?php if($node->workflow != 5): ?>
 <div class="scheme-info">
   <h4>Needs</h4>
   <ul class="scheme-needs">
@@ -35,4 +36,15 @@ global $user;
     <li class="needed-funds"><?php print "$" .render($content['field_funding_needs']); ?></li>
   </ul>
 </div>
+<?php else: ?>
+<div class="scheme-info"><h4>About</h4>
+  <ul class="scheme-needs sc-complete">
+    <li class="sc-fans"><label>Fans:</label><?php print $fans; ?> </li>
+    <li class="sc-people"><label>People:</label><?php print $people_count; ?></li>
+    <li class="sc-issue"><label>Issue:</label><div class="field-issues-goals"><?php print render($content['field_issues_goals']); ?></div></li>
+  </ul>
+</div>
+<!-- Added in node--scheme--search-teaser.tpl.php TODO: Replace place_holder_{fans,people} with real values -->
+<?php /* print $completed; */ ?>
+<?php endif; ?>
 
