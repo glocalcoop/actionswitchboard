@@ -12,12 +12,57 @@
 function sprint_two_drush_ctex_bonus_filters() {
   $filters = array();
 
+  $filters['full_html'] = (object) array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'cache' => '1',
+    'status' => '1',
+    'weight' => '-10',
+    'filters' => array(
+      'filter_url' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'filter_url_length' => '72',
+        ),
+      ),
+      'image_resize_filter' => array(
+        'weight' => '0',
+        'status' => '1',
+        'settings' => array(
+          'link' => 0,
+          'link_class' => '',
+          'link_rel' => '',
+          'image_locations' => array(
+            'local' => 'local',
+            'remote' => 0,
+          ),
+        ),
+      ),
+      'filter_autop' => array(
+        'weight' => '1',
+        'status' => '1',
+        'settings' => array(),
+      ),
+      'media_filter' => array(
+        'weight' => '2',
+        'status' => '1',
+        'settings' => array(),
+      ),
+      'filter_htmlcorrector' => array(
+        'weight' => '10',
+        'status' => '1',
+        'settings' => array(),
+      ),
+    ),
+  );
+
   $filters['filtered_html'] = (object) array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '0',
+    'weight' => '-9',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -66,57 +111,12 @@ function sprint_two_drush_ctex_bonus_filters() {
     ),
   );
 
-  $filters['full_html'] = (object) array(
-    'format' => 'full_html',
-    'name' => 'Full HTML',
-    'cache' => '1',
-    'status' => '1',
-    'weight' => '1',
-    'filters' => array(
-      'filter_url' => array(
-        'weight' => '0',
-        'status' => '1',
-        'settings' => array(
-          'filter_url_length' => '72',
-        ),
-      ),
-      'image_resize_filter' => array(
-        'weight' => '0',
-        'status' => '1',
-        'settings' => array(
-          'link' => 0,
-          'link_class' => '',
-          'link_rel' => '',
-          'image_locations' => array(
-            'local' => 'local',
-            'remote' => 0,
-          ),
-        ),
-      ),
-      'filter_autop' => array(
-        'weight' => '1',
-        'status' => '1',
-        'settings' => array(),
-      ),
-      'media_filter' => array(
-        'weight' => '2',
-        'status' => '1',
-        'settings' => array(),
-      ),
-      'filter_htmlcorrector' => array(
-        'weight' => '10',
-        'status' => '1',
-        'settings' => array(),
-      ),
-    ),
-  );
-
   $filters['plain_text'] = (object) array(
     'format' => 'plain_text',
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',
-    'weight' => '10',
+    'weight' => '-8',
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => '0',
@@ -143,7 +143,7 @@ function sprint_two_drush_ctex_bonus_filters() {
     'name' => 'PHP code',
     'cache' => '0',
     'status' => '1',
-    'weight' => '11',
+    'weight' => '-7',
     'filters' => array(
       'php_code' => array(
         'weight' => '0',

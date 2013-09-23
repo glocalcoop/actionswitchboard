@@ -43,6 +43,9 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'access comments' => TRUE,
       'access content' => TRUE,
       'access uploaded files' => TRUE,
+      'create scheme content' => TRUE,
+      'create update content' => TRUE,
+      'edit own scheme content' => TRUE,
       'make online contributions' => TRUE,
       'participate in workflow' => TRUE,
       'post comments' => TRUE,
@@ -52,6 +55,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'register for events' => TRUE,
       'skip comment approval' => TRUE,
       'use text format filtered_html' => TRUE,
+      'use text format full_html' => TRUE,
       'view event info' => TRUE,
       'view event participants' => TRUE,
       'view media' => TRUE,
@@ -88,6 +92,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'access site in maintenance mode' => TRUE,
       'access site reports' => TRUE,
       'access site-wide contact form' => TRUE,
+      'access statistics' => TRUE,
       'access uploaded files' => TRUE,
       'access user contact forms' => TRUE,
       'access user profiles' => TRUE,
@@ -102,6 +107,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'administer comments' => TRUE,
       'administer contact forms' => TRUE,
       'administer content types' => TRUE,
+      'administer contexts' => TRUE,
       'administer dedupe rules' => TRUE,
       'administer filters' => TRUE,
       'administer form steps' => TRUE,
@@ -111,6 +117,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'administer menu' => TRUE,
       'administer message types' => TRUE,
       'administer modernizr' => TRUE,
+      'administer module filter' => TRUE,
       'administer modules' => TRUE,
       'administer nodes' => TRUE,
       'administer pathauto' => TRUE,
@@ -124,6 +131,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'administer shortcuts' => TRUE,
       'administer site configuration' => TRUE,
       'administer software updates' => TRUE,
+      'administer statistics' => TRUE,
       'administer Tagsets' => TRUE,
       'administer taxonomy' => TRUE,
       'administer themes' => TRUE,
@@ -136,6 +144,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'bypass rules access' => TRUE,
       'cancel account' => TRUE,
       'change own username' => TRUE,
+      'change workflow state via node edit form' => TRUE,
       'create article content' => TRUE,
       'create goal content' => TRUE,
       'create issue content' => TRUE,
@@ -196,6 +205,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'edit pledges' => TRUE,
       'edit terms in 1' => TRUE,
       'edit terms in 2' => TRUE,
+      'edit workflow log' => TRUE,
       'execute comment_publish_action' => TRUE,
       'execute comment_save_action' => TRUE,
       'execute comment_unpublish_action' => TRUE,
@@ -254,6 +264,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'translate CiviCRM' => TRUE,
       'use advanced search' => TRUE,
       'use bulk exporter' => TRUE,
+      'use PHP for label patterns' => TRUE,
       'use PHP for settings' => TRUE,
       'use text format filtered_html' => TRUE,
       'use text format full_html' => TRUE,
@@ -268,9 +279,11 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'view media' => TRUE,
       'view own manual batches' => TRUE,
       'view own unpublished content' => TRUE,
+      'view post access counter' => TRUE,
       'view public CiviMail content' => TRUE,
       'view revisions' => TRUE,
       'view the administration theme' => TRUE,
+      'view workflow state change block even when state cannot be changed' => TRUE,
     ),
   );
 
@@ -289,12 +302,15 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
       'create update content' => TRUE,
       'edit own comments' => TRUE,
       'edit own scheme content' => TRUE,
+      'edit own update content' => TRUE,
       'participate in workflow' => TRUE,
       'post comments' => TRUE,
       'search content' => TRUE,
       'skip comment approval' => TRUE,
       'use advanced search' => TRUE,
       'use text format filtered_html' => TRUE,
+      'use text format full_html' => TRUE,
+      'view media' => TRUE,
     ),
   );
 
@@ -303,6 +319,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
     'weight' => '4',
     'permissions' => array(
       'participate in workflow' => TRUE,
+      'use text format full_html' => TRUE,
     ),
   );
 
@@ -311,6 +328,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
     'weight' => '5',
     'permissions' => array(
       'participate in workflow' => TRUE,
+      'use text format full_html' => TRUE,
     ),
   );
 
@@ -319,6 +337,7 @@ function sprint_two_drush_ctex_bonus_roles_and_perms() {
     'weight' => '6',
     'permissions' => array(
       'participate in workflow' => TRUE,
+      'use text format full_html' => TRUE,
     ),
   );
 

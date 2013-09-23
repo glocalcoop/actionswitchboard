@@ -15,6 +15,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
   return array(
     'actions_permissions',
     'admin_menu',
+    'auto_entitylabel',
     'block',
     'botcha',
     'bulk_export',
@@ -22,6 +23,8 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'civicrm',
     'comment',
     'contact',
+    'context',
+    'context_ui',
     'contextual',
     'dashboard',
     'entity',
@@ -37,6 +40,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'menu',
     'message',
     'modernizr',
+    'module_filter',
     'msnf',
     'multiupload_imagefield_widget',
     'node',
@@ -50,7 +54,9 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'rules',
     'search',
     'shortcut',
+    'single_image',
     'sliderfield',
+    'statistics',
     'system',
     'taxonomy',
     'text',
@@ -58,6 +64,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'views',
     'workflow',
     'workflow_admin_ui',
+    'workflow_extensions',
     'workflow_views',
     'wysiwyg'
   );
@@ -68,6 +75,9 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
  */
 function sprint_two_drush_ctex_bonus_info_files() {
   return array(
+    'sprint_two.context.inc' => array(
+      'overwrite' => TRUE,
+    ),
     'sprint_two.file_default_displays.inc' => array(
       'overwrite' => TRUE,
     ),

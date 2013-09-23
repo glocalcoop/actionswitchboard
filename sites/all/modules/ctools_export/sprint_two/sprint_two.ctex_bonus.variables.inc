@@ -18,7 +18,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['additional_settings__active_tab_issue'] = 'edit-submission';
 
-  $variables['additional_settings__active_tab_scheme'] = 'edit-submission';
+  $variables['additional_settings__active_tab_scheme'] = 'edit-comment';
 
   $variables['additional_settings__active_tab_update'] = 'edit-og';
 
@@ -57,6 +57,14 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['anonymous'] = 'Anonymous';
 
+  $variables['auto_entitylabel_node_update'] = '1';
+
+  $variables['auto_entitylabel_pattern_node_update'] = '[node:og_group_ref] [current-user:name] [current-date:short]';
+
+  $variables['auto_entitylabel_php_node_update'] = 0;
+
+  $variables['block_cache'] = FALSE;
+
   $variables['botcha_enabled_comment_node_article_form'] = 1;
 
   $variables['botcha_enabled_comment_node_page_form'] = 1;
@@ -83,9 +91,13 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['botcha_form_blocked_counter'] = 0;
 
-  $variables['botcha_form_passed_counter'] = 0;
+  $variables['botcha_form_passed_counter'] = 5;
 
   $variables['botcha_secret'] = 'a7728c4421164f41303d8bb721bfbc9d';
+
+  $variables['cache'] = 0;
+
+  $variables['cache_lifetime'] = '0';
 
   $variables['civicrmtheme_theme_admin'] = '0';
 
@@ -151,7 +163,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['comment_preview_update'] = '1';
 
-  $variables['comment_scheme'] = '0';
+  $variables['comment_scheme'] = '2';
 
   $variables['comment_subject_field_document'] = 1;
 
@@ -166,6 +178,8 @@ function sprint_two_drush_ctex_bonus_variables() {
   $variables['comment_update'] = '2';
 
   $variables['contact_default_status'] = 1;
+
+  $variables['context_block_rebuild_needed'] = TRUE;
 
   $variables['cron_key'] = 'o1cg8Dg7yHhI3HUu_rE1CNgd0XdLjJ5_Wn7mVv0degw';
 
@@ -420,7 +434,15 @@ function sprint_two_drush_ctex_bonus_variables() {
           ),
           'teaser' => array(
             'weight' => '10',
-            'visible' => TRUE,
+            'visible' => FALSE,
+          ),
+          'search_teaser' => array(
+            'weight' => '14',
+            'visible' => FALSE,
+          ),
+          'issue_title' => array(
+            'weight' => '10',
+            'visible' => FALSE,
           ),
         ),
         'workflow_current_state' => array(
@@ -430,7 +452,15 @@ function sprint_two_drush_ctex_bonus_variables() {
           ),
           'teaser' => array(
             'weight' => '-99',
-            'visible' => TRUE,
+            'visible' => FALSE,
+          ),
+          'search_teaser' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'issue_title' => array(
+            'weight' => '-99',
+            'visible' => FALSE,
           ),
         ),
         'workflow' => array(
@@ -440,7 +470,15 @@ function sprint_two_drush_ctex_bonus_variables() {
           ),
           'teaser' => array(
             'weight' => '99',
-            'visible' => TRUE,
+            'visible' => FALSE,
+          ),
+          'search_teaser' => array(
+            'weight' => '15',
+            'visible' => FALSE,
+          ),
+          'issue_title' => array(
+            'weight' => '99',
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -542,18 +580,20 @@ function sprint_two_drush_ctex_bonus_variables() {
     35 => 27,
     36 => 24,
     37 => 21,
-    38 => 19,
-    39 => 15,
-    40 => 14,
-    41 => 13,
-    42 => 11,
-    43 => 9,
-    44 => 7,
-    45 => 6,
-    46 => 5,
-    47 => 3,
-    48 => 2,
-    49 => 1,
+    38 => 20,
+    39 => 19,
+    40 => 15,
+    41 => 14,
+    42 => 13,
+    43 => 11,
+    44 => 9,
+    45 => 8,
+    46 => 7,
+    47 => 6,
+    48 => 5,
+    49 => 3,
+    50 => 2,
+    51 => 1,
   );
 
   $variables['menu_options_document'] = array();
@@ -580,7 +620,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['menu_parent_update'] = 'main-menu:0';
 
-  $variables['node_admin_theme'] = 1;
+  $variables['node_admin_theme'] = 0;
 
   $variables['node_options_document'] = array(
     0 => 'status',
@@ -645,6 +685,10 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['og_use_queue'] = 1;
 
+  $variables['page_cache_maximum_age'] = '0';
+
+  $variables['page_compression'] = 1;
+
   $variables['pathauto_blog_pattern'] = 'blogs/[user:name]';
 
   $variables['pathauto_forum_pattern'] = '[term:vocabulary]/[term:name]';
@@ -656,6 +700,18 @@ function sprint_two_drush_ctex_bonus_variables() {
   $variables['pathauto_taxonomy_term_pattern'] = '[term:vocabulary]/[term:name]';
 
   $variables['pathauto_user_pattern'] = 'users/[user:name]';
+
+  $variables['preprocess_css'] = 0;
+
+  $variables['preprocess_js'] = 0;
+
+  $variables['rules_debug'] = '0';
+
+  $variables['rules_debug_log'] = 1;
+
+  $variables['rules_debug_region_asb'] = 'help';
+
+  $variables['rules_debug_region_seven'] = 'help';
 
   $variables['rules_empty_sets'] = array(
     'botcha_form_approved' => 0,
@@ -673,37 +729,40 @@ function sprint_two_drush_ctex_bonus_variables() {
     'og_user_approved' => 12,
     'og_user_blocked' => 13,
     'og_user_delete' => 14,
-    'workflow_state_changed' => 15,
-    'workflow_comment_added' => 16,
-    'node_insert' => 17,
-    'node_update' => 18,
-    'node_presave' => 19,
-    'node_view' => 20,
-    'node_delete' => 21,
-    'init' => 22,
-    'cron' => 23,
-    'watchdog' => 24,
-    'user_insert' => 25,
-    'user_update' => 26,
-    'user_presave' => 27,
-    'user_view' => 28,
-    'user_delete' => 29,
-    'user_login' => 30,
-    'user_logout' => 31,
-    'comment_insert' => 32,
-    'comment_update' => 33,
-    'comment_presave' => 34,
-    'comment_view' => 35,
-    'comment_delete' => 36,
-    'taxonomy_term_insert' => 37,
-    'taxonomy_term_update' => 38,
-    'taxonomy_term_presave' => 39,
-    'taxonomy_term_delete' => 40,
-    'taxonomy_vocabulary_insert' => 41,
-    'taxonomy_vocabulary_update' => 42,
-    'taxonomy_vocabulary_presave' => 43,
-    'taxonomy_vocabulary_delete' => 44,
+    'workflow_comment_added' => 15,
+    'node_insert' => 16,
+    'node_update' => 17,
+    'node_presave' => 18,
+    'node_view' => 19,
+    'node_delete' => 20,
+    'init' => 21,
+    'cron' => 22,
+    'watchdog' => 23,
+    'user_insert' => 24,
+    'user_update' => 25,
+    'user_presave' => 26,
+    'user_view' => 27,
+    'user_delete' => 28,
+    'user_login' => 29,
+    'user_logout' => 30,
+    'comment_insert' => 31,
+    'comment_update' => 32,
+    'comment_presave' => 33,
+    'comment_view' => 34,
+    'comment_delete' => 35,
+    'taxonomy_term_insert' => 36,
+    'taxonomy_term_update' => 37,
+    'taxonomy_term_presave' => 38,
+    'taxonomy_term_delete' => 39,
+    'taxonomy_vocabulary_insert' => 40,
+    'taxonomy_vocabulary_update' => 41,
+    'taxonomy_vocabulary_presave' => 42,
+    'taxonomy_vocabulary_delete' => 43,
   );
+
+  $variables['rules_log_errors'] = '2';
+
+  $variables['rules_path_cleaning_callback'] = 'rules_path_default_cleaning_method';
 
   $variables['save_continue_docs'] = 'Save and add fields';
 
@@ -723,10 +782,11 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['site_name'] = 'Action Switchboard Dev';
 
+  $variables['statistics_day_timestamp'] = 1379850847;
+
   $variables['taxonomy_override_selector'] = TRUE;
 
   $variables['theme_asb_settings'] = array(
-    'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
     'toggle_node_user_picture' => 1,
@@ -734,9 +794,6 @@ function sprint_two_drush_ctex_bonus_variables() {
     'toggle_favicon' => 1,
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
-    'default_logo' => 1,
-    'logo_path' => '',
-    'logo_upload' => '',
     'default_favicon' => 1,
     'favicon_path' => '',
     'favicon_upload' => '',
@@ -752,13 +809,13 @@ function sprint_two_drush_ctex_bonus_variables() {
       'html5' => 'html5',
       'meta' => 'meta',
     ),
-    'zen_rebuild_registry' => 1,
-    'zen_wireframes' => 1,
+    'zen_rebuild_registry' => 0,
+    'zen_wireframes' => 0,
   );
 
   $variables['theme_default'] = 'asb';
 
-  $variables['update_last_email_notification'] = 1377712698;
+  $variables['update_last_email_notification'] = 1379861654;
 
   $variables['update_notify_emails'] = array(
     0 => 'ross@mayfirst.org',
@@ -901,6 +958,13 @@ Your account on [site:name] has been canceled.
   $variables['user_register'] = '2';
 
   $variables['user_signatures'] = 0;
+
+  $variables['views_block_hashes'] = array(
+    'ff1b9745d5f948c006a19ec07492a69b' => 'scheme_overview_filtered-block_1',
+    '19646dbb6add979188a4d53960a48a2f' => 'scheme_overview_filtered-block_2',
+    'd3de0ba6e08b792fc6dc527be8d93c70' => 'scheme_overview_filtered-block_3',
+    '2e1826ab717be6221e4bd432ce3a2cf9' => 'scheme_overview_filtered-block_4',
+  );
 
   $variables['views_defaults'] = array(
     'og_extras_members' => TRUE,

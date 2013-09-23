@@ -378,6 +378,47 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
+  $fields['field_facilitator'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'user',
+      'handler' => 'views',
+      'handler_settings' => array(
+        'view' => array(
+          'view_name' => 'facilitators',
+          'display_name' => 'entityreference_1',
+          'args' => array(),
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 1,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'users' => array(
+        'table' => 'users',
+        'columns' => array(
+          'target_id' => 'uid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_facilitator',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
   $fields['comment_body'] = array(
     'entity_types' => array(
       0 => 'comment',
@@ -626,6 +667,32 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
+  $fields['group_content_access'] = array(
+    'no_ui' => TRUE,
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Public - accessible to all site users',
+        2 => 'Private - accessible only to group members',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'field_name' => 'group_content_access',
+    'type' => 'list_integer',
+    'module' => 'list',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
   return $fields;
 }
 
@@ -681,6 +748,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => '0',
         'settings' => array(),
       ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'weight' => '6',
+        'settings' => array(),
+        'module' => 'list',
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
     ),
     'settings' => array(
       'user_register_form' => FALSE,
@@ -726,6 +806,21 @@ function sprint_two_drush_ctex_bonus_instances() {
         ),
         'module' => 'text',
       ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'weight' => '2',
+        'settings' => array(
+          'trim_length' => '300',
+        ),
+        'module' => 'text',
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
     ),
     'required' => 0,
     'description' => 'This is what you tell the world while you are working on your scheme.  <a href="/" target="_blank">Here are some guidelines</a>.',
@@ -765,6 +860,18 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '13',
+        'settings' => array(),
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -811,15 +918,27 @@ function sprint_two_drush_ctex_bonus_instances() {
     ),
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'file_rendered',
         'weight' => '2',
         'settings' => array(
-          'file_view_mode' => 'media_preview',
+          'file_view_mode' => 'media_large',
         ),
         'module' => 'file_entity',
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '12',
+        'settings' => array(),
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -857,6 +976,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '3',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -901,6 +1033,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => '0',
         'settings' => array(),
       ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '4',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
     ),
     'required' => 0,
     'description' => 'List the different materials you will need for your scheme, i.e. camera, poster board, arduino board.',
@@ -934,6 +1079,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '5',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -1004,6 +1162,23 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => '0',
         'settings' => array(),
       ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'single_image',
+        'weight' => '0',
+        'settings' => array(
+          'image_style' => 'scheme_overview',
+          'image_link' => 'content',
+          'single_image_delta' => '1',
+        ),
+        'module' => 'single_image',
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
     ),
     'required' => 0,
     'description' => '',
@@ -1036,6 +1211,18 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '11',
+        'settings' => array(),
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -1082,6 +1269,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => '0',
         'settings' => array(),
       ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'entityreference_entity_id',
+        'weight' => '7',
+        'settings' => array(),
+        'module' => 'entityreference',
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
     ),
     'required' => 0,
     'description' => 'Choose the Issue and Goals your scheme seeks to address.',
@@ -1114,6 +1314,19 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'hidden',
+        'type' => 'hs_taxonomy_term_reference_hierarchical_links',
+        'weight' => '1',
+        'settings' => array(),
+        'module' => 'hs_taxonomy',
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -1152,6 +1365,18 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '10',
+        'settings' => array(),
+      ),
+      'issue_title' => array(
         'label' => 'above',
         'type' => 'hidden',
         'weight' => '0',
@@ -1218,6 +1443,80 @@ function sprint_two_drush_ctex_bonus_instances() {
         'module' => 'number',
       ),
       'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '9',
+        'settings' => array(),
+      ),
+      'issue_title' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => array(
+      0 => array(
+        'value' => '1',
+        'container' => array(
+          'min_value' => '0',
+          'max_value' => '99.99',
+        ),
+      ),
+    ),
+    'field_name' => 'field_progress',
+    'entity_type' => 'node',
+    'bundle' => 'scheme',
+    'deleted' => '0',
+  );
+
+  $instances['node:scheme:field_facilitator'] = array(
+    'label' => 'Facilitator',
+    'widget' => array(
+      'weight' => '27',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'size' => '60',
+        'path' => '',
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'entityreference_label',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'module' => 'entityreference',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
         'type' => 'hidden',
         'label' => 'above',
         'settings' => array(),
@@ -1227,12 +1526,9 @@ function sprint_two_drush_ctex_bonus_instances() {
     'required' => 0,
     'description' => '',
     'fences_wrapper' => 'div',
-    'default_value' => array(
-      0 => array(
-        'value' => '0',
-      ),
-    ),
-    'field_name' => 'field_progress',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_facilitator',
     'entity_type' => 'node',
     'bundle' => 'scheme',
     'deleted' => '0',
@@ -1269,6 +1565,12 @@ function sprint_two_drush_ctex_bonus_instances() {
           'trim_length' => 600,
         ),
         'module' => 'text',
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
         'weight' => 0,
       ),
     ),
@@ -1314,6 +1616,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'module' => 'text',
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => FALSE,
     'description' => '',
@@ -1350,6 +1658,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'label' => 'above',
         'settings' => array(),
         'module' => 'taxonomy',
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
       ),
     ),
     'settings' => array(
@@ -1418,6 +1732,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => -1,
         'module' => 'image',
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'field_name' => 'field_image',
     'entity_type' => 'node',
@@ -1473,6 +1793,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => FALSE,
     'description' => '',
@@ -1497,7 +1823,7 @@ function sprint_two_drush_ctex_bonus_instances() {
     ),
     'settings' => array(
       'text_processing' => '1',
-      'display_summary' => 1,
+      'display_summary' => 0,
       'user_register_form' => FALSE,
     ),
     'display' => array(
@@ -1517,10 +1843,17 @@ function sprint_two_drush_ctex_bonus_instances() {
         'module' => 'text',
         'weight' => 1,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => 0,
     'description' => '',
     'default_value' => NULL,
+    'fences_wrapper' => 'div',
     'field_name' => 'body',
     'entity_type' => 'node',
     'bundle' => 'update',
@@ -1582,6 +1915,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => 0,
     'description' => 'Upload images to show your to your scheme members and followers.',
@@ -1634,10 +1973,74 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => 0,
     'description' => 'Add a Vimeo or Youtube link here, if you want to share a video with your scheme members or followers.',
     'field_name' => 'field_video',
+    'entity_type' => 'node',
+    'bundle' => 'update',
+    'deleted' => '0',
+  );
+
+  $instances['node:update:group_content_access'] = array(
+    'label' => 'Group content visibility',
+    'required' => 1,
+    'default_value' => array(
+      0 => array(
+        'value' => '1',
+      ),
+    ),
+    'widget_type' => 'options_select',
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'settings' => array(),
+        'module' => 'list',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'widget' => array(
+      'weight' => 36,
+      'type' => 'options_buttons',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(),
+    ),
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'field_name' => 'group_content_access',
     'entity_type' => 'node',
     'bundle' => 'update',
     'deleted' => '0',
@@ -1675,6 +2078,12 @@ function sprint_two_drush_ctex_bonus_instances() {
           'trim_length' => 600,
         ),
         'module' => 'text',
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
         'weight' => 0,
       ),
     ),
@@ -1725,6 +2134,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'settings' => array(),
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => 1,
     'description' => 'What Issue does this goal fall under?',
@@ -1770,6 +2185,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'module' => 'text',
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => 1,
     'description' => '',
@@ -1813,6 +2234,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'module' => 'text',
         'weight' => 0,
       ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
     ),
     'required' => FALSE,
     'description' => '',
@@ -1844,6 +2271,12 @@ function sprint_two_drush_ctex_bonus_instances() {
         'weight' => 1,
       ),
       'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
         'type' => 'hidden',
         'label' => 'above',
         'settings' => array(),

@@ -18,6 +18,9 @@ function sprint_two_views_api($module, $api) {
  * Implements hook_ctools_plugin_api().
  */
 function sprint_two_ctools_plugin_api($module, $api) {
+  if ($module == 'context' && $api == 'context') {
+    return array('version' => 3);
+  }
   if ($module == 'file_entity' && $api == 'file_default_displays') {
     return array('version' => 1);
   }
@@ -52,6 +55,7 @@ function sprint_two_image_default_styles() {
         'weight' => 1,
       ),
     ),
+    'label' => 'asb_scheme_preview_thumb',
   );
 
   // Exported image style: thumbnail.
@@ -75,6 +79,7 @@ function sprint_two_image_default_styles() {
       ),
     ),
     'name' => 'thumbnail',
+    'label' => 'thumbnail',
   );
 
   // Exported image style: medium.
@@ -98,6 +103,7 @@ function sprint_two_image_default_styles() {
       ),
     ),
     'name' => 'medium',
+    'label' => 'medium',
   );
 
   // Exported image style: large.
@@ -121,6 +127,7 @@ function sprint_two_image_default_styles() {
       ),
     ),
     'name' => 'large',
+    'label' => 'large',
   );
 
   // Exported image style: square_thumbnail.
@@ -143,6 +150,7 @@ function sprint_two_image_default_styles() {
       ),
     ),
     'name' => 'square_thumbnail',
+    'label' => 'square_thumbnail',
   );
 
   // Exported image style: asb_scheme_leader_thumb.
@@ -165,6 +173,7 @@ function sprint_two_image_default_styles() {
         'weight' => '1',
       ),
     ),
+    'label' => 'asb_scheme_leader_thumb',
   );
 
   // Exported image style: asb_scheme_schemer_thumb.
@@ -187,17 +196,20 @@ function sprint_two_image_default_styles() {
         'weight' => '1',
       ),
     ),
+    'label' => 'asb_scheme_schemer_thumb',
   );
 
   // Exported image style: scheme_admin_profile.
   $styles['scheme_admin_profile'] = array(
     'name' => 'scheme_admin_profile',
     'effects' => array(),
+    'label' => 'scheme_admin_profile',
   );
 
   // Exported image style: scheme_overview.
   $styles['scheme_overview'] = array(
     'name' => 'scheme_overview',
+    'label' => 'scheme_overview',
     'effects' => array(
       1 => array(
         'label' => 'Scale and crop',
@@ -345,6 +357,61 @@ function sprint_two_default_rules_configuration() {
           }
         }
       ]
+    }
+  }');
+  $items['rules_scheme_approved'] = entity_import('rules_config', '{ "rules_scheme_approved" : {
+      "LABEL" : "Scheme Approved",
+      "PLUGIN" : "reaction rule",
+      "TAGS" : [ "scheme" ],
+      "REQUIRES" : [ "workflow_rules", "rules" ],
+      "ON" : [ "workflow_state_changed" ],
+      "IF" : [
+        { "workflow_check_state" : { "node" : [ "node" ], "workflow_state" : { "value" : { "4" : "4" } } } }
+      ],
+      "DO" : [
+        { "mail" : {
+            "to" : [ "node:author:mail" ],
+            "subject" : "Your scheme has been approved!!!",
+            "message" : "Welcome [node:author],\\r\\n\\r\\nYour scheme [node:title] has been approved.  You will soon be contacted directly by your facilitator to help you get started.  In the mean time, have you started your homework?  If not, go here [where we will be entering a link].\\r\\n\\r\\nSincerely,\\r\\n\\r\\nThe Yes Labs Team",
+            "language" : [ "" ]
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_scheme_rejected'] = entity_import('rules_config', '{ "rules_scheme_rejected" : {
+      "LABEL" : "Scheme Rejected",
+      "PLUGIN" : "reaction rule",
+      "TAGS" : [ "scheme" ],
+      "REQUIRES" : [ "workflow_rules", "rules" ],
+      "ON" : [ "workflow_state_changed" ],
+      "IF" : [
+        { "workflow_check_state" : { "node" : [ "node" ], "workflow_state" : { "value" : { "3" : "3" } } } }
+      ],
+      "DO" : [
+        { "mail" : {
+            "to" : [ "node:author:mail" ],
+            "subject" : "Sorry, but your scheme was not approved.",
+            "message" : "Hello [node:author],\\r\\n\\r\\nYour scheme [node:title] has been rejected by the Yes Labs.  We hope you will continue to come up with interesting ideas, but this time, we think you just didn\\u0027t have it.  We\\u0027d like to see you back again.  So look over the schemes at [site:url] and grab some inspiration!\\r\\n\\r\\nSincerely,\\r\\n\\r\\nThe Yes Labs Team",
+            "language" : [ "" ]
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_rule_component_for_sending_reminders'] = entity_import('rules_config', '{ "rules_rule_component_for_sending_reminders" : {
+      "LABEL" : "Rule component for sending reminders",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "workflow_rules" ],
+      "USES VARIABLES" : { "rule_conf" : { "label" : "Rules Configuration", "type" : "rules_config" } },
+      "IF" : [
+        { "workflow_check_state" : {
+            "node" : [ "site:og-context--node" ],
+            "workflow_state" : { "value" : { "2" : "2" } }
+          }
+        }
+      ],
+      "DO" : []
     }
   }');
   return $items;
