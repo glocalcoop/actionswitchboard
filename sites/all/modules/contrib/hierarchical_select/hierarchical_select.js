@@ -472,7 +472,7 @@ Drupal.HierarchicalSelect.update = function(hsid, updateType, settings) {
     case 'update-hierarchical-select':
       var value = $('#'+ settings.select_id).val();
       var lastUnchanged = parseInt(settings.select_id.replace(/^.*-hierarchical-select-selects-(\d+)$/, "$1")) + 1;
-      var optionClass = $('#'+ settings.select_id).find('option[value='+ value +']').attr('class');
+      var optionClass = $('#'+ settings.select_id).find('option[value="'+ value +'"]').attr('class');
 
       // Don't do anything (also no callback to the server!) when the selected
       // item is:
@@ -564,7 +564,7 @@ Drupal.HierarchicalSelect.update = function(hsid, updateType, settings) {
       
       // Attach behaviors. This is just after the HTML has been updated, so
       // it's as soon as we can.
-      Drupal.attachBehaviors(Drupal.HierarchicalSelect.context);
+      Drupal.attachBehaviors(Drupal.HierarchicalSelect.context()[0]);
 
       // Transform the hierarchical select and/or dropbox to the JS variant,
       // make it resizable again and re-enable the disabled form items.

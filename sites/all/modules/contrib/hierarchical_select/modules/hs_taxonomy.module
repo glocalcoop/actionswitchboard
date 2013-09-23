@@ -44,7 +44,8 @@ function hs_taxonomy_form_field_ui_widget_type_form_alter(&$form, &$form_state) 
     $field = field_info_field($form['#field_name']);
     $vocabulary = taxonomy_vocabulary_machine_name_load($field['settings']['allowed_values'][0]['vocabulary']);
 
-    $vid = $vocabulary->vid;
+    $vid = isset($vocabulary->vid) ? $vocabulary->vid : NULL;
+    $save_lineage = isset($vocabulary->hierarchy) ? (int) ($vocabulary->hierarchy == 2) : 0;
     $instance = field_info_instance($form['#entity_type'], $form['#field_name'], $form['#bundle']);
 
     // Add the Hierarchical Select config form.
@@ -59,7 +60,7 @@ function hs_taxonomy_form_field_ui_widget_type_form_alter(&$form, &$form_state) 
     $defaults = array(
       // Enable the save_lineage setting by default if the multiple parents
       // vocabulary option is enabled.
-      'save_lineage' => (int) ($vocabulary->hierarchy == 2),
+      'save_lineage' => $save_lineage,
       'editability' => array(
         'max_levels' => _hs_taxonomy_hierarchical_select_get_depth($vid),
       ),
@@ -180,7 +181,8 @@ function hs_taxonomy_form_taxonomy_form_term_alter(&$form, &$form_state) {
   );
 
   // Use Hierarchical Select for selecting the parent term(s).
-  $parent = isset($form['#term']['tid']) ? array_keys(taxonomy_get_parents($form['#term']['tid'])) : array(0);
+  $parent_tid = array_keys(taxonomy_get_parents($form['#term']['tid']));
+  $parent = !empty($parent_tid) ? $parent_tid : array(0);
   $form['relations']['parent'] = array(
     '#type'          => 'hierarchical_select',
     '#title'         => t('Parents'),
@@ -325,6 +327,22 @@ function hs_taxonomy_field_formatter_info() {
       'label' => t('Hierarchical links'),
       'field types' => array('taxonomy_term_reference'),
     ),
+    'hs_taxonomy_term_reference_hierarchical_links_last_text' => array(
+      'label' => t('Hierarchical links last text'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
+    'hs_taxonomy_term_reference_hierarchical_text_last_link' => array(
+      'label' => t('Hierarchical text last link'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
+    'hs_taxonomy_term_reference_last_link_only' => array(
+      'label' => t('Last link only'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
+    'hs_taxonomy_term_reference_last_text_only' => array(
+      'label' => t('Last text only'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
   );
 }
 
@@ -381,6 +399,7 @@ function hs_taxonomy_field_formatter_prepare_view($entity_type, $entities, $fiel
             'lineage' => $lineage,
             'level'   => $level,
             'label'   => $details['label'],
+            'tid'     => $tid,
           );
         }
       }
@@ -399,22 +418,23 @@ function hs_taxonomy_field_formatter_view($entity_type, $entity, $field, $instan
   // hs_taxonomy_field_formatter_prepare_view()).
   $lineages = array();
   foreach ($items as $delta => $item) {
-    $metadata = $item['hs_lineages'];
+    if (!empty($item['hs_lineages'])) {
+      $metadata = $item['hs_lineages'];
 
-    for ($i = 0; $i < count($metadata); $i++) {
-      $term = new StdClass();
-      $term->tid = $item['tid'];
-      $term->vid = $vocabulary->vid;
-      $term->vocabulary_machine_name = $vocabulary->machine_name;
-      $term->name = $metadata[$i]['label'];
+      for ($i = 0; $i < count($metadata); $i++) {
+        $term = new StdClass();
+        $term->tid = $metadata[$i]['tid'];
+        $term->vid = $vocabulary->vid;
+        $term->vocabulary_machine_name = $vocabulary->machine_name;
+        $term->name = $metadata[$i]['label'];
 
-      $lineages[$metadata[$i]['lineage']][$metadata[$i]['level']] = $term;
+        $lineages[$metadata[$i]['lineage']][$metadata[$i]['level']] = $term;
+      }
     }
   }
 
   // Actual formatting.
   $element = array();
-  $element['#attached']['css'][] = drupal_get_path('module', 'hierarchical_select') . '/hierarchical_select.css';
   switch ($display['type']) {
     case 'hs_taxonomy_term_reference_hierarchical_text':
       for ($l = 0; $l < count($lineages); $l++) {
@@ -427,6 +447,7 @@ function hs_taxonomy_field_formatter_view($entity_type, $entity, $field, $instan
         }
       }
       break;
+
     case 'hs_taxonomy_term_reference_hierarchical_links':
       for ($l = 0; $l < count($lineages); $l++) {
         $element[$l]['#theme'] = 'hs_taxonomy_formatter_lineage';
@@ -434,14 +455,94 @@ function hs_taxonomy_field_formatter_view($entity_type, $entity, $field, $instan
           $term = $lineages[$l][$level];
           $uri = entity_uri('taxonomy_term', $term);
           $element[$l]['#lineage'][$level] = array(
-            '#type' => 'link',
-            '#title' => $term->name,
-            '#href' => $uri['path'],
+            '#type'    => 'link',
+            '#title'   => $term->name,
+            '#href'    => $uri['path'],
             '#options' => $uri['options'],
           );
         }
       }
       break;
+
+    case 'hs_taxonomy_term_reference_hierarchical_links_last_text':
+      for ($l = 0; $l < count($lineages); $l++) {
+        $element[$l]['#theme'] = 'hs_taxonomy_formatter_lineage';
+        for ($level = 0; $level < count($lineages[$l]) - 1; $level++) {
+          $term = $lineages[$l][$level];
+          $uri = entity_uri('taxonomy_term', $term);
+          $element[$l]['#lineage'][$level] = array(
+            '#type'    => 'link',
+            '#title'   => $term->name,
+            '#href'    => $uri['path'],
+            '#options' => $uri['options'],
+          );
+        }
+        if (count($lineages[$l]) > 0) {
+          $level = count($lineages[$l]) - 1;
+          $term = $lineages[$l][$level];
+          $element[$l]['#lineage'][$level] = array(
+            '#markup' => $term->name,
+          );
+        }
+      }
+      break;
+
+    case 'hs_taxonomy_term_reference_hierarchical_text_last_link':
+      for ($l = 0; $l < count($lineages); $l++) {
+        $element[$l]['#theme'] = 'hs_taxonomy_formatter_lineage';
+        for ($level = 0; $level < count($lineages[$l]) - 1; $level++) {
+          $term = $lineages[$l][$level];
+          $element[$l]['#lineage'][$level] = array(
+            '#markup' => $term->name,
+          );
+        }
+        if (count($lineages[$l]) > 0) {
+          $level = count($lineages[$l]) - 1;
+          $term = $lineages[$l][$level];
+          $uri = entity_uri('taxonomy_term', $term);
+          $element[$l]['#lineage'][$level] = array(
+            '#type'    => 'link',
+            '#title'   => $term->name,
+            '#href'    => $uri['path'],
+            '#options' => $uri['options'],
+          );
+        }
+      }
+      break;
+
+    case 'hs_taxonomy_term_reference_last_text_only':
+      for ($l = 0; $l < count($lineages); $l++) {
+        $element[$l]['#theme'] = 'hs_taxonomy_formatter_lineage';
+        if (count($lineages[$l]) > 0) {
+          $level = count($lineages[$l]) - 1;
+          $term = $lineages[$l][$level];
+          $element[$l]['#lineage'][0] = array(
+            '#markup' => $term->name,
+          );
+        }
+      }
+      break;
+
+    case 'hs_taxonomy_term_reference_last_link_only':
+      for ($l = 0; $l < count($lineages); $l++) {
+        $element[$l]['#theme'] = 'hs_taxonomy_formatter_lineage';
+        if (count($lineages[$l]) > 0) {
+          $level = count($lineages[$l]) - 1;
+          $term = $lineages[$l][$level];
+          $uri = entity_uri('taxonomy_term', $term);
+          $element[$l]['#lineage'][0] = array(
+            '#type'    => 'link',
+            '#title'   => $term->name,
+            '#href'    => $uri['path'],
+            '#options' => $uri['options'],
+          );
+        }
+      }
+      break;
+  }
+
+  if (!empty($element)) {
+    $element['#attached']['css'][] = drupal_get_path('module', 'hierarchical_select') . '/hierarchical_select.css';
   }
 
   return $element;
@@ -554,8 +655,8 @@ function hs_taxonomy_hierarchical_select_lineage($item, $params) {
  */
 function hs_taxonomy_get_parents_all($tid) {
   $parents = array();
-  if ($tid) {
-    $parents[] = taxonomy_term_load($tid);
+  if ($term = taxonomy_term_load($tid)) {
+    $parents[] = $term;
     $n = 0;
     while ($parent = taxonomy_get_parents($parents[$n]->tid)) {
       $parents = array_merge($parents, array(reset($parent)));
@@ -572,15 +673,20 @@ function hs_taxonomy_hierarchical_select_valid_item($item, $params) {
   if (isset($params['root_term']) && $params['root_term'] && $item == 0) {
     return TRUE;
   }
-  else if (!is_numeric($item) || $item < 1 || (isset($params['exclude_tid']) && $item == $params['exclude_tid'])) {
+
+  if (!is_numeric($item) || $item < 1 || (isset($params['exclude_tid']) && $item == $params['exclude_tid'])) {
     return FALSE;
   }
+
   $term = taxonomy_term_load($item);
+  if (!$term) {
+    return FALSE;
+  }
 
   // If the Term Permissions module is installed, honor its settings.
   if (function_exists('term_permissions_allowed')) {
     global $user;
-    if (!term_permissions_allowed($term->tid, $user) ) {
+    if (!term_permissions_allowed($term->tid, $user)) {
       return FALSE;
     }
   }
@@ -906,8 +1012,18 @@ function _hs_taxonomy_hierarchical_select_get_tree($vid, $parent = 0, $depth = -
   if (!isset($children[$vid])) {
     $children[$vid] = array();
 
-    // TODO Please convert this statement to the D7 database API syntax.
-    $result = db_query('SELECT t.tid, t.*, parent FROM {taxonomy_term_data} t INNER JOIN  {taxonomy_term_hierarchy} h ON t.tid = h.tid WHERE t.vid = :vid ORDER BY weight, name', array(':vid' => $vid));
+    $query = db_select('taxonomy_term_data', 't');
+    $query->join('taxonomy_term_hierarchy', 'h', 'h.tid = t.tid');
+    $result = $query
+      ->addTag('translatable')
+      ->addTag('term_access')
+      ->fields('t')
+      ->fields('h', array('parent'))
+      ->condition('t.vid', $vid)
+      ->orderBy('t.weight')
+      ->orderBy('t.name')
+      ->execute();
+
     foreach ($result as $term) {
       $children[$vid][$term->parent][] = $term->tid;
       $parents[$vid][$term->tid][] = $term->parent;
@@ -943,11 +1059,12 @@ function _hs_taxonomy_hierarchical_select_get_tree($vid, $parent = 0, $depth = -
 function hs_taxonomy_term_count_nodes($tid, $type = 0) {
   static $count;
 
-  $term = taxonomy_term_load($tid);
-  $tree = _hs_taxonomy_hierarchical_select_get_tree($term->vid, $tid);
   $tids = array($tid);
-  foreach ($tree as $descendant) {
-    $tids[] = $descendant->tid;
+  if ($term = taxonomy_term_load($tid)) {
+    $tree = _hs_taxonomy_hierarchical_select_get_tree($term->vid, $tid);
+    foreach ($tree as $descendant) {
+      $tids[] = $descendant->tid;
+    }
   }
 
   if (!isset($count[$type][$tid])) {

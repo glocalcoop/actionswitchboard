@@ -28,8 +28,7 @@ function hs_taxonomy_enable() {
                         be used on node forms too!",
                         array(
                           '!configure-url' => url('admin/config/content/hierarchical_select/configs'),
-                        )),
-                      'warning');
+                        )));
 }
 
 /**
