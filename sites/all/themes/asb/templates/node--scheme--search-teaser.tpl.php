@@ -12,7 +12,7 @@ hide($content['field_location']);
 hide($content['body']);
 hide($content['field_progress']);
 global $user;
-// dsm($content);
+
 ?>
 <?php print render($content['field_image']); ?>
 <?php if ($title): ?>
@@ -26,8 +26,9 @@ global $user;
   <?php print render($content['field_location']); ?>
   <?php print render($content['body']); ?>
 </div>
-<?php print render($content['field_progress']); ?>
+
 <?php if($node->workflow != 5): ?>
+<?php print render($content['field_progress']); ?>
 <div class="scheme-info">
   <h4>Needs</h4>
   <ul class="scheme-needs">
