@@ -152,13 +152,15 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
-  if ( isset( $variables['page']['content']['system_main']['#form_id'] ) && $variables['page']['content']['system_main']['#form_id'] == 'scheme_node_form') {
-    if( $variables['page']['content']['system_main']['title']['#value'] ){
-      $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
-      $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
-      $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
-    }else{
-      $variables['full_title'] = t("Create a Scheme!");
+  if(arg(2) != 'edit') {
+    if(isset($variables['page']['content']['system_main']['#form_id'] ) && $variables['page']['content']['system_main']['#form_id'] == 'scheme_node_form') {
+      if( $variables['page']['content']['system_main']['title']['#value'] ){
+        $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
+        $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
+        $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
+      }else{
+        $variables['full_title'] = t("Create a Scheme!");
+      }
     }
   }
 }
@@ -278,35 +280,47 @@ function asb_preprocess_block(&$variables, $hook) {
   //}
 }
 
+function asb_scheme_preprocess_views_view(&$vars) {
+  //dsm($vars);
+}
 function asb_scheme_preprocess_views_view_field(&$vars) {
   // Get scheme owner for individual scheme displays
+  // dsm($vars['field']->field);
+
   if($vars['view']->name == 'scheme_overview') {
     foreach($vars['view']->result as $scheme) {
       // dsm(array_keys((array)$scheme));
       // dsm(array_keys((array)$vars['row']));
-
-      $gid = $scheme->nid;
-      $sql = "SELECT u.uid, name FROM users u 
+      if($vars['field']->field == 'title') {
+        $gid = $scheme->nid;
+        $sql = "SELECT u.uid, name FROM users u 
               INNER JOIN og_membership ogm ON u.uid = ogm.etid 
               INNER JOIN og_users_roles our ON ogm.etid = our.uid 
               WHERE ogm.gid = '$gid'
               AND ogm.entity_type = 'user' 
               AND our.rid = 3 AND our.gid = '$gid'";
 
-      $user_list = db_query($sql)->fetchAll();
-      $vars['leader'][$gid] = array('name' => $user_list[0]->name, 
-                              'uid' => $user_list[0]->uid);
+        $user_list = db_query($sql)->fetchAll();
+        $vars['leader'][$gid] = array('name' => $user_list[0]->name, 
+                                'uid' => $user_list[0]->uid);
+        $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader'][$gid]['uid'] .'">';
+        $vars['leader_markup'] .= $vars['leader'][$gid]['name'] .'</a></div>';
+        // dsm($vars['leader_markup']);
+      }
     }
-
+    // dsm($vars['leader']);
     if(isset($vars['row']->field_data_field_progress_field_progress_value)) {
       $progress = $vars['row']->field_data_field_progress_field_progress_value;
     }else{
       $progress = 0;
     }
     // generate markup for the leader
-    $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader'][$gid]['uid'] .'">';
-    $vars['leader_markup'] .= $vars['leader'][$gid]['name'] .'</a></div>';
-    
+    // dsm($vars['field']->field);
+    if($vars['field']->field == 'title') {
+      $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader'][$gid]['uid'] .'">';
+      $vars['leader_markup'] .= $vars['leader'][$gid]['name'] .'</a></div>';
+      // dsm($vars['leader_markup']);
+    }
     // dsm($vars['row']->field_field_location[0]['rendered']);
     $vars['location'] = $vars['row']->field_field_location[0]['rendered'];
     if(isset($vars['row']->field_field_issues_goals)) {

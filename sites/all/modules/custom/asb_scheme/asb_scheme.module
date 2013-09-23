@@ -12,55 +12,32 @@ function asb_scheme_entity_info_alter(&$entity_info) {
     'label' => t('Search teaser'),
     'custom settings' => TRUE,
   );
-  $entity_info['node']['view modes']['issue_title'] = array(
-    'label' => t('Issue Title'),
-    'custom settings' => TRUE,
-  );
 }
 
 /**
 * Implements hook_preprocess_node().
 */
 function asb_scheme_preprocess_node(&$vars) {
+  // dsm($vars);
   if($vars['view_mode'] == 'search_teaser') {
+    // dsm($vars);
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__search_teaser';
     $vars['leader'] = asb_scheme_get_scheme_leader($vars['nid']);
     $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader']['uid'] .'">';
     $vars['leader_markup'] .= $vars['leader']['name'] .'</a></div>';
     // Create markup for completed schemes.
-    unset($vars['content']['goals']);
-    foreach ($vars['content']['field_issues_goals']['#items'] as $key => $value) {
-      if ($key > 0) {
-        unset($vars['content']['field_issues_goals']['#items'][$key]);
-      }
+    // unset($vars['content']['goals']);
+    if(isset($vars['field_issues_goals'][0])) {
+      $link_markup = l($vars['field_issues_goals'][0]['entity']->title,
+                       'node/' .$vars['field_issues_goals'][0]['target_id'],
+                       array('attributes' => array(
+                           'class' => array('issue-link'))));
+      $vars['content']['issues']['#markup'] = $link_markup;
     }
+    // dsm($vars);
+    unset($vars['content']['field_issues_goals']);
     $vars['fans'] = '1005';
     $vars['people_count'] = '69';
-
-    /*
-    if ($vars['workflow'] == 5) {
-      $place_holder_fans = '1005';
-      $place_holder_people = '69';
-
-      $issue_id = $vars['field_issues_goals'][0]['target_id'];
-      $issue_title = $vars['field_issues_goals'][0]['entity']->title;
-      $issue_markup = '<a href="/node/' .$issue_id .'" alt="' .$issue_title .'">' .$issue_title .'</a>';
-
-      $vars['completed'] = '<div class="scheme-info"><h4>About</h4><ul class="scheme-needs sc-complete">';
-      $vars['completed'] .= '<li class="sc-fans"><label>Fans:</label>' .$place_holder_fans .'</li>';
-      $vars['completed'] .= '<li class="sc-people"><label>People:</label>' .$place_holder_people .'</li>';
-      $vars['completed'] .= '<li class="sc-issue"><label>Issue:</label><div class="field-issues-goals">' .$issue_markup .'</div></li>';
-      $vars['completed'] .= '</ul></div>';
-      $vars['completed'] .= '<!-- Added in asb_scheme_preprocess_node() TODO: Replace place_holder_{fans,people} with real values -->'; 
-      } */
-    // dsm($vars['content']['field_issues_goals']['#items'][0]['entity']);
-    // dsm($vars['leader_markup']);
-      
-    }
-    if($vars['view_mode'] == 'issue_title') {
-      $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__issue_title';
-      // dsm($vars);
-      unset($vars['content']);
   }
 } 
 

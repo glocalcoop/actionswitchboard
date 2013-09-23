@@ -41,10 +41,9 @@ global $user;
   <ul class="scheme-needs sc-complete">
     <li class="sc-fans"><label>Fans:</label><?php print $fans; ?> </li>
     <li class="sc-people"><label>People:</label><?php print $people_count; ?></li>
-    <li class="sc-issue"><label>Issue:</label><div class="field-issues-goals"><?php print render($content['field_issues_goals']); ?></div></li>
+    <li class="sc-issue"><label>Issue:</label><div class="field-issues-goals"><?php print render($content['issues']); ?></div></li>
   </ul>
 </div>
 <!-- Added in node--scheme--search-teaser.tpl.php TODO: Replace place_holder_{fans,people} with real values -->
-<?php /* print $completed; */ ?>
 <?php endif; ?>
 
