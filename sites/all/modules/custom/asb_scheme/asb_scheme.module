@@ -553,7 +553,7 @@ function asb_scheme_action_info() {
       'type' => 'system',
       'label' => t('Email Facilitator on scheme creation'),
       'configurable' => TRUE,
-      'triggers' => array('node_presave', 'node_insert', 'node_update'),
+      'triggers' => array('any'),
     ),
     'asb_scheme_remind_facilitator_action' => array(
       'type' => 'system',
