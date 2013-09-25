@@ -11,8 +11,9 @@
       $("#scheme-images").after('<nav id="scheme-images-nav"><a class="cycle-arrow" id="scheme-images-previous" href="#">Previous</a><a id="scheme-images-next" class="cycle-arrow" href="#">Next</a></nav>');
       $("#scheme-images").cycle({
         fx:     'fade', 
-        speed:  'slow', 
-        timeout: 5000,
+        speed:  450, 
+        timeout: 4000,
+        fx:    'scrollRight',
         fit: 1,
         pause: 1, // pause on hover
         next:   '#scheme-images-next', 
