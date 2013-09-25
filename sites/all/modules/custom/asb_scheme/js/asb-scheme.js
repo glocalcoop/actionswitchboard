@@ -8,7 +8,15 @@
     }
   }
     $(window).bind('load', function() {
-        $("#scheme-images").cycle();
+      $("#scheme-images").cycle({
+        fx:     'fade', 
+        speed:  'slow', 
+        timeout: 0,
+        continuous: 1,
+        fit: 1,
+        next:   '#scheme-images-next', 
+        prev:   '#scheme-images-previous' 
+      });
     });
 
 })(jQuery);
