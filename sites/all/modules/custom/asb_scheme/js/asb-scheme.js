@@ -11,7 +11,7 @@
       $("#scheme-images").cycle({
         fx:     'fade', 
         speed:  'slow', 
-        timeout: 0,
+        timeout: 4500,
         continuous: 1,
         fit: 1,
         next:   '#scheme-images-next', 
