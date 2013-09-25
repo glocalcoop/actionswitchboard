@@ -8,12 +8,13 @@
     }
   }
     $(window).bind('load', function() {
+      $("#scheme-images").after('<nav id="scheme-images-nav"><a class="cycle-arrow" id="scheme-images-previous" href="#">Previous</a><a id="scheme-images-next" class="cycle-arrow" href="#">Next</a></nav>');
       $("#scheme-images").cycle({
         fx:     'fade', 
         speed:  'slow', 
-        timeout: 4500,
-        continuous: 1,
+        timeout: 5000,
         fit: 1,
+        pause: 1, // pause on hover
         next:   '#scheme-images-next', 
         prev:   '#scheme-images-previous' 
       });
