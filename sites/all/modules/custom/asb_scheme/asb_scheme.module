@@ -362,7 +362,8 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
     case 'scheme':
       // Make changes to scheme node views add markup to content variable.
       drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/progress.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
-      drupal_add_library('jquery_plugin', 'cycle');
+     drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/slideshow.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
+       drupal_add_library('jquery_plugin', 'cycle');
       drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/asb-scheme.js', 'file');
       // Create progress bar markup
       if (isset($node->field_progress['und'][0])) {
