@@ -120,19 +120,6 @@ footer#footer {
   }
 }
 
-.not-front #header-image-strip { display: none }
-
-ul.tags {
-  list-style:none;
-  li {
-    display: inline-block;
-    a {
-      display: block;
-      padding: .25em .5em;
-    }
-  }
-}
-
 $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";
 @include all-headers-sprites;
@@ -297,3 +284,27 @@ ul.ui-button li.ui-button a {
 }
 
 
+ul.tags {
+  list-style:none;
+  li {
+    display: inline-block;
+    a {
+      display: block;
+      padding: .25em .5em;
+    }
+  }
+}
+
+
+.not-front #header-image-strip { display: none }
+
+/* *************************************  */
+/* Non node pages (centered #content )    */
+/* *************************************  */
+
+
+.not-front.no-sidebars.page-node #content{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}

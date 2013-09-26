@@ -6,10 +6,10 @@
   background-color: #FF3333;
 }
 
-#scheme-images {
+/*#scheme-images {
   min-width: 90%;
 }
-
+*/
 .scheme-collection .scheme-info ul.scheme-needs.sc-complete li {
   float: left;
   margin: 0;
@@ -21,3 +21,4 @@
 .scheme-collection .scheme-info ul.scheme-needs.sc-complete li a {
   word-wrap: normal;
 }
+
