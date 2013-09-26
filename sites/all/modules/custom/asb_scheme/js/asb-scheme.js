@@ -13,8 +13,7 @@
         fx:     'fade', 
         speed:  450, 
         timeout: 4000,
-        fx:    'scrollRight',
-        fit: 1,
+        fx:    'scrollHorz',
         pause: 1, // pause on hover
         next:   '#scheme-images-next', 
         prev:   '#scheme-images-previous' 
