@@ -62,10 +62,12 @@ HTML comment.
 </div> -->
 
 <?php if($element['#view_mode'] != 'search_teaser'): ?>
-<div id="scheme-images" class="owl-carousel">
-    <?php foreach ($items as $delta => $item): ?>
-      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
-    <?php endforeach; ?>
+<div id="outer-carousel-wrapper" class="scheme-carousel">  
+  <div id="carousel-wrapper" class="owl-carousel">
+      <?php foreach ($items as $delta => $item): ?>
+        <div class="field-item carousel-div <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
+      <?php endforeach; ?>
+  </div>
 </div>
 <?php endif; ?>
 <?php if($element['#view_mode'] == 'search_teaser'): ?>

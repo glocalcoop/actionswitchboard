@@ -146,6 +146,76 @@
       }
     }
   }
+  //Slideshow
+
+  #outer-carousel-wrapper {
+    width: 100%;
+    position: relative;
+
+    #carousel-wrapper {
+      max-width: 960px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+
+      .carousel-div {
+        width: 100% !important;
+
+        &:first-child {
+          position: relative !important;
+          display: block !important;
+          height: auto !important;
+        }
+
+        img {
+          max-width:100%;
+          min-width: 240px;
+        }
+      }
+    }
+
+    nav#scheme-images-nav {
+      a {
+        // display: inline-block;
+        height: 42px;
+        line-height: 42px;
+        font-size: 42px;
+        width: 25px;
+        color: $rules-color;
+        display: table-cell;
+
+        &#scheme-images-previous {
+          @include zen-float(left);
+          @include replace-text($previous-image);
+        }
+        &#scheme-images-next {
+          @include zen-float(right);
+          @include replace-text($next-image);
+        }
+      }
+    }
+
+  }
+
+  // .scheme-carousel {
+
+  //   div#scheme-images {
+  //     // margin: 0 auto;
+  //     width: 100% !important;
+  //     img {
+  //       width: 100%;
+  //       height: auto;
+  //       max-width: 666px;
+  //     }
+  //   }
+
+  // }
+
+div.field-body {
+  @include zen-clear;
+}
+   
+
 }
 
 
