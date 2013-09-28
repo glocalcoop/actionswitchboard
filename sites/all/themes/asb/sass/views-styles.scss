@@ -65,6 +65,14 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   a {
     color: $accent-secondary
   }
+  div.field-item {
+    img {
+      width: 100%;
+        max-width: 240px;
+        height: 123px;
+    }
+  }
+
   h2.block-title {
     @include zen-clear(both);
   }
@@ -165,14 +173,13 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
   }
 
-  .view-content{
+  .view-content {
     @include zen-clear();
 
     .views-row {
       border-right: {
         @include standard-border($rules-color, 2px);
       }
-
       min-height: 350px;
       padding: 0 10px;
       margin: 1em 0 1.5em 0;
@@ -256,12 +263,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
     }
   }
-}
-// .scheme-collection-view .views-row {
-//     @include zen-float;
-//     @include zen-grid-flow-item(1);
-//   }
-.scheme-collection-view {
+
 
 }
 
