@@ -153,6 +153,7 @@
     position: relative;
 
     #carousel-wrapper {
+      z-index: -1;
       max-width: 960px;
       height: auto;
       margin: 0 auto;
@@ -160,6 +161,7 @@
 
       .carousel-div {
         width: 100% !important;
+        text-align: center;
 
         &:first-child {
           position: relative !important;
@@ -169,12 +171,13 @@
 
         img {
           max-width:100%;
-          min-width: 240px;
+          min-width: 200px;
         }
       }
     }
 
     nav#scheme-images-nav {
+      z-index: 1;
       a {
         // display: inline-block;
         height: 42px;
@@ -182,7 +185,7 @@
         font-size: 42px;
         width: 25px;
         color: $rules-color;
-        display: table-cell;
+        margin-top: -30%;
 
         &#scheme-images-previous {
           @include zen-float(left);
@@ -197,25 +200,10 @@
 
   }
 
-  // .scheme-carousel {
-
-  //   div#scheme-images {
-  //     // margin: 0 auto;
-  //     width: 100% !important;
-  //     img {
-  //       width: 100%;
-  //       height: auto;
-  //       max-width: 666px;
-  //     }
-  //   }
-
-  // }
-
-div.field-body {
-  @include zen-clear;
-}
+  div.field-body {
+    @include zen-clear;
+  }
    
-
 }
 
 
