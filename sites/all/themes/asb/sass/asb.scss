@@ -102,7 +102,7 @@ body {
     }
     section.content {
       border-right: {
-        @include standard-border($style: dashed);
+        @include standard-border($style: dashed, $width: 2px);
       }
     }
 
@@ -241,6 +241,7 @@ article.comment,
       &:after {
         line-height: 1.2em;
       }
+    // @include replace-text();
   }
   ul.links.inline li {
     &.comment-delete a{ @extend %entypo-cancel; }

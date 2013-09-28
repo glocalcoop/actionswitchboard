@@ -27,6 +27,13 @@ div#comments{
   .comment { /* Wrapper for a single comment */
     position: relative;
     @include zen-clear;
+    border-top: {
+      @include standard-border;
+    }
+
+    &.first{
+      border: none;
+    }
 
     header {
       background-color: transparent;
@@ -108,9 +115,6 @@ div#comments{
           right: 0;
         }
       }
-    }
-    .form-actions {
-      @include zen-float(right);
     }
     
 }

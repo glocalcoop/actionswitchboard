@@ -36,6 +36,7 @@ form {
 // ckeditor
 form {
   .form-textarea-wrapper,
+  .ctools-modal-content,
   span.cke_skin_kama {
     border: none;
     padding: 0;
@@ -53,9 +54,24 @@ form {
         }
       }
     }
+    .wysiwyg-toggle-wrapper {
+      display: none;
+    }
+  }
+  fieldset.filter-wrapper {
+      display: none;
+    }
+  #edit-actions,
+  .form-actions {
+    @include zen-clear;
+    display: block;
+    margin-top: 10px;
+
+    input {
+      @include zen-float(right);
+    }
   }
 }
-
 
 .form-item { /* Wrapper for a form element (or group of form elements) and its label */
   margin: 1.5em 0;
