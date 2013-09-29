@@ -157,7 +157,6 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
    if($js) {
      ctools_include('ajax');
      $commands = array();
-     // $commands[] = ajax_command_html('#add-view', $output);
      $commands[] = ajax_command_html('#scheme-content', $output);
      print ajax_render($commands);
 
@@ -172,6 +171,9 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   // dsm($form_state);
+  global $user;
+  // Modifies the view filter on the scheme search view to explicitly
+  // set the issues connected to the scheme.
   if (isset($form_state['view']->filter['field_issues_goals_target_id'])) {
     $issues = asb_scheme_get_issues();
     $issue_list = array();
@@ -187,24 +189,12 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
         )
       );
       $form['field_issues_goals_target_id']['#options'][] = t($issue->title);
-      // dsm($form);
     }
-    $newarray = array(
-      'title' => t("Democracy"),
-      'operator' => "=",
-      'value' => array(
-        'value' => '23',
-        'min' => '',
-        'max' => '',
-      )
-    );
     unset($form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items']);
     foreach($issue_list as $key => $issue) {
       $form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items'][] = $issue;
     }
-    // dsm($form_state['view']);
   }
-  // dsm($form_state['view']);
 
   // Check if the form has steps and add progress markup.
   if($form_id == 'scheme_node_form' && arg(2) != 'edit') {
@@ -239,8 +229,192 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       );
     }
   }
+  // Here we do some modifications of the entity reference fields
+  // to keep a consistent hierarchy displayed to the user.
+  if($form_id == 'goal_node_form') {
+
+    $form['field_hidden_issue_reference']['#access'] = FALSE;
+    if(isset($form['field_hidden_issue_reference']['und']['#default_value'][0])) {
+      $issue_ref = $form['field_hidden_issue_reference']['und']['#default_value'][0];
+      $form['field_issue_reference']['und']['#default_value'][0] = $issue_ref;
+      // $exclude = array($form['nid']['#value']);
+      $exclude = $form['field_child_goals']['und']['#default_value'];
+      $current = $form['nid']['#value'];
+      $form['field_parent_goal']['und']['#options'] = asb_scheme_get_goal_keys($current, $issue_ref, $exclude);
+    }
+    // This hides the parent_goal field if there is no
+    // issue selected.
+    $form['field_parent_goal']['#states'] = array(
+      'invisible' => array(
+        ':input[name="field_issue_reference[und]"]' => array('value' => '_none'),
+        ':input[name="field_parent_goal[und]"]' => array('value' => '_none'),
+      ),
+    );
+    // Add an ajax callback that changes the values available
+    // in the parent_goals reference based on which issue is selected.
+    $form['field_issue_reference']['und']['#ajax'] = array(
+      'event' => 'change',
+      'wrapper' => 'parent-goal-wrapper',
+      'callback' => 'asb_scheme_goals_ajax_callback',
+      'method' => 'replace',
+    );
+
+    foreach($form['field_child_goals']['und']['#default_value'] as $k => $v) {
+      unset($form['field_parent_goal']['und']['#options'][$v]);
+    }
+    if(isset($form['field_parent_goal']['und']['#options'][$form['nid']['#value']])) {
+      unset($form['field_parent_goal']['und']['#options'][$form['nid']['#value']]);
+    }
+    $form['field_parent_goal']['und']['#prefix'] = '<div id="parent-goal-wrapper">';
+    $form['field_parent_goal']['und']['#suffix'] = '</div>';
+
+    $form['#validate'][] = 'asb_scheme_goal_form_validate';
+    $form['actions']['submit']['#submit'][] = 'asb_scheme_goal_form_submit';
+    // Here we hide child goals to all but administrators
+    // as this field is mostly here for validation and consistency.
+    if(!isset($user->roles[3])) {
+      unset($form['field_child_goals']);
+      if(!empty($form['nid']['#value'])) {
+        if(empty($form['field_parent_goal']['und']['#default_value'][0])) {
+          $form['field_parent_goal']['#access'] = FALSE;
+        }
+      }
+    }
+  }
 }
 
+/**
+ * Custom submit handler for goals.
+ *
+ * This submit handler adds the goal to the goal field
+ * of the issue, if the goal is a top level goal.
+ *
+ * TODO: check for the reverse situation (if the goal is being
+ * changed to be a sub-goal, it should remove it's reference to
+ * the issue.
+ *
+ */
+function asb_scheme_goal_form_submit(&$form, &$form_state) {
+  if(empty($form_state['values']['field_parent_goal']['und'][0]['target_id']) && isset($form['issue_ref'])) {
+    $node = node_load($form_state['issue_ref']['target_id']);
+    $node->field_goals['und'][] = array('target_id' => $form_state['nid']);
+    node_save($node);
+  }
+}
+
+/** 
+ *
+ * Add ajax callback for parent goals truncation.
+ * The callback changes the parent goal list so that
+ * only goals that are connected to the issue appear
+ * to the user.
+ */
+function asb_scheme_goals_ajax_callback(&$form, &$form_state) {
+  $exclude = $form['field_child_goals']['und']['#default_value'];
+  
+  if(isset($form['nid']['#value'])) {
+    $exclude[] = $form['nid']['#value'];
+  }
+  $issue = $form['field_issue_reference']['und']['#value'];
+  if($issue != "_none") {
+    $opts = asb_scheme_get_goal_keys($form['nid']['#value'], $issue, $exclude);
+    $form['field_parent_goal']['und']['#options'] = $opts;
+    return $form['field_parent_goal'];
+  }
+}
+
+/**
+ * Gets keyed output for goals 
+ *
+ * @params $current_nid, $issue $exclude
+ *
+ * @returns keyed array('nid' => 'title')
+ */
+function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
+  // query the database against the selected issue
+  // returns all goals connected to the issue
+  $sql = "SELECT entity_id AS eid, field_child_goals_target_id as ctid 
+          FROM {field_data_field_child_goals} where field_child_goals_target_id IN (
+           SELECT entity_id 
+             FROM {field_data_field_parent_goal}
+               WHERE field_parent_goal_target_id 
+                 IN (SELECT entity_id 
+                       FROM {field_data_field_issue_reference}
+                         WHERE field_issue_reference_target_id = $issue)) 
+                     OR field_data_field_child_goals.entity_id 
+                       IN (SELECT entity_id 
+                             FROM {field_data_field_parent_goal} 
+                               WHERE field_parent_goal_target_id 
+                                 IN (SELECT entity_id 
+                                       FROM {field_data_field_issue_reference} 
+                                         WHERE field_issue_reference_target_id = $issue))";
+
+    $result = db_query($sql)->fetchAll();
+    $options = array();
+    $keys = array();
+    // Build an array of keys to populate the select list
+    foreach($result as $row) {
+      if(!isset($options[$row->eid])) {
+        $options[$row->eid] = array($row->ctid);
+        if($row->eid != $current_nid && $row->ctid != $current_nid) {
+          $keys[] = $row->eid;
+          $keys[] = $row->ctid;
+        }
+      }else{
+        $options[$row->eid][] = $row->ctid;
+        if($row->eid != $current_nid && $row->ctid != $current_nid) {
+          $keys[] = $row->eid;
+          $keys[] = $row->ctid;
+        }
+      }
+    }
+    $keys = array_unique($keys);
+    foreach($exclude as $k => $v) {
+      if(($key = array_search($v, $keys)) !== false) {
+        unset($keys[$key]);
+      }
+      unset($keys[$v]);
+    }
+    $opts = asb_scheme_build_goals($keys);
+    return $opts;
+}
+
+/**
+ * Function to add titles to nids of nodes.
+ *
+ * @returns
+ * array of nids and titles array('nid' => 'title')
+ */
+function asb_scheme_build_goals($options) {
+  $nid_list = array('_none' => '- None -');
+  foreach($options as $key => $value) {
+    $sql = "SELECT title FROM {node} WHERE nid = $value";
+    $result = db_query($sql)->fetchObject();
+    foreach($result as $row) {
+      $nid_list[$value] = $row;
+    }
+  }
+  return $nid_list;
+}
+
+/**
+ * validation for goal_node_form
+ * 
+ * This validation step does the following.
+ * 0. Stores the issue reference in $form_state['issue_ref']
+ * 1. Adds this issue reference to the hidden_issue_reference field.
+ * 2. Unsets issue_reference field for hierarchical display.
+ *
+ */
+function asb_scheme_goal_form_validate(&$form, &$form_state) {
+  if(empty($form_state['values']['field_parent_goal']['und'][0]['target_id'])) {
+    $form_state['issue_ref'] = $form_state['values']['field_issue_reference']['und'][0];
+    $form_state['values']['field_hidden_issue_reference']['und'][0] = $form_state['issue_ref'];
+    unset($form_state['values']['field_issue_reference']['und'][0]);
+  }    
+}
+
+  
 function asb_scheme_get_issues() {
   $sql = "SELECT nid, title FROM {node} WHERE type = 'issue' ORDER BY title";
   $result = db_query($sql);

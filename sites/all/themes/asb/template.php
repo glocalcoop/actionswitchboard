@@ -221,6 +221,9 @@ function asb_preprocess_node(&$variables, $hook) {
     $variables['edit_me'] = l(t('Edit'), 'node/'.$variables['nid'] .'/edit',
                             array('attributes' => array('class' =>'icon edit') ));
   }
+  if($variables['view_mode'] != 'full') {
+    unset($variables['tabs']);
+  }
 }
 
 /**
