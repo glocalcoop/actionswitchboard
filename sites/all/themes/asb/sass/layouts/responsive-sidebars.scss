@@ -134,6 +134,18 @@ header#header,
     @include zen-grid-container;
   }
 
+  #block-views-exp-scheme-search-page,
+  .not-front #content {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .not-front.page-node #content{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   #page {
     #header {
       #name-and-slogan{

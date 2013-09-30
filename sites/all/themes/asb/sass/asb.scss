@@ -329,18 +329,3 @@ ul.tags {
 
 .not-front #header-image-strip { display: none }
 
-/* *************************************  */
-/* Non node pages (centered #content )    */
-/* *************************************  */
-
-
-.not-front #content {
-  width: 960px;
-  margin: 0 auto;
-}
-
-.not-front.page-node #content{
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-}
