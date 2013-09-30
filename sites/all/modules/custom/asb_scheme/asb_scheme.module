@@ -349,6 +349,15 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
                                          WHERE field_hidden_issue_reference_target_id = $issue))";
 
     $result = db_query($sql)->fetchAll();
+    if(empty($result)) {
+      $sql = "SELECT field_data_field_hidden_issue_reference.entity_id 
+                AS eid, field_child_goals_target_id
+                AS ctid FROM {field_data_field_hidden_issue_reference}
+                LEFT JOIN {field_data_field_child_goals}
+                  ON field_data_field_hidden_issue_reference.entity_id = field_data_field_child_goals.field_child_goals_target_id";
+        // $sql = "SELECT entity_id as eid from field_data_field_hidden_issue_reference";
+      $result = db_query($sql)->fetchAll();
+    }
     $options = array();
     $keys = array();
     // Build an array of keys to populate the select list
@@ -365,6 +374,9 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
           $keys[] = $row->eid;
           $keys[] = $row->ctid;
         }
+      }
+      if($row->ctid === NULL) {
+        $keys[] = $row->eid;
       }
     }
     $keys = array_unique($keys);
@@ -387,10 +399,12 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
 function asb_scheme_build_goals($options) {
   $nid_list = array('_none' => '- None -');
   foreach($options as $key => $value) {
-    $sql = "SELECT title FROM {node} WHERE nid = $value";
-    $result = db_query($sql)->fetchObject();
-    foreach($result as $row) {
-      $nid_list[$value] = $row;
+    if(!empty($value)) {
+      $sql = "SELECT title FROM {node} WHERE nid = $value";
+      $result = db_query($sql)->fetchObject();
+      foreach($result as $row) {
+        $nid_list[$value] = $row;
+      }
     }
   }
   return $nid_list;
