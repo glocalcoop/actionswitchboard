@@ -117,6 +117,8 @@
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
 
+  <?php print render($page['search']); ?>
+
     <div id="content" class="fuckme">
       <article class="node-<?php print $node->nid; ?> <?php print $node_classes; ?> clearfix">
         <header>

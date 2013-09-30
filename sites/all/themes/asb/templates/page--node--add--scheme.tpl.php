@@ -113,6 +113,9 @@
   
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
+
+      <?php print render($page['search']); ?>
+
     <h2 class="step-title"><?php print $full_title;?></h2>
 
     <div id="content">

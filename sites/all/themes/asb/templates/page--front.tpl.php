@@ -117,6 +117,8 @@
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
 
+    <?php print render($page['search']); ?>
+
     <div id="content">
 
       <?php print render($page['content']); ?>
