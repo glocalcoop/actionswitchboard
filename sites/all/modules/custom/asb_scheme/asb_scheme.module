@@ -338,15 +338,15 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
              FROM {field_data_field_parent_goal}
                WHERE field_parent_goal_target_id 
                  IN (SELECT entity_id 
-                       FROM {field_data_field_issue_reference}
-                         WHERE field_issue_reference_target_id = $issue)) 
+                       FROM {field_data_field_hidden_issue_reference}
+                         WHERE field_hidden_issue_reference_target_id = $issue)) 
                      OR field_data_field_child_goals.entity_id 
                        IN (SELECT entity_id 
                              FROM {field_data_field_parent_goal} 
                                WHERE field_parent_goal_target_id 
                                  IN (SELECT entity_id 
-                                       FROM {field_data_field_issue_reference} 
-                                         WHERE field_issue_reference_target_id = $issue))";
+                                       FROM {field_data_field_hidden_issue_reference} 
+                                         WHERE field_hidden_issue_reference_target_id = $issue))";
 
     $result = db_query($sql)->fetchAll();
     $options = array();
