@@ -107,14 +107,17 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_child_goals_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Issue Reference */
   $handler->display->display_options['fields']['field_issue_reference']['id'] = 'field_issue_reference';
   $handler->display->display_options['fields']['field_issue_reference']['table'] = 'field_data_field_issue_reference';
   $handler->display->display_options['fields']['field_issue_reference']['field'] = 'field_issue_reference';
   $handler->display->display_options['fields']['field_issue_reference']['label'] = '';
+  $handler->display->display_options['fields']['field_issue_reference']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_issue_reference']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_issue_reference']['settings'] = array(
     'link' => 0,
@@ -123,16 +126,15 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Issue Reference (field_issue_reference) */
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['id'] = 'field_issue_reference_target_id';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['table'] = 'field_data_field_issue_reference';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['field'] = 'field_issue_reference_target_id';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Hidden Issue Reference (field_hidden_issue_reference) */
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['id'] = 'field_hidden_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['table'] = 'field_data_field_hidden_issue_reference';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['field'] = 'field_hidden_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_hidden_issue_reference_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -157,6 +159,116 @@ function sprint_two_views_default_views() {
   );
   $handler->display->display_options['show_title'] = 1;
   $views['goals_to_issues'] = $view;
+
+  $view = new view();
+  $view->name = 'goal_hierarchy';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Goal Hierarchy';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Associated Goals';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'tree';
+  $handler->display->display_options['style_options']['main_field'] = 'nid';
+  $handler->display->display_options['style_options']['parent_field'] = 'field_parent_goal';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['id'] = 'field_child_goals_target_id';
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['table'] = 'field_data_field_child_goals';
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['field'] = 'field_child_goals_target_id';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Parent Goal */
+  $handler->display->display_options['fields']['field_parent_goal']['id'] = 'field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['table'] = 'field_data_field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['field'] = 'field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['label'] = '';
+  $handler->display->display_options['fields']['field_parent_goal']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_parent_goal']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_parent_goal']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_parent_goal']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_parent_goal']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_parent_goal']['settings'] = array(
+    'view_mode' => 'teaser',
+    'links' => 0,
+  );
+  $handler->display->display_options['fields']['field_parent_goal']['field_api_classes'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Child Goals */
+  $handler->display->display_options['fields']['field_child_goals']['id'] = 'field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['table'] = 'field_data_field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['field'] = 'field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['label'] = '';
+  $handler->display->display_options['fields']['field_child_goals']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_child_goals']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_child_goals']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_child_goals']['settings'] = array(
+    'view_mode' => 'teaser',
+    'links' => 0,
+  );
+  $handler->display->display_options['fields']['field_child_goals']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['field_api_classes'] = TRUE;
+  /* Contextual filter: Content: Issue Reference (field_issue_reference) */
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['id'] = 'field_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['table'] = 'field_data_field_issue_reference';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['field'] = 'field_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'goal' => 'goal',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'goal-tree/%';
+
+  /* Display: Goal Hierarchy Block */
+  $handler = $view->new_display('block', 'Goal Hierarchy Block', 'block_1');
+  $handler->display->display_options['display_description'] = 'Lists goals in a tree based on issue id argument.';
+  $handler->display->display_options['block_description'] = 'Goal Tree';
+  $views['goal_hierarchy'] = $view;
 
   $view = new view();
   $view->name = 'issues_and_goals_reference';
@@ -4145,6 +4257,114 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $views['scheme_search'] = $view;
+
+  $view = new view();
+  $view->name = 'tree_test';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Tree test';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Tree test';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'tree';
+  $handler->display->display_options['style_options']['main_field'] = 'nid';
+  $handler->display->display_options['style_options']['parent_field'] = 'field_parent_goal';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['id'] = 'field_child_goals_target_id';
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['table'] = 'field_data_field_child_goals';
+  $handler->display->display_options['relationships']['field_child_goals_target_id']['field'] = 'field_child_goals_target_id';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Parent Goal */
+  $handler->display->display_options['fields']['field_parent_goal']['id'] = 'field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['table'] = 'field_data_field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['field'] = 'field_parent_goal';
+  $handler->display->display_options['fields']['field_parent_goal']['label'] = '';
+  $handler->display->display_options['fields']['field_parent_goal']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_parent_goal']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_parent_goal']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_parent_goal']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_parent_goal']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_parent_goal']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_parent_goal']['field_api_classes'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Child Goals */
+  $handler->display->display_options['fields']['field_child_goals']['id'] = 'field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['table'] = 'field_data_field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['field'] = 'field_child_goals';
+  $handler->display->display_options['fields']['field_child_goals']['label'] = '';
+  $handler->display->display_options['fields']['field_child_goals']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_child_goals']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_child_goals']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_child_goals']['settings'] = array(
+    'view_mode' => 'teaser',
+    'links' => 0,
+  );
+  $handler->display->display_options['fields']['field_child_goals']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_child_goals']['field_api_classes'] = TRUE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Issue Reference (field_issue_reference) */
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['id'] = 'field_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['table'] = 'field_data_field_issue_reference';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['field'] = 'field_issue_reference_target_id';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'goal' => 'goal',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'tree-test';
+  $views['tree_test'] = $view;
 
   $view = new view();
   $view->name = 'workflow_dashboard';

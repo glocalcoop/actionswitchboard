@@ -14,7 +14,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['additional_settings__active_tab_document'] = 'edit-submission';
 
-  $variables['additional_settings__active_tab_goal'] = 'edit-menu';
+  $variables['additional_settings__active_tab_goal'] = 'edit-display';
 
   $variables['additional_settings__active_tab_issue'] = 'edit-submission';
 
@@ -34,6 +34,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['admin_menu_devel_modules_skip'] = array(
     'admin_devel' => 0,
+    'context_ui' => 0,
     'devel' => 0,
     'devel_node_access' => 0,
     'field_ui' => 0,
@@ -45,15 +46,15 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['admin_menu_position_fixed'] = 1;
 
-  $variables['admin_menu_tweak_modules'] = 1;
+  $variables['admin_menu_tweak_modules'] = 0;
 
-  $variables['admin_menu_tweak_permissions'] = 1;
+  $variables['admin_menu_tweak_permissions'] = 0;
 
   $variables['admin_menu_tweak_tabs'] = 0;
 
   $variables['admin_theme'] = 'seven';
 
-  $variables['advanced__active_tab'] = 'edit-tweaks';
+  $variables['advanced__active_tab'] = 'edit-performance';
 
   $variables['anonymous'] = 'Anonymous';
 
@@ -98,6 +99,28 @@ function sprint_two_drush_ctex_bonus_variables() {
   $variables['cache'] = 0;
 
   $variables['cache_lifetime'] = '0';
+
+  $variables['chosen_disable_search'] = 0;
+
+  $variables['chosen_disable_search_threshold'] = 'Never Apply';
+
+  $variables['chosen_jquery_selector'] = 'select:visible';
+
+  $variables['chosen_minimum_multiple'] = '9';
+
+  $variables['chosen_minimum_single'] = '20';
+
+  $variables['chosen_minimum_width'] = '200';
+
+  $variables['chosen_no_results_text'] = 'No results match';
+
+  $variables['chosen_placeholder_text_multiple'] = 'Choose some options';
+
+  $variables['chosen_placeholder_text_single'] = 'Choose an option';
+
+  $variables['chosen_search_contains'] = 0;
+
+  $variables['chosen_use_theme'] = 1;
 
   $variables['civicrmtheme_theme_admin'] = '0';
 
@@ -361,14 +384,17 @@ function sprint_two_drush_ctex_bonus_variables() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'search_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
@@ -376,7 +402,29 @@ function sprint_two_drush_ctex_bonus_variables() {
   );
 
   $variables['field_bundle_settings_node__issue'] = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
@@ -386,7 +434,18 @@ function sprint_two_drush_ctex_bonus_variables() {
           'weight' => '30',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'goals_to_issues_entity_view_1' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
 
@@ -504,6 +563,8 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['filter_fallback_format'] = 'plain_text';
 
+  $variables['goal_steps_on_edit'] = 0;
+
   $variables['hs_config_taxonomy-4'] = array(
     'config_id' => 'taxonomy-4',
     'save_lineage' => '1',
@@ -538,6 +599,8 @@ function sprint_two_drush_ctex_bonus_variables() {
   );
 
   $variables['i18n_variables'] = array();
+
+  $variables['issue_steps_on_edit'] = 0;
 
   $variables['menu_expanded'] = array();
 
@@ -659,7 +722,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['node_submitted_document'] = 0;
 
-  $variables['node_submitted_goal'] = 1;
+  $variables['node_submitted_goal'] = 0;
 
   $variables['node_submitted_issue'] = 0;
 
@@ -713,51 +776,8 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['rules_debug_region_seven'] = 'help';
 
-  $variables['rules_empty_sets'] = array(
-    'botcha_form_approved' => 0,
-    'botcha_form_rejected' => 1,
-    'message_insert' => 2,
-    'message_update' => 3,
-    'message_presave' => 4,
-    'message_delete' => 5,
-    'message_view' => 6,
-    'og_membership_insert' => 7,
-    'og_membership_update' => 8,
-    'og_membership_presave' => 9,
-    'og_membership_delete' => 10,
-    'og_user_insert' => 11,
-    'og_user_approved' => 12,
-    'og_user_blocked' => 13,
-    'og_user_delete' => 14,
-    'workflow_comment_added' => 15,
-    'node_insert' => 16,
-    'node_update' => 17,
-    'node_presave' => 18,
-    'node_view' => 19,
-    'node_delete' => 20,
-    'init' => 21,
-    'cron' => 22,
-    'watchdog' => 23,
-    'user_insert' => 24,
-    'user_update' => 25,
-    'user_presave' => 26,
-    'user_view' => 27,
-    'user_delete' => 28,
-    'user_login' => 29,
-    'user_logout' => 30,
-    'comment_insert' => 31,
-    'comment_update' => 32,
-    'comment_presave' => 33,
-    'comment_view' => 34,
-    'comment_delete' => 35,
-    'taxonomy_term_insert' => 36,
-    'taxonomy_term_update' => 37,
-    'taxonomy_term_presave' => 38,
-    'taxonomy_term_delete' => 39,
-    'taxonomy_vocabulary_insert' => 40,
-    'taxonomy_vocabulary_update' => 41,
-    'taxonomy_vocabulary_presave' => 42,
-    'taxonomy_vocabulary_delete' => 43,
+  $variables['rules_event_whitelist'] = array(
+    'workflow_state_changed' => 0,
   );
 
   $variables['rules_log_errors'] = '2';
@@ -782,15 +802,15 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['site_name'] = 'Action Switchboard Dev';
 
-  $variables['statistics_day_timestamp'] = 1379850847;
+  $variables['statistics_day_timestamp'] = 1380483610;
 
   $variables['taxonomy_override_selector'] = TRUE;
 
   $variables['theme_asb_settings'] = array(
     'toggle_name' => 1,
     'toggle_slogan' => 1,
-    'toggle_node_user_picture' => 1,
-    'toggle_comment_user_picture' => 1,
+    'toggle_node_user_picture' => 0,
+    'toggle_comment_user_picture' => 0,
     'toggle_favicon' => 1,
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
@@ -815,7 +835,25 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['theme_default'] = 'asb';
 
-  $variables['update_last_email_notification'] = 1379861654;
+  $variables['theme_settings'] = array(
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
+    'toggle_slogan' => 1,
+    'toggle_node_user_picture' => 0,
+    'toggle_comment_user_picture' => 0,
+    'toggle_comment_user_verification' => 1,
+    'toggle_favicon' => 1,
+    'toggle_main_menu' => 1,
+    'toggle_secondary_menu' => 1,
+    'default_logo' => 1,
+    'logo_path' => '',
+    'logo_upload' => '',
+    'default_favicon' => 1,
+    'favicon_path' => '',
+    'favicon_upload' => '',
+  );
+
+  $variables['update_last_email_notification'] = 1380483610;
 
   $variables['update_notify_emails'] = array(
     0 => 'ross@mayfirst.org',
@@ -969,6 +1007,32 @@ Your account on [site:name] has been canceled.
   $variables['views_defaults'] = array(
     'og_extras_members' => TRUE,
   );
+
+  $variables['views_exposed_filter_any_label'] = 'new_any';
+
+  $variables['views_show_additional_queries'] = 0;
+
+  $variables['views_ui_always_live_preview'] = 1;
+
+  $variables['views_ui_custom_theme'] = '_default';
+
+  $variables['views_ui_display_embed'] = 0;
+
+  $variables['views_ui_show_advanced_column'] = 0;
+
+  $variables['views_ui_show_advanced_help_warning'] = 1;
+
+  $variables['views_ui_show_listing_filters'] = 0;
+
+  $variables['views_ui_show_master_display'] = 0;
+
+  $variables['views_ui_show_performance_statistics'] = 0;
+
+  $variables['views_ui_show_preview_information'] = 1;
+
+  $variables['views_ui_show_sql_query'] = 1;
+
+  $variables['views_ui_show_sql_query_where'] = 'above';
 
   $variables['wipe_rebuild'] = 'Rebuild system links';
 

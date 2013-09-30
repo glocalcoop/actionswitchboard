@@ -20,6 +20,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'botcha',
     'bulk_export',
     'captcha',
+    'cer',
     'civicrm',
     'comment',
     'contact',
@@ -75,6 +76,9 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
  */
 function sprint_two_drush_ctex_bonus_info_files() {
   return array(
+    'sprint_two.default_cer_presets.inc' => array(
+      'overwrite' => TRUE,
+    ),
     'sprint_two.context.inc' => array(
       'overwrite' => TRUE,
     ),

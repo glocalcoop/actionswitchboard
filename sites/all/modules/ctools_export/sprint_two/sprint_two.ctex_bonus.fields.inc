@@ -12,25 +12,28 @@
 function sprint_two_drush_ctex_bonus_fields() {
   $fields = array();
 
-  $fields['group_group'] = array(
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'Not a group',
-        1 => 'Group',
-      ),
-      'allowed_values_function' => '',
+  $fields['comment_body'] = array(
+    'entity_types' => array(
+      0 => 'comment',
     ),
-    'entity_types' => array(),
     'translatable' => '0',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
+    'settings' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'table' => 'filter_format',
+        'columns' => array(
+          'format' => 'format',
+        ),
       ),
     ),
-    'field_name' => 'group_group',
-    'type' => 'list_boolean',
-    'module' => 'list',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'field_name' => 'comment_body',
+    'type' => 'text_long',
+    'module' => 'text',
     'active' => '1',
     'locked' => '0',
     'cardinality' => '1',
@@ -59,6 +62,378 @@ function sprint_two_drush_ctex_bonus_fields() {
     'field_name' => 'body',
     'type' => 'text_with_summary',
     'module' => 'text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_tags'] = array(
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'tags',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(
+      'tid' => array(
+        'table' => 'taxonomy_term_data',
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'field_name' => 'field_tags',
+    'type' => 'taxonomy_term_reference',
+    'module' => 'taxonomy',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_image'] = array(
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => 0,
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(
+      'fid' => array(
+        'table' => 'file_managed',
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+      ),
+    ),
+    'field_name' => 'field_image',
+    'type' => 'image',
+    'module' => 'image',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_document_type'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'page_types',
+          'parent' => '0',
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'tid' => array(
+        'table' => 'taxonomy_term_data',
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'field_name' => 'field_document_type',
+    'type' => 'taxonomy_term_reference',
+    'module' => 'taxonomy',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_issue_reference'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'issue' => 'issue',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_issue_reference',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_parent_goal'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'goal' => 'goal',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_parent_goal',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_child_goals'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'goal' => 'goal',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_child_goals',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_hidden_issue_reference'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'issue' => 'issue',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_hidden_issue_reference',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+  );
+
+  $fields['field_goals'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'goal' => 'goal',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_goals',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['field_all_goals'] = array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'target_type' => 'node',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'target_bundles' => array(
+          'goal' => 'goal',
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(
+      'node' => array(
+        'table' => 'node',
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'field_name' => 'field_all_goals',
+    'type' => 'entityreference',
+    'module' => 'entityreference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
+  $fields['group_group'] = array(
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Not a group',
+        1 => 'Group',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'entity_types' => array(),
+    'translatable' => '0',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'field_name' => 'group_group',
+    'type' => 'list_boolean',
+    'module' => 'list',
     'active' => '1',
     'locked' => '0',
     'cardinality' => '1',
@@ -205,35 +580,6 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['field_image'] = array(
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'settings' => array(
-      'uri_scheme' => 'public',
-      'default_image' => 0,
-    ),
-    'entity_types' => array(),
-    'translatable' => '0',
-    'foreign keys' => array(
-      'fid' => array(
-        'table' => 'file_managed',
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-      ),
-    ),
-    'field_name' => 'field_image',
-    'type' => 'image',
-    'module' => 'image',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
   $fields['field_private_description'] = array(
     'translatable' => '0',
     'entity_types' => array(),
@@ -265,12 +611,16 @@ function sprint_two_drush_ctex_bonus_fields() {
     'entity_types' => array(),
     'settings' => array(
       'target_type' => 'node',
-      'handler' => 'views',
+      'handler' => 'base',
       'handler_settings' => array(
-        'view' => array(
-          'view_name' => 'issues_and_goals_reference',
-          'display_name' => 'entityreference_1',
-          'args' => array(),
+        'target_bundles' => array(
+          'goal' => 'goal',
+          'issue' => 'issue',
+        ),
+        'sort' => array(
+          'type' => 'property',
+          'property' => 'type',
+          'direction' => 'ASC',
         ),
         'behaviors' => array(
           'views-select-list' => array(
@@ -297,7 +647,7 @@ function sprint_two_drush_ctex_bonus_fields() {
     'module' => 'entityreference',
     'active' => '1',
     'locked' => '0',
-    'cardinality' => '-1',
+    'cardinality' => '2',
     'deleted' => '0',
   );
 
@@ -419,97 +769,6 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['comment_body'] = array(
-    'entity_types' => array(
-      0 => 'comment',
-    ),
-    'translatable' => '0',
-    'settings' => array(),
-    'foreign keys' => array(
-      'format' => array(
-        'table' => 'filter_format',
-        'columns' => array(
-          'format' => 'format',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'field_name' => 'comment_body',
-    'type' => 'text_long',
-    'module' => 'text',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
-    'deleted' => '0',
-  );
-
-  $fields['field_tags'] = array(
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'entity_types' => array(),
-    'translatable' => '0',
-    'foreign keys' => array(
-      'tid' => array(
-        'table' => 'taxonomy_term_data',
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'field_name' => 'field_tags',
-    'type' => 'taxonomy_term_reference',
-    'module' => 'taxonomy',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
-  $fields['message_text'] = array(
-    'entity_types' => array(
-      0 => 'message_type',
-    ),
-    'translatable' => '1',
-    'settings' => array(
-      'message_text' => TRUE,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'table' => 'filter_format',
-        'columns' => array(
-          'format' => 'format',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'field_name' => 'message_text',
-    'type' => 'text_long',
-    'module' => 'text',
-    'active' => '1',
-    'locked' => '1',
-    'cardinality' => '-1',
-    'deleted' => '0',
-  );
-
   $fields['og_user_node'] = array(
     'settings' => array(
       'handler' => 'og',
@@ -591,82 +850,6 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
-  $fields['field_issue_reference'] = array(
-    'translatable' => '0',
-    'entity_types' => array(),
-    'settings' => array(
-      'target_type' => 'node',
-      'handler' => 'base',
-      'handler_settings' => array(
-        'target_bundles' => array(
-          'goal' => 'goal',
-          'issue' => 'issue',
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-      ),
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'table' => 'node',
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'field_name' => 'field_issue_reference',
-    'type' => 'entityreference',
-    'module' => 'entityreference',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
-    'deleted' => '0',
-  );
-
-  $fields['field_document_type'] = array(
-    'translatable' => '0',
-    'entity_types' => array(),
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'page_types',
-          'parent' => '0',
-        ),
-      ),
-    ),
-    'foreign keys' => array(
-      'tid' => array(
-        'table' => 'taxonomy_term_data',
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-      ),
-    ),
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'field_name' => 'field_document_type',
-    'type' => 'taxonomy_term_reference',
-    'module' => 'taxonomy',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1',
-    'deleted' => '0',
-  );
-
   $fields['group_content_access'] = array(
     'no_ui' => TRUE,
     'settings' => array(
@@ -693,6 +876,36 @@ function sprint_two_drush_ctex_bonus_fields() {
     'deleted' => '0',
   );
 
+  $fields['message_text'] = array(
+    'entity_types' => array(
+      0 => 'message_type',
+    ),
+    'translatable' => '1',
+    'settings' => array(
+      'message_text' => TRUE,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'table' => 'filter_format',
+        'columns' => array(
+          'format' => 'format',
+        ),
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'field_name' => 'message_text',
+    'type' => 'text_long',
+    'module' => 'text',
+    'active' => '1',
+    'locked' => '1',
+    'cardinality' => '-1',
+    'deleted' => '0',
+  );
+
   return $fields;
 }
 
@@ -701,6 +914,958 @@ function sprint_two_drush_ctex_bonus_fields() {
  */
 function sprint_two_drush_ctex_bonus_instances() {
   $instances = array();
+
+  $instances['comment:comment_node_article:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_article',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_page:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_page',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_document:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_document',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_goal:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_goal',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_issue:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_issue',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_scheme:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_scheme',
+    'deleted' => '0',
+  );
+
+  $instances['comment:comment_node_update:comment_body'] = array(
+    'label' => 'Comment',
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'required' => TRUE,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => 0,
+        'settings' => array(),
+        'module' => 'text',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'comment_body',
+    'entity_type' => 'comment',
+    'bundle' => 'comment_node_update',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => -4,
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:field_tags'] = array(
+    'label' => 'Tags',
+    'description' => 'Enter a comma-separated list of words to describe your content.',
+    'widget' => array(
+      'type' => 'taxonomy_autocomplete',
+      'weight' => -4,
+      'settings' => array(
+        'size' => 60,
+        'autocomplete_path' => 'taxonomy/autocomplete',
+      ),
+      'module' => 'taxonomy',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+        'label' => 'above',
+        'settings' => array(),
+        'module' => 'taxonomy',
+      ),
+      'teaser' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+        'label' => 'above',
+        'settings' => array(),
+        'module' => 'taxonomy',
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'required' => FALSE,
+    'default_value' => NULL,
+    'field_name' => 'field_tags',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:article:field_image'] = array(
+    'label' => 'Image',
+    'description' => 'Upload an image to go with this article.',
+    'required' => FALSE,
+    'settings' => array(
+      'file_directory' => 'field/image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => TRUE,
+      'title_field' => '',
+      'default_image' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'type' => 'image_image',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_class' => '',
+        'insert_width' => '',
+      ),
+      'weight' => -1,
+      'module' => 'image',
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => 'large',
+          'image_link' => '',
+        ),
+        'weight' => -1,
+        'module' => 'image',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => 'medium',
+          'image_link' => 'content',
+        ),
+        'weight' => -1,
+        'module' => 'image',
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'bundle' => 'article',
+    'deleted' => '0',
+  );
+
+  $instances['node:page:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => -4,
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'page',
+    'deleted' => '0',
+  );
+
+  $instances['node:document:body'] = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'weight' => '3',
+      'module' => 'text',
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'document',
+    'deleted' => '0',
+  );
+
+  $instances['node:document:field_document_type'] = array(
+    'label' => 'Document Type',
+    'widget' => array(
+      'weight' => '1',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'taxonomy_term_reference_link',
+        'settings' => array(),
+        'module' => 'taxonomy',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => array(
+      0 => array(
+        'tid' => '7',
+      ),
+    ),
+    'field_name' => 'field_document_type',
+    'entity_type' => 'node',
+    'bundle' => 'document',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:body'] = array(
+    'label' => 'Description',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'display_summary' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '0',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:field_issue_reference'] = array(
+    'label' => 'Issue Reference',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 1,
+          'action' => 'none',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'skip_perm' => '0',
+          'og_context' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'type' => 'entityreference_label',
+        'weight' => '1',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'What Issue does this goal fall under?',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_issue_reference',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:field_parent_goal'] = array(
+    'label' => 'Parent Goal',
+    'widget' => array(
+      'weight' => '5',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'entityreference_label',
+        'weight' => '2',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'If your this goal should be a sub-goal of one of these goals select it here.',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_parent_goal',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:field_child_goals'] = array(
+    'label' => 'Child Goals',
+    'widget' => array(
+      'weight' => '6',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'entityreference_entity_view',
+        'weight' => '4',
+        'settings' => array(
+          'view_mode' => 'teaser',
+          'links' => 0,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'entityreference_entity_view',
+        'weight' => '0',
+        'settings' => array(
+          'view_mode' => 'teaser',
+          'links' => 0,
+        ),
+        'module' => 'entityreference',
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_child_goals',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:goal:field_hidden_issue_reference'] = array(
+    'label' => 'Hidden Issue Reference',
+    'widget' => array(
+      'weight' => '4',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'entityreference_label',
+        'weight' => '5',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'module' => 'entityreference',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'This is a hidden reference field to allow for sane displays for the end user.  This field should not be modified unless something has gone terribly wrong.',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_hidden_issue_reference',
+    'entity_type' => 'node',
+    'bundle' => 'goal',
+    'deleted' => '0',
+  );
+
+  $instances['node:issue:body'] = array(
+    'label' => 'Description',
+    'widget' => array(
+      'weight' => '31',
+      'type' => 'text_textarea_with_summary',
+      'module' => 'text',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '20',
+        'summary_rows' => 5,
+      ),
+    ),
+    'settings' => array(
+      'text_processing' => '1',
+      'display_summary' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '0',
+        'settings' => array(),
+        'module' => 'text',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'weight' => '0',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'module' => 'text',
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 1,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'issue',
+    'deleted' => '0',
+  );
+
+  $instances['node:issue:field_goals'] = array(
+    'label' => 'Goals in Hierarchy',
+    'widget' => array(
+      'weight' => '32',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '1',
+        'settings' => array(),
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'This field references only top level goals connected to this issue.',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_goals',
+    'entity_type' => 'node',
+    'bundle' => 'issue',
+    'deleted' => '0',
+  );
+
+  $instances['node:issue:field_all_goals'] = array(
+    'label' => 'All Goals',
+    'widget' => array(
+      'weight' => '33',
+      'type' => 'options_select',
+      'module' => 'options',
+      'active' => 1,
+      'settings' => array(
+        'apply_chosen' => 0,
+      ),
+    ),
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '2',
+        'settings' => array(),
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+        'weight' => '0',
+        'settings' => array(),
+      ),
+      'search_teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => 'This field references all goals connected to the issue.  We have two fields to manage the complexity of hierarchical relationships with issues and goals.',
+    'fences_wrapper' => 'div',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'field_name' => 'field_all_goals',
+    'entity_type' => 'node',
+    'bundle' => 'issue',
+    'deleted' => '0',
+  );
 
   $instances['node:scheme:group_group'] = array(
     'label' => 'Group',
@@ -828,9 +1993,10 @@ function sprint_two_drush_ctex_bonus_instances() {
       0 => array(
         'summary' => 'Replace this text with a brief (status update/tweet length) public summary.',
         'value' => '',
-        'format' => 'filtered_html',
+        'format' => 'full_html',
       ),
     ),
+    'fences_wrapper' => 'div',
     'field_name' => 'body',
     'entity_type' => 'node',
     'bundle' => 'scheme',
@@ -1490,6 +2656,7 @@ function sprint_two_drush_ctex_bonus_instances() {
         'match_operator' => 'CONTAINS',
         'size' => '60',
         'path' => '',
+        'apply_chosen' => 0,
       ),
     ),
     'settings' => array(
@@ -1531,217 +2698,6 @@ function sprint_two_drush_ctex_bonus_instances() {
     'field_name' => 'field_facilitator',
     'entity_type' => 'node',
     'bundle' => 'scheme',
-    'deleted' => '0',
-  );
-
-  $instances['node:page:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => -4,
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'page',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => -4,
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:field_tags'] = array(
-    'label' => 'Tags',
-    'description' => 'Enter a comma-separated list of words to describe your content.',
-    'widget' => array(
-      'type' => 'taxonomy_autocomplete',
-      'weight' => -4,
-      'settings' => array(
-        'size' => 60,
-        'autocomplete_path' => 'taxonomy/autocomplete',
-      ),
-      'module' => 'taxonomy',
-    ),
-    'display' => array(
-      'default' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-        'label' => 'above',
-        'settings' => array(),
-        'module' => 'taxonomy',
-      ),
-      'teaser' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-        'label' => 'above',
-        'settings' => array(),
-        'module' => 'taxonomy',
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'required' => FALSE,
-    'default_value' => NULL,
-    'field_name' => 'field_tags',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'deleted' => '0',
-  );
-
-  $instances['node:article:field_image'] = array(
-    'label' => 'Image',
-    'description' => 'Upload an image to go with this article.',
-    'required' => FALSE,
-    'settings' => array(
-      'file_directory' => 'field/image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => TRUE,
-      'title_field' => '',
-      'default_image' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'type' => 'image_image',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_styles' => array(
-          0 => 'auto',
-        ),
-        'insert_default' => array(
-          0 => 'auto',
-        ),
-        'insert_class' => '',
-        'insert_width' => '',
-      ),
-      'weight' => -1,
-      'module' => 'image',
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array(
-          'image_style' => 'large',
-          'image_link' => '',
-        ),
-        'weight' => -1,
-        'module' => 'image',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array(
-          'image_style' => 'medium',
-          'image_link' => 'content',
-        ),
-        'weight' => -1,
-        'module' => 'image',
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'bundle' => 'article',
     'deleted' => '0',
   );
 
@@ -2046,513 +3002,6 @@ function sprint_two_drush_ctex_bonus_instances() {
     'deleted' => '0',
   );
 
-  $instances['node:goal:body'] = array(
-    'label' => 'Description',
-    'widget' => array(
-      'weight' => '31',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '0',
-      'display_summary' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => '0',
-        'settings' => array(),
-        'module' => 'text',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'goal',
-    'deleted' => '0',
-  );
-
-  $instances['node:goal:field_issue_reference'] = array(
-    'label' => 'Issue Reference',
-    'widget' => array(
-      'weight' => '32',
-      'type' => 'options_select',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'status' => 1,
-          'action' => 'hide',
-          'action_on_edit' => 0,
-          'fallback' => 'none',
-          'skip_perm' => '0',
-          'og_context' => 0,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'type' => 'entityreference_label',
-        'weight' => '1',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'module' => 'entityreference',
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 1,
-    'description' => 'What Issue does this goal fall under?',
-    'default_value' => NULL,
-    'default_value_function' => 'entityreference_prepopulate_field_default_value',
-    'field_name' => 'field_issue_reference',
-    'entity_type' => 'node',
-    'bundle' => 'goal',
-    'deleted' => '0',
-  );
-
-  $instances['node:issue:body'] = array(
-    'label' => 'Description',
-    'widget' => array(
-      'weight' => '31',
-      'type' => 'text_textarea_with_summary',
-      'module' => 'text',
-      'active' => 1,
-      'settings' => array(
-        'rows' => '20',
-        'summary_rows' => 5,
-      ),
-    ),
-    'settings' => array(
-      'text_processing' => '1',
-      'display_summary' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 1,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'issue',
-    'deleted' => '0',
-  );
-
-  $instances['node:document:body'] = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'weight' => '3',
-      'module' => 'text',
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'document',
-    'deleted' => '0',
-  );
-
-  $instances['node:document:field_document_type'] = array(
-    'label' => 'Document Type',
-    'widget' => array(
-      'weight' => '1',
-      'type' => 'options_select',
-      'module' => 'options',
-      'active' => 1,
-      'settings' => array(),
-    ),
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'taxonomy_term_reference_link',
-        'settings' => array(),
-        'module' => 'taxonomy',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-      'search_teaser' => array(
-        'type' => 'hidden',
-        'label' => 'above',
-        'settings' => array(),
-        'weight' => 0,
-      ),
-    ),
-    'required' => 0,
-    'description' => '',
-    'fences_wrapper' => 'div',
-    'default_value' => array(
-      0 => array(
-        'tid' => '7',
-      ),
-    ),
-    'field_name' => 'field_document_type',
-    'entity_type' => 'node',
-    'bundle' => 'document',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_page:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_page',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_article:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_article',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_scheme:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_scheme',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_update:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_update',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_goal:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_goal',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_issue:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_issue',
-    'deleted' => '0',
-  );
-
-  $instances['comment:comment_node_document:comment_body'] = array(
-    'label' => 'Comment',
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'required' => TRUE,
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'text_default',
-        'weight' => 0,
-        'settings' => array(),
-        'module' => 'text',
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'description' => '',
-    'default_value' => NULL,
-    'field_name' => 'comment_body',
-    'entity_type' => 'comment',
-    'bundle' => 'comment_node_document',
-    'deleted' => '0',
-  );
-
-  $instances['message_type:message_type:message_text'] = array(
-    'label' => 'Message text',
-    'description' => 'This is the text of all messages of this type.',
-    'required' => TRUE,
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'type' => 'text_default',
-        'settings' => array(),
-        'module' => 'text',
-        'weight' => 0,
-      ),
-    ),
-    'widget' => array(
-      'type' => 'text_textarea',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'weight' => 0,
-      'module' => 'text',
-    ),
-    'default_value' => NULL,
-    'field_name' => 'message_text',
-    'entity_type' => 'message_type',
-    'bundle' => 'message_type',
-    'deleted' => '0',
-  );
-
   $instances['user:user:og_user_node'] = array(
     'label' => 'Group membership',
     'widget' => array(
@@ -2602,6 +3051,38 @@ function sprint_two_drush_ctex_bonus_instances() {
     'field_name' => 'og_user_node',
     'entity_type' => 'user',
     'bundle' => 'user',
+    'deleted' => '0',
+  );
+
+  $instances['message_type:message_type:message_text'] = array(
+    'label' => 'Message text',
+    'description' => 'This is the text of all messages of this type.',
+    'required' => TRUE,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'settings' => array(),
+        'module' => 'text',
+        'weight' => 0,
+      ),
+    ),
+    'widget' => array(
+      'type' => 'text_textarea',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'weight' => 0,
+      'module' => 'text',
+    ),
+    'default_value' => NULL,
+    'field_name' => 'message_text',
+    'entity_type' => 'message_type',
+    'bundle' => 'message_type',
     'deleted' => '0',
   );
 

@@ -334,7 +334,13 @@ civicrm/*',
     'pages' => '',
     'title' => '',
     'cache' => '-1',
-    'block_node_type' => array(),
+    'block_node_type' => array(
+      0 => (object) array(
+        'module' => 'og_extras',
+        'delta' => 'group_info',
+        'type' => 'scheme',
+      ),
+    ),
     'block_role' => array(),
   );
 
@@ -610,7 +616,13 @@ civicrm/*',
     'pages' => '',
     'title' => '',
     'cache' => '-1',
-    'block_node_type' => array(),
+    'block_node_type' => array(
+      0 => (object) array(
+        'module' => 'views',
+        'delta' => 'scheme_members-block_1',
+        'type' => 'scheme',
+      ),
+    ),
     'block_role' => array(),
   );
 
@@ -727,6 +739,50 @@ civicrm/*',
         'module' => 'asb_modal',
         'delta' => 'modal_update',
         'type' => 'scheme',
+      ),
+    ),
+    'block_role' => array(),
+  );
+
+  $blocks['views-goal_hierarchy-block_1-asb'] = (object) array(
+    'module' => 'views',
+    'delta' => 'goal_hierarchy-block_1',
+    'theme' => 'asb',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_second',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => '-1',
+    'block_node_type' => array(
+      0 => (object) array(
+        'module' => 'views',
+        'delta' => 'goal_hierarchy-block_1',
+        'type' => 'issue',
+      ),
+    ),
+    'block_role' => array(),
+  );
+
+  $blocks['views-goal_hierarchy-block_1-bartik'] = (object) array(
+    'module' => 'views',
+    'delta' => 'goal_hierarchy-block_1',
+    'theme' => 'bartik',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_second',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => '-1',
+    'block_node_type' => array(
+      0 => (object) array(
+        'module' => 'views',
+        'delta' => 'goal_hierarchy-block_1',
+        'type' => 'issue',
       ),
     ),
     'block_role' => array(),

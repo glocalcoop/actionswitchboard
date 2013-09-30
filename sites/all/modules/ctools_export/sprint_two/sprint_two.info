@@ -1,5 +1,6 @@
 name = sprint_two export module
 description = Export objects from CTools
+dependencies[] = cer
 dependencies[] = context
 dependencies[] = file_entity
 dependencies[] = views
