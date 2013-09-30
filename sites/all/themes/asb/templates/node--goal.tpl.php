@@ -82,14 +82,23 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
-hide($content['field_issues_goals']);
-hide($content['issues']);
-hide($content['goals']);
-hide($content['format_created']);
-hide($content['group_group']);
-global $user;
-
 ?>
+<?php if($teaser): ?>
+  <?php print render($title_prefix); ?>
+ <?php if ($title): ?>
+    <span class="goal-title" ><a href="<?php print $node_url; ?>"class="goal-title"><?php print $title; ?></a></span>
+ <?php endif; ?>
+ <?php print render($title_suffix); ?>
+  <ul class='sub-goals'>
+  <?php print render($tabs); ?>
+  <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
+  </ul>
+<?php else: ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
       <header>
@@ -137,9 +146,7 @@ global $user;
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
-      print '<div id="node-content">';
       print render($content);
-      print '</div>';
     ?>
 
   <?php print render($content['links']); ?>
@@ -147,16 +154,8 @@ global $user;
   <?php print render($content['comments']); ?>
 
   </section>
-
-  <?php if($sidebar_second): ?>
-  <aside id="sidebar">
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      print render($sidebar_second);
-    ?>
-  </aside><!-- /.sidebars -->
-  <?php endif; ?>
   
 </div>
 
 </article><!-- /.node -->
+<?php endif; ?>

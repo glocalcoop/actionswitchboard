@@ -1,4 +1,6 @@
 <?php
+// dsm($classes);
+// dsm($attributes);
 /**
  * @file
  * Zen theme's implementation to display a node.
@@ -82,56 +84,10 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
-hide($content['field_issues_goals']);
-hide($content['issues']);
-hide($content['goals']);
-hide($content['format_created']);
-hide($content['group_group']);
 global $user;
 
 ?>
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
-      <header>
-
-        <div class="wrapper">
-
-          <section class="content">
-          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || $title): ?>
-
-            <?php if (isset($highlighted)): ?>
-              <?php print $highlighted; ?>
-            <?php endif; ?>
-
-            <a id="main-content"></a>
-            
-            <?php print render($title_prefix); ?>
-            
-            <?php if ($title): ?>
-            <h1 class="title" id="page-title"><?php print $title; ?></h1>
-            <?php endif; ?>
-
-            <?php print render($title_suffix); ?>
-
-            <?php if ($action_links): ?>
-            <ul class="action-links"><?php print render($action_links); ?></ul>
-            <?php endif; ?>
-            <?php print $feed_icons; ?>
-
-          </section>
-    
-
-        </div>
-
-      </header>
-
-
-  
-    <?php endif; ?>
-
-<div class="wrapper">
-
-  <section class='content'>
+<section class='content'>
   <?php print render($tabs); ?>
   <?php
       // We hide the comments and links now so that we can render them later.
@@ -148,15 +104,5 @@ global $user;
 
   </section>
 
-  <?php if($sidebar_second): ?>
-  <aside id="sidebar">
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      print render($sidebar_second);
-    ?>
-  </aside><!-- /.sidebars -->
-  <?php endif; ?>
-  
-</div>
 
-</article><!-- /.node -->
+

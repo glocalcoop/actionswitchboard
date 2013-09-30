@@ -152,6 +152,67 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
+  if (isset($variables['node'])) {
+    // Ref suggestions cuz it's stupid long.
+    $suggests = &$variables['theme_hook_suggestions'];
+
+    // Get path arguments.
+    $args = arg();
+    // Remove first argument of "node".
+    unset($args[0]);
+
+    // Set type.
+    $type = "page__type_{$variables['node']->type}";
+
+    // Bring it all together.
+    $suggests = array_merge(
+      $suggests,
+      array($type),
+      theme_get_suggestions($args, $type)
+    );
+
+    // if the url is: 'http://domain.com/node/123/edit'
+    // and node type is 'blog'..
+    //
+    // This will be the suggestions:
+    //
+    // - page__node
+    // - page__node__%
+    // - page__node__123
+    // - page__node__edit
+    // - page__type_blog
+    // - page__type_blog__%
+    // - page__type_blog__123
+    // - page__type_blog__edit
+    //
+    // Which connects to these templates:
+    //
+    // - page--node.tpl.php
+    // - page--node--%.tpl.php
+    // - page--node--123.tpl.php
+    // - page--node--edit.tpl.php
+    // - page--type-blog.tpl.php          << this is what you want.
+    // - page--type-blog--%.tpl.php
+    // - page--type-blog--123.tpl.php
+    // - page--type-blog--edit.tpl.php
+    //
+    // Latter items take precedence.
+    if($variables['node']->type == 'issue') {
+      // dsm($variables);
+      // dsm($variables['node']);
+      if(isset($variables['page']['content']['system_main']['nodes'])) {
+        foreach($variables['page']['content']['system_main']['nodes'] as $key => $value) {
+          if(is_numeric($key)) {
+            $variables['node_classes'] = 'view-mode-' .$variables['page']['content']['system_main']['nodes'][$key]['#view_mode'];
+          }
+        }
+        $variables['node_classes'] .= ' node ' .'node-' .$variables['node']->type;
+      }else{
+        $variables['node_classes'] = 'node node-edit';
+      }
+    }
+  }
+  
   if(arg(2) != 'edit') {
     if(isset($variables['page']['content']['system_main']['#form_id'] ) && $variables['page']['content']['system_main']['#form_id'] == 'scheme_node_form') {
       if( $variables['page']['content']['system_main']['title']['#value'] ){
@@ -199,15 +260,12 @@ function asb_local_tasks_alter(&$data, $router_item, $root_path) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function asb_preprocess_node(&$variables, $hook) {
-
+  // dsm($variables);
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
   }
   // dsm(block_get_blocks_by_region('sidebar_second'));
-  if ($blocks = block_get_blocks_by_region('sidebar_second')) {
-      $variables['sidebar_second'] = $blocks;
-  }
   if ($blocks = block_get_blocks_by_region('highlighted')) {
       $variables['highlighted'] = $blocks;
   }
@@ -223,6 +281,12 @@ function asb_preprocess_node(&$variables, $hook) {
   }
   if($variables['view_mode'] != 'full') {
     unset($variables['tabs']);
+  }
+}
+
+function asb_preprocess_node_scheme(&$variables, $hook) {
+  if ($blocks = block_get_blocks_by_region('sidebar_second')) {
+    $variables['sidebar_second'] = $blocks;
   }
 }
 
