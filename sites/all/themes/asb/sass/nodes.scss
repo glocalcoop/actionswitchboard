@@ -102,65 +102,22 @@
     }
 
     &.scheme-meta {
-      .created,
-      .issue
-       {
-        vertical-align: top;
-        display: inline-block;
-        margin-top: 10px;
+      h6, dt {
+        line-height: $base-line-height;
       }
       .created {
-        width: 25%;
+        @include zen-float(left);
+        margin-right: 20px;
       }
       .issue {
-        width: 70%;
+        @include zen-float(left);
+        margin: 0;
       }
       .goals {
-        display: block;
-        @include zen-clear(both);
-        ul.tags li a {
-          padding-top: 0;
-          &:first-child {
-            padding-left: 0;
-          }
-        }
+        @include zen-clear;
+        padding-top: 10px;
       }
     }
-
-      // &.scheme-meta {
-      //   width: 100%;
-      //   margin: 0;
-      //   padding: 0;
-      //   list-style: none;
-      //   text-align: justify;
-      //   .created,
-      //   .issue {
-      //     padding: 0 5px 5px 0;
-      //     margin: 0;
-      //     display: inline-block;
-      //     &:last-child {
-      //       padding-right: 0;
-      //     }
-      //   }
-      // }
-
-    // &.scheme-meta {
-    //   h6, dt {
-    //     line-height: $base-line-height;
-    //   }
-    //   .created {
-    //     @include zen-float(left);
-    //     margin-right: 20px;
-    //   }
-    //   .issue {
-    //     @include zen-float(left);
-    //     margin: 0;
-    //   }
-    //   .goals {
-    //     @include zen-clear;
-    //     padding-top: 10px;
-    //   }
-    // }
 
   }
   .view-header {
@@ -189,64 +146,6 @@
       }
     }
   }
-  //Slideshow
-
-  #outer-carousel-wrapper {
-    width: 100%;
-    position: relative;
-
-    #carousel-wrapper {
-      z-index: -1;
-      max-width: 960px;
-      height: auto;
-      margin: 0 auto;
-      position: relative;
-
-      .carousel-div {
-        width: 100% !important;
-        text-align: center;
-
-        &:first-child {
-          position: relative !important;
-          display: block !important;
-          height: auto !important;
-        }
-
-        img {
-          max-width:100%;
-          min-width: 200px;
-        }
-      }
-    }
-
-    nav#scheme-images-nav {
-      z-index: 1;
-      a {
-        // display: inline-block;
-        height: 42px;
-        line-height: 42px;
-        font-size: 42px;
-        width: 25px;
-        color: $rules-color;
-        margin-top: -30%;
-
-        &#scheme-images-previous {
-          @include zen-float(left);
-          @include replace-text($previous-image);
-        }
-        &#scheme-images-next {
-          @include zen-float(right);
-          @include replace-text($next-image);
-        }
-      }
-    }
-
-  }
-
-  div.field-body {
-    @include zen-clear;
-  }
-   
 }
 
 
