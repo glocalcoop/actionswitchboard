@@ -100,19 +100,18 @@ header#header,
   @include transition-duration(0);  
 }
 
-.region-search.hidden {
-  height: 0px;
-}
 
 .front {
   .region-search {
     position: relative;
-    top: -30px;
-  }
-  // fit under 'what is an action switchboard' triangle thing...
-  .region-search.active {
     padding-top: 30px;
+    top: -77px;
   }
+}
+
+.region-search.hidden {
+  height: 0px;
+  padding-top: 0px;
 }
 
 .scheme-search {
@@ -233,7 +232,7 @@ header#header,
 
   #header-image-strip {
     position: absolute;
-    top: 53px;
+    top: 57px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
