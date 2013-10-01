@@ -90,7 +90,7 @@ header#header,
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
   @include zigzag-border ($panel, $even-backdrop);    
-  height: 120px;
+  height: 200px;
   // padding-top: 0px;
   &.active {
   }
@@ -113,6 +113,10 @@ header#header,
   .region-search.active {
     padding-top: 30px;
   }
+}
+
+.scheme-search {
+
 }
 
 .not-front.page-node {
@@ -243,8 +247,9 @@ header#header,
   }
 
   .logged-in.admin-menu #header-image-strip{
-    top: 73px;
-  }
+//    top: 73px;
+    top: 60px;
+   }
 
   /* node editing */
   .page-node-add-scheme {
