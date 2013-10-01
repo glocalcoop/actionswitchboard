@@ -1,0 +1,35 @@
+Example:
+<a href="{url}" class="icon-alone">
+    <span aria-hidden="true" data-icon="{character code}"></span>
+    <span class="screen-reader-text">Edit</span>
+</a>
+
+Edit
+<a href="{url}" class="icon-alone">
+    <span aria-hidden="true" data-icon="&#9998;"></span>
+    <span class="screen-reader-text">Edit</span>
+</a>
+
+Delete
+<a href="{url}" class="icon-alone">
+    <span aria-hidden="true" data-icon="&#10060;"></span>
+    <span class="screen-reader-text">Delete</span>
+</a>
+
+Reply
+<a href="{url}" class="icon-alone">
+    <span aria-hidden="true" data-icon="&#59154;"></span>
+    <span class="screen-reader-text">Delete</span>
+</a>
+
+Video
+&#127916;
+
+Picture
+&#128247;
+
+Link
+&#128279;
+
+Document
+&#59185;
