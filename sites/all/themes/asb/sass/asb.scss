@@ -1,8 +1,7 @@
 // Base:
 
 @import "base";
-@import "modals";
-@import "type"; // Helps set up a vertical rhythm.
+@import "type";
 
 html, p {
   @include body-text;
@@ -185,7 +184,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 //Icons
 
 // search nav item
-#navigation ul.menu .menu-mlid-728 {
+#nav-find {
   color: #fff;
   cursor: pointer;
   @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);

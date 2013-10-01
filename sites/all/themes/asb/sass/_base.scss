@@ -66,6 +66,48 @@ $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
 
 
 //
+// Font faces, stacks and sizes.
+//
+
+// Compass' vertical_rhythm extension is a powerful tool to set up a vertical
+// rhythm for your entire page. You can see some of its mixins and functions in
+// use in the normalize.scss file.
+// @see http://compass-style.org/reference/compass/typography/vertical_rhythm/
+// Typography
+// -------------------------
+$sansFontFamily:        SourceSansPro, Tahoma, sans-serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$header-font-family:   League, sans-serif;
+$header-font-weight:   normal;
+$header-color:         inherit;
+
+$base-font-size:   12px; // The font size set on the root html element.
+
+// $base-line-height set to px instead of a factor because 
+// it was resulting in the following error
+// error sass/normalize.scss (Line 108 of _vertical_rhythm.scss: 0.08571em/px isn't a valid CSS value.) 
+// this is a vertical rhythm bug
+$base-line-height: 14.4px; // This line-height determines the basic unit of vertical rhythm.
+
+
+// $h1-font-size: 2.7857 * $base-font-size;
+$h1-font-size: 4.85 * $base-font-size;
+$h2-font-size: 2.7857 * $base-font-size;
+$h3-font-size: 1.17 * $base-font-size;
+$h4-font-size: 1    * $base-font-size;
+$h5-font-size: 0.83 * $base-font-size;
+$h6-font-size: 0.75 * $base-font-size;
+
+
+// Now create some variables for the font stacks we want to use on this site.
+$base-font-family: $sansFontFamily; // The font family set on the html element.
+$font-body:        $sansFontFamily;
+$font-monospace:   $monoFontFamily;
+$header-line-height: 1.2;
+
+
+//
 // Partials to be shared with all .scss files.
 //
 
@@ -75,11 +117,10 @@ $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
 @import "compass/utilities/sprites/base";
 @import "compass/typography/lists/inline-list";
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
-@import "custom";           // Import our custom mixins last.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 @import "zen/background";
 @import "compass/typography/text/replacement";
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
-@import "type"; // Helps set up a vertical rhythm.
 @import "font-icons";
 @import "compass/css3/box-sizing";
+@import "custom";           // Import our custom mixins last.
