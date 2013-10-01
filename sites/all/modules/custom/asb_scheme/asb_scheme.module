@@ -176,7 +176,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form_state['view']->filter['field_issues_goals_target_id'])) {
     $issues = asb_scheme_get_issues();
     $issue_list = array();
-
+    
     foreach($issues as $key => $issue) {
       $issue_list[] = array(
         'title' => t($issue->title),
@@ -194,7 +194,17 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       $form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items'][] = $issue;
     }
   }
-
+  if (isset($form_state['view']->filter['field_material_needs_value'])) {
+    $mneeds = asb_scheme_format_needs_view_array();
+    // unset($form['field_material_needs_value']['#options']);
+    foreach($mneeds as $key => $value) {
+      $form['field_material_needs_value']['#options'][] = t($value['title']);
+    }
+    unset($form_state['view']->display_handler->handlers['filter']['field_material_needs_value']->options['group_info']['group_items']);
+    $form_state['view']->display_handler->handlers['filter']['field_material_needs_value']->options['group_info']['group_items'] = $mneeds;
+    // dsm($form_state['view']);
+    // dsm($form_state['view']->display_handler->handlers['filter']['field_material_needs_value']->options['group_info']['group_items']);
+  }
   // Check if the form has steps and add progress markup.
   if($form_id == 'scheme_node_form' && arg(2) != 'edit') {
     $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
@@ -466,7 +476,34 @@ function asb_scheme_goal_form_validate(&$form, &$form_state) {
   }
 }
 
+/**
+ * Create a material needs list for the view handler
+ *
+ * Returns a database object containing material need names 'mneed'
+ */
+function asb_scheme_build_material_needs() {
+  $sql = "SELECT DISTINCT field_material_needs_value AS mneed
+            FROM {field_data_field_material_needs} ORDER BY mneed";
+  $result = db_query($sql)->fetchAll();
+  return $result;
+}
+
+function asb_scheme_format_needs_view_array() {
+  $group_items = array();
+  $needs = asb_scheme_build_material_needs();
+  foreach($needs as $need) {
+    $group_items[] = array(
+      'title' => $need->mneed,
+      'operator' => 'contains',
+      'value' => $need->mneed,
+    );
+  }
+  return $group_items;
+}
   
+/**
+ * Get all issues and return a database object
+ */
 function asb_scheme_get_issues() {
   $sql = "SELECT nid, title FROM {node} WHERE type = 'issue' ORDER BY title";
   $result = db_query($sql);
