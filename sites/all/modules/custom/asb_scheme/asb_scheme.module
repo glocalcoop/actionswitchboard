@@ -231,7 +231,6 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   // Here we do some modifications of the entity reference fields
   // to keep a consistent hierarchy displayed to the user.
   if($form_id == 'goal_node_form') {
-
     $form['field_hidden_issue_reference']['#access'] = FALSE;
     if(isset($form['field_hidden_issue_reference']['und']['#default_value'][0])) {
       $issue_ref = $form['field_hidden_issue_reference']['und']['#default_value'][0];
@@ -294,12 +293,46 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
  *
  */
 function asb_scheme_goal_form_submit(&$form, &$form_state) {
-  if(empty($form_state['values']['field_parent_goal']['und'][0]['target_id']) && isset($form['issue_ref'])) {
+  if(empty($form_state['values']['field_parent_goal']['und'][0]['target_id']) && isset($form_state['issue_ref'])) {
     $node = node_load($form_state['issue_ref']['target_id']);
     $node->field_goals['und'][] = array('target_id' => $form_state['nid']);
     node_save($node);
+  }else{
+    $node = node_load($form_state['issue_ref']['target_id']);
+    $node =_asb_scheme_goal_clean_refs($form_state, $node, 1);
+    node_save($node);
   }
 }
+
+/**
+ * Check goal references and make sure there are
+ * no duplicates and that the current node belongs.
+ */
+function _asb_scheme_goal_clean_refs(&$form_state, $node, $remove = 0) {
+  $targets = array();
+  foreach($node->field_goals['und'] as $key => $value) {
+    $targets[] = $value['target_id'];
+  }
+  $targets = array_unique($targets);
+  if($remove == 1) {
+    foreach($targets as $key => $value) {
+      if($value == $form_state['nid']) {
+        unset($targets[$key]);
+      }
+    }
+  }
+  unset($node->field_goals['und']);
+  foreach($targets as $key => $value) {
+    $node->field_goals['und'][] = array('target_id' => $value);
+  }
+  $node->field_goals['und'] = array_values($node->field_goals['und']);
+  return $node;
+}
+
+/**
+ * helper function for filtering arrays.
+ */
+// function _asb_scheme_f
 
 /** 
  *
@@ -364,8 +397,10 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
     foreach($result as $row) {
       if(!isset($options[$row->eid])) {
         $options[$row->eid] = array($row->ctid);
-        if($row->eid != $current_nid && $row->ctid != $current_nid) {
+        if($row->eid != $current_nid) {
           $keys[] = $row->eid;
+        }
+        if($row->ctid != $current_nid) {
           $keys[] = $row->ctid;
         }
       }else{
@@ -423,8 +458,11 @@ function asb_scheme_goal_form_validate(&$form, &$form_state) {
   if(empty($form_state['values']['field_parent_goal']['und'][0]['target_id'])) {
     $form_state['issue_ref'] = $form_state['values']['field_issue_reference']['und'][0];
     $form_state['values']['field_hidden_issue_reference']['und'][0] = $form_state['issue_ref'];
+  }else{
+    $form_state['issue_ref'] = $form_state['values']['field_issue_reference']['und'][0];
+    $form_state['values']['field_hidden_issue_reference']['und'][0] = $form_state['issue_ref'];
     unset($form_state['values']['field_issue_reference']['und'][0]);
-  }    
+  }
 }
 
   
