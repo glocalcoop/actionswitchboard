@@ -268,12 +268,15 @@ function asb_modal_process_format($element) {
     'field_textarea',
     'comment_body',
   );
-
   $element = filter_process_format($element);
   $element['format']['#attributes']['class'][] = 'element-hidden';
   // dsm($element);
-// Hide the 'text format' pane below certain text area fields.
+  // Hide the 'text format' pane below certain text area fields.
   if (isset($element['#field_name']) && in_array($element['#field_name'], $fields)){
+    $element['format']['#access'] = FALSE;
+  }
+  // Hide 'text format' pane on all text area modal fields.
+  if($element['#type'] == 'text_format') {
     $element['format']['#access'] = FALSE;
   }
   return $element;
@@ -284,9 +287,9 @@ function asb_modal_process_format($element) {
  * Implements hook_wysiwyg_editor_settings_alter()
  **/
 function asb_modal_wysiwyg_editor_settings_alter(&$settings, $context) {
-  /* if(arg(1) == 'ajax') { */
-  /*   if ($context['profile']->editor == 'ckeditor' && isset($settings['height'])) { */
-  /*     $settings['height'] = 150; */
-  /*   } */
-  /* } */
+  if(arg(1) == 'ajax') {
+    if ($context['profile']->editor == 'ckeditor' && isset($settings['height'])) {
+      $settings['height'] = 150;
+    }
+  }
 }
