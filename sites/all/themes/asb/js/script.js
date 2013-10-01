@@ -11,7 +11,7 @@
 
       // only hide search for people with JS.
 
-      $( "#navigation .menu-mlid-1205" ).click( function( e ) {
+      $( "#nav-find" ).click( function( e ) {
         e.preventDefault();
         $( ".region-search" ).toggleClass('active');
       });
