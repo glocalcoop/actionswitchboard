@@ -5,8 +5,8 @@
   Drupal.behaviors.asb = {
 
     attach: function(context, settings) {
-
-      if( context.body.className.substr( "page-schemes" ) == -1 ) {
+      console.log( context.body.className.indexOf( "page-schemes" ) );
+      if( context.body.className.indexOf( "page-schemes" ) < 0) {
 
         console.log( 'Drupal.behaviors.asb.attach', context, settings );
         $( ".region-search" ).css('overflow','hidden');
