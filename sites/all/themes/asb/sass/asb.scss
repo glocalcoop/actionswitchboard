@@ -2,6 +2,7 @@
 
 @import "base";
 @import "modals";
+@import "type"; // Helps set up a vertical rhythm.
 
 html, p {
   @include body-text;

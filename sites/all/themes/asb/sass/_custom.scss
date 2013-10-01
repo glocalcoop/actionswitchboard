@@ -27,6 +27,23 @@
   }
 }
 
+@mixin header-style ($family: $header-font-family, $size: $h2-font-size, $transform: uppercase, $color: $text-color-prominent, $weight: normal) {
+  font-size: $size;
+  font-family: $family;
+  color: $color;
+  text-transform: $transform;
+  font-weight: $weight;
+}
+
+@mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal) {
+  font-size: $size;
+  font-family: $family;
+  color: $color;
+  font-weight: $weight;
+  line-height: $base-line-height + 2px;
+}
+
+
 @function blackTranslucent($opacity){
     @return rgba(0,0,0,$opacity)
 }
