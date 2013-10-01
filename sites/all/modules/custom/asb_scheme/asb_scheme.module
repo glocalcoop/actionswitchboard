@@ -387,7 +387,8 @@ function asb_scheme_get_goal_keys($current_nid, $issue, $exclude = array()) {
                 AS eid, field_child_goals_target_id
                 AS ctid FROM {field_data_field_hidden_issue_reference}
                 LEFT JOIN {field_data_field_child_goals}
-                  ON field_data_field_hidden_issue_reference.entity_id = field_data_field_child_goals.field_child_goals_target_id";
+                  ON field_data_field_hidden_issue_reference.entity_id = field_data_field_child_goals.field_child_goals_target_id
+                  WHERE field_data_field_hidden_issue_reference.field_hidden_issue_reference_target_id = $issue";
         // $sql = "SELECT entity_id as eid from field_data_field_hidden_issue_reference";
       $result = db_query($sql)->fetchAll();
     }
