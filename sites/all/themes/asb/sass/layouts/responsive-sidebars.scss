@@ -87,15 +87,21 @@ header#header,
   overflow: hidden;
   background: $panel;
   @include transition-property( padding-top, height );
-  @include transition-duration(.6s);
+  @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
   @include zigzag-border ($panel, $even-backdrop);    
-  height: 0px;
+  height: 120px;
+  // padding-top: 0px;
+  &.active {
+  }
 }
 
-.region-search.active {
-  padding-top: 0px;
-  height: 120px;  
+.region-search.atrest {
+  @include transition-duration(0);  
+}
+
+.region-search.hidden {
+  height: 0px;
 }
 
 .front {
