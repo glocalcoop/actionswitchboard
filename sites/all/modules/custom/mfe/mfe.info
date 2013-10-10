@@ -1,0 +1,6 @@
+name = Modal Field Edit
+description = "Create modals edit form for each field of an entity."
+core = 7.x
+package = Fields
+
+dependencies[] = ctools

@@ -137,6 +137,9 @@ global $user;
           </section>
 
           <aside class="scheme-meta">
+            <div class="modal-edit">
+             <?php print '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/article/field_issues_goals">Edit</a>'; ?>
+            </div>
 
             <section class="created">
               <h6>Created</h6>

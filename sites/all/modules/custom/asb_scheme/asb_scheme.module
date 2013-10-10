@@ -4,6 +4,19 @@ function asb_scheme_init() {
   ctools_include('ajax');
 }
 
+
+/** 
+ * Implements hook_comment_view_alter()
+ */
+function asb_scheme_comment_view_alter(&$build) {
+  // dsm($build);
+}
+
+function asb_scheme_link_alter(&$links, $node) {
+  // dsm($links);
+  // dsm($node);
+}
+
 /**
 * Implements hook_entity_info_alter().
 */
@@ -701,7 +714,8 @@ function asb_scheme_format_issues_goals($node) {
   foreach ($node->field_issues_goals['und'] as $key => $value) {
     if(isset($value['entity'])) {
       if ($value['entity']->type == 'issue') {
-        $output['issues'] = $value['entity']->title;
+        $output['issues'] = '<a href="/node/' .$value['target_id'] .'">' .$value['entity']->title .'</a>';
+        $output['issues'] .= '<!-- Link added in asb_scheme_format_issues_goals -->';
       }elseif ($value['entity']->type == 'goal') {
         $output['goals'] .= '<li><a href="/node/' .$value['target_id'] .'">'
           .$value['entity']->title .'</a></li>';

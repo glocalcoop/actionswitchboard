@@ -298,8 +298,9 @@ function asb_preprocess_node_scheme(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("comment" in this case.)
  */
-/* -- Delete this line if you want to use this function
+
 function asb_preprocess_comment(&$variables, $hook) {
+  // dsm($variables);
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
