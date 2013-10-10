@@ -168,7 +168,8 @@ function mfe_approved_modal_node() {
   $add_modals = false;
   if(!empty($settings)) {
     foreach($settings as $key => $value) {
-      if(!empty(strpos($value, '_type'))) {
+      $pos = strpos($value, '_type');
+      if($pos !== false) {
         $type = explode('_', $value);
         $types[] = $type[0];
       }
