@@ -251,7 +251,7 @@ function mfe_single_modal_callback($js = false, $nid, $type) {
       // Create ajax command array, dismiss the modal window.
       $output = array();
       $output[] = ctools_modal_command_dismiss();
-      $output[] = ctools_ajax_command_reload();
+      $output[] = ctools_ajax_command_redirect('node/' .$node->nid);
 
     }
     print ajax_render($output);
@@ -310,6 +310,15 @@ function mfe_multifield_modal_callback($js = false, $nid, $type) {
 }
 
 /**
+ * Hide vertical tabs on node forms
+ */
+function _mfe_manage_vertical_tabs($form, &$form_state) {
+  $path = drupal_get_path('module', 'mfe');
+  drupal_add_css("$path/css/mfe.css");
+  return $form;
+}
+
+/**
  * Implements hook_form_alter
  */
 function mfe_form_alter(&$form, &$form_state, $form_id) {
@@ -318,7 +327,8 @@ function mfe_form_alter(&$form, &$form_state, $form_id) {
       $field_refs = explode("/", $form['#action']);
       // dsm($field_refs);
       $fields = mfe_get_fields($form_state['node']->type);
-      $form['additional_settings']['#access'] = FALSE;
+      // hide($form['additional_settings']);
+      // $path = drupal_get_path('module', 'mfe');
       if($field_refs[5] != 'title') {
         hide($form['title']);
       }
@@ -335,6 +345,7 @@ function mfe_form_alter(&$form, &$form_state, $form_id) {
         /*   $form[$value]['#access'] = TRUE; */
         /* } */
       }
+      $form['#after_build'][] = '_mfe_manage_vertical_tabs';
     }
   }
 }
