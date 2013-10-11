@@ -8,9 +8,9 @@ files[] = msnf.install
 files[] = msnf.module
 files[] = includes/msnf.field_ui.inc
 
-; Information added by drupal.org packaging script on 2013-05-18
-version = "7.x-1.5+2-dev"
+; Information added by drupal.org packaging script on 2013-10-06
+version = "7.x-1.5+3-dev"
 core = "7.x"
 project = "msnf"
-datestamp = "1368839430"
+datestamp = "1381054901"
 

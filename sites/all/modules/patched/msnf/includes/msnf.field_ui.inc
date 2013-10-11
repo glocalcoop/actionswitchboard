@@ -32,76 +32,6 @@ function msnf_field_ui_form_params($form) {
 }
 
 /**
- * Create vertical tab for selecting whether or not
- * to have steps on node editing.
- * This was shamelessly stolen from the field_group module.
- *
- */
-function msnf_field_ui_create_vertical_tabs(&$form, &$form_state, $params) {
-  
-  $form_state['msnf_params'] = $params;
-
-  $entity_info = entity_get_info($params->entity_type);
-  $view_modes = array();
-  if ($params->mode != 'default') {
-    $view_modes['default'] = t('Default');
-  }
-  if ($params->mode != 'form') {
-    $view_modes['0'] = t('Form');
-  }
-  foreach ($entity_info['view modes'] as $view_mode => $data) {
-    if ($data['custom settings'] && $params->mode != $view_mode) {
-      $view_modes[$view_mode] = $data['label'];
-    }
-  }
-
-  // Add additional settings vertical tab.
-  if (!isset($form['additional_settings'])) {
-    $form['additional_settings'] = array(
-      '#type' => 'vertical_tabs',
-      '#theme_wrappers' => array('vertical_tabs'),
-      '#prefix' => '<div>',
-      '#suffix' => '</div>',
-      '#tree' => TRUE,
-    );
-    $form['#attached']['js'][] = 'misc/form.js';
-    $form['#attached']['js'][] = 'misc/collapse.js';
-  }
-
-  // Add extra guidelines for webmaster.
-  $form['additional_settings']['msnf'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Steps on Node Edit'),
-    '#description' => t('<p class="msnf-help">If you want to turn on steps during node editing (after node creation).  You can check the box below.  By default node editing will not include steps.</p>'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-    '#parents' => array('additional_settings'),
-  );
-  $form['additional_settings']['msnf']['msnfedit'] = array(
-    '#title' => t('Toggle steps on edit form.'),
-    '#description' => t('Check box to turn on steps during node editing.'),
-    '#type' => 'checkbox',
-    '#options' => array( 0,1),
-    '#default_value' => (variable_get($form['#bundle'] 
-                                      .'_steps_on_edit') ? 
-    variable_get($form['#bundle'] 
-                 .'_steps_on_edit') : 0),
-  );
-  $form['#submit'][] = 'msnf_field_ui_store_val';
-}
-
-/**
- * Submit function for steps on node editing checkbox
- * 
- * Adds variable for each bundle
- * BUNDLENAME_steps_on_edit
- */
-function msnf_field_ui_store_val($form, &$form_state) {
-    $edit_on = $form_state['values']['additional_settings']['msnfedit'];
-    variable_set($form['#bundle'] .'_steps_on_edit', $edit_on);
-}
-
-/**
  * Function to alter the fields overview screen.
  */
 function msnf_field_ui_overview_form_alter(&$form, &$form_state) {
@@ -347,10 +277,6 @@ function msnf_field_ui_overview_form_alter(&$form, &$form_state) {
 
   $form['#validate'][] = 'msnf_field_overview_validate';
   $form['#submit'][] = 'msnf_field_overview_submit';
-
-  // Create the settings for fieldgroup as vertical tabs (merged with DS).
-  msnf_field_ui_create_vertical_tabs($form, $form_state, $params);
-
 }
 
 /**
@@ -486,6 +412,7 @@ function msnf_formatter_settings_update(&$step, $settings) {
   // Fetch the step formatter defaults.
   $step_types = msnf_formatter_info();
   $formatter = $step_types[$step->format_type];
+
   // For format changes we load the defaults.
   if (empty($settings['format_settings']['settings'])) {
     $step->format_settings = array(

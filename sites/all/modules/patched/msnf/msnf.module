@@ -5,17 +5,6 @@
  * Main functions for module "Multistep Nodeform".
  */
 
-/* function msnf_field_ui_overview_form_alter(&$form, &$form_state, $display_overview = FALSE) { */
-
-/*   // Only start altering the form if we need to. */
-/*   if (empty($form['#fields']) && empty($form['#extra'])) { */
-/*     return; */
-/*   } */
-/* } */
-/**
- * Create vertical tabs.
- */
-
 /**
  * Implements hook_menu().
  */
@@ -280,11 +269,6 @@ function msnf_form_field_ui_field_overview_form_alter(&$form, &$form_state, $for
  * Implements hook_form_FORM_ID_alter().
  */
 function msnf_form_node_form_alter(&$form, &$form_state, $form_id) {
-  if (!empty($form['nid']['#value'])) {
-      if (variable_get($form['#bundle'] .'_steps_on_edit') == 0) {
-        unset($form['#steps']);
-      }
-  }
   if (isset($form['#steps'])) {
     // Init static step data.
     $step_data = &drupal_static('msnf_step_data');
@@ -293,6 +277,7 @@ function msnf_form_node_form_alter(&$form, &$form_state, $form_id) {
       'current_step' => _msnf_form_step_get_current($form, $form_state),
     );
   }
+
   if (empty($form['#steps'])) {
     // No need for further modifications.
     return;
@@ -360,6 +345,7 @@ function msnf_msnf_format_settings($step) {
 
   $step_types = msnf_formatter_info();
   $formatter = $step_types[$step->format_type];
+
   $form['instance_settings']['skip_non_required'] = array(
     '#type' => 'checkbox',
     '#title' => t('Allow skipping this step if it contains no required fields.'),
@@ -1152,6 +1138,7 @@ function _msnf_form_attach_buttons(&$form, &$form_state) {
     return;
   }
   $step_settings = $current_step->format_settings['instance_settings'];
+
   if (module_exists('i18n_string')) {
     // Translate button labels.
     foreach ($step_settings['buttons'] as $key => $label) {
@@ -1196,6 +1183,8 @@ function _msnf_form_attach_buttons(&$form, &$form_state) {
       '#value' => $step_settings['buttons']['previous'],
       '#weight' => 4,
       '#name' => 'previous',
+      '#submit' => array(),
+      '#limit_validation_errors' => array(),
     );
   }
 

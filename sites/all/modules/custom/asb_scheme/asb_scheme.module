@@ -837,6 +837,18 @@ function asb_scheme_get_scheme_leader($gid) {
   return $scheme_owner;
 }
 
+/**
+ * Implements hook_msnf_info_steps_alter()
+ * 
+ * Remove steps on edit form.
+ */
+function asb_scheme_msnf_info_steps_alter(&$steps_cached, $entity_type, $bundle, $form) {
+  if ($entity_type == 'node' && $bundle == 'scheme' && !empty($form['node']->nid)) {
+    unset($steps_cached['node']['scheme']);
+    return $steps_cached;
+  }
+}
+
 /**** BEGIN rules configuration ****/
 /**
  * Implements hook_action_info()
