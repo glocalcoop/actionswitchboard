@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * @file
  * Zen theme's implementation to display a single Drupal page.

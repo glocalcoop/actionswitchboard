@@ -251,6 +251,7 @@ function mfe_single_modal_callback($js = false, $nid, $type) {
       // Create ajax command array, dismiss the modal window.
       $output = array();
       $output[] = ctools_modal_command_dismiss();
+      // Redirect to the node/nid in case path is changed by auto-aliasing.
       $output[] = ctools_ajax_command_redirect('node/' .$node->nid);
 
     }

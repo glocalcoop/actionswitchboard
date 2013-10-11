@@ -180,9 +180,19 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
 }
 
 /**
+ * helper function to remove workflow fields in modal field edit forms.
+ */
+function _asb_scheme_manage_workflow($form, &$form_state) {
+  $form['workflow']['#access'] = FALSE;
+  return $form;
+}
+
+/**
  * Implements hook_form_alter
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
+
+
   global $user;
   // Modifies the view filter on the scheme search view to explicitly
   // set the issues connected to the scheme.
@@ -218,14 +228,21 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // dsm($form_state['view']);
     // dsm($form_state['view']->display_handler->handlers['filter']['field_material_needs_value']->options['group_info']['group_items']);
   }
-  if($form_id == 'scheme_node_form') {
-    // dsm($form);
+  $pos = strpos($form['#action'], 'mfe-single-modal-callback');
+  // Modify field modal edit form
+  if($form_id == 'scheme_node_form' && $pos !== false) {
+    // Remove preview and delete buttons
+    $form['actions']['preview']['#access'] = false;
+    $form['actions']['delete']['#access'] = false;
+    // Remove workflow block on modals
+    $form['#after_build'][] = '_asb_scheme_manage_workflow';
   }
-  // Check if the form has steps and add progress markup.
-  if($form_id == 'scheme_node_form' && arg(2) != 'edit') {
+  // Add redirect on scheme creation
+  if($form_id == 'scheme_node_form' && arg(2) != 'edit' && $pos === false) {
     $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
   }
-  if(!empty($form['#steps']) && arg(2) != 'edit') {
+  // Check if the form has steps and add progress markup.
+  if(!empty($form['#steps']) && arg(2) != 'edit' && $pos === false) {
     // Add scheme title to the steps display
     // TODO: May want to add settings to include images
     // to the progress markup.
