@@ -57,7 +57,7 @@
                     {if $invalidProfiles}
                       {ts 1=$profileURL}You must <a href="%1">configure a valid organization profile</a> in order to allow individuals to contribute on behalf of an organization. Valid profiles include Contact and / or Organization fields, and may include Contribution and Membership fields.{/ts}
                     {else}
-                      {ts 1=$profileURL}To change the organization data collected use the "On Behalf Of Organization" profile (<a href="%1">Administer > Customize > CiviCRM Profile</a>).{/ts}
+                      {ts 1=$profileURL}To change the organization data collected use the "On Behalf Of Organization" profile (<a href="%1">Administer > Customize Data and Screens > Profiles</a>).{/ts}
                     {/if}
                 </td>
             </tr>
@@ -129,9 +129,9 @@
     <tr class="crm-contribution-contributionpage-settings-form-block-is_active"><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{$form.is_active.html} {$form.is_active.label}<br />
   {if $contributionPageID}
         <span class="description">
-          {if $config->userSystem->is_drupal EQ '1'}
+          {if $config->userSystem->is_drupal || $config->userFramework EQ 'WordPress'}
               {ts}When your page is active, you can link people to the page by copying and pasting the following URL:{/ts}<br />
-              <strong>{crmURL a=true p='civicrm/contribute/transact' q="reset=1&id=`$contributionPageID`"}</strong>
+              <strong>{crmURL a=1 fe=1 p='civicrm/contribute/transact' q="reset=1&id=`$contributionPageID`"}</strong>
           {elseif $config->userFramework EQ 'Joomla'}
               {ts 1=$title}When your page is active, create front-end links to the contribution page using the Menu Manager. Select <strong>Administer CiviCRM &raquo; CiviContribute &raquo; Manage Contribution Pages</strong> and select <strong>%1</strong> for the contribution page.{/ts}
           {/if}

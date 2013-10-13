@@ -976,17 +976,9 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
     }
 
     //FIXME FOR NEW DATA FLOW http://wiki.civicrm.org/confluence/display/CRM/CiviAccounts+4.3+Data+Flow
-    if (CRM_Utils_Array::value('fee_amount', $fields)) {
-      $financialAccount = array();
-      CRM_Core_PseudoConstant::populate($financialAccount,
-        'CRM_Financial_DAO_EntityFinancialAccount',
-        $all = TRUE,
-        $retrieve = 'financial_account_id',
-        $filter = NULL,
-        " account_relationship = 5 AND entity_id = {$fields['financial_type_id']} ");
-      if (!current($financialAccount)) {
-        $errors['financial_type_id'] = ts("Financial Account of account relationship of 'Expense Account is' is not configured for this Financial Type");
-      }
+     if (CRM_Utils_Array::value('fee_amount', $fields) 
+      && $financialType = CRM_Contribute_BAO_Contribution::validateFinancialType($fields['financial_type_id'])) {
+      $errors['financial_type_id'] = ts("Financial Account of account relationship of 'Expense Account is' is not configured for Financial Type : ") . $financialType;  
     }
     return $errors;
   }
@@ -1054,7 +1046,7 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
         );
         CRM_Event_BAO_Participant::add($participantParams);
         if (empty($this->_lineItems)) {
-          $this->_lineItems = CRM_Price_BAO_LineItem::getLineItems($entityID, 'participant',1);
+          $this->_lineItems[] = CRM_Price_BAO_LineItem::getLineItems($entityID, 'participant', 1);
         }
       } else {
         $entityTable = 'contribution';
@@ -1062,13 +1054,15 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
       }
 
       $lineItems = CRM_Price_BAO_LineItem::getLineItems($entityID, $entityTable);
+      foreach (array_keys($lineItems) as $id) {
+        $lineItems[$id]['id'] = $id;
+      }
       $itemId = key($lineItems);
       $fieldType = NULL;
       if ($itemId && CRM_Utils_Array::value('price_field_id', $lineItems[$itemId])) {
         $fieldType = CRM_Core_DAO::getFieldValue('CRM_Price_DAO_Field', $lineItems[$itemId]['price_field_id'], 'html_type');
       }
       $lineItems[$itemId]['unit_price'] = $lineItems[$itemId]['line_total'] = CRM_Utils_Rule::cleanMoney(CRM_Utils_Array::value('total_amount', $submittedValues));
-      $lineItems[$itemId]['id'] = $itemId;
       // 10117 update th line items for participants
       $this->_priceSetId = CRM_Core_DAO::getFieldValue('CRM_Price_DAO_Field', $lineItems[$itemId]['price_field_id'], 'price_set_id');
       $lineItem[$this->_priceSetId] = $lineItems;
@@ -1087,7 +1081,7 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
       }
     }
 
-    if (!CRM_Utils_Array::value('total_amount', $submittedValues)) {
+    if (!isset($submittedValues['total_amount'])) {
       $submittedValues['total_amount'] = CRM_Utils_Array::value('total_amount', $this->_values);
     }
     $this->assign('lineItem', !empty($lineItem) && !$isQuickConfig ? $lineItem : FALSE);
@@ -1374,7 +1368,12 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
         unset($submittedValues[$key]);
       }
     }
-
+     
+    // CRM-12680 set $_lineItem if its not set
+    if (empty($this->_lineItem) && !empty($lineItem)) {
+      $this->_lineItem = $lineItem;
+    }
+    
     //Get the rquire fields value only.
     $params = $this->_params = $submittedValues;
 
@@ -1383,7 +1382,8 @@ class CRM_Contribute_Form_Contribution extends CRM_Contribute_Form_AbstractEditP
     );
 
     //get the payment processor id as per mode.
-    $params['payment_processor_id'] = $this->_params['payment_processor_id'] = $submittedValues['payment_processor_id'] = $this->_paymentProcessor['id'];
+    $this->_params['payment_processor'] = $params['payment_processor_id'] = 
+      $this->_params['payment_processor_id'] = $submittedValues['payment_processor_id'] = $this->_paymentProcessor['id'];
 
     $now = date('YmdHis');
     $fields = array();

@@ -308,6 +308,9 @@ class CRM_Utils_System_WordPress extends CRM_Utils_System_Base {
     elseif (defined('CIVICRM_UF_WP_BASEPAGE')) {
       $base .= CIVICRM_UF_WP_BASEPAGE;
     }
+    elseif (isset($config->wpBasePage)) {
+      $base .= $config->wpBasePage;
+    }
 
     if (isset($path)) {
       if (isset($query)) {
@@ -358,7 +361,7 @@ class CRM_Utils_System_WordPress extends CRM_Utils_System_Base {
     $config = CRM_Core_Config::singleton();
 
     if ($loadCMSBootstrap) {
-      self::loadBootstrap($name, $password);
+      $config->userSystem->loadBootStrap($name, $password);
     }
 
     $user = wp_authenticate($name, $password);

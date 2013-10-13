@@ -235,7 +235,7 @@ class CRM_Member_Form_Membership extends CRM_Member_Form {
           $resources->addScriptFile('civicrm', 'templates/CRM/Member/Form/Membership.js');
         }
       }
-      else { 
+      else {
         $resources = CRM_Core_Resources::singleton();
         $resources->addScriptFile('civicrm', 'templates/CRM/Member/Form/MembershipStandalone.js');
         $statuses = array();
@@ -1357,12 +1357,12 @@ WHERE   id IN ( ' . implode(' , ', array_keys($membershipType)) . ' )';
           $formValues['preserveDBName'] = TRUE;
         }
       }
-      //here we are setting up the billing contact - if different from the member they are already created
-      // but they will get billing details assigned
-      CRM_Contact_BAO_Contact::createProfileContact($formValues, $fields,
-        $this->_contributorContactID, NULL, NULL, $ctype
-      );
-
+      if ($this->_contributorContactID == $this->_contactID) {
+        //see CRM-12869 for discussion of why we don't do this for separate payee payments
+        CRM_Contact_BAO_Contact::createProfileContact($formValues, $fields,
+          $this->_contributorContactID, NULL, NULL, $ctype
+        );
+      }
 
       // add all the additioanl payment params we need
       $this->_params["state_province-{$this->_bltID}"] = $this->_params["billing_state_province-{$this->_bltID}"] = CRM_Core_PseudoConstant::stateProvinceAbbreviation($this->_params["billing_state_province_id-{$this->_bltID}"]);
@@ -1511,25 +1511,6 @@ WHERE   id IN ( ' . implode(' , ', array_keys($membershipType)) . ' )';
         $count++;
       }
 
-      if (!CRM_Utils_Array::value('is_recur', $params) && $params['total_amount'] > 0.0) {
-        $contribution = new CRM_Contribute_BAO_Contribution();
-        $contribution->trxn_id = CRM_Utils_Array::value('trxn_id', $result);
-        if ($contribution->find(TRUE)) {
-          // next create the transaction record
-          $trxnParams = array(
-            'contribution_id' => $contribution->id,
-            'trxn_date' => $now,
-            'trxn_type' => 'Debit',
-            'total_amount' => $params['total_amount'],
-            'fee_amount' => CRM_Utils_Array::value('fee_amount', $result),
-            'net_amount' => CRM_Utils_Array::value('net_amount', $result, $params['total_amount']),
-            'currency' => $config->defaultCurrency,
-            'payment_processor' => $this->_paymentProcessor['payment_processor_type'],
-            'trxn_id' => CRM_Utils_Array::value('trxn_id', $result),
-          );
-          $trxn = CRM_Core_BAO_FinancialTrxn::create($trxnParams);
-        }
-      }
     }
     else {
       $params['action'] = $this->_action;
@@ -1817,7 +1798,7 @@ WHERE   id IN ( ' . implode(' , ', array_keys($membershipType)) . ' )';
     else {
       $form->assign('receiptType', 'membership signup');
     }
-    $form->assign('receive_date', CRM_Utils_Array::value('receive_date', $formValues ) );
+    $form->assign('receive_date', CRM_Utils_Date::processDate(CRM_Utils_Array::value('receive_date', $formValues)));
     $form->assign('formValues', $formValues);
 
     if (empty($lineItem)) {

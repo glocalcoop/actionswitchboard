@@ -179,10 +179,9 @@ class CRM_Event_Form_Registration_Register extends CRM_Event_Form_Registration {
       $this->_defaults["billing_country_id-{$this->_bltID}"] = $config->defaultContactCountry;
     }
 
-    // now fix all state country selectors
-    CRM_Core_BAO_Address::fixAllStateSelects($this, $this->_defaults);
-
     if ($this->_snippet) {
+      // now fix all state country selectors
+      CRM_Core_BAO_Address::fixAllStateSelects($this, $this->_defaults);
       return $this->_defaults;
     }
 
@@ -213,6 +212,9 @@ class CRM_Event_Form_Registration_Register extends CRM_Event_Form_Registration {
     if (!empty($fields)) {
       CRM_Core_BAO_UFGroup::setProfileDefaults($contactID, $fields, $this->_defaults);
     }
+
+    // now fix all state country selectors
+    CRM_Core_BAO_Address::fixAllStateSelects($this, $this->_defaults);
 
     // Set default payment processor as default payment_processor radio button value
     if (!empty($this->_paymentProcessors)) {
@@ -333,6 +335,19 @@ class CRM_Event_Form_Registration_Register extends CRM_Event_Form_Registration {
    * @access public
    */
   public function buildQuickForm() {
+    // build profiles first so that we can determine address fields etc
+    // and then show copy address checkbox
+    $this->buildCustom($this->_values['custom_pre_id'], 'customPre');
+    $this->buildCustom($this->_values['custom_post_id'], 'customPost');
+
+    if (!empty($this->_fields)) {
+      $profileAddressFields = array();
+      foreach ($this->_fields as $key => $value) {
+        CRM_Core_BAO_UFField::assignAddressField($key, $profileAddressFields);
+      }
+      $this->set('profileAddressFields', $profileAddressFields);
+    }
+
     // Build payment processor form
     if ($this->_ppType) {
       CRM_Core_Payment_ProcessorForm::buildQuickForm($this);
@@ -404,9 +419,6 @@ class CRM_Event_Form_Registration_Register extends CRM_Event_Form_Registration {
     $this->assign('requireApprovalMsg', $this->_requireApprovalMsg);
     $this->assign('allowGroupOnWaitlist', $allowGroupOnWaitlist);
     $this->assign('isAdditionalParticipants', $isAdditionalParticipants);
-
-    $this->buildCustom($this->_values['custom_pre_id'], 'customPre');
-    $this->buildCustom($this->_values['custom_post_id'], 'customPost');
 
     //lets get js on two different qf elements.
     $showHidePayfieldName = NULL;

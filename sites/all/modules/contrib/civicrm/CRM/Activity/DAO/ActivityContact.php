@@ -1,7 +1,7 @@
 <?php
 /*
 +--------------------------------------------------------------------+
-| CiviCRM version 4.3                                                |
+| CiviCRM version 4.4                                                |
 +--------------------------------------------------------------------+
 | Copyright CiviCRM LLC (c) 2004-2013                                |
 +--------------------------------------------------------------------+
@@ -50,6 +50,13 @@ class CRM_Activity_DAO_ActivityContact extends CRM_Core_DAO
    * @static
    */
   static $_fields = null;
+  /**
+   * static instance to hold the keys used in $_fields for each field.
+   *
+   * @var array
+   * @static
+   */
+  static $_fieldKeys = null;
   /**
    * static instance to hold the FK relationships
    *
@@ -172,10 +179,32 @@ class CRM_Activity_DAO_ActivityContact extends CRM_Core_DAO
           'name' => 'record_type_id',
           'type' => CRM_Utils_Type::T_INT,
           'title' => ts('Record Type ID') ,
+          'pseudoconstant' => array(
+            'optionGroupName' => 'activity_contacts',
+          )
         ) ,
       );
     }
     return self::$_fields;
+  }
+  /**
+   * Returns an array containing, for each field, the arary key used for that
+   * field in self::$_fields.
+   *
+   * @access public
+   * @return array
+   */
+  static function &fieldKeys()
+  {
+    if (!(self::$_fieldKeys)) {
+      self::$_fieldKeys = array(
+        'id' => 'id',
+        'activity_id' => 'activity_id',
+        'contact_id' => 'contact_id',
+        'record_type_id' => 'record_type_id',
+      );
+    }
+    return self::$_fieldKeys;
   }
   /**
    * returns the names of this table

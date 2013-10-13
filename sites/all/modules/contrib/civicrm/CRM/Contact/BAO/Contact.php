@@ -324,16 +324,15 @@ class CRM_Contact_BAO_Contact extends CRM_Contact_DAO_Contact {
       if (CRM_Core_BAO_Setting::getItem(CRM_Core_BAO_Setting::MULTISITE_PREFERENCES_NAME,
         'is_enabled'
       )) {
-        // in order to make sure that every contact must be added to a group (CRM-4613) -
+        // Enabling multisite causes the contact to be added to the domain group
         $domainGroupID = CRM_Core_BAO_Domain::getGroupId();
-        if (CRM_Utils_Array::value('group', $params) && is_array($params['group'])) {
-          $grpFlp = array_flip($params['group']);
-          if (!array_key_exists(1, $grpFlp)) {
+        if(!empty($domainGroupID)){
+          if (CRM_Utils_Array::value('group', $params) && is_array($params['group'])) {
             $params['group'][$domainGroupID] = 1;
           }
-        }
-        else {
-          $params['group'] = array($domainGroupID => 1);
+          else {
+            $params['group'] = array($domainGroupID => 1);
+          }
         }
       }
 
@@ -724,6 +723,13 @@ WHERE     civicrm_contact.id = " . CRM_Utils_Type::escape($id, 'Integer');
     ) {
       return FALSE;
     }
+    
+    // CRM-12929
+    // Restrict contact to be delete if contact has financial trxns
+    $error = NULL;
+    if ($skipUndelete && CRM_Financial_BAO_FinancialItem::checkContactPresent(array($id), $error)) {
+      return FALSE;
+    }
 
     // make sure this contact_id does not have any membership types
     $membershipTypeID = CRM_Core_DAO::getFieldValue('CRM_Member_DAO_MembershipType',
@@ -772,18 +778,30 @@ WHERE     civicrm_contact.id = " . CRM_Utils_Type::escape($id, 'Integer');
       $logDAO->entity_table = 'civicrm_contact';
       $logDAO->entity_id = $id;
       $logDAO->delete();
-      
+
       // delete contact participants CRM-12155
       CRM_Event_BAO_Participant::deleteContactParticipant($id);
 
       // delete contact contributions CRM-12155
       CRM_Contribute_BAO_Contribution::deleteContactContribution($id);
-      
+
       // do activity cleanup, CRM-5604
       CRM_Activity_BAO_Activity::cleanupActivity($id);
 
       // delete all notes related to contact
       CRM_Core_BAO_Note::cleanContactNotes($id);
+
+      // delete cases related to contact
+      $contactCases = CRM_Case_BAO_Case::retrieveCaseIdsByContactId($id);
+      if (!empty($contactCases)) {
+        foreach ($contactCases as $caseId) {
+          //check if case is associate with other contact or not.
+          $caseContactId = CRM_Case_BAO_Case::getCaseClients($caseId);
+          if (count($caseContactId) <= 1) {
+            CRM_Case_BAO_Case::deleteCase($caseId);
+          }
+        }
+      }
 
       $contact->delete();
     }
@@ -2975,7 +2993,7 @@ LEFT JOIN civicrm_address add2 ON ( add1.master_id = add2.id )
     }
   }
 
-  
+
   /**
    * Delete a contact-related object that has an 'is_primary' field
    * Ensures that is_primary gets assigned to another object if available

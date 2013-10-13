@@ -1035,7 +1035,7 @@ function _civicrm_dsn_init($reset = FALSE) {
     if (!$globalDbUrl && CIVICRM_DSN) {
       if (isset($GLOBALS['databases'][$database][$target])) {
         // keep a copy so that we can put it back.
-        $globalDbUrl = $GLOBALS['database'][$database][$target];
+        $globalDbUrl = $GLOBALS['databases'][$database][$target];
       }
       // now modify $GLOBALS so that drush works on CIVICRM_DSN instead of drupal's
       $GLOBALS['databases'][$database][$target] = drush_convert_db_from_db_url(CIVICRM_DSN);
@@ -1177,6 +1177,12 @@ function drush_civicrm_api() {
   }
 
   civicrm_initialize();
+
+  global $user;
+  CRM_Core_BAO_UFMatch::synchronize($user, FALSE, 'Drupal',
+    civicrm_get_ctype('Individual')
+  );
+
   $result = civicrm_api($entity, $action, $params);
 
   switch (drush_get_option('out', 'pretty')) {

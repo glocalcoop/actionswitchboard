@@ -131,7 +131,7 @@ UPDATE civicrm_country SET name = 'Libya' WHERE name LIKE 'Libyan%';
 UPDATE civicrm_country SET name = 'Congo, Republic of the' WHERE name = 'Congo';
 
 -- CRM-10621 Add component report links to reports menu for upgrade
-SELECT @reportlastID       := MAX(id) FROM civicrm_navigation where name = 'Reports';
+SELECT @reportlastID       := MAX(id) FROM civicrm_navigation where name = 'Reports' AND domain_id = {$domainID};
 SELECT @max_weight     := MAX(ROUND(weight)) from civicrm_navigation WHERE parent_id = @reportlastID;
 
 INSERT INTO civicrm_navigation
@@ -261,23 +261,6 @@ CREATE TABLE IF NOT EXISTS `civicrm_financial_item` (
   KEY `IX_entity` (`entity_table`,`entity_id`),
   KEY `FK_civicrm_financial_item_contact_id` (`contact_id`),
   KEY `FK_civicrm_financial_item_financial_account_id` (`financial_account_id`)
-)ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE IF NOT EXISTS `civicrm_payment` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
-  `payment_batch_number` int(10) unsigned NOT NULL COMMENT 'Payment Batch Nnumber',
-  `payment_number` int(10) unsigned NOT NULL COMMENT 'Payment Number',
-  `financial_type_id` int(10) unsigned NOT NULL COMMENT 'Financial Type ID',
-  `contact_id` int(10) unsigned NOT NULL COMMENT 'Contact ID',
-  `payment_created_date` date DEFAULT NULL COMMENT 'Payment Created Date.',
-  `payment_date` date DEFAULT NULL COMMENT 'Payment Date.',
-  `payable_to_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Payable To Name.',
-  `payable_to_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Payable To Address.',
-  `amount` decimal(20,2) NOT NULL COMMENT 'Requested grant amount, in default currency.',
-  `currency` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '3 character string, value from config setting or input via user.',
-  `payment_reason` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Payment Reason.',
-  `replaces_payment_id` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Replaces Payment Id.',
-  PRIMARY KEY (`id`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `civicrm_batch`
@@ -461,7 +444,7 @@ UPDATE civicrm_navigation SET  `label` = 'Financial Types', `name` = 'Financial 
 -- CRM-9199
 -- Insert menu item at Administer > CiviContribute, below the section break below Premiums (Thank-you Gifts), just below Financial Account.
 
-SELECT @parent_id := id from `civicrm_navigation` where name = 'CiviContribute';
+SELECT @parent_id := id from `civicrm_navigation` where name = 'CiviContribute' AND domain_id = {$domainID};
 SELECT @add_weight_id := weight from `civicrm_navigation` where `name` = 'Financial Types' and `parent_id` = @parent_id;
 
 UPDATE `civicrm_navigation`
@@ -475,7 +458,7 @@ VALUES
 	( {$domainID}, 'civicrm/admin/financial/financialAccount&reset=1',      '{ts escape="sql" skip="true"}Financial Account{/ts}', 'Financial Account', 'access CiviContribute,administer CiviCRM', 'AND', @parent_id, '1', NULL, @add_weight_id + 1 );
 
 -- CRM-10944
-SELECT @contributionlastID := max(id) from civicrm_navigation where name = 'Contributions';
+SELECT @contributionlastID := max(id) from civicrm_navigation where name = 'Contributions' AND domain_id = {$domainID};
 
 SELECT @pledgeWeight := weight from civicrm_navigation where name = 'Pledges' and parent_id = @contributionlastID;
 

@@ -201,7 +201,7 @@ class CRM_Contribute_BAO_Query {
   }
 
   static function where(&$query) {
-    $testCondition = $grouping = NULL;
+    $grouping = NULL;
     foreach (array_keys($query->_params) as $id) {
       if (!CRM_Utils_Array::value(0, $query->_params[$id])) {
         continue;
@@ -209,10 +209,6 @@ class CRM_Contribute_BAO_Query {
       if (substr($query->_params[$id][0], 0, 13) == 'contribution_' || substr($query->_params[$id][0], 0, 10) == 'financial_') {
         if ($query->_mode == CRM_Contact_BAO_QUERY::MODE_CONTACTS) {
           $query->_useDistinct = TRUE;
-        }
-        if ($query->_params[$id][0] == 'contribution_test') {
-          $testCondition = $id;
-          continue;
         }
         // CRM-12065
         if (
@@ -227,17 +223,9 @@ class CRM_Contribute_BAO_Query {
           continue;
         }
 
-
         $grouping = $query->_params[$id][3];
         self::whereClauseSingle($query->_params[$id], $query);
       }
-    }
-    // Only add test condition if other fields are selected
-    if ($grouping !== NULL && $testCondition &&
-      // we dont want to include all tests for sql OR CRM-7827
-      $query->getOperator() != 'OR'
-    ) {
-      self::whereClauseSingle($query->_params[$testCondition], $query);
     }
   }
 
@@ -437,11 +425,14 @@ class CRM_Contribute_BAO_Query {
 
       case 'contribution_is_test':
       case 'contribution_test':
-        $query->_where[$grouping][] = CRM_Contact_BAO_Query::buildClause("civicrm_contribution.is_test", $op, $value, "Boolean");
-        if ($value) {
-          $query->_qill[$grouping][] = ts("Only Display Test Contributions");
+        // We dont want to include all tests for sql OR CRM-7827
+        if (!$value || $query->getOperator() != 'OR') {
+          $query->_where[$grouping][] = CRM_Contact_BAO_Query::buildClause("civicrm_contribution.is_test", $op, $value, "Boolean");
+          if ($value) {
+            $query->_qill[$grouping][] = ts("Only Display Test Contributions");
+          }
+          $query->_tables['civicrm_contribution'] = $query->_whereTables['civicrm_contribution'] = 1;
         }
-        $query->_tables['civicrm_contribution'] = $query->_whereTables['civicrm_contribution'] = 1;
         return;
 
       case 'contribution_is_pay_later':
@@ -537,7 +528,7 @@ class CRM_Contribute_BAO_Query {
         return;
 
       case 'contribution_batch_id':
-        $batches = CRM_Batch_BAO_Batch::getBatches();
+        $batches = CRM_Contribute_PseudoConstant::batch();
         $query->_where[$grouping][] = " civicrm_entity_batch.batch_id $op $value";
         $query->_qill[$grouping][] = ts('Batch Name %1 %2', array(1 => $op, 2 => $batches[$value]));
         $query->_tables['civicrm_contribution'] = $query->_whereTables['civicrm_contribution'] = 1;
@@ -547,6 +538,15 @@ class CRM_Contribute_BAO_Query {
       default:
         //all other elements are handle in this case
         $fldName    = substr($name, 13);
+        if (!isset($fields[$fldName])) {
+          // CRM-12597
+          CRM_Core_Session::setStatus(ts(
+              'We did not recognize the search field: %1. Please check and fix your contribution related smart groups.',
+              array(1 => $fldName)
+            )
+          );
+          return;
+        }
         $whereTable = $fields[$fldName];
         $value      = trim($value);
 
@@ -678,8 +678,16 @@ class CRM_Contribute_BAO_Query {
         break;
 
       case 'contribution_batch':
-        $from .= " $side JOIN civicrm_entity_batch ON ( civicrm_entity_batch.entity_table = 'civicrm_contribution' AND
-          civicrm_contribution.id = civicrm_entity_batch.entity_id )";
+        $from .= " $side JOIN civicrm_entity_financial_trxn ON (
+        civicrm_entity_financial_trxn.entity_table = 'civicrm_contribution'
+        AND civicrm_contribution.id = civicrm_entity_financial_trxn.entity_id )";
+
+        $from .= " $side JOIN civicrm_financial_trxn ON (
+        civicrm_entity_financial_trxn.financial_trxn_id = civicrm_financial_trxn.id )";
+
+        $from .= " $side JOIN civicrm_entity_batch ON ( civicrm_entity_batch.entity_table = 'civicrm_financial_trxn'
+        AND civicrm_financial_trxn.id = civicrm_entity_batch.entity_id )";
+
         $from .= " $side JOIN civicrm_batch ON civicrm_entity_batch.batch_id = civicrm_batch.id";
         break;
     }
@@ -851,7 +859,7 @@ class CRM_Contribute_BAO_Query {
     CRM_Campaign_BAO_Campaign::addCampaignInComponentSearch($form, 'contribution_campaign_id');
 
     // Add batch select
-    $batches = CRM_Batch_BAO_Batch::getBatches();
+    $batches = CRM_Contribute_PseudoConstant::batch();
 
     if ( !empty( $batches ) ) {
       $form->add('select', 'contribution_batch_id',

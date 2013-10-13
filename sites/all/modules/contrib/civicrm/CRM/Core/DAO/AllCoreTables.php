@@ -2,7 +2,7 @@
 
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -36,317 +36,802 @@
 
 class CRM_Core_DAO_AllCoreTables {
 
-  static $tables = array(
-    'civicrm_address_format',
-    'civicrm_extension',
-    'civicrm_file',
-    'civicrm_location_type',
-    'civicrm_mail_settings',
-    'civicrm_managed',
-    'civicrm_mapping',
-    'civicrm_option_group',
-    'civicrm_preferences_date',
-    'civicrm_worldregion',
-    'civicrm_component',
-    'civicrm_persistent',
-    'civicrm_prevnext_cache',
-    'civicrm_action_mapping',
-    'civicrm_acl',
-    'civicrm_acl_entity_role',
-    'civicrm_contact',
-    'civicrm_acl_contact_cache',
-    'civicrm_relationship_type',
-    'civicrm_saved_search',
-    'civicrm_contact_type',
-    'civicrm_batch',
-    'civicrm_entity_batch',
-    'civicrm_mailing_component',
-    'civicrm_mailing_bounce_type',
-    'civicrm_mailing_bounce_pattern',
-    'civicrm_premiums',
-    'civicrm_currency',
-    'civicrm_financial_account',
-    'civicrm_payment_processor_type',
-    'civicrm_financial_type',
-    'civicrm_entity_financial_account',
-    'civicrm_financial_item',
-    'civicrm_sms_provider',
-    'civicrm_project',
-    'civicrm_task',
-    'civicrm_task_status',
-    'civicrm_membership_status',
-    'civicrm_campaign',
-    'civicrm_campaign_group',
-    'civicrm_survey',
-    'civicrm_participant_status_type',
-    'civicrm_event_carts',
-    'civicrm_dedupe_rule_group',
-    'civicrm_dedupe_rule',
-    'civicrm_dedupe_exception',
-    'civicrm_case',
-    'civicrm_case_contact',
-    'civicrm_grant',
-    'civicrm_tell_friend',
-    'civicrm_pledge_block',
-    'civicrm_queue_item',
-    'civicrm_pcp',
-    'civicrm_cache',
-    'civicrm_country',
-    'civicrm_custom_group',
-    'civicrm_custom_field',
-    'civicrm_domain',
-    'civicrm_email',
-    'civicrm_entity_file',
-    'civicrm_im',
-    'civicrm_job',
-    'civicrm_job_log',
-    'civicrm_log',
-    'civicrm_mapping_field',
-    'civicrm_menu',
-    'civicrm_navigation',
-    'civicrm_note',
-    'civicrm_option_value',
-    'civicrm_phone',
-    'civicrm_state_province',
-    'civicrm_tag',
-    'civicrm_uf_match',
-    'civicrm_timezone',
-    'civicrm_openid',
-    'civicrm_website',
-    'civicrm_setting',
-    'civicrm_acl_cache',
-    'civicrm_group',
-    'civicrm_subscription_history',
-    'civicrm_group_contact_cache',
-    'civicrm_group_nesting',
-    'civicrm_group_organization',
-    'civicrm_relationship',
-    'civicrm_mailing_event_subscribe',
-    'civicrm_mailing_event_confirm',
-    'civicrm_contribution_page',
-    'civicrm_product',
-    'civicrm_premiums_product',
-    'civicrm_contribution_widget',
-    'civicrm_payment_processor',
-    'civicrm_membership_type',
-    'civicrm_membership_block',
-    'civicrm_activity',
-    'civicrm_activity_contact',
-    'civicrm_case_activity',
-    'civicrm_pledge',
-    'civicrm_report_instance',
-    'civicrm_price_set',
-    'civicrm_price_set_entity',
-    'civicrm_county',
-    'civicrm_dashboard',
-    'civicrm_discount',
-    'civicrm_entity_tag',
-    'civicrm_msg_template',
-    'civicrm_uf_group',
-    'civicrm_uf_field',
-    'civicrm_uf_join',
-    'civicrm_action_schedule',
-    'civicrm_action_log',
-    'civicrm_dashboard_contact',
-    'civicrm_mailing',
-    'civicrm_mailing_group',
-    'civicrm_mailing_trackable_url',
-    'civicrm_mailing_job',
-    'civicrm_mailing_recipients',
-    'civicrm_mailing_spool',
-    'civicrm_mailing_event_queue',
-    'civicrm_mailing_event_bounce',
-    'civicrm_mailing_event_delivered',
-    'civicrm_mailing_event_forward',
-    'civicrm_mailing_event_opened',
-    'civicrm_mailing_event_reply',
-    'civicrm_mailing_event_trackable_url_open',
-    'civicrm_mailing_event_unsubscribe',
-    'civicrm_contribution_recur',
-    'civicrm_financial_trxn',
-    'civicrm_official_receipt',
-    'civicrm_membership',
-    'civicrm_membership_log',
-    'civicrm_price_field',
-    'civicrm_price_field_value',
-    'civicrm_line_item',
-    'civicrm_pcp_block',
-    'civicrm_address',
-    'civicrm_loc_block',
-    'civicrm_group_contact',
-    'civicrm_contribution',
-    'civicrm_contribution_product',
-    'civicrm_contribution_soft',
-    'civicrm_entity_financial_trxn',
-    'civicrm_membership_payment',
-    'civicrm_event',
-    'civicrm_participant',
-    'civicrm_participant_payment',
-    'civicrm_events_in_carts',
-    'civicrm_pledge_payment',
-   );
+  static private $tables = null;
+  static private $daoToClass = null;
 
-  static $daoToClass = array(
+  static private function init() {
+    static $init = FALSE;
+    if ($init) return;
 
-    'AddressFormat' => 'CRM_Core_DAO_AddressFormat',
-    'Extension' => 'CRM_Core_DAO_Extension',
-    'File' => 'CRM_Core_DAO_File',
-    'LocationType' => 'CRM_Core_DAO_LocationType',
-    'MailSettings' => 'CRM_Core_DAO_MailSettings',
-    'Managed' => 'CRM_Core_DAO_Managed',
-    'Mapping' => 'CRM_Core_DAO_Mapping',
-    'OptionGroup' => 'CRM_Core_DAO_OptionGroup',
-    'PreferencesDate' => 'CRM_Core_DAO_PreferencesDate',
-    'Worldregion' => 'CRM_Core_DAO_Worldregion',
-    'Component' => 'CRM_Core_DAO_Component',
-    'Persistent' => 'CRM_Core_DAO_Persistent',
-    'PrevNextCache' => 'CRM_Core_DAO_PrevNextCache',
-    'ActionMapping' => 'CRM_Core_DAO_ActionMapping',
-    'ACL' => 'CRM_ACL_DAO_ACL',
-    'EntityRole' => 'CRM_ACL_DAO_EntityRole',
-    'Contact' => 'CRM_Contact_DAO_Contact',
-    'ACLContactCache' => 'CRM_Contact_DAO_ACLContactCache',
-    'RelationshipType' => 'CRM_Contact_DAO_RelationshipType',
-    'SavedSearch' => 'CRM_Contact_DAO_SavedSearch',
-    'ContactType' => 'CRM_Contact_DAO_ContactType',
-    'Batch' => 'CRM_Batch_DAO_Batch',
-    'EntityBatch' => 'CRM_Batch_DAO_EntityBatch',
-    'Component' => 'CRM_Mailing_DAO_Component',
-    'BounceType' => 'CRM_Mailing_DAO_BounceType',
-    'BouncePattern' => 'CRM_Mailing_DAO_BouncePattern',
-    'Premium' => 'CRM_Contribute_DAO_Premium',
-    'Currency' => 'CRM_Financial_DAO_Currency',
-    'FinancialAccount' => 'CRM_Financial_DAO_FinancialAccount',
-    'PaymentProcessorType' => 'CRM_Financial_DAO_PaymentProcessorType',
-    'FinancialType' => 'CRM_Financial_DAO_FinancialType',
-    'EntityFinancialAccount' => 'CRM_Financial_DAO_EntityFinancialAccount',
-    'FinancialItem' => 'CRM_Financial_DAO_FinancialItem',
-    'Provider' => 'CRM_SMS_DAO_Provider',
-    'Project' => 'CRM_Project_DAO_Project',
-    'Task' => 'CRM_Project_DAO_Task',
-    'TaskStatus' => 'CRM_Project_DAO_TaskStatus',
-    'MembershipStatus' => 'CRM_Member_DAO_MembershipStatus',
-    'Campaign' => 'CRM_Campaign_DAO_Campaign',
-    'CampaignGroup' => 'CRM_Campaign_DAO_CampaignGroup',
-    'Survey' => 'CRM_Campaign_DAO_Survey',
-    'ParticipantStatusType' => 'CRM_Event_DAO_ParticipantStatusType',
-    'Cart' => 'CRM_Event_Cart_DAO_Cart',
-    'RuleGroup' => 'CRM_Dedupe_DAO_RuleGroup',
-    'Rule' => 'CRM_Dedupe_DAO_Rule',
-    'Exception' => 'CRM_Dedupe_DAO_Exception',
-    'Case' => 'CRM_Case_DAO_Case',
-    'CaseContact' => 'CRM_Case_DAO_CaseContact',
-    'Grant' => 'CRM_Grant_DAO_Grant',
-    'Friend' => 'CRM_Friend_DAO_Friend',
-    'PledgeBlock' => 'CRM_Pledge_DAO_PledgeBlock',
-    'QueueItem' => 'CRM_Queue_DAO_QueueItem',
-    'PCP' => 'CRM_PCP_DAO_PCP',
-    'Cache' => 'CRM_Core_DAO_Cache',
-    'Country' => 'CRM_Core_DAO_Country',
-    'CustomGroup' => 'CRM_Core_DAO_CustomGroup',
-    'CustomField' => 'CRM_Core_DAO_CustomField',
-    'Domain' => 'CRM_Core_DAO_Domain',
-    'Email' => 'CRM_Core_DAO_Email',
-    'EntityFile' => 'CRM_Core_DAO_EntityFile',
-    'IM' => 'CRM_Core_DAO_IM',
-    'Job' => 'CRM_Core_DAO_Job',
-    'JobLog' => 'CRM_Core_DAO_JobLog',
-    'Log' => 'CRM_Core_DAO_Log',
-    'MappingField' => 'CRM_Core_DAO_MappingField',
-    'Menu' => 'CRM_Core_DAO_Menu',
-    'Navigation' => 'CRM_Core_DAO_Navigation',
-    'Note' => 'CRM_Core_DAO_Note',
-    'OptionValue' => 'CRM_Core_DAO_OptionValue',
-    'Phone' => 'CRM_Core_DAO_Phone',
-    'StateProvince' => 'CRM_Core_DAO_StateProvince',
-    'Tag' => 'CRM_Core_DAO_Tag',
-    'UFMatch' => 'CRM_Core_DAO_UFMatch',
-    'Timezone' => 'CRM_Core_DAO_Timezone',
-    'OpenID' => 'CRM_Core_DAO_OpenID',
-    'Website' => 'CRM_Core_DAO_Website',
-    'Setting' => 'CRM_Core_DAO_Setting',
-    'Cache' => 'CRM_ACL_DAO_Cache',
-    'Group' => 'CRM_Contact_DAO_Group',
-    'SubscriptionHistory' => 'CRM_Contact_DAO_SubscriptionHistory',
-    'GroupContactCache' => 'CRM_Contact_DAO_GroupContactCache',
-    'GroupNesting' => 'CRM_Contact_DAO_GroupNesting',
-    'GroupOrganization' => 'CRM_Contact_DAO_GroupOrganization',
-    'Relationship' => 'CRM_Contact_DAO_Relationship',
-    'Subscribe' => 'CRM_Mailing_Event_DAO_Subscribe',
-    'Confirm' => 'CRM_Mailing_Event_DAO_Confirm',
-    'ContributionPage' => 'CRM_Contribute_DAO_ContributionPage',
-    'Product' => 'CRM_Contribute_DAO_Product',
-    'PremiumsProduct' => 'CRM_Contribute_DAO_PremiumsProduct',
-    'Widget' => 'CRM_Contribute_DAO_Widget',
-    'PaymentProcessor' => 'CRM_Financial_DAO_PaymentProcessor',
-    'MembershipType' => 'CRM_Member_DAO_MembershipType',
-    'MembershipBlock' => 'CRM_Member_DAO_MembershipBlock',
-    'Activity' => 'CRM_Activity_DAO_Activity',
-    'ActivityContact' => 'CRM_Activity_DAO_ActivityContact',
-    'CaseActivity' => 'CRM_Case_DAO_CaseActivity',
-    'Pledge' => 'CRM_Pledge_DAO_Pledge',
-    'Instance' => 'CRM_Report_DAO_Instance',
-    'Set' => 'CRM_Price_DAO_Set',
-    'SetEntity' => 'CRM_Price_DAO_SetEntity',
-    'County' => 'CRM_Core_DAO_County',
-    'Dashboard' => 'CRM_Core_DAO_Dashboard',
-    'Discount' => 'CRM_Core_DAO_Discount',
-    'EntityTag' => 'CRM_Core_DAO_EntityTag',
-    'MessageTemplates' => 'CRM_Core_DAO_MessageTemplates',
-    'UFGroup' => 'CRM_Core_DAO_UFGroup',
-    'UFField' => 'CRM_Core_DAO_UFField',
-    'UFJoin' => 'CRM_Core_DAO_UFJoin',
-    'ActionSchedule' => 'CRM_Core_DAO_ActionSchedule',
-    'ActionLog' => 'CRM_Core_DAO_ActionLog',
-    'DashboardContact' => 'CRM_Contact_DAO_DashboardContact',
-    'Mailing' => 'CRM_Mailing_DAO_Mailing',
-    'Group' => 'CRM_Mailing_DAO_Group',
-    'TrackableURL' => 'CRM_Mailing_DAO_TrackableURL',
-    'Job' => 'CRM_Mailing_DAO_Job',
-    'Recipients' => 'CRM_Mailing_DAO_Recipients',
-    'Spool' => 'CRM_Mailing_DAO_Spool',
-    'Queue' => 'CRM_Mailing_Event_DAO_Queue',
-    'Bounce' => 'CRM_Mailing_Event_DAO_Bounce',
-    'Delivered' => 'CRM_Mailing_Event_DAO_Delivered',
-    'Forward' => 'CRM_Mailing_Event_DAO_Forward',
-    'Opened' => 'CRM_Mailing_Event_DAO_Opened',
-    'Reply' => 'CRM_Mailing_Event_DAO_Reply',
-    'TrackableURLOpen' => 'CRM_Mailing_Event_DAO_TrackableURLOpen',
-    'Unsubscribe' => 'CRM_Mailing_Event_DAO_Unsubscribe',
-    'ContributionRecur' => 'CRM_Contribute_DAO_ContributionRecur',
-    'FinancialTrxn' => 'CRM_Financial_DAO_FinancialTrxn',
-    'OfficialReceipt' => 'CRM_Financial_DAO_OfficialReceipt',
-    'Membership' => 'CRM_Member_DAO_Membership',
-    'MembershipLog' => 'CRM_Member_DAO_MembershipLog',
-    'Field' => 'CRM_Price_DAO_Field',
-    'FieldValue' => 'CRM_Price_DAO_FieldValue',
-    'LineItem' => 'CRM_Price_DAO_LineItem',
-    'PCPBlock' => 'CRM_PCP_DAO_PCPBlock',
-    'Address' => 'CRM_Core_DAO_Address',
-    'LocBlock' => 'CRM_Core_DAO_LocBlock',
-    'GroupContact' => 'CRM_Contact_DAO_GroupContact',
-    'Contribution' => 'CRM_Contribute_DAO_Contribution',
-    'ContributionProduct' => 'CRM_Contribute_DAO_ContributionProduct',
-    'ContributionSoft' => 'CRM_Contribute_DAO_ContributionSoft',
-    'EntityFinancialTrxn' => 'CRM_Financial_DAO_EntityFinancialTrxn',
-    'MembershipPayment' => 'CRM_Member_DAO_MembershipPayment',
-    'Event' => 'CRM_Event_DAO_Event',
-    'Participant' => 'CRM_Event_DAO_Participant',
-    'ParticipantPayment' => 'CRM_Event_DAO_ParticipantPayment',
-    'EventInCart' => 'CRM_Event_Cart_DAO_EventInCart',
-    'PledgePayment' => 'CRM_Pledge_DAO_PledgePayment',
-   );
+    $entityTypes = array(
+      'CRM_Core_DAO_AddressFormat' => array(
+        'name' => 'AddressFormat',
+        'class' => 'CRM_Core_DAO_AddressFormat',
+        'table' => 'civicrm_address_format',
+      ),
+      'CRM_Core_DAO_Extension' => array(
+        'name' => 'Extension',
+        'class' => 'CRM_Core_DAO_Extension',
+        'table' => 'civicrm_extension',
+      ),
+      'CRM_Core_DAO_File' => array(
+        'name' => 'File',
+        'class' => 'CRM_Core_DAO_File',
+        'table' => 'civicrm_file',
+      ),
+      'CRM_Core_DAO_LocationType' => array(
+        'name' => 'LocationType',
+        'class' => 'CRM_Core_DAO_LocationType',
+        'table' => 'civicrm_location_type',
+      ),
+      'CRM_Core_DAO_MailSettings' => array(
+        'name' => 'MailSettings',
+        'class' => 'CRM_Core_DAO_MailSettings',
+        'table' => 'civicrm_mail_settings',
+      ),
+      'CRM_Core_DAO_Managed' => array(
+        'name' => 'Managed',
+        'class' => 'CRM_Core_DAO_Managed',
+        'table' => 'civicrm_managed',
+      ),
+      'CRM_Core_DAO_Mapping' => array(
+        'name' => 'Mapping',
+        'class' => 'CRM_Core_DAO_Mapping',
+        'table' => 'civicrm_mapping',
+      ),
+      'CRM_Core_DAO_OptionGroup' => array(
+        'name' => 'OptionGroup',
+        'class' => 'CRM_Core_DAO_OptionGroup',
+        'table' => 'civicrm_option_group',
+      ),
+      'CRM_Core_DAO_PreferencesDate' => array(
+        'name' => 'PreferencesDate',
+        'class' => 'CRM_Core_DAO_PreferencesDate',
+        'table' => 'civicrm_preferences_date',
+      ),
+      'CRM_Core_DAO_Worldregion' => array(
+        'name' => 'Worldregion',
+        'class' => 'CRM_Core_DAO_Worldregion',
+        'table' => 'civicrm_worldregion',
+      ),
+      'CRM_Core_DAO_Component' => array(
+        'name' => 'Component',
+        'class' => 'CRM_Core_DAO_Component',
+        'table' => 'civicrm_component',
+      ),
+      'CRM_Core_DAO_Persistent' => array(
+        'name' => 'Persistent',
+        'class' => 'CRM_Core_DAO_Persistent',
+        'table' => 'civicrm_persistent',
+      ),
+      'CRM_Core_DAO_PrevNextCache' => array(
+        'name' => 'PrevNextCache',
+        'class' => 'CRM_Core_DAO_PrevNextCache',
+        'table' => 'civicrm_prevnext_cache',
+      ),
+      'CRM_Core_DAO_ActionMapping' => array(
+        'name' => 'ActionMapping',
+        'class' => 'CRM_Core_DAO_ActionMapping',
+        'table' => 'civicrm_action_mapping',
+      ),
+      'CRM_ACL_DAO_ACL' => array(
+        'name' => 'ACL',
+        'class' => 'CRM_ACL_DAO_ACL',
+        'table' => 'civicrm_acl',
+      ),
+      'CRM_ACL_DAO_EntityRole' => array(
+        'name' => 'EntityRole',
+        'class' => 'CRM_ACL_DAO_EntityRole',
+        'table' => 'civicrm_acl_entity_role',
+      ),
+      'CRM_Contact_DAO_Contact' => array(
+        'name' => 'Contact',
+        'class' => 'CRM_Contact_DAO_Contact',
+        'table' => 'civicrm_contact',
+      ),
+      'CRM_Contact_DAO_ACLContactCache' => array(
+        'name' => 'ACLContactCache',
+        'class' => 'CRM_Contact_DAO_ACLContactCache',
+        'table' => 'civicrm_acl_contact_cache',
+      ),
+      'CRM_Contact_DAO_RelationshipType' => array(
+        'name' => 'RelationshipType',
+        'class' => 'CRM_Contact_DAO_RelationshipType',
+        'table' => 'civicrm_relationship_type',
+      ),
+      'CRM_Contact_DAO_SavedSearch' => array(
+        'name' => 'SavedSearch',
+        'class' => 'CRM_Contact_DAO_SavedSearch',
+        'table' => 'civicrm_saved_search',
+      ),
+      'CRM_Contact_DAO_ContactType' => array(
+        'name' => 'ContactType',
+        'class' => 'CRM_Contact_DAO_ContactType',
+        'table' => 'civicrm_contact_type',
+      ),
+      'CRM_Batch_DAO_Batch' => array(
+        'name' => 'Batch',
+        'class' => 'CRM_Batch_DAO_Batch',
+        'table' => 'civicrm_batch',
+      ),
+      'CRM_Batch_DAO_EntityBatch' => array(
+        'name' => 'EntityBatch',
+        'class' => 'CRM_Batch_DAO_EntityBatch',
+        'table' => 'civicrm_entity_batch',
+      ),
+      'CRM_Mailing_DAO_Component' => array(
+        'name' => 'Component',
+        'class' => 'CRM_Mailing_DAO_Component',
+        'table' => 'civicrm_mailing_component',
+      ),
+      'CRM_Mailing_DAO_BounceType' => array(
+        'name' => 'BounceType',
+        'class' => 'CRM_Mailing_DAO_BounceType',
+        'table' => 'civicrm_mailing_bounce_type',
+      ),
+      'CRM_Mailing_DAO_BouncePattern' => array(
+        'name' => 'BouncePattern',
+        'class' => 'CRM_Mailing_DAO_BouncePattern',
+        'table' => 'civicrm_mailing_bounce_pattern',
+      ),
+      'CRM_Contribute_DAO_Premium' => array(
+        'name' => 'Premium',
+        'class' => 'CRM_Contribute_DAO_Premium',
+        'table' => 'civicrm_premiums',
+      ),
+      'CRM_Financial_DAO_Currency' => array(
+        'name' => 'Currency',
+        'class' => 'CRM_Financial_DAO_Currency',
+        'table' => 'civicrm_currency',
+      ),
+      'CRM_Financial_DAO_FinancialAccount' => array(
+        'name' => 'FinancialAccount',
+        'class' => 'CRM_Financial_DAO_FinancialAccount',
+        'table' => 'civicrm_financial_account',
+      ),
+      'CRM_Financial_DAO_PaymentProcessorType' => array(
+        'name' => 'PaymentProcessorType',
+        'class' => 'CRM_Financial_DAO_PaymentProcessorType',
+        'table' => 'civicrm_payment_processor_type',
+      ),
+      'CRM_Financial_DAO_FinancialType' => array(
+        'name' => 'FinancialType',
+        'class' => 'CRM_Financial_DAO_FinancialType',
+        'table' => 'civicrm_financial_type',
+      ),
+      'CRM_Financial_DAO_EntityFinancialAccount' => array(
+        'name' => 'EntityFinancialAccount',
+        'class' => 'CRM_Financial_DAO_EntityFinancialAccount',
+        'table' => 'civicrm_entity_financial_account',
+      ),
+      'CRM_Financial_DAO_FinancialItem' => array(
+        'name' => 'FinancialItem',
+        'class' => 'CRM_Financial_DAO_FinancialItem',
+        'table' => 'civicrm_financial_item',
+      ),
+      'CRM_SMS_DAO_Provider' => array(
+        'name' => 'Provider',
+        'class' => 'CRM_SMS_DAO_Provider',
+        'table' => 'civicrm_sms_provider',
+      ),
+      'CRM_Member_DAO_MembershipStatus' => array(
+        'name' => 'MembershipStatus',
+        'class' => 'CRM_Member_DAO_MembershipStatus',
+        'table' => 'civicrm_membership_status',
+      ),
+      'CRM_Campaign_DAO_Campaign' => array(
+        'name' => 'Campaign',
+        'class' => 'CRM_Campaign_DAO_Campaign',
+        'table' => 'civicrm_campaign',
+      ),
+      'CRM_Campaign_DAO_CampaignGroup' => array(
+        'name' => 'CampaignGroup',
+        'class' => 'CRM_Campaign_DAO_CampaignGroup',
+        'table' => 'civicrm_campaign_group',
+      ),
+      'CRM_Campaign_DAO_Survey' => array(
+        'name' => 'Survey',
+        'class' => 'CRM_Campaign_DAO_Survey',
+        'table' => 'civicrm_survey',
+      ),
+      'CRM_Event_DAO_ParticipantStatusType' => array(
+        'name' => 'ParticipantStatusType',
+        'class' => 'CRM_Event_DAO_ParticipantStatusType',
+        'table' => 'civicrm_participant_status_type',
+      ),
+      'CRM_Event_Cart_DAO_Cart' => array(
+        'name' => 'Cart',
+        'class' => 'CRM_Event_Cart_DAO_Cart',
+        'table' => 'civicrm_event_carts',
+      ),
+      'CRM_Dedupe_DAO_RuleGroup' => array(
+        'name' => 'RuleGroup',
+        'class' => 'CRM_Dedupe_DAO_RuleGroup',
+        'table' => 'civicrm_dedupe_rule_group',
+      ),
+      'CRM_Dedupe_DAO_Rule' => array(
+        'name' => 'Rule',
+        'class' => 'CRM_Dedupe_DAO_Rule',
+        'table' => 'civicrm_dedupe_rule',
+      ),
+      'CRM_Dedupe_DAO_Exception' => array(
+        'name' => 'Exception',
+        'class' => 'CRM_Dedupe_DAO_Exception',
+        'table' => 'civicrm_dedupe_exception',
+      ),
+      'CRM_Case_DAO_Case' => array(
+        'name' => 'Case',
+        'class' => 'CRM_Case_DAO_Case',
+        'table' => 'civicrm_case',
+      ),
+      'CRM_Case_DAO_CaseContact' => array(
+        'name' => 'CaseContact',
+        'class' => 'CRM_Case_DAO_CaseContact',
+        'table' => 'civicrm_case_contact',
+      ),
+      'CRM_Grant_DAO_Grant' => array(
+        'name' => 'Grant',
+        'class' => 'CRM_Grant_DAO_Grant',
+        'table' => 'civicrm_grant',
+      ),
+      'CRM_Friend_DAO_Friend' => array(
+        'name' => 'Friend',
+        'class' => 'CRM_Friend_DAO_Friend',
+        'table' => 'civicrm_tell_friend',
+      ),
+      'CRM_Pledge_DAO_PledgeBlock' => array(
+        'name' => 'PledgeBlock',
+        'class' => 'CRM_Pledge_DAO_PledgeBlock',
+        'table' => 'civicrm_pledge_block',
+      ),
+      'CRM_Queue_DAO_QueueItem' => array(
+        'name' => 'QueueItem',
+        'class' => 'CRM_Queue_DAO_QueueItem',
+        'table' => 'civicrm_queue_item',
+      ),
+      'CRM_PCP_DAO_PCP' => array(
+        'name' => 'PCP',
+        'class' => 'CRM_PCP_DAO_PCP',
+        'table' => 'civicrm_pcp',
+      ),
+      'CRM_Core_DAO_Cache' => array(
+        'name' => 'Cache',
+        'class' => 'CRM_Core_DAO_Cache',
+        'table' => 'civicrm_cache',
+      ),
+      'CRM_Core_DAO_Country' => array(
+        'name' => 'Country',
+        'class' => 'CRM_Core_DAO_Country',
+        'table' => 'civicrm_country',
+      ),
+      'CRM_Core_DAO_CustomGroup' => array(
+        'name' => 'CustomGroup',
+        'class' => 'CRM_Core_DAO_CustomGroup',
+        'table' => 'civicrm_custom_group',
+      ),
+      'CRM_Core_DAO_CustomField' => array(
+        'name' => 'CustomField',
+        'class' => 'CRM_Core_DAO_CustomField',
+        'table' => 'civicrm_custom_field',
+      ),
+      'CRM_Core_DAO_Domain' => array(
+        'name' => 'Domain',
+        'class' => 'CRM_Core_DAO_Domain',
+        'table' => 'civicrm_domain',
+      ),
+      'CRM_Core_DAO_Email' => array(
+        'name' => 'Email',
+        'class' => 'CRM_Core_DAO_Email',
+        'table' => 'civicrm_email',
+      ),
+      'CRM_Core_DAO_EntityFile' => array(
+        'name' => 'EntityFile',
+        'class' => 'CRM_Core_DAO_EntityFile',
+        'table' => 'civicrm_entity_file',
+      ),
+      'CRM_Core_DAO_IM' => array(
+        'name' => 'IM',
+        'class' => 'CRM_Core_DAO_IM',
+        'table' => 'civicrm_im',
+      ),
+      'CRM_Core_DAO_Job' => array(
+        'name' => 'Job',
+        'class' => 'CRM_Core_DAO_Job',
+        'table' => 'civicrm_job',
+      ),
+      'CRM_Core_DAO_JobLog' => array(
+        'name' => 'JobLog',
+        'class' => 'CRM_Core_DAO_JobLog',
+        'table' => 'civicrm_job_log',
+      ),
+      'CRM_Core_DAO_Log' => array(
+        'name' => 'Log',
+        'class' => 'CRM_Core_DAO_Log',
+        'table' => 'civicrm_log',
+      ),
+      'CRM_Core_DAO_MappingField' => array(
+        'name' => 'MappingField',
+        'class' => 'CRM_Core_DAO_MappingField',
+        'table' => 'civicrm_mapping_field',
+      ),
+      'CRM_Core_DAO_Menu' => array(
+        'name' => 'Menu',
+        'class' => 'CRM_Core_DAO_Menu',
+        'table' => 'civicrm_menu',
+      ),
+      'CRM_Core_DAO_Navigation' => array(
+        'name' => 'Navigation',
+        'class' => 'CRM_Core_DAO_Navigation',
+        'table' => 'civicrm_navigation',
+      ),
+      'CRM_Core_DAO_Note' => array(
+        'name' => 'Note',
+        'class' => 'CRM_Core_DAO_Note',
+        'table' => 'civicrm_note',
+      ),
+      'CRM_Core_DAO_OptionValue' => array(
+        'name' => 'OptionValue',
+        'class' => 'CRM_Core_DAO_OptionValue',
+        'table' => 'civicrm_option_value',
+      ),
+      'CRM_Core_DAO_Phone' => array(
+        'name' => 'Phone',
+        'class' => 'CRM_Core_DAO_Phone',
+        'table' => 'civicrm_phone',
+      ),
+      'CRM_Core_DAO_StateProvince' => array(
+        'name' => 'StateProvince',
+        'class' => 'CRM_Core_DAO_StateProvince',
+        'table' => 'civicrm_state_province',
+      ),
+      'CRM_Core_DAO_Tag' => array(
+        'name' => 'Tag',
+        'class' => 'CRM_Core_DAO_Tag',
+        'table' => 'civicrm_tag',
+      ),
+      'CRM_Core_DAO_UFMatch' => array(
+        'name' => 'UFMatch',
+        'class' => 'CRM_Core_DAO_UFMatch',
+        'table' => 'civicrm_uf_match',
+      ),
+      'CRM_Core_DAO_Timezone' => array(
+        'name' => 'Timezone',
+        'class' => 'CRM_Core_DAO_Timezone',
+        'table' => 'civicrm_timezone',
+      ),
+      'CRM_Core_DAO_OpenID' => array(
+        'name' => 'OpenID',
+        'class' => 'CRM_Core_DAO_OpenID',
+        'table' => 'civicrm_openid',
+      ),
+      'CRM_Core_DAO_Website' => array(
+        'name' => 'Website',
+        'class' => 'CRM_Core_DAO_Website',
+        'table' => 'civicrm_website',
+      ),
+      'CRM_Core_DAO_Setting' => array(
+        'name' => 'Setting',
+        'class' => 'CRM_Core_DAO_Setting',
+        'table' => 'civicrm_setting',
+      ),
+      'CRM_Core_DAO_PrintLabel' => array(
+        'name' => 'PrintLabel',
+        'class' => 'CRM_Core_DAO_PrintLabel',
+        'table' => 'civicrm_print_label',
+      ),
+      'CRM_Core_DAO_WordReplacement' => array(
+        'name' => 'WordReplacement',
+        'class' => 'CRM_Core_DAO_WordReplacement',
+        'table' => 'civicrm_word_replacement',
+      ),
+      'CRM_ACL_DAO_Cache' => array(
+        'name' => 'Cache',
+        'class' => 'CRM_ACL_DAO_Cache',
+        'table' => 'civicrm_acl_cache',
+      ),
+      'CRM_Contact_DAO_Group' => array(
+        'name' => 'Group',
+        'class' => 'CRM_Contact_DAO_Group',
+        'table' => 'civicrm_group',
+      ),
+      'CRM_Contact_DAO_SubscriptionHistory' => array(
+        'name' => 'SubscriptionHistory',
+        'class' => 'CRM_Contact_DAO_SubscriptionHistory',
+        'table' => 'civicrm_subscription_history',
+      ),
+      'CRM_Contact_DAO_GroupContactCache' => array(
+        'name' => 'GroupContactCache',
+        'class' => 'CRM_Contact_DAO_GroupContactCache',
+        'table' => 'civicrm_group_contact_cache',
+      ),
+      'CRM_Contact_DAO_GroupNesting' => array(
+        'name' => 'GroupNesting',
+        'class' => 'CRM_Contact_DAO_GroupNesting',
+        'table' => 'civicrm_group_nesting',
+      ),
+      'CRM_Contact_DAO_GroupOrganization' => array(
+        'name' => 'GroupOrganization',
+        'class' => 'CRM_Contact_DAO_GroupOrganization',
+        'table' => 'civicrm_group_organization',
+      ),
+      'CRM_Contact_DAO_Relationship' => array(
+        'name' => 'Relationship',
+        'class' => 'CRM_Contact_DAO_Relationship',
+        'table' => 'civicrm_relationship',
+      ),
+      'CRM_Mailing_Event_DAO_Subscribe' => array(
+        'name' => 'Subscribe',
+        'class' => 'CRM_Mailing_Event_DAO_Subscribe',
+        'table' => 'civicrm_mailing_event_subscribe',
+      ),
+      'CRM_Mailing_Event_DAO_Confirm' => array(
+        'name' => 'Confirm',
+        'class' => 'CRM_Mailing_Event_DAO_Confirm',
+        'table' => 'civicrm_mailing_event_confirm',
+      ),
+      'CRM_Contribute_DAO_ContributionPage' => array(
+        'name' => 'ContributionPage',
+        'class' => 'CRM_Contribute_DAO_ContributionPage',
+        'table' => 'civicrm_contribution_page',
+      ),
+      'CRM_Contribute_DAO_Product' => array(
+        'name' => 'Product',
+        'class' => 'CRM_Contribute_DAO_Product',
+        'table' => 'civicrm_product',
+      ),
+      'CRM_Contribute_DAO_PremiumsProduct' => array(
+        'name' => 'PremiumsProduct',
+        'class' => 'CRM_Contribute_DAO_PremiumsProduct',
+        'table' => 'civicrm_premiums_product',
+      ),
+      'CRM_Contribute_DAO_Widget' => array(
+        'name' => 'Widget',
+        'class' => 'CRM_Contribute_DAO_Widget',
+        'table' => 'civicrm_contribution_widget',
+      ),
+      'CRM_Financial_DAO_PaymentProcessor' => array(
+        'name' => 'PaymentProcessor',
+        'class' => 'CRM_Financial_DAO_PaymentProcessor',
+        'table' => 'civicrm_payment_processor',
+      ),
+      'CRM_Member_DAO_MembershipType' => array(
+        'name' => 'MembershipType',
+        'class' => 'CRM_Member_DAO_MembershipType',
+        'table' => 'civicrm_membership_type',
+      ),
+      'CRM_Member_DAO_MembershipBlock' => array(
+        'name' => 'MembershipBlock',
+        'class' => 'CRM_Member_DAO_MembershipBlock',
+        'table' => 'civicrm_membership_block',
+      ),
+      'CRM_Activity_DAO_Activity' => array(
+        'name' => 'Activity',
+        'class' => 'CRM_Activity_DAO_Activity',
+        'table' => 'civicrm_activity',
+      ),
+      'CRM_Activity_DAO_ActivityContact' => array(
+        'name' => 'ActivityContact',
+        'class' => 'CRM_Activity_DAO_ActivityContact',
+        'table' => 'civicrm_activity_contact',
+      ),
+      'CRM_Case_DAO_CaseActivity' => array(
+        'name' => 'CaseActivity',
+        'class' => 'CRM_Case_DAO_CaseActivity',
+        'table' => 'civicrm_case_activity',
+      ),
+      'CRM_Pledge_DAO_Pledge' => array(
+        'name' => 'Pledge',
+        'class' => 'CRM_Pledge_DAO_Pledge',
+        'table' => 'civicrm_pledge',
+      ),
+      'CRM_Report_DAO_ReportInstance' => array(
+        'name' => 'ReportInstance',
+        'class' => 'CRM_Report_DAO_ReportInstance',
+        'table' => 'civicrm_report_instance',
+      ),
+      'CRM_Price_DAO_PriceSet' => array(
+        'name' => 'PriceSet',
+        'class' => 'CRM_Price_DAO_PriceSet',
+        'table' => 'civicrm_price_set',
+      ),
+      'CRM_Price_DAO_PriceSetEntity' => array(
+        'name' => 'PriceSetEntity',
+        'class' => 'CRM_Price_DAO_PriceSetEntity',
+        'table' => 'civicrm_price_set_entity',
+      ),
+      'CRM_Core_DAO_County' => array(
+        'name' => 'County',
+        'class' => 'CRM_Core_DAO_County',
+        'table' => 'civicrm_county',
+      ),
+      'CRM_Core_DAO_Dashboard' => array(
+        'name' => 'Dashboard',
+        'class' => 'CRM_Core_DAO_Dashboard',
+        'table' => 'civicrm_dashboard',
+      ),
+      'CRM_Core_DAO_Discount' => array(
+        'name' => 'Discount',
+        'class' => 'CRM_Core_DAO_Discount',
+        'table' => 'civicrm_discount',
+      ),
+      'CRM_Core_DAO_EntityTag' => array(
+        'name' => 'EntityTag',
+        'class' => 'CRM_Core_DAO_EntityTag',
+        'table' => 'civicrm_entity_tag',
+      ),
+      'CRM_Core_DAO_MessageTemplate' => array(
+        'name' => 'MessageTemplate',
+        'class' => 'CRM_Core_DAO_MessageTemplate',
+        'table' => 'civicrm_msg_template',
+      ),
+      'CRM_Core_DAO_UFGroup' => array(
+        'name' => 'UFGroup',
+        'class' => 'CRM_Core_DAO_UFGroup',
+        'table' => 'civicrm_uf_group',
+      ),
+      'CRM_Core_DAO_UFField' => array(
+        'name' => 'UFField',
+        'class' => 'CRM_Core_DAO_UFField',
+        'table' => 'civicrm_uf_field',
+      ),
+      'CRM_Core_DAO_UFJoin' => array(
+        'name' => 'UFJoin',
+        'class' => 'CRM_Core_DAO_UFJoin',
+        'table' => 'civicrm_uf_join',
+      ),
+      'CRM_Core_DAO_ActionSchedule' => array(
+        'name' => 'ActionSchedule',
+        'class' => 'CRM_Core_DAO_ActionSchedule',
+        'table' => 'civicrm_action_schedule',
+      ),
+      'CRM_Core_DAO_ActionLog' => array(
+        'name' => 'ActionLog',
+        'class' => 'CRM_Core_DAO_ActionLog',
+        'table' => 'civicrm_action_log',
+      ),
+      'CRM_Contact_DAO_DashboardContact' => array(
+        'name' => 'DashboardContact',
+        'class' => 'CRM_Contact_DAO_DashboardContact',
+        'table' => 'civicrm_dashboard_contact',
+      ),
+      'CRM_Mailing_DAO_Mailing' => array(
+        'name' => 'Mailing',
+        'class' => 'CRM_Mailing_DAO_Mailing',
+        'table' => 'civicrm_mailing',
+      ),
+      'CRM_Mailing_DAO_MailingGroup' => array(
+        'name' => 'MailingGroup',
+        'class' => 'CRM_Mailing_DAO_MailingGroup',
+        'table' => 'civicrm_mailing_group',
+      ),
+      'CRM_Mailing_DAO_TrackableURL' => array(
+        'name' => 'TrackableURL',
+        'class' => 'CRM_Mailing_DAO_TrackableURL',
+        'table' => 'civicrm_mailing_trackable_url',
+      ),
+      'CRM_Mailing_DAO_MailingJob' => array(
+        'name' => 'MailingJob',
+        'class' => 'CRM_Mailing_DAO_MailingJob',
+        'table' => 'civicrm_mailing_job',
+      ),
+      'CRM_Mailing_DAO_Recipients' => array(
+        'name' => 'Recipients',
+        'class' => 'CRM_Mailing_DAO_Recipients',
+        'table' => 'civicrm_mailing_recipients',
+      ),
+      'CRM_Mailing_DAO_Spool' => array(
+        'name' => 'Spool',
+        'class' => 'CRM_Mailing_DAO_Spool',
+        'table' => 'civicrm_mailing_spool',
+      ),
+      'CRM_Mailing_Event_DAO_Queue' => array(
+        'name' => 'Queue',
+        'class' => 'CRM_Mailing_Event_DAO_Queue',
+        'table' => 'civicrm_mailing_event_queue',
+      ),
+      'CRM_Mailing_Event_DAO_Bounce' => array(
+        'name' => 'Bounce',
+        'class' => 'CRM_Mailing_Event_DAO_Bounce',
+        'table' => 'civicrm_mailing_event_bounce',
+      ),
+      'CRM_Mailing_Event_DAO_Delivered' => array(
+        'name' => 'Delivered',
+        'class' => 'CRM_Mailing_Event_DAO_Delivered',
+        'table' => 'civicrm_mailing_event_delivered',
+      ),
+      'CRM_Mailing_Event_DAO_Forward' => array(
+        'name' => 'Forward',
+        'class' => 'CRM_Mailing_Event_DAO_Forward',
+        'table' => 'civicrm_mailing_event_forward',
+      ),
+      'CRM_Mailing_Event_DAO_Opened' => array(
+        'name' => 'Opened',
+        'class' => 'CRM_Mailing_Event_DAO_Opened',
+        'table' => 'civicrm_mailing_event_opened',
+      ),
+      'CRM_Mailing_Event_DAO_Reply' => array(
+        'name' => 'Reply',
+        'class' => 'CRM_Mailing_Event_DAO_Reply',
+        'table' => 'civicrm_mailing_event_reply',
+      ),
+      'CRM_Mailing_Event_DAO_TrackableURLOpen' => array(
+        'name' => 'TrackableURLOpen',
+        'class' => 'CRM_Mailing_Event_DAO_TrackableURLOpen',
+        'table' => 'civicrm_mailing_event_trackable_url_open',
+      ),
+      'CRM_Mailing_Event_DAO_Unsubscribe' => array(
+        'name' => 'Unsubscribe',
+        'class' => 'CRM_Mailing_Event_DAO_Unsubscribe',
+        'table' => 'civicrm_mailing_event_unsubscribe',
+      ),
+      'CRM_Contribute_DAO_ContributionRecur' => array(
+        'name' => 'ContributionRecur',
+        'class' => 'CRM_Contribute_DAO_ContributionRecur',
+        'table' => 'civicrm_contribution_recur',
+      ),
+      'CRM_Financial_DAO_FinancialTrxn' => array(
+        'name' => 'FinancialTrxn',
+        'class' => 'CRM_Financial_DAO_FinancialTrxn',
+        'table' => 'civicrm_financial_trxn',
+      ),
+      'CRM_Member_DAO_Membership' => array(
+        'name' => 'Membership',
+        'class' => 'CRM_Member_DAO_Membership',
+        'table' => 'civicrm_membership',
+      ),
+      'CRM_Member_DAO_MembershipLog' => array(
+        'name' => 'MembershipLog',
+        'class' => 'CRM_Member_DAO_MembershipLog',
+        'table' => 'civicrm_membership_log',
+      ),
+      'CRM_Price_DAO_PriceField' => array(
+        'name' => 'PriceField',
+        'class' => 'CRM_Price_DAO_PriceField',
+        'table' => 'civicrm_price_field',
+      ),
+      'CRM_Price_DAO_PriceFieldValue' => array(
+        'name' => 'PriceFieldValue',
+        'class' => 'CRM_Price_DAO_PriceFieldValue',
+        'table' => 'civicrm_price_field_value',
+      ),
+      'CRM_Price_DAO_LineItem' => array(
+        'name' => 'LineItem',
+        'class' => 'CRM_Price_DAO_LineItem',
+        'table' => 'civicrm_line_item',
+      ),
+      'CRM_PCP_DAO_PCPBlock' => array(
+        'name' => 'PCPBlock',
+        'class' => 'CRM_PCP_DAO_PCPBlock',
+        'table' => 'civicrm_pcp_block',
+      ),
+      'CRM_Core_DAO_Address' => array(
+        'name' => 'Address',
+        'class' => 'CRM_Core_DAO_Address',
+        'table' => 'civicrm_address',
+      ),
+      'CRM_Core_DAO_LocBlock' => array(
+        'name' => 'LocBlock',
+        'class' => 'CRM_Core_DAO_LocBlock',
+        'table' => 'civicrm_loc_block',
+      ),
+      'CRM_Contact_DAO_GroupContact' => array(
+        'name' => 'GroupContact',
+        'class' => 'CRM_Contact_DAO_GroupContact',
+        'table' => 'civicrm_group_contact',
+      ),
+      'CRM_Contribute_DAO_Contribution' => array(
+        'name' => 'Contribution',
+        'class' => 'CRM_Contribute_DAO_Contribution',
+        'table' => 'civicrm_contribution',
+      ),
+      'CRM_Contribute_DAO_ContributionProduct' => array(
+        'name' => 'ContributionProduct',
+        'class' => 'CRM_Contribute_DAO_ContributionProduct',
+        'table' => 'civicrm_contribution_product',
+      ),
+      'CRM_Contribute_DAO_ContributionSoft' => array(
+        'name' => 'ContributionSoft',
+        'class' => 'CRM_Contribute_DAO_ContributionSoft',
+        'table' => 'civicrm_contribution_soft',
+      ),
+      'CRM_Financial_DAO_EntityFinancialTrxn' => array(
+        'name' => 'EntityFinancialTrxn',
+        'class' => 'CRM_Financial_DAO_EntityFinancialTrxn',
+        'table' => 'civicrm_entity_financial_trxn',
+      ),
+      'CRM_Member_DAO_MembershipPayment' => array(
+        'name' => 'MembershipPayment',
+        'class' => 'CRM_Member_DAO_MembershipPayment',
+        'table' => 'civicrm_membership_payment',
+      ),
+      'CRM_Event_DAO_Event' => array(
+        'name' => 'Event',
+        'class' => 'CRM_Event_DAO_Event',
+        'table' => 'civicrm_event',
+      ),
+      'CRM_Event_DAO_Participant' => array(
+        'name' => 'Participant',
+        'class' => 'CRM_Event_DAO_Participant',
+        'table' => 'civicrm_participant',
+      ),
+      'CRM_Event_DAO_ParticipantPayment' => array(
+        'name' => 'ParticipantPayment',
+        'class' => 'CRM_Event_DAO_ParticipantPayment',
+        'table' => 'civicrm_participant_payment',
+      ),
+      'CRM_Event_Cart_DAO_EventInCart' => array(
+        'name' => 'EventInCart',
+        'class' => 'CRM_Event_Cart_DAO_EventInCart',
+        'table' => 'civicrm_events_in_carts',
+      ),
+      'CRM_Pledge_DAO_PledgePayment' => array(
+        'name' => 'PledgePayment',
+        'class' => 'CRM_Pledge_DAO_PledgePayment',
+        'table' => 'civicrm_pledge_payment',
+      ),
+    );
 
-  static public function getCoreTables() {
+    CRM_Utils_Hook::entityTypes($entityTypes);
+
+    self::$tables = array();
+    self::$daoToClass = array();
+    foreach ($entityTypes as $entityType) {
+      self::registerEntityType($entityType['name'], $entityType['class'], $entityType['table']);
+    }
+
+    $init = TRUE;
+  }
+
+  static private function registerEntityType($daoName, $className, $tableName) {
+    self::$daoToClass[$daoName] = $className;
+    self::$tables[$tableName] = $className;
+  }
+
+  static public function tables() {
+    self::init();
     return self::$tables;
   }
 
+  static public function daoToClass() {
+    self::init();
+    return self::$daoToClass;
+  }
+
+  static public function getCoreTables() {
+    return self::tables();
+  }
+
   static public function isCoreTable($tableName) {
-    return FALSE !== array_search($tableName, self::$tables);
+    return FALSE !== array_search($tableName, self::tables());
+  }
+
+  static public function getCanonicalClassName($className) {
+    return str_replace('_BAO_', '_DAO_', $className);
+  }
+
+  static public function getClasses() {
+    return array_values(self::daoToClass());
+  }
+
+  static public function getClassForTable($tableName) {
+    return CRM_Utils_Array::value($tableName, self::tables());
   }
 
   static public function getFullName($daoName) {
-    return CRM_Utils_Array::value($daoName, self::$daoToClass);
+    return CRM_Utils_Array::value($daoName, self::daoToClass());
   }
+
+  static public function getBriefName($className) {
+    return CRM_Utils_Array::value($className, array_flip(self::daoToClass()));
+  }
+
+  /**
+   * @param string $className DAO or BAO name
+   * @return string|FALSE SQL table name
+   */
+  static public function getTableForClass($className) {
+    return array_search(self::getCanonicalClassName($className), self::tables());
+  }
+
 
 }

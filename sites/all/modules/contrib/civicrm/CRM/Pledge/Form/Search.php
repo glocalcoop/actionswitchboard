@@ -308,12 +308,15 @@ class CRM_Pledge_Form_Search extends CRM_Core_Form {
 
     $this->fixFormValues();
 
-    // we don't show test contributions in Contact Summary / User Dashboard
-    // in Search mode by default we hide test contributions
-    if (!CRM_Utils_Array::value('pledge_test',
-        $this->_formValues
-      )) {
+    // We don't show test records in summaries or dashboards
+    if (empty($this->_formValues['pledge_test']) && $this->_force) {
       $this->_formValues["pledge_test"] = 0;
+    }
+
+    foreach (array('pledge_amount_low', 'pledge_amount_high') as $f) {
+      if (isset($this->_formValues[$f])) {
+        $this->_formValues[$f] = CRM_Utils_Rule::cleanMoney($this->_formValues[$f]);
+      }
     }
 
     if (isset($this->_ssID) && empty($_POST)) {

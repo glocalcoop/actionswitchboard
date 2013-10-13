@@ -77,6 +77,8 @@
   {/if}
 
   {if $action eq 2 | $action eq 1} {* add and update actions *}
+		{* Retrieve the ID for the Employee / Employer relationship type *}
+		{crmAPI var="employmentRelationship" entity="RelationshipType" action="getvalue" version="3" name_a_b="Employee of" return="id"}
     <h3>{if $action eq 1}{ts}New Relationship{/ts}{else}{ts}Edit Relationship{/ts}{/if}</h3>
     <div class="crm-block crm-form-block crm-relationship-form-block">
             {if $action eq 1}
@@ -473,6 +475,14 @@ function checkSelected( ) {
 }
 
 function submitAjaxData() {
+  var total_checked = new Array();
+  cj.each(contact_checked, function (index, value) {
+    if (typeof value !== "undefined") {
+      total_checked.push(value);
+    }
+  });
+  contact_checked = total_checked;
+
     cj('#store_contacts').val( contact_checked.toString() );
     if ( useEmployer )  {
         cj('#store_employers').val( employer_checked.toString() );
@@ -544,7 +554,7 @@ function buildRelationFields( relType ) {
     {/literal} {if $action EQ 1} {literal}
     if ( relType ) {
         var relTypeId = relType.split("_");
-        if ( relTypeId[0] == 4 ) {
+        if ( relTypeId[0] == {/literal}{$employmentRelationship}{literal} ) {
             if ( relTypeId[1] == 'a' ) {
                 cj('#addCurrentEmployee').show();
                 cj('#addCurrentEmployer').hide();
@@ -603,11 +613,11 @@ function changeCustomData( cType ) {
    function currentEmployer( )
    {
       var relType = document.getElementById('relationship_type_id').value;
-      if ( relType == '4_a_b' ) {
+      if ( relType == "{/literal}{$employmentRelationship}{literal}" + "_a_b" ) {
            cj('#current_employer').show();
            cj('#employee').show();
            cj('#employer').hide();
-      } else if ( relType == '4_b_a' ) {
+      } else if ( relType == "{/literal}{$employmentRelationship}{literal}" + "_b_a" ) {
      cj('#current_employer').show();
            cj('#employer').show();
            cj('#employee').hide();

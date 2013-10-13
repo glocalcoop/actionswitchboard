@@ -516,7 +516,9 @@ HTACCESS;
   }
 
   /**
-   * Search directory tree for files which match a glob pattern
+   * Search directory tree for files which match a glob pattern.
+   *
+   * Note: Dot-directories (like "..", ".git", or ".svn") will be ignored.
    *
    * @param $dir string, base dir
    * @param $pattern string, glob pattern, eg "*.txt"
@@ -527,16 +529,20 @@ HTACCESS;
     $result = array();
     while (!empty($todos)) {
       $subdir = array_shift($todos);
-      foreach (glob("$subdir/$pattern") as $match) {
-        if (!is_dir($match)) {
-          $result[] = $match;
+      $matches = glob("$subdir/$pattern");
+      if (is_array($matches)) {
+        foreach ($matches as $match) {
+          if (!is_dir($match)) {
+            $result[] = $match;
+          }
         }
       }
       $dh = opendir($subdir);
       if ($dh) {
         while (FALSE !== ($entry = readdir($dh))) {
           $path = $subdir . DIRECTORY_SEPARATOR . $entry;
-          if ($entry == '.' || $entry == '..' || $entry == '.svn') {
+          if ($entry{0} == '.') {
+            // ignore
           } elseif (is_dir($path)) {
             $todos[] = $path;
           }

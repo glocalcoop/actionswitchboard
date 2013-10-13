@@ -63,7 +63,7 @@ class CRM_Utils_System_Drupal extends CRM_Utils_System_Base {
 
     $admin = user_access('administer users');
     if (!variable_get('user_email_verification', TRUE) || $admin) {
-            $form_state['input']['pass'] = array('pass1'=>$params['cms_pass'],'pass2'=>$params['cms_pass']);
+      $form_state['input']['pass'] = array('pass1'=>$params['cms_pass'],'pass2'=>$params['cms_pass']);
     }
 
     if(!empty($params['notify'])){
@@ -98,9 +98,7 @@ class CRM_Utils_System_Drupal extends CRM_Utils_System_Base {
     if (form_get_errors()) {
       return FALSE;
     }
-    else {
-      return $form_state['user']->uid;
-  }
+    return $form_state['user']->uid;
   }
 
   /*
@@ -550,7 +548,8 @@ class CRM_Utils_System_Drupal extends CRM_Utils_System_Base {
    *
    * @param string $name     the user name
    * @param string $password the password for the above user name
-   * @param $loadCMSBootstrap boolean load cms bootstrap?
+   * @param boolean $loadCMSBootstrap load cms bootstrap?
+   * @param NULL|string $realPath filename of script
    *
    * @return mixed false if no auth
    *               array(
@@ -651,6 +650,19 @@ AND    u.status = 1
   }
 
   /**
+   * Perform any post login activities required by the UF -
+   * e.g. for drupal: records a watchdog message about the new session, saves the login timestamp,
+   * calls hook_user op 'login' and generates a new session.
+   *
+   * @param array params
+   *
+   * FIXME: Document values accepted/required by $params
+   */
+  function userLoginFinalize($params = array()){
+    user_login_finalize($params);
+  }
+
+  /**
    * Set a message in the UF to display to a user
    *
    * @param string $message the message to set
@@ -694,20 +706,26 @@ AND    u.status = 1
   function getUFLocale() {
     // return CiviCRM’s xx_YY locale that either matches Drupal’s Chinese locale
     // (for CRM-6281), Drupal’s xx_YY or is retrieved based on Drupal’s xx
+    // sometimes for CLI based on order called, this might not be set and/or empty
     global $language;
-    switch (TRUE) {
-      case $language->language == 'zh-hans':
-        return 'zh_CN';
 
-      case $language->language == 'zh-hant':
-        return 'zh_TW';
-
-      case preg_match('/^.._..$/', $language->language):
-        return $language->language;
-
-      default:
-        return CRM_Core_I18n_PseudoConstant::longForShort(substr($language->language, 0, 2));
+    if (empty($language)) {
+      return NULL;
     }
+
+    if ($language->language == 'zh-hans') {
+      return 'zh_CN';
+    }
+
+    if ($language->language == 'zh-hant') {
+      return 'zh_TW';
+    }
+
+    if (preg_match('/^.._..$/', $language->language)) {
+      return $language->language;
+    }
+
+    return CRM_Core_I18n_PseudoConstant::longForShort(substr($language->language, 0, 2));
   }
 
   function getVersion() {
@@ -717,12 +735,12 @@ AND    u.status = 1
   /**
    * load drupal bootstrap
    *
-   * @param $params array with uid or name and password
-   * @param $loadUser boolean load cms user?
-   * @param $throwError throw error on failure?
+   * @param array $params Either uid, or name & pass.
+   * @param boolean $loadUser boolean Require CMS user load.
+   * @param boolean $throwError If true, print error on failure and exit.
+   * @param boolean|string $realPath path to script
    */
-  function loadBootStrap($params = array(
-    ), $loadUser = TRUE, $throwError = TRUE, $realPath = NULL) {
+  function loadBootStrap($params = array(), $loadUser = TRUE, $throwError = TRUE, $realPath = NULL) {
     //take the cms root path.
     $cmsPath = $this->cmsRootPath($realPath);
 
@@ -745,13 +763,12 @@ AND    u.status = 1
       }
     }
     require_once 'includes/bootstrap.inc';
-    drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+    // @ to suppress notices eg 'DRUPALFOO already defined'.
+    @drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
     // explicitly setting error reporting, since we cannot handle drupal related notices
     error_reporting(1);
-    if (!function_exists('module_exists') ||
-      !module_exists('civicrm')
-    ) {
+    if (!function_exists('module_exists') || !module_exists('civicrm')) {
       if ($throwError) {
         echo '<br />Sorry, could not load drupal bootstrap.';
         exit();
@@ -761,8 +778,6 @@ AND    u.status = 1
 
     // seems like we've bootstrapped drupal
     $config = CRM_Core_Config::singleton();
-
-
 
     // lets also fix the clean url setting
     // CRM-6948
@@ -810,7 +825,8 @@ AND    u.status = 1
       exit();
     }
 
-    // CRM-6948: When using loadBootStrap, it's implicit that CiviCRM has already loaded its settings, which means that define(CIVICRM_CLEANURL) was correctly set.
+    // CRM-6948: When using loadBootStrap, it's implicit that CiviCRM has already loaded its settings
+    // which means that define(CIVICRM_CLEANURL) was correctly set.
     // So we correct it
     $config = CRM_Core_Config::singleton();
     $config->cleanURL = (int)variable_get('clean_url', '0');
@@ -821,8 +837,10 @@ AND    u.status = 1
     return FALSE;
   }
 
+  /**
+   *
+   */
   function cmsRootPath($scriptFilename = NULL) {
-
     $cmsRoot = $valid = NULL;
 
     if (!is_null($scriptFilename)) {
@@ -908,10 +926,7 @@ AND    u.status = 1
    * @return string $url, formatted url.
    * @static
    */
-  function languageNegotiationURL($url,
-    $addLanguagePart = TRUE,
-    $removeLanguagePart = FALSE
-  ) {
+  function languageNegotiationURL($url, $addLanguagePart = TRUE, $removeLanguagePart = FALSE) {
     if (empty($url)) {
       return $url;
     }
@@ -1003,12 +1018,17 @@ AND    u.status = 1
 
   /**
    * Wrapper for og_membership creation
+   *
+   * @param integer $ogID Organic Group ID
+   * @param integer $drupalID drupal User ID
    */
   function og_membership_create($ogID, $drupalID){
     if (function_exists('og_entity_query_alter')) {
-      // sort-of-randomly chose a function that only exists in the 7.x-2.x branch
-      // TODO: Find a more solid way to make this test
-      // Also, since we don't know how to get the entity type of the group, we'll assume it's 'node'
+      // sort-of-randomly chose a function that only exists in the // 7.x-2.x branch
+      //
+      // @TODO Find more solid way to check - try system_get_info('module', 'og').
+      //
+      // Also, since we don't know how to get the entity type of the // group, we'll assume it's 'node'
       og_group('node', $ogID, array('entity' => user_load($drupalID)));
     }
     else {
@@ -1019,6 +1039,9 @@ AND    u.status = 1
 
   /**
    * Wrapper for og_membership deletion
+   *
+   * @param integer $ogID Organic Group ID
+   * @param integer $drupalID drupal User ID
    */
   function og_membership_delete($ogID, $drupalID) {
     if (function_exists('og_entity_query_alter')) {

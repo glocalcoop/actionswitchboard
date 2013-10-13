@@ -90,9 +90,12 @@ class CRM_Event_BAO_Event extends CRM_Event_DAO_Event {
    */
   static function add(&$params) {
     CRM_Utils_System::flushCache();
-
+    $financialTypeId = NULL;
     if (CRM_Utils_Array::value('id', $params)) {
       CRM_Utils_Hook::pre('edit', 'Event', $params['id'], $params);
+      if (!CRM_Utils_Array::value('skipFinancialType', $params)) {
+        $financialTypeId = CRM_Core_DAO::getFieldValue('CRM_Event_DAO_Event', $params['id'], 'financial_type_id');
+      }
     }
     else {
       CRM_Utils_Hook::pre('create', 'Event', NULL, $params);
@@ -109,7 +112,10 @@ class CRM_Event_BAO_Event extends CRM_Event_DAO_Event {
     else {
       CRM_Utils_Hook::post('create', 'Event', $event->id, $event);
     }
-
+    if ($financialTypeId && CRM_Utils_Array::value('financial_type_id', $params)
+      && $financialTypeId != $params['financial_type_id']) {
+      CRM_Price_BAO_FieldValue::updateFinancialType($params['id'], 'civicrm_event', $params['financial_type_id']);
+    }
     return $result;
   }
 
@@ -495,7 +501,7 @@ LIMIT      0, 10
       $eventSummary['events'][$dao->id]['is_subevent'] = $dao->slot_label_id;
       $eventSummary['events'][$dao->id]['is_pcp_enabled'] = $dao->is_pcp_enabled;
       $eventSummary['events'][$dao->id]['reminder'] = CRM_Core_BAO_ActionSchedule::isConfigured($dao->id, $mappingID);
-      
+
       $statusTypes = CRM_Event_PseudoConstant::participantStatus();
       foreach ($statusValues as $statusId => $statusValue) {
         if (!array_key_exists($statusId, $statusTypes)) {
@@ -659,16 +665,28 @@ WHERE civicrm_address.geo_code_1 IS NOT NULL
   /**
    * function to get the complete information for one or more events
    *
-   * @param  date    $start    get events with start date >= this date
-   * @param  integer $type     get events on the a specific event type (by event_type_id)
-   * @param  integer $eventId  return a single event - by event id
-   * @param  date    $end      also get events with end date >= this date
+   * @param  date    $start      get events with start date >= this date
+   * @param  integer $type       get events on the a specific event type (by event_type_id)
+   * @param  integer $eventId    return a single event - by event id
+   * @param  date    $end        also get events with end date >= this date
+   * @param  boolean $onlyPublic include public events only, default TRUE
    *
    * @return  array  $all      array of all the events that are searched
    * @static
    * @access public
    */
-  static function &getCompleteInfo($start = NULL, $type = NULL, $eventId = NULL, $end = NULL) {
+  static function &getCompleteInfo(
+    $start = NULL,
+    $type = NULL,
+    $eventId = NULL,
+    $end = NULL,
+    $onlyPublic = TRUE
+  ) {
+    $publicCondition = NULL;
+    if ($onlyPublic) {
+      $publicCondition = "  AND civicrm_event.is_public = 1";
+    }
+
     $dateCondition = '';
     // if start and end date are NOT passed, return all events with start_date OR end_date >= today CRM-5133
     if ($start) {
@@ -683,7 +701,8 @@ WHERE civicrm_address.geo_code_1 IS NOT NULL
       $dateCondition .= " AND ( civicrm_event.end_date <= '{$endDate}' ) ";
     }
 
-    // CRM-9421 and CRM-8620 Default mode for ical/rss feeds. No start or end filter passed. Need to exclude old events with only start date
+    // CRM-9421 and CRM-8620 Default mode for ical/rss feeds. No start or end filter passed.
+    // Need to exclude old events with only start date
     // and not exclude events in progress (start <= today and end >= today). DGG
     if (empty($start) && empty($end)) {
       // get events with end date >= today, not sure of this logic
@@ -738,8 +757,8 @@ LEFT JOIN civicrm_option_value ON (
                                     civicrm_event.event_type_id = civicrm_option_value.value AND
                                     civicrm_option_value.option_group_id = %1 )
 WHERE civicrm_event.is_active = 1
-      AND civicrm_event.is_public = 1
       AND (is_template = 0 OR is_template IS NULL)
+      {$publicCondition}
       {$dateCondition}";
 
     if (isset($typeCondition)) {
@@ -866,23 +885,7 @@ WHERE civicrm_event.is_active = 1
          $fieldsFix
        );
     }
-    $priceSetId = CRM_Price_BAO_Set::getFor('civicrm_event', $id);
-    if ($priceSetId) {
-      $isQuickConfig = CRM_Core_DAO::getFieldValue('CRM_Price_DAO_Set', $priceSetId, 'is_quick_config');
-      if(!$isQuickConfig) {
-        $copyPriceSet = &CRM_Price_BAO_Set::copy($priceSetId);
-        CRM_Price_BAO_Set::addTo('civicrm_event', $copyEvent->id, $copyPriceSet->id);
-      } else {
-        $copyPriceSet = &CRM_Core_DAO::copyGeneric('CRM_Price_DAO_SetEntity',
-          array(
-            'entity_id' => $id,
-            'entity_table' => 'civicrm_event',
-          ),
-          array('entity_id' => $copyEvent->id)
-        );
-      }
-    }
-
+    CRM_Price_BAO_Set::copyPriceSet('civicrm_event', $id, $copyEvent->id);
     $copyUF = &CRM_Core_DAO::copyGeneric('CRM_Core_DAO_UFJoin',
       array(
         'entity_id' => $id,

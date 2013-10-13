@@ -124,5 +124,17 @@ abstract class CRM_Utils_System_Base {
   function flush() {
     // nullop by default
   }
+
+  /**
+   * Perform any post login activities required by the CMS -
+   * e.g. for drupal: records a watchdog message about the new session, saves the login timestamp,
+   * calls hook_user op 'login' and generates a new session.
+   *
+   * @param array params
+   *
+   * FIXME: Document values accepted/required by $params
+   */
+  function userLoginFinalize($params = array()){
+  }
 }
 
