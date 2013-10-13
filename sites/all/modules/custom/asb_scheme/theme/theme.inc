@@ -36,7 +36,9 @@ function asb_scheme_preprocess_asb_scheme_group_info(&$variables) {
   // @TODO Add a configuration form to select the 'manager' roles for the group.
   $roles = og_extras_get_roles($variables['gid']);
   foreach ($roles as $role) {
-    $role_rids[] = $role->rid;
+    if($role->name == 'Scheme Leader') {
+      $role_rids[] = $role->rid;
+    }
   }
 
   $variables['manager_uids'] = array($variables['group_node']->uid);
