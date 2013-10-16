@@ -30,7 +30,7 @@ global $user;
 <?php if($node->workflow != 5): ?>
 <?php print render($content['field_progress']); ?>
 <div class="scheme-info">
-  <h4>Needs</h4>
+  <h4 class="scheme-needs">Needs</h4>
   <ul class="scheme-needs">
     <li class="needed-skills"><?php print render($content['field_people_needs']); ?></li>
     <li class="needed-supplies"><?php print render($content['field_material_needs']); ?></li>
@@ -38,7 +38,7 @@ global $user;
   </ul>
 </div>
 <?php else: ?>
-<div class="scheme-info"><h4>About</h4>
+<div class="scheme-info"><h4 class="about-scheme">About</h4>
   <ul class="scheme-needs sc-complete">
     <li class="sc-fans"><label>Fans:</label><?php print $fans; ?> </li>
     <li class="sc-people"><label>People:</label><?php print $people_count; ?></li>

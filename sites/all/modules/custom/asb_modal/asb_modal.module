@@ -48,6 +48,12 @@ function asb_modal_menu() {
     'access arguments' => array('create update content'),
     'type' => MENU_CALLBACK,
   );
+  $items['asb-modal-og-callback/%ctools_js/%/%'] = array(
+    'page callback' => 'asb_modal_og_modal_callback',
+    'page arguments' => array(1,2,3),
+    'access arguments' => array('create update content'),
+    'type' => MENU_CALLBACK,
+  );
 
   return $items;
 }
@@ -62,13 +68,14 @@ function asb_modal_block_info() {
 /**
  * Implements hook_views_pre_view
  *
- * Using this to populate the ajaxed scheme content
+ * Populate the ajax loaded scheme content
  * with add content links.
  */
 function asb_modal_views_pre_view(&$view, &$display_id, &$args) {
   if($view->name == 'scheme_content'){
     // here we call asb_modal_settings to theme
     // header content add links
+    // FIXME: This currently only references one scheme (should be contextual).
     $header = asb_modal_settings('9', array('update'));
     // $header = asb_modal_settings();
     // $header = "This is the text that I want in my footer!!!!";
@@ -172,7 +179,6 @@ function asb_modal_block_view($block_name) {
     // ctools_add_js('asb_modal', 'asb_modal');
     ctools_add_css('asb_modal', 'asb_modal');
     $group = og_context();
-    // dsm($group);
     return array(
       'subject' => t('Modal Update Title!'),
       'content' => ctools_modal_text_button(t('Click Here!'),'asb-modal-callback/nojs/' .$group['gid'], t('Click Here!'), 'ctools-modal-asb-modal-style'),
@@ -181,7 +187,7 @@ function asb_modal_block_view($block_name) {
 }
 
 function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
-  // If the user doesn't have javascript, redirect them to the normal node/add/article page
+  // If the user doesn't have javascript, redirect them to the normal node/add/node-type page
   $js = true;
   if (!$js) {
     drupal_goto('node/add/' .$type);
@@ -223,10 +229,6 @@ function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
       $output = array();
       $output[] = ctools_modal_command_dismiss();
 
-      /** TODO: Get ajax to update the view, but seeing some
-       *  js errors that may or may not be related to the failure
-       *  I got it to work exactly once and don't know why I can't repeat it
-       */
       $html = views_embed_view('scheme_content', 'page', $gid);
       $output[] = ajax_command_html('#scheme-content', $html);
 
@@ -241,7 +243,6 @@ function asb_modal_modal_callback($js = false, $type = 'update', $gid = NULL) {
  * Implements hook_element_info_alter
  */
 function asb_modal_element_info_alter(&$type) {
-  // dsm($type);
   // Here we process the text_format element and remove
   // it if it's in the modal view.
   if (isset($type['form']['#action']) && strpos($type['form']['#action'], '/asb-modal-callback/ajax/') !== false) {
@@ -261,15 +262,13 @@ function asb_modal_element_info_alter(&$type) {
  * removes the text_format element.
  */
 function asb_modal_process_format($element) {
-  // dsm($element);
-// array of field names to restrict (add more here as needed)
+  // array of field names to restrict (add more here as needed)
   $fields = array(
     'field_textarea',
     'comment_body',
   );
   $element = filter_process_format($element);
   $element['format']['#attributes']['class'][] = 'element-hidden';
-  // dsm($element);
   // Hide the 'text format' pane below certain text area fields.
   if (isset($element['#field_name']) && in_array($element['#field_name'], $fields)){
     $element['format']['#access'] = FALSE;
@@ -291,4 +290,83 @@ function asb_modal_wysiwyg_editor_settings_alter(&$settings, $context) {
       $settings['height'] = 150;
     }
   }
+}
+
+/**
+ * Modal callback for og views
+ */
+function asb_modal_og_modal_callback($js = false, $type = 'admin', $gid = NULL) {
+  if ($js) {
+    // Required includes for ctools to work:
+    ctools_include('modal');
+    ctools_include('ajax');
+  }
+  // Add scheme_members_modals display
+  $view_name = 'scheme_members_modals';
+  $display_name = 'block_1';
+  $view = views_get_view($view_name);
+  if ( is_object($view) ) {
+    $view->set_display($display_name);
+    $view->set_arguments(array($gid));
+    $view->pre_execute();
+    $contents = $view->render($display_name);
+  }
+  return ctools_modal_render('Manage Members', $contents);
+
+} 
+
+/**
+ * Generate form button for user removal from scheme 
+ * on the scheme member modal
+ */
+function asb_modal_remove_user($gid, $uid) {
+  $output = drupal_get_form('asb_modal_form', $gid, $uid);
+  return $output;
+}
+
+/**
+ * Implements hook_form()
+ *
+ * Create a form for user removal from scheme
+ * only show single submit button
+ */
+function asb_modal_form($form, &$form_state) {
+  $form = array();
+  $form['group_type'] = array(
+    '#type' => 'hidden',
+    '#value' => 'node',
+  );
+  $form['gid'] = array(
+    '#type' => 'hidden',    
+    '#value' => array('gid' => isset($form_state['build_info']['args'][0]) ? $form_state['build_info']['args'][0] : ''),
+  );
+  $form['entity_type'] = array(
+    '#type' => 'hidden',
+    '#value' => 'user',
+  );
+  $form['etid'] = array(
+    '#type' => 'hidden',
+    '#value' => array('etid' => isset($form_state['build_info']['args'][1]) ? $form_state['build_info']['args'][1] : ''),
+  );
+  $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Remove Member'),
+  );
+  // dsm($form);
+  // dsm($form_state);
+  return $form;
+}
+
+function asb_modal_form_validate(&$form, &$form_state) {
+  // Make sure we have a user uid and a gid
+  if(empty($form_state['input']['gid']) || $form_state['input']['gid'] == 0) {
+    form_set_error('gid', 'Something went wrong, group id failed validation.');
+  }elseif(empty($form_state['input']['etid']) || $form_state['input']['etid'] == 0) {
+    form_set_error('etid', 'Something went wrong, user id failed validation.');
+  }
+}
+
+function asb_modal_form_submit(&$form, &$form_state) {
+  og_ungroup($form_state['input']['group_type'], $form_state['input']['gid'], 
+    $form_state['input']['entity_type'], $form_state['input']['etid']);
 }

@@ -354,7 +354,21 @@ function asb_scheme_preprocess_views_view(&$vars) {
 function asb_scheme_preprocess_views_view_field(&$vars) {
   // Get scheme owner for individual scheme displays
   // dsm($vars['field']->field);
-
+  
+  if($vars['view']->name == 'scheme_members_modals') {
+    $vars['view']->remove_og_user = array();
+    // Get user id from view results and ad remove button
+    if($vars['field']->field_alias == 'civicrm_value_skills_1_skills_1') {
+      foreach($vars['view']->result as $key => $value) {
+        if($key == $vars['view']->row_index) {
+          $gid = $vars['view']->args[0];
+          $uid = $value->uid;
+          $vars['view']->field['skills_1']->remove_button = asb_modal_remove_user($gid, $uid);
+        }
+      }
+    }
+    // dsm($vars['view']->field['skills_1']);
+  }
   if($vars['view']->name == 'scheme_overview') {
     foreach($vars['view']->result as $scheme) {
       // dsm(array_keys((array)$scheme));
