@@ -84,7 +84,10 @@ header#header {
       clear: both;
       color: $nav-description-color;
     }
-
+    &.is-active a, 
+    &.is-active span {
+      color: $accent;
+    }
     a.login,
     a.logout { color: $nav-title-color; }
   }
