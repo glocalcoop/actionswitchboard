@@ -185,6 +185,31 @@
     background-size: $size $size;
 }
 
+// similar to above, but allows for transparency... and sets up &before as opposed to belonging to :before/:after declarations
+@mixin zigzag-fringe( $color: #f00, $bg:  #000 , $loc: 'bottom' , $size: 15px, $deg: 45deg ) {
+  position: relative;
+  @include rotate(360deg); // helps some browsers render with anti-aliasing
+  &:before {      
+    content: '';
+    position: absolute;
+    background-repeat: repeat;
+    z-index: -1;
+    background-color: $color;
+    @include background(
+      linear-gradient( $deg, $bg, $bg 75%, $color 75%, $color ),
+      linear-gradient( -$deg, $bg, $bg 75%, $color 75%, $color )
+    );
+    background-position: 0.5*$size 0, 0.5*$size 0, 0 0.5*$size, 0 0.5*$size;
+    background-size: $size $size;
+    left: 0;
+    height: $size;
+    bottom: -$size;
+    width: 100%;
+  }
+}
+
+
+
 @mixin shadow ($h-shadow: 10px, $v-shadow: 10px, $blur: 5px, $spread: 5px, $color: #888888){
   box-shadow: $h-shadow $v-shadow $blur $spread $color;
 }
