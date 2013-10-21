@@ -2,6 +2,7 @@
 
 @import "base";
 @import "type";
+@import "util";
 
 html, p {
   @include body-text;
