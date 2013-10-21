@@ -11,15 +11,10 @@
 
 @import "base";
 
-
-
-
-
 // We are going to create a 980px wide, 5 column grid with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
 $zen-column-count:  8;
 $zen-gutter-width:  10px;
-
 
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
 // - Drop support for IE 6/7. :-) In the _base.scss, set $legacy-support-for-ie6
@@ -31,7 +26,6 @@ $zen-gutter-width:  10px;
 // - Use the same CSS unit for grid width and gutter width (use px for both or
 //   use % for both, etc.) and set the box-sizing variable to content-box.
 //   $zen-box-sizing: content-box;
-
 
 // You can generate more efficient CSS if you manually apply the
 // zen-grid-item-base mixin to all grid items from within a single ruleset.
@@ -57,15 +51,6 @@ $zen-auto-include-item-base: false;
 .front #content {
   padding-top: 3em;
 }
-// Apply the shared properties of grid items in a single, efficient ruleset.
-// #content,
-// #footer section.content{
-//   @include zen-grid-item-base();
-// }
-
-// Containers for grid items and flow items.
-
-
 
 // Navigation bar
 
@@ -208,7 +193,7 @@ $zen-auto-include-item-base: false;
 
   #header-image-strip {
     position: absolute;
-    top: 57px;
+    top: 53px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -222,9 +207,8 @@ $zen-auto-include-item-base: false;
   }
 
   .logged-in.admin-menu #header-image-strip{
-//    top: 73px;
-    top: 60px;
-   }
+    top: 73px;
+  }
 
   /* node editing */
   .page-node-add-scheme {
