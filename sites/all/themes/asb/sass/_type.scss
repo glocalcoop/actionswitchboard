@@ -15,7 +15,9 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+.modal-update-title,
+#modal-title {
   text-transform: uppercase;
   color: $text-color-prominent;
   font-family: $header-font-family;
@@ -26,6 +28,8 @@ h1 {
   font-size: $h1-font-size;
 }
 
+.modal-update-title,
+#modal-title,
 h2 {
   font-size: $h2-font-size;
 }

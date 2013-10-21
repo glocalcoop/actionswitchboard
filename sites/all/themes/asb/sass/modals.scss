@@ -4,15 +4,22 @@
 
 #modalContent {
 	span.modal-update-title {
-        @include header-style ($family: $header-font-family, $size: $h2-font-size, $transform: uppercase, $weight: normal);
+		background: none
+	}
+	.modal-header {
+		background: none;
+		height: auto;
+		span {
+
+		}
 	}
 	div.ctools-modal-content {
 		padding: 25px 10px;
 		background: $panel;
+		border: none;
+		@include border-radius( 2px );
+		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
 
-		border: {
-			@include standard-border;
-		}
 		div.modal-head-wrapper {}
 	}
 

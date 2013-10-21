@@ -3,6 +3,7 @@
 @import "base";
 @import "type";
 @import "util";
+@import "modals";
 
 html, p {
   @include body-text;
@@ -70,7 +71,10 @@ body {
   @include transition-timing-function(ease-in-out);
   @include zigzag-border($panel, $even-backdrop);
   height: 120px;
-  &.hidden { height: 0px; padding: 0 }
+  &.atrest {
+    @include transition-duration(0);  
+  }
+  &.hidden, &.atrest { height: 0px; padding: 0 }
   // &.active { height: auto; }
 }
 
@@ -338,7 +342,6 @@ ul.ui-button li.ui-button a {
   }
 }
 
-
 ul.tags {
   list-style:none;
   li {
@@ -349,7 +352,6 @@ ul.tags {
     }
   }
 }
-
 
 .not-front #header-image-strip { display: none }
 
