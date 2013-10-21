@@ -54,6 +54,9 @@ $zen-auto-include-item-base: false;
   max-width: 960px;
 }
 
+.front #content {
+  padding-top: 3em;
+}
 // Apply the shared properties of grid items in a single, efficient ruleset.
 // #content,
 // #footer section.content{
