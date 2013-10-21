@@ -38,16 +38,15 @@ $zen-gutter-width:  10px;
 $zen-auto-include-item-base: false;
 // $zen-auto-include-flow-item-base: false;
 
-.not-front #header-image-strip { display: none }
 
 // Center the page.
-header#header,
+#header .content,
 #content article>header .wrapper,
 #content article>.wrapper,
 #content .scheme-collection-view,
 #footer section.content,
 .messages__list,
-.views-exposed-widgets,
+.region-search .views-exposed-widgets,
 .page-node-add-scheme #content{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
@@ -70,7 +69,6 @@ header#header,
 
 @media all and (min-width: 480px) {
   #main {
-    // padding-top: 3em; /* Move all the children of #main down to make room. */
     position: relative;
   }
   #navigation {
@@ -81,52 +79,27 @@ header#header,
   }
 }
 
-
-// Search filters region
-.region-search {
-  overflow: hidden;
-  background: $panel;
-  @include transition-property( padding-top, height );
-  @include transition-duration(.5s);
-  @include transition-timing-function(ease-in-out);
-  @include zigzag-border ($panel, $even-backdrop);    
-  height: 200px;
-  // padding-top: 0px;
-  &.active {
-  }
-}
-
-.region-search.atrest {
-  @include transition-duration(0);  
-}
-
-
+// Region Search
 .front {
   .region-search {
     position: relative;
     padding-top: 30px;
-    top: -77px;
   }
 }
 
-.region-search.hidden {
+.hidden {
   height: 0px;
-  padding-top: 0px;
+  padding: 0;
+  iframe {
+  @include element-invisible();
 }
 
-.scheme-search {
-
-}
-
-.not-front.page-node {
-  .region-search {
-    background-color: $panel;
-    background-image: none;
-    border-bottom: 1px #dedede solid;
+#tour.active {
+  @include element-invisible-off();
+    border: 1px #f00 solid;
+    display: none;
   }
 }
-
-
 
 @media all and (min-width: 720px) and (max-width: 959px) {
 
@@ -134,8 +107,11 @@ header#header,
   $zen-gutter-width:  10px;
   $zen-column-count: 6;
 
-  header#header,
-  header section.content,
+  #header {
+    width: 100%;
+  }
+
+  #header section.content,
   #content-wrapper,
   #footer section.content {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
