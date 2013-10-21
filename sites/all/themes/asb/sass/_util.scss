@@ -1,8 +1,18 @@
-/* a place to put little special use reusable snippets that dont belong in _custom.scss
-
+// A place to put small little special use reusable classes that may not belong in with mixins
+//
 // sets transition duration to 0 so that something that has a transition, can when having this class hide/show without transition
 // used for showing search region in search results without it animating in.
+//
+
 .atrest {
   @include transition-duration(0);  
 }
 
+.invisible {
+  @include element-invisible();  
+}
+
+// .hidden {
+//   height: 0;
+//   padding: 0;
+// }

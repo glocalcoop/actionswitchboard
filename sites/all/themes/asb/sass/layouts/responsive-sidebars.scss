@@ -40,20 +40,19 @@ $zen-auto-include-item-base: false;
 
 
 // Center the page.
-#header .content,
+#header,
 #content article>header .wrapper,
 #content article>.wrapper,
 #content .scheme-collection-view,
 #footer section.content,
 .messages__list,
-.region-search .views-exposed-widgets,
+.views-exposed-widgets,
 .page-node-add-scheme #content{
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
 }
-
 
 // Apply the shared properties of grid items in a single, efficient ruleset.
 // #content,
@@ -83,28 +82,25 @@ $zen-auto-include-item-base: false;
 .front {
   .region-search {
     position: relative;
-    padding-top: 30px;
+    padding: 30px 0 0 0;
   }
 }
 
-.hidden {
-  height: 0px;
-  padding: 0;
+#tour.hidden {
   iframe {
-  @include element-invisible();
+    @include element-invisible();
+  }
 }
 
 #tour.active {
   @include element-invisible-off();
-    border: 1px #f00 solid;
-    display: none;
-  }
+  display: none;
 }
 
 @media all and (min-width: 720px) and (max-width: 959px) {
 
   $zen-grid-width: 720px;
-  $zen-gutter-width:  10px;
+  $zen-gutter-width: 10px;
   $zen-column-count: 6;
 
   #header {
@@ -152,12 +148,13 @@ $zen-auto-include-item-base: false;
   // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
   $zen-column-count: 8;
   
-  header#header,
+  #header,
   #content,
   footer#footer section.content {
     @include zen-grid-container;
   }
 
+  #header,
   #block-views-exp-scheme-search-page,
   .not-front #content {
     width: 960px;
