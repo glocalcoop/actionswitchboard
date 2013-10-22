@@ -3,28 +3,62 @@
 @import "base";
 
 #modalContent {
+
+	height: 100% !important;
+	width: 100% !important;
+	// border: 4px #f00 solid;
+	top: 0 !important;
+	left: 50% !important;
+
 	span.modal-update-title {
-		background: none
+		background: none;
 	}
+
 	.modal-header {
+		padding: 24px;
 		background: none;
 		height: auto;
-		span {
-
-		}
 	}
+
 	div.ctools-modal-content {
-		padding: 25px 10px;
+		position: relative;
+		top: 95px;
+		left: -25%;
+		height: auto !important;
 		background: $panel;
 		border: none;
 		@include border-radius( 2px );
 		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
-
-		div.modal-head-wrapper {}
+		padding-bottom: 2em;
 	}
 
+	a.close { 
+		color: $backdrop;
+		font-size: 1.25em;
+	  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+	  @extend %entypo-close;
+	  position: relative;
+	  @include box-sizing( border-box );
+	  width: 22px;
+	  height: 20px;
+	  padding-top: 1.25em;
+	  overflow: hidden;
+	  &:before {
+			text-indent: 0px;
+	    line-height: .875;
+	    position: absolute;
+	    top: -0.125em;
+	    width: 40%;
+	    padding-top: 0;
+	    // top: .125em;
+	    content: "\2716";
+	    text-align: right;
+	  }
+		}
+
 	div.modal-content {
-		padding: 0;
+		height: auto !important;
+		padding: 0 24px;
 	}
 
 	div.vertical-tabs {
@@ -38,6 +72,20 @@
 			display: none;
 		}
 	}
+
+
+	#edit-field-issues-goals {
+		.form-type-checkbox {
+			line-height: 2;
+			border-bottom: 1px #dedede solid;
+			padding: .25em 0 .25em;
+			float: left;
+			width: 24em;
+			margin: 0 1em 0 0;
+		}
+	}
+
+	#edit-actions input, form .form-actions input { float: none; } 
 
 }
 

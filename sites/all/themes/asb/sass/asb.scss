@@ -5,6 +5,10 @@
 @import "util";
 @import "modals";
 
+html, body {
+  min-height : 100%;
+  width: 100%; 
+}
 html, p {
   @include body-text;
 }
