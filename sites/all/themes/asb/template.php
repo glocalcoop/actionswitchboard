@@ -354,7 +354,6 @@ function asb_scheme_preprocess_views_view(&$vars) {
 function asb_scheme_preprocess_views_view_field(&$vars) {
   // Get scheme owner for individual scheme displays
   // dsm($vars['field']->field);
-  
   if($vars['view']->name == 'scheme_members_modals') {
     $vars['view']->remove_og_user = array();
     // Get user id from view results and ad remove button
