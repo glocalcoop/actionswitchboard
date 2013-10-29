@@ -37,9 +37,3 @@
 <div class="profile"<?php print $attributes; ?>>
   <?php print render($user_profile); ?>
 </div>
-
-<div>
-<?php
-dsm($user_profile);
-?>
-</div>
