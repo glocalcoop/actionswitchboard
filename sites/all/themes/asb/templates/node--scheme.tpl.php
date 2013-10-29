@@ -146,10 +146,12 @@ global $user;
               <time><?php print render($content['format_created']); ?></time>
             </section>
 
-            <dl class="issue">
-              <dt>Issue</dt>
-              <dd><?php print render($content['issues']); ?></dd>
-            </dl>
+            <section class="issues">
+              <h6>Issue</h6>
+              <ul class="tags">
+                <?php print render($content['issues']); ?>
+              </ul>
+            </section>
 
             <section class="goals">
               <h6>Goals</h6>
