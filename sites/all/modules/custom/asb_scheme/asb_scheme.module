@@ -4,6 +4,10 @@ function asb_scheme_init() {
   ctools_include('ajax');
 }
 
+function asb_scheme_cron() {
+  // asb_scheme_civicrm_api();
+  _asb_scheme_update_skills();
+}
 
 /** 
  * Implements hook_comment_view_alter()
@@ -707,10 +711,10 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         $leader = asb_scheme_get_scheme_leader($node->nid);
         $node->content['field_leader'][0]['#markup'] = '<div class="scheme-leader"><a href="/user/' .$leader['uid'] .'">';
         $node->content['field_leader'][0]['#markup'] .= $leader['name'] .'</a></div><!-- Added in asb_scheme_node_view -->';
-        // set field_people_needs as count
-        $people_needs_count = count($node->field_people_needs['und']);
-        unset($node->content['field_people_needs']);
-        $node->content['field_people_needs'][0]['#markup'] = $people_needs_count;
+        // set field_people_skills as count
+        $people_needs_count = count($node->field_people_skills['und']);
+        unset($node->content['field_people_skills']);
+        $node->content['field_people_skills'][0]['#markup'] = $people_needs_count;
         // set field_material_needs as count
         $material_needs_count = count($node->field_material_needs['und']);
         unset($node->content['field_material_needs']);
@@ -1019,3 +1023,68 @@ function asb_scheme_email_facilitator_action_submit($form, $form_state) {
 }
 
 /**** END rules configuration ****/
+
+function asb_scheme_civicrm_api() {
+  if(!isset($config)) {
+    require_once(DRUPAL_ROOT .'/sites/default/civicrm.settings.php');
+    require_once 'CRM/Core/Config.php';
+    $config = CRM_Core_Config::singleton( );
+  }
+  require_once 'api/api.php';
+    // $api = new civicrm_api3();
+  // $result = $api->Entity->Action ( $params );
+  try{
+    $contacts = civicrm_api3('OptionValue', 'get', array(
+                  'version' => 3,
+                  'sequential' => 1,
+                  'option_group_id' => 86,
+                ));
+  }
+  catch (CiviCRM_API3_Exception $e) {
+    $error = $e->getMessage();
+    //dsm($error);
+  }
+  //dsm($contacts);
+  $result = civicrm_api('uf_match', 'get', array('version' => 3, 'uf_id' => 10));
+  /* require_once DRUPAL_ROOT .'/sites/all/modules/contrib/civicrm/CRM/Core/ClassLoader.php'; */
+  /* $classLoader = new CRM_Core_ClassLoader(); */
+  /* $classLoader->register(); */
+  /* require_once DRUPAL_ROOT .'/sites/all/modules/contrib/civicrm/api/class.api.php'; */
+  /* $api = new civicrm_api3(); */
+  // dsm($result);
+  return $contacts;
+
+}
+
+function asb_scheme_get_civi_skills($skills_info, $civi_skills) {
+  $civi_skills = asb_scheme_civicrm_api();
+  $skills_values = array();
+  foreach($civi_skills['values'] as $key => $value) {
+    $skills_values[$value['value']] = $value['label'];
+  }
+  $diff = array_merge($skills_info['settings']['allowed_values'], $skills_values);
+  // dsm($skills_info['settings']['allowed_values']);
+  // dsm($diff);
+  return $diff;
+}
+
+/**
+ *
+ * Synchronize civicrm skills field with field_people_skills
+ *
+ */
+function _asb_scheme_update_skills() {
+  $field_name = 'field_people_skills';
+  $instance = field_info_field($field_name);
+  // dsm($instance);
+  $skills = asb_scheme_civicrm_api();
+  $civi_skills = asb_scheme_get_civi_skills($instance, $skills);
+  $field = array(
+    'field_name' => 'field_people_skills',
+    'settings' => array(
+      'allowed_values' => $civi_skills,
+    ),
+  );
+  field_update_field($field);
+}
+

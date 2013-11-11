@@ -4,7 +4,7 @@ hide($content['issues']);
 hide($content['goals']);
 hide($content['format_created']);
 hide($content['group_group']);
-hide($content['field_people_needs']);
+hide($content['field_people_skills']);
 hide($content['field_material_needs']);
 hide($content['field_funding_needs']);
 hide($content['field_leader']);
@@ -28,11 +28,12 @@ global $user;
 </div>
 
 <?php if($node->workflow != 5): ?>
+<div class="field-issues-goals"><span class="sc-issue">Issue: </span><?php print render($content['issues']); ?></div>
 <?php print render($content['field_progress']); ?>
 <div class="scheme-info">
   <h4 class="scheme-needs">Needs</h4>
   <ul class="scheme-needs">
-    <li class="needed-skills"><?php print render($content['field_people_needs']); ?></li>
+    <li class="needed-skills"><?php print render($content['field_people_skills']); ?></li>
     <li class="needed-supplies"><?php print render($content['field_material_needs']); ?></li>
     <li class="needed-funds"><?php print "$" .render($content['field_funding_needs']); ?></li>
   </ul>
