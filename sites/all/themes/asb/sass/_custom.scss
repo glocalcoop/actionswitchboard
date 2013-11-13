@@ -282,6 +282,16 @@
   }
 }
 
-
+@mixin load-spinner( $bgcolor: #fff, $opacity: .8 ) {
+  position: absolute;
+  top: 0;
+  left : 0;
+  height: 100%;
+  width: 100%;
+  background-color : rgba( $bgcolor, $opacity );
+  background-image : url( ../images/spinner.gif );
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 
