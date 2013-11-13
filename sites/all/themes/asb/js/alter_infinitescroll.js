@@ -39,6 +39,7 @@ Drupal.behaviors.views_infinite_scroll = {
             var spinner = $('<div class="loading_spinner"><h4>Message</h4></div>').appendTo( $(view_selector) );
 
             spinner.hide();
+            console.log("hihihihi");
             var handle = $.autopager({
               autoLoad: false,
               appendTo: content_selector,
