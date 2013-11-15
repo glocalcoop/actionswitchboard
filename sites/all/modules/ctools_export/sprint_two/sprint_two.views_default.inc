@@ -161,58 +161,36 @@ function sprint_two_views_default_views() {
   $views['goals_to_issues'] = $view;
 
   $view = new view();
-  $view->name = 'goal_hierarchy';
-  $view->description = '';
+  $view->name = 'goal_tree';
+  $view->description = 'Goal tree view.';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Goal Hierarchy';
+  $view->human_name = 'Goal Tree';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Associated Goals';
+  $handler->display->display_options['title'] = 'Goal Tree';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['distinct'] = TRUE;
-  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'tree';
-  $handler->display->display_options['style_options']['main_field'] = 'nid';
-  $handler->display->display_options['style_options']['parent_field'] = 'field_parent_goal';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_child_goals_target_id']['id'] = 'field_child_goals_target_id';
-  $handler->display->display_options['relationships']['field_child_goals_target_id']['table'] = 'field_data_field_child_goals';
-  $handler->display->display_options['relationships']['field_child_goals_target_id']['field'] = 'field_child_goals_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Parent Goal */
-  $handler->display->display_options['fields']['field_parent_goal']['id'] = 'field_parent_goal';
-  $handler->display->display_options['fields']['field_parent_goal']['table'] = 'field_data_field_parent_goal';
-  $handler->display->display_options['fields']['field_parent_goal']['field'] = 'field_parent_goal';
-  $handler->display->display_options['fields']['field_parent_goal']['label'] = '';
-  $handler->display->display_options['fields']['field_parent_goal']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_parent_goal']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_parent_goal']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_parent_goal']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_parent_goal']['type'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_parent_goal']['settings'] = array(
-    'view_mode' => 'teaser',
-    'links' => 0,
-  );
-  $handler->display->display_options['fields']['field_parent_goal']['field_api_classes'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -220,31 +198,36 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Child Goals */
-  $handler->display->display_options['fields']['field_child_goals']['id'] = 'field_child_goals';
-  $handler->display->display_options['fields']['field_child_goals']['table'] = 'field_data_field_child_goals';
-  $handler->display->display_options['fields']['field_child_goals']['field'] = 'field_child_goals';
-  $handler->display->display_options['fields']['field_child_goals']['label'] = '';
-  $handler->display->display_options['fields']['field_child_goals']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_child_goals']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_child_goals']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_child_goals']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_child_goals']['type'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_child_goals']['settings'] = array(
+  /* Field: Content: Goals in Hierarchy */
+  $handler->display->display_options['fields']['field_goals']['id'] = 'field_goals';
+  $handler->display->display_options['fields']['field_goals']['table'] = 'field_data_field_goals';
+  $handler->display->display_options['fields']['field_goals']['field'] = 'field_goals';
+  $handler->display->display_options['fields']['field_goals']['label'] = '';
+  $handler->display->display_options['fields']['field_goals']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_goals']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_goals']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_goals']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_goals']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_goals']['settings'] = array(
     'view_mode' => 'teaser',
     'links' => 0,
   );
-  $handler->display->display_options['fields']['field_child_goals']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_child_goals']['field_api_classes'] = TRUE;
-  /* Contextual filter: Content: Issue Reference (field_issue_reference) */
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['id'] = 'field_issue_reference_target_id';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['table'] = 'field_data_field_issue_reference';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['field'] = 'field_issue_reference_target_id';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_issue_reference_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['fields']['field_goals']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_goals']['field_api_classes'] = TRUE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -257,18 +240,22 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'goal' => 'goal',
+    'issue' => 'issue',
   );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'goal-tree/%';
 
-  /* Display: Goal Hierarchy Block */
-  $handler = $view->new_display('block', 'Goal Hierarchy Block', 'block_1');
-  $handler->display->display_options['display_description'] = 'Lists goals in a tree based on issue id argument.';
-  $handler->display->display_options['block_description'] = 'Goal Tree';
-  $views['goal_hierarchy'] = $view;
+  /* Display: Goal Hierarchy */
+  $handler = $view->new_display('block', 'Goal Hierarchy', 'block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Associated Goals';
+  $handler->display->display_options['display_description'] = 'Show goals hierarchy related to the current issue node.';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $views['goal_tree'] = $view;
 
   $view = new view();
   $view->name = 'issues_and_goals_reference';
@@ -561,141 +548,6 @@ function sprint_two_views_default_views() {
     'node' => 'node',
   );
   $views['og_all_user_group_content'] = $view;
-
-  $view = new view();
-  $view->name = 'og_extras_groups';
-  $view->description = 'A listing of all node groups.';
-  $view->tag = 'OG Extras';
-  $view->base_table = 'node';
-  $view->human_name = 'OG Extras Groups';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Schemes';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['class'] = 'list-item';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: OG membership: OG membership from Node */
-  $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
-  /* Relationship: Content: Author */
-  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
-  $handler->display->display_options['relationships']['uid']['table'] = 'node';
-  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Images */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_image']['separator'] = '';
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
-  $handler->display->display_options['fields']['title']['element_class'] = 'scheme-title';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['name']['label'] = 'by';
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '600',
-  );
-  /* Field: Content: Group */
-  $handler->display->display_options['fields']['group_group']['id'] = 'group_group';
-  $handler->display->display_options['fields']['group_group']['table'] = 'field_data_group_group';
-  $handler->display->display_options['fields']['group_group']['field'] = 'group_group';
-  $handler->display->display_options['fields']['group_group']['label'] = '';
-  $handler->display->display_options['fields']['group_group']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['group_group']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['group_group']['type'] = 'og_group_subscribe';
-  $handler->display->display_options['fields']['group_group']['settings'] = array(
-    'field_name' => '0',
-  );
-  /* Field: Content: All taxonomy terms */
-  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
-  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['label'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
-    'issues' => 0,
-    'tags' => 0,
-  );
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'scheme' => 'scheme',
-  );
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'schemes';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Schemes';
-  $handler->display->display_options['menu']['weight'] = '10';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $views['og_extras_groups'] = $view;
 
   $view = new view();
   $view->name = 'og_extras_nodes';
@@ -1571,15 +1423,17 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h3>Needed Supplies</h3>';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['header']['area']['content'] = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_material_needs">Edit</a></div>
+<h3>Needed Supplies</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<div class="donate-button skills"><a href="/">Donate Skills</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -1588,8 +1442,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_people_needs']['multi_type'] = 'ul';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -1613,11 +1465,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'scheme' => 'scheme',
   );
-  /* Filter criterion: Content: People Needs (field_people_needs) */
-  $handler->display->display_options['filters']['field_people_needs_value']['id'] = 'field_people_needs_value';
-  $handler->display->display_options['filters']['field_people_needs_value']['table'] = 'field_data_field_people_needs';
-  $handler->display->display_options['filters']['field_people_needs_value']['field'] = 'field_people_needs_value';
-  $handler->display->display_options['filters']['field_people_needs_value']['operator'] = 'not empty';
 
   /* Display: Needed Skills Block */
   $handler = $view->new_display('block', 'Needed Skills Block', 'block');
@@ -1627,38 +1474,62 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h3>Needed Skills</h3>';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['header']['area']['content'] = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_people_skills">Edit</a></div>
+<h3>Needed Skills</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: People Needs */
-  $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs']['label'] = '';
-  $handler->display->display_options['fields']['field_people_needs']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_people_needs']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_people_skills_1']['id'] = 'field_people_skills_1';
+  $handler->display->display_options['fields']['field_people_skills_1']['table'] = 'field_data_field_people_skills';
+  $handler->display->display_options['fields']['field_people_skills_1']['field'] = 'field_people_skills';
+  $handler->display->display_options['fields']['field_people_skills_1']['label'] = '';
+  $handler->display->display_options['fields']['field_people_skills_1']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_people_skills_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_skills_1']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_people_skills_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_skills_1']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_people_skills_1']['multi_type'] = 'ul';
   /* Field: COUNT(Content: People Needs) */
-  $handler->display->display_options['fields']['field_people_needs_1']['id'] = 'field_people_needs_1';
-  $handler->display->display_options['fields']['field_people_needs_1']['table'] = 'field_data_field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs_1']['field'] = 'field_people_needs';
-  $handler->display->display_options['fields']['field_people_needs_1']['group_type'] = 'count';
-  $handler->display->display_options['fields']['field_people_needs_1']['label'] = '';
-  $handler->display->display_options['fields']['field_people_needs_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_people_needs_1']['alter']['text'] = '[field_people_needs_1] skills contributed.';
-  $handler->display->display_options['fields']['field_people_needs_1']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_people_needs_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_skills']['id'] = 'field_people_skills';
+  $handler->display->display_options['fields']['field_people_skills']['table'] = 'field_data_field_people_skills';
+  $handler->display->display_options['fields']['field_people_skills']['field'] = 'field_people_skills';
+  $handler->display->display_options['fields']['field_people_skills']['group_type'] = 'count';
+  $handler->display->display_options['fields']['field_people_skills']['label'] = '';
+  $handler->display->display_options['fields']['field_people_skills']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_people_skills']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_people_skills']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_people_skills']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_people_skills']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_people_skills']['separator'] = ', ';
   /* Field: Global: View result counter */
   $handler->display->display_options['fields']['counter']['id'] = 'counter';
   $handler->display->display_options['fields']['counter']['table'] = 'views';
   $handler->display->display_options['fields']['counter']['field'] = 'counter';
   $handler->display->display_options['fields']['counter']['exclude'] = TRUE;
   $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scheme' => 'scheme',
+  );
+  /* Filter criterion: Content: People Needs (field_people_skills) */
+  $handler->display->display_options['filters']['field_people_skills_value']['id'] = 'field_people_skills_value';
+  $handler->display->display_options['filters']['field_people_skills_value']['table'] = 'field_data_field_people_skills';
+  $handler->display->display_options['filters']['field_people_skills_value']['field'] = 'field_people_skills_value';
+  $handler->display->display_options['filters']['field_people_skills_value']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_people_skills_value']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['block_description'] = 'Needed Skills';
 
   /* Display: Needed Materials Block */
@@ -1718,8 +1589,10 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h3>Funds Raised</h3>';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['header']['area']['content'] = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_funding_needs">Edit</a></div>
+<h3>Funds Raised</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Funding Needs */
@@ -2166,6 +2039,14 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<a class="ctools-use-modal" href="/asb-modal-og-callback/nojs/admin/!1">Edit members</a>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -2207,6 +2088,162 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '1';
   $handler->display->display_options['menu']['context'] = 0;
   $views['scheme_members'] = $view;
+
+  $view = new view();
+  $view->name = 'scheme_members_modals';
+  $view->description = 'Group members.';
+  $view->tag = 'ross';
+  $view->base_table = 'users';
+  $view->human_name = 'Scheme members modals';
+  $view->core = 0;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="manage-members"><a href="/node/!1/group">Manage Members</a></div>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
+  /* Relationship: OG membership: OG membership from User */
+  $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
+  $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'users';
+  $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  /* Sort criterion: OG membership: Created */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'og_membership';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: OG membership: Group ID */
+  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'og_context';
+  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['gid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['gid']['validate']['type'] = 'og';
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  /* Filter criterion: OG membership: State */
+  $handler->display->display_options['filters']['state']['id'] = 'state';
+  $handler->display->display_options['filters']['state']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['state']['field'] = 'state';
+  $handler->display->display_options['filters']['state']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['filters']['state']['value'] = array(
+    1 => '1',
+  );
+
+  /* Display: Scheme Members Block */
+  $handler = $view->new_display('block', 'Scheme Members Block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Band of Schemers';
+  $handler->display->display_options['display_description'] = 'Display user pics of scheme members.';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'schemer';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['class'] = 'scheme-members';
+  $handler->display->display_options['style_options']['wrapper_class'] = 'schemers';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_type'] = '0';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['picture']['element_wrapper_class'] = 'schemer-thumb';
+  $handler->display->display_options['fields']['picture']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'asb_scheme_schemer_thumb';
+  /* Field: CiviCRM Contacts: First Name */
+  $handler->display->display_options['fields']['first_name']['id'] = 'first_name';
+  $handler->display->display_options['fields']['first_name']['table'] = 'civicrm_contact';
+  $handler->display->display_options['fields']['first_name']['field'] = 'first_name';
+  $handler->display->display_options['fields']['first_name']['label'] = '';
+  $handler->display->display_options['fields']['first_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['first_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['first_name']['link_to_civicrm_contact'] = 0;
+  /* Field: CiviCRM Contacts: Last Name */
+  $handler->display->display_options['fields']['last_name']['id'] = 'last_name';
+  $handler->display->display_options['fields']['last_name']['table'] = 'civicrm_contact';
+  $handler->display->display_options['fields']['last_name']['field'] = 'last_name';
+  $handler->display->display_options['fields']['last_name']['label'] = '';
+  $handler->display->display_options['fields']['last_name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['last_name']['alter']['text'] = '[first_name] [last_name]';
+  $handler->display->display_options['fields']['last_name']['element_type'] = 'span';
+  $handler->display->display_options['fields']['last_name']['element_class'] = 'civi-profile-name';
+  $handler->display->display_options['fields']['last_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['last_name']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['last_name']['element_wrapper_class'] = 'civi-profile-fullname';
+  $handler->display->display_options['fields']['last_name']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['last_name']['link_to_civicrm_contact'] = 0;
+  /* Field: CiviCRM Custom: Individual Profile Extra Fields: Skills */
+  $handler->display->display_options['fields']['skills_1']['id'] = 'skills_1';
+  $handler->display->display_options['fields']['skills_1']['table'] = 'civicrm_value_skills_1';
+  $handler->display->display_options['fields']['skills_1']['field'] = 'skills_1';
+  $handler->display->display_options['fields']['skills_1']['element_class'] = 'civi-skills';
+  $handler->display->display_options['fields']['skills_1']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['skills_1']['element_label_class'] = 'civi-skills-label';
+  $handler->display->display_options['fields']['skills_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['skills_1']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['skills_1']['element_wrapper_class'] = 'civi-profile-skills';
+  $handler->display->display_options['fields']['skills_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['skills_1']['hide_empty'] = TRUE;
+  $views['scheme_members_modals'] = $view;
 
   $view = new view();
   $view->name = 'scheme_overview';
@@ -2288,7 +2325,7 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
   );
-  /* Field: Content: People Needs (field_people_needs:delta) */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['delta_1']['id'] = 'delta_1';
   $handler->display->display_options['fields']['delta_1']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['delta_1']['field'] = 'delta';
@@ -2462,7 +2499,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -2632,7 +2669,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -2778,7 +2815,7 @@ function sprint_two_views_default_views() {
   );
   $handler->display->display_options['fields']['body']['group_column'] = 'entity_id';
   $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -2978,7 +3015,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -3093,6 +3130,11 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Clear Filters';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Search Schemes';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '16';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -3157,7 +3199,7 @@ function sprint_two_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['fields']['body']['group_column'] = 'entity_id';
-  /* Field: Content: People Needs (field_people_needs:delta) */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['delta_1']['id'] = 'delta_1';
   $handler->display->display_options['fields']['delta_1']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['delta_1']['field'] = 'delta';
@@ -3340,7 +3382,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -3503,7 +3545,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -3518,7 +3560,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['separator'] = ', ';
   /* Field: Content: Material Needs */
   $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
   $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
@@ -3652,7 +3693,7 @@ function sprint_two_views_default_views() {
   );
   $handler->display->display_options['fields']['body']['group_column'] = 'entity_id';
   $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -3667,7 +3708,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['separator'] = ', ';
   /* Field: Content: Material Needs */
   $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
   $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
@@ -3827,7 +3867,7 @@ function sprint_two_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 0,
   );
-  /* Field: Content: People Needs */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_people_needs']['id'] = 'field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['table'] = 'field_data_field_people_needs';
   $handler->display->display_options['fields']['field_people_needs']['field'] = 'field_people_needs';
@@ -3842,7 +3882,6 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['fields']['field_people_needs']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_people_needs']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_people_needs']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_people_needs']['separator'] = ', ';
   /* Field: Content: Material Needs */
   $handler->display->display_options['fields']['field_material_needs']['id'] = 'field_material_needs';
   $handler->display->display_options['fields']['field_material_needs']['table'] = 'field_data_field_material_needs';
@@ -3934,6 +3973,7 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'search_teaser';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -4041,11 +4081,13 @@ function sprint_two_views_default_views() {
   $handler->display->display_options['filters']['field_material_needs_value']['table'] = 'field_data_field_material_needs';
   $handler->display->display_options['filters']['field_material_needs_value']['field'] = 'field_material_needs_value';
   $handler->display->display_options['filters']['field_material_needs_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_material_needs_value']['group'] = 1;
   $handler->display->display_options['filters']['field_material_needs_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_material_needs_value']['expose']['operator_id'] = 'field_material_needs_value_op';
   $handler->display->display_options['filters']['field_material_needs_value']['expose']['label'] = 'Needs';
   $handler->display->display_options['filters']['field_material_needs_value']['expose']['operator'] = 'field_material_needs_value_op';
   $handler->display->display_options['filters']['field_material_needs_value']['expose']['identifier'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_material_needs_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -4056,7 +4098,18 @@ function sprint_two_views_default_views() {
     7 => 0,
     8 => 0,
   );
-  $handler->display->display_options['path'] = 'schemesearch';
+  $handler->display->display_options['filters']['field_material_needs_value']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_material_needs_value']['group_info']['label'] = 'Material Needs';
+  $handler->display->display_options['filters']['field_material_needs_value']['group_info']['description'] = 'Filter schemes by needed supplies';
+  $handler->display->display_options['filters']['field_material_needs_value']['group_info']['identifier'] = 'field_material_needs_value';
+  $handler->display->display_options['filters']['field_material_needs_value']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => '',
+      'operator' => 'contains',
+      'value' => '',
+    ),
+  );
+  $handler->display->display_options['path'] = 'schemes';
   $views['scheme_overview_filtered'] = $view;
 
   $view = new view();
@@ -4249,6 +4302,7 @@ function sprint_two_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'ogschemesearch';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Schemes';

@@ -20,7 +20,7 @@ function sprint_two_msnf_step_info() {
   $msnf->bundle = 'scheme';
   $msnf->data = array(
     'label' => 'Step 2 Private Description',
-    'weight' => '1',
+    'weight' => '3',
     'children' => array(
       0 => 'field_private_description',
     ),
@@ -53,7 +53,7 @@ function sprint_two_msnf_step_info() {
   $msnf->bundle = 'scheme';
   $msnf->data = array(
     'label' => 'Step 3 Public Description and Summary',
-    'weight' => '2',
+    'weight' => '4',
     'children' => array(
       0 => 'body',
     ),
@@ -86,7 +86,7 @@ function sprint_two_msnf_step_info() {
   $msnf->bundle = 'scheme';
   $msnf->data = array(
     'label' => 'Step 4 Media',
-    'weight' => '3',
+    'weight' => '5',
     'children' => array(
       0 => 'field_video',
       1 => 'field_image',
@@ -122,9 +122,9 @@ function sprint_two_msnf_step_info() {
     'label' => 'Step 5 Needs',
     'weight' => '6',
     'children' => array(
-      0 => 'field_people_needs',
-      1 => 'field_material_needs',
-      2 => 'field_funding_needs',
+      0 => 'field_material_needs',
+      1 => 'field_funding_needs',
+      2 => 'field_people_skills',
     ),
     'format_type' => 'default',
     'format_settings' => array(
@@ -188,7 +188,7 @@ function sprint_two_msnf_step_info() {
   $msnf->bundle = 'scheme';
   $msnf->data = array(
     'label' => 'Add title and description',
-    'weight' => '0',
+    'weight' => '2',
     'children' => array(
       0 => 'field_brief_internal_description',
       1 => 'title',

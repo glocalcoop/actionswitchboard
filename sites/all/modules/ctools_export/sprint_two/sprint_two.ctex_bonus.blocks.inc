@@ -788,5 +788,43 @@ civicrm/*',
     'block_role' => array(),
   );
 
+  $blocks['views-goal_tree-block-asb'] = (object) array(
+    'module' => 'views',
+    'delta' => 'goal_tree-block',
+    'theme' => 'asb',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_second',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => '-1',
+    'block_node_type' => array(
+      0 => (object) array(
+        'module' => 'views',
+        'delta' => 'goal_tree-block',
+        'type' => 'issue',
+      ),
+    ),
+    'block_role' => array(),
+  );
+
+  $blocks['views-69eb07f162c05071e120e05770838423-asb'] = (object) array(
+    'module' => 'views',
+    'delta' => '69eb07f162c05071e120e05770838423',
+    'theme' => 'asb',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'search',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => '-1',
+    'block_node_type' => array(),
+    'block_role' => array(),
+  );
+
   return $blocks;
 }

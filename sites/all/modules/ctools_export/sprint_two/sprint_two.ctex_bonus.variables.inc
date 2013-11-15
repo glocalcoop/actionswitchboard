@@ -108,7 +108,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['chosen_minimum_multiple'] = '9';
 
-  $variables['chosen_minimum_single'] = '20';
+  $variables['chosen_minimum_single'] = '8';
 
   $variables['chosen_minimum_width'] = '200';
 
@@ -469,6 +469,9 @@ function sprint_two_drush_ctex_bonus_variables() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'search_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -476,13 +479,13 @@ function sprint_two_drush_ctex_bonus_variables() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '8',
+          'weight' => '10',
         ),
         'workflow' => array(
-          'weight' => '9',
+          'weight' => '11',
         ),
         'additional_settings' => array(
-          'weight' => '10',
+          'weight' => '12',
         ),
       ),
       'display' => array(
@@ -496,7 +499,7 @@ function sprint_two_drush_ctex_bonus_variables() {
             'visible' => FALSE,
           ),
           'search_teaser' => array(
-            'weight' => '14',
+            'weight' => '16',
             'visible' => FALSE,
           ),
           'issue_title' => array(
@@ -514,7 +517,7 @@ function sprint_two_drush_ctex_bonus_variables() {
             'visible' => FALSE,
           ),
           'search_teaser' => array(
-            'weight' => '8',
+            'weight' => '10',
             'visible' => FALSE,
           ),
           'issue_title' => array(
@@ -532,7 +535,7 @@ function sprint_two_drush_ctex_bonus_variables() {
             'visible' => FALSE,
           ),
           'search_teaser' => array(
-            'weight' => '15',
+            'weight' => '17',
             'visible' => FALSE,
           ),
           'issue_title' => array(
@@ -599,6 +602,8 @@ function sprint_two_drush_ctex_bonus_variables() {
   );
 
   $variables['i18n_variables'] = array();
+
+  $variables['image_toolkit'] = 'gd';
 
   $variables['issue_steps_on_edit'] = 0;
 
@@ -682,6 +687,58 @@ function sprint_two_drush_ctex_bonus_variables() {
   $variables['menu_parent_scheme'] = 'main-menu:0';
 
   $variables['menu_parent_update'] = 'main-menu:0';
+
+  $variables['mfe_icon'] = 0;
+
+  $variables['mfe_types'] = array(
+    'scheme_type' => 'scheme_type',
+    'scheme_title' => 'scheme_title',
+    'scheme_body' => 'scheme_body',
+    'scheme_field_image' => 'scheme_field_image',
+    'scheme_field_progress' => 'scheme_field_progress',
+    'scheme_field_video' => 'scheme_field_video',
+    'article_type' => 0,
+    'article_title' => 0,
+    'article_body' => 0,
+    'article_field_image' => 0,
+    'article_field_tags' => 0,
+    'page_type' => 0,
+    'page_title' => 0,
+    'page_body' => 0,
+    'document_type' => 0,
+    'document_title' => 0,
+    'document_body' => 0,
+    'document_field_document_type' => 0,
+    'goal_type' => 0,
+    'goal_title' => 0,
+    'goal_body' => 0,
+    'goal_field_child_goals' => 0,
+    'goal_field_hidden_issue_reference' => 0,
+    'goal_field_issue_reference' => 0,
+    'goal_field_parent_goal' => 0,
+    'issue_type' => 0,
+    'issue_title' => 0,
+    'issue_body' => 0,
+    'issue_field_all_goals' => 0,
+    'issue_field_goals' => 0,
+    'scheme_field_brief_internal_description' => 0,
+    'scheme_field_facilitator' => 0,
+    'scheme_field_featured' => 0,
+    'scheme_field_funding_needs' => 0,
+    'scheme_field_issues_goals' => 0,
+    'scheme_field_location' => 0,
+    'scheme_field_material_needs' => 0,
+    'scheme_field_people_needs' => 0,
+    'scheme_field_private_description' => 0,
+    'scheme_group_group' => 0,
+    'update_type' => 0,
+    'update_title' => 0,
+    'update_body' => 0,
+    'update_field_image' => 0,
+    'update_field_video' => 0,
+    'update_group_content_access' => 0,
+    'update_og_group_ref' => 0,
+  );
 
   $variables['node_admin_theme'] = 0;
 
@@ -802,7 +859,7 @@ function sprint_two_drush_ctex_bonus_variables() {
 
   $variables['site_name'] = 'Action Switchboard Dev';
 
-  $variables['statistics_day_timestamp'] = 1380483610;
+  $variables['statistics_day_timestamp'] = 1384530679;
 
   $variables['taxonomy_override_selector'] = TRUE;
 
@@ -853,7 +910,7 @@ function sprint_two_drush_ctex_bonus_variables() {
     'favicon_upload' => '',
   );
 
-  $variables['update_last_email_notification'] = 1380483610;
+  $variables['update_last_email_notification'] = 1384530679;
 
   $variables['update_notify_emails'] = array(
     0 => 'ross@mayfirst.org',
@@ -1002,10 +1059,13 @@ Your account on [site:name] has been canceled.
     '19646dbb6add979188a4d53960a48a2f' => 'scheme_overview_filtered-block_2',
     'd3de0ba6e08b792fc6dc527be8d93c70' => 'scheme_overview_filtered-block_3',
     '2e1826ab717be6221e4bd432ce3a2cf9' => 'scheme_overview_filtered-block_4',
+    '69eb07f162c05071e120e05770838423' => '-exp-scheme_overview_filtered-page_1',
   );
 
   $variables['views_defaults'] = array(
     'og_extras_members' => TRUE,
+    'goal_hierarchy' => TRUE,
+    'og_extras_groups' => TRUE,
   );
 
   $variables['views_exposed_filter_any_label'] = 'new_any';

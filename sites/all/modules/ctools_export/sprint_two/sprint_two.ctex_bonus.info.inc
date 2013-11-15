@@ -40,6 +40,7 @@ function sprint_two_drush_ctex_bonus_info_dependencies() {
     'media_internet',
     'menu',
     'message',
+    'mfe',
     'modernizr',
     'module_filter',
     'msnf',

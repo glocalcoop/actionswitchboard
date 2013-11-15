@@ -232,6 +232,29 @@ function sprint_two_image_default_styles() {
     ),
   );
 
+  // Exported image style: asb_scheme_slideshow_full.
+  $styles['asb_scheme_slideshow_full'] = array(
+    'name' => 'asb_scheme_slideshow_full',
+    'label' => 'asb_scheme_slideshow_full',
+    'effects' => array(
+      2 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '666',
+          'height' => '370',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   return $styles;
 }
 
@@ -259,7 +282,7 @@ function sprint_two_default_og_membership_type() {
   $items['og_membership_type_default'] = entity_import('og_membership_type', '{
     "name" : "og_membership_type_default",
     "description" : "Default",
-    "language" : "",
+    "language" : "2",
     "rdf_mapping" : []
   }');
   return $items;

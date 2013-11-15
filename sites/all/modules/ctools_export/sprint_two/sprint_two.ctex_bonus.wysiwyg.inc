@@ -15,25 +15,25 @@ function sprint_two_drush_ctex_bonus_wysiwyg() {
   $wysiwyg['filtered_html'] = array(
     'format' => 'filtered_html',
     'editor' => 'ckeditor',
-    'settings' => 'a:16:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:0:"";s:8:"language";s:2:"en";s:7:"buttons";a:2:{s:7:"default";a:10:{s:4:"Bold";i:1;s:6:"Italic";i:1;s:9:"Underline";i:1;s:12:"BulletedList";i:1;s:12:"NumberedList";i:1;s:7:"Outdent";i:1;s:6:"Indent";i:1;s:4:"Link";i:1;s:13:"PasteFromWord";i:1;s:5:"Scayt";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:15:"toolbarLocation";s:3:"top";s:14:"resize_enabled";i:1;s:24:"default_toolbar_grouping";i:0;s:24:"simple_source_formatting";i:0;s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:9:"stylesSet";s:0:"";s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:20:"advanced__active_tab";s:10:"edit-basic";s:21:"forcePasteAsPlainText";i:0;}',
+    'settings' => 'a:16:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:0:"";s:8:"language";s:2:"en";s:7:"buttons";a:2:{s:7:"default";a:8:{s:4:"Bold";i:1;s:6:"Italic";i:1;s:9:"Underline";i:1;s:12:"BulletedList";i:1;s:12:"NumberedList";i:1;s:4:"Link";i:1;s:13:"PasteFromWord";i:1;s:5:"Scayt";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:15:"toolbarLocation";s:3:"top";s:14:"resize_enabled";i:1;s:24:"default_toolbar_grouping";i:0;s:24:"simple_source_formatting";i:0;s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:9:"stylesSet";s:0:"";s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:20:"advanced__active_tab";s:10:"edit-basic";s:21:"forcePasteAsPlainText";i:0;}',
   );
 
   $wysiwyg['full_html'] = array(
     'format' => 'full_html',
     'editor' => 'ckeditor',
-    'settings' => 'a:16:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:0:"";s:8:"language";s:2:"en";s:7:"buttons";a:2:{s:7:"default";a:9:{s:4:"Bold";i:1;s:6:"Italic";i:1;s:9:"Underline";i:1;s:7:"BidiLtr";i:1;s:12:"BulletedList";i:1;s:7:"Outdent";i:1;s:6:"Indent";i:1;s:4:"Link";i:1;s:5:"Scayt";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:15:"toolbarLocation";s:3:"top";s:14:"resize_enabled";i:1;s:24:"default_toolbar_grouping";i:0;s:24:"simple_source_formatting";i:0;s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:9:"stylesSet";s:0:"";s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:20:"advanced__active_tab";s:10:"edit-basic";s:21:"forcePasteAsPlainText";i:0;}',
+    'settings' => 'a:16:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:0:"";s:8:"language";s:2:"en";s:7:"buttons";a:2:{s:7:"default";a:8:{s:4:"Bold";i:1;s:6:"Italic";i:1;s:9:"Underline";i:1;s:12:"BulletedList";i:1;s:12:"NumberedList";i:1;s:4:"Link";i:1;s:13:"PasteFromWord";i:1;s:5:"Scayt";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:15:"toolbarLocation";s:3:"top";s:14:"resize_enabled";i:1;s:24:"default_toolbar_grouping";i:0;s:24:"simple_source_formatting";i:0;s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:9:"stylesSet";s:0:"";s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:20:"advanced__active_tab";s:10:"edit-paste";s:21:"forcePasteAsPlainText";i:0;}',
   );
 
   $wysiwyg['php_code'] = array(
     'format' => 'php_code',
     'editor' => '',
-    'settings' => 's:2:"N;";',
+    'settings' => 's:9:"s:2:"N;";";',
   );
 
   $wysiwyg['plain_text'] = array(
     'format' => 'plain_text',
     'editor' => '',
-    'settings' => 's:2:"N;";',
+    'settings' => 's:9:"s:2:"N;";";',
   );
 
   return $wysiwyg;
