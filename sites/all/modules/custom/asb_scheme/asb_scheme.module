@@ -1024,7 +1024,20 @@ function asb_scheme_email_facilitator_action_submit($form, $form_state) {
 
 /**** END rules configuration ****/
 
-function asb_scheme_civicrm_api() {
+/**
+ * Implements civicrm_api
+ *
+ * @params 
+ *  $type 'contact' or 'skill'
+ *  $ufid - drupal user_id required for contact record.
+ *
+ * @returns
+ * array of contact information:
+ * first_name, last_name, city, state_province_name, country
+ * or
+ * list of skills from civi custom field
+ */
+function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
   if(!isset($config)) {
     require_once(DRUPAL_ROOT .'/sites/default/civicrm.settings.php');
     require_once 'CRM/Core/Config.php';
@@ -1033,25 +1046,41 @@ function asb_scheme_civicrm_api() {
   require_once 'api/api.php';
     // $api = new civicrm_api3();
   // $result = $api->Entity->Action ( $params );
-  try{
-    $contacts = civicrm_api3('OptionValue', 'get', array(
-                  'version' => 3,
-                  'sequential' => 1,
-                  'option_group_id' => 86,
-                ));
+  if ($type == 'contact') {
+    try{
+      $contact_id = civicrm_api3('UFMatch', 'get', array(
+                    'version' => 3,
+                    'sequential' => 1,
+                    'uf_id' => $ufid,
+                  ));
+      $params = array(
+        'version' => 3,
+        'sequential' => 1,
+        'return' => 'first_name,last_name,city,state_province_name,country,email',
+        'contact_id' => $contact_id['values'][0]['contact_id'],
+      );
+      $contacts = civicrm_api3('Contact', 'get', $params);
+    }
+    catch (CiviCRM_API3_Exception $e) {
+      $error = $e->getMessage();
+    }
   }
-  catch (CiviCRM_API3_Exception $e) {
-    $error = $e->getMessage();
-    //dsm($error);
+  elseif ($type == 'skills') {
+    try{
+      $contacts = civicrm_api3('OptionValue', 'get', array(
+                    'version' => 3,
+                    'sequential' => 1,
+                    'option_group_id' => 86,
+                  ));
+    }
+    catch (CiviCRM_API3_Exception $e) {
+      $error = $e->getMessage();
+    }
   }
-  //dsm($contacts);
+  else {
+    $contacts = '';
+  }
   $result = civicrm_api('uf_match', 'get', array('version' => 3, 'uf_id' => 10));
-  /* require_once DRUPAL_ROOT .'/sites/all/modules/contrib/civicrm/CRM/Core/ClassLoader.php'; */
-  /* $classLoader = new CRM_Core_ClassLoader(); */
-  /* $classLoader->register(); */
-  /* require_once DRUPAL_ROOT .'/sites/all/modules/contrib/civicrm/api/class.api.php'; */
-  /* $api = new civicrm_api3(); */
-  // dsm($result);
   return $contacts;
 
 }
@@ -1077,7 +1106,7 @@ function _asb_scheme_update_skills() {
   $field_name = 'field_people_skills';
   $instance = field_info_field($field_name);
   // dsm($instance);
-  $skills = asb_scheme_civicrm_api();
+  $skills = asb_scheme_civicrm_api('skills');
   $civi_skills = asb_scheme_get_civi_skills($instance, $skills);
   $field = array(
     'field_name' => 'field_people_skills',
@@ -1087,4 +1116,3 @@ function _asb_scheme_update_skills() {
   );
   field_update_field($field);
 }
-

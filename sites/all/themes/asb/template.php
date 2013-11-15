@@ -139,6 +139,17 @@ function asb_preprocess_html(&$variables, $hook) {
 // */
 
 /**
+ * Override or insert variables into the user_profile templates.
+ *
+ * @param $variables
+ *  An array of variables to pass to the theme template.
+ */
+function asb_preprocess_user_profile(&$variables) {
+  $civi_contact = asb_scheme_civicrm_api('contact', arg(1));
+  $variables['civi_contact'] = $civi_contact['values'][0];
+}
+
+/**
  * Override or insert variables into the page templates.
  *
  * @param $variables
