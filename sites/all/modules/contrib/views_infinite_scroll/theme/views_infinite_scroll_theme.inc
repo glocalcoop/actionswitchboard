@@ -89,10 +89,12 @@ function theme_views_infinite_scroll_pager($variables) {
     // Add Autopager jQuery plugin
     // If libraries module is installed, check for the plugin in libraries dir.
     if (module_exists('libraries') && file_exists(libraries_get_path('autopager') .'/jquery.autopager-1.0.0.js')) {
+      dpm( 'infinitescroll A' );
       drupal_add_js(libraries_get_path('autopager') .'/jquery.autopager-1.0.0.js');
     }
     // else, load it from views_infinite_scroll/js dir.
     else {
+      dpm( 'infinitescroll B' );
       $autopager_module_path = drupal_get_path('module', 'views_infinite_scroll') . '/js/jquery.autopager-1.0.0.js';
       drupal_add_js($autopager_module_path);
     }
