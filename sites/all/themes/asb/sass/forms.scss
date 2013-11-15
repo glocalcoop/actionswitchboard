@@ -23,6 +23,9 @@ form {
 }
 
 //Add Scheme buttons are bigger
+#load_more_schemes_button {
+  @include button($height: 50px, $font-size: $h2-font-size);
+}
 .page-node-add-scheme {
   form {
     input[type="button"], 
