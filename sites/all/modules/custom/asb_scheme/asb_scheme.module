@@ -712,7 +712,7 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         $node->content['field_leader'][0]['#markup'] = '<div class="scheme-leader"><a href="/user/' .$leader['uid'] .'">';
         $node->content['field_leader'][0]['#markup'] .= $leader['name'] .'</a></div><!-- Added in asb_scheme_node_view -->';
         // set field_people_skills as count
-        $people_needs_count = count($node->field_people_skills['und']);
+        $people_needs_count = isset($node->field_people_skills['und']) ? count($node->field_people_skills['und']) : 0;
         unset($node->content['field_people_skills']);
         $node->content['field_people_skills'][0]['#markup'] = $people_needs_count;
         // set field_material_needs as count
