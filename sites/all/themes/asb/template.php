@@ -486,7 +486,7 @@ function asb_page_alter( &$variables ) {
 }
 
 function asb_views_post_render(&$view) {
-  dpm( (module_exists('libraries') && file_exists(libraries_get_path('autopager') );
+  dpm( (module_exists('libraries') && file_exists(libraries_get_path('autopager') ));
   if($view->current_display == 'block_1' || $view->current_display == "page_1" ){
     $scripts = drupal_add_js();
     unset($scripts['module']['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_infinitescroll.js']);
