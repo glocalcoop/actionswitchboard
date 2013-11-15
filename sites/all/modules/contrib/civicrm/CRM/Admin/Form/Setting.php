@@ -1,7 +1,7 @@
 <?php
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -108,15 +108,6 @@ class CRM_Admin_Form_Setting extends CRM_Core_Form {
 
       $this->_defaults['enableSSL'] = CRM_Core_BAO_Setting::getItem(CRM_Core_BAO_Setting::SYSTEM_PREFERENCES_NAME, 'enableSSL', NULL, 0);
       $this->_defaults['verifySSL'] = CRM_Core_BAO_Setting::getItem(CRM_Core_BAO_Setting::SYSTEM_PREFERENCES_NAME, 'verifySSL', NULL, 1);
-
-      $sql = "
-SELECT time_format
-FROM   civicrm_preferences_date
-WHERE  time_format IS NOT NULL
-AND    time_format <> ''
-LIMIT  1
-";
-      $this->_defaults['timeInputFormat'] = CRM_Core_DAO::singleValueQuery($sql);
     }
 
     return $this->_defaults;
@@ -219,6 +210,16 @@ LIMIT  1
       unset($params['autocompleteContactReference']);
     }
 
+    // save components to be enabled
+    if (array_key_exists('enableComponents', $params)) {
+      CRM_Core_BAO_Setting::setItem($params['enableComponents'],
+        CRM_Core_BAO_Setting::SYSTEM_PREFERENCES_NAME,'enable_components');
+
+      // unset params by emptying the values, so while retrieving we can detect and load from settings table
+      // instead of config-backend for backward compatibility. We could use unset() in later releases.
+      $params['enableComponents'] = $params['enableComponentIDs'] = array();
+    }
+
     // save checksum timeout
     if (CRM_Utils_Array::value('checksumTimeout', $params)) {
       CRM_Core_BAO_Setting::setItem($params['checksumTimeout'],
@@ -237,8 +238,6 @@ AND    time_format <> ''
 ";
       $sqlParams = array(1 => array($params['timeInputFormat'], 'String'));
       CRM_Core_DAO::executeQuery($query, $sqlParams);
-
-      unset($params['timeInputFormat']);
     }
 
     // verify ssl peer option

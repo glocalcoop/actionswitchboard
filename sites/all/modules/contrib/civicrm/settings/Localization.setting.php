@@ -1,7 +1,7 @@
 <?php
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -129,6 +129,26 @@ return array(
     'is_domain' => 1,
     'is_contact' => 0,
     'description' => 'Default currency assigned to contributions and other monetary transactions.',
+    'help_text' => null,
+  ),
+  'defaultContactCountry' => array(
+    'group_name' => 'Localization Preferences',
+    'group' => 'localization',
+    'name' => 'defaultContactCountry',
+    'prefetch' => 1,
+    'config_only' => 1,
+    'type' => 'String',
+    'quick_form_type' => 'Element',
+    'html_type' => 'text',
+    'html_attributes' => array(
+      'size' => 4,
+    ),
+    'default' => '1228',
+    'add' => '4.4',
+    'title' => 'Default Country',
+    'is_domain' => 1,
+    'is_contact' => 0,
+    'description' => 'This value is selected by default when adding a new contact address.',
     'help_text' => null,
   ),
   'countryLimit' => array(

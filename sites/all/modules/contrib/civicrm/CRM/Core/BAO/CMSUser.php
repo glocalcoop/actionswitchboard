@@ -1,7 +1,7 @@
 <?php
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -160,9 +160,7 @@ class CRM_Core_BAO_CMSUser {
       $contactMatching = 0;
 
       global $wpdb;
-      $wpUserIds = $wpdb->get_col(
-        $wpdb->prepare("SELECT $wpdb->users.ID FROM $wpdb->users")
-      );
+      $wpUserIds = $wpdb->get_col("SELECT $wpdb->users.ID FROM $wpdb->users");
 
       foreach ($wpUserIds as $wpUserId) {
         $wpUserData = get_userdata($wpUserId);

@@ -1,6 +1,6 @@
 {*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -76,9 +76,9 @@
     var hintText = "{/literal}{ts escape='js'}Type in a partial or complete name of an existing contact.{/ts}{literal}";
     cj( "#assignee_contact_id").tokenInput( tokenDataUrl_assignee, { prePopulate: assignee_contact, theme: 'facebook', hintText: hintText });
     cj( 'ul.token-input-list-facebook, div.token-input-dropdown-facebook' ).css( 'width', '450px' );
-    cj('#source_contact_id').autocomplete( sourceDataUrl, { width : 180, selectFirst : false, hintText: hintText, matchContains: true, minChars: 1
+    cj('#source_contact_id').autocomplete( sourceDataUrl, { width : 180, selectFirst : false, hintText: hintText, matchContains: true, minChars: 1, max: {/literal}{crmSetting name="search_autocomplete_count" group="Search Preferences"}{literal}
     }).result( function(event, data, formatted) { cj( "#source_contact_qid" ).val( data[1] );
-      }).bind( 'click', function( ) { cj( "#source_contact_qid" ).val(''); });
+      }).bind( 'click', function( ) { if (!cj("#source_contact_id").val()) { cj( "#source_contact_qid" ).val(''); } });
   });
   </script>
 
@@ -102,7 +102,7 @@
   <h3>{$activityTypeName}</h3>
     {if $activityTypeDescription }
     <div class="help">{$activityTypeDescription}</div>
-    {/if}  
+    {/if}
   {else}
     {if $context eq 'standalone' or $context eq 'search' or $context eq 'smog'}
     <tr class="crm-activity-form-block-activity_type_id">
@@ -135,7 +135,7 @@
       {elseif $action neq 4}
       <td class="label">{ts}With Contact{/ts}</td>
       <td class="view-value">
-        {include file="CRM/Contact/Form/NewContact.tpl" noLabel=true skipBreak=true multiClient=true}
+        {include file="CRM/Contact/Form/NewContact.tpl" noLabel=true skipBreak=true multiClient=true parent="activity"}
         {if $action eq 1}
         <br/>
         {$form.is_multi_activity.html}&nbsp;{$form.is_multi_activity.label} {help id="id-is_multi_activity"}
@@ -160,7 +160,13 @@
     </td>
       {else}
       <td class="label">{ts}Assigned To{/ts}</td>
-      <td>{$form.assignee_contact_id.html}
+      <td>
+        <a href="#" class="button" id="swap_target_assignee" title="{ts}Swap Target and Assignee Contacts{/ts}" style="float:right;">
+          <span>
+            <div class="icon swap-icon"></div>
+          </span>
+        </a>
+        {$form.assignee_contact_id.html}
         {edit}
           <span class="description">{ts}You can optionally assign this activity to someone. Assigned activities will appear in their Activities listing at CiviCRM Home.{/ts}
           {if $activityAssigneeNotification}
@@ -311,6 +317,19 @@
                 cj(this).parent('.collapsed').crmAccordionToggle();
               }
             });
+          });
+          cj('#swap_target_assignee').click( function() {
+            var assignees = cj('input#assignee_contact_id').tokenInput("get");
+            var targets = cj('input#contact_1').tokenInput("get");
+            cj('#assignee_contact_id').tokenInput("clear");
+            cj('#contact_1').tokenInput("clear");
+            cj(assignees).each( function() {
+              cj('#contact_1').tokenInput("add", this);
+            });
+            cj(targets).each( function() {
+              cj('#assignee_contact_id').tokenInput("add", this);
+            });
+            return false;
           });
         </script>
       {/literal}

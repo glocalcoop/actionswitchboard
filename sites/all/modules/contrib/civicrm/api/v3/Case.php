@@ -1,9 +1,8 @@
 <?php
-// $Id$
 
 /*
   +--------------------------------------------------------------------+
-  | CiviCRM version 4.3                                                |
+  | CiviCRM version 4.4                                                |
   +--------------------------------------------------------------------+
   | Copyright CiviCRM LLC (c) 2004-2013                                |
   +--------------------------------------------------------------------+
@@ -147,6 +146,10 @@ function _civicrm_api3_case_create_spec(&$params) {
   $params['contact_id']['title'] = 'Case Client';
   $params['contact_id']['api.required'] = 1;
   $params['status_id']['api.default'] = 1;
+  $params['medium_id'] = array(
+    'name' => 'medium_id',
+    'title' => 'Activity Medium',
+  );
 }
 
 /**
@@ -302,7 +305,7 @@ function civicrm_api3_case_update($params) {
 
   // get original contact id and creator id of case
   if (!empty($params['contact_id'])) {
-    $origContactIds = CRM_Case_BAO_Case::retrieveContactIdsByCaseId($params['case_id']);
+    $origContactIds = CRM_Case_BAO_Case::retrieveContactIdsByCaseId($params['id']);
     $origContactId = $origContactIds[1];
   }
 
@@ -323,7 +326,7 @@ function civicrm_api3_case_update($params) {
   }
 
   if (!empty($mCaseId[0])) {
-    $params['case_id'] = $mCaseId[0];
+    $params['id'] = $mCaseId[0];
   }
 
   $dao = new CRM_Case_BAO_Case();

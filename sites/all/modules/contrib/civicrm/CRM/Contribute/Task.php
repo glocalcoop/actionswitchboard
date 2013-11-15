@@ -1,7 +1,7 @@
 <?php
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -186,6 +186,11 @@ class CRM_Contribute_Task {
     if (!$value || !CRM_Utils_Array::value($value, self::$_tasks)) {
       // make the print task by default
       $value = 2;
+    }
+    // this is possible since hooks can inject a task
+    // CRM-13697
+    if (!isset(self::$_tasks[$value]['result'])) {
+      self::$_tasks[$value]['result'] = NULL;
     }
     return array(
       self::$_tasks[$value]['class'],

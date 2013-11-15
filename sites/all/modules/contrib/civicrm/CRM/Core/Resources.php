@@ -1,7 +1,7 @@
 <?php
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.3                                                |
+ | CiviCRM version 4.4                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2013                                |
  +--------------------------------------------------------------------+
@@ -201,7 +201,7 @@ class CRM_Core_Resources {
    * From javascript:
    * CRM.myNamespace.foo // "bar"
    *
-   * @see http://wiki.civicrm.org/confluence/display/CRMDOC43/Javascript+Reference
+   * @see http://wiki.civicrm.org/confluence/display/CRMDOC/Javascript+Reference
    *
    * @param $settings array
    * @return CRM_Core_Resources
@@ -275,7 +275,7 @@ class CRM_Core_Resources {
    * Add translated string to the js CRM object.
    * It can then be retrived from the client-side ts() function
    * Variable substitutions can happen from client-side
-   * 
+   *
    * Note: this function rarely needs to be called directly and is mostly for internal use.
    * @see CRM_Core_Resources::addScriptFile which automatically adds translated strings from js files
    *
@@ -453,15 +453,17 @@ class CRM_Core_Resources {
         }
       }
 
-      // Initialize CRM.url
+      // Initialize CRM.url and CRM.formatMoney
       $url = CRM_Utils_System::url('civicrm/example', 'placeholder', FALSE, NULL, FALSE);
-      $js = "CRM.url('init', '$url');";
+      $js = "CRM.url('init', '$url');\n";
+      $js .= "CRM.formatMoney('init', " . json_encode(CRM_Utils_Money::format(1234.56)) . ");";
       $this->addScript($js, $jsWeight++, $region);
 
       // Add global settings
       $settings = array(
         'userFramework' => $config->userFramework,
         'resourceBase' => $config->resourceBase,
+        'lcMessages' => $config->lcMessages,
       );
       $this->addSetting(array('config' => $settings));
 
@@ -491,8 +493,9 @@ class CRM_Core_Resources {
       if (!empty($config->customCSSURL)) {
         $this->addStyleUrl($config->customCSSURL, -99, $region);
       }
-      else {
+      if (!CRM_Core_BAO_Setting::getItem(CRM_Core_BAO_Setting::SYSTEM_PREFERENCES_NAME, 'disable_core_css')) {
         $this->addStyleFile('civicrm', 'css/civicrm.css', -99, $region);
+        // extras.css is deprecated. Don't use it.
         $this->addStyleFile('civicrm', 'css/extras.css', -98, $region);
       }
     }
