@@ -1056,7 +1056,7 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
       $params = array(
         'version' => 3,
         'sequential' => 1,
-        'return' => 'first_name,last_name,city,state_province_name,country,email',
+        'return' => 'first_name,last_name,city,country,email,state_province',
         'contact_id' => $contact_id['values'][0]['contact_id'],
       );
       $contacts = civicrm_api3('Contact', 'get', $params);
