@@ -1037,6 +1037,7 @@ function asb_scheme_email_facilitator_action_submit($form, $form_state) {
  * or
  * list of skills from civi custom field
  */
+dsm(asb_scheme_civicrm_api('contact', 2));
 function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
   if(!isset($config)) {
     require_once(DRUPAL_ROOT .'/sites/default/civicrm.settings.php');
@@ -1056,10 +1057,22 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
       $params = array(
         'version' => 3,
         'sequential' => 1,
-        'return' => 'first_name,last_name,city,country,email,state_province,custom_1',
+        'return' => 'first_name,last_name,city,country,email,state_province,custom_1,custom_1_label',
         'contact_id' => $contact_id['values'][0]['contact_id'],
       );
       $contacts = civicrm_api3('Contact', 'get', $params);
+      $contacts['skills'] = array();
+      foreach($contacts['values'][0]['custom_1'] as $key => $value) {
+        $option_params = array(
+          'version' => 3,
+          'sequential' => 1,
+          'option_group_id' => 86,
+          'value' => $value,
+        );
+        $option = civicrm_api3('OptionValue', 'get', $option_params);
+        $contacts['skills'][] = $option['values'][0]['label'];
+      }
+      asort($contacts['skills']);
     }
     catch (CiviCRM_API3_Exception $e) {
       $error = $e->getMessage();
