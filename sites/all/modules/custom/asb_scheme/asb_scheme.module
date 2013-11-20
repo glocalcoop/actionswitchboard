@@ -1037,7 +1037,6 @@ function asb_scheme_email_facilitator_action_submit($form, $form_state) {
  * or
  * list of skills from civi custom field
  */
-dsm(asb_scheme_civicrm_api('contact', 2));
 function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
   if(!isset($config)) {
     require_once(DRUPAL_ROOT .'/sites/default/civicrm.settings.php');
