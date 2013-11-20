@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file media_youtube/includes/themes/media_youtube.theme.inc
+ * @file media_youtube/themes/media_youtube.theme.inc
  *
  * Theme and preprocess functions for Media: YouTube.
  */

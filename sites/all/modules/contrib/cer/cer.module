@@ -191,7 +191,7 @@ function cer_preset_delete($key) {
  *  The operation being performed on the entity (insert, update, or delete).
  *
  * @param object $entity
- *  The entity.
+ *  The entity or the entity's id.
  *
  * @param string $entity_type
  *  The entity type.
@@ -201,6 +201,11 @@ function cer_preset_delete($key) {
  *  during bulk update) or NULL if we're not in a batch job.
  */
 function cer_processing_entity($op, $entity, $entity_type, &$context = NULL) {
+  // Load the entity if we're given an ID rather than an entity.
+  if (!is_object($entity)) {
+    $entity = entity_load($entity_type, array($entity));
+    $entity = reset($entity);
+  }
   // If the entity is of the wrong type, entity_extract_IDs() will throw
   // EntityMalformedException and rightfully bail out here.
   list (, , $bundle) = entity_extract_IDs($entity_type, $entity);

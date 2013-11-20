@@ -130,9 +130,14 @@ function cer_update_form_submit($form, &$form_state) {
     'error_message' => t('Corresponding entity references - existing entity update has encountered an error.'),
   );
 
-  $entities = entity_load($form_state['values']['type'], FALSE);
-  foreach ($entities as $entity) {
-    $batch['operations'][] = array('cer_processing_entity', array('update', $entity, $form_state['values']['type']));
+  $entity_type = $form_state['values']['type'];
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', $entity_type);
+  $result = $query->execute();
+  if (isset($result[$entity_type])) {
+    foreach ($result[$entity_type] as $entity_id => $stub) {
+      $batch['operations'][] = array('cer_processing_entity', array('update', $entity_id, $entity_type));
+    }
   }
   batch_set($batch);
 }
