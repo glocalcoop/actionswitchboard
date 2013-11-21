@@ -92,71 +92,71 @@ global $user;
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-      <header>
+  <header>
 
-        <div class="wrapper">
+    <div class="wrapper">
 
-          <section class="content">
-          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || $title): ?>
+      <section class="content">
+      <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || $title): ?>
 
-            <?php if (isset($highlighted)): ?>
-              <?php print $highlighted; ?>
-            <?php endif; ?>
+        <?php if (isset($highlighted)): ?>
+          <?php print $highlighted; ?>
+        <?php endif; ?>
 
-            <a id="main-content"></a>
-            
-            <?php print render($title_prefix); ?>
-            
-            <?php if ($title): ?>
-            <h1 class="title" id="page-title"><?php print $title; ?></h1>
-            <?php endif; ?>
+        <a id="main-content"></a>
+        
+        <?php print render($title_prefix); ?>
+        
+        <?php if ($title): ?>
+        <h1 class="title" id="page-title"><?php print $title; ?></h1>
+        <?php endif; ?>
 
-            <?php print render($title_suffix); ?>
+        <?php print render($title_suffix); ?>
 
-            <?php if ($action_links): ?>
-            <ul class="action-links"><?php print render($action_links); ?></ul>
-            <?php endif; ?>
-            <?php print $feed_icons; ?>
+        <?php if ($action_links): ?>
+        <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print $feed_icons; ?>
 
-          </section>
-    
+      </section>
 
-        </div>
 
-      </header>
+    </div>
+
+  </header>
 
 
   
     <?php endif; ?>
 
-<div class="wrapper">
+  <div class="wrapper">
 
-  <section class='content'>
-  <?php print render($tabs); ?>
-  <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print '<div id="node-content">';
-      print render($content);
-      print '</div>';
-    ?>
-
-  <?php print render($content['links']); ?>
-
-  <?php print render($content['comments']); ?>
-
-  </section>
-
-  <?php if($sidebar_second): ?>
-  <aside id="sidebar">
+    <section class="content">
+    <?php print render($tabs); ?>
     <?php
-      // Render the sidebars to see if there's anything in them.
-      print render($sidebar_second);
-    ?>
-  </aside><!-- /.sidebars -->
-  <?php endif; ?>
-  
-</div>
+        // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print '<div id="node-content">';
+        print render($content);
+        print '</div>';
+      ?>
+
+    <?php print render($content['links']); ?>
+
+    <?php print render($content['comments']); ?>
+
+    </section>
+
+    <?php if($sidebar_second): ?>
+    <aside id="sidebar">
+      <?php
+        // Render the sidebars to see if there's anything in them.
+        print render($sidebar_second);
+      ?>
+    </aside><!-- /.sidebars -->
+    <?php endif; ?>
+    
+  </div>
 
 </article><!-- /.node -->

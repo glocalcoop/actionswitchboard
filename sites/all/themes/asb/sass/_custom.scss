@@ -27,6 +27,55 @@
   }
 }
 
+// Font Icon mixins and variables
+@mixin font-icon-family($family:"entypo", $file:"entypo") {
+  @if $family == "entypo-social" {
+    $family:"entypo-social";
+    $file:"entypo-social";
+  }
+  @else if $family == "entypo" {
+    $family:"entypo";
+    $file:"entypo";
+  }
+  @font-face {
+    font-family: '#{$family}'; 
+    src: font-url('#{$file}.eot'); 
+    src: font-url('#{$file}.eot?#iefix') format('embedded-opentype'),
+         font-url('#{$file}.woff') format('woff'),
+         font-url('#{$file}.ttf') format('truetype'),
+         font-url('#{$file}.svg##{$family}') format('svg'),
+         font-url('#{$file}.otf') format('opentype');
+    font-weight: normal; 
+    font-style: normal;
+  }
+}
+
+@mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.2em, $align: left) {
+  @if $family == "entypo-social" {
+    $family:"entypo-social";
+    $file:"entypo-social";
+  }
+  @else if $family == "entypo" {
+    $family:"entypo";
+    $file:"entypo";
+  }
+  &:before {
+    font-family: "#{$family}";
+    font-style: normal;
+    font-size: $font-size;
+    margin-right: $margin;
+    text-align: $align;
+    display: inline-block;
+    width: $width;
+  }
+}
+
+%entypo-megaphone:before {  content:'\F4E3'; }
+%entypo-social-facebook:before{ content:''; }
+%entypo-social-twitter:before{ content:''; }
+%entypo-social-linkedin:before{ content:''; }
+
+
 @mixin header-style ($family: $header-font-family, $size: $h2-font-size, $transform: uppercase, $color: $text-color-prominent, $weight: normal) {
   font-size: $size;
   font-family: $family;
@@ -221,43 +270,6 @@
     background-position: -$width;
 }
 
-// Font Icon mixins and variables
-@mixin font-icon-family($family:"entypo", $file:"entypo") {
-  @if $family == "iconic" {
-    $family:"IconicFill";
-    $file:"iconic";
-  }
-  @else if $family == "entypo" {
-    $family:"entypo";
-    $file:"entypo";
-  }
-  @font-face {
-    font-family: '#{$family}'; 
-    src: font-url('#{$file}.eot'); 
-    src: font-url('#{$file}.eot?#iefix') format('embedded-opentype'),
-         font-url('#{$file}.woff') format('woff'),
-         font-url('#{$file}.ttf') format('truetype'),
-         font-url('#{$file}.svg##{$family}') format('svg'),
-         font-url('#{$file}.otf') format('opentype');
-    font-weight: normal; font-style: normal;
-  }
-}
-
-@mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.2em, $align: left) {
-  $family:"entypo";
-  $file:"entypo";
-  &:before {
-    font-family: "#{$family}";
-    font-style: normal;
-    font-size: $font-size;
-    margin-right: $margin;
-    text-align: $align;
-    display: inline-block;
-    width: $width;
-  }
-}
-
-%entypo-megaphone:before { content: "📣"; }
 
 @mixin hidden-text {
   font: 0/0 a;

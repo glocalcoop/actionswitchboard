@@ -116,6 +116,8 @@ $header-line-height: 1.2;
 @import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
 @import "compass/utilities/sprites/base";
 @import "compass/typography/lists/inline-list";
+@import "compass/utilities/lists/inline-block-list";
+@import "compass/utilities/lists/bullets";
 @import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 @import "zen/background";

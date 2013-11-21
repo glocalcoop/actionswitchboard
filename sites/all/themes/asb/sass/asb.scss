@@ -362,3 +362,90 @@ ul.tags {
 .loading_spinner {
   @include load-spinner;
 }
+
+// ////////////////////////////
+// User Profile
+// 
+
+.user-profile {
+
+  header.user-profile-header {
+
+    section.content {}
+    aside {
+      &.user-meta {
+        padding-left: 10px;
+
+        section {
+          margin-top: 10px;
+          &:first-child {
+            margin-top: 0;
+          }
+          h6 {
+            line-height: $base-line-height;
+            margin: 0;
+          }
+          div {}
+          ul {
+            @mixin comma-delimited-list {
+              @include inline-list;
+               }
+            }
+            li {
+              &:after {
+                content: ", "; 
+              }
+              &:last-child {
+                &:after {
+                  content: ""; } 
+                }
+              &.last {
+                &:after {
+                  content: ""; 
+                } 
+              } 
+            }
+        }
+      }
+
+    }
+
+  }
+
+  section.content {
+
+    aside.user-details {
+      @include zen-float(left);
+      width: 214px;
+      .user-picture {
+        img {
+          width: 100%;
+          height: auto;
+          }
+        }
+      ul.user-contact {
+        list-style: none;
+        li {
+          a {
+            padding-right: 10px;
+            padding-left: 10px;
+            @include font-icon-base($family:"entypo-social", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+            &.facebook {@extend %entypo-social-facebook;}
+            &.twitter {@extend %entypo-social-twitter;}
+            &.linkedin {@extend %entypo-social-linkedin;}
+            &.user-contact { 
+              @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+              @extend %entypo-mail; 
+            }
+          }
+        }
+      }  
+    }
+    div.user-bio {
+      @include zen-float(left);
+      padding-left: 20px;
+    }
+  }
+
+}
+
