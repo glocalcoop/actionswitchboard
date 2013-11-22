@@ -33,20 +33,7 @@ $zen-auto-include-item-base: false;
 // $zen-auto-include-flow-item-base: false;
 
 
-// Center the page.
-#header,
-#content article>header .wrapper,
-#content article>.wrapper,
-#content .scheme-collection-view,
-#footer section.content,
-.messages__list,
-.views-exposed-widgets,
-.page-node-add-scheme #content{
-  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 960px;
-}
+
 
 .front #content {
   padding-top: 3em;
@@ -263,4 +250,21 @@ $zen-auto-include-item-base: false;
     }
   }
 
+}
+
+// Center the page.
+#header,
+#content article>header .wrapper,
+#content article>.wrapper,
+#content .scheme-collection-view,
+#footer section.content,
+.messages__list,
+.views-exposed-widgets,
+.page-node-add-scheme #main,
+.page-user.not-logged-in #content {
+  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
+
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
 }
