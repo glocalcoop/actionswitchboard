@@ -76,7 +76,8 @@ global $user;
   </header>
 
   <div class="wrapper">
-    <section class="content">
+    <section class="main-content">
+
 
       <aside class="user-details">
         <div class="user-picture">
@@ -99,9 +100,11 @@ global $user;
       </aside>
 
       <div class="user-bio">
+        <?php if (isset($user_profile['field_bio'])) { ?>
         <h2>About Me</h2>
-        {user-bio}
-      </div>
+        <?php print render($user_profile['field_bio']); ?>
+        <?php } ?>
+      </div> 
 
     </section>
 

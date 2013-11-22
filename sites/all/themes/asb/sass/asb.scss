@@ -409,7 +409,7 @@ ul.tags {
 
   }
 
-  section.content {
+  section.main-content {
 
     aside.user-details {
       @include zen-float(left);
@@ -439,7 +439,8 @@ ul.tags {
       }  
     }
     div.user-bio {
-      @include zen-float(left);
+      @include zen-float(right);
+      width: 726px;
       padding-left: 20px;
     }
   }
