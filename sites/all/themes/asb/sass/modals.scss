@@ -33,7 +33,7 @@
 	}
 
 	a.close { 
-		@include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+		@include font-icon-base($family:"entypo", $font-size: 1.25em, $margin: 0em, $width: .3em);
 	  @extend %entypo-cancel-circle;
 	  @include box-sizing( border-box );
 	  position: relative;
@@ -50,7 +50,7 @@
 	    top: -0.125em;
 	    width: 40%;
 	    padding-top: 0;
-	    // top: .125em;
+			top: .125em;
 	    content: "\2716";
 	    text-align: right;
 	  }
