@@ -219,22 +219,19 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 #nav-find {
   color: #fff;
   cursor: pointer;
-  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 1.25em, $margin: 0em, $width: .3em);
   @extend %entypo-search;
-  position: relative;
   &:before {
-    line-height: .875;
     position: absolute;
-    width: 40%;
-    padding-top: 0;
-    top: .125em;
+    width: 48px;
+    margin-top: -2px;
     content: "\1F50D";
     text-align: right;
   }
 }
 
 .field-location {
-  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: .25em 0 0 0, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 1em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
   color: $text-color;
   &:before{
@@ -250,7 +247,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 ul.tabs-primary {
   li {
     a {
-      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1em, $margin: 0.1em, $width: .5em);
     }
     &.ctools-use-ajax a{ 
       @extend %entypo-megaphone;
@@ -266,7 +263,7 @@ article.comment,
 .scheme-leader-contact,
 .status-info  {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
       color: $text-color;
       text-align: left;
       &.edit { @extend %entypo-pencil; }

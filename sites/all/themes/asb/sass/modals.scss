@@ -33,12 +33,12 @@
 	}
 
 	a.close { 
-		color: $backdrop;
-		font-size: 1.25em;
-	  @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
-	  @extend %entypo-close;
-	  position: relative;
+		@include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
+	  @extend %entypo-cancel-circle;
 	  @include box-sizing( border-box );
+	  position: relative;
+	  color: $backdrop;
+		font-size: 1.25em;
 	  width: 22px;
 	  height: 20px;
 	  padding-top: 1.25em;
