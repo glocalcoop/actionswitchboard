@@ -100,9 +100,9 @@ global $user;
       </aside>
 
       <div class="user-bio">
-        <?php if (isset($user_profile['field_bio'])) { ?>
+        <?php if (isset($user_profile['field_user_bio'])) { ?>
         <h2>About Me</h2>
-        <?php print render($user_profile['field_bio']); ?>
+        <?php print render($user_profile['field_user_bio']); ?>
         <?php } ?>
       </div> 
 
