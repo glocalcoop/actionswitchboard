@@ -18,6 +18,7 @@ global $user;
     <div class="wrapper">
 
       <section class="content">
+        <?php print(render($tabs)); ?>
         <label>Schemer</label>
         <h1 class="title" id="page-title">
           <?php print render($civi_contact['first_name']); ?> <?php print render($civi_contact['last_name']); ?>

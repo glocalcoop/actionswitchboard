@@ -148,6 +148,7 @@ function asb_preprocess_user_profile(&$variables) {
   $civi_contact = asb_scheme_civicrm_api('contact', arg(1));
   $variables['civi_contact'] = $civi_contact['values'][0];
   $variables['civi_contact']['skills'] = $civi_contact['skills'];
+  $variables['tabs'] = menu_local_tabs();
 }
 
 /**
