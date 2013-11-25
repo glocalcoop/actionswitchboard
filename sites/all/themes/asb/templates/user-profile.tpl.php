@@ -79,6 +79,7 @@ global $user;
   <div class="wrapper">
     <section class="main-content">
 
+      <?php print render($tabs); ?>
 
       <aside class="user-details">
         <div class="user-picture">
