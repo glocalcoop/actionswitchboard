@@ -4,6 +4,7 @@
 var views_infinite_scroll_was_initialised = false;
 Drupal.behaviors.views_infinite_scroll = {
   attach:function( context, settings ) {
+//    console.log( 'alter_infinitescroll.js', context, settings, Drupal );
     // Make sure that autopager plugin is loaded
     if($.autopager) {
       if(!views_infinite_scroll_was_initialised) {
@@ -30,41 +31,60 @@ Drupal.behaviors.views_infinite_scroll = {
             var img_path         = settings.img_path;
             var img              = '<div id="views_infinite_scroll-ajax-loader"><img src="' + img_path + '" alt="loading..."/></div>';
             var load_more_button = $("<a id='load_more_schemes_button' href='#' title='Load more schemes...' href='schemes'>Load More Schemes</a>");
-            $(view_selector).after( load_more_button );
+
+            var otherControls = $("#views-exposed-form-scheme-overview-filtered-page-1").clone();
+
+            var searchbox_clone = $("#edit-keys-wrapper").clone(false,false);
+            var issuesfilter_clone = $("#edit-field-issues-goals-target-id-wrapper").clone(false, false );
+            issuesfilter_clone.attr('id', 'pager_issue_filter' );
+            var pager = $(pager_selector);
+            $("#edit-field-issues-goals-target-id-wrapper *").removeAttr('id');
+            pager.hide();
+            var pagerContainer = $("<div id='add-page-scroll-wrapper'></div>");
+            pagerContainer.append( issuesfilter_clone );
+            pagerContainer.append( load_more_button );
+            pagerContainer.append( searchbox_clone );
+            pagerContainer.appendTo($(view_selector));
+
+
 
             $(content_selector).addClass('clearfix');
             $(content_selector).css({
               'position': 'relative'
             });
-            var spinner = $('<div class="loading_spinner"><h4>Message</h4></div>').appendTo( $(view_selector) );
 
+            var spinner = $('<div class="loading_spinner"><h4>Message</h4></div>').appendTo( $(view_selector) );
             spinner.hide();
-            console.log("hihihihi");
             var handle = $.autopager({
               autoLoad: false,
               appendTo: content_selector,
               content: items_selector,
               link: next_selector,
               page: 0,
-              start: function() {
-                  console.log('start');
+              start: function( current, next ) {
+                Drupal.behaviors.views_infinite_scroll.current_page = current.page;
                 spinner.fadeIn();
-//                $(img_location).after(img);
               },
-              load: function() {
-                console.log("loading...");
-//                $('div#views_infinite_scroll-ajax-loader').remove();
+              load: function( current, next ) {
+                console.log( 'load', current, next );
                 Drupal.attachBehaviors(this);
                 spinner.fadeOut();
+                if(!next || next.url == undefined ) {
+                  load_more_button.addClass('no-more-results');
+                  load_more_button.unbind( 'click' );
+                  load_more_button.html('No more schemes to load!');
+                  load_more_button.click( function(e){
+                    e.preventDefault();
+                    alert("We dig your enthusiasm, but there are no more schemes to load!");
+                  });
+                }
               }
             });
+
             load_more_button.click( function( e ) {
-              console.log( 'load_more_button clicked!' );
               e.preventDefault();
               $.autopager('load');
             } );
-
-
 
             // Trigger autoload if content height is less than doc height already
             var prev_content_height = $(content_selector).height();
@@ -95,5 +115,6 @@ Drupal.behaviors.views_infinite_scroll = {
     }
   }
 }
+            console.log("CHOSEN SHOULD HAPPEN AFTER THIS LINE");
 
 })(jQuery);
