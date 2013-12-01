@@ -34,6 +34,36 @@ $zen-auto-include-item-base: false;
 
 
 
+// Region Search
+.front {
+  .region-search {
+    position: relative;
+    padding: 30px 0 0 0;
+  }
+}
+
+// Tour
+#tour.hidden {
+  iframe {
+    @include element-invisible();
+  }
+}
+
+#tour.active {
+  @include element-invisible-off();
+  display: none;
+}
+
+// Schemes Pager
+#add_page_scroll_wrapper {
+  #load_more_schemes_button,
+  #pager_issue_filter,
+  #edit-keys-wrapper {
+    width: 100%;
+  }
+}
+
+
 
 .front #content {
   padding-top: 3em;
@@ -51,25 +81,6 @@ $zen-auto-include-item-base: false;
     height: 3em;
     width: $zen-grid-width;
   }
-}
-
-// Region Search
-.front {
-  .region-search {
-    position: relative;
-    padding: 30px 0 0 0;
-  }
-}
-
-#tour.hidden {
-  iframe {
-    @include element-invisible();
-  }
-}
-
-#tour.active {
-  @include element-invisible-off();
-  display: none;
 }
 
 @media all and (min-width: 720px) and (max-width: 959px) {
@@ -115,6 +126,7 @@ $zen-auto-include-item-base: false;
   }
 
 }
+
 
 @media all and (min-width: 960px) {
 

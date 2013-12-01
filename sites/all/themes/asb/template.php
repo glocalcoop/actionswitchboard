@@ -485,7 +485,7 @@ function asb_js_alter( &$javascript ){
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.js");
   drupal_add_js( 'sites/all/modules/contrib/chosen/chosen.js' );
   drupal_add_js('sites/all/themes/asb/js/script.js');
-  dpm( $javascript );
+//  dpm( $javascript );
 }
 
 function asb_views_post_render(&$view) {

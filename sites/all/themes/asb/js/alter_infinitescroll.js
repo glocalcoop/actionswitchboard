@@ -38,13 +38,13 @@ Drupal.behaviors.views_infinite_scroll = {
             var issuesfilter_clone = $("#edit-field-issues-goals-target-id-wrapper").clone(false, false );
             issuesfilter_clone.attr('id', 'pager_issue_filter' );
             var pager = $(pager_selector);
-            $("#edit-field-issues-goals-target-id-wrapper *").removeAttr('id');
-            pager.hide();
-            var pagerContainer = $("<div id='add-page-scroll-wrapper'></div>");
-            pagerContainer.append( issuesfilter_clone );
-            pagerContainer.append( load_more_button );
-            pagerContainer.append( searchbox_clone );
-            pagerContainer.appendTo($(view_selector));
+            issuesfilter_clone.removeAttr('id');
+            // pager.hide();
+            var infiniteScrollPager = $("<div id='add_page_scroll_wrapper'></div>");
+            infiniteScrollPager.append( issuesfilter_clone );
+            infiniteScrollPager.append( load_more_button );
+            infiniteScrollPager.append( searchbox_clone );
+            infiniteScrollPager.appendTo($(view_selector));
 
 
 

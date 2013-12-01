@@ -254,6 +254,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
   color: $text-color;
   &:before{
     text-align: left;
+    margin-right: .325em;
     line-height: .875;
   }
 }
@@ -281,7 +282,7 @@ article.comment,
 .scheme-leader-contact,
 .status-info  {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1em, $margin: 0.1em, $width: .5em);
       color: $text-color;
       text-align: left;
       &.edit { @extend %entypo-pencil; }
