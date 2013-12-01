@@ -480,7 +480,7 @@ function asb_js_alter( &$javascript ){
   loaded BEFORE the chosen stuff, so I'm doing this juggling here... there has to be a better way.
   */ 
   unset( $javascript['sites/​all/libraries/​chosen/chosen.jquery.min.js'] );
-//  unset( $javascript['sites/all/modules/contrib/chosen/chosen.js'] );
+  unset( $javascript['sites/all/modules/contrib/chosen/chosen.js'] );
   unset( $javascript['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.js");
   drupal_add_js( 'sites/all/modules/contrib/chosen/chosen.js' );
