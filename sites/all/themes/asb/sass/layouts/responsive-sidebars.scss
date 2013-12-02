@@ -57,7 +57,8 @@ $zen-auto-include-item-base: false;
 // Schemes Pager
 #add_page_scroll_wrapper {
   #load_more_schemes_button,
-  #pager_issue_filter,
+  .views-widget-filter-field_issues_goals_target_id,
+//  #pager_issue_filter,
   #edit-keys-wrapper {
     width: 100%;
   }
@@ -95,7 +96,8 @@ $zen-auto-include-item-base: false;
 
   #header section.content,
   #content-wrapper,
-  #footer section.content {
+  #footer section.content,
+  #add_page_scroll_wrapper {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
     margin-left: auto;
     margin-right: auto;
@@ -105,7 +107,6 @@ $zen-auto-include-item-base: false;
   header section.content,
   #content .scheme-collection-view,
   #footer section.content {
-    @include zen-grid-background();
     @include zen-grid-container();
   }
 
@@ -127,7 +128,30 @@ $zen-auto-include-item-base: false;
 
 }
 
+@media all and ( min-width: 740px ){
+  // Schemes Pager
+  #add_page_scroll_wrapper {
+    #load_more_schemes_button,
+    .views-widget-filter-field_issues_goals_target_id,
+    //#pager_issue_filter,
+    #edit-keys-wrapper {
+      float: left;
+    }
+    .views-widget-filter-field_issues_goals_target_id {
+      @include zen-grid-flow-item( 2 );
+    }
+    #load_more_schemes_button {
+      border: 1px #f00 solid;
+      @include zen-grid-flow-item( 4 ); 
+    }
+    #edit-keys-wrapper {
+      @include zen-grid-flow-item( 2 );            
+      padding-left: 1em;
+    }
 
+  }
+
+}
 @media all and (min-width: 960px) {
 
   $zen-grid-width: 960px;
@@ -274,7 +298,8 @@ $zen-auto-include-item-base: false;
 .views-exposed-widgets,
 .page-node-add-scheme #main,
 .node-type-scheme.og-context.og-context-node.section-node-edit #content,
-.page-user.not-logged-in #content {
+.page-user.not-logged-in #content,
+#add_page_scroll_wrapper {
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
 
   margin-right: auto;

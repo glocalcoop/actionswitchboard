@@ -252,7 +252,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // to the progress markup.
 
     // add it after forms.css
-    drupal_add_css( drupal_get_path('module', 'asb_scheme') . '/css/scheme_add_edit.css', array('group' => CSS_THEME, 'type' => 'file', weight=>2 ));
+    drupal_add_css( drupal_get_path('module', 'asb_scheme') . '/css/scheme_add_edit.css', array('group' => CSS_THEME, 'type' => 'file', 'weight'=>2 ));
 
     $output = '<div id="stepper-add-scheme"><ul>';
     // oldschool

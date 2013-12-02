@@ -1,6 +1,7 @@
 // $Id:
 
 (function ($) {
+  console.log( "alter_infinitescroll");
 var views_infinite_scroll_was_initialised = false;
 Drupal.behaviors.views_infinite_scroll = {
   attach:function( context, settings ) {
@@ -46,7 +47,7 @@ Drupal.behaviors.views_infinite_scroll = {
             infiniteScrollPager.append( searchbox_clone );
             infiniteScrollPager.appendTo($(view_selector));
 
-
+            console.log("hi?");
 
             $(content_selector).addClass('clearfix');
             $(content_selector).css({
@@ -66,7 +67,7 @@ Drupal.behaviors.views_infinite_scroll = {
                 spinner.fadeIn();
               },
               load: function( current, next ) {
-                console.log( 'load', current, next );
+//                console.log( 'load', current, next );
                 Drupal.attachBehaviors(this);
                 spinner.fadeOut();
                 if(!next || next.url == undefined ) {
@@ -115,6 +116,5 @@ Drupal.behaviors.views_infinite_scroll = {
     }
   }
 }
-            console.log("CHOSEN SHOULD HAPPEN AFTER THIS LINE");
 
 })(jQuery);
