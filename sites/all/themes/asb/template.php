@@ -489,7 +489,9 @@ function asb_js_alter( &$javascript ){
 }
 
 function asb_views_post_render(&$view) {
-  if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overvieww_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
+  // dpm( $view->name );
+  // dpm($view->current_display );
+  if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
     $scripts = drupal_add_js();
     //load this stuff before chosen
     drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js', array( 'group'=>-100, 'weight'=> 0.012 ) );
