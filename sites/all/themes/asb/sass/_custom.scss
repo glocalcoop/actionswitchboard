@@ -27,29 +27,6 @@
   }
 }
 
-// // Font Icon mixins and variables
-// @mixin font-icon-family($family:"entypo", $file:"entypo") {
-//   @if $family == "entypo-social" {
-//     $family:"entypo-social";
-//     $file:"entypo-social";
-//   }
-//   @else if $family == "entypo" {
-//     $family:"entypo";
-//     $file:"entypo";
-//   }
-//   @font-face {
-//     font-family: '#{$family}'; 
-//     src: font-url('#{$file}.eot'); 
-//     src: font-url('#{$file}.eot?#iefix') format('embedded-opentype'),
-//          font-url('#{$file}.woff') format('woff'),
-//          font-url('#{$file}.ttf') format('truetype'),
-//          font-url('#{$file}.svg##{$family}') format('svg'),
-//          font-url('#{$file}.otf') format('opentype');
-//     font-weight: normal; 
-//     font-style: normal;
-//   }
-// }
-
 
 @mixin font-icon-base($family:"entypo", $font-size: 1em, $width: 1em, $margin: 0.2em, $align: left) {
   @if $family == "entypo-social" {

@@ -237,7 +237,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 #nav-find {
   color: #fff;
   cursor: pointer;
-  @include font-icon-base($family:"entypo", $font-size: 1.25em, $margin: 0em, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0em, $width: .3em);
   @extend %entypo-search;
   &:before {
     position: absolute;
@@ -249,7 +249,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 .field-location {
-  @include font-icon-base($family:"entypo", $font-size: 1em, $margin: .25em 0 0 0, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
   color: $text-color;
   &:before{
@@ -266,7 +266,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 ul.tabs-primary {
   li {
     a {
-      @include font-icon-base($family:"entypo", $font-size: 1em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
     }
     &.ctools-use-ajax a{ 
       @extend %entypo-megaphone;
@@ -282,7 +282,7 @@ article.comment,
 .scheme-leader-contact,
 .status-info  {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 1em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
       color: $text-color;
       text-align: left;
       &.edit { @extend %entypo-pencil; }
@@ -443,7 +443,8 @@ ul.tags {
         list-style: none;
         li {
           a {
-            @include font-icon-base($family:"entypo-social", $font-size: 1.65em, $margin: 0.1em, $width: .25em);
+            text-align: center;
+            @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
             &.facebook {
               @extend %entypo-social-facebook;
               span {
@@ -464,11 +465,13 @@ ul.tags {
             }
             margin-right: .25em;
             &.user-contact { 
-              @include font-icon-base($family:"entypo", $font-size: 1.5em, $margin: 0.1em );
+              span {
+                vertical-align: top;
+              }
+              @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center  );
               @extend %entypo-mail; 
             }
-            padding-right: 10px;
-            padding-left: 10px;
+            padding: 0 .5em;
           }
         }
       }  

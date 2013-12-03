@@ -130,7 +130,7 @@
           margin: 0;
           padding: 0;
           a {
-            @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em);
+            @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
             color: $text-color;
           }
           &:first-child a {

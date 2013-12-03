@@ -33,7 +33,7 @@
 	}
 
 	a.close { 
-		@include font-icon-base($family:"entypo", $font-size: 1.25em, $margin: 0em, $width: .3em);
+		@include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
 	  @extend %entypo-circled-cross;
 	  @include box-sizing( border-box );
 	  position: relative;
