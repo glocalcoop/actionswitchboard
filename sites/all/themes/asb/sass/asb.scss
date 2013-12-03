@@ -292,7 +292,7 @@ article.comment,
     // @include replace-text();
   }
   ul.links.inline li {
-    &.comment-delete a{ @extend %entypo-cancel; }
+    &.comment-delete a{ @extend %entypo-circled-cross; }
     &.comment-edit a { @extend %entypo-pencil; }
     &.comment-reply a { @extend %entypo-reply; }
     &.comment-add a { @extend %entypo-comment; }
@@ -443,16 +443,32 @@ ul.tags {
         list-style: none;
         li {
           a {
-            padding-right: 10px;
-            padding-left: 10px;
-            @include font-icon-base($family:"entypo-social", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
-            &.facebook {@extend %entypo-social-facebook;}
-            &.twitter {@extend %entypo-social-twitter;}
-            &.linkedin {@extend %entypo-social-linkedin;}
+            @include font-icon-base($family:"entypo-social", $font-size: 1.65em, $margin: 0.1em, $width: .25em);
+            &.facebook {
+              @extend %entypo-social-facebook;
+              span {
+                display: none;
+              }
+            }
+            &.twitter {
+              @extend %entypo-social-twitter;
+              span {
+                display: none;
+              }
+            }
+            &.linkedin {
+              @extend %entypo-social-linkedin;
+              span {
+                display: none;
+              }
+            }
+            margin-right: .25em;
             &.user-contact { 
-              @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+              @include font-icon-base($family:"entypo", $font-size: 1.5em, $margin: 0.1em );
               @extend %entypo-mail; 
             }
+            padding-right: 10px;
+            padding-left: 10px;
           }
         }
       }  

@@ -7,7 +7,8 @@
 @include font-face('SourceSansPro', 'source_sans_proitalic', '../fonts/sourcesanspro-italic', normal, italic);
 @include font-face('SourceSansPro', 'source_sans_probold', '../fonts/sourcesanspro-bold', bold );
 @include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);
-@include font-icon-family(entypo);
+@include font-face( entypo, 'entypo', "../fonts/entypo", normal, normal);
+@include font-face( entypo-social, 'entypo-social', "../fonts/entypo-social", normal, normal );
 
 $header-font-family: League, Helvetica, sans;
 
@@ -96,7 +97,6 @@ header#header {
     a.logout { color: $nav-title-color; }
   }
 }
-
 
 #stepper-add-scheme {
   font-family: $header-font-family;
