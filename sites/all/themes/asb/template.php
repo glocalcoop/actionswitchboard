@@ -475,17 +475,21 @@ function asb_menu_link(array $variables) {
 }
 
 function asb_js_alter( &$javascript ){
-  /* 
-  Weights and groups in asb_views_post_render, wasn't making it so alter_infinitescroll.js
-  loaded BEFORE the chosen stuff, so I'm doing this juggling here... there has to be a better way.
-  */ 
+  // we're going to make it so that the chosen scripts run AFTER the alter_infinitescroll.js runs so that the chosen fields get instantiated.
+  // first we remove a set of them... 
   unset( $javascript['sites/​all/libraries/​chosen/chosen.jquery.min.js'] );
+  // unset( $javascript['sites/​all/libraries/​chosen/chosen.jquery.js'] );
   unset( $javascript['sites/all/modules/contrib/chosen/chosen.js'] );
   unset( $javascript['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
-  drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.js");
-  drupal_add_js( 'sites/all/modules/contrib/chosen/chosen.js' );
-  drupal_add_js('sites/all/themes/asb/js/script.js');
-//  dpm( $javascript );
+
+  $chosen_js = 'sites/​all/libraries/​chosen/chosen.jquery.min.js';
+  $chosen_mod = 'sites/all/modules/contrib/chosen/chosen.js';
+  $theme_scripts = "sites/all/themes/asb/js/script.js";
+  $javascript[$chosen_js] = drupal_js_defaults($chosen_js);
+  $javascript[$chosen_mod] = drupal_js_defaults($chosen_mod);
+  $javascript[$theme_scripts] = drupal_js_defaults($theme_scripts);
+  // what do we have now?
+  dpm( $javascript );
 }
 
 function asb_views_post_render(&$view) {
