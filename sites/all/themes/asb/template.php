@@ -489,7 +489,7 @@ function asb_js_alter( &$javascript ){
   $javascript[$chosen_mod] = drupal_js_defaults($chosen_mod);
   $javascript[$theme_scripts] = drupal_js_defaults($theme_scripts);
   // what do we have now?
-  dpm( $javascript );
+  // dpm( $javascript );
 }
 
 function asb_views_post_render(&$view) {
