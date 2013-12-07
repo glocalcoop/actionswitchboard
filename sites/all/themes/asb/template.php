@@ -475,8 +475,6 @@ function asb_menu_link(array $variables) {
 }
 
 function asb_views_post_render(&$view) {
-  // dpm( $view->name );
-  // dpm($view->current_display );
   if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
     //load this stuff before chosen
     drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
@@ -492,5 +490,4 @@ function asb_page_alter( &$page ){
   drupal_add_js( "sites/all/themes/asb/js/scripts.js" );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( "sites/all/modules/contrib/chosen/chosen.js" );
-  dpm( $page );
 }
