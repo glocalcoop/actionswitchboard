@@ -1,7 +1,7 @@
 // $Id:
 
 (function ($) {
-  console.log( "alter_infinitescroll");
+
 var views_infinite_scroll_was_initialised = false;
 Drupal.behaviors.views_infinite_scroll = {
   attach:function( context, settings ) {
@@ -11,7 +11,9 @@ Drupal.behaviors.views_infinite_scroll = {
       if(!views_infinite_scroll_was_initialised) {
         views_infinite_scroll_was_initialised = true;
         // There should not be multiple Infinite Scroll Views on the same page
-        if(Drupal.settings.views_infinite_scroll.length == 1) { 
+
+
+        if(Drupal.settings.views_infinite_scroll && Drupal.settings.views_infinite_scroll.length == 1) { 
           var settings = Drupal.settings.views_infinite_scroll[0];
           var use_ajax = false;
           // Make sure that views ajax is disabled
@@ -31,29 +33,24 @@ Drupal.behaviors.views_infinite_scroll = {
             var img_location     = view_selector + ' > div.view-content';
             var img_path         = settings.img_path;
             var img              = '<div id="views_infinite_scroll-ajax-loader"><img src="' + img_path + '" alt="loading..."/></div>';
+
+
+            // @todo ... separation of concerns, move bits that add the search parameters to the pager to scripts.js
+            // and pull them out of here, make sure that scripts loads BEFORE chosen
+            // basically chosen should load last.
+
             var load_more_button = $("<a id='load_more_schemes_button' href='#' title='Load more schemes...' href='schemes'>Load More Schemes</a>");
-
-            var otherControls = $("#views-exposed-form-scheme-overview-filtered-page-1").clone();
-
-            var searchbox_clone = $("#edit-keys-wrapper").clone(false,false);
-            var issuesfilter_clone = $("#edit-field-issues-goals-target-id-wrapper").clone(false, false );
-            issuesfilter_clone.attr('id', 'pager_issue_filter' );
             var pager = $(pager_selector);
-            issuesfilter_clone.removeAttr('id');
-            // pager.hide();
+            pager.hide();
             var infiniteScrollPager = $("<div id='add_page_scroll_wrapper'></div>");
-            infiniteScrollPager.append( issuesfilter_clone );
             infiniteScrollPager.append( load_more_button );
-            infiniteScrollPager.append( searchbox_clone );
             infiniteScrollPager.appendTo($(view_selector));
-
-            console.log("hi?");
 
             $(content_selector).addClass('clearfix');
             $(content_selector).css({
               'position': 'relative'
             });
-
+            console.log('alter infinitescroll');
             var spinner = $('<div class="loading_spinner"><h4>Message</h4></div>').appendTo( $(view_selector) );
             spinner.hide();
             var handle = $.autopager({
@@ -105,9 +102,11 @@ Drupal.behaviors.views_infinite_scroll = {
           else {  
             alert(Drupal.t('Views infinite scroll pager is not compatible with Ajax Views. Please disable "Use Ajax" option.'));
           }
-        }
-        else if(Drupal.settings.views_infinite_scroll.length > 1) {
+        } else if( Drupal.settings.views_infinite_scroll && Drupal.settings.views_infinite_scroll.length > 1) {
           alert(Drupal.t('Views Infinite Scroll module can\'t handle more than one infinite view in the same page.'));
+        }else if( !Drupal.settings.views_infinite_scroll ) {
+          alert( "Your filters matched no results." );
+          // print something on the page.
         }
       }
     }

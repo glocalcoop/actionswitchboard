@@ -474,32 +474,23 @@ function asb_menu_link(array $variables) {
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
-function asb_js_alter( &$javascript ){
-  // we're going to make it so that the chosen scripts run AFTER the alter_infinitescroll.js runs so that the chosen fields get instantiated.
-  // first we remove a set of them... 
-  unset( $javascript['sites/​all/libraries/​chosen/chosen.jquery.min.js'] );
-  // unset( $javascript['sites/​all/libraries/​chosen/chosen.jquery.js'] );
-  unset( $javascript['sites/all/modules/contrib/chosen/chosen.js'] );
-  unset( $javascript['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
-
-  $chosen_js = 'sites/​all/libraries/​chosen/chosen.jquery.min.js';
-  $chosen_mod = 'sites/all/modules/contrib/chosen/chosen.js';
-  $theme_scripts = "sites/all/themes/asb/js/script.js";
-  $javascript[$chosen_js] = drupal_js_defaults($chosen_js);
-  $javascript[$chosen_mod] = drupal_js_defaults($chosen_mod);
-  $javascript[$theme_scripts] = drupal_js_defaults($theme_scripts);
-  // what do we have now?
-  // dpm( $javascript );
-}
-
 function asb_views_post_render(&$view) {
   // dpm( $view->name );
   // dpm($view->current_display );
   if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
-    $scripts = drupal_add_js();
     //load this stuff before chosen
-    drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js', array( 'group'=>-100, 'weight'=> 0.012 ) );
-    drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js', array( 'group'=>-100, 'weight'=> 0.013 ));
-    $scripts = drupal_add_js();
+    drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
+    drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js' );  
   }
+}
+
+function asb_page_alter( &$page ){
+  $scripts = drupal_add_js();
+  unset( $scripts['sites/​all/libraries/​chosen/chosen.jquery.min.js'] );
+  unset( $scripts['sites/all/modules/contrib/chosen/chosen.js'] );
+  unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
+  drupal_add_js( "sites/all/themes/asb/js/scripts.js" );
+  drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
+  drupal_add_js( "sites/all/modules/contrib/chosen/chosen.js" );
+  dpm( $page );
 }
