@@ -116,6 +116,7 @@ global $user;
 </article>
 
 <?php
+drupal_set_message("Form ID: " . $form_id);
 // echo '<pre>';
 // var_dump($civi_contact);
 // echo '</pre>';
