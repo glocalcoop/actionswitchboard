@@ -92,13 +92,11 @@
         <?php endif; ?>
       </section><!-- /#name-and-slogan -->
 
-
     <?php endif; ?>
 
     <section id="navigation"> 
       <?php print render($page['header']); ?>
     </section><!-- /#navigation -->
-
 
   </header>
 
@@ -107,14 +105,16 @@
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
 
-
     <?php print render($page['search']); ?>
 
     <div id="content">
-      <article class="node-edit clearfix">
+
+      <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
         <header class="edit-header">
+
           <div class="wrapper">
+
             <section class="content">
               <?php print render($title_prefix); ?>
               <?php if ($title): ?>
@@ -123,22 +123,31 @@
               <?php print render($title_suffix); ?>
               <?php print $messages; ?>
             </section>
+
           </div>
+
         </header>
 
         <div class="wrapper">
-        <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
-          <?php print render($tabs); ?>
-        <?php endif; ?>
-        <?php print render($page['content']); ?>
+
+          <section class="main-content">
+
+          <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
+            <?php print render($tabs); ?>
+          <?php endif; ?>
+          <?php print render($page['content']); ?>
+
+          </section>
+
         </div>
 
       </article>
+
     </div><!-- /#content -->
+    
   </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>
-
 
 </div>
 

@@ -72,7 +72,7 @@ global $user;
           </section>
       </aside> 
 
-  </div>
+    </div>
 
   </header>
 
