@@ -114,6 +114,9 @@
 
 
     <div id="content">
+      <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
+        <?php print render($tabs); ?>
+      <?php endif; ?>
       <?php print render($page['content']); ?>
 
     </div><!-- /#content -->
