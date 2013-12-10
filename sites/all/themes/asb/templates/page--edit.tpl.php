@@ -100,8 +100,6 @@
     </section><!-- /#navigation -->
 
 
-
-
   </header>
 
   <section id="main">
@@ -112,23 +110,31 @@
 
     <?php print render($page['search']); ?>
 
-
     <div id="content">
-      <header class="edit-header">
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?>
-          <h1 class="page__title title" id="page-title"><?php print $title; ?></h1>
+      <article class="node-edit clearfix">
+
+        <header class="edit-header">
+          <div class="wrapper">
+            <section class="content">
+              <?php print render($title_prefix); ?>
+              <?php if ($title): ?>
+                <h1 class="page__title title" id="page-title"><?php print $title; ?></h1>
+              <?php endif; ?>
+              <?php print render($title_suffix); ?>
+              <?php print $messages; ?>
+            </section>
+          </div>
+        </header>
+
+        <div class="wrapper">
+        <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
+          <?php print render($tabs); ?>
         <?php endif; ?>
-        <?php print render($title_suffix); ?>
-        <?php print $messages; ?>
-      </header>
-      <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
+        <?php print render($page['content']); ?>
+        </div>
 
+      </article>
     </div><!-- /#content -->
-
   </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>

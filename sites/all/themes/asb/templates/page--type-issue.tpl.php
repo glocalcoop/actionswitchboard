@@ -107,9 +107,6 @@
       <?php print render($page['header']); ?>
     </section><!-- /#navigation -->
 
-
-
-
   </header>
 
   <section id="main">
@@ -119,8 +116,10 @@
 
   <?php print render($page['search']); ?>
 
-    <div id="content" class="fuckme">
+    <div id="content">
+
       <article class="node-<?php print $node->nid; ?> <?php print $node_classes; ?> clearfix">
+
         <header>
           <div class="wrapper">
             <section class="content">
@@ -144,9 +143,9 @@
                 <?php print $feed_icons; ?>
               <?php endif; ?>
             </section>
-
           </div>
         </header>
+
         <div class="wrapper">
             <?php print render($page['content']); ?>
             <?php if($page['sidebar_second']): ?>
@@ -159,6 +158,7 @@
             <?php endif; ?>
         </div>
       </article>
+
     </div><!-- /#content -->
 
   </section><!-- /#main -->
