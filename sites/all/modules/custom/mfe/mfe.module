@@ -116,8 +116,23 @@ function mfe_make_link($link_text = '', $type, $field_name) {
     $img_link = '<img src="/' .$mod_path .'/images/document-edit.png" alt="' .$link_text .'" />';
     return '<div id="' .$field_name .'-mfe-modal-style">' . l($img_link, 'mfe-single-modal-callback/nojs/' .arg(1) .'/' .$type .'/' .$field_name, array('html' => TRUE, 'attributes' => array('class' => 'ctools-use-modal ctools-modal-mfe-modal'))) . '</div>';
   }else{
-    return '<div id="' .$field_name .'-mfe-modal-style">' . l($link_text, 'mfe-single-modal-callback/nojs/' .arg(1) .'/' .$type .'/' .$field_name, array('attributes' => array('class' => 'ctools-use-modal ctools-modal-mfe-modal'))) . '</div>';
+  //   return '<div id="' .$field_name .'-mfe-modal-style">' . l($link_text, 'mfe-single-modal-callback/nojs/' .arg(1) .'/' .$type .'/' .$field_name, array('attributes' => array('class' => 'ctools-use-modal ctools-modal-mfe-modal'))) . '</div>';
+  // }    
+    $link_url = 'mfe-single-modal-callback/nojs/' .arg(1) .'/' .$type .'/' .$field_name;
+    $link = l( '<span>'.$link_text.'</span>', $link_url, array(
+      // need this to wrap the text-node in a span 
+      'html' => TRUE,
+      'attributes' => array( 
+        'id' => $field_name .'-mfe-modal-style',
+        'class' => 'icon edit ctools-use-modal ctools-modal-mfe-modal',
+        'title' => $link_text
+      )
+    ));
+
+    return $link;
+
   }    
+
 }
 
 /**
@@ -147,7 +162,14 @@ function mfe_page_alter(&$page) {
             // dsm($page['content']['system_main']['nodes']);
             foreach($page['content']['system_main']['nodes'] as $key => $value) {
               if(is_numeric($key) && isset($page['content']['system_main']['nodes'][$key][$field])) {
-                $page['content']['system_main']['nodes'][$key][$field]['#prefix'] = mfe_make_link('Edit ' .$field, $type, $field);
+                $fieldNameArray = preg_split('/_/', $field);
+                if( $fieldNameArray[0] == 'field' ) array_shift( $fieldNameArray );
+                if( $fieldNameArray[0] && $fieldNameArray[0] == 'image' ){
+                  // this is very specific... but I don't want to bother people with changing the filed-name this far along.
+                  $fieldNameArray[0] = "images";
+                }
+                $link_text = implode( " ", $fieldNameArray );
+                $page['content']['system_main']['nodes'][$key][$field]['#prefix'] = mfe_make_link( 'Edit ' . ucwords( $link_text ), $type, $field);
               }
             }
           }
