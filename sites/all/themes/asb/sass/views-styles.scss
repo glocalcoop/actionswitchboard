@@ -223,6 +223,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         padding-left: 0;
       }
 
+      &:nth-child(4n+4),
       &:last-child {
         border: none;
       }
