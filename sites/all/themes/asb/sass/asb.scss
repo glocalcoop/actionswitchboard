@@ -136,22 +136,19 @@ display: block;
 #content>article {
 
   &>header {
-
     background-color: $panel;
     padding: 1em 0 1em 0;
-    min-height: 120px;
-
-    h1#page-title {
-//    @include zen-float(left);
+    .wrapper {
+      min-height: 12em;
+      height: 12em;
+    }
+    #page-title {
       padding: 0;
     }
-    section.methods {
-      // @include zen-float(right);
-      // margin-top: 28px;
-    }
-    section.content {
-      border-right: {
-        @include standard-border($style: dashed, $width: 2px);
+    aside {
+      height: 100%;
+      border-left: {
+        @include standard-border($style: dashed, $width: 1px);
       }
     }
 
@@ -482,6 +479,11 @@ ul.tags {
   }
 
 }
+
+#edit-actions input,
+form .form-actions input{
+  float: none !important;
+} 
 
 
 .no-more-results {
