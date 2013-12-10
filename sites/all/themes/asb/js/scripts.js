@@ -26,8 +26,24 @@
       if( $(".view-display-id-page_1") || $(".views-display-id-block_1") ){
         asb.modify_append_pager();
       }
+
+      if( $(".scheme-collection-view") ){
+        asb.scheme_overviews_clamp_descriptions();
+      }
+
     }
 
+  }
+
+  asb.scheme_overviews_clamp_descriptions = function(){
+    $(".view-scheme-overview .scheme-name").each( function(){
+      console.log( "asb.scheme-name", this );
+      $clamp( this, { clamp: 2 } ); 
+    });
+    $(".view-scheme-overview .scheme-description").each( function(){
+      console.log( "asb.scheme_overviews_clamp_descriptions", this );
+      $clamp( this, { clamp: 6 } ); 
+    });
   }
 
   asb.modify_append_pager = function() {

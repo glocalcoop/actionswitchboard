@@ -55,6 +55,37 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @import "needs/*.png";
 @include all-needs-sprites;
 
+.scheme-collection .view-scheme-overview {
+  .scheme-header {
+    min-height: 5.5em;
+    .scheme-name {
+    }
+  }
+  .scheme-leader {
+    @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
+    @extend %entypo-user;
+    a { 
+      margin-left: .25em;
+    }
+    &:before{
+      width: .5em;
+      text-align: center;
+    }
+  }
+  .scheme-description {
+    min-height: 7.5em;
+    // background: rgba( 255, 0,0, .12 );
+    margin-top: .25em;
+    margin-bottom: .5em;
+    vertical-align: top;
+  }
+
+  .field-issues-goals {
+    margin-bottom: .5em;
+  }
+}
+
+
 .scheme-collection {
   @include zen-grid-container;
   padding-bottom: 10px;
@@ -85,9 +116,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
   .field-body {
     vertical-align: top;
-    p {
-      min-height: 80px;
-    }
   }
 
   h3.scheme-name {
@@ -167,10 +195,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         padding-top: 4px;
         li {
           @include zen-float;
-          width: 30%;
+          width: 31%;
           padding: 0 4px 4px 0;
           margin: 0;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           text-wrap: normal;
           label {
             font-weight: normal;
@@ -185,7 +213,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
     .views-row {
       border-right: {
-        @include standard-border($rules-color, 2px);
+        @include standard-border($rules-color, 1px);
       }
       min-height: 350px;
       padding: 0 10px;

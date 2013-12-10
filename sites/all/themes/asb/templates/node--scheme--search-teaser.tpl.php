@@ -15,37 +15,49 @@ global $user;
 
 ?>
 <?php print render($content['field_image']); ?>
-<?php if ($title): ?>
+<?php print render($content); ?>
+<header class="scheme-header">
   <h3 class="scheme-name">
     <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
   </h3>
-<?php endif; ?>
-<?php print render($content); ?>
-<div class="scheme-description">
   <?php print render($content['field_leader']); ?>
   <?php print render($content['field_location']); ?>
+</header>
+
+<div class="scheme-description">
   <?php print render($content['body']); ?>
 </div>
 
-<?php if($node->workflow != 5): ?>
-<div class="field-issues-goals"><span class="sc-issue">Issue: </span><?php print render($content['issues']); ?></div>
+
+<?php 
+  // if not a completed scheme
+  if($node->workflow != 5):
+?>
+<div class="field-issues-goals">
+  <span class="sc-issue">Issue: </span><?php print render($content['issues']); ?>
+</div>
 <?php print render($content['field_progress']); ?>
-<div class="scheme-info">
+
+<footer class="scheme-info">
   <h4 class="scheme-needs">Needs</h4>
   <ul class="scheme-needs">
     <li class="needed-skills"><?php print render($content['field_people_skills']); ?></li>
     <li class="needed-supplies"><?php print render($content['field_material_needs']); ?></li>
     <li class="needed-funds"><?php print "$" .render($content['field_funding_needs']); ?></li>
   </ul>
-</div>
-<?php else: ?>
-<div class="scheme-info"><h4 class="about-scheme">About</h4>
+</footer>
+
+<?php
+  // completed scheme
+  else:
+?>
+<footer class="scheme-info"><h4 class="about-scheme">About</h4>
   <ul class="scheme-needs sc-complete">
     <li class="sc-fans"><label>Fans:</label><?php print $fans; ?> </li>
     <li class="sc-people"><label>People:</label><?php print $people_count; ?></li>
     <li class="sc-issue"><label>Issue:</label><div class="field-issues-goals"><?php print render($content['issues']); ?></div></li>
   </ul>
-</div>
+</footer>
 <!-- Added in node--scheme--search-teaser.tpl.php TODO: Replace place_holder_{fans,people} with real values -->
 <?php endif; ?>
 

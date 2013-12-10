@@ -141,7 +141,6 @@ $zen-auto-include-item-base: false;
       @include zen-grid-flow-item( 2 );
     }
     #load_more_schemes_button {
-      border: 1px #f00 solid;
       @include zen-grid-flow-item( 4 ); 
     }
     #edit-keys-wrapper {
@@ -172,8 +171,8 @@ $zen-auto-include-item-base: false;
     margin: 0 auto;
   }
 
-  .not-front.page-node #content {
-  // .not-front.page-user #content {
+  .not-front.page-node #content,
+  .not-front.page-user #content {
     width: 100%;
     margin-left: 0;
     margin-right: 0;

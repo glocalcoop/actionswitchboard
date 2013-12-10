@@ -249,13 +249,11 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 }
 
 .field-location {
-  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: .25em 0 0 0, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
-  color: $text-color;
   &:before{
-    text-align: left;
-    margin-right: .325em;
-    line-height: .875;
+    width: .5em;
+    text-align: center;
   }
 }
 .status-info a.icon {

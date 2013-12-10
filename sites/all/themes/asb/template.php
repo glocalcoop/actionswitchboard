@@ -490,4 +490,5 @@ function asb_page_alter( &$page ){
   drupal_add_js( "sites/all/themes/asb/js/scripts.js" );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( "sites/all/modules/contrib/chosen/chosen.js" );
+  drupal_add_js( "sites/all/themes/asb/js/clamp.js" );
 }
