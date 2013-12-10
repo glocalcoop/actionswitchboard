@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * @file
  * Zen theme's implementation to display a single Drupal page.
@@ -90,16 +90,7 @@
         <?php if ($site_slogan): ?>
           <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>
-        <?php if($is_front):?>
-          <h2 id="what-is-an-action-switchboard">
-            <a href="#notimportant-though-should-probably-link-to-something">
-              Just what is an action switchboard anyway?
-            </a>
-          </h2>
-        <?php endif;?>
-
       </section><!-- /#name-and-slogan -->
-
 
     <?php endif; ?>
 
@@ -114,57 +105,49 @@
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
 
-  <?php print render($page['search']); ?>
+    <?php print render($page['search']); ?>
 
     <div id="content">
 
-      <article class="node-<?php print $node->nid; ?> <?php print $node_classes; ?> clearfix">
+      <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-        <header>
+        <header class="edit-header">
+
           <div class="wrapper">
+
             <section class="content">
-              <?php if ($title_prefix || $title_suffix || $title): ?>
-                <?php if($page['highlighted']): ?>
-                  <?php print render($page['highlighted']); ?>
-                <?php endif; ?>
-                <a id="main-content"></a>
-            
-                <?php print render($title_prefix); ?>
-            
-                <?php if ($title): ?>
-                  <h1 class="title" id="page-title"><?php print $title; ?></h1>
-                <?php endif; ?>
-
-                <?php print render($title_suffix); ?>
-
-                <?php if ($action_links): ?>
-                  <ul class="action-links"><?php print render($action_links); ?></ul>
-                <?php endif; ?>
-                <?php print $feed_icons; ?>
+              <?php print render($title_prefix); ?>
+              <?php if ($title): ?>
+                <h1 class="page__title title" id="page-title"><?php print $title; ?></h1>
               <?php endif; ?>
+              <?php print render($title_suffix); ?>
+              <?php print $messages; ?>
             </section>
+
           </div>
+
         </header>
 
         <div class="wrapper">
-            <?php print render($page['content']); ?>
-            <?php if($page['sidebar_second']): ?>
-              <aside id="sidebar">
-                <?php
-                  // Render the sidebars to see if there's anything in them.
-                  print render($page['sidebar_second']);
-                ?>
-              </aside><!-- /.sidebars -->
-            <?php endif; ?>
+
+          <section class="main-content">
+
+          <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
+            <?php print render($tabs); ?>
+          <?php endif; ?>
+          <?php print render($page['content']); ?>
+
+          </section>
+
         </div>
+
       </article>
 
     </div><!-- /#content -->
-
+    
   </section><!-- /#main -->
 
   <?php print render($page['footer']); ?>
-
 
 </div>
 

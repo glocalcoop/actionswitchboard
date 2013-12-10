@@ -21,7 +21,15 @@ global $user;
         
         <label>Schemer</label>
         <h1 class="title" id="page-title">
-          <?php print render($civi_contact['first_name']); ?> <?php print render($civi_contact['last_name']); ?>
+          <?php
+          if (isset($civi_contact['first_name'])) {
+            print render($civi_contact['first_name']);
+            print " ";
+            print render($civi_contact['last_name']);
+          } else {
+            print render($user_profile['name']);
+          }
+          ?>
         </h1>
       </section>
 
@@ -72,7 +80,7 @@ global $user;
           </section>
       </aside> 
 
-  </div>
+    </div>
 
   </header>
 
