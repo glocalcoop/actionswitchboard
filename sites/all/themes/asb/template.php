@@ -165,6 +165,17 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
+  if(arg(2) == 'edit') {
+    /* $suggests = &$variables['theme_hook_suggestions']; */
+    /* $args = array(); */
+    $edit = "page__edit";
+    $variables['theme_hook_suggestion'] = $edit;
+    /* $suggests = array_merge( */
+    /*   $suggests, */
+    /*   array($edit), */
+    /*   theme_get_suggestions($args, $edit) */
+    /* ); */
+  }
   if (isset($variables['node'])) {
     // Ref suggestions cuz it's stupid long.
     $suggests = &$variables['theme_hook_suggestions'];
