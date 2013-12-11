@@ -66,11 +66,12 @@
 .node-type-scheme {
 
   h3.field-label {
+    font-size: 1em;
     margin: 0;
     padding: 12px 0 0 0;
-    border-top: {
-      @include standard-border($color: $rules-color);
-    }
+    // border-top: {
+    //   @include standard-border($color: $rules-color);
+    // }
     @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
   }
 

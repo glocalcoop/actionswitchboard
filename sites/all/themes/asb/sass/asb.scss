@@ -489,3 +489,18 @@ form .form-actions input{
 .no-more-results {
   background-color: #dedede !important;
 }
+
+#scheme-content {
+  .ctools-modal-mfe-modal {
+    display: block;
+    margin-top: .5em;
+    padding-top: .5em;
+    width: 100%;
+    border-top: 1px #dedede solid;
+    font-size: 2em;
+    span {
+      display: none;
+    }
+  }
+}
+

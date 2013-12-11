@@ -55,12 +55,14 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @import "needs/*.png";
 @include all-needs-sprites;
 
-.scheme-collection .view-scheme-overview {
+
+
+.scheme-collection {
+
   .scheme-header {
-    min-height: 5.5em;
-    .scheme-name {
-    }
+    min-height: 6em;
   }
+
   .scheme-leader {
     @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
     @extend %entypo-user;
@@ -72,6 +74,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       text-align: center;
     }
   }
+
   .scheme-description {
     min-height: 7.5em;
     // background: rgba( 255, 0,0, .12 );
@@ -79,10 +82,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     margin-bottom: .5em;
     vertical-align: top;
   }
-
   .field-issues-goals {
     margin-bottom: .5em;
   }
+
 }
 
 
@@ -123,186 +126,153 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     line-height: $base-line-height;
     margin: 1px 0 4px 0;
   }
-  .scheme-leader {
-    &:before {
-      content: "by ";
-    }
-  }
-  h4 {
-    @include header-style ($family: $font-body, $size: $h5-font-size, $transform: uppercase, $color: $text-color-secondary);
-    line-height: inherit;
-  }
+  
+}
+
+.scheme-collection {
 
   .scheme-info {
+    
     @include zen-clear(both);
-    line-height: 12px;
-    height: 12px;
-    margin-top: 8px;
-    padding-top: 8px;
+    margin-top: .5em;
+    padding: .25em 0 0 0;
+    line-height: 1;
+
     border-top: {
       @include standard-border;
     }
-    // font-size: $h5-font-size;
-    h4 {
-      @include zen-float;
-      margin: 0;
-      padding: 0;
-      // font-size: $h5-font-size;
+
+    &.completed-scheme {
+      margin-top: 3.675em;
     }
 
-    ul.scheme-needs {
-      @include zen-float;
-      padding: 0;
+    .scheme-meta {
+      @include clearfix;
       margin: 0;
+      padding: 0;
       list-style-type: none;
       font-size: $h5-font-size;
       li {
-        @include zen-float;
-        padding-left: 23px;
-        margin-right: 0;
-        margin-left: 10px;
+        vertical-align: top;
+        width: 30%;
+        display: inline-block;
         font-weight: bold;            
-        &.needed-skills {
-          @extend .needs-skills;
-        };
-        &.needed-supplies {
-          @extend .needs-supplies;
-        };
-        &.needed-funds {
-          @extend .needs-funds;
-          white-space: nowrap;
-        };
-
       }
     }
-  }
 
-  //Completed Schemes
-  &.block-views-scheme-overview-block-3 {
-    .scheme-info {
-      margin-top: 0;
-      padding-top: 0;
-      border: none;
-      h4 {
-        float: none;
-        border-bottom: {
-          @include standard-border;
-        }
-        padding-bottom: 4px;
+    .scheme-needs {
+      li {
+        @include box-sizing( border-box );
+        padding-left: 23px;
       }
-      ul.scheme-needs {
-        width: 100%;
-        padding-top: 4px;
-        li {
-          @include zen-float;
-          width: 31%;
-          padding: 0 4px 4px 0;
-          margin: 0;
-          // text-transform: uppercase;
-          text-wrap: normal;
-          label {
-            font-weight: normal;
-          }
-        }
-      }
+      .needed-skills {
+        @extend .needs-skills;
+      };
+      .needed-supplies {
+        @extend .needs-supplies;
+      };
+      .needed-funds {
+        @extend .needs-funds;
+        white-space: nowrap;
+      };
     }
-  }
 
-  .view-content {
-    @include zen-clear();
-
-    .views-row {
-      border-right: {
-        @include standard-border($rules-color, 1px);
-      }
-      min-height: 350px;
-      padding: 0 10px;
-      margin: 1em 0 1.5em 0;
-
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &:nth-child(4n+4),
-      &:last-child {
-        border: none;
-      }
-
-      #scheme-images img {
-        width: 100%;
-        max-width: 240px;
-        height: 123px;
-      }
-      .scheme-progress {
-        @include zen-clear(both);
-        padding-bottom: 12px;
-        h4 {
-          @include zen-float;
-          width: 25%;
-          margin: 0;
-          padding: 0;
-          }
-        .scheme-progress-bar {
-          @include zen-float;
-          width: 75%;
-          margin: 0;
-          padding: 0;
-          line-height: inherit;
-        }
-      }
-    }
-  }
-
-  ul.pager {
-    // $next-image: url('/sites/all/themes/asb/images/pager/next.png');
-    // $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
-    $pager-height: image-height('pager/previous.png');
-    $pager-width: image-width('pager/previous.png');
-    $scheme-height: 300px;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-    li {
-      $pager-hmargin: -35px;
-      $pager-font-size: 0px;
-      margin-top: - $scheme-height - $pager-hmargin;
+    h4 {
+      @include header-style ($family: $font-body, $size: $h5-font-size, $transform: uppercase, $color: $text-color-secondary);
+      display: inline-block;
+      line-height: inherit;
       padding: 0;
-      &.pager-current,
-      &.pager-item,
-      &.pager-first,
-      &.pager-last {
-        display: none;
-      }
-      a {
-        display: block;
-        height: $pager-height;
-        width: $pager-width;
-        line-height: $pager-height;
-        font-size: $pager-font-size;
-        color: $rules-color;
-      }     
-      &.pager-next {
-        @include zen-float(right);
-        margin-right: $pager-hmargin;
-        a {
-          @include replace-text($next-image);
-          text-indent: 0 !important;
-        }
-      }
-      &.pager-previous {
-        @include zen-float(left);
-        margin-left: $pager-hmargin;
-        a {
-          @include replace-text($previous-image);
-          text-indent: 0 !important;
-        }
-      }
+      margin: 0;
     }
+
   }
-
-
 }
 
+.view-content {
+  @include zen-clear();
 
+  .views-row {
+    border-right: {
+      @include standard-border($rules-color, 1px);
+    }
+    min-height: 398px;
+    padding: 0 10px;
+    margin: 1em 0 1.5em 0;
 
+    &:nth-child(4n+4),
+    &:last-child {
+      border: none;
+    }
 
+    #scheme-images img {
+      width: 100%;
+      max-width: 240px;
+      height: 123px;
+    }
+
+    .scheme-progress {
+      @include zen-clear(both);
+      padding-bottom: 12px;
+      h4 {
+        @include zen-float;
+        width: 25%;
+        margin: 0;
+        padding: 0;
+        }
+      .scheme-progress-bar {
+        @include zen-float;
+        width: 75%;
+        margin: 0;
+        padding: 0;
+        line-height: inherit;
+      }
+    }
+  }
+}
+
+ul.pager {
+  // $next-image: url('/sites/all/themes/asb/images/pager/next.png');
+  // $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
+  $pager-height: image-height('pager/previous.png');
+  $pager-width: image-width('pager/previous.png');
+  $scheme-height: 300px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  li {
+    $pager-hmargin: -35px;
+    $pager-font-size: 0px;
+    margin-top: - $scheme-height - $pager-hmargin;
+    padding: 0;
+    &.pager-current,
+    &.pager-item,
+    &.pager-first,
+    &.pager-last {
+      display: none;
+    }
+    a {
+      display: block;
+      height: $pager-height;
+      width: $pager-width;
+      line-height: $pager-height;
+      font-size: $pager-font-size;
+      color: $rules-color;
+    }     
+    &.pager-next {
+      @include zen-float(right);
+      margin-right: $pager-hmargin;
+      a {
+        @include replace-text($next-image);
+        text-indent: 0 !important;
+      }
+    }
+    &.pager-previous {
+      @include zen-float(left);
+      margin-left: $pager-hmargin;
+      a {
+        @include replace-text($previous-image);
+        text-indent: 0 !important;
+      }
+    }
+  }
+}

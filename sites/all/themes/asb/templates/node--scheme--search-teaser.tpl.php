@@ -24,7 +24,11 @@ global $user;
   <?php print render($content['field_location']); ?>
 </header>
 
+<?php if($node->workflow != 5):?>
 <div class="scheme-description">
+<?else:?>
+<div class="scheme-description completed">
+<?endif;?>
   <?php print render($content['body']); ?>
 </div>
 
@@ -38,9 +42,9 @@ global $user;
 </div>
 <?php print render($content['field_progress']); ?>
 
-<footer class="scheme-info">
+<footer class="scheme-info active-scheme">
   <h4 class="scheme-needs">Needs</h4>
-  <ul class="scheme-needs">
+  <ul class="scheme-meta scheme-needs">
     <li class="needed-skills"><?php print render($content['field_people_skills']); ?></li>
     <li class="needed-supplies"><?php print render($content['field_material_needs']); ?></li>
     <li class="needed-funds"><?php print "$" .render($content['field_funding_needs']); ?></li>
@@ -51,8 +55,9 @@ global $user;
   // completed scheme
   else:
 ?>
-<footer class="scheme-info"><h4 class="about-scheme">About</h4>
-  <ul class="scheme-needs sc-complete">
+<footer class="scheme-info completed-scheme">
+  <h4 class="about-scheme">About</h4>
+  <ul class="scheme-meta sc-complete">
     <li class="sc-fans"><label>Fans:</label><?php print $fans; ?> </li>
     <li class="sc-people"><label>People:</label><?php print $people_count; ?></li>
     <li class="sc-issue"><label>Issue:</label><div class="field-issues-goals"><?php print render($content['issues']); ?></div></li>
