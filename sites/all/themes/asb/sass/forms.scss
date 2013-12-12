@@ -20,30 +20,6 @@ form {
   .form-actions {
     margin-top: 0;
   }
-  input[type="text"],
-  input[type="password"],
-  select,
-  .chosen-container-single .chosen-single {
-    border: {
-        @include standard-border;
-      }
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    // -moz-box-shadow: 2px 2px 3px #666;
-    // -webkit-box-shadow: 2px 2px 3px #666;
-    // box-shadow: 2px 2px 3px #666;
-    font-size: $base-font-size+2px;
-    padding: 4px 7px;
-    outline: 0;
-    -webkit-appearance: none;
-    &:focus {
-      border-color: $supplies;
-    }
-  }
-  .chosen-container-active .chosen-single {
-    border-color: $supplies;
-  }
 }
 
 //Add Scheme buttons are bigger
@@ -210,15 +186,11 @@ form {
   th {
     text-align: left; /* LTR */
     padding-right: 1em; /* LTR */
-    border-bottom: {
-        @include standard-border($width: 3px);
-      }
+    border-bottom: 3px solid #ccc;
   }
 
   tbody {
-    border-top: {
-        @include standard-border;
-      }
+    border-top: 1px solid #ccc;
   }
 
   tr.even {
@@ -235,9 +207,7 @@ form {
   .lt-ie8 tr.odd {
     th,
     td {
-      border-bottom: {
-        @include standard-border; /* IE doesn't display borders on table rows */
-      }
+      border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
     }
   }
 }

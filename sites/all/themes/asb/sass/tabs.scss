@@ -51,21 +51,3 @@ ul.primary { margin: -2px 0 0 -25px;
   }
 }
 
-ul.tabs-secondary {
-  margin: 0;
-  padding: 0;
-  li {
-    margin: 0;
-    padding: 0;
-    // height: 23px;
-    // line-height: 23px;
-    display: inline-block;
-    a {
-      @include button($color: $button-color-secondary, $font-family: $font-body);
-      &.active {
-        @include button($font-family: $font-body);
-      }
-    }
-  }
-}
-
