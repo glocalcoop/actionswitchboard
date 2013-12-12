@@ -1,7 +1,7 @@
 ( function($) {
   
   asb = {};
-  
+
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
       // Catch TypeError in case form is called via ajax.
@@ -36,13 +36,15 @@
   }
 
   asb.scheme_overviews_clamp_descriptions = function(){
-    $(".scheme-collection .scheme-name").each( function(){
-      console.log( "asb.scheme-name", this );
-      $clamp( this, { clamp: 2 } ); 
+    // truncate titles after 2 lines with …
+    $(".scheme-collection .scheme-name a").each( function(){
+      // console.log( "asb.scheme-name a", this );
+      if( $(this).text() ) $clamp( this, { clamp: 2 } ); 
     });
-    $(".scheme-collection .scheme-description").each( function(){
-      console.log( "asb.scheme_overviews_clamp_descriptions", this );
-      $clamp( this, { clamp: 6 } ); 
+    // truncate descriptions after 6 lines with …
+    $(".scheme-collection .scheme-description .field-body").each( function(){
+      // console.log( "asb.scheme_overviews_clamp_descriptions", this );
+      if( $(this).text() ) $clamp( this, { clamp: 6 } ); 
     });
   }
 
