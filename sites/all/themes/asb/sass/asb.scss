@@ -104,7 +104,9 @@ display: block;
   .region-search {
     background-color: $panel;
     background-image: none;
-    border-bottom: 1px #dedede solid;
+    border-bottom: {
+        @include standard-border;
+      }
   }
 }
 
@@ -496,7 +498,9 @@ form .form-actions input{
     margin-top: .5em;
     padding-top: .5em;
     width: 100%;
-    border-top: 1px #dedede solid;
+    border-top: {
+        @include standard-border;
+      }
     font-size: 2em;
     span {
       display: none;
