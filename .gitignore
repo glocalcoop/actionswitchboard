@@ -24,6 +24,5 @@
 /dev/sync.asb
 /dev/sync.local
 /sites/all/themes/asb/css
-config.rb
 asb_civi.sql.gz
 asb_drup.sql.gz
