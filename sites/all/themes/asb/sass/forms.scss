@@ -16,9 +16,47 @@ form {
   }
   fieldset {
     border: none;
+    padding: 4px 0;
   }
   .form-actions {
     margin-top: 0;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="checkbox"],
+  select,
+  .chosen-container-single .chosen-single {
+    border: {
+        @include standard-border;
+      }
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    font-size: $base-font-size + 2px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+    &:focus {
+      border-color: $supplies;
+    }
+  }
+  input[type="password"] {
+    padding: 4px 0;
+  }
+  .chosen-container-active .chosen-single {
+    border-color: $supplies;
+  }
+}
+
+fieldset#edit-contact,
+fieldset#edit-field-user-bio-und-0-format,
+div.form-type-checkboxes {
+  display: none;
+}
+
+fieldset#edit-timezone {
+  legend {
+    display: none;
   }
 }
 
@@ -35,6 +73,48 @@ form {
     }
   }
 }
+
+// Edit form labels
+body.page-user-edit {
+  form {
+    label {
+      @include header-style($size: $h3-font-size + 2px);
+      &.option {
+        @include body-text;
+      }
+    }
+    #edit-picture {
+      legend {
+        @include header-style($size: $h3-font-size + 2px);
+      }
+    }
+    .edit-value,
+    .label {
+      input[type="checkbox"] {
+        display: block;
+        float: left;
+        width: 25px;
+        clear: left;
+      }
+      label {
+        @include body-text;
+        display: block;
+        float: left;
+      }
+    }
+    .crm-section {
+      .label {
+        &:first-child {
+          display: none;
+        }
+      }
+      div.edit-value {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
 
 // ckeditor
 form {
@@ -186,11 +266,15 @@ form {
   th {
     text-align: left; /* LTR */
     padding-right: 1em; /* LTR */
-    border-bottom: 3px solid #ccc;
+    border-bottom: {
+        @include standard-border($width: 3px);
+      }
   }
 
   tbody {
-    border-top: 1px solid #ccc;
+    border-top: {
+        @include standard-border;
+      }
   }
 
   tr.even {
@@ -207,7 +291,9 @@ form {
   .lt-ie8 tr.odd {
     th,
     td {
-      border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
+      border-bottom: {
+        @include standard-border; /* IE doesn't display borders on table rows */
+      }
     }
   }
 }

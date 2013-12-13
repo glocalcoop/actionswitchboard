@@ -63,12 +63,13 @@
   font-weight: $weight;
 }
 
-@mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal) {
+@mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal, $transform: none ) {
   font-size: $size;
   font-family: $family;
   color: $color;
   font-weight: $weight;
   line-height: $base-line-height + 2px;
+  text-transform: $transform;
 }
 
 
