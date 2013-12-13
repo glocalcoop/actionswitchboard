@@ -230,7 +230,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-ul.pager {
+.scheme-collections ul.pager {
   // $next-image: url('/sites/all/themes/asb/images/pager/next.png');
   // $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
   $pager-height: image-height('pager/previous.png');
