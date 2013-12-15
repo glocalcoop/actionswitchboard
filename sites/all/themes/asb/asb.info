@@ -53,6 +53,7 @@ stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/tabs.css
+stylesheets[all][] = css/tables.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
