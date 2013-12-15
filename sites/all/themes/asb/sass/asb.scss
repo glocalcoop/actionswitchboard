@@ -512,3 +512,65 @@ form .form-actions input{
   }
 }
 
+// ////////////////////////////
+// User Dashboards
+// 
+.page-facilitator-dashboard {
+  .quicktabs-style-asbtabs {
+    .quicktabs_main { 
+      background-color: transparent;
+      border: none;
+      border-left: {
+        @include standard-border($width: 2px, $style: dashed);
+      }
+    }
+    ul.quicktabs-tabs { // Tabs
+      li {
+        padding-bottom: .5em;
+        a {
+          text-align: inherit;
+          @include body-text($size: 1.25em, $color: $text-color-secondary);
+        }
+        &.active {
+          border: none;
+          background: transparent;
+          a {
+            color: $accent;
+          }
+        }
+      }
+    }
+  }
+
+  #block-quicktabs-notifications { // Notifications
+    ul.quicktabs-tabs {
+      li {
+        a {
+          @include font-icon-base($family:"entypo", $font-size: 2.25em, $margin: 0.1em, $width: .5em, $color: $gray-medium);
+        }
+        &:first-child a { // Messages
+          @extend %entypo-comment;
+        }
+        &:nth-child(2) a { // Alerts
+          @extend %entypo-warning;
+        }
+        &:nth-child(3) a { // Updates
+          @extend %entypo-megaphone;
+        }
+        &:last-child a { // Events
+          @extend %entypo-calendar;
+        }
+      }
+    }
+  }
+
+  input[type="text"] {
+    border-radius: 14px;
+    &:before {
+      @include font-icon-base($family:"entypo", $font-size: 2.25em, $margin: 0.1em, $width: .5em, $color: $gray-medium);
+      @extend %entypo-search;
+    }
+  }
+
+}
+
