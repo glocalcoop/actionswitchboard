@@ -5,16 +5,7 @@
  * Message integration with Schemes.
  */
 
-/**
- * Implements hook_views_api().
- */
-function asb_message_views_api($module, $api) {
-  if ($module == 'views' && $api == 'views_default') {
-    return array('version' => 2);
-  }
-}
-
-// include_once('asb_message.features.inc');
+include_once('asb_message.features.inc');
 
 /**
  * Implements hook_og_membership_insert().
