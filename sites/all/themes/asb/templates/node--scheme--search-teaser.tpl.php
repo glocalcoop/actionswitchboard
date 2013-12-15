@@ -26,9 +26,9 @@ global $user;
 
 <?php if($node->workflow != 5):?>
 <div class="scheme-description">
-<?else:?>
+<?php else:?>
 <div class="scheme-description completed">
-<?endif;?>
+<?php endif;?>
   <?php print render($content['body']); ?>
 </div>
 
@@ -65,4 +65,3 @@ global $user;
 </footer>
 <!-- Added in node--scheme--search-teaser.tpl.php TODO: Replace place_holder_{fans,people} with real values -->
 <?php endif; ?>
-
