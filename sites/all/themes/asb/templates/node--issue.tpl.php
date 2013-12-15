@@ -94,7 +94,7 @@ global $user;
       hide($content['comments']);
       hide($content['links']);
       print '<div id="node-content">';
-      print render($content);
+      print render($content['body']);
       print '</div>';
     ?>
 
