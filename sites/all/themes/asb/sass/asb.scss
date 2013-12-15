@@ -354,7 +354,8 @@ dl.issue dd {
 //Buttons
 a.ui-button,
 .ui-button a,
-ul.ui-button li.ui-button a {
+ul.ui-button li.ui-button a,
+.add-goal a {
   @include button($color: $button-color-secondary, $font-family: $base-font-family, $transform: none);
   &:link,
   &:visited,
