@@ -188,7 +188,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-.view-content {
+.view-scheme-overview .view-content {
   @include zen-clear();
 
   .views-row {
