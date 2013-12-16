@@ -14,16 +14,16 @@
 		background: none;
 	}
 
-	.modal-header {
-		padding: 24px;
-		background: none;
-		height: auto;
-	}
+	// .modal-header {
+	// 	padding: 24px;
+	// 	background: none;
+	// 	height: auto;
+	// }
 
 	div.ctools-modal-content {
-		position: relative;
-		top: 95px;
-		left: -25%;
+		// position: absolute;
+		// // top: 95px;
+		// left: -25%;
 		height: auto !important;
 		background: $panel;
 		border: none;
@@ -35,26 +35,13 @@
 	a.close { 
 		@include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: 0em, $width: .3em);
 	  @extend %entypo-circled-cross;
-	  @include box-sizing( border-box );
-	  position: relative;
-	  color: $backdrop;
-		font-size: 1.25em;
-	  width: 22px;
-	  height: 20px;
-	  padding-top: 1.25em;
-	  overflow: hidden;
-	  &:before {
-			text-indent: 0px;
-	    line-height: .875;
-	    position: absolute;
-	    top: -0.125em;
-	    width: 40%;
-	    padding-top: 0;
-			top: .125em;
-	    content: "\2716";
-	    text-align: right;
+	  color: #000;
+	  display: block;
+	  cursor: pointer;
+	  span {
+	  	display: none;
 	  }
-		}
+	}
 
 	div.modal-content {
 		height: auto !important;

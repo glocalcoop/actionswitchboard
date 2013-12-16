@@ -119,7 +119,6 @@ function asb_modal_settings($gid, $node_types = array()) {
         // directory:
         // ctools_image_path($image, $module = 'ctools', $dir = 'images')
         'throbber' => theme('image', array('path' => ctools_image_path('ajax-loader.gif', 'asb_modal'), 'alt' => t('Loading...'), 'title' => t('Loading'))),
-        'closeImage' => theme('image', array('path' => ctools_image_path('modal-close.png', 'asb_modal'), 'alt' => t('Close window'), 'title' => t('Close window'))),
       ),
     );
     // Add the settings array defined above to Drupal 7's JS settings:
@@ -171,7 +170,6 @@ function asb_modal_block_view($block_name) {
         // directory:
         // ctools_image_path($image, $module = 'ctools', $dir = 'images')
         'throbber' => theme('image', array('path' => ctools_image_path('ajax-loader.gif', 'asb_modal'), 'alt' => t('Loading...'), 'title' => t('Loading'))),
-        'closeImage' => theme('image', array('path' => ctools_image_path('modal-close.png', 'asb_modal'), 'alt' => t('Close window'), 'title' => t('Close window'))),
       ),
     );
     // Add the settings array defined above to Drupal 7's JS settings:
