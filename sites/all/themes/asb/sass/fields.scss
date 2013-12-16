@@ -142,6 +142,15 @@
 }
 
 
+div.image-widget 
+	{
+	input {
+		background-color: transparent;
+		color: $text-color-secondary;
+		}
+	}
+
+
 /*
  * Field types (Contrib)
  */

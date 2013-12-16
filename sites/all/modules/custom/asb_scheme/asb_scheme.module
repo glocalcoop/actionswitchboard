@@ -180,7 +180,6 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
    }else{
      return $output;
    }
-       
 }
 
 /**
@@ -1132,3 +1131,12 @@ function _asb_scheme_update_skills() {
   );
   field_update_field($field);
 }
+
+/**
+ * Function to quickly get username from uid
+ */
+function asb_scheme_get_user_name($uid) {
+  $name = db_query("SELECT name FROM {users} WHERE uid = :uid", array(':uid' => $uid))->fetchField();
+  return $name;
+}
+

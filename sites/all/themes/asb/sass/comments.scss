@@ -13,17 +13,6 @@ div#comments{
   display: none;
   }
 
-  .comment-form { 
-      @include zen-clear;
-      margin-bottom: 20px;
-      padding: 10px 20px 35px 20px;
-      background: $odd-backdrop;
-
-      #edit-author--2 {
-        display: none;
-      }
-    }
-
   .comment { /* Wrapper for a single comment */
     position: relative;
     @include zen-clear;

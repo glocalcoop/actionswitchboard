@@ -69,9 +69,6 @@
     font-size: 1em;
     margin: 0;
     padding: 12px 0 0 0;
-    // border-top: {
-    //   @include standard-border($color: $rules-color);
-    // }
     @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
   }
 
@@ -205,6 +202,42 @@
     @include zen-clear;
   }
    
+}
+
+.node-type-issue {
+
+  #content>article {
+    &>header {
+      .wrapper { //Override standard content header height
+        min-height: 7em;
+        height: 7em;
+      }
+    }
+  }
+  #node-content {
+    border-bottom: {
+      @include standard-border;
+    }
+    h3 {
+      @include body-text ($size: 2em, $color: $text-color-prominent);
+    }
+    p {
+      @include body-text ($size: 1.25em, $weight: normal);
+      line-height: 1.25em;
+    }
+  }
+}
+
+.page-user-edit {
+  #content>article {
+    &>header {
+      .wrapper { //Override standard content header height
+        min-height: 7em;
+        height: 7em;
+      }
+    }
+  }
+
 }
 
 

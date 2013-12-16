@@ -1,0 +1,69 @@
+{
+  "name" : "update_posted_in_scheme",
+  "description" : "Update posted in scheme",
+  "argument_keys" : [ "!groups" ],
+  "argument" : [],
+  "category" : "message_type",
+  "data" : {
+    "token options" : { "clear" : 0 },
+    "purge" : { "override" : 0, "enabled" : 0, "quota" : "", "days" : "" }
+  },
+  "language" : "2",
+  "arguments" : null,
+  "message_text" : { "und" : [
+      {
+        "value" : "\u003Ca href=\u0022[message:user:url]\u0022\u003E[message:user:name]\u003C\/a\u003E",
+        "format" : "filtered_html",
+        "safe_value" : " \u003Cp\u003E\u003Ca href=\u0022url]\u0022\u003E[message:user:name]\u003C\/a\u003E\u003C\/p\u003E\n "
+      },
+      {
+        "value" : "\u003Cp\u003E\u003Ca href=\u0022[message:field-node-ref:url]\u0022\u003E[message:field-node-ref:title]\u003C\/a\u003E\u003C\/p\u003E",
+        "format" : "full_html",
+        "safe_value" : " \u003Cp\u003E\u003Ca href=\u0022[message:field-node-ref:url]\u0022\u003E[message:field-node-ref:title]\u003C\/a\u003E\u003C\/p\u003E\n "
+      },
+      {
+        "value" : "[message:field-node-ref:node-teaser]",
+        "format" : "filtered_html",
+        "safe_value" : " \u003Cp\u003E[message:field-node-ref:node-teaser]\u003C\/p\u003E\n "
+      },
+      {
+        "value" : "[message:timestamp:since]",
+        "format" : "full_html",
+        "safe_value" : " \u003Cp\u003E[message:timestamp:since]\u003C\/p\u003E\n "
+      }
+    ]
+  },
+  "rdf_mapping" : []
+}
+
+
+
+**** New Message Type *****
+
+{
+  "name" : "scheme_membership",
+  "description" : "Scheme Membership",
+  "argument_keys" : [],
+  "argument" : [],
+  "category" : "message_type",
+  "data" : {
+    "token options" : { "clear" : 0 },
+    "purge" : { "override" : 0, "enabled" : 0, "quota" : "", "days" : "" }
+  },
+  "language" : "2",
+  "arguments" : null,
+  "message_text" : { "und" : [
+      {
+        "value" : "[message:user:picture]",
+        "format" : "filtered_html",
+        "safe_value" : " \u003Cp\u003E[message:user:picture]\u003C\/p\u003E\n "
+      },
+      {
+        "value" : "\u003Cp\u003E\u003Ca href=\u0022[message:user:url]\u0022\u003E@{message:user:name}\u003C\/a\u003E joined \u003Ca href=\u0022[message:field-node-groups-ref:0:url]\u0022\u003E[message:field-node-groups-ref:0:title]\u003C\/a\u003E group.\u003C\/p\u003E",
+        "format" : "full_html",
+        "safe_value" : " \u003Cp\u003E\u003Ca href=\u0022[message:user:url]\u0022\u003E@{message:user:name}\u003C\/a\u003E joined \u003Ca href=\u0022[message:field-node-groups-ref:0:url]\u0022\u003E[message:field-node-groups-ref:0:title]\u003C\/a\u003E group.\u003C\/p\u003E\n "
+      }
+    ]
+  },
+  "rdf_mapping" : []
+}

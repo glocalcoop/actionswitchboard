@@ -1,0 +1,229 @@
+<?php
+
+/**
+ * @file
+ * Message integration with Schemes.
+ */
+
+include_once('asb_message.features.inc');
+
+/**
+ * Implements hook_og_membership_insert().
+ */
+function asb_message_og_membership_insert($og_membership) {
+  if ($og_membership->state != OG_STATE_ACTIVE || $og_membership->entity_type != 'user') {
+    // Membership isn't active.
+    return;
+  }
+
+  if ($og_membership->group_type != 'node') {
+    // For simplicity we operate only on membership with node groups.
+    return;
+  }
+
+  if (!$og_membership->etid) {
+    // Don't capture membership of anonymous user, that might be caused
+    // when using Devel generate.
+    return;
+  }
+
+  $node = node_load($og_membership->gid);
+    // Create a "User joined" message.
+  $message = message_create('scheme_membership', array('uid' => $og_membership->etid));
+
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->field_node_groups_ref[] = $node;
+  $wrapper->field_published->set($node->status);
+  $wrapper->save();
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function asb_message_node_insert($node) {
+  list(,, $bundle) = entity_extract_ids('node', $node);
+  if (!og_is_group_content_type('node', $bundle)) {
+    return;
+  }
+
+  $wrapper = entity_metadata_wrapper('node', $node);
+  if (!$wrapper->{'og_membership__' . OG_STATE_ACTIVE}->value()) {
+    // Node isn't associate, or doesn't have an active association with
+    // any group.
+    return;
+  }
+
+  $nids = array();
+  foreach ($wrapper->{'og_membership__' . OG_STATE_ACTIVE}->value() as $og_membership) {
+    if ($og_membership->group_type != 'node') {
+      // For simplicity we operate only on membership with node groups.
+      continue;
+    }
+    $nids[] = $og_membership->gid;
+  }
+
+  if (!$nids) {
+    return;
+  }
+
+  // Create a "Post in group" message. We don't use a token replacement
+  // here as it needs to get the data from multiple values of the field.
+  // Furthermore, this replacement probably doesn't make sense outside of
+  // this message-type context, so we don't want to add another token,
+  // that will not be used.
+  $arguments['!groups'] = array(
+    'callback' => 'asb_message_group_list',
+    'pass message' => TRUE,
+  );
+
+  $facilitator = asb_message_get_facilitator($nids);
+  $message = message_create('update_posted_in_scheme', array('arguments' => $arguments, 'uid' => $node->uid));
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->field_node_ref->set($node);
+  $wrapper->field_node_groups_ref->set($nids);
+  $wrapper->field_published->set($node->status);
+  $wrapper->field_facilitator_ref->set($facilitator);
+  // dsm($node);
+  $wrapper->save();
+}
+
+/**
+ * Message callback; Show a comma separated list of groups.
+ *
+ * @param $message
+ *   The message entity.
+ */
+function asb_message_group_list(Message $message) {
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $items = array();
+  foreach ($wrapper->field_node_groups_ref->value() as $node) {
+    if (!node_access('view', $node)) {
+      // User doesn't have access to view the group.
+      continue;
+    }
+    $url = entity_uri('node', $node);
+    $label = entity_label('node', $node);
+    $items[] = l($label, $url['path'], $url['options']);
+  }
+  return implode(', ', $items);
+}
+
+function asb_message_get_facilitator($nids) {
+  foreach ($nids as $key => $value) {
+    $node = node_load($value);
+    $facilitator = $node->field_facilitator['und'][0]['target_id'];
+  }
+  return $facilitator;
+}
+
+/**
+ * Implements hook_block_info()
+ *
+ * Create a private message block
+ */
+function asb_message_block_info() {
+  // This example comes from node.module.
+  $blocks['pmessages'] = array(
+    'info' => t('Private Messages'), 
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+function asb_message_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'pmessages':
+      $block['subject'] = t('Messages');
+      $block['content'] = asb_message_get_pms();
+      break;
+  }
+  return $block;
+}
+
+function asb_message_get_pms() {
+  global $user;
+// Generate the query to load the messages.
+// Replace 'inbox' with 'sent' to display sent messages or 'list' to display all messages.
+  $query = _privatemsg_assemble_query('list', $user, 'inbox');
+// Load 5 messages/threads. Replace 5 if you want to display a different amount of messages.
+  $list = array();
+  $tp = array();
+  $count=0;
+  foreach ($query->execute() as $thread) {
+    if ($count <=5) {
+      $table_parts = array();
+      // Generate a link with the subject as title that points to the view message page.
+      // $list[] = l($thread->subject, 'messages/view/'. $thread->thread_id);
+      // take a look at $thread to see if what you needed is already there, so you can bypass other theming functions (you probably shouldnt)
+      // proper solution:
+      $theme_variables=array('thread' => (array)$thread);
+      $subject=theme('privatemsg_list_field__subject', $theme_variables);
+      $list_parts[]=$subject['data'];
+      $list_parts[]=t('from');
+      $participants=theme('privatemsg_list_field__participants', $theme_variables);
+      $list_parts[]=$participants['data'];
+      $last_updated=theme('privatemsg_list_field__last_updated', $theme_variables);
+      $list_parts[]=$last_updated['data'];
+
+      $table_parts['subject']=$subject['data'];
+      $table_parts['from']=$participants['data'];
+      $last_updated=theme('privatemsg_list_field__last_updated', $theme_variables);
+      $table_parts['sent']=$last_updated['data'];
+      $table_parts['reply'] = '<a class="pm-reply" href="/messages/view/' .$thread->thread_id .'" target="_blank">reply</a>';
+      $tb[] = array($table_parts['from'],$table_parts['subject'],$table_parts['sent'],$table_parts['reply']);
+      $list[] = implode(' ',$list_parts);
+      $count++;
+      // dsm($tb);
+    } else {
+      break;
+    }
+  }
+// Display list as a themed item_list.
+  $header = array(
+    'from' => array('data' => t('From')),
+    'subject' => array('data' => t('Subject')),
+    'date' => array('data' => t('Date')),
+  );
+  //$table = array('header' => $header, 'rows' => $table_parts,);
+  /* $rows = array( */
+  /*   'Cell 1', 'Cell 2', 'Cell 3', */
+  /* ); */
+  // dsm($table_parts);
+  // $table = array('header' => $header, 'rows' => $rows, 'attributes' => array());
+  // print theme('table', array('header' => $header, 'rows' => $tb, 'attributes' => array( 'class' => array('myTable'))));
+  // print theme_table($table);
+  // print theme('item_list', array('items'=>$list));
+  // return theme_table($table);
+  return theme('table', array('header' => $header, 'rows' => $tb, 'attributes' => array( 'class' => array('pmessages'))));
+  // return theme('item_list', array('items'=>$list));
+}
+
+function asb_message_form_privatemsg_new_alter(&$form, &$form_state) {
+  // Check if a default value is configured for the to field.
+  if (!empty($form['privatemsg']['recipient']['#default_value'])) {
+    // Display a visible markup element.
+    $form['privatemsg']['recipient_display'] = array(
+      '#value' => t('To: @recipients', array('@recipients' => $form['privatemsg']['recipient']['#default_value'])),
+      '#weight' => -10,
+    );
+    // Convert the recipient field to a value type and force the default value.
+    $form['privatemsg']['recipient']['#type'] = 'value';
+    $form['privatemsg']['recipient']['#value'] = $form['privatemsg']['recipient']['#default_value'];
+  }
+}
+
+function asb_message_quicktabs_tabstyles() {
+  $tabstyles_directory = drupal_get_path('module', 'asb_message') . '/tabstyles';
+  $files = file_scan_directory($tabstyles_directory, '/\.css$/');
+  $tabstyles = array();
+  foreach ($files as $file) {
+    // Skip RTL files.
+    if (!strpos($file->name, '-rtl')) {
+      $tabstyles[$file->uri] = drupal_ucfirst($file->name);
+    }
+  }
+  return $tabstyles;
+}

@@ -6,10 +6,11 @@
 @import "base";
 
 form {
+  @include body-text;
   input[type="button"], 
   input[type="reset"], 
   input[type="submit"]  {
-    @include button($height: 30px, $font-size: $h3-font-size + 6);
+    @include button($height: 30px, $font-size: $h3-font-size + 6px);
     border: none;
     margin-right: 5px;
     letter-spacing: 0.05em;
@@ -18,12 +19,23 @@ form {
     border: none;
     padding: 4px 0;
   }
+  //Override annoying CiviCRM styling
+  .crm-container {
+    input[type="text"],
+    input[type="password"],
+    input[type="checkbox"],
+    textarea {
+      @include body-text($size: $base-font-size + 2px);
+    }
+  }
   .form-actions {
     margin-top: 0;
   }
+  // Make the form fields a little prettier
   input[type="text"],
   input[type="password"],
   input[type="checkbox"],
+  textarea,
   select,
   .chosen-container-single .chosen-single {
     border: {
@@ -32,19 +44,29 @@ form {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    font-size: $base-font-size + 2px;
     padding: 4px 7px;
     outline: 0;
     -webkit-appearance: none;
-    &:focus {
-      border-color: $supplies;
+    &:focus { // Add a highlight border color
+      border: {
+        @include standard-border($color: $supplies);
+      }
     }
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="checkbox"],
+  textarea,
+  select {
+    @include body-text($size: $base-font-size + 2px);
   }
   input[type="password"] {
     padding: 4px 0;
   }
   .chosen-container-active .chosen-single {
-    border-color: $supplies;
+    border: { // Add a highlight border color
+      @include standard-border($color: $supplies);
+    }
   }
 }
 
@@ -115,7 +137,6 @@ body.page-user-edit {
   }
 }
 
-
 // ckeditor
 form {
   .form-textarea-wrapper,
@@ -180,7 +201,7 @@ form {
   }
 
   .description { /* The descriptive help text (separate from the label) */
-    font-size: 0.85em;
+    @include body-text;
   }
 
   .form-checkboxes & ,
@@ -297,6 +318,69 @@ form {
     }
   }
 }
+
+/*
+ * Drupal user profile edit
+ */
+
+form#user-profile-form {
+  #edit-account {
+    .form-item-pass {
+      padding-top: 20px;
+      padding-bottom: 10px;
+      border-top: {
+        @include standard-border;
+      }
+      border-bottom: {
+        @include standard-border;
+      }
+      &:before {
+        content: "Change Password";
+        @include header-style;
+        padding-bottom: 10px;
+      }
+      .password-parent {
+        padding-top: 10px;
+      }
+      .password-suggestions {
+        border: { // Make the password suggestion border the same as the highlight border color
+          @include standard-border($color: $supplies);
+        }
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        padding: 4px 7px;
+      }  
+    }
+  }
+  #edit-picture {
+          border-bottom: {
+        @include standard-border;
+      }
+    legend .fieldset-legend {
+      @include header-style;
+        &:before {
+        content: "Profile ";
+        padding-bottom: 10px;
+      }    
+    }
+  } 
+}
+
+  .comment-form { 
+      @include zen-clear;
+      margin-bottom: 20px;
+      padding: 10px 20px 35px 20px;
+      background: $odd-backdrop;
+
+      #edit-author--2 {
+        display: none;
+      }
+      fieldset.filter-wrapper {
+        display: none;
+      }
+    }
+
 
 /*
  * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.

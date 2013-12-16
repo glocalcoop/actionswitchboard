@@ -53,6 +53,7 @@ stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/tabs.css
+stylesheets[all][] = css/tables.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
@@ -159,3 +160,4 @@ settings[zen_wireframes]           = 0
 ; To add a Panels layout (which can also be used by Display Suite), uncomment
 ; the line below and see the documentation at: http://drupal.org/node/495654
 ;plugins[panels][layouts] = layouts
+
