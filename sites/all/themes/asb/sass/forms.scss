@@ -23,7 +23,6 @@ form {
   .crm-container {
     input[type="text"],
     input[type="password"],
-    input[type="checkbox"],
     textarea {
       @include body-text($size: $base-font-size + 2px);
     }
@@ -34,7 +33,6 @@ form {
   // Make the form fields a little prettier
   input[type="text"],
   input[type="password"],
-  input[type="checkbox"],
   textarea,
   select,
   .chosen-container-single .chosen-single {
@@ -55,7 +53,6 @@ form {
   }
   input[type="text"],
   input[type="password"],
-  input[type="checkbox"],
   textarea,
   select {
     @include body-text($size: $base-font-size + 2px);
