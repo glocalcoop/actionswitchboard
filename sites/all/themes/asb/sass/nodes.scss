@@ -228,7 +228,9 @@
   }
 }
 
-.page-user-edit {
+.page-user-edit,
+.page-facilitator-dashboard,
+.page-dashboard {
   #content>article {
     &>header {
       .wrapper { //Override standard content header height

@@ -515,7 +515,8 @@ form .form-actions input{
 // ////////////////////////////
 // User Dashboards
 // 
-.page-facilitator-dashboard {
+.page-facilitator-dashboard,
+.page-dashboard {
   .quicktabs-style-asbtabs {
     .quicktabs_main { 
       background-color: transparent;
@@ -540,6 +541,11 @@ form .form-actions input{
         }
       }
     }
+  }
+
+  #quicktabs-container-notifications,
+  #quicktabs-container-schemes {
+    min-height: 367px;
   }
 
   #block-quicktabs-notifications { // Notifications
@@ -569,6 +575,38 @@ form .form-actions input{
     &:before {
       @include font-icon-base($family:"entypo", $font-size: 2.25em, $margin: 0.1em, $width: .5em, $color: $gray-medium);
       @extend %entypo-search;
+    }
+  }
+
+  .form-type-select {
+    .form-select {}  
+}
+
+  .chosen-container {
+
+    div.chosen-drop {
+      ul.chosen-results {
+        li {
+          @include button;
+        }
+      }
+    }
+  }
+
+  ul.pager {
+    @include zen-float(right);
+    li {
+      padding: 0;
+      a {
+        @include font-icon-base($font-size: 3em, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
+      }
+      &.pager-previous a {
+        @extend %entypo-circled-left;
+      }
+      &.pager-current a {}
+      &.pager-next a {
+        @extend %entypo-circled-right;
+      }
     }
   }
 
