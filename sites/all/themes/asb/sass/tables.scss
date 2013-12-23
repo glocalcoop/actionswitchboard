@@ -100,6 +100,7 @@ tr td:last-child {
         td.active {
           padding: 10px 0;
           background: transparent;
+          vertical-align: top;
           @include body-text($size: 1.1em, $color: $text-color-prominent);
           p {
             padding: 0;

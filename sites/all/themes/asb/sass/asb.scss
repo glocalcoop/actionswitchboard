@@ -524,6 +524,7 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
+      width: 76%;
     }
     ul.quicktabs-tabs { // Tabs
       li {
@@ -552,6 +553,9 @@ form .form-actions input{
     min-height: 367px;
   }
   #block-quicktabs-notifications { // Notifications
+    .quicktabs-tabpage {
+      width: 100%;
+    }
     ul.quicktabs-tabs {
       li {
         a {
