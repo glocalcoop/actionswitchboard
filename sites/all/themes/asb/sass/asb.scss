@@ -503,7 +503,7 @@ form .form-actions input{
     padding-top: .5em;
     width: 100%;
     border-top: {
-        @include standard-border;
+      @include standard-border;
       }
     font-size: 2em;
     span {
@@ -543,11 +543,14 @@ form .form-actions input{
     }
   }
 
+  #block-views-90f7e874863d363adf55056301e69084 {
+    @include zen-clear;
+  }
+
   #quicktabs-container-notifications,
   #quicktabs-container-schemes {
     min-height: 367px;
   }
-
   #block-quicktabs-notifications { // Notifications
     ul.quicktabs-tabs {
       li {
@@ -580,17 +583,6 @@ form .form-actions input{
 
   .form-type-select {
     .form-select {}  
-}
-
-  .chosen-container {
-
-    div.chosen-drop {
-      ul.chosen-results {
-        li {
-          @include button;
-        }
-      }
-    }
   }
 
   ul.pager {
@@ -609,6 +601,5 @@ form .form-actions input{
       }
     }
   }
-
 }
 
