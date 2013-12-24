@@ -95,13 +95,13 @@ global $user;
         </div>
         <ul id="ui-button" class="user-contact">
           <li class="user-contact ui-button">
-            <a class="icon user-contact" href=""><span>Contact Me</span></a>
+            <a class="icon user-contact" href="http://asb.mayfirst.org/messages/new/<?php print render($user->uid); ?>"><span>Contact Me</span></a>
           </li>
           <li class="facebook ui-button">
             <a class="icon facebook" href=""><span>Facebook</span></a>
           </li>
           <li class="twitter ui-button">
-            <a class="icon twitter"  href=""><span>Twitter</span></span></a>
+            <a class="icon twitter"  href=""><span>Twitter</span></a>
           </li>
           <!-- should we do linked in? does it make sense here? -->
           <li class="linkedin ui-button">
