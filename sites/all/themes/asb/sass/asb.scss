@@ -602,10 +602,11 @@ form .form-actions input{
     }
   }
 
-  #block-views-90f7e874863d363adf55056301e69084 {
+  #block-views-90f7e874863d363adf55056301e69084 { // Civi contact block
     @include zen-clear;
 
-    div.dashboard-contacts {
+    div.dashboard-contacts,
+    &> .view {
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
@@ -645,8 +646,9 @@ form .form-actions input{
     } 
   }
 
-  div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts
-    div.dashboard-contacts {
+  div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
+    div.dashboard-contacts,
+    &> .view {
       width: 80%;
       @include zen-float(right);
 
