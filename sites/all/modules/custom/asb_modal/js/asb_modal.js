@@ -3,7 +3,7 @@
 */
 (function ($) {
 Drupal.theme.prototype.asb_modal = function () {
-    alert(Drupal.settings.asb_modal.types);
+    // console.log(Drupal.settings.asb_modal.types);
     var html = '';
     html += '<div id="ctools-modal" class="popups-box">';
     html += '   <div class="ctools-modal-content ctools-modal-asb-modal-update">';

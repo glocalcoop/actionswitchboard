@@ -17,6 +17,11 @@ html, p {
   @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
 }
 
+.node-type-scheme iframe.media-youtube-player {
+  width: 700px;
+  height: 380px;
+}
+
 .status-info h6 {
   display: inline-block;
   margin-bottom: 0;

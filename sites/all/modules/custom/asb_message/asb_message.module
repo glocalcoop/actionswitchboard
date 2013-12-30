@@ -176,7 +176,6 @@ function asb_message_get_pms() {
       $tb[] = array($table_parts['from'],$table_parts['subject'],$table_parts['sent'],$table_parts['reply']);
       $list[] = implode(' ',$list_parts);
       $count++;
-      // dsm($tb);
     } else {
       break;
     }
@@ -184,7 +183,7 @@ function asb_message_get_pms() {
 // Display list as a themed item_list.
   $header = array(
     'from' => array('data' => t('From')),
-    'subject' => array('data' => t('Subject')),
+    'subject' => array('data' => t('!!!Subject')),
     'date' => array('data' => t('Date')),
   );
   //$table = array('header' => $header, 'rows' => $table_parts,);
@@ -197,6 +196,8 @@ function asb_message_get_pms() {
   // print theme_table($table);
   // print theme('item_list', array('items'=>$list));
   // return theme_table($table);
+// dpm( $tb );
+// print_r( $tb );
   return theme('table', array('header' => $header, 'rows' => $tb, 'attributes' => array( 'class' => array('pmessages'))));
   // return theme('item_list', array('items'=>$list));
 }
@@ -205,6 +206,7 @@ function asb_message_form_privatemsg_new_alter(&$form, &$form_state) {
   // Check if a default value is configured for the to field.
   if (!empty($form['privatemsg']['recipient']['#default_value'])) {
     // Display a visible markup element.
+    // dpm( $form );
     $form['privatemsg']['recipient_display'] = array(
       '#value' => t('To: @recipients', array('@recipients' => $form['privatemsg']['recipient']['#default_value'])),
       '#weight' => -10,

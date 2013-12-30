@@ -6,59 +6,44 @@
 @Todo add class new to messages that have <mark class="new"></mark>
   */
 
-  
-    /**
-   * Provide the HTML to create the modal dialog.
-   */
-  Drupal.theme.prototype.CToolsModalDialog = function (a,b) {
-//    alert( "Overriding CToolModalDialog" );
-console.log( a,b );
-    var html = '';
-    html += '<div id="ctools-modal" class="popups-box">';
-    html += '   <div class="ctools-modal-content ctools-modal-asb-modal-update">';
-    html += '       <div class="modal-content-wrapper">'
-    html += '           <header class="modal-head-wrapper">';
-    html += '               <span class="modal-update-title" style="display:none;">Add Update</span>';
-    html += '               <span class="popups-close"><a class="close ctools-close-modal" href="#"><span>Close Window</span></a></span>';
-    html += '           </header>';
-    html += '           <div class="modal-scroll"><div id="modal-content" class="modal-content popups-body"></div></div>';
-    html += '       </div>';
-    html += '   </div>';
-    html += '</div>';
-    return html;
-  }
 
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
-      // Catch TypeError in case form is called via ajax.
-      // Fixes problems with Update tab and field modal edit.
-      try {
-//        console.log( context, context.body.className.indexOf( "page-schemes" ) );
-        if( context.body.className.indexOf( "page-schemes" ) < 0) {
-          // console.log( 'Drupal.behaviors.asb.attach', context, settings );
-          $( ".region-search" ).addClass('atrest');
-          $( ".region-search" ).addClass('hidden');
-        }
-        // only hide search for people with JS.
-        $( "#nav-find" ).click( function( e ) { 
-          e.preventDefault();
-          $( ".region-search" ).removeClass('atrest');
-          $( ".region-search" ).toggleClass('hidden');
-        });
-      } catch (err) {
-      	if (err.name === 'TypeError') { console.log('Skipping javascript hide search.'); }
-      }
-
-      if( $(".view-display-id-page_1") || $(".views-display-id-block_1") ){
-        asb.modify_append_pager();
-      }
-
-      if( $(".scheme-collection") ){
-        asb.scheme_overviews_clamp_descriptions();
+      // console.log( context, settings );
+      if( context == "[object HTMLDocument]" ){
+//        console.log( 'context is window' );
+        asb.search_visibility_toggle( context, settings );
       }
 
     }
 
+  }
+
+  asb.search_visibility_toggle = function( context, settings ){
+    // Catch TypeError in case form is called via ajax.
+    // Fixes problems with Update tab and field modal edit.
+    try {
+//    console.log( context, context.body.className.indexOf( "page-schemes" ) );
+      if( context.body.className.indexOf( "page-schemes" ) < 0) {
+        // console.log( 'Drupal.behaviors.asb.attach', context, settings );
+        $( ".region-search" ).addClass('atrest');
+        $( ".region-search" ).addClass('hidden');
+      }
+      // only hide search for people with JS.
+      $( "#nav-find" ).click( function( e ) { 
+        e.preventDefault();
+        $( ".region-search" ).removeClass('atrest');
+        $( ".region-search" ).toggleClass('hidden');
+      });
+    } catch (err) {
+      if (err.name === 'TypeError') { console.log('Skipping javascript hide search.'); }
+    }
+    if( $(".view-display-id-page_1") || $(".views-display-id-block_1") ){
+      asb.modify_append_pager();
+    }
+    if( $(".scheme-collection") ){
+      asb.scheme_overviews_clamp_descriptions();
+    }
   }
 
   asb.scheme_overviews_clamp_descriptions = function(){

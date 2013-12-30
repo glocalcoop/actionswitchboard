@@ -14,17 +14,36 @@
 }
 
 div.ctools-modal-content {
-//	border: 4px #f00 solid !important;
+
 	position: absolute;
 	left: 50%;
 	height: auto !important;
 	border: none;
 	background: transparent;
 	
+	label {
+		float: none !important;
+		display: block;
+	}
+	.form-textarea-wrapper {
+		margin-left: 0;
+	}
+	.filter-help,
+	.form-type-select {
+		display: none;
+	}
+	ul.tips {
+		margin: 0;
+		padding: 0;
+	}
+	.messages {
+		margin-top:1em;
+		border: none !important;
+	}
 	.modal-head-wrapper {
-		z-index: 1200;
+		z-index: 5;
+		height: 0;
 		position: absolute;
-		background: none;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
@@ -62,12 +81,8 @@ div.ctools-modal-content {
 }
 
 div.vertical-tabs {
-	&.clearfix {
-		display: none;
-	}
-	ul.vertical-tabs-list {
-		display: none;
-	}
+	&.clearfix,
+	ul.vertical-tabs-list,
 	div.vertical-tabs-panes {
 		display: none;
 	}
@@ -141,7 +156,16 @@ div.vertical-tabs {
 }
 
 #edit-field-image{
-	margin-bottom: 1em;
+	tr.even {
+		background-color: transparent;
+	}
+	td {
+		// margin-bottom: 1px #dedede solid;
+		padding-top: 1em;
+		padding-bottom: .5em;
+		border-bottom: 1px #dedede solid;
+		vertical-align: top;
+	}
 	&>legend,
 	thead,
 	.tabledrag-changed,
@@ -151,44 +175,72 @@ div.vertical-tabs {
 	a.tabledrag-handle {
 		display: inline-block;
 	}
-	.image-widget {
-		float: none;
-		width: auto;
-		// margin-left: 3em;
-	}
-	.image-preview {
-		width: 180px;
-		float: left;
-		img {
-			display: block;
-		}
-	}
-	.image-widget-data {
-		// margin-left: 190px;
-		width: 200px;
-		.file,
-		.file-size { 
-			display: none;
-		}
-		label {
+	table {
+
+		.image-widget {
 			float: none;
+			width: auto;
+			// margin-left: 3em;
 		}
-		.description {
-			white-space: normal;
-			width: 200px
+		.image-preview {
+			width: 180px;
+			float: left;
+			img {
+				display: block;
+			}
 		}
-		input[type="text"] {
-			width: 200px;
-			display: block;
-			border: 1px #f00 solid;
+		.image-widget-data {
+			width: 320px;
+			.file,
+			.file-size { 
+				display: none;
+			}
+			label {
+				float: none;
+			}
+			.description {
+				white-space: normal;
+				width: 300px;
+				margin-bottom: 1em;
+			}
+			input[type="text"] {
+				width: 300px;
+				font-size: .875em;
+				display: block;
+//				border: 1px $accent solid;
+			}
+		}
+		input[value="Remove"] {
+			// width: 24px;
+			padding: 0;
+			// text-indent: -3000px;
+			// overflow: hidden;
+			vertical-align: top;
+			position: relative;
+			color:#fff;
+			top: .125em;
+			// border: 1px #f00 solid;
+			// background: transparent !important;
 		}
 	}
-	input[value="Remove"] {
-		vertical-align: top;
+
+}
+
+div.ctools-modal-content .form-type-mfw-managed-file {
+	background: #fff;
+	border-radius: 6px;
+	padding: 1em;
+	label {
+		display: block;
+		float: none;
 	}
-
-	// .tabledrag-toggle-weight-wrapper {
-	// 	display: none;
-	// }
-
+	.image-widget.form-managed-file.clearfix {
+		clear: none;
+		float: left;
+		input[value="Upload"] {
+			margin-left: 1em;
+			position: relative;
+			top: .125em;
+		}
+	}
 }
