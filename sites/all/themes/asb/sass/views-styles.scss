@@ -129,6 +129,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   
 }
 
+.section-schemes header.edit-header {
+  display: none;
+}
+
 .scheme-collection {
 
   .scheme-info {
@@ -136,7 +140,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include zen-clear(both);
     margin-top: .5em;
     padding: .25em 0 0 0;
-    line-height: 1;
+    line-height: 1.2;
 
     border-top: {
       @include standard-border;
