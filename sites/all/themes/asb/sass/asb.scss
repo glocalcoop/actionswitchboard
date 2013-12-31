@@ -529,7 +529,7 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
-      width: 76%;
+      // width: 76%;
     }
     ul.quicktabs-tabs { // Tabs
       li {
@@ -550,8 +550,21 @@ form .form-actions input{
   }
 
   #quicktabs-container-notifications,
-  #quicktabs-container-schemes {
-    min-height: 367px;
+  #quicktabs-container-schemes,
+  #block-views-90f7e874863d363adf55056301e69084 {
+    min-height: 300px;
+    overflow: hidden;
+
+    div.view-content,
+    div.view-empty {
+      min-height: 270px;
+    }
+    div.item-list {
+      height: 30px;
+    }
+  }
+  .view-clone-of-facilitator-civicrm-contacts-search {
+    min-height: 300px;
   }
   #block-quicktabs-notifications { // Notifications
     // .quicktabs-tabpage {
@@ -609,6 +622,10 @@ form .form-actions input{
 
   #block-views-90f7e874863d363adf55056301e69084 { // Civi contact block
     @include zen-clear;
+    .views-exposed-widget label,
+    .views-widget {
+      display: inline-block;
+    }
 
     div.dashboard-contacts,
     &> .view {
@@ -620,7 +637,6 @@ form .form-actions input{
 }
 
 // Flexbox
-
 
   div#quicktabs-notifications,
   div#quicktabs-schemes { // wrapper - flex-box

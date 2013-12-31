@@ -74,8 +74,35 @@ tr td:last-child {
 // ////////////////////////////
 // User Dashboards
 // 
+
 .page-facilitator-dashboard,
 .page-dashboard  {
+
+  #block-quicktabs-notifications,
+  #block-quicktabs-schemes {
+    div.views-exposed-widget {
+      // @include zen-float(right);
+      // padding: 0;
+      // margin: 0;
+      div.bef-select-as-links {
+        div.form-item {
+        // 
+          display: inline-block;
+          a {
+            @include button($font-family: $base-font-family, $color: transparent, $font-color: $text-color);
+          }
+          &.selected a {
+            background: $button-color-primary;
+            color: $nav-title-color;
+          }
+        }
+      }
+      div.chosen-container {
+        display: none !important;
+      }
+    }
+  }
+
   table {
     thead {
       border-top: {
@@ -118,5 +145,8 @@ tr td:last-child {
     }
     
   }
-  
 }
+
+
+
+
