@@ -21,6 +21,9 @@ div.ctools-modal-content {
 	border: none;
 	background: transparent;
 	
+	header .modal-update-title{
+		padding: .5em;
+	}
 	label {
 		float: none !important;
 		display: block;
@@ -42,8 +45,8 @@ div.ctools-modal-content {
 	}
 	.modal-head-wrapper {
 		z-index: 5;
-		height: 0;
-		position: absolute;
+		// height: 0;
+		// position: absolute;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
@@ -54,7 +57,7 @@ div.ctools-modal-content {
 		  float: right;
 		  position: relative;
 		  right: -0.5em;
-		  top: -1.5em;
+		  top: -2.5em;
 		  color: $accent;
 		  display: inline-block;
 		  cursor: pointer;
@@ -69,6 +72,7 @@ div.ctools-modal-content {
 		background: $panel;
 		@include border-radius( 3px );
 		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
+		padding-top: 1em;
 		padding-bottom: 1em;
 		left: -50%;
 		top: -50%;
@@ -211,19 +215,20 @@ div.vertical-tabs {
 			}
 		}
 		input[value="Remove"] {
-			// width: 24px;
+			width: 24px;
+			height: 24px;
 			padding: 0;
-			// text-indent: -3000px;
-			// overflow: hidden;
+			text-indent: -3000px;
+			overflow: hidden;
 			vertical-align: top;
 			position: relative;
 			color:#fff;
 			top: .125em;
-			// border: 1px #f00 solid;
-			// background: transparent !important;
+			background-color: transparent !important;
+			background-image: url( /sites/all/themes/asb/images/button-remove.png );
+			background-repeat: no-repeat;
 		}
 	}
-
 }
 
 div.ctools-modal-content .form-type-mfw-managed-file {
@@ -243,4 +248,15 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 			top: .125em;
 		}
 	}
+}
+
+#modal-throbber .modal-throbber-wrapper {
+	border-radius: 4px;
+	min-height: 12em;
+	width: 100%;
+  text-align: center;
+  background-color: rgba( 255,255,255,.9);
+  background-image: url('/sites/all/modules/custom/asb_modal/images/ajax-loader.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
 }

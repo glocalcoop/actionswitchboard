@@ -19,6 +19,39 @@
 
   }
 
+  Drupal.theme.prototype.CToolsModalDialog = function () {
+    // console.log(Drupal.settings.asb_modal.types);
+    console.log("asb_modal");
+    var html = '';
+    html += '<div id="ctools-modal" class="popups-box">';
+    html += '   <div class="ctools-modal-content ctools-modal-asb-modal-update">';
+    html += '       <div class="modal-content-wrapper">'
+    html += '           <header class="modal-head-wrapper">';
+    html += '               <span class="modal-update-title" style="display:none;">Add Update</span>';
+    html += '               <span class="popups-close"><a class="close ctools-close-modal" href="#"><span>Close Window</span></a></span>';
+    html += '           </header>';
+    html += '           <div class="modal-scroll"><div id="modal-content" class="modal-content popups-body"></div></div>';
+    html += '       </div>';
+    html += '   </div>';
+    html += '</div>';
+    return html;
+  }
+
+  /**
+   * Provide the HTML to create the throbber.
+   */
+  Drupal.theme.prototype.CToolsModalThrobber = function () {
+    var html = '';
+    html += '  <div id="modal-throbber">';
+    html += '    <div class="modal-throbber-wrapper">';
+    // html +=        Drupal.CTools.Modal.currentSettings.throbber;
+    html += '    </div>';
+    html += '  </div>';
+
+    return html;
+  };
+
+
   asb.search_visibility_toggle = function( context, settings ){
     // Catch TypeError in case form is called via ajax.
     // Fixes problems with Update tab and field modal edit.
