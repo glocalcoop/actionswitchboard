@@ -13,11 +13,22 @@
       if( context == "[object HTMLDocument]" ){
 //        console.log( 'context is window' );
         asb.search_visibility_toggle( context, settings );
+        if( $(".page-user-messages") ){
+          asb.highlight_new_messages();
+        }
       }
 
     }
 
   }
+
+  asb.highlight_new_messages = function() {
+    $( "#privatemsg-list-form tr" ).each( function(){
+      var tr = $(this);
+      if( $('mark.new', tr ) ) tr.addClass('new');
+    });
+  }
+
 
   Drupal.theme.prototype.CToolsModalDialog = function () {
     // console.log(Drupal.settings.asb_modal.types);
