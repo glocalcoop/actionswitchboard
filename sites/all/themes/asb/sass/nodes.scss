@@ -63,13 +63,21 @@
   }
 }
 
+// ////////////////////////////
+// Scheme Detail
+// 
+
 .node-type-scheme {
 
   h3.field-label {
     font-size: 1em;
     margin: 0;
     padding: 12px 0 0 0;
-    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
+    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+  }
+
+  ul.links.inline li.comment_forbidden {
+    display: none;
   }
 
   iframe.media-youtube-player {
@@ -80,6 +88,9 @@
     div.field-body {
       border-bottom: {
         @include standard-border;
+      }
+      p {
+      @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 )
       }
     }
   }

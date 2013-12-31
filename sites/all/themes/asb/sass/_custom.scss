@@ -66,15 +66,20 @@
   font-weight: $weight;
 }
 
-@mixin body-text ($family: $font-body, $size: $base-font-size, $color: $text-color, $weight: normal, $transform: none ) {
+@mixin body-text ($family: $font-body, $size: $base-font-size, $line-height: $base-line-height + 2, $color: $text-color, $weight: normal, $transform: none ) {
   font-size: $size;
   font-family: $family;
   color: $color;
   font-weight: $weight;
-  line-height: $base-line-height + 2px;
+  line-height: $line-height;
   text-transform: $transform;
 }
 
+@mixin hidden-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
 
 @function blackTranslucent($opacity){
     @return rgba(0,0,0,$opacity)
@@ -251,13 +256,6 @@
       linear-gradient($angle, $color $width, transparent $width);
     background-size: $spacing;
     background-position: -$width;
-}
-
-
-@mixin hidden-text {
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
 }
 
 @mixin button($height: 24px, $color: $button-color-primary, $radius: 4px, $font-size: $base-font-size, $font-color: #fff, $font-family: $header-font-family, $transform: uppercase, $display: inline-block) {

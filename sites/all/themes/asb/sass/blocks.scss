@@ -48,9 +48,12 @@ aside {
     }
 
     h2.block-title { /* Block title */
-      border-bottom: {
-        @include standard-border;
-      }
+      // border-bottom: {
+      //   @include standard-border;
+      // }
+    }
+    .view-scheme-members div.view-header p {
+      border: none;
     }
     h6 {
       color: $text-color-prominent;
@@ -58,6 +61,14 @@ aside {
       &:first-letter {
         font-size: $h2-font-size - 4px;
       }
+    }
+    .view-header h3 {
+      margin: 0;
+      padding-top: 10px;
+      border-top: {
+        @include standard-border;
+      }
+      @include body-text ($size: $h3-font-size, $weight: bold, $transform: uppercase, $color: $text-color-prominent);
     }
   }
 
