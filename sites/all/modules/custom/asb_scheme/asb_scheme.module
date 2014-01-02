@@ -576,6 +576,10 @@ function asb_scheme_block_info() {
     'cache' => DRUPAL_NO_CACHE
     // DRUPAL_CACHE_PER_ROLE will be assumed if not set.
   );
+  $blocks['user_message'] = array(
+    'info' => t('User Custom Login'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -598,6 +602,10 @@ function asb_scheme_theme() {
     'asb_scheme_group_links' => $base + array(
       'render element' => 'element',
       'template' => 'og-extras-group-links',
+    ),
+    'asb_scheme_user_message' => $base + array(
+      'render_eleement' => 'element',
+      'template' => 'asb-scheme-user-message',
     ),
   );
 }
@@ -627,6 +635,14 @@ function asb_scheme_block_view($delta = '') {
       $content = theme('asb_scheme_group_links');
       if (!empty($content)) {
         $block['subject'] = t('Create content');
+        $block['content'] = $content;
+      }
+      break;
+      
+    case 'user_message':
+      // Show user Hello and login
+      $content = theme('asb_scheme_user_message');
+      if (!empty($content)) {
         $block['content'] = $content;
       }
       break;
