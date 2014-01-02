@@ -67,11 +67,13 @@ form {
   }
 }
 
-fieldset#edit-contact,
-fieldset#edit-field-user-bio-und-0-format,
-div.form-type-checkboxes {
-  display: none;
-}
+// Ross removed to display issues checkboxes on scheme.
+
+/* fieldset#edit-contact,
+/* fieldset#edit-field-user-bio-und-0-format,
+/* div.form-type-checkboxes {
+/*   display: none;
+/* } */
 
 fieldset#edit-timezone {
   legend {

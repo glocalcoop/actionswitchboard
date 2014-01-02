@@ -534,3 +534,10 @@ function asb_page_alter( &$page ){
   drupal_add_js( "sites/all/modules/contrib/chosen/chosen.js" );
   drupal_add_js( "sites/all/themes/asb/js/clamp.js" );
 }
+
+function asb_preprocess_region(&$variables, $hook) {
+  // Add hidden class to search region
+  if ($variables['region'] == "search") {
+    $variables['classes_array'][] = 'hidden';
+  }
+}
