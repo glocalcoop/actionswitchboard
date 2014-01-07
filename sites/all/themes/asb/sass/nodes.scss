@@ -217,14 +217,6 @@
 
 .node-type-issue {
 
-  #content>article {
-    &>header {
-      .wrapper { //Override standard content header height
-        min-height: 7em;
-        height: 7em;
-      }
-    }
-  }
   #node-content {
     border-bottom: {
       @include standard-border;
@@ -237,20 +229,6 @@
       line-height: 1.25em;
     }
   }
-}
-
-.page-user-edit,
-.page-facilitator-dashboard,
-.page-dashboard {
-  #content>article {
-    &>header {
-      .wrapper { //Override standard content header height
-        min-height: 7em;
-        height: 7em;
-      }
-    }
-  }
 
 }
-
 

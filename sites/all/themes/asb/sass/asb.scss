@@ -145,8 +145,8 @@ display: block;
     background-color: $panel;
     padding: 1em 0 1em 0;
     .wrapper {
-      min-height: 12em;
-      height: 12em;
+      min-height: 7em;
+      height: 7em;
     }
     #page-title {
       padding: 0;
@@ -162,6 +162,13 @@ display: block;
 
 }
 
+.node-type-scheme,
+.page-user {
+  #content > article > header .wrapper { // Only Schemes and User Profiles need tall headings
+    min-height: 12em;
+    height: 12em;
+  }
+}
 
 // //////////////////////////
 //
@@ -520,6 +527,7 @@ form .form-actions input{
 // ////////////////////////////
 // User Dashboards
 // 
+
 .page-facilitator-dashboard,
 .page-dashboard {
   .quicktabs-style-asbtabs {
@@ -646,6 +654,72 @@ form .form-actions input{
     }
   }
 }
+
+// ////////////////////////////
+// Content Edit
+// 
+
+
+// dl.table-display {
+//   float: left;
+//   width: 100%;
+//   margin: 1em 0;
+//   padding: 0;
+//   border-bottom: 1px solid #999;
+//     dt {
+//       clear: left;
+//       float: left;
+//       width: 2em;
+//       margin: 0;
+//       padding: 5px;
+//       border-top: 1px solid #999;
+//     }
+//     dd {
+//       float: left;
+//       width: 300px;
+//       margin: 0;
+//       padding: 5px;
+//     }
+// }
+
+.page-node-add {
+  .main-content {
+    dl.node-type-list {
+      overflow:hidden;
+        dt,
+        dd {
+          float: left;
+          margin-top: .75em;
+          margin-bottom: .75em;
+          min-height: 2em;
+          border-bottom: {
+            @include standard-border;
+          }
+          &:last-child {
+            border: none;
+          }
+        }
+
+       dt {
+        clear: left;
+        width: 5em;
+        margin-right: 1em;
+        @include button($color: $button-color-secondary, $font-family: $base-font-family, $transform: none);
+        a {
+          color: $nav-title-color;
+        }
+      }
+      dd {
+        width: 50%;
+        margin: 0;
+        padding: .5em 0;
+        font-size: $base-font-size + 2;
+      }
+    }
+  }
+}
+
+html.js body.html div#page section#main div#content article.page div.wrapper section.main-content dl.node-type-list
 
 // Flexbox
 
