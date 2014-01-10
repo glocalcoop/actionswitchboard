@@ -56,84 +56,90 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 @include all-needs-sprites;
 
 
-
-.scheme-collection {
-
-  .scheme-header {
-    min-height: 6em;
-  }
-
-  .scheme-leader {
-    @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
-    @extend %entypo-user;
-    a { 
-      margin-left: .25em;
-    }
-    &:before{
-      width: .5em;
-      text-align: center;
-    }
-  }
-
-  .scheme-description {
-    min-height: 7.5em;
-    // background: rgba( 255, 0,0, .12 );
-    margin-top: .25em;
-    margin-bottom: .5em;
-    vertical-align: top;
-  }
-  .field-issues-goals {
-    margin-bottom: .5em;
-  }
-
-}
-
+// //////////////////////
+// Scheme Collections
+// .scheme-collection
+//
 
 .scheme-collection {
   @include zen-grid-container;
   padding-bottom: 10px;
   font-size: $base-font-size + 1px;
-  p {
-    font-size: $base-font-size + 1px;
-  }
+  color: $text-color;
+  // Row background color
   &:nth-child(even) {
     @include zigzag-border ($even-backdrop, $odd-backdrop);
   }
   &:nth-child(odd) {
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
-    color: $text-color;
+
+  p {
+    font-size: $base-font-size + 1px;
+  }
   a {
     color: $accent-secondary
   }
-  div.field-item {
-    img {
-      width: 100%;
-        max-width: 240px;
-        height: 123px;
-    }
-  }
-
   h2.block-title {
     @include zen-clear(both);
   }
-  .field-body {
-    vertical-align: top;
-  }
-
   h3.scheme-name {
     @include header-style ($family: $font-body, $size: $h4-font-size + 1, $transform: none, $weight: bold);
     line-height: $base-line-height;
     margin: 1px 0 4px 0;
   }
-  
-}
 
-.section-schemes header.edit-header {
-  display: none;
-}
+  .view-scheme-overview .view-content {
+    @include zen-clear();
 
-.scheme-collection {
+    // Row of Schemes
+    .views-row {
+      border-right: {
+        @include standard-border($rules-color, 1px);
+      }
+      min-height: 398px;
+      padding: 0 10px;
+      margin: 1em 0 1.5em 0;
+
+      &:nth-child(4n+4),
+      &:last-child {
+        border: none;
+      }
+
+      $scheme-over-img-height: 123px;
+      #scheme-images img {
+        width: 100%;
+        max-width: 240px;
+        height: $scheme-over-img-height;
+      }
+
+      .scheme-progress {
+        @include zen-clear(both);
+        padding-bottom: 12px;
+        h4 {
+          @include zen-float;
+          width: 25%;
+          margin: 0;
+          padding: 0;
+          }
+        .scheme-progress-bar {
+          @include zen-float;
+          width: 75%;
+          margin: 0;
+          padding: 0;
+          line-height: inherit;
+        }
+      }
+    }
+  }
+
+  .field-body {
+    vertical-align: top;
+  }
+
+  .scheme-header {
+    min-height: 6em;
+  }
 
   .scheme-info {
     
@@ -146,8 +152,16 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       @include standard-border;
     }
 
+    .field-issues-goals {
+      margin-bottom: .5em;
+    }
+
+    // Completed Schemes
     &.completed-scheme {
       margin-top: 3.675em;
+      .field-issues-goals {
+          text-transform: uppercase;
+      }
     }
 
     .scheme-meta {
@@ -190,94 +204,143 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
 
   }
-}
 
-.view-scheme-overview .view-content {
-  @include zen-clear();
-
-  .views-row {
-    border-right: {
-      @include standard-border($rules-color, 1px);
+  .scheme-leader {
+    @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
+    @extend %entypo-user;
+    a { 
+      margin-left: .25em;
     }
-    min-height: 398px;
-    padding: 0 10px;
-    margin: 1em 0 1.5em 0;
-
-    &:nth-child(4n+4),
-    &:last-child {
-      border: none;
+    &:before{
+      width: .5em;
+      text-align: center;
     }
+  }
 
-    #scheme-images img {
+  div.field-item {
+    img {
       width: 100%;
-      max-width: 240px;
-      height: 123px;
-    }
-
-    .scheme-progress {
-      @include zen-clear(both);
-      padding-bottom: 12px;
-      h4 {
-        @include zen-float;
-        width: 25%;
-        margin: 0;
-        padding: 0;
-        }
-      .scheme-progress-bar {
-        @include zen-float;
-        width: 75%;
-        margin: 0;
-        padding: 0;
-        line-height: inherit;
-      }
+        max-width: 240px;
+        height: 123px;
     }
   }
-}
 
-.scheme-collection ul.pager,
-.scheme-collections ul.pager {
-  // $next-image: url('/sites/all/themes/asb/images/pager/next.png');
-  // $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
-  $pager-height: image-height('pager/previous.png');
-  $pager-width: image-width('pager/previous.png');
-  $scheme-height: 300px;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-  li {
-    $pager-hmargin: -35px;
-    $pager-font-size: 0px;
-    margin-top: - $scheme-height - $pager-hmargin;
-    padding: 0;
-    &.pager-current,
-    &.pager-item,
-    &.pager-first,
-    &.pager-last {
-      display: none;
-    }
-    a {
+  .scheme-description {
+    min-height: 7.5em;
+    // background: rgba( 255, 0,0, .12 );
+    margin-top: .25em;
+    margin-bottom: .5em;
+    vertical-align: top;
+  }
+
+  .scheme-collection-view {
+    position: relative;
+
+    .item-list {
+      position: absolute;
       display: block;
-      height: $pager-height;
-      width: $pager-width;
-      line-height: $pager-height;
-      font-size: $pager-font-size;
-      color: $rules-color;
-    }     
-    &.pager-next {
-      @include zen-float(right);
-      margin-right: $pager-hmargin;
-      a {
-        @include replace-text($next-image);
-        text-indent: 0 !important;
+      width: 100%;
+
+      ul.pager {
+        position: relative;
+        $pager-height: image-height('pager/previous.png');
+        $pager-width: image-width('pager/previous.png');
+        $scheme-height: 300px;
+        $pager-hmargin: -40px;
+        $pager-vmargin: $pager-hmargin;
+
+        li {
+          position: absolute;
+          top: -$pager-vmargin;
+          &.pager-current,
+          &.pager-item,
+          &.pager-first,
+          &.pager-last {
+            display: none;
+          }
+          a {
+            display: block;
+            height: $pager-height;
+            width: $pager-width;
+            line-height: $pager-height;
+            font-size: 0;
+            color: $rules-color;
+          }     
+          &.pager-next {
+            right: $pager-hmargin;
+            a {
+              @include replace-text($next-image);
+              text-indent: 0 !important;
+            }
+          }
+          &.pager-previous {
+            left: $pager-hmargin;
+            a {
+              @include replace-text($previous-image);
+              text-indent: 0 !important;
+            }
+          }
+        }
       }
-    }
-    &.pager-previous {
-      @include zen-float(left);
-      margin-left: $pager-hmargin;
-      a {
-        @include replace-text($previous-image);
-        text-indent: 0 !important;
-      }
+    
     }
   }
+
+
+
+  .section-schemes header.edit-header {
+    display: none;
+  }
+
 }
+
+
+
+
+// .scheme-collection ul.pager,
+// .scheme-collections ul.pager {
+//   // $next-image: url('/sites/all/themes/asb/images/pager/next.png');
+//   // $previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
+//   $pager-height: image-height('pager/previous.png');
+//   $pager-width: image-width('pager/previous.png');
+//   $scheme-height: 300px;
+//   line-height: inherit;
+//   margin: 0;
+//   padding: 0;
+//   li {
+//     $pager-hmargin: -35px;
+//     $pager-font-size: 0px;
+//     margin-top: - $scheme-height - $pager-hmargin;
+//     padding: 0;
+//     &.pager-current,
+//     &.pager-item,
+//     &.pager-first,
+//     &.pager-last {
+//       display: none;
+//     }
+//     a {
+//       display: block;
+//       height: $pager-height;
+//       width: $pager-width;
+//       line-height: $pager-height;
+//       font-size: $pager-font-size;
+//       color: $rules-color;
+//     }     
+//     &.pager-next {
+//       @include zen-float(right);
+//       margin-right: $pager-hmargin;
+//       a {
+//         @include replace-text($next-image);
+//         text-indent: 0 !important;
+//       }
+//     }
+//     &.pager-previous {
+//       @include zen-float(left);
+//       margin-left: $pager-hmargin;
+//       a {
+//         @include replace-text($previous-image);
+//         text-indent: 0 !important;
+//       }
+//     }
+//   }
+// }
