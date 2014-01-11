@@ -10,6 +10,7 @@
  * @see template_process()
  */
 global $user;
+$account = menu_get_object('user');
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -95,7 +96,7 @@ global $user;
         </div>
         <ul id="ui-button" class="user-contact">
           <li class="user-contact ui-button">
-            <a class="icon user-contact" href="http://asb.mayfirst.org/messages/new/<?php print render($user->uid); ?>"><span>Contact Me</span></a>
+            <a class="icon user-contact" href="http://asb.mayfirst.org/messages/new/<?php print render($account->uid); ?>"><span>Contact Me</span></a>
           </li>
           <li class="facebook ui-button">
             <a class="icon facebook" href=""><span>Facebook</span></a>
@@ -127,6 +128,10 @@ global $user;
 
 // echo '<pre>';
 // var_dump($civi_contact);
+// echo '</pre>';
+
+// echo '<pre>';
+// var_dump($account);
 // echo '</pre>';
 
 // echo '<pre>';
