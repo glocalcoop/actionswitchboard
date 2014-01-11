@@ -59,16 +59,20 @@ div#comments{
 
       h3.comment-title { /* Comment title */
         @include zen-clear;
-        @include header-style ($family: $font-body, $size: $h3-font-size, $transform: none, $color: $text-color);
+        @include header-style ($family: $font-body, $size: $base-font-size + 3, $transform: none, $color: $text-color);
         line-height: $header-line-height;
+        margin-bottom: .25em;
       }
 
-      .new { /* "New" marker for comments that are new for the current user */
-        color: #c00;
-      }
+      // .new { "New" marker for comments that are new for the current user
+      //   color: #c00;
+      // }
 
       .submitted { /* The "posted by" information */
         @include zen-float;
+        a.username {
+            color: $accent;
+        }
         .user-picture { /* The picture of the comment author */
           @include zen-float;
           margin-right: 10px;
@@ -94,6 +98,16 @@ div#comments{
         p:first-child {
           margin-top: 0;
         }
+        img { // Let's give images in comments a little style
+          @include zen-float;
+          margin-right: .5em;
+          margin-bottom: .75em;
+          border: {
+            @include standard-border;
+          }
+          max-width: 300px;
+          height: auto;
+        }
       }
 
       ul.links { /* Comment links. See also the ul.links declaration in the pages.css. */
@@ -102,6 +116,11 @@ div#comments{
           position: absolute;
           top: 0;
           right: 0;
+          a {
+            &:before {
+              font-size: 2.25em;
+            }
+          }
         }
       }
     }
