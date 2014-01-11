@@ -18,8 +18,10 @@ html, p {
 }
 
 .node-type-scheme iframe.media-youtube-player {
-  width: 700px;
-  height: 380px;
+  // 
+  // height: 380px;
+  width: 100%;
+  max-width: 700px;
 }
 
 .status-info h6 {
@@ -242,7 +244,20 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 // ////////////////////////////
 // Icons
-// search nav item
+// entypo-
+
+mark.new {
+  background: transparent;
+  @include font-icon-base($family:"entypo", $font-size: 2em, $margin: 2em, $width: .3em);
+  @extend %entypo-new;
+  &:before {
+    color: $accent;
+    vertical-align: baseline;
+  }
+  span {
+    @include hidden-text;
+  }
+}
 
 #nav-find {
   color: #fff;
@@ -292,12 +307,14 @@ ul.tabs-primary {
 section.content,
 article.comment,
 .scheme-leader-contact,
-.status-info  {
+.status-info,
+.modal-edit {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 1.75em, $margin: 0.1em, $width: .5em);
       color: $text-color;
       text-align: left;
-      &.edit { @extend %entypo-pencil; }
+      &.edit,
+      &.ctools-use-modal { @extend %entypo-pencil; }
       &:after {
         line-height: 1.2em;
       }
@@ -719,7 +736,6 @@ form .form-actions input{
   }
 }
 
-html.js body.html div#page section#main div#content article.page div.wrapper section.main-content dl.node-type-list
 
 // Flexbox
 
@@ -769,9 +785,7 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
   .modal-edit,
   .ctools-use-modal,
   .view-scheme-members div.view-header {
-    display: none;
-    font-size: 0;
-    line-height: 0;
+    @include hide-content;
   }
 }
 
