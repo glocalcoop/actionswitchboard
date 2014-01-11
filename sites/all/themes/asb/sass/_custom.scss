@@ -81,6 +81,12 @@
   color: transparent;
 }
 
+@mixin hide-content {
+  font: 0/0;
+  display: none;
+  line-height: 0;
+}
+
 @function blackTranslucent($opacity){
     @return rgba(0,0,0,$opacity)
 }
