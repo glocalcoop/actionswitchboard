@@ -16,17 +16,62 @@ div#comments{
   .comment { /* Wrapper for a single comment */
     position: relative;
     @include zen-clear;
-    border-top: {
+    border-bottom: {
       @include standard-border;
     }
 
-    &.first{
+    &.last{
       border: none;
+    }
+
+    .user-picture { /* The picture of the comment author */
+      @include zen-float;
+      margin-right: 15px;
+      margin-top: 1.2em;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    header,
+    .field-comment-body {
+      @include zen-float;
+      // margin-left: 40px;
     }
 
     header {
       background-color: transparent;
       min-height: inherit;
+      .submitted { /* The "posted by" information */
+        @include zen-float;
+        a.username {
+            color: $accent;
+        }
+        .permalink { /* Comment's permalink wrapper */
+          text-transform: uppercase;
+          font-size: 75%;
+        }
+      }
+
+    }
+
+    .field-comment-body { // Main comment content
+      @include zen-clear;
+      margin-left: 65px;
+      p:first-child {
+        margin-top: 0;
+      }
+      img { // Let's give images in comments a little style
+        @include zen-float;
+        margin-right: .5em;
+        margin-bottom: .75em;
+        border: {
+          @include standard-border;
+        }
+        max-width: 300px;
+        height: auto;
+      }
     }
 
       &.comment-preview { /* Preview of the comment before submitting new or updated comment */
@@ -68,24 +113,6 @@ div#comments{
       //   color: #c00;
       // }
 
-      .submitted { /* The "posted by" information */
-        @include zen-float;
-        a.username {
-            color: $accent;
-        }
-        .user-picture { /* The picture of the comment author */
-          @include zen-float;
-          margin-right: 10px;
-          img {
-            width: 30px;
-            height: 30px;
-          }
-        }
-        .permalink { /* Comment's permalink wrapper */
-          text-transform: uppercase;
-          font-size: 75%;
-        }
-      }
 
       .user-signature { /* The user's signature */
       }
@@ -94,21 +121,7 @@ div#comments{
         display: none;
       }
 
-      .field-comment-body {
-        p:first-child {
-          margin-top: 0;
-        }
-        img { // Let's give images in comments a little style
-          @include zen-float;
-          margin-right: .5em;
-          margin-bottom: .75em;
-          border: {
-            @include standard-border;
-          }
-          max-width: 300px;
-          height: auto;
-        }
-      }
+
 
       ul.links { /* Comment links. See also the ul.links declaration in the pages.css. */
         &.inline {

@@ -20,26 +20,31 @@ $tabs-border: #bbb;
  * Basic positioning styles shared by primary and secondary tabs.
  */
 
-ul.primary { margin: -2px 0 0 -25px;
+ul.tabs-primary.primary { 
+  margin: -2px 0 0 -25px;
 
   li {
-    margin: 0;
-    padding: 0;
-    height: 23px;
-    line-height: 23px;
-    display: inline-block;
-    border-top: 23px solid $tabs-container-bg;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em;
+      margin: 0 .5em;
+
+      &::before {
+        box-shadow: inset 0 6px 2px -3px $text-color;
+        content: ''; /* To generate the box */
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        background: $tabs-container-bg;
+        transform: perspective(3px) rotateX(-2deg);
+      }
+
     a {
       color: $text-color-prominent;
       font-size: $base-font-size + 2px;
-      display: block;
-      margin-top: -25px;
-      padding: 0 10px;
       text-decoration: none;
-      text-align: center;
-      border-top: 1px solid $rules-color;
+      padding: 0;
+      margin: 0;
       &.active {
         border-top: none;
       }
@@ -47,9 +52,36 @@ ul.primary { margin: -2px 0 0 -25px;
         @include font-icon-base($family:"entypo", $font-size: 2.5em, $margin: .25em 0 0 0, $width: .3em);
         @extend %entypo-megaphone;
       }
+      &:before {
+        padding: 0;
+        margin: 0;
+      }
     }
   }
 }
+
+// p {
+//   position: relative;
+//   display: inline-block;
+//   padding: 1em;
+//   margin: 2em;
+// }
+
+// p::before {
+//   content: ''; /* To generate the box */
+//   position: absolute;
+//   top: 0; right: 0; bottom: 0; left: 0;
+//   z-index: -1;
+//   background: skyblue;
+//   transform: perspective(4px) rotateX(1deg);
+// }
+
+// p.tab::before {
+//   /* Tip by @krofdrakula */
+//   border-radius: 10px 10px 0 0;
+// }
+
+
 
 ul.tabs-secondary {
   margin: 0;

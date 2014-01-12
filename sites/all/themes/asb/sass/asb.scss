@@ -286,24 +286,6 @@ mark.new {
   color: $text-color;
 }
 
-ul.tabs-primary {
-  li {
-    a {
-      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
-    }
-    &.ctools-use-ajax a { 
-      @extend %entypo-megaphone;
-    }
-    &:first-child a {
-      @include font-icon-base($family:"entypo", $font-size: 1.75em, $margin: 0.2em, $width: .5em);
-      @extend %entypo-eye;
-    }
-    &:nth-child(2) a {
-      @extend %entypo-pencil;
-    }
-  }
-}
-
 section.content,
 article.comment,
 .scheme-leader-contact,
