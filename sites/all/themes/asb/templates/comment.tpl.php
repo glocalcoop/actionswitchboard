@@ -9,9 +9,7 @@
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <div class="user-meta">
-    <?php print $picture; ?>
-  </div>
+  <?php print $picture; ?>
   <header>
     <p class="submitted">
       <?php print $submitted; ?>
