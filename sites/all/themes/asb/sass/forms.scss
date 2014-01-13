@@ -318,9 +318,11 @@ form {
   }
 }
 
-/*
- * Drupal user profile edit
- */
+// ////////////////////////////
+// Content Edit
+// 
+
+// Drupal user profile edit
 
 form#user-profile-form {
   #edit-account {
@@ -379,6 +381,170 @@ form#user-profile-form {
         display: none;
       }
     }
+
+
+.section-node-edit {
+
+// Scheme Edit
+  &.node-type-scheme {
+
+    // Page-wide
+    .description {
+      font-style: italic;
+    }
+
+    .form-item-title,
+    .form-field-name-field-location,
+    .form-field-name-field-brief-internal-description,
+    .form-field-name-field-issues-goals,
+    .field-name-body,
+    .form-field-name-field-featured,
+    .form-field-name-field-from-the-movie,
+    .form-field-name-field-progress,
+    .form-field-name-field-facilitator,
+    .form-field-name-field-private-description,
+    .workflow-form-container,
+    .form-field-name-field-video,
+    .form-field-name-field-material-needs,
+    .form-field-name-field-people-skills,
+    .form-field-name-field-funding-needs,
+    .field-type-text-with-summary,
+    .form-field-name-field-image {
+      @include zen-clear;
+      border-bottom: {
+        @include standard-border;
+      }
+      label:first-child {
+        @include header-style;
+        line-height: $header-line-height;
+      }
+    }
+
+    // Specific
+    .form-item-title {
+      padding-bottom: 1.5em;
+    }
+
+    .form-field-name-field-issues-goals {
+      .description {
+        @include zen-clear;
+        padding-top: .55em;
+      }
+    }
+    .form-field-name-field-progress {
+      .sliderfield-display-values-field {
+        display: inline-block;
+        @include body-text($weight: bold, $color: $text-color-prominent);
+        &:after {
+          content: '%';
+        }
+      }
+      .ui-slider-horizontal {
+        border: {
+          @include standard-border;
+        }
+        background: $button-color-tertiary;
+      }
+      .ui-slider-handle {
+        background: $accent;
+      }
+    }
+    .field-type-text-with-summary {
+       padding-bottom: 1.5em;
+      .form-type-select {
+        label {
+          @include body-text($weight: bold, $color: $text-color-prominent);
+        }
+      }
+    }
+    .form-field-name-field-video {
+      a.button {
+        @include button($font-family: $font-body);
+        &.launcher {
+           @include button($font-family: $font-body, $color: $button-color-tertiary);
+        }
+        &.remove {
+           @include button($font-family: $font-body, $color: $button-color-tertiary);
+          &:after {
+            content:' \2716';
+          }
+        }
+      }
+      .preview.launcher {
+        @include zen-clear;
+        padding-bottom: 1.5em;
+      }
+      #field-video-add-more-wrapper .mediaBrowserLaunch-processed label {
+        display: inherit;
+      }
+      label {
+        &.media-filename {
+          @include body-text($weight: bold, $line-height: $base-line-height + 4);
+        }
+      }
+    }
+    .form-field-name-field-image {
+      label,
+      label:first-child {
+        @include body-text($weight: bold, $color: $text-color-prominent);
+      }
+      legend {
+        @include header-style;
+        line-height: $header-line-height;
+      }
+      input[type="submit"] {
+        @include button($font-family: $font-body, $color: $button-color-tertiary);
+      }
+    }
+    .workflow-form-container {
+      .workflow-buttons {
+        input[type="submit"] {
+          @include button($font-family: $font-body, $color: $button-color-tertiary);
+        }
+      }
+      padding-bottom: 1.5em;
+    }
+
+    .form-field-name-field-material-needs {
+      thead tr th {
+        border: none;
+      }
+    }
+
+    .form-field-name-field-location {}
+    .form-field-name-field-brief-internal-description {}
+    .field-name-body {}
+    .form-field-name-field-featured {}
+    .form-field-name-field-from-the-movie {}
+    .form-field-name-field-facilitator {}
+    .form-field-name-field-private-description {}
+    .form-field-name-field-people-skills {}
+    .form-field-name-field-funding-needs {}
+
+    .form-actions {
+      input[type="submit"] {
+        &#edit-submit {}
+        &#edit-preview {
+          @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+        }
+        &#edit-delete {
+          @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+          &:after {
+            content:' \2716';
+          }
+        }
+      }
+    }
+    .field-add-more-submit{
+      @include button($font-family: $font-body, $color: $button-color-tertiary);
+    }
+
+    // Types
+    .field-widget-options-onoff {}
+    .form-field-type-file {}
+    .form-field-type-image {}
+  }
+}
 
 
 /*
