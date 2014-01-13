@@ -89,7 +89,7 @@ tr td:last-child {
         // 
           display: inline-block;
           a {
-            @include button($font-family: $base-font-family, $color: transparent, $font-color: $text-color);
+            @include button($font-family: $base-font-family, $color: #fff, $font-color: $text-color);
           }
           &.selected a {
             background: $button-color-primary;
