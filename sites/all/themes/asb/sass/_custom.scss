@@ -277,7 +277,8 @@
   text-align: center;
   text-transform: $transform;
   &:hover {
-      color: $font-color;
+      // color: $font-color;
+      background-color: darken($button-color-primary, 10%);
   }
 }
 
