@@ -10,7 +10,7 @@
 	<div class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></div>
 	<div class="logout"><a class="logout" href="<?php print url('user/logout'); ?>">Logout</a></div>
 	<div class="userdashboard"><span class="icon tools dashboard"></span><a href="/dashboard/">Dashboard</a>
-		<span class="counter badge">12<!-- Placeholder number - replace with actual number of new messages --></span>
+		<span class="counter badge"><a href="/dashboard/">12</a><!-- Placeholder number - replace with actual number of new messages --></span>
 	</div>
   <?php else:?>
     <div class="login"><a class="login" href="<?php print url('user'); ?>">Login</a></div>
