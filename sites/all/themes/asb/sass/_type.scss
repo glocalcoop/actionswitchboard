@@ -76,67 +76,6 @@ h6,
   color: $text-color;
 }
 
-header#header {
-  #block-system-user-menu,
-  #block-asb-scheme-user-message,
-  .block-menu-block ul li {
-    .title {
-      font-size: 15px;
-      color: $nav-title-color;
-    }
-    .username,
-    .description {
-      display: block;
-      @include zen-clear(both);
-      color: $nav-description-color;
-      a {
-        color: $text-color;
-      }
-    }
-    .username {
-      margin-right: 5px;
-    }
-    .userdashboard {
-      a {
-        color: $nav-title-color;
-      }
-      // &:before {
-        
-      //   color: $nav-title-color;
-      // }
-      .icon {
-        @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em, $color: $nav-title-color);
-        @extend %entypo-tools;
-      }
-    }
-    .logout {
-      display: inline-block;
-      color: $nav-title-color;
-      a {
-        &:before {
-          content: '|';
-          margin-right: 8px;
-        }
-      }
-    }
-    .login,
-    .register {
-      a {
-        color: $nav-title-color;
-      }
-    }
-    &.is-active a, 
-    &.is-active span {
-      color: $text-color;
-    }
-  }
-  #block-asb-scheme-user-message {
-    .username {
-      display: inline-block;
-    }
-  }
-}
-
 #stepper-add-scheme {
   font-family: $header-font-family;
 }
