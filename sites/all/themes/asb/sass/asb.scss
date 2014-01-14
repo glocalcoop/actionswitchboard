@@ -172,6 +172,13 @@ display: block;
   }
 }
 
+.page-user-edit {
+  #content > article > header .wrapper {
+    min-height: 7em;
+    height: 7em;
+  }
+}
+
 // //////////////////////////
 //
 // homepage style
@@ -769,6 +776,16 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
   }
 }
 
+
+.badge {
+  height: 16px;
+  padding: 0 5px;
+  margin-left: 2px;
+  background: $brand;
+  line-height: 16px;
+  color: white;
+  border-radius: 10px;
+}
 
 
 
