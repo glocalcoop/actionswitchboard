@@ -78,44 +78,59 @@ h6,
 
 header#header {
   #block-system-user-menu,
-  .block-menu-block ul li {
-    span.title {
-      font-size: 15px;
-      color: $nav-title-color;
-    }
-    span.username,
-    span.description {
-      display: block;
-      clear: both;
-      color: $nav-description-color;
-    }
-    &.is-active a, 
-    &.is-active span {
-      color: $accent;
-    }
-    a.login,
-    a.logout { color: $nav-title-color; }
-  }
   #block-asb-scheme-user-message,
   .block-menu-block ul li {
-    span.title {
+    .title {
       font-size: 15px;
       color: $nav-title-color;
     }
-    span.username,
-    span.description {
+    .username,
+    .description {
       display: block;
-      clear: both;
+      @include zen-clear(both);
       color: $nav-description-color;
+      a {
+        color: $text-color;
+      }
+    }
+    .username {
+      margin-right: 2px;
+    }
+    .userdashboard {
+      a {
+        color: $nav-title-color;
+      }
+      @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em);
+      &:before {
+        @extend %entypo-tools;
+        color: $nav-title-color;
+      }
+    }
+    .logout {
+      display: inline-block;
+      color: $nav-title-color;
+      a {
+        &:before {
+          content: ' | ';
+          margin-right: 2px;
+        }
+      }
+    }
+    .login {
+      a {
+        color: $nav-title-color;
+      }
     }
     &.is-active a, 
     &.is-active span {
-      color: $accent;
+      color: $text-color;
     }
-    a.login,
-    a.logout { color: $nav-title-color; }
   }
-
+  #block-asb-scheme-user-message {
+    .username {
+      display: inline-block;
+    }
+  }
 }
 
 #stepper-add-scheme {
