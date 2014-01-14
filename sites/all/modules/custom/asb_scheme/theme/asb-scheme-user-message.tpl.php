@@ -6,13 +6,16 @@
 ?>
 <nav id="asb-scheme-user-message" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if($logged_in): global $user;?>
-    <span class="title">Hello,</span>
-    <span class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></span>
-    <a class="logout" href="<?php print url('user/logout'); ?>">Logout</a>
+	<div class="title">Hello,</div>
+	<div class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></div>
+	<div class="logout"><a class="logout" href="<?php print url('user/logout'); ?>">Logout</a></div>
+	<div class="userdashboard"><span class="icon tools dashboard"></span><a href="/dashboard/">Dashboard</a>
+		<span class="counter badge">12<!-- Placeholder number - replace with actual number of new messages --></span>
+	</div>
   <?php else:?>
-    <a class="login" href="<?php print url('user'); ?>">Login</a>
+    <div class="login"><a class="login" href="<?php print url('user'); ?>">Login</a></div>
     or<br/>
-    <a class="register" href="<?php print url('user/register'); ?>">Register</a>
+    <div class="register"><a class="register" href="<?php print url('user/register'); ?>">Register</a></div>
 
   <?php endif;?>
 
