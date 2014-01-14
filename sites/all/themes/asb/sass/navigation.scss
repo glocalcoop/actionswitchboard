@@ -104,29 +104,75 @@ li a.active {
 
 
 
-header#header section#navigation {
-  display: block;
-  line-height: 15px;
-  .block-menu-block {
-    vertical-align: top;
-    display: inline-block;
-    ul li {
+header#header {
+  a {
+    color: $nav-title-color;
+  }
+  section#navigation {
+    display: block;
+    line-height: 15px;
+    .block-menu-block {
+      vertical-align: top;
       display: inline-block;
+      ul li {
+        display: inline-block;
+        padding: 1em;
+        height: 100%;
+        border-right: 1px $text-color solid;
+        margin-right: .5em;
+      }
+    }
+    #block-system-user-menu {
+        vertical-align: bottom;
       padding: 1em;
-      height: 100%;
-      border-right: 1px $text-color solid;
-      margin-right: .5em;
+      display: inline-block;
+    }
+    #block-asb-scheme-user-message {
+      vertical-align: bottom;
+      padding: 1em;
+      display: inline-block;
     }
   }
-  #block-system-user-menu {
-      vertical-align: bottom;
-    padding: 1em;
-    display: inline-block;
+  #block-system-user-menu,
+  #block-asb-scheme-user-message,
+  .block-menu-block ul li {
+    .title {
+      font-size: 15px;
+      color: $nav-title-color;
+    }
+    .username,
+    .description {
+      display: block;
+      @include zen-clear(both);
+      color: $nav-description-color;
+      a {
+        color: $text-color;
+      }
+    }
+    .userdashboard {
+      @include zen-clear;
+      display: inline-block;
+      .icon {
+        @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em, $color: $nav-title-color);
+        @extend %entypo-tools;
+      }
+    }
+    .logout {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .login,
+    .register {
+      a {
+        color: $nav-title-color;
+      }
+    }
+    &.is-active a, 
+    &.is-active span {
+      color: $text-color;
+    }
   }
-  #block-asb-scheme-user-message {
-      vertical-align: bottom;
-    padding: 1em;
-    display: inline-block;
-  }
+
 }
+
 
