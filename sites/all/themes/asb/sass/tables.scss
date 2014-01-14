@@ -134,12 +134,18 @@ tr td:last-child {
             margin: 0;
             @include body-text($size: 1em, $color: $text-color-prominent);
           }
+          mark.new {
+            display: none;
+          }
           &:first-child {
             padding-left: 10px;
           }
         }
         &.even {
           background: $odd-backdrop;
+        }
+        &.new {
+          font-weight: bold;
         }
       } 
     }
