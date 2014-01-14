@@ -139,8 +139,6 @@ display: block;
 
 }
 
-
-
 #content>article {
 
   &>header {
@@ -502,6 +500,46 @@ ul.tags {
     }
   }
 
+}
+
+// ////////////////////////////
+// Scheme Members
+// 
+
+.page-node-members {
+  .scheme-members {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      // display: table;
+
+      li {
+        // display: table-row;
+        @include zen-clear;
+        padding: 2em 0;
+        border-top: {
+          @include standard-border();
+        }
+        &:first-child {
+          border: none;
+        }
+        div {
+          display: block;
+        }
+        .user-picture {
+          @include zen-float;
+          padding-right: 10px;
+        }
+        h3.member-name {
+          padding: 0;
+          margin: 0;
+          @include body-text($transform: capitalize, $weight: bold, $size: 1.25em);
+        }
+      }
+    }
+
+  }
 }
 
 #edit-actions input,
