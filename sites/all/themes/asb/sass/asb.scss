@@ -662,8 +662,6 @@ form .form-actions input{
 }
 
 
-
-
 // dl.table-display {
 //   float: left;
 //   width: 100%;
@@ -720,6 +718,60 @@ form .form-actions input{
         font-size: $base-font-size + 2;
       }
     }
+  }
+}
+
+// ////////////////////////////
+// Documents
+// 
+
+.node-type-document {
+  .field-body {
+    @include body-text($size: $base-font-size + 2);
+    p,
+    li {
+       @include body-text($size: $base-font-size +2, $line-height: $base-line-height +2);
+    }
+    h2,
+    h3,
+    h4,
+    h5 {
+      @include body-text($size: $base-font-size +2, $weight: bold, $line-height: $header-line-height, $color: $text-color-prominent);
+    }
+    h2 {
+      font-size: 1.75em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.25em;
+    }
+    a,
+    a:link {
+      color: $accent;
+    }
+  }
+
+  .field-document-type {
+    a {
+      color: $accent;
+      @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
+      @extend %entypo-tag;
+    }  
+  }
+  .links.inline {
+    @include zen-float(right);
+    a {
+      @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
+    }
+    .book_add_child a {
+       @extend %entypo-circled-plus;
+    }
+    .book_printer a {
+      @extend %entypo-print;
+    }
+
   }
 }
 
