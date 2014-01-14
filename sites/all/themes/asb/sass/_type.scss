@@ -100,10 +100,13 @@ header#header {
       a {
         color: $nav-title-color;
       }
-      @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em);
-      &:before {
+      // &:before {
+        
+      //   color: $nav-title-color;
+      // }
+      .icon {
+        @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em, $color: $nav-title-color);
         @extend %entypo-tools;
-        color: $nav-title-color;
       }
     }
     .logout {
