@@ -9,7 +9,7 @@
 	<div class="title">Hello,</div>
 	<div class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></div>
 	<div class="logout"><a class="logout" href="<?php print url('user/logout'); ?>">Logout</a></div>
-	<div class="userdashboard"><span class="icon tools dashboard"></span><a href="/dashboard/">Dashboard</a>
+	<div class="userdashboard"><a href="/dashboard/"><span class="icon tools dashboard"></span>Dashboard</a>
 		<span class="counter badge"><a href="/dashboard/">12</a><!-- Placeholder number - replace with actual number of new messages --></span>
 	</div>
   <?php else:?>
