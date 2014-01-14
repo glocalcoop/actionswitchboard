@@ -38,6 +38,8 @@ ul.tabs-primary.primary {
         z-index: -1;
         background: $tabs-container-bg;
         transform: perspective(3px) rotateX(-2deg);
+        -ms-transform: perspective(3px) rotateX(-2deg);
+        -webkit-transform: perspective(3px) rotateX(-2deg);
         // line-height: 16px;
       }
 
