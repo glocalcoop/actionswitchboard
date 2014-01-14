@@ -94,7 +94,7 @@ header#header {
       }
     }
     .username {
-      margin-right: 2px;
+      margin-right: 5px;
     }
     .userdashboard {
       a {
@@ -114,8 +114,8 @@ header#header {
       color: $nav-title-color;
       a {
         &:before {
-          content: ' | ';
-          margin-right: 2px;
+          content: '|';
+          margin-right: 8px;
         }
       }
     }
