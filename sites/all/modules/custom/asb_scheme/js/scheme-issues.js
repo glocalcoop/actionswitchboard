@@ -36,10 +36,12 @@
             if(sh == "show") {
               $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').show();
             } else {
-              $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide();
+              $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide()
+              goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false)
             }
           } else {
-            $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide();
+            $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide()
+            goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false)
           }
         });
       }
