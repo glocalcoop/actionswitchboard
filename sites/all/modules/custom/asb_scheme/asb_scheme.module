@@ -194,8 +194,6 @@ function _asb_scheme_manage_workflow($form, &$form_state) {
  * Implements hook_form_alter
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
-
-
   global $user;
   // Modifies the view filter on the scheme search view to explicitly
   // set the issues connected to the scheme.
@@ -243,6 +241,8 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   // Add redirect on scheme creation
   if($form_id == 'scheme_node_form' && arg(2) != 'edit' && $pos === false) {
     $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
+  }else{
+    drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
   }
   // Check if the form has steps and add progress markup.
   if(!empty($form['#steps']) && arg(2) != 'edit' && $pos === false) {
@@ -295,9 +295,11 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     $form['field_parent_goal']['#states'] = array(
       'invisible' => array(
         ':input[name="field_issue_reference[und]"]' => array('value' => '_none'),
-        ':input[name="field_parent_goal[und]"]' => array('value' => '_none'),
+        // ':input[name="field_issue_reference[und][]"]' => array('value' => '_none'),
+        // ':input[name="field_parent_goal[und]"]' => array('value' => '_none'),
       ),
     );
+
     // Add an ajax callback that changes the values available
     // in the parent_goals reference based on which issue is selected.
     $form['field_issue_reference']['und']['#ajax'] = array(
@@ -306,7 +308,6 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       'callback' => 'asb_scheme_goals_ajax_callback',
       'method' => 'replace',
     );
-
     foreach($form['field_child_goals']['und']['#default_value'] as $k => $v) {
       unset($form['field_parent_goal']['und']['#options'][$v]);
     }
@@ -318,6 +319,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
 
     $form['#validate'][] = 'asb_scheme_goal_form_validate';
     $form['actions']['submit']['#submit'][] = 'asb_scheme_goal_form_submit';
+    // dsm($form);
     // Here we hide child goals to all but administrators
     // as this field is mostly here for validation and consistency.
     if(!isset($user->roles[3])) {
@@ -393,7 +395,6 @@ function _asb_scheme_goal_clean_refs(&$form_state, $node, $remove = 0) {
  */
 function asb_scheme_goals_ajax_callback(&$form, &$form_state) {
   $exclude = $form['field_child_goals']['und']['#default_value'];
-  
   if(isset($form['nid']['#value'])) {
     $exclude[] = $form['nid']['#value'];
   }

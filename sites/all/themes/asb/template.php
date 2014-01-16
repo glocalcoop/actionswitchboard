@@ -404,9 +404,74 @@ function asb_preprocess_block(&$variables, $hook) {
 }
 
 function asb_scheme_preprocess_views_view(&$vars) {
-  //dsm($vars);
+  // dsm($vars['view']->name);
 }
-function asb_scheme_preprocess_views_view_field(&$vars) {
+function asb_preprocess_views_view_field__issues_and_goals_reference__entityreference_1(&$vars) {
+  // dsm($vars['view']->row_index);
+  // dsm($vars['field']);
+
+  if ($vars['field']->field_alias == "nid") {
+    foreach ($vars['view']->result as $key => $value) {
+      // dsm($result);
+      // dsm($key);
+      // dsm($vars['view']->row_index);
+      if($key == $vars['view']->row_index) {
+        if($vars['view']->result[$key]->node_type == 'goal') {
+          $eid = $value->nid;
+          $sql = "SELECT field_hidden_issue_reference_target_id as target
+                  FROM field_data_field_hidden_issue_reference 
+                  WHERE bundle = 'goal' and entity_id = '$eid'";
+          $goal_list = db_query($sql)->fetchAll();
+          // dsm($goal_list[0]->target);
+          if(isset($goal_list[0])) {
+            $vars['view']->field['nid']->iid = $goal_list[0]->target;
+            $value->iid = $goal_list[0]->target;
+            /* dsm($vars['view']->row_index); */
+            /* dsm($vars['view']->field['nid']->original_value); */
+            /* dsm($value->iid); */
+
+            /* if($vars['view']->row_index == 6) { */
+            /*   $vars['view']->field['nid']->iid = 22; */
+
+            /*   /\* dsm($value->iid); *\/ */
+            /* } */
+          }
+          // Get parent goals
+          $gsql = "SELECT entity_id AS parent 
+                   FROM field_revision_field_child_goals 
+                   WHERE bundle = 'goal' AND field_child_goals_target_id = '$eid'";
+          /* $gsql = "SELECT field_child_goals_target_id AS target  */
+          /*          FROM field_data_field_child_goals  */
+          /*          WHERE bundle = 'goal' AND entity_id = '$eid'"; */
+          $parent_goal_list  = db_query($gsql)->fetchAll();
+          $vars['view']->field['nid']->target_classes = "goal-nid-" .$vars['view']->field['nid']->original_value;
+          if(isset($parent_goal_list[0])) {
+            // dsm($parent_goal_list);
+            foreach($parent_goal_list as $parents) {
+              $vars['view']->field['nid']->target_classes .= " pgoal-" .$parents->parent;
+            }
+          }
+        }
+        // dsm($vars['view']->field['nid']);
+        // $result->iid = $goal_list[0]->target;
+      }
+    }
+    // dsm($vars['view']->result);
+  }
+}
+
+function asb_preprocess_views_view_field(&$vars) {
+  // dsm($vars['view']->field['nid']);
+  // @see http://drupal.org/node/939462#comment-4476264
+  if (isset($vars['view']->name)) {
+    $function = 'asb_preprocess_views_view_field__' . $vars['view']->name . '__' . $vars['view']->current_display;
+
+    if (function_exists($function)) {
+      $function($vars);
+      // we can return to only use the specific preprocess function (it matters if there are more codes below in this function)...
+      return;
+    }
+  }
   // Get scheme owner for individual scheme displays
   // dsm($vars['field']->field);
   if($vars['view']->name == 'scheme_members_modals') {
@@ -537,6 +602,7 @@ function asb_page_alter( &$page ){
 
 function asb_preprocess_region(&$variables, $hook) {
   // Add hidden class to search region
+  // dsm($variables);
   if ($variables['region'] == "search") {
     $variables['classes_array'][] = 'hidden';
   }
