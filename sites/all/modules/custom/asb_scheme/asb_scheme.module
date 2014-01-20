@@ -196,7 +196,7 @@ function _asb_scheme_manage_workflow($form, &$form_state) {
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   global $user;
   if($form_id == 'user_login') {
-    $form['html_markup'] = array('#markup' => t('<div class="reset-pass"><a class="reset-pass-link" href="/user/password">Forgot your password?</a></div>'));
+    $form['html_markup'] = array('#markup' => t('<div class="reset-pass"><a class="reset-pass-link" href="/user/password">Forgot your password?</a></div><!-- Added in asb_scheme.module -->'));
   }
   // Make modifications to scheme_overview_filtered view
   // Set label as display value for all selections.
@@ -205,7 +205,10 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // dsm($form);
     // $form['field_issues_goals_target_id']['#options']['All'] = "Issues";
     if($form_id == 'views_exposed_form') {
-      $form['created']['#theme'] = 'select_as_links';
+      // dsm($form);
+      if(isset($form['created'])) {
+        $form['created']['#theme'] = 'select_as_links';
+      }
       $keys = array_keys($form);
       foreach($keys as $key => $value) {
         if(strpos($value,'field') !== FALSE && $form[$value]['#type'] == 'select' && !isset($form[$value]['#theme'])) {
@@ -767,7 +770,11 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         unset($node->content['field_people_skills']);
         $node->content['field_people_skills'][0]['#markup'] = $people_needs_count;
         // set field_material_needs as count
-        $material_needs_count = count($node->field_material_needs['und']);
+        if(isset($node->field_material_needs['und'])) {
+          $material_needs_count = count($node->field_material_needs['und']);
+        }else{
+          $material_needs_count = 0;
+        }
         unset($node->content['field_material_needs']);
         $node->content['field_material_needs'][0]['#markup'] = $material_needs_count;
         $funding_needs_count = asb_scheme_funds_raised();
