@@ -121,7 +121,7 @@ global $user;
 
     </div>
 
-  </header> -->
+  </header>
 
 
   
