@@ -87,6 +87,7 @@ hide($content['issues']);
 hide($content['goals']);
 hide($content['format_created']);
 hide($content['group_group']);
+hide($content['field_private_description']);
 global $user;
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -180,6 +181,13 @@ global $user;
       hide($content['links']);
       print '<div id="scheme-content">';
       print render($content);
+      $account = clone $user;
+      // Show private description for group memebers and facilitator.
+      if(og_is_member('node',$node->nid,'user',$account) == true) {
+        print render($content['field_private_description']);
+      }elseif(isset($node->field_facilitator['und']) && $node->field_facilitator['und'][0]['target_id'] == $user->uid) {
+        print render($content['field_private_description']);
+      }
       print '</div>';
     ?>
 

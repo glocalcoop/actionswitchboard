@@ -714,6 +714,10 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         '#markup' => '<div class="add-goal">' .l('Recommend a goal', 'node/add/goal', array('query' => array('field_issue_reference' => $node->nid))) .'</div>',
       );
     case 'scheme':
+      // Move image field above progress if no video exists.
+      if(count($node->field_video) == 0 && count($node->field_image) > 0) {
+        $node->content['field_image']['#weight'] = 2;
+      }
       // Make changes to scheme node views add markup to content variable.
       drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/progress.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
      drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/slideshow.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
