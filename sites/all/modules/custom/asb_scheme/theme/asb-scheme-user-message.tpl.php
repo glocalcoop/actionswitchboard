@@ -13,10 +13,10 @@
 	</div>
 	<div class="logout"><a class="logout-link" href="<?php print url('user/logout'); ?>">Logout</a></div>
   <?php else:?>
-    <div class="login"><a class="login-link" href="<?php print url('user'); ?>">Login</a></div>
+    <div class="login login-normal"><a class="login-link ctools-use-modal" style="display:inherit" href="<?php print url('user'); ?>">Login</a></div>
+    <div class="login login-modal" style="display:none;"><a class="login-link ctools-use-modal ctools-modal-modal-popup-small" style="display:inherit" href="modal_forms/nojs/login">Modal Login</a></div>
     or<br/>
     <div class="register"><a class="register-link" href="<?php print url('user/register'); ?>">Register</a></div>
-
   <?php endif;?>
 
 </nav>

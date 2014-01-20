@@ -79,7 +79,7 @@ stylesheets[all][] = css/asb.css
 
 ; Optionally add some JavaScripts to your theme.
 
-;scripts[] = js/script.js
+; scripts[] = js/script.js
 
 
 

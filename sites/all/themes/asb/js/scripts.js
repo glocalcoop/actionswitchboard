@@ -10,6 +10,8 @@
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
       // console.log( context, settings );
+      $('.login-normal').hide();
+      $('.login-modal').show();
       if( context == "[object HTMLDocument]" ){
 //        console.log( 'context is window' );
         asb.search_visibility_toggle( context, settings );
@@ -154,5 +156,6 @@
       $(this).unbind( 'keypress' );
     });
   }
-
+  $('.login-normal').hide();
+  $('.login-modal').show();
 })(jQuery);

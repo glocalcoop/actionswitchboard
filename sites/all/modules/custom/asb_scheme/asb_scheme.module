@@ -195,6 +195,9 @@ function _asb_scheme_manage_workflow($form, &$form_state) {
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if($form_id == 'user_login') {
+    $form['html_markup'] = array('#markup' => t('<div class="reset-pass"><a class="reset-pass-link" href="/user/password">Forgot your password?</a></div>'));
+  }
   // Make modifications to scheme_overview_filtered view
   // Set label as display value for all selections.
   if(isset($form_state['view']->filter['status']->view->name) && $form_state['view']->filter['status']->view->name == 'scheme_overview_filtered') {

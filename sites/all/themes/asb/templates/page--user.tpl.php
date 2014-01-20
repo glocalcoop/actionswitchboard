@@ -53,7 +53,6 @@
         <?php print render($tabs); ?>
       <?php endif; ?>
       <?php print render($page['content']); ?>
-
     </div><!-- /#content -->
 
   </section><!-- /#main -->
