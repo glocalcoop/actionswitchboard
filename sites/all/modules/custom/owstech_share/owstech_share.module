@@ -266,7 +266,7 @@ function owstech_share_return_node_types() {
 function owstech_share_node_view($node, $view_mode, $langcode) {
   if (in_array('field', variable_get('owstech_share_display_type'))) {
     $node_types = variable_get('owstech_share_applied_nodes');
-    if (in_array($node->type, $node_types) && $view_mode == 'full') {
+    if (array_search($node->type, $node_types) == $node->type && $view_mode == 'full') {
       // First we add share.css and share.js
       $modpath = drupal_get_path('module', 'owstech_share');
       $node->content['#attached']['css'][] = $modpath . '/css/owstech_share.css';
