@@ -601,9 +601,11 @@ function asb_page_alter( &$page ){
 }
 
 function asb_preprocess_region(&$variables, $hook) {
-  // Add hidden class to search region
+  // Add hidden class to search region if not schemes page
   // dsm($variables);
-  if ($variables['region'] == "search") {
-    $variables['classes_array'][] = 'hidden';
+  if(arg(0) != 'schemes') {
+    if ($variables['region'] == "search") {
+      $variables['classes_array'][] = 'hidden';
+    }
   }
 }

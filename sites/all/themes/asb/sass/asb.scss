@@ -73,6 +73,9 @@ body {
 // Search filters region
 // .region-search
 //
+.page-schemes .region-search.hidden {
+  overflow: visible;
+}
 .region-search {
   overflow: visible;
   background: $panel;
@@ -82,9 +85,9 @@ body {
   @include transition-timing-function(ease-in-out);
   @include zigzag-border($panel, $even-backdrop);
   .views-exposed-form {
-//    opacity: 1;
-display: block;
-// border: 1px #f00 solid;
+    //opacity: 1;
+    display: block;
+    // border: 1px #f00 solid;
     @include transition-property(opacity);
     @include transition-delay( .15s );
     @include transition-duration( .35s );

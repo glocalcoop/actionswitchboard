@@ -105,7 +105,7 @@ Drupal.behaviors.views_infinite_scroll = {
         } else if( Drupal.settings.views_infinite_scroll && Drupal.settings.views_infinite_scroll.length > 1) {
           alert(Drupal.t('Views Infinite Scroll module can\'t handle more than one infinite view in the same page.'));
         }else if( !Drupal.settings.views_infinite_scroll ) {
-          alert( "Your filters matched no results." );
+          // alert( "Your filters matched no results." );
           // print something on the page.
         }
       }
