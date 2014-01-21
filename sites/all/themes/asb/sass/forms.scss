@@ -319,6 +319,53 @@ form {
 }
 
 // ////////////////////////////
+// Add Scheme
+// 
+
+/* node editing */
+.page-node-add-scheme {
+  background: $panel;
+  .step-title {
+    clear: both; 
+    max-width: 960px;
+    border-bottom: 1px #dedede solid;
+    margin: 1em auto .5em auto;
+  }
+  // .title-description,
+  .scheme-title {
+    display: none;
+  }
+  .step-add-title-and-description {
+    display: inherit;
+  }
+  #stepper-add-scheme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    ul {
+      li {
+        font-size: 1.5em;
+        span {
+          display: block;
+          @include hide-text;
+        }
+      }
+      li.current{
+        font-size: 2.5em;
+        color: $accent;
+        position: relative;
+        left: .1875em;
+        &:before {
+          text-indent: -0.1275em;
+          content: "STEP ";
+        }
+      }
+    }
+  }
+}
+
+// ////////////////////////////
 // Content Edit
 // 
 
