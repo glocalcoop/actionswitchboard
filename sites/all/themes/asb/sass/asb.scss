@@ -35,6 +35,10 @@ div.messages { margin: 1em 0 0 0; padding-top: 1em; }
   img { width: 16px; }
 }
 
+.page-scheme-created p {
+  @include body-text ($size: $base-font-size + 2, $line-height: 1.5em)
+}
+
 body {
   header#header {
     position: relative;
