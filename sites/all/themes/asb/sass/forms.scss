@@ -337,7 +337,24 @@ form {
   }
   .step-add-title-and-description {
     display: inherit;
+    h3 {
+      margin-top: 0;
+      font-size: $h2-font-size;
+      color: $text-color;
+    }
   }
+  .description{
+    strong:first-child {
+      display: block;
+      @include header-style($size: $h3-font-size + 2);
+      color: $text-color;
+    }
+  }
+  input#edit-skip,
+  input#edit-preview {
+    display: none;
+  }
+  
   #stepper-add-scheme {
     position: absolute;
     top: 0;
