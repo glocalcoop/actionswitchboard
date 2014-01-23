@@ -1,0 +1,6 @@
+name = Custom Issues/Goals Functions
+description = "Custom functions for issues/goals."
+core = 7.x
+package = Action Switchboard
+
+dependencies[] = views

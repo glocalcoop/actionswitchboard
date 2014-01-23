@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * Implements hook_views_post_execute
+ */
+function asb_issues_views_post_execute(&$view) {
+  if($view->name == 'goal_tree' && 'block' == $view->current_display) {
+    $goals = $view->result[0]->_field_data['nid']['entity']->field_all_goals['und'];
+    $sorted_goals = asb_issues_order_goals($goals);
+    $view->sorted_goals = $sorted_goals;
+  }
+}
+
+/**
+ * Implements hook_views_pre_render
+ */
+function asb_issues_views_pre_render(&$view) {
+  if($view->name == 'goal_tree' && 'block' == $view->current_display) {
+    $mgoals = "<!-- Added in asb_issues.module -->";
+    $sgoals = "";
+    foreach($view->sorted_goals as $key => $value) {
+      if(count($value) > 0) {
+        $path = drupal_lookup_path('alias','node/'.$key);
+        $node = node_load($key);
+        $mgoals .= '<li class="first-goal nid-'.$node->nid.'"><a href="/'.$path .'">'.$node->title.'</a></li>';
+        foreach($value as $k => $v) {
+          if(count($v) == 0) {
+            $path = drupal_lookup_path('alias','node/'.$k);
+            $node = node_load($k);
+            $mgoals .= '<li class="sub-goal nid-'.$node->nid.' parent-'.$key.'"><a href="/'.$path .'">'.$node->title.'</a></li>';
+          }else{
+            $path = drupal_lookup_path('alias','node/'.$k);
+            $node = node_load($k);
+            $mgoals .= '<li class="sub-goal nid-'.$node->nid.' parent-'.$key.'"><a href="/'.$path .'">'.$node->title.'</a></li>';
+            foreach($v as $kv => $vv) {
+              $path = drupal_lookup_path('alias','node/'.$kv);
+              $node = node_load($kv);
+              $mgoals .= '<li class="sub-goal sub-sub-goal nid-'.$node->nid.' parent-'.$k.'"><a href="/'.$path .'">'.$node->title.'</a></li>';
+            }
+          }
+        }
+      }else{
+        $path = drupal_lookup_path('alias','node/'.$key);
+        $node = node_load($key);
+        $sgoals .= '<li class="first-goal"><a href="/'.$path .'">'.$node->title.'</a></li>';
+      }
+    }
+    $output = '<ul class="goal-tree">'.$mgoals.$sgoals.'</ul>';
+    $view->result[0]->field_field_all_goals[0]['rendered'] = $output;
+  }
+}
+
+/**
+ * Put goals in a one level hierarchy.
+ */
+function asb_issues_order_goals($goals) {
+  $sorted = array();
+  $nsorted = array();
+  foreach($goals as $key => $value) {
+    $node = node_load($value['target_id']);
+    if (count($node->field_child_goals) > 0) {
+      $nsorted[$value['target_id']] = array();
+      foreach($node->field_child_goals['und'] as $k => $target) {
+        $nsorted[$value['target_id']][$target['target_id']] = array();
+      }
+    }
+    $result = db_query("SELECT field_parent_goal_target_id as parent FROM field_data_field_parent_goal
+              WHERE entity_id = :nid", array(':nid' => $value['target_id']));
+    $parent = $result->fetchField(0);
+    // dsm($parent);
+    if(!empty($parent)) {
+      if(key_exists($value['target_id'],$sorted)) {
+        $sorted[$parent][] = array($value['target_id']);
+      }else{
+        $sorted[$parent][] = array($value['target_id']);
+      }
+    }else{
+      if(!key_exists($value['target_id'],$sorted)) {
+        $sorted[$value['target_id']] = array();
+      }
+    }
+  }
+  foreach($sorted as $key => $value) {
+    if(count($sorted[$key]) > 0) {
+      unset($sorted[$key]);
+    }
+  }
+  foreach($nsorted as $key => $value) {
+    foreach($nsorted as $k => $v) {
+      // dsm(array_search($key,$v));
+      if(key_exists($key, $v)) {
+        $nsorted[$k][$key] = $nsorted[$key];
+        unset($nsorted[$key]);
+      }
+      $search = array_search($key,$v);
+      if($search != false) {
+        $nsorted[$k][$search] = array($key => $value);
+        unset($nsorted[$key]);
+        // dsm($nsorted);
+
+      }
+    }
+  }
+  foreach($nsorted as $key => $value) {
+    $sorted[$key] = $value;
+  }
+  return $sorted;
+}
