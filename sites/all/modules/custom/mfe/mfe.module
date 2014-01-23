@@ -161,6 +161,12 @@ function mfe_page_alter(&$page) {
             // dsm($field);
             // dsm($page['content']['system_main']['nodes']);
             foreach($page['content']['system_main']['nodes'] as $key => $value) {
+              $node = node_load($key);
+              global $user;
+              $account = clone $user;
+              if (node_access("update", $node, $account) === TRUE) {
+
+
               if(is_numeric($key) && isset($page['content']['system_main']['nodes'][$key][$field])) {
                 $fieldNameArray = preg_split('/_/', $field);
                 if( $fieldNameArray[0] == 'field' ) array_shift( $fieldNameArray );
@@ -170,6 +176,7 @@ function mfe_page_alter(&$page) {
                 }
                 $link_text = implode( " ", $fieldNameArray );
                 $page['content']['system_main']['nodes'][$key][$field]['#prefix'] = mfe_make_link( 'Edit ' . ucwords( $link_text ), $type, $field);
+              }
               }
             }
           }
