@@ -192,11 +192,12 @@ $zen-auto-include-item-base: false;
     }
   }
 
-  #content article>header {
+  #content article>header, {
     @include clearfix;    
   }
 
-  article .wrapper>section.content{
+  article .wrapper>section.content,
+  .sidebar-second section.page-content {
     @include zen-grid-item(6, 0);
     @include zen-grid-container;
     margin-left: 0;
@@ -256,6 +257,7 @@ $zen-auto-include-item-base: false;
 #content article>header .wrapper,
 #content article>.wrapper,
 #content .scheme-collection-view,
+#content>header .page-wrapper,
 #footer section.content,
 .messages__list,
 .views-exposed-widgets,
@@ -263,7 +265,8 @@ $zen-auto-include-item-base: false;
 .node-type-scheme.og-context.og-context-node.section-node-edit #content,
 // .page-user-edit #content,
 .page-user.not-logged-in #content,
-#add_page_scroll_wrapper {
+#add_page_scroll_wrapper,
+.no-sidebars section.page-content {
   /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
   margin-right: auto;
   margin-left: auto;
