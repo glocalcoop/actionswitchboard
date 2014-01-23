@@ -112,9 +112,9 @@
 	position: relative;
 	margin: 0 0 20px 0;
 	padding-bottom: 20px;
-    border-bottom: {
-      @include standard-border;
-    }
+    // border-bottom: {
+    //   @include standard-border;
+    // }
 
 	.progress-bar {
 		z-index: -2;
