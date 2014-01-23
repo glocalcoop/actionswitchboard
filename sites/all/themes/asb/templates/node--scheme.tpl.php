@@ -89,7 +89,6 @@ hide($content['format_created']);
 hide($content['group_group']);
 hide($content['field_private_description']);
 global $user;
-dsm($user);
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <header>
