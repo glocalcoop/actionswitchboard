@@ -635,7 +635,7 @@ function asb_scheme_theme() {
     'file' => 'theme.inc',
     'path' => "$module_path/theme",
   );
-
+  global $user;
   return array(
     'asb_scheme_group_info' => $base + array(
       'render element' => 'element',
@@ -648,6 +648,7 @@ function asb_scheme_theme() {
     'asb_scheme_user_message' => $base + array(
       'render_eleement' => 'element',
       'template' => 'asb-scheme-user-message',
+      'variables' => array('messages' => privatemsg_unread_count($user)),
     ),
   );
 }

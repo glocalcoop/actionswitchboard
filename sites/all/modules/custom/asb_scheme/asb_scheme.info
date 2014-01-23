@@ -5,3 +5,4 @@ package = Action Switchboard
 
 dependencies[] = msnf
 dependencies[] = rules
+dependencies[] = privatemsg
