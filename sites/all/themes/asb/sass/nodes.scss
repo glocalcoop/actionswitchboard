@@ -91,7 +91,11 @@
         @include standard-border;
       }
       p {
-      @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 )
+        @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 )
+      }
+      h3 {
+        font-size: 1em;
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
       }
     }
   }
