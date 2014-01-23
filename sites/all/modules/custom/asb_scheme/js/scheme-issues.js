@@ -1,4 +1,5 @@
 (function($) {
+
   Drupal.behaviors.asbScheme = {
     attach: function(context, settings) {
 
@@ -16,12 +17,11 @@
       function getRandomColor() {
         // Generate a random color on the lighter side
         // of the spectrum.
-
         var letters = '9ABCDEF'.split('');
         var color = '#';
-        var grey = letters[Math.round(Math.random() * 6)]
+        var grey = letters[Math.round(Math.random() * 6)];
         for (var i = 0; i < 6; i++ ) {
-          color += letters[Math.round(Math.random() * 6)]
+          color += letters[Math.round(Math.random() * 6)];
         }
         return color;
       }
@@ -36,25 +36,27 @@
             if(sh == "show") {
               $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').show();
             } else {
-              $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide()
-              goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false)
+              // $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide();
+              goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false);
             }
           } else {
-            $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide()
-            goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false)
+            // $('.' + $(this).attr('class').split(/\s+/)[0]).parent('span').parent('label').parent('.form-item').hide();
+            goals.parent('span').parent('label').parent('.form-item').find('input').prop('checked', false);
           }
         });
       }
 
       var issues = $('#edit-field-issues-goals-und .form-item:contains("Issue")').children('label').children('.field-content');
-      var is = $('#edit-field-issues-goals-und .form-item:contains("Issue")').children('input:checked')
+      console.log( issues );
+      var is = $('#edit-field-issues-goals-und .form-item:contains("Issue")').children('input:checked');
       if (is.length == 1) {
-        $('#edit-field-issues-goals-und .form-item:contains("Issue")').hide();
+        // $('#edit-field-issues-goals-und .form-item:contains("Issue")').hide();
         is.parent().show();
         shTopLevelGoals(is.val(),"show");
       }
 
-      issues.each(function() {
+      issues.each( function() {
+        console.log( "issue >>>>> ", $(this).text() );
         var color = getRandomColor();
         $('.form-item-field-issues-goals-und-' + $(this).text()).css('background', color);
         $('.issue-' + $(this).text()).parent('span').parent('label').parent('.form-item').css('background', color);                                                        
@@ -62,7 +64,7 @@
           // Show top level goals for the checked issue on load
           shTopLevelGoals($(this).text(), "show");
         } else {
-          $('.issue-' + $(this).text()).parent('span').parent('label').parent('.form-item').hide();
+          // $('.issue-' + $(this).text()).parent('span').parent('label').parent('.form-item').hide();
         }
         // Here we bind a show/hide click event to issue checkboxes
         $('.form-item-field-issues-goals-und-' + $(this).text()).on("click", function() {
@@ -78,29 +80,62 @@
         });
       });
 
-      var goals = $('[class*=goal-nid-]')
+      var goals = $('[class*=goal-nid-]');
       goals.each(function() {
+        consoke.log("Wha?");
         // Loop over each goal checkbox 
         var children = $('.pgoal-' + $(this).text()).parent('span').parent('label').parent('.form-item');
         // Here we re-odrer goals so child goals come after parent goals
-        children.insertAfter('.form-item-field-issues-goals-und-' + $(this).text());
+        var parent = $('.form-item-field-issues-goals-und-' + $(this).text());
+        
+        var groupWrapper = $('<div class="issueWrapper"><div class="child-goals"></div></div>');
+        groupWrapper.prepend( parent );
+        children.appendTo(groupWrapper.find(".child-goals"));
+
+        groupWrapper.css({
+          "border": "1px #000 solid"
+        })
+        groupWrapper.find(".child-goals").css({
+          "background": "#0af"
+        })
+
         // Change state of child goals based no checked status of parents
         if($('#edit-field-issues-goals-und-' + $(this).text()).prop('checked')) {
           $('.pgoal-' + $(this).text()).parent('span').parent('label').parent('.form-item').show();
         }else{
-          $('.pgoal-' + $(this).text()).parent('span').parent('label').parent('.form-item').hide();
+          // $('.pgoal-' + $(this).text()).parent('span').parent('label').parent('.form-item').hide();
         }
         // bind show/hide functionality to goal checkboxes
         $('#edit-field-issues-goals-und-' + $(this).text()).on("click", function() {
           if($(this).prop('checked')) {
-            $('.pgoal-' + $(this).val()).parent('span').parent('label').parent('.form-item').show()
+            $('.pgoal-' + $(this).val()).parent('span').parent('label').parent('.form-item').show();
             checkParentgoals($('.goal-nid-' + $(this).val()));
           }else{
-            $('.pgoal-' + $(this).val()).parent('span').parent('label').parent('.form-item').hide();
+            // $('.pgoal-' + $(this).val()).parent('span').parent('label').parent('.form-item').hide();
             $('.pgoal-' + $(this).val()).parent('span').parent('label').parent('.form-item').children('input').prop('checked',false);
           }
         });
       });
+    },
+
+    issuesGoals: {
+
+      displayIssueHeader: function(){
+        // var issues = 
+      },
+
+      clearIssueHeader: function(){
+
+      },
+
+      groupGoals: function(){
+
+      }
+
     }
-  }  
+
+
+  }
+
+
 })(jQuery);

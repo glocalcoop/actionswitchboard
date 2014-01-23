@@ -102,7 +102,17 @@ li a.active {
 .block-menu-block {
 }
 
-
+.not-front {
+  section#navigation {
+      @include breakpoint(md){
+      position: absolute;
+      right: 0px;
+      #block-asb-scheme-user-message{
+        width: 188px;
+      }
+    } 
+  }
+}
 
 header#header {
   a {

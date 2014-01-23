@@ -7,19 +7,22 @@
 }
 
 #modalContent {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: rgba( #fff, .9 );
+	// position: absolute;
+	// // top: 50% !important;
+	// left: 50%  !important;
+	// background: rgba( #fff, .9 );
+	// top: 25% !important;
+	// height: auto !important;
 }
 
-div.ctools-modal-content {
+.ctools-modal-content {
 
-	position: absolute;
-	left: 50%;
-	height: auto !important;
-	border: none;
-	background: transparent;
+	border: none !important;
+	position: relative;
+	// left: 50% !important;
+	// top: 50% !important;
+	// height: auto !important;
+	background: transparent !important;
 	
 	header .modal-update-title{
 		padding: .5em;
@@ -29,7 +32,7 @@ div.ctools-modal-content {
 		display: block;
 	}
 	.form-textarea-wrapper {
-		margin-left: 0;
+		margin: 0 !important;
 	}
 	.filter-help,
 	.form-type-select {
@@ -45,8 +48,6 @@ div.ctools-modal-content {
 	}
 	.modal-head-wrapper {
 		z-index: 5;
-		// height: 0;
-		// position: absolute;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
@@ -66,32 +67,37 @@ div.ctools-modal-content {
 		  }
 		}
 	}
+
+
+	.popups-container,
 	.modal-content-wrapper {
-		position: relative;
-		height: auto !important;
+		border: none;
+		// position: relative;
+		// left: -50% !important;
+		// top: -50% !important;
+	}
+
+	.modal-content-wrapper {
+		// height: auto !important;
 		background: $panel;
 		@include border-radius( 3px );
 		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
 		padding-top: 1em;
 		padding-bottom: 1em;
-		left: -50%;
-		top: -50%;
 	}
 	.modal-content {
 		overflow: visible;
 		padding: 0 1em;
 		height: auto !important;
+		.vertical-tabs {
+			display: none;
+		}
 	}
 }
 
-div.vertical-tabs {
-	&.clearfix,
-	ul.vertical-tabs-list,
-	div.vertical-tabs-panes {
-		display: block;
-	}
+#modalContent.login .ctools-modal-content {
+	height: 350px !important;
 }
-
 
 #edit-field-issues-goals {
 	.form-type-checkbox {

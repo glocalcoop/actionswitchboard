@@ -128,3 +128,9 @@ $header-line-height: 1.2;
 @import "compass/css3/box-sizing";
 @import "includes/entypo";
 @import "custom";           // Import our custom mixins last.
+
+
+$screen-lg: 1200px;
+$screen-md: 960px;
+$screen-sm: 800px;
+$scren-xs: 500px;

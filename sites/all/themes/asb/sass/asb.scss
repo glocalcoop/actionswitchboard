@@ -13,6 +13,20 @@ html, p {
   @include body-text;
 }
 
+#asb-scheme-user-message {
+
+  vertical-align: top;
+  line-height: 1.125;
+
+  a.register-link,
+  a.login-link {
+    font-size: 15px;
+    display: inline-block;
+    padding: 0;
+  }
+
+}
+
 .state {
   @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
 }
@@ -56,9 +70,6 @@ body {
         text-align: left;
         background-repeat: no-repeat;
       }
-    }
-    section#navigation{
-        background-color: $backdrop;
     }
   }
 }
@@ -867,7 +878,7 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
 // Hide modal edit link if user isn't logged in
 .not-logged-in {
   .modal-edit,
-  .ctools-use-modal,
+  // .ctools-use-modal,
   .view-scheme-members div.view-header {
     @include hide-content;
   }
