@@ -212,7 +212,11 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       $keys = array_keys($form);
       foreach($keys as $key => $value) {
         if(strpos($value,'field') !== FALSE && $form[$value]['#type'] == 'select' && !isset($form[$value]['#theme'])) {
-          $form[$value]['#options']['All'] = $form['#info']['filter-' .$value]['label'];
+          if($form['#info']['filter-' .$value]['label'] != "Issue") {
+            $form[$value]['#options']['All'] = $form['#info']['filter-' .$value]['label'];
+          }else{
+            unset($form[$value]['#options']['All']);
+          }
         }
         if(isset($form[$value]['#theme'])) {
           if(isset($form[$value]['#options'][0]) && $form[$value]['#options'][0] == "Is not from the movie") {
@@ -232,9 +236,10 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   // Modifies the view filter on the scheme search view to explicitly
   // set the issues connected to the scheme.
   if (isset($form_state['view']->filter['field_issues_goals_target_id'])) {
+
     $issues = asb_scheme_get_issues();
     $issue_list = array();
-    
+    // dsm($form_state['view']->filter['field_issues_goals_target_id']);
     foreach($issues as $key => $issue) {
       $issue_list[] = array(
         'title' => t($issue->title),
@@ -247,8 +252,10 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       );
       $form['field_issues_goals_target_id']['#options'][] = t($issue->title);
     }
-    unset($form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items']);
+    // unset($form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items']);
+    // dsm($issue_list);
     foreach($issue_list as $key => $issue) {
+      // dsm($issue);
       $form_state['view']->display_handler->handlers['filter']['field_issues_goals_target_id']->options['group_info']['group_items'][] = $issue;
     }
   }
@@ -628,7 +635,7 @@ function asb_scheme_theme() {
     'file' => 'theme.inc',
     'path' => "$module_path/theme",
   );
-
+  global $user;
   return array(
     'asb_scheme_group_info' => $base + array(
       'render element' => 'element',
@@ -641,6 +648,7 @@ function asb_scheme_theme() {
     'asb_scheme_user_message' => $base + array(
       'render_eleement' => 'element',
       'template' => 'asb-scheme-user-message',
+      'variables' => array('messages' => privatemsg_unread_count($user)),
     ),
   );
 }
@@ -715,8 +723,10 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
       );
     case 'scheme':
       // Move image field above progress if no video exists.
-      if(count($node->field_video) == 0 && count($node->field_image) > 0) {
-        $node->content['field_image']['#weight'] = 2;
+      if(isset($node->field_video) && isset($node->field_image)) {
+        if(count($node->field_video) == 0 && count($node->field_image) > 0) {
+          $node->content['field_image']['#weight'] = 2;
+        }
       }
       // Make changes to scheme node views add markup to content variable.
       drupal_add_css(drupal_get_path('module', 'asb_scheme') . '/css/progress.css', array('group' => CSS_DEFAULT, 'type' => 'file'));

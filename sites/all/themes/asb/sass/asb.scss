@@ -157,6 +157,23 @@ body {
 
 }
 
+#content {
+  header.page-header {
+    background-color: $panel;
+    padding: 1em 0 1em 0;
+    .wrapper {
+      min-height: 7em;
+      heigh: 7em;
+    }
+    aside {
+      height: 100%;
+      border-left {
+        @include standard-border($style: dashed, $width: 1px);
+      }
+    }
+  }
+}
+
 #content>article {
 
   &>header {
@@ -895,6 +912,11 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
   border-radius: 10px;
 }
 
+/* Goals hierarchy */
+li.sub-goal {
+  margin-left: 1em;
+}
 
-
-
+li.sub-goal.sub-sub-goal {
+  margin-left: 2em;
+}

@@ -35,7 +35,6 @@
         </a>
       </li>
       <?php endif; ?>
-
     </ul>
   </div>
-<section>
+</section>
