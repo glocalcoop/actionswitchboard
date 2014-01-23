@@ -91,122 +91,96 @@ hide($content['field_private_description']);
 global $user;
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
-      <header>
-
-        <div class="wrapper">
-
-          <section class="content">
-          <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-          <?php if (isset($highlighted)): ?>
-            <?php print render($highlighted); ?>
+  <header>
+    <div class="wrapper">
+      <section class="content">
+        <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+        <?php if (isset($highlighted)): ?>
+          <?php print render($highlighted); ?>
+        <?php endif; ?>
+        <?php //print $breadcrumb; ?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <section class="status-info">
+          <h6>Status:</h6>
+          <span class="state"><?php print $node->workflow_state_name; ?></span>
+          <?php if(!empty($edit_me)): ?>
+            <?php print $edit_me; ?>
           <?php endif; ?>
-            <?php //print $breadcrumb; ?>
-            <a id="main-content"></a>
-
-            <?php print render($title_prefix); ?>
-            
-            <section class="status-info">
-              <h6>Status:</h6>
-              <span class="state"><?php print $node->workflow_state_name; ?></span>
-              <?php if(!empty($edit_me)): ?>
-                <?php print $edit_me; ?>
-              <?php endif; ?>
-            </section>
-
-            <?php if ($title): ?>
-            <h1 class="title" id="page-title"><?php print $title; ?></h1>
-            <?php endif; ?>
-
-            <?php print render($title_suffix); ?>
-
-            <section class="methods">
-              <ul id="ui-button">
-              <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
-              <?php $account = user_load($user->uid); ?>
-              <?php if (!og_is_member('node', $node->nid, 'user', $account)): ?>
+        </section>
+        <?php if ($title): ?>
+          <h1 class="title" id="page-title"><?php print $title; ?></h1>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
+        <section class="methods">
+          <ul id="ui-button">
+            <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
+            <?php $account = user_load($user->uid); ?>
+            <?php if (!og_is_member('node', $node->nid, 'user', $account)): ?>
               <li class="ui-button"><?php print render($content['group_group']); ?></li>
-              <?php endif; ?>
-            </section>
-
-
-            <?php if ($action_links): ?>
-            <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
-            <?php print $feed_icons; ?>
-
-          </section>
-
-          <aside class="scheme-meta">
-            <div class="modal-edit">
-             <?php print '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/article/field_issues_goals">Edit</a>'; ?>
-            </div>
-
-            <section class="created">
-              <h6>Created</h6>
-              <time><?php print render($content['format_created']); ?></time>
-            </section>
-
-            <section class="issues">
-              <h6>Issue</h6>
-              <ul class="tags">
-                <?php print render($content['issues']); ?>
-              </ul>
-            </section>
-
-            <section class="goals">
-              <h6>Goals</h6>
-              <ul class="tags">
-              <?php print render($content['goals']); ?>
-              </ul>
-            </section>
-
-          </aside>      
-
+        </section>
+        <?php if ($action_links): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print $feed_icons; ?>
+        <?php endif; ?>
+      </section>
+      <aside class="scheme-meta">
+        <div class="modal-edit">
+          <?php print '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/article/field_issues_goals">Edit</a>'; ?>
         </div>
-
-      </header>
-
-
-  
-    <?php endif; ?>
-
-<div class="wrapper">
-
-  <section class='content'>
-  <?php print render($tabs); ?>
-  <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print '<div id="scheme-content">';
-      print render($content);
-      $account = clone $user;
-      // Show private description for group memebers and facilitator.
-      if(og_is_member('node',$node->nid,'user',$account) == true) {
+        <section class="created">
+          <h6>Created</h6>
+          <time><?php print render($content['format_created']); ?></time>
+        </section>
+        <section class="issues">
+          <h6>Issue</h6>
+          <ul class="tags">
+            <?php print render($content['issues']); ?>
+          </ul>
+        </section>
+        <section class="goals">
+          <h6>Goals</h6>
+          <ul class="tags">
+            <?php print render($content['goals']); ?>
+          </ul>
+        </section>
+      </aside>      
+    </div>
+  </header>
+  <div class="wrapper">
+    <section class='content'>
+      <?php print render($tabs); ?>
+      <?php
+        // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print '<div id="scheme-content">';
+        print render($content);
+        $account = clone $user;
+        // Show private description for group memebers and facilitator.
+        if(og_is_member('node',$node->nid,'user',$account) == true) {
         print render($content['field_private_description']);
-      }elseif(isset($node->field_facilitator['und']) && $node->field_facilitator['und'][0]['target_id'] == $user->uid) {
+        }elseif(isset($node->field_facilitator['und']) && $node->field_facilitator['und'][0]['target_id'] == $user->uid) {
         print render($content['field_private_description']);
-      }
-      print '</div>';
-    ?>
-
-    <?php print render($content['links']); ?>
-
-    <?php print render($content['comments']); ?>
-
-  </section>
-
-  <?php if($sidebar_second): ?>
-  <aside id="sidebar">
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      print render($sidebar_second);
-    ?>
-  </aside><!-- /.sidebars -->
-  <?php endif; ?>
-
-
-</div>
-
+        }
+        print '</div>';
+      ?>
+      <section class="related-schemes">
+        <h2 class="block__title block-title related-title">Related Schemes</h2>
+        <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
+      </section>
+      <?php print render($content['links']); ?>
+      <?php print render($content['comments']); ?>
+    </section>
+    <?php if($sidebar_second): ?>
+      <aside id="sidebar">
+        <?php
+          // Render the sidebars to see if there's anything in them.
+          print render($sidebar_second);
+        ?>
+      </aside><!-- /.sidebars -->
+      <?php endif; ?>
+  </div>
 </article><!-- /.node -->
