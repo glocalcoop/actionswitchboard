@@ -633,7 +633,6 @@ function asb_scheme_theme() {
     'file' => 'theme.inc',
     'path' => "$module_path/theme",
   );
-  global $user;
   return array(
     'asb_scheme_group_info' => $base + array(
       'render element' => 'element',
@@ -646,7 +645,6 @@ function asb_scheme_theme() {
     'asb_scheme_user_message' => $base + array(
       'render_eleement' => 'element',
       'template' => 'asb-scheme-user-message',
-      'variables' => array('messages' => privatemsg_unread_count($user)),
     ),
   );
 }
@@ -657,7 +655,7 @@ function asb_scheme_theme() {
  * Add a custom group statistics and create content blocks.
  */
 function asb_scheme_block_view($delta = '') {
-
+  global $user;
   $block = array();
 
   switch ($delta) {
@@ -682,7 +680,7 @@ function asb_scheme_block_view($delta = '') {
       
     case 'user_message':
       // Show user Hello and login
-      $content = theme('asb_scheme_user_message');
+      $content = theme('asb_scheme_user_message', array('messages' => privatemsg_unread_count($user)));
       if (!empty($content)) {
         $block['content'] = $content;
       }
