@@ -146,6 +146,7 @@ function asb_preprocess_html(&$variables, $hook) {
  */
 function asb_preprocess_user_profile(&$variables) {
   $civi_contact = asb_scheme_civicrm_api('contact', arg(1));
+  // dsm($civi_contact);
   $variables['civi_contact'] = $civi_contact['values'][0];
   $variables['civi_contact']['skills'] = $civi_contact['skills'];
   $variables['tabs'] = menu_local_tabs();
@@ -315,6 +316,7 @@ function asb_local_tasks_alter(&$data, $router_item, $root_path) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function asb_preprocess_node(&$variables, $hook) {
+  global $user;
   // dsm($variables);
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
@@ -336,6 +338,17 @@ function asb_preprocess_node(&$variables, $hook) {
   }
   if($variables['view_mode'] != 'full') {
     unset($variables['tabs']);
+  }
+  // dsm($variables);
+  if($variables['type'] == 'scheme') {
+    $account = clone $user;
+    if (node_access("update", $variables['node'], $account) === TRUE) {
+      $variables['issue_edit'] = '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/article/field_issues_goals">Edit</a>';
+      // This javascript is added in asb_scheme module, but was not
+      // recognized by chromium on modal edit.
+      // Adding it here resolves that problem.
+      drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
+    }
   }
 }
 

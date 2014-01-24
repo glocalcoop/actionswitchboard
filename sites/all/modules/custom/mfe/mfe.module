@@ -167,16 +167,16 @@ function mfe_page_alter(&$page) {
               if (node_access("update", $node, $account) === TRUE) {
 
 
-              if(is_numeric($key) && isset($page['content']['system_main']['nodes'][$key][$field])) {
-                $fieldNameArray = preg_split('/_/', $field);
-                if( $fieldNameArray[0] == 'field' ) array_shift( $fieldNameArray );
-                if( $fieldNameArray[0] && $fieldNameArray[0] == 'image' ){
-                  // this is very specific... but I don't want to bother people with changing the filed-name this far along.
-                  $fieldNameArray[0] = "images";
+                if(is_numeric($key) && isset($page['content']['system_main']['nodes'][$key][$field])) {
+                  $fieldNameArray = preg_split('/_/', $field);
+                  if( $fieldNameArray[0] == 'field' ) array_shift( $fieldNameArray );
+                  if( $fieldNameArray[0] && $fieldNameArray[0] == 'image' ){
+                    // this is very specific... but I don't want to bother people with changing the filed-name this far along.
+                    $fieldNameArray[0] = "images";
+                  }
+                  $link_text = implode( " ", $fieldNameArray );
+                  $page['content']['system_main']['nodes'][$key][$field]['#prefix'] = mfe_make_link( 'Edit ' . ucwords( $link_text ), $type, $field);
                 }
-                $link_text = implode( " ", $fieldNameArray );
-                $page['content']['system_main']['nodes'][$key][$field]['#prefix'] = mfe_make_link( 'Edit ' . ucwords( $link_text ), $type, $field);
-              }
               }
             }
           }

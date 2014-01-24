@@ -35,7 +35,6 @@ function asb_scheme_entity_info_alter(&$entity_info) {
 * Implements hook_preprocess_node().
 */
 function asb_scheme_preprocess_node(&$vars) {
-  // dsm($vars);
   if($vars['view_mode'] == 'search_teaser') {
     // dsm($vars);
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__search_teaser';
@@ -860,18 +859,42 @@ function asb_scheme_get_view_rowcount(){
  * used by asb_scheme_get_view_rowcount
  */
 function asb_scheme_views_pre_render(&$view) {
+  global $user;
   if($view->name == 'scheme_contribute') {
     if($view->current_display == 'block') {
-      $view->need_type = 'skill';
+      if(arg(0) == 'node' && is_numeric(arg(1))) {
+        $node = node_load(arg(1));
+        $account = clone $user;
+        if (node_access("update", $node, $account) === TRUE) {
+          $modal_markup = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_people_skills">Edit</a></div>';
+          $view->header['area']->options['content'] = $modal_markup .$view->header['area']->options['content'];
+        }
+      }
+    $view->need_type = 'skill';
     }
     if($view->current_display == 'block_1') {
+      if(arg(0) == 'node' && is_numeric(arg(1))) {
+        $node = node_load(arg(1));
+        $account = clone $user;
+        if (node_access("update", $node, $account) === TRUE) {
+          $modal_markup = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_material_needs">Edit</a></div>';
+          $view->header['area']->options['content'] = $modal_markup .$view->header['area']->options['content'];
+        }
+      }
       $view->need_type = 'supplies';
     }
     if($view->current_display == 'block_2') {
+      if(arg(0) == 'node' && is_numeric(arg(1))) {
+        $node = node_load(arg(1));
+        $account = clone $user;
+        if (node_access("update", $node, $account) === TRUE) {
+          $modal_markup = '<div class="modal-edit"><a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/!1/scheme/field_funding_needs">Edit</a></div>';
+          $view->header['area']->options['content'] = $modal_markup .$view->header['area']->options['content'];
+        }
+      }
       $view->need_type = 'funds';
     }
   }
-  // dsm($view);
 }
 
 /**

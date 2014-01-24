@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * @file
  * Zen theme's implementation to display a single Drupal page.
@@ -121,7 +121,6 @@
                 <h1 class="page__title title" id="page-title"><?php print $title; ?></h1>
               <?php endif; ?>
               <?php print render($title_suffix); ?>
-              <?php print $messages; ?>
             </section>
 
           </div>
