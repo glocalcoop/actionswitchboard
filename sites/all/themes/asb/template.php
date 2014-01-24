@@ -417,7 +417,9 @@ function asb_preprocess_block(&$variables, $hook) {
 }
 
 function asb_scheme_preprocess_views_view(&$vars) {
-  // dsm($vars['view']->name);
+  if($vars['view']->name == 'scheme_overview_filtered') {
+    // dsm($vars['view']);
+  }
 }
 function asb_preprocess_views_view_field__issues_and_goals_reference__entityreference_1(&$vars) {
   // dsm($vars['view']->row_index);

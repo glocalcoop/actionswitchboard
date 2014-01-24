@@ -204,7 +204,6 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // dsm($form);
     // $form['field_issues_goals_target_id']['#options']['All'] = "Issues";
     if($form_id == 'views_exposed_form') {
-      // dsm($form);
       if(isset($form['created'])) {
         $form['created']['#theme'] = 'select_as_links';
       }

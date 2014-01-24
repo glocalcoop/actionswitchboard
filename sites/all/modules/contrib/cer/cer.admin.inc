@@ -33,7 +33,7 @@ function cer_settings_form($form = array(), &$form_state) {
       $form['values']["enabled_{$count}"] = array(
         '#type' => 'checkbox',
         '#default_value' => cer_preset_enabled($formatted_key),
-        '#title' => theme('cer_label', array('key' => $key)),
+        '#title' => filter_xss(theme('cer_label', array('key' => $key))),
       );
     }
 
@@ -237,8 +237,12 @@ function _cer_get_target_bundles($field) {
       $target_bundles = $handler->value;
     }
   }
-  else {
+  elseif (isset($field['settings']['handler_settings']['target_bundles'])) {
     $target_bundles = $field['settings']['handler_settings']['target_bundles'];
+  }
+  else {
+    $info = entity_get_info($field['settings']['target_type']);
+    $target_bundles = array_keys($info['bundles']);
   }
 
   return $target_bundles;

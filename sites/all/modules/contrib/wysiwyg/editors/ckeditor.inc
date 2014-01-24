@@ -306,7 +306,7 @@ function wysiwyg_ckeditor_settings($editor, $config, $theme) {
     $predefined_formats = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'address', 'div');
     foreach (array_diff($block_formats, $predefined_formats) as $tag) {
       $tag = trim($tag);
-      $settings["format_$tag"] = array('element' => $tag);
+      $settings["format_$tag"] = array('element' => $tag, 'name' => strtoupper(substr($tag, 0, 1)) . substr($tag, 1));
     }
     $settings['format_tags'] = implode(';', $block_formats);
   }
