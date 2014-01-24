@@ -32,7 +32,7 @@
   }
 
   asb.highlight_new_messages = function() {
-    $( "#privatemsg-list-form tr" ).each( function(){
+    $( ".section-dashboard tr, .section-messages tr" ).each( function(){
       var tr = $(this);
       if( $('mark.new', tr ) ) tr.addClass('new');
     });
