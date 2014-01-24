@@ -183,7 +183,7 @@ function asb_message_get_pms() {
 // Display list as a themed item_list.
   $header = array(
     'from' => array('data' => t('From')),
-    'subject' => array('data' => t('!!!Subject')),
+    'subject' => array('data' => t('Subject')),
     'date' => array('data' => t('Date')),
   );
   //$table = array('header' => $header, 'rows' => $table_parts,);
