@@ -165,8 +165,6 @@ function mfe_page_alter(&$page) {
               global $user;
               $account = clone $user;
               if (node_access("update", $node, $account) === TRUE) {
-
-
                 if(is_numeric($key) && isset($page['content']['system_main']['nodes'][$key][$field])) {
                   $fieldNameArray = preg_split('/_/', $field);
                   if( $fieldNameArray[0] == 'field' ) array_shift( $fieldNameArray );
@@ -223,14 +221,16 @@ function mfe_approved_modal_node() {
  * Adds modal link for node titles.
  */
 function mfe_preprocess_node(&$variables) {
+  global $user;
   $field_list = variable_get('mfe_types');
   // TODO: This is a janky implementation, the link should appear above
   // the page title not below tabs.
   $title_val = $variables['type'] .'_title';
   // check if node type is selected for modals
   $add_modal = mfe_approved_modal_node();
+  $account = clone $user;
   if($add_modal === true) {
-    if(user_access('access mfe links')) {
+    if(user_access('access mfe links') && node_access("update", $variables['node'], $account) === TRUE) {
       $types = variable_get('mfe_types');
       foreach($types as $key => $value) {
         if($value === $title_val) {
