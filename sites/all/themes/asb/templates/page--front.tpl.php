@@ -120,7 +120,9 @@
     <?php print render($page['search']); ?>
 
     <div id="content">
-
+      <?php if($is_front): ?>
+        <?php unset($page['content']['system_main']); ?>
+      <?php endif; ?>
       <?php print render($page['content']); ?>
 
     </div><!-- /#content -->

@@ -127,7 +127,7 @@ global $user;
         <?php endif; ?>
       </section>
       <aside class="scheme-meta">
-        <?php if($issue_edit): ?>
+        <?php if(isset($issue_edit) && !empty($issue)): ?>
           <div class="modal-edit">
 
             <?php print $issue_edit; ?>

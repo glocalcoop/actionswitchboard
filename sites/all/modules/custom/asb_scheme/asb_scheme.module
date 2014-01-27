@@ -633,7 +633,6 @@ function asb_scheme_theme() {
     'file' => 'theme.inc',
     'path' => "$module_path/theme",
   );
-  global $user;
   return array(
     'asb_scheme_group_info' => $base + array(
       'render element' => 'element',
@@ -646,7 +645,6 @@ function asb_scheme_theme() {
     'asb_scheme_user_message' => $base + array(
       'render_eleement' => 'element',
       'template' => 'asb-scheme-user-message',
-      'variables' => array('messages' => privatemsg_unread_count($user)),
     ),
   );
 }
@@ -657,7 +655,7 @@ function asb_scheme_theme() {
  * Add a custom group statistics and create content blocks.
  */
 function asb_scheme_block_view($delta = '') {
-
+  global $user;
   $block = array();
 
   switch ($delta) {
@@ -682,7 +680,7 @@ function asb_scheme_block_view($delta = '') {
       
     case 'user_message':
       // Show user Hello and login
-      $content = theme('asb_scheme_user_message');
+      $content = theme('asb_scheme_user_message', array('messages' => privatemsg_unread_count($user)));
       if (!empty($content)) {
         $block['content'] = $content;
       }
@@ -1138,8 +1136,6 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
     $config = CRM_Core_Config::singleton( );
   }
   require_once 'api/api.php';
-    // $api = new civicrm_api3();
-  // $result = $api->Entity->Action ( $params );
   if ($type == 'contact') {
     try{
       $contact_id = civicrm_api3('UFMatch', 'get', array(
@@ -1150,16 +1146,28 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
       $params = array(
         'version' => 3,
         'sequential' => 1,
-        'return' => 'first_name,last_name,city,country,email,state_province,custom_1,custom_1_label',
+        'return' => 'first_name,last_name,city,country,email,state_province,custom_23,custom_23_label,custom_53,custom_53_label',
         'contact_id' => $contact_id['values'][0]['contact_id'],
       );
       $contacts = civicrm_api3('Contact', 'get', $params);
       $contacts['skills'] = array();
-      foreach($contacts['values'][0]['custom_1'] as $key => $value) {
+      $params = array(
+          'version' => 3,
+          'sequential' => 1,
+          'entity_id' => 580138,
+      );
+      $result = civicrm_api('CustomValue', 'get', $params);
+      foreach($result['values'] as $key => $value) {
+        if($value['id'] == 23) {
+          $skill_set = $value['latest'];
+        }
+      }
+      // print_r($result);
+      foreach($skill_set as $key => $value) {
         $option_params = array(
           'version' => 3,
           'sequential' => 1,
-          'option_group_id' => 86,
+          'option_group_id' => 90,
           'value' => $value,
         );
         $option = civicrm_api3('OptionValue', 'get', $option_params);
@@ -1170,13 +1178,12 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
     catch (CiviCRM_API3_Exception $e) {
       $error = $e->getMessage();
     }
-  }
-  elseif ($type == 'skills') {
+  }elseif ($type == 'skills') {
     try{
       $contacts = civicrm_api3('OptionValue', 'get', array(
                     'version' => 3,
                     'sequential' => 1,
-                    'option_group_id' => 86,
+                    'option_group_id' => 90,
                   ));
     }
     catch (CiviCRM_API3_Exception $e) {
