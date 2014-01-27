@@ -734,28 +734,10 @@ form .form-actions input{
   }
 }
 
-
-// dl.table-display {
-//   float: left;
-//   width: 100%;
-//   margin: 1em 0;
-//   padding: 0;
-//   border-bottom: 1px solid #999;
-//     dt {
-//       clear: left;
-//       float: left;
-//       width: 2em;
-//       margin: 0;
-//       padding: 5px;
-//       border-top: 1px solid #999;
-//     }
-//     dd {
-//       float: left;
-//       width: 300px;
-//       margin: 0;
-//       padding: 5px;
-//     }
-// }
+.page-node-add-scheme,
+.filter-wrapper {
+  display: none;
+}
 
 .page-node-add {
   .main-content {
@@ -895,7 +877,6 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
 // Hide modal edit link if user isn't logged in
 .not-logged-in {
   .modal-edit,
-  // .ctools-use-modal,
   .view-scheme-members div.view-header {
     @include hide-content;
   }
