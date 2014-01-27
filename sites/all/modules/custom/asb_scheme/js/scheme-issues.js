@@ -82,7 +82,7 @@
 
       var goals = $('[class*=goal-nid-]');
       goals.each(function() {
-        consoke.log("Wha?");
+        // consoke.log("Wha?");
         // Loop over each goal checkbox 
         var children = $('.pgoal-' + $(this).text()).parent('span').parent('label').parent('.form-item');
         // Here we re-odrer goals so child goals come after parent goals
@@ -92,12 +92,12 @@
         groupWrapper.prepend( parent );
         children.appendTo(groupWrapper.find(".child-goals"));
 
-        groupWrapper.css({
-          "border": "1px #000 solid"
-        })
-        groupWrapper.find(".child-goals").css({
-          "background": "#0af"
-        })
+        // groupWrapper.css({
+        //   "border": "1px #000 solid"
+        // });
+        // groupWrapper.find(".child-goals").css({
+        //   "background": "#0af"
+        // });
 
         // Change state of child goals based no checked status of parents
         if($('#edit-field-issues-goals-und-' + $(this).text()).prop('checked')) {
