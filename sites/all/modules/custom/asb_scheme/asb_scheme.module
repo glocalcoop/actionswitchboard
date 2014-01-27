@@ -47,7 +47,8 @@ function asb_scheme_preprocess_node(&$vars) {
       $link_markup = l($vars['field_issues_goals'][0]['entity']->title,
                        'node/' .$vars['field_issues_goals'][0]['target_id'],
                        array('attributes' => array(
-                           'class' => array('issue-link'))));
+                           'class' => array('issue-link'),
+                           'title' => $vars['field_issues_goals'][0]['entity']->title)));
       $vars['content']['issues']['#markup'] = $link_markup;
     }
     // dsm($vars);
