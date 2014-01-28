@@ -115,3 +115,7 @@
     @include zen-grid-item(1, 5);
   }
 }
+
+.page-schemes #content header.page-header {
+  display: none !important;
+}

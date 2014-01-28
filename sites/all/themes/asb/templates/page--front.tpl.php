@@ -134,23 +134,6 @@
 
 </div>
 
+<div id="header-image-strip">
 <?php print render($page['bottom']); ?>
-
-<!-- @context front -->
-  <div id="header-image-strip">
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-    <img src="/sites/all/themes/asb/images-fpo/header_160x114.jpg" width="160" height="114" />
-  </div>
-</div><!-- /#page -->
-
-
+</div>
