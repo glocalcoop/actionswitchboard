@@ -47,6 +47,7 @@ function asb_scheme_preprocess_asb_scheme_group_info(&$variables) {
   }
   $variables['manager_uids'] = array_unique($variables['manager_uids']);
   $first = TRUE;
+  $filepath = '';
   foreach ($variables['manager_uids'] as $i => $manager_id) {
     $variables['managers'][$i] = '<div class="scheme-leader">';
     $account = user_load($manager_id);
