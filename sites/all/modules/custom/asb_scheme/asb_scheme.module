@@ -658,7 +658,7 @@ function asb_scheme_theme() {
 function asb_scheme_block_view($delta = '') {
   global $user;
   $block = array();
-
+  
   switch ($delta) {
     case 'group_info':
       // The info block is visible to everyone, group member or not.
@@ -686,9 +686,75 @@ function asb_scheme_block_view($delta = '') {
         $block['content'] = $content;
       }
       break;
-
   }
   return $block;
+}
+
+/**
+ * Implements hook_context_plugins()
+ */
+function asb_scheme_context_plugins() {
+  $plugins = array();
+  $plugins['asb_scheme_context_condition_author'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'asb_scheme') .'/plugins',
+      'file' => 'asb_scheme_context_condition_author.inc',
+      'class' => 'asb_scheme_context_condition_author',
+      'parent' => 'context_condition',
+    ),
+  );
+  // dsm($plugins);
+  return $plugins;
+}
+
+/**
+ * Implements hook_context_registry() 
+ */
+function asb_scheme_context_registry() {
+  $plugin =  array(
+    'conditions' => array(
+      'author' => array(
+        'title' => t('Content Author'),
+        'plugin' => 'asb_scheme_context_condition_author',
+      ),
+    ),
+  );
+  // dsm($plugin);
+  return $plugin;
+}
+
+/**
+ * Implements hook_block_view_alter
+ */
+function asb_scheme_context_page_condition_alter() {
+  // dsm($op);
+  // dsm($node);
+  /* if(isset($block->context) && $block->context == "scheme_owner" && preg_match('#node/([0-9]+)#', $_GET['q'], $matches)) { */
+  /*   if ($node = node_load($matches[1])) { */
+  /*     global $user; */
+  /*     if ($user->uid !== $node->uid) { */
+  /*       // $data['content'] = array(); */
+  /*     } */
+  /*   } */
+  /*   /\* dsm($block); *\/ */
+  /*   /\* dsm($block->module); *\/ */
+  /*   /\* dsm($block->delta); *\/ */
+  /* } */
+  /* if ($block->module == 'somemMdule' && $block->delta == 'someDelta' && preg_match('#node/([0-9]+)#', $_GET['q'], $matches)) { */
+  /*   if ($node = node_load($matches[1])) { */
+  /*     global $user; */
+  /*     if ($user->uid !== $node->uid) { */
+  /*       $data['content'] = array(); */
+  /*     } */
+  /*   } */
+  /* } */
+}
+
+function asb_scheme_context_registry_alter(&$registry) {
+  // dsm($registry);
+  /* if (!empty($registry['conditions']['node'])) { */
+  /*   $registry['conditions']['node']['plugin'] = 'mymodule_context_condition_customnode'; */
+  /* } */
 }
 
 /**
@@ -712,6 +778,11 @@ function asb_scheme_node_links() {
  * Implements hook_node_view
  */
 function asb_scheme_node_view($node, $view_mode, $langcode){
+  if($view_mode == 'full') {
+    if($plugin = context_get_plugin('condition', 'author')) {
+      $plugin->execute($node);
+    }
+  }
   switch ($node->type) {
     case 'issue':
       $node->content['links']['issue_reference_link'] = array(
@@ -769,7 +840,19 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         '#weight' => -101,
         '#markup' => date('j/m/y', $node->created),
       );
-      $node->content['group_group'][0]['#title'] = "Request Membership";
+      global $user;
+      // Here we change the text for membership based on the user's
+      // membership status.
+      $membership = og_get_membership('node', $node->nid, 'user', $user->uid);
+      if(!empty($membership)) {
+        if($membership->state == 2) {
+          $node->content['group_group'][0]['#title'] = "Membership Pending";
+        }elseif($membership->state == 1) {
+          $node->content['group_group'][0]['#title'] = "Leave Group";
+        }
+      }else{
+        $node->content['group_group'][0]['#title'] = "Request Membership";
+      }
       if ($view_mode == 'search_teaser') {
         // Here we modify values for the search teaser view mode
         $node->content['field_leader'] = array();

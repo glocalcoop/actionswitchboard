@@ -89,6 +89,7 @@ hide($content['format_created']);
 hide($content['group_group']);
 hide($content['field_private_description']);
 global $user;
+
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <header>
@@ -114,10 +115,12 @@ global $user;
         <?php print render($title_suffix); ?>
         <section class="methods">
           <ul id="ui-button">
-            <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
             <?php $account = user_load($user->uid); ?>
-            <?php if (!og_is_member('node', $node->nid, 'user', $account)): ?>
+            <?php if ($account->uid != 0): ?>
+              <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
               <li class="ui-button"><?php print render($content['group_group']); ?></li>
+            <?php else: ?>
+              <li class="ui-button"><a href="/user/login">Login To Join Group</a></li>
             <?php endif; ?>
         </section>
         <?php if ($action_links): ?>
