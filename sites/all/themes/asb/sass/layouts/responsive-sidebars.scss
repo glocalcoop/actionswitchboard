@@ -227,7 +227,9 @@ $zen-auto-include-item-base: false;
     ul,li { margin:0; padding:0; }
     li { display: inline-block; }
     img{
-     display: block ;
+     display: block;
+     width: 190px;
+     height: auto;
     }
   }
 
