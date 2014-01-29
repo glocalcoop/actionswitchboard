@@ -224,10 +224,10 @@ $zen-auto-include-item-base: false;
     white-space: nowrap;
     z-index: -1;
     font-size: 0;
-    img{ 
-      display: inline-block;
-      margin: 0;
-      padding: 0;
+    ul,li { margin:0; padding:0; }
+    li { display: inline-block; }
+    img{
+     display: block ;
     }
   }
 
