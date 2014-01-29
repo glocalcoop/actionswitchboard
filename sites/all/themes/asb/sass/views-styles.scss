@@ -61,7 +61,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 // .scheme-collection
 //
 
-.scheme-collection {
+#main .scheme-collection {
   @include zen-grid-container;
   padding-bottom: 10px;
   font-size: $base-font-size + 1px;
