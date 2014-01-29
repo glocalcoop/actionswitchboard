@@ -355,10 +355,12 @@ function asb_preprocess_node_scheme(&$variables, $hook) {
   // Here we call context to control what blacks appear
   // in the sidebar.  Then we merge the standard block
   // callback to make sure all theming remains consistent
-  if($plugin = context_get_plugin('reaction', 'block')) {
-    $blocks = block_get_blocks_by_region('sidebar_second');
-    $variables['sidebar_second'] = array_merge($plugin->block_get_blocks_by_region('sidebar_second'), $blocks);
-    drupal_static_reset('context_reaction_block_list');
+  if($variables['view_mode'] == 'full') {
+    if($plugin = context_get_plugin('reaction', 'block')) {
+      $blocks = block_get_blocks_by_region('sidebar_second');
+      $variables['sidebar_second'] = array_merge($plugin->block_get_blocks_by_region('sidebar_second'), $blocks);
+      drupal_static_reset('context_reaction_block_list');
+    }
   }
 }
 
