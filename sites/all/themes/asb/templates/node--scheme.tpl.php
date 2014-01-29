@@ -173,7 +173,9 @@ global $user;
       ?>
       <section class="related-schemes">
         <h2 class="block__title block-title related-title">Related Schemes</h2>
-        <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
+        <?php if(isset($node->field_issues_goals['und'][0]['target_id'])): ?>
+          <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
+        <?php endif; ?>
       </section>
       <?php print render($content['links']); ?>
       <?php print render($content['comments']); ?>
