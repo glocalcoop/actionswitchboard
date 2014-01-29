@@ -134,7 +134,12 @@ body {
   }
 }
 
-#main { 
+.not-front #main { 
+  position: relative;
+  top: -5px;
+}
+
+.not-front #main { 
   position: relative;
   top: -17px;
 }
