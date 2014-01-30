@@ -50,6 +50,7 @@ $zen-auto-include-item-base: false;
 }
 
 #main {
+  @include clearfix;
   position: relative;
   top: 0;
   @include breakpoint( md ){
