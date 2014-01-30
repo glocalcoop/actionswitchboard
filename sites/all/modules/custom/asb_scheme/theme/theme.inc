@@ -70,10 +70,11 @@ function asb_scheme_preprocess_asb_scheme_group_info(&$variables) {
       $variables['managers'][$i] .= '<div class="scheme-leader-name">';
       $variables['managers'][$i] .= theme('username', array('account' => $account));
       $variables['managers'][$i] .= '</div>';
-      $contact = 'messages/new/' .$manager_id;
+      // $contact = 'messages/new/' .$manager_id;
+      $contact = privatemsg_get_link(user_load($manager_id));
       $variables['managers'][$i] .= '<div class="scheme-leader-contact">';
       $variables['managers'][$i] .=  l(t('Contact Me'), $contact, array('attributes' => array('class' => array('contact-me'))));
-      $variables['managers'][$i] .= '</div>';
+      $variables['managers'][$i] .= '</div><!-- Added in asb_scheme/theme.inc -->';
       $first = FALSE;
     }else{
       $variables['managers'][$i] .= '<div class="scheme-leader-name">';

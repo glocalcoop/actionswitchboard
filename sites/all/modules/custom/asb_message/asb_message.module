@@ -186,35 +186,85 @@ function asb_message_get_pms() {
     'subject' => array('data' => t('Subject')),
     'date' => array('data' => t('Date')),
   );
-  //$table = array('header' => $header, 'rows' => $table_parts,);
-  /* $rows = array( */
-  /*   'Cell 1', 'Cell 2', 'Cell 3', */
-  /* ); */
-  // dsm($table_parts);
-  // $table = array('header' => $header, 'rows' => $rows, 'attributes' => array());
-  // print theme('table', array('header' => $header, 'rows' => $tb, 'attributes' => array( 'class' => array('myTable'))));
-  // print theme_table($table);
-  // print theme('item_list', array('items'=>$list));
-  // return theme_table($table);
-// dpm( $tb );
-// print_r( $tb );
   return theme('table', array('header' => $header, 'rows' => $tb, 'attributes' => array( 'class' => array('pmessages'))));
-  // return theme('item_list', array('items'=>$list));
 }
 
 function asb_message_form_privatemsg_new_alter(&$form, &$form_state) {
   // Check if a default value is configured for the to field.
-  if (!empty($form['privatemsg']['recipient']['#default_value'])) {
+  if (!empty($form['recipient']['#default_value'])) {
+    global $user;
     // Display a visible markup element.
-    // dpm( $form );
-    $form['privatemsg']['recipient_display'] = array(
-      '#value' => t('To: @recipients', array('@recipients' => $form['privatemsg']['recipient']['#default_value'])),
+    $form['recipient_display'] = array(
+      '#value' => t('To: @recipients', array('@recipients' => $form['recipient']['#default_value'])),
       '#weight' => -10,
     );
+    // Get the type of message from the url string
+    $url_vals = asb_message_privatemsg_check_url();
+    if (!isset($form['thread_id'])) {
+      $recipients_plain = str_replace('[user]', '', $form['recipient']['#default_value']);
+      // Here we set the title for skills donations
+      if(isset($url_vals['type'])) {
+        // Add the custom validation handler to add scheme link
+        $form['#validate'][] = 'asb_message_add_scheme_link_validate';
+        drupal_set_title(t('Tell @recipient what '.$url_vals['type'] .' you can provide', array('@recipient' => $recipients_plain)));
+        if(isset($url_vals['group'])) {
+          $form['subject']['#default_value'] = $user->name ." has ".$url_vals['type'] ." for " .$url_vals['group'];
+          $form['subject']['#type'] = 'hidden';
+          $form_state['scheme_name'] = $url_vals['group'];
+        }
+        if(isset($url_vals['gid'])) {
+          $form_state['gid'] = $url_vals['gid'];
+        }
+      }else{
+        drupal_set_title(t('Write new message to @recipient', array('@recipient' => $recipients_plain)));
+      }
+    }
     // Convert the recipient field to a value type and force the default value.
-    $form['privatemsg']['recipient']['#type'] = 'value';
-    $form['privatemsg']['recipient']['#value'] = $form['privatemsg']['recipient']['#default_value'];
+    $form['recipient']['#type'] = 'value';
+    $form['recipient']['#value'] = $form['recipient']['#default_value'];
   }
+}
+
+/**
+ * Parse the url for a message type. We use this to change
+ * the title of the private message page to the scheme leader.
+ */
+function asb_message_privatemsg_check_url() {
+  $url_vals = array();
+  // Get the current url
+  $url = drupal_get_destination();
+  // Explode the url to get added elements
+  $url_parse = explode('?',$url['destination']);
+  // Get additional values
+  $vals = explode('&', $url_parse[1]);
+  if($vals[0] === 'skills=1') {
+    $url_vals['type'] = 'skills';
+  }elseif($vals[0] === 'supplies=1') {
+    $url_vals['type'] = 'supplies';
+  }else{
+    $url_vals['type'] = '';
+  }
+  if(isset($vals[1])) {
+    // Return the scheme id and title.
+    $gid = explode('=',$vals[1]);
+    $node = node_load($gid[1]);
+    $url_vals['group'] = $node->title;
+    $url_vals['gid'] = $gid[1];
+  }
+  return $url_vals;
+}
+
+/**
+ * Custom validation handler for privatemsg form donation links.
+ */
+
+function asb_message_add_scheme_link_validate(&$form, &$form_state) {
+  // Add a link to the scheme in the body of the message
+  $addtext = $form_state['values']['body']['value'] ."\n\n" .'<p class="pm-scheme-addition"><a class="pm-scheme-link" href="/node/' .$form_state['gid'] .'">' .$form_state['scheme_name'] .'</a></p>';
+  $form_state['input']['body']['value'] = $addtext;
+  $form_state['values']['body']['value'] = $addtext;
+  $form['body']['value']['#value'] = $addtext;
+  $form_state['validate_built_message']->body = $addtext;
 }
 
 function asb_message_quicktabs_tabstyles() {
@@ -228,4 +278,11 @@ function asb_message_quicktabs_tabstyles() {
     }
   }
   return $tabstyles;
+}
+
+/**
+ * Implements hook_page_alter()
+ */
+function asb_message_page_alter(&$page) {
+  // dsm($page);
 }

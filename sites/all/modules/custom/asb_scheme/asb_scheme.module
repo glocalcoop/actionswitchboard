@@ -623,13 +623,11 @@ function asb_scheme_redirect_success($form, &$form_state) {
 function asb_scheme_block_info() {
   $blocks['group_info'] = array(
     'info' => t('Scheme Leader'),
-    'cache' => DRUPAL_NO_CACHE
-    // DRUPAL_CACHE_PER_ROLE will be assumed if not set.
+    'cache' => DRUPAL_NO_CACHE,
   );
   $blocks['node_links'] = array(
     'info' => t('Scheme content links'),
-    'cache' => DRUPAL_NO_CACHE
-    // DRUPAL_CACHE_PER_ROLE will be assumed if not set.
+    'cache' => DRUPAL_NO_CACHE,
   );
   $blocks['user_message'] = array(
     'info' => t('User Custom Login'),
@@ -735,40 +733,6 @@ function asb_scheme_context_registry() {
   );
   // dsm($plugin);
   return $plugin;
-}
-
-/**
- * Implements hook_block_view_alter
- */
-function asb_scheme_context_page_condition_alter() {
-  // dsm($op);
-  // dsm($node);
-  /* if(isset($block->context) && $block->context == "scheme_owner" && preg_match('#node/([0-9]+)#', $_GET['q'], $matches)) { */
-  /*   if ($node = node_load($matches[1])) { */
-  /*     global $user; */
-  /*     if ($user->uid !== $node->uid) { */
-  /*       // $data['content'] = array(); */
-  /*     } */
-  /*   } */
-  /*   /\* dsm($block); *\/ */
-  /*   /\* dsm($block->module); *\/ */
-  /*   /\* dsm($block->delta); *\/ */
-  /* } */
-  /* if ($block->module == 'somemMdule' && $block->delta == 'someDelta' && preg_match('#node/([0-9]+)#', $_GET['q'], $matches)) { */
-  /*   if ($node = node_load($matches[1])) { */
-  /*     global $user; */
-  /*     if ($user->uid !== $node->uid) { */
-  /*       $data['content'] = array(); */
-  /*     } */
-  /*   } */
-  /* } */
-}
-
-function asb_scheme_context_registry_alter(&$registry) {
-  // dsm($registry);
-  /* if (!empty($registry['conditions']['node'])) { */
-  /*   $registry['conditions']['node']['plugin'] = 'mymodule_context_condition_customnode'; */
-  /* } */
 }
 
 /**
@@ -988,6 +952,24 @@ function asb_scheme_views_pre_render(&$view) {
         }
       }
       $view->need_type = 'funds';
+    }
+  }
+}
+
+function asb_scheme_views_post_render(&$view, &$output, &$cache) {
+  if($view->name == 'scheme_contribute') {
+    $gid = og_context('node');
+    $node = node_load($gid['gid']);
+    $user = user_load($node->uid);
+    $link_markup = '<div class="donate-button"><a class="donate-button" href="/';
+    if($view->current_display == 'block') {
+      $contact = privatemsg_get_link($user);
+      $link_markup .= $contact .'?skills=1&gid=' .$gid['gid'] .'">Donate Skills</a></div>';
+      $output = strtr($output, array('<!--skills-MESSAGE-->' => $link_markup));
+    }elseif($view->current_display == 'block_1') {
+      $contact = privatemsg_get_link($user);
+      $link_markup .= $contact .'?supplies=1&gid=' .$gid['gid'] .'">Donate Supplies</a></div>';
+      $output = strtr($output, array('<!--supplies-MESSAGE-->' => $link_markup));
     }
   }
 }
