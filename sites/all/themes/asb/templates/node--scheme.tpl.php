@@ -180,8 +180,13 @@ global $user;
           <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
         <?php endif; ?>
       </section>
+
       <?php print render($content['links']); ?>
-      <?php print render($content['comments']); ?>
+
+      <div class="comments-wrapper">
+        <?php print render($content['comments']); ?>
+      </div>
+
     </section>
     <?php if($sidebar_second): ?>
       <aside id="sidebar">

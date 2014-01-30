@@ -1,14 +1,18 @@
-// Base:
-
 @import "base";
 @import "type";
 @import "util";
 @import "modals";
+@import "header";
+@import "layout";           // Layout stuff
+
+
+// Base:
 
 html, body {
   min-height : 100%;
   width: 100%; 
 }
+
 html, p {
   @include body-text;
 }
@@ -32,8 +36,6 @@ html, p {
 }
 
 .node-type-scheme iframe.media-youtube-player {
-  // 
-  // height: 380px;
   width: 100%;
   max-width: 700px;
 }
@@ -43,7 +45,18 @@ html, p {
   margin-bottom: 0;
 }
 
-div.messages { margin: 1em 0 0 0; padding-top: 1em; }
+div.messages {
+  margin: 0;
+  &.error {
+    background-image: none;
+  }
+  @include breakpoint( md ) {
+    padding-top: 3em;
+  }
+}
+.not-front div.messages {
+  margin: 1em 0 0 0;
+}
 
 .admin-menu-icon.expandable { 
   img { width: 16px; }
@@ -53,44 +66,16 @@ div.messages { margin: 1em 0 0 0; padding-top: 1em; }
   @include body-text ($size: $base-font-size + 2, $line-height: 1.5em)
 }
 
-body {
-  header#header {
-    position: relative;
-    z-index: 10;
-    height: 76px;
-    h1#site-name {
-      width: 428px;
-      display: block;
-      margin: 0 auto;
-      a{
-        display: block;
-        height: 76px;
-        text-indent: -9000px;
-        overflow: hidden;
-        text-align: left;
-        background-repeat: no-repeat;
-      }
-    }
-  }
-}
-
-#page:before {
-  content: " ";
-  position: absolute;
-  // left: -13px;
-  width: 100%;
-  height: 75px;
-  z-index: 10;
-  background: url( ../images/header-fringe.png ) repeat-x bottom center;    
-}
 
 // //////////////////////
 // Search filters region
 // .region-search
 //
+
 .page-schemes .region-search.hidden {
   overflow: visible;
 }
+
 .region-search {
   overflow: visible;
   background: $panel;
@@ -134,33 +119,6 @@ body {
   }
 }
 
-.not-front #main { 
-  position: relative;
-  top: -5px;
-}
-
-.not-front #main { 
-  position: relative;
-  top: -17px;
-}
-
-#main #content .wrapper{
-  section.content {
-    padding: 0 10px;
-  }
-}
-
-// inside pages
-#name-and-slogan h1#site-name {
-  height: 76px;
-  a {
-    background-image: url('../images/logo.png?1376927784');
-    background-position: bottom left;
-    height: 76px;
-    z-index: 10;
-  }
-
-}
 
 #content {
   header.page-header {
@@ -186,7 +144,7 @@ body {
     padding: 1em 0 1em 0;
     .wrapper {
       min-height: 7em;
-      height: 7em;
+      // height: 7em;
     }
     #page-title {
       padding: 0;
@@ -206,7 +164,7 @@ body {
 .page-user {
   #content > article > header .wrapper { // Only Schemes and User Profiles need tall headings
     min-height: 12em;
-    height: 12em;
+    // height: 12em;
   }
 }
 
@@ -214,38 +172,6 @@ body {
   #content > article > header .wrapper {
     min-height: 7em;
     height: 7em;
-  }
-}
-
-// //////////////////////////
-//
-// homepage style
-//
-
-.front{
-  header#header {
-    height: 172px;
-  }
-  #name-and-slogan {
-    h1#site-name {
-      width: 428px;
-      a{
-        background-image: url('../images/logo-home.png?1376927784');
-        background-position: top left;
-      }
-    }
-    h2#what-is-an-action-switchboard {
-      margin: 0;
-      a {
-        display: block;
-        height: 125px;
-        width: 428px;
-        @include hide-text;
-        background-image: url('../images/logo-home.png?1376927784');
-        background-position: bottom center;
-      }
-    }
-
   }
 }
 
@@ -304,20 +230,6 @@ mark.new {
   }
 }
 
-#nav-find {
-  color: #fff;
-  cursor: pointer;
-  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0em, $width: .3em);
-  @extend %entypo-search;
-  &:before {
-    position: absolute;
-    width: 48px;
-    margin-top: -2px;
-    content: "\1F50D";
-    text-align: right;
-  }
-}
-
 .field-location {
   @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
@@ -368,6 +280,10 @@ aside.scheme-meta {
 }
 
 //Lists
+ul#ui-button {
+  @include clearfix;
+}
+
 ul#ui-button,
 ul.tags {
   margin: 0;
@@ -550,10 +466,7 @@ ul.tags {
       list-style: none;
       padding: 0;
       margin: 0;
-      // display: table;
-
       li {
-        // display: table-row;
         @include zen-clear;
         padding: 2em 0;
         border-top: {
@@ -619,7 +532,6 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
-      // width: 76%;
     }
     ul.quicktabs-tabs { // Tabs
       li {
@@ -700,7 +612,6 @@ form .form-actions input{
   div.item-list {
     position: relative;
     ul.pager {
-      // @include zen-float(right);
       position: absolute;
       padding-top: 0;
       margin-top: 0;
@@ -887,7 +798,6 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
     @include hide-content;
   }
 }
-
 
 .badge {
   height: 16px;

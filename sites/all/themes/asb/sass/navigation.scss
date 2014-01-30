@@ -45,7 +45,8 @@ li a.active {
  */
 
 #navigation {
-  /* overflow: hidden; */ /* Sometimes you want to prevent overlapping with main div. */
+
+  float: left;
 
   .block {
     margin-bottom: 0;
@@ -69,61 +70,115 @@ li a.active {
       list-style-image: none;
     }
   }
+
 }
 
-.region-navigation {
-}
+// #secondary-menu {
+//   float: right; /* LTR */
+// }
 
-/*
- * Main menu and Secondary menu links
- */
 
-#main-menu {
-}
-
-#secondary-menu {
-  float: right; /* LTR */
-}
-
-/*
- * Menu blocks
- */
-
-.block-menu {
-}
-
-/*
- * "Menu block" blocks
- *
- * Drupal core has limited ways in which it can display its menus. To get around
- * these limitations, see http://drupal.org/project/menu_block
- */
-
-.block-menu-block {
+#header {
+  @include breakpoint( sm ){
+    #site-name {
+      position: relative;
+      z-index: 10;
+      background-image: url('../images/logostrip-home.png?1376927784');
+      background-position: bottom center; 
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @include breakpoint( md ){
+    background-image: url('../images/logostrip-home.png?1376927784');
+    background-position: top center;
+    #site-name {
+      float: left;
+      width: 428px;
+      background-image: none;
+    }
+  }
 }
 
 .not-front {
-  section#navigation {
-      @include breakpoint(md){
-      position: absolute;
-      right: 0px;
-      #block-asb-scheme-user-message{
-        width: 188px;
+  #header {
+    height: 81px;
+    @include breakpoint( sm ){
+      background-position: top center; 
+      background-image: url('../images/logostrip.png?1376927784');
+    }
+    @include breakpoint( md ){
+      #site-name {
+        width: 100%;
+        background-image: url('../images/logostrip.png?1376927784');
+        background-position: bottom center; 
       }
-    } 
+    }
+    #site-name {
+      a {
+        height: 81px;
+        z-index: 10;
+      }
+    }
+
   }
 }
 
-header#header {
+
+#header {
+  #navigation {
+    width: 100%;
+    position: relative;
+    // top: 76px;
+    float: none;
+      background: $gray-medium;
+    .region-header {
+      margin: 0 auto;
+    }
+  }
+  @include breakpoint( sm ) {
+    #navigation {
+    }
+  }
+  @include breakpoint( md ) {
+    #navigation {
+      width: auto;
+      margin-left: 0;
+      margin-right: 0;
+      float: left;
+      display: block;
+      line-height: 15px;
+      background: $backdrop;
+      .block-menu-block {
+        display: inline-block;
+      }
+    }
+  }
+  @include breakpoint( lg ) {
+
+  }
+}
+
+.not-front {
+  #header {
+    @include breakpoint(md){
+      #navigation {
+        #block-asb-scheme-user-message{
+          width: 188px;
+        }
+      }
+    }
+  }
+}
+
+#header {
   a {
     color: $nav-title-color;
   }
-  section#navigation {
-    display: block;
-    line-height: 15px;
+  #navigation {
     .block-menu-block {
-      vertical-align: top;
-      display: inline-block;
+      background: none;
       ul li {
         display: inline-block;
         padding: 1em;
@@ -133,7 +188,7 @@ header#header {
       }
     }
     #block-system-user-menu {
-        vertical-align: bottom;
+      vertical-align: bottom;
       padding: 1em;
       display: inline-block;
     }
@@ -143,6 +198,7 @@ header#header {
       display: inline-block;
     }
   }
+
   #block-system-user-menu,
   #block-asb-scheme-user-message,
   .block-menu-block ul li {
@@ -183,6 +239,20 @@ header#header {
     }
   }
 
+}
+
+#nav-find {
+  color: #fff;
+  cursor: pointer;
+  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0em, $width: .3em);
+  @extend %entypo-search;
+  &:before {
+    position: absolute;
+    width: 48px;
+    margin-top: -2px;
+    content: "\1F50D";
+    text-align: right;
+  }
 }
 
 

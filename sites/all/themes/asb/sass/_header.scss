@@ -1,0 +1,278 @@
+/**
+ * @file
+ * Navigation Styling
+ */
+
+@import "base";
+
+#navigation {
+  .block {
+    margin-bottom: 0;
+  }
+  .block-menu .block-title,
+  .block-menu-block .block-title {
+    @include element-invisible();
+  }
+}
+
+#header {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  // @include clearfix;
+  // height: 81px;
+  background-repeat: repeat-x !important;
+  #site-name {
+    height: 81px;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    background-image: url('../images/logostrip.png?1376927784');
+    background-position: center top;
+    background-repeat: repeat-x !important;
+    margin: 0;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      span {
+        @include offscreen();
+      }
+    }
+  }
+  #navigation {
+    position: relative;
+    // top: -8px;
+    // z-index: 5;
+    width: 100%;
+    background: $gray-dark;
+    .region-header {
+      // width: 260px;
+      margin: 0 auto;
+    }
+    .block-menu-block {
+      padding-top: 1em;
+    }
+    .asb-scheme-user-message>div {
+      display: inline;
+      line-height: 1;
+      vertical-align: top;
+    }
+  }
+
+  @include breakpoint( md ){
+    // width: 100%;
+    background-image: url('../images/logostrip.png?1376927784');
+    background-position: center bottom;
+    #site-name {
+      width: 428px;
+      background-image: none;
+      display: block;
+      float: left;
+    }
+
+    #navigation {
+      width: auto;
+      margin-left: 0;
+      margin-right: 0;
+      float: left;
+      display: block;
+      line-height: 15px;
+      background-color: transparent;
+      position: static;
+
+      .region-header {
+        margin: 0;
+      }
+
+      .block-menu-block {
+        float: left;
+        vertical-align: top;
+      }
+      .asb-scheme-user-message {
+        float: right;
+        &>div {
+          display: block;
+        }
+      }
+    }
+
+  }
+}
+
+.front {
+
+  #header {
+    #site-name {
+      float: none;
+      background-image: url('../images/logostrip_home.png?1376927784');
+      background-position: center top;
+    }
+    #what-is-an-action-switchboard {
+      margin: 0 auto;
+      font-size: 2.25em;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      background-color: $accent;
+      text-align: center;
+      padding: .5em 0;
+      line-height: 1.2;
+    }
+    @include breakpoint(md){
+      height: 81px;
+      background-image: url('../images/logostrip_home.png?1376927784');
+      background-position: center bottom;
+
+      #name-and-slogan {
+        
+        display:block;
+        float: left;
+        width: 428px;
+        
+        #site-name {
+          height: 81px;
+          background-image: none;
+        }
+
+        #what-is-an-action-switchboard {
+          position: absolute;
+          background-color: transparent;
+          width: 428px;
+          height: 120px;
+          z-index: 100;
+          margin: 0;
+          padding: 0;
+          line-height: 1;
+          margin-left: 0;
+          margin-right: 0;
+          background-image: url('../images/logo_home.png?1376927784');
+          background-position: center bottom;
+          a {
+            text-indent: -10000px;
+            display: block;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  } 
+}
+
+#header {
+  a {
+    color: $nav-title-color;
+  }
+  #navigation {
+    .block-menu-block {
+      background: none;
+      ul li {
+        display: inline-block;
+        padding: 1em;
+        border-right: 1px $text-color solid;
+        margin-right: .5em;
+      }
+    }
+    #block-asb-scheme-user-message,
+    #block-system-user-menu {
+      vertical-align: bottom;
+      padding: 1em;
+    }
+  }
+
+  #block-system-user-menu,
+  #block-asb-scheme-user-message,
+  .block-menu-block ul li {
+    .title {
+      font-size: 15px;
+      color: $nav-title-color;
+    }
+    .username,
+    .description {
+      display: block;
+      @include zen-clear(both);
+      color: $nav-description-color;
+      a {
+        color: $text-color;
+      }
+    }
+    .userdashboard {
+      @include zen-clear;
+      display: inline-block;
+      .icon {
+        @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em, $color: $nav-title-color);
+        @extend %entypo-tools;
+      }
+    }
+    .logout {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .login,
+    .register {
+      a {
+        color: $nav-title-color;
+      }
+    }
+    &.is-active a, 
+    &.is-active span {
+      color: $text-color;
+    }
+  }
+
+}
+
+#nav-find {
+  color: #fff;
+  cursor: pointer;
+  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0em, $width: .3em);
+  @extend %entypo-search;
+  &:before {
+    position: absolute;
+    width: 48px;
+    margin-top: -2px;
+    content: "\1F50D";
+    text-align: right;
+  }
+}
+
+.front {
+
+  #header-image-strip {
+    display: none;
+    @include breakpoint( md ) {
+      display: block;
+      position: absolute;
+      top: 72px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 1;
+      font-size: 0;
+      ul,
+      li {
+        margin:0;
+        padding:0;
+      }
+      li {
+        display: inline-block;
+      }
+      img{
+        display: block;
+        width: 166px;
+        height: auto;
+      }
+      .logged-in.admin-menu & {
+        top: 78px;
+      }
+    }
+  }
+
+}
+
+.front.logged-in.admin-menu {
+ #header-image-strip {
+    @include breakpoint( md ) {
+      top: 92px;
+    }
+  }
+}

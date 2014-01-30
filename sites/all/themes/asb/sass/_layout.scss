@@ -9,8 +9,6 @@
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
 
-@import "base";
-
 // We are going to create a 980px wide, 5 column grid with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
 $zen-column-count:  8;
@@ -30,9 +28,6 @@ $zen-gutter-width:  10px;
 // You can generate more efficient CSS if you manually apply the
 // zen-grid-item-base mixin to all grid items from within a single ruleset.
 $zen-auto-include-item-base: false;
-// $zen-auto-include-flow-item-base: false;
-
-
 
 // Region Search
 .front {
@@ -54,35 +49,42 @@ $zen-auto-include-item-base: false;
   display: none;
 }
 
-// Schemes Pager
-#add_page_scroll_wrapper {
-  #load_more_schemes_button,
-  .views-widget-filter-field_issues_goals_target_id,
-//  #pager_issue_filter,
-  #edit-keys-wrapper {
-    width: 100%;
+#main {
+  position: relative;
+  top: 0;
+  @include breakpoint( md ){
+    top: -20px;
+  }
+}
+
+.front #main { 
+  @include breakpoint( md ){
+    position: relative;
+    top: 86px;
+    // top: 0px;
+    #content {
+    }
+  }
+}
+
+#main #content .wrapper{
+  section.content {
+    padding: 0 10px;
   }
 }
 
 
+// Schemes Pager
+// #add_page_scroll_wrapper {
 
-// .front #content {
-//   padding-top: 3em;
+//   #load_more_schemes_button,
+//   .views-widget-filter-field_issues_goals_target_id,
+//   #edit-keys-wrapper {
+//     width: 100%;
+//   }
+
 // }
 
-// Navigation bar
-
-@media all and (min-width: 480px) {
-  #main {
-    position: relative;
-  }
-  #navigation {
-    position: absolute;
-    top: 0; /* Move the navbar up inside #main's padding. */
-    // height: 3em;
-    width: $zen-grid-width;
-  }
-}
 
 @media all and (min-width: 720px) and (max-width: 959px) {
 
@@ -90,12 +92,7 @@ $zen-auto-include-item-base: false;
   $zen-gutter-width: 10px;
   $zen-column-count: 6;
 
-  #header {
-    width: 100%;
-  }
-
   #header section.content,
-  #content-wrapper,
   #footer section.content,
   #add_page_scroll_wrapper {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
@@ -111,38 +108,35 @@ $zen-auto-include-item-base: false;
   }
 
   #content {
-    @include zen-grid-item( 6, 0 );
     margin-left: 0;
-  }
-
-  aside#sidebar {
-    @include zen-grid-item( 1, 5 );
-    @include box-sizing(content-box);
-  }
-
-
-  .scheme-collection-view .views-row {
-    @include zen-float();
-    @include zen-grid-flow-item( 2 );
   }
 
 }
 
-@media all and ( min-width: 740px ){
+@include breakpoint( lg ) {
+
+  $zen-grid-width: 960px;
+  $gutter-width: 20px;
+  // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
+  $zen-column-count: 8;
+
   // Schemes Pager
   #add_page_scroll_wrapper {
+
     #load_more_schemes_button,
     .views-widget-filter-field_issues_goals_target_id,
-    //#pager_issue_filter,
     #edit-keys-wrapper {
       float: left;
     }
+
     .views-widget-filter-field_issues_goals_target_id {
       @include zen-grid-flow-item( 2 );
     }
+
     #load_more_schemes_button {
       @include zen-grid-flow-item( 4 ); 
     }
+
     #edit-keys-wrapper {
       @include zen-grid-flow-item( 2 );            
       padding-left: 1em;
@@ -150,21 +144,12 @@ $zen-auto-include-item-base: false;
 
   }
 
-}
-@media all and (min-width: 960px) {
-
-  $zen-grid-width: 960px;
-  $gutter-width: 20px;
-  // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
-  $zen-column-count: 8;
-  
-  #header,
+  #header .content,
   #content,
-  footer#footer section.content {
+  #footer section.content {
     @include zen-grid-container;
   }
 
-  #header,
   #block-views-exp-scheme-search-page,
   .not-front .main-content {
     width: 960px;
@@ -178,20 +163,6 @@ $zen-auto-include-item-base: false;
     margin-right: 0;
   }
 
-  #page {
-    #header {
-      #name-and-slogan{
-        display: inline-block;
-        width: 428px
-      }
-      
-      section#navigation {
-        display: inline-block;
-        width: auto;
-      }
-    }
-  }
-
   #content article>header, {
     @include clearfix;    
   }
@@ -203,39 +174,7 @@ $zen-auto-include-item-base: false;
     margin-left: 0;
   }
   
-  #content aside.scheme-meta,
-  #content aside.user-meta,
-  #content aside#sidebar {
-    @include zen-grid-item(2, 6);
-    @include box-sizing(content-box);
-  }
 
-
-  .scheme-collection-view .views-row {
-    @include zen-float;
-    @include zen-grid-flow-item(2);
-  }
-
-  #header-image-strip {
-    position: absolute;
-    top: 58px;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    z-index: -1;
-    font-size: 0;
-    ul,li { margin:0; padding:0; }
-    li { display: inline-block; }
-    img{
-     display: block;
-     width: 190px;
-     height: auto;
-    }
-  }
-
-  .logged-in.admin-menu #header-image-strip{
-    top: 78px;
-  }
 
   /* node editing */
   .page-node-add-scheme {
@@ -254,8 +193,29 @@ $zen-auto-include-item-base: false;
 
 }
 
+
+#content aside.scheme-meta,
+#content aside.user-meta,
+#content aside#sidebar {
+  width: 100%;
+  @include breakpoint(lg){
+    @include zen-grid-item(2, 6);
+    @include box-sizing(content-box);    
+  }
+}
+
+aside.scheme-meta {
+  @include breakpoint( md ){
+    margin-top: 1em;
+    @include clearfix;
+  }
+}
+
+
+
 // Center the page.
-#header,
+// #navigation .region-header,
+#header .content,
 #content article>header .wrapper,
 #content article>.wrapper,
 #content .scheme-collection-view,
@@ -265,7 +225,6 @@ $zen-auto-include-item-base: false;
 .views-exposed-widgets,
 .page-node-add-scheme #main,
 .node-type-scheme.og-context.og-context-node.section-node-edit #content,
-// .page-user-edit #content,
 .page-user.not-logged-in #content,
 #add_page_scroll_wrapper,
 .no-sidebars section.page-content {
