@@ -74,51 +74,47 @@ $zen-auto-include-item-base: false;
 }
 
 
-// Schemes Pager
-// #add_page_scroll_wrapper {
-
-//   #load_more_schemes_button,
-//   .views-widget-filter-field_issues_goals_target_id,
-//   #edit-keys-wrapper {
-//     width: 100%;
-//   }
-
-// }
-
-
-@media all and (min-width: 720px) and (max-width: 959px) {
-
-  $zen-grid-width: 720px;
-  $zen-gutter-width: 10px;
-  $zen-column-count: 6;
-
-  #header section.content,
-  #footer section.content,
-  #add_page_scroll_wrapper {
-    /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 720px;
+#content aside.scheme-meta,
+#content aside.user-meta,
+#content aside#sidebar {
+  // this 100% was causing overflow-horizontal on breakpoint(sm) 
+  // width: 100%;
+  @include breakpoint(md){
+    @include zen-grid-item(2, 6);
+    @include box-sizing(content-box);    
   }
-
-  header section.content,
-  #content .scheme-collection-view,
-  #footer section.content {
-    @include zen-grid-container();
-  }
-
-  #content {
-    margin-left: 0;
-  }
-
 }
 
-@include breakpoint( lg ) {
+aside.scheme-meta {
+  @include breakpoint( md ){
+    margin-top: 1em;
+    @include clearfix;
+  }
+}
 
+
+#content article>header, {
+  @include clearfix;    
+}
+
+@include breakpoint( md ) {
   $zen-grid-width: 960px;
   $gutter-width: 20px;
-  // Use 8 grid columns for larger screens. (we only need four, but more is sometimes more!)
   $zen-column-count: 8;
+
+  #block-views-exp-scheme-search-page,
+  .not-front .main-content {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .not-front.page-node #content,
+  .not-front.page-user #content {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 
   // Schemes Pager
   #add_page_scroll_wrapper {
@@ -144,70 +140,16 @@ $zen-auto-include-item-base: false;
 
   }
 
-  #header .content,
-  #content,
-  #footer section.content {
-    @include zen-grid-container;
-  }
-
-  #block-views-exp-scheme-search-page,
+   #block-views-exp-scheme-search-page,
   .not-front .main-content {
     width: 960px;
     margin: 0 auto;
   }
-
-  .not-front.page-node #content,
-  .not-front.page-user #content {
-    width: 100%;
+  // @todo ask ross/pea what is .sidebar-second section.page-content?
+  .sidebar-second section.page-content,
+  article .wrapper>section.content {
+    @include zen-grid-item(6,0);
     margin-left: 0;
-    margin-right: 0;
-  }
-
-  #content article>header, {
-    @include clearfix;    
-  }
-
-  article .wrapper>section.content,
-  .sidebar-second section.page-content {
-    @include zen-grid-item(6, 0);
-    @include zen-grid-container;
-    margin-left: 0;
-  }
-  
-
-
-  /* node editing */
-  .page-node-add-scheme {
-    #content {
-      width: $zen-grid-width;
-      position: relative;
-      @include box-sizing( border-box );
-      padding-left: 150px;
-      .form-field-type-text-long,
-      .form-type-textfield,
-      .form-wrapper {
-        max-width: 500px;
-      }
-    }
-  }
-
-}
-
-
-#content aside.scheme-meta,
-#content aside.user-meta,
-#content aside#sidebar {
-  width: 100%;
-  @include breakpoint(lg){
-    @include zen-grid-item(2, 6);
-    @include box-sizing(content-box);    
-  }
-}
-
-aside.scheme-meta {
-  @include breakpoint( md ){
-    margin-top: 1em;
-    @include clearfix;
   }
 }
 

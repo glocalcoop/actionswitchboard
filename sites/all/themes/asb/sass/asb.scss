@@ -17,19 +17,18 @@ html, p {
   @include body-text;
 }
 
-#asb-scheme-user-message {
+// #asb-scheme-user-message {
 
-  vertical-align: top;
-  line-height: 1.125;
+//   vertical-align: top;
 
-  a.register-link,
-  a.login-link {
-    font-size: 15px;
-    display: inline-block;
-    padding: 0;
-  }
+//   a.register-link,
+//   a.login-link {
+//     font-size: 15px;
+//     display: inline-block;
+//     padding: 0;
+//   }
 
-}
+// }
 
 .state {
   @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
@@ -652,9 +651,9 @@ form .form-actions input{
 //   display: none;
 // }
 
-.logged-in.admin-menu {
-  display: block;
-}
+// .logged-in.admin-menu {
+//   display: block;
+// }
 
 .page-node-add {
   .main-content {

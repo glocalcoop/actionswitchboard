@@ -120,6 +120,11 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
   }
 
+  @include breakpoint( md, max-width ) {
+    max-width: 600px;
+    margin: 0 auto; 
+  }
+
 }
 
 #main .scheme-collection {
@@ -129,11 +134,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
     // Row of Schemes
     .views-row {
-
       min-height: 398px;
       padding: 0 10px;
       margin: 1em 0 1.5em 0;
-
       .scheme-progress {
         @include zen-clear(both);
         padding-bottom: 12px;
@@ -222,7 +225,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
 
     h4 {
-      @include header-style ($family: $font-body, $size: $h5-font-size, $transform: uppercase, $color: $text-color-secondary);
+      @include header-style($family: $font-body, $size: $h5-font-size, $transform: uppercase, $color: $text-color-secondary);
       display: inline-block;
       line-height: inherit;
       padding: 0;
@@ -281,24 +284,31 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         }
         a {
           display: block;
-          height: $pager-height;
-          width: $pager-width;
+          height: $pager-height;          
           line-height: $pager-height;
-          font-size: 0;
-          color: $rules-color;
-        }     
-        &.pager-next {
-          right: $pager-hmargin;
-          a {
-            @include replace-text($next-image);
-            text-indent: 0 !important;
-          }
         }
-        &.pager-previous {
-          left: $pager-hmargin;
+        @include breakpoint( md ) {
           a {
-            @include replace-text($previous-image);
-            text-indent: 0 !important;
+            display: block;
+            height: $pager-height;
+            width: $pager-width;
+            line-height: $pager-height;
+            font-size: 0;
+            color: $rules-color;
+          }     
+          &.pager-next {
+            right: $pager-hmargin;
+            a {
+              @include replace-text($next-image);
+              text-indent: 0 !important;
+            }
+          }
+          &.pager-previous {
+            left: $pager-hmargin;
+            a {
+              @include replace-text($previous-image);
+              text-indent: 0 !important;
+            }
           }
         }
       }

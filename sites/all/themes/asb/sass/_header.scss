@@ -19,8 +19,6 @@
   width: 100%;
   position: relative;
   z-index: 10;
-  // @include clearfix;
-  // height: 81px;
   background-repeat: repeat-x !important;
   #site-name {
     height: 81px;
@@ -42,26 +40,90 @@
   }
   #navigation {
     position: relative;
-    // top: -8px;
-    // z-index: 5;
     width: 100%;
     background: $gray-dark;
     .region-header {
-      // width: 260px;
       margin: 0 auto;
     }
     .block-menu-block {
-      padding-top: 1em;
+      li {
+        border-right: 1px $text-color solid;
+      }
+      .description { 
+        display: block;
+      }
+      .description,
+      .logout {
+        color: $nav-description-color;
+        a {
+          color: $text-color;
+        }
+      }
     }
-    .asb-scheme-user-message>div {
-      display: inline;
-      line-height: 1;
-      vertical-align: top;
+    .title {
+      font-size: 15px;
+      color: $nav-title-color;
+    }
+    .username,
+    .logout { line-height: 2; }
+    .block-asb-scheme {
+      .asb-scheme-user-message>div {
+        vertical-align: top;
+      }
     }
   }
 
+  @include breakpoint( sm, max-width ){
+    .block-menu-block {
+      float: none;
+      text-align: center;
+      .menu-block-wrapper {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto;
+      }
+      ul.menu {
+        padding: 0;
+        li.last {
+          border-right: none !important;
+        }
+      }
+    }
+    .block-asb-scheme {
+      display: block;
+      text-align: center;
+      .asb-scheme-user-message {
+        @include clearfix;
+        margin: 0 auto;
+        .title,
+        .username,
+        .userdashboard,
+        .logout {
+          text-align: left;
+          font-size: 12px;
+          display: inline-block;
+          vertical-align: bottom;
+          line-height: 1.5;
+        }
+        .username { margin: 0 .25em; }
+      }
+    }    
+  }
+
+  @include breakpoint( sm ){
+    .region-header {
+      max-width: $screen-sm;
+    }
+    .block-asb-scheme,
+    .block-menu-block {
+      display: inline-block;
+    }
+    .block-asb-scheme {
+      padding-left: 1em;
+    }
+  }
   @include breakpoint( md ){
-    // width: 100%;
+
     background-image: url('../images/logostrip.png?1376927784');
     background-position: center bottom;
     #site-name {
@@ -77,27 +139,30 @@
       margin-right: 0;
       float: left;
       display: block;
-      line-height: 15px;
+      line-height: 1em;
       background-color: transparent;
-      position: static;
-
+      // position: static;
       .region-header {
+        max-width: none;
         margin: 0;
       }
-
       .block-menu-block {
-        float: left;
         vertical-align: top;
-      }
-      .asb-scheme-user-message {
-        float: right;
-        &>div {
-          display: block;
+        display:inline-block;
+        padding: 0;
+        ul.menu {
+          padding: 0;
+          margin: 0;
         }
+      }
+      .block-asb-scheme {
+        vertical-align: top;
+        display:inline-block;
       }
     }
 
   }
+
 }
 
 .front {
@@ -158,6 +223,20 @@
   } 
 }
 
+.not-front {
+  #header {
+    #navigation {
+      top: -8px;
+    }
+    @include breakpoint(md) {
+      height: 81px;
+      #navigation {
+        top: 0;
+      }
+    }
+  }
+}
+
 #header {
   a {
     color: $nav-title-color;
@@ -168,13 +247,12 @@
       ul li {
         display: inline-block;
         padding: 1em;
-        border-right: 1px $text-color solid;
         margin-right: .5em;
       }
     }
     #block-asb-scheme-user-message,
     #block-system-user-menu {
-      vertical-align: bottom;
+      // vertical-align: bottom;
       padding: 1em;
     }
   }
@@ -182,19 +260,6 @@
   #block-system-user-menu,
   #block-asb-scheme-user-message,
   .block-menu-block ul li {
-    .title {
-      font-size: 15px;
-      color: $nav-title-color;
-    }
-    .username,
-    .description {
-      display: block;
-      @include zen-clear(both);
-      color: $nav-description-color;
-      a {
-        color: $text-color;
-      }
-    }
     .userdashboard {
       @include zen-clear;
       display: inline-block;
