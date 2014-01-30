@@ -961,7 +961,7 @@ function asb_scheme_views_post_render(&$view, &$output, &$cache) {
     $gid = og_context('node');
     $node = node_load($gid['gid']);
     $user = user_load($node->uid);
-    $link_markup = '<div class="donate-button"><a class="donate-button" href="/';
+    $link_markup = '<div class="donate-button"><a href="/';
     if($view->current_display == 'block') {
       $contact = privatemsg_get_link($user);
       $link_markup .= $contact .'?skills=1&gid=' .$gid['gid'] .'">Donate Skills</a></div>';
