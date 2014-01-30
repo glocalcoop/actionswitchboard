@@ -62,9 +62,6 @@ $zen-auto-include-item-base: false;
   @include breakpoint( md ){
     position: relative;
     top: 86px;
-    // top: 0px;
-    #content {
-    }
   }
 }
 
@@ -98,6 +95,17 @@ aside.scheme-meta {
   @include clearfix;    
 }
 
+
+
+/* ------------------------ */
+/* Main Layouts:            */
+/* ------------------------ */
+
+#content {
+  // keeps the footer from overlapping content
+  @include clearfix;
+}
+
 @include breakpoint( md ) {
   $zen-grid-width: 960px;
   $gutter-width: 20px;
@@ -115,17 +123,74 @@ aside.scheme-meta {
     margin-left: 0;
     margin-right: 0;
   }
+  
+  #block-views-exp-scheme-search-page,
+  .not-front .main-content {
+    width: 960px;
+    margin: 0 auto;
+  }
+  // @todo ask ross/pea what is .sidebar-second section.page-content?
+  .sidebar-second section.page-content,
+  article .wrapper>section.content {
+    @include zen-grid-item(6,0);
+    margin-left: 0;
+  }
+}
 
 
-  // Schemes Pager
-  #add_page_scroll_wrapper {
-
-    #load_more_schemes_button,
-    .views-widget-filter-field_issues_goals_target_id,
-    #edit-keys-wrapper {
-      float: left;
+/* ------------------------ */
+/* Add scheme pages:        */
+/* ------------------------ */
+.page-node-add-scheme {
+  #content {
+    width: $zen-grid-width;
+    position: relative;
+    @include box-sizing( border-box );
+    padding-left: 150px;
+    .form-field-type-text-long,
+    .form-type-textfield,
+    .form-wrapper {
+      max-width: 500px;
     }
+  }
+}
 
+/* ------------------------ */
+/* Centering content:       */
+/* ------------------------ */
+@include breakpoint(md){
+  #header .content,
+  #content article>header .wrapper,
+  #content article>.wrapper,
+  #content .scheme-collection-view,
+  #content>header .page-wrapper,
+  #footer section.content,
+  .messages__list,
+  .views-exposed-widgets,
+  .page-node-add-scheme #main,
+  .node-type-scheme.og-context.og-context-node.section-node-edit #content,
+  .page-user.not-logged-in #content,
+  #add_page_scroll_wrapper,
+  .no-sidebars section.page-content {
+    /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 960px;
+  }
+}
+
+/* ------------------------ */
+/* Schemes Pager:           */
+/* ------------------------ */
+#add_page_scroll_wrapper {
+  
+  #load_more_schemes_button,
+  .views-widget-filter-field_issues_goals_target_id,
+  #edit-keys-wrapper {
+    float: left;
+  }
+  
+  @include breakpoint( md ) {
     .views-widget-filter-field_issues_goals_target_id {
       @include zen-grid-flow-item( 2 );
     }
@@ -141,51 +206,4 @@ aside.scheme-meta {
 
   }
 
-   #block-views-exp-scheme-search-page,
-  .not-front .main-content {
-    width: 960px;
-    margin: 0 auto;
-  }
-  // @todo ask ross/pea what is .sidebar-second section.page-content?
-  .sidebar-second section.page-content,
-  article .wrapper>section.content {
-    @include zen-grid-item(6,0);
-    margin-left: 0;
-  }
-}
-
- /* node editing */
-  .page-node-add-scheme {
-    #content {
-      width: $zen-grid-width;
-      position: relative;
-      @include box-sizing( border-box );
-      padding-left: 150px;
-      .form-field-type-text-long,
-      .form-type-textfield,
-      .form-wrapper {
-        max-width: 500px;
-      }
-    }
-  }
-
-// Center the page.
-// #navigation .region-header,
-#header .content,
-#content article>header .wrapper,
-#content article>.wrapper,
-#content .scheme-collection-view,
-#content>header .page-wrapper,
-#footer section.content,
-.messages__list,
-.views-exposed-widgets,
-.page-node-add-scheme #main,
-.node-type-scheme.og-context.og-context-node.section-node-edit #content,
-.page-user.not-logged-in #content,
-#add_page_scroll_wrapper,
-.no-sidebars section.page-content {
-  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 960px;
 }
