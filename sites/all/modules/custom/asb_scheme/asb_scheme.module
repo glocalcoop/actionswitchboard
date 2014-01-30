@@ -959,17 +959,19 @@ function asb_scheme_views_pre_render(&$view) {
 function asb_scheme_views_post_render(&$view, &$output, &$cache) {
   if($view->name == 'scheme_contribute') {
     $gid = og_context('node');
-    $node = node_load($gid['gid']);
-    $user = user_load($node->uid);
-    $link_markup = '<div class="donate-button"><a href="/';
-    if($view->current_display == 'block') {
-      $contact = privatemsg_get_link($user);
-      $link_markup .= $contact .'?skills=1&gid=' .$gid['gid'] .'">Donate Skills</a></div>';
-      $output = strtr($output, array('<!--skills-MESSAGE-->' => $link_markup));
-    }elseif($view->current_display == 'block_1') {
-      $contact = privatemsg_get_link($user);
-      $link_markup .= $contact .'?supplies=1&gid=' .$gid['gid'] .'">Donate Supplies</a></div>';
-      $output = strtr($output, array('<!--supplies-MESSAGE-->' => $link_markup));
+    if(isset($gid['gid'])){
+      $node = node_load($gid['gid']);
+      $user = user_load($node->uid);
+      $link_markup = '<div class="donate-button"><a href="/';
+      if($view->current_display == 'block') {
+        $contact = privatemsg_get_link($user);
+        $link_markup .= $contact .'?skills=1&gid=' .$gid['gid'] .'">Donate Skills</a></div>';
+        $output = strtr($output, array('<!--skills-MESSAGE-->' => $link_markup));
+      }elseif($view->current_display == 'block_1') {
+        $contact = privatemsg_get_link($user);
+        $link_markup .= $contact .'?supplies=1&gid=' .$gid['gid'] .'">Donate Supplies</a></div>';
+        $output = strtr($output, array('<!--supplies-MESSAGE-->' => $link_markup));
+      }
     }
   }
 }
