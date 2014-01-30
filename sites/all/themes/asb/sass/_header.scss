@@ -46,11 +46,17 @@
       margin: 0 auto;
     }
     .block-menu-block {
+      vertical-align: top;
+      ul.menu {
+        margin-top: 0 !important;
+      }
       li {
         border-right: 1px $text-color solid;
+        padding: 1em 1em 2em 1em;
       }
       .description { 
         display: block;
+        line-height: 1.875em;
       }
       .description,
       .logout {
@@ -170,18 +176,21 @@
   #header {
     #site-name {
       float: none;
-      background-image: url('../images/logostrip_home.png?1376927784');
+      a {
+        background-image: url('../images/logo_phone.png?1376927784');
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 100%;
+      }
       background-position: center top;
+      @include zigzag-border ($accent, $brand);
     }
     #what-is-an-action-switchboard {
       margin: 0 auto;
-      font-size: 2.25em;
-      letter-spacing: 1px;
       box-sizing: border-box;
-      background-color: $accent;
-      text-align: center;
-      padding: .5em 0;
-      line-height: 1.2;
+      // background-color: $accent;
+      padding: .5em 0 .75em 0;
     }
     @include breakpoint(md){
       height: 81px;
@@ -197,6 +206,7 @@
         #site-name {
           height: 81px;
           background-image: none;
+          background-color: transparent;
         }
 
         #what-is-an-action-switchboard {
@@ -246,7 +256,6 @@
       background: none;
       ul li {
         display: inline-block;
-        padding: 1em;
         margin-right: .5em;
       }
     }

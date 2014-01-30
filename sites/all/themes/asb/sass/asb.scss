@@ -79,25 +79,23 @@ div.messages {
   overflow: visible;
   background: $panel;
   padding: 1em 0 2em 0;
-  @include transition-property(padding,height);
+  @include transition-property(padding,max-height);
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
   @include zigzag-border($panel, $even-backdrop);
   .views-exposed-form {
-    //opacity: 1;
     display: block;
-    // border: 1px #f00 solid;
     @include transition-property(opacity);
     @include transition-delay( .15s );
     @include transition-duration( .35s );
     @include transition-timing-function(ease-in-out);    
   }
-  height: 120px;
+  max-height: auto;
   &.atrest {
     @include transition-duration(0);  
   }
   &.hidden, &.atrest {
-    height: 0px;
+    max-height: 0px;
     padding: 0;
     overflow: hidden;
     .views-exposed-form {
@@ -174,11 +172,7 @@ div.messages {
   }
 }
 
-footer#footer {
-  background: $backdrop; 
-  .content {
-  }
-}
+
 
 $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";

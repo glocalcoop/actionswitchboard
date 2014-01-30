@@ -156,6 +156,34 @@ aside.scheme-meta {
 }
 
 /* ------------------------ */
+/* Footer content:       */
+/* ------------------------ */
+#footer {
+  background: $backdrop; 
+
+  #block-views-inspiration-footer-block {
+    .footer-image-wrap {
+      display: block;
+      float: left;
+    }
+  }
+
+  @include breakpoint( md ){
+    #block-views-inspiration-footer-block {
+      li {
+        @include zen-grid-flow-item( 2,8 );
+        float: left;
+        .footer-image-wrap {
+          clear: both;
+          display: block;
+          float: none;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------ */
 /* Centering content:       */
 /* ------------------------ */
 @include breakpoint(md){

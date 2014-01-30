@@ -78,6 +78,16 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
 
+  &:last-child {
+    padding-bottom: 1em;
+    &:nth-child(even){
+      @include zigzag-border ( $even-backdrop, $backdrop );
+    }
+    &:nth-child(odd){
+      @include zigzag-border ( $odd-backdrop, $backdrop );
+    }
+  }
+
   p {
     font-size: $base-font-size + 1px;
   }
@@ -123,6 +133,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   @include breakpoint( md, max-width ) {
     max-width: 600px;
     margin: 0 auto; 
+  }
+
+  .view-content {
+    @include clearfix;
   }
 
 }
@@ -334,14 +348,22 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           box-sizing: border-box;
           display: inline-block;
           float: left;
-          background: rgba( $gray-dark, .8 );
           &.pager-previous,
           &.pager-next {
-            padding: .25em;
-            font-size: 2em;
+            padding: .25em .5;
+            font-size: 1.25em;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+          }
+          &.pager-previous {
+            padding-left: 2em;
+            background-image: $previous-image;
           }
           &.pager-next {
-            right: 0;
+            // right: 0;
+            padding-right: 2em;
+            background-image: $next-image;
+            background-position: right top;
           }
         }
       }      

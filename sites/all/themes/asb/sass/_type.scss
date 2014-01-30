@@ -25,7 +25,7 @@ h5,
   font-weight: $header-font-weight;
 }
 
-h1 {
+  h1 {
   font-size: $h1-font-size;
 }
 
@@ -60,6 +60,15 @@ h1#site-name {
   a, a:link, a:visited {
     color: inherit;
   }
+}
+
+h2#what-is-an-action-switchboard {
+  font-family: $base-font-family;
+  background-color: $brand;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 h1#page-title {
