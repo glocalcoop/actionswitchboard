@@ -737,9 +737,12 @@ form .form-actions input{
   }
 }
 
-.page-node-add-scheme,
-.filter-wrapper {
-  display: none;
+// .page-node-add-scheme .filter-wrapper {
+//   display: none;
+// }
+
+.logged-in.admin-menu {
+  display: block;
 }
 
 .page-node-add {
