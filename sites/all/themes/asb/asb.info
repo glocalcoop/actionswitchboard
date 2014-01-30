@@ -50,13 +50,11 @@ stylesheets[all][] = system.menus.css
 ; Then we add our own stylesheets.
 stylesheets[all][] = css/normalize.css
 ;stylesheets[all][] = css/wireframes.css
-stylesheets[all][] = css/layouts/responsive-sidebars.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/tables.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/blocks.css
-stylesheets[all][] = css/navigation.css
 stylesheets[all][] = css/views-styles.css
 stylesheets[all][] = css/nodes.css
 stylesheets[all][] = css/comments.css
