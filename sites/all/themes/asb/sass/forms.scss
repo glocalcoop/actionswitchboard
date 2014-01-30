@@ -9,11 +9,13 @@ form {
   @include body-text;
   input[type="button"], 
   input[type="reset"], 
-  input[type="submit"]  {
+  input[type="submit"],
+  .button-no.fake-cancel {
     @include button($height: 30px, $font-size: $h3-font-size + 6px);
     border: none;
     margin-right: 5px;
     letter-spacing: 0.05em;
+    cursor: pointer;
   }
   fieldset {
     border: none;

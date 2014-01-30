@@ -191,6 +191,20 @@ function _asb_scheme_manage_workflow($form, &$form_state) {
 }
 
 /**
+ * Implements hook_media_browser_plugins_alter().
+ */
+function asb_scheme_media_browser_plugins_alter(&$plugins) {
+  global $user;
+  $dest = current_path();
+  $path = explode('/', $_SERVER['HTTP_REFERER']);
+  $des = drupal_get_destination();
+  if(strpos($des['destination'], 'types[video]') !== false) {
+    unset($plugins['library']);
+    unset($plugins['upload']);
+  }
+}
+
+/**
  * Implements hook_form_alter
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
