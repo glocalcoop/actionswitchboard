@@ -112,9 +112,39 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 #main .scheme-collection {
 
   .views-row {
+
     @include zen-float();
-    @include zen-grid-flow-item( 4, 8 );
-    @include breakpoint( md ) {
+ 
+  }
+
+  @include breakpoint( sm, max-size ) {
+    max-width: $screen-sm;
+    margin-left: 0; 
+    margin-right: 0; 
+    .scheme-collection-view {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+  }
+
+  @include breakpoint( sm) {
+    .views-row {
+      @include zen-grid-flow-item( 4, 8 );
+    }
+  }
+
+  @include breakpoint( md, max-size ) {
+    min-width: 600px;
+    margin-left: 0; 
+    margin-right: 0; 
+    .scheme-collection-view {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+  }
+
+  @include breakpoint( md ) {
+    .views-row {
       @include zen-grid-flow-item( 2, 8 );        
       &:nth-child(4n+4),
       &:last-child {
@@ -128,11 +158,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         height: auto;
       }
     }
-  }
-
-  @include breakpoint( md, max-width ) {
-    max-width: 600px;
-    margin: 0 auto; 
   }
 
   .view-content {
