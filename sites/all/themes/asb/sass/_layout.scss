@@ -62,6 +62,7 @@ $zen-auto-include-item-base: false;
   @include breakpoint( md ){
     position: relative;
     top: 86px;
+    margin-bottom: 86px;
   }
 }
 

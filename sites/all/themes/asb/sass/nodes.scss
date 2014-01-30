@@ -88,9 +88,9 @@
     margin-top: 1.5em;
     div.field-body,
     .field-private-description {
-      border-bottom: {
-        @include standard-border;
-      }
+      // border-bottom: {
+      //   @include standard-border;
+      // }
       p {
         @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 );
       }
@@ -231,9 +231,9 @@
 .node-default {
 
   #node-content {
-    border-bottom: {
-      @include standard-border;
-    }
+    // border-bottom: {
+    //   @include standard-border;
+    // }
     h3 {
       @include body-text ($size: 2em, $color: $text-color-prominent);
     }

@@ -496,20 +496,43 @@ form .form-actions input{
   background-color: #dedede !important;
 }
 
-#scheme-content {
-  .ctools-modal-mfe-modal {
-    display: block;
-    margin-top: .5em;
-    padding-top: .5em;
-    width: 100%;
-    border-top: {
-      @include standard-border;
-      }
-    font-size: 2em;
-    span {
-      display: none;
-    }
+.icon.edit {
+  position: relative;
+  display: block;
+  // float: left;
+  left: -30px;
+  top: 43px;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  span {
+    display: none;
   }
+  &:before {
+    margin-left: .125em;
+    line-height: .675;
+  }
+  &:hover {
+    vertical-align: middle;
+    border-radius: 24px;
+    padding: 0;
+    margin: 0;
+    background: $brand;
+    text-align: center;
+    color: white;
+  }
+}
+
+#field_image-mfe-modal-style {
+  top: 20px;
+}
+
+#field_progress-mfe-modal-style {
+  top: 39px;
+}
+
+#title-mfe-modal-style {
+  top: 100px;
 }
 
 // ////////////////////////////
