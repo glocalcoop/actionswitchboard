@@ -10,8 +10,10 @@
 	<div class="username"><a href="<?php print url('user'); ?>"><?php print $user->name;?></a></div>
 
 	<div class="userdashboard"><a href="/dashboard/"><span class="icon tools dashboard-link"></span>Dashboard</a>
-		<span class="counter badge"><a href="/dashboard/"><?php print $messages; ?></a></span>
-                <!-- Rendered in module asb_scheme/theme -->
+    <?php if($messages != "0" ): ?>		
+      <span class="counter badge"><a href="/dashboard/"><?php print $messages; ?></a></span>
+      <!-- Rendered in module asb_scheme/theme -->
+    <?endif;?>
 	</div>
 
 	<div class="logout"><a class="logout-link" href="<?php print url('user/logout'); ?>">Logout</a></div>
