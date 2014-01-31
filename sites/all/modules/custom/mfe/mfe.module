@@ -394,10 +394,14 @@ function mfe_form_alter(&$form, &$form_state, $form_id) {
  */
 function mfe_get_fields($bundle) {
   $results = db_query('SELECT field_name FROM {field_config_instance} WHERE bundle = :bundle', array(':bundle' => $bundle))->fetchAll();
-  foreach($results as $result) {
-    $fields[] = $result->field_name ;
+  if(!empty($results)) {
+    foreach($results as $result) {
+      $fields[] = $result->field_name ;
+    }
   }
-  return $fields;
+  if(isset($fields)) {
+    return $fields;
+  }
 }
 
 /**
@@ -410,8 +414,10 @@ function mfe_build_node_fields_list() {
     $fields = mfe_get_fields($key);
     $tf_tree[$key .'_type'] = $value .' type';
     $tf_tree[$key .'_title'] = '-- ' .$value .'_title';
-    foreach($fields as $k => $v) {
-      $tf_tree[$key .'_' .$v] = '-- ' .$key .'_' .$v;
+    if(isset($fields)) {
+      foreach($fields as $k => $v) {
+        $tf_tree[$key .'_' .$v] = '-- ' .$key .'_' .$v;
+      }
     }
   }
   return $tf_tree;
