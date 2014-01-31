@@ -130,9 +130,8 @@ global $user;
         <?php endif; ?>
       </section>
       <aside class="scheme-meta">
-        <?php if(isset($issue_edit) && !empty($issue)): ?>
+        <?php if(isset($issue_edit)): ?>
           <div class="modal-edit">
-
             <?php print $issue_edit; ?>
           </div>
         <?php endif; ?>
