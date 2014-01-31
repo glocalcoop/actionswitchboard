@@ -118,7 +118,7 @@
 
         <header class="edit-header">
 
-          <div class="wrapper">
+          <div class="wrapper clearfix">
 
             <section class="content">
               <?php print render($title_prefix); ?>

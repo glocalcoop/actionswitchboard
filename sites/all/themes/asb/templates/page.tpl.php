@@ -38,7 +38,7 @@
     <?php print render($page['search']); ?>
     <div id="content">
         <header class="edit-header page-header">
-          <div class="wrapper page-wrapper">
+          <div class="wrapper page-wrapper clearfix">
             <section class="content page-content">
               <?php if (isset($highlighted)): ?>
                 <?php print $page['highlighted']; ?>
