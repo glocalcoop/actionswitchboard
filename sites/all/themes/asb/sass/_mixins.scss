@@ -293,12 +293,8 @@
   outline: 0;
 }
 
-@mixin breakpoint($point, $maxmin: min-width ) {
-  // @if $point == xs {
-  //   @media (max-width: $screen-xs) {
-  //     @content;
-  //   }
-  // }
+@mixin breakpoint( $point, $maxmin: min-width ) {
+
   @if $point == sm {
     @media ( $maxmin: $screen-sm ) {
       @content;

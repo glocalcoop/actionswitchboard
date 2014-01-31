@@ -70,6 +70,47 @@ div.messages {
 // Search filters region
 // .region-search
 //
+.region-search {
+  @include breakpoint( md, max-width ){
+
+    .views-exposed-form .views-exposed-widget {
+      margin-top: .25em;
+      box-sizing: border-box;
+      padding: 0 1em !important;
+      float: none !important;
+      input {
+        width: 95%;
+      }
+      .chosen-container {
+  //    .chosen-single 
+        display: block !important;
+        width: 100% !important;
+      }
+    }
+    .views-reset-button,
+    .views-submit-button {
+      width: 100%;
+      box-sizing: border-box;
+      // override views.css
+      padding: 0 1em !important;
+      #edit-submit-scheme-overview-filtered,
+      #edit-reset {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  @include breakpoint( md ) {
+    .views-reset-button,
+    .views-submit-button {
+      width: auto;
+      #edit-submit-scheme-overview-filtered,
+      #edit-reset {
+        width: auto;
+      }
+    }
+  }
+}
 
 .page-schemes .region-search.hidden {
   overflow: visible;
