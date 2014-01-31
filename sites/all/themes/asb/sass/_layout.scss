@@ -58,6 +58,16 @@ $zen-auto-include-item-base: false;
   }
 }
 
+.page-schemes #main {
+  .region-search {
+    padding-top: 1em;
+  }
+  top: -8px;
+  #content {
+    padding-top: 2em;
+  }
+}
+
 .front #main { 
   @include breakpoint( md ){
     position: relative;

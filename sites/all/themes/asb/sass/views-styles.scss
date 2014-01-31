@@ -94,10 +94,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-// filter out so we dont add the wrong borders to 'related schemes'
-#content {
-}
-
 #footer {
   position: relative;
   z-index:11;
@@ -111,34 +107,35 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 }
 
 #main .scheme-collection {
-
+  
+  .view-content { @include clearfix; }
+  
   .views-row {
 
     @include zen-float();
- 
+    @include zen-grid-flow-item( 4, 8 );
+
   }
 
   @include breakpoint( sm, max-size ) {
-    max-width: $screen-sm;
     margin-left: 0; 
     margin-right: 0; 
     padding-left: 2em;
     padding-right: 2em;
   }
 
-  @include breakpoint( sm) {
+  @include breakpoint( sm ) {
+    margin: 0 auto;
+  }
+
+  @include breakpoint( md, max-size ) {
     .views-row {
-      @include zen-grid-flow-item( 4, 8 );
       &:nth-child(2n+2),
       &:last-child {
         border: none;
         margin-right: 0;
       }
     }
-  }
-
-  @include breakpoint( md, max-size ) {
-    min-width: 600px;
     margin-left: 0; 
     margin-right: 0; 
     padding-left: 2em;
@@ -146,15 +143,18 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
   @include breakpoint( md ) {
+    min-width: $screen-sm;
+    margin: 0 auto;
     .views-row {
       @include zen-grid-flow-item( 2, 8 );
+      border-right: {
+        @include standard-border($rules-color, 1px);
+      }
       &:nth-child(4n+4),
       &:last-child {
         border: none;
+        padding:0;
         margin-right: 0;
-      }
-      border-right: {
-        @include standard-border($rules-color, 1px);
       }
       #scheme-images img {
         width: 100%;
@@ -164,13 +164,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   }
 
+  .views-row {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0 0 2em 0;
+    box-sizing: border-box;
+  }
 
 }
 
 #main .related-schemes .scheme-collection {
   padding: 1em;
-  .views-row {
-    @include zen-grid-flow-item( 2, 6 );    
+  @include breakpoint(md){
+    .views-row {
+      @include zen-grid-flow-item( 2, 6 );    
+    }    
   }
 }
 
@@ -296,8 +304,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   div.field-item {
     img {
       width: 100%;
-        max-width: 240px;
-        height: 123px;
+      height: auto;
     }
   }
 

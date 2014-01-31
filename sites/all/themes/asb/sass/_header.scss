@@ -41,12 +41,16 @@
   #navigation {
     position: relative;
     width: 100%;
-    background: $gray-dark;
+    background: $backdrop;
     .region-header {
       margin: 0 auto;
     }
+    .block-asb-scheme,
     .block-menu-block {
       vertical-align: top;
+      display: inline-block;
+    }
+    .block-menu-block {
       ul.menu {
         margin-top: 0 !important;
       }
@@ -73,6 +77,7 @@
     .username,
     .logout { line-height: 2; }
     .block-asb-scheme {
+      padding-left: 1em;
       .asb-scheme-user-message>div {
         vertical-align: top;
       }
@@ -86,22 +91,14 @@
         display: inline-block;
         margin: 0 auto;
       }
-      ul.menu {
-        padding: 0;
-      }
     }
   }
 
   @include breakpoint( sm ){
-    .region-header {
-      // max-width: $screen-sm;
-    }
+
     .block-asb-scheme,
     .block-menu-block {
       display: inline-block;
-    }
-    .block-asb-scheme {
-      padding-left: 1em;
     }
   }
   @include breakpoint( md ){
@@ -165,7 +162,6 @@
     #what-is-an-action-switchboard {
       margin: 0 auto;
       box-sizing: border-box;
-      // background-color: $accent;
       padding: .5em 0 .75em 0;
     }
     @include breakpoint(md){
@@ -211,9 +207,6 @@
 
 .not-front {
   #header {
-    #navigation {
-      top: -8px;
-    }
     @include breakpoint(md) {
       height: 81px;
       #navigation {
@@ -255,17 +248,20 @@
   }
 }
 
-.not-logged-in {
-  #navigation {
-    @include breakpoint(sm, max-width ){
-      border: 1px #f00 solid;
-      .block-menu-block,
-      .block-asb-scheme {
-        display: inline-block !important;
-      }
-    }
-  }
-}
+// .not-logged-in {
+//   #navigation {
+//     @include breakpoint(sm, max-width ){
+//       .block-menu-block,
+//       .block-asb-scheme {
+//         // display: inline-block !important;
+//         li {
+//           border-right: 1px $text-color solid;
+//           padding: 1em 1em 2em 1em;
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 #header {
@@ -282,7 +278,6 @@
     }
     #block-asb-scheme-user-message,
     #block-system-user-menu {
-      // vertical-align: bottom;
       padding: 1em;
     }
   }

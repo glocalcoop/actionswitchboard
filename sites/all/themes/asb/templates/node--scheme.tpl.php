@@ -173,18 +173,20 @@ global $user;
         }
         print '</div>';
       ?>
-      <section class="related-schemes">
-        <h2 class="block__title block-title related-title">Related Schemes</h2>
-        <?php if(isset($node->field_issues_goals['und'][0]['target_id'])): ?>
-          <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
-        <?php endif; ?>
-      </section>
-
       <?php print render($content['links']); ?>
 
-      <div class="comments-wrapper">
-        <?php print render($content['comments']); ?>
-      </div>
+        <section class="related-schemes">
+          <h2 class="block__title block-title related-title">Related Schemes</h2>
+          <?php if(isset($node->field_issues_goals['und'][0]['target_id'])): ?>
+            <?php print views_embed_view('scheme_overview_filtered','block_6', $node->field_issues_goals['und'][0]['target_id']); ?>
+          <?php endif; ?>
+        </section>
+
+
+        <div class="comments-wrapper">
+          <?php print render($content['comments']); ?>
+        </div>
+
 
     </section>
     <?php if($sidebar_second): ?>
@@ -195,5 +197,6 @@ global $user;
         ?>
       </aside><!-- /.sidebars -->
       <?php endif; ?>
+
   </div>
 </article><!-- /.node -->
