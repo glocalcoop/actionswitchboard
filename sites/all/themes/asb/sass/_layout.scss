@@ -207,6 +207,7 @@ aside.scheme-meta {
 /* ------------------------ */
 @include breakpoint(md){
   #header .content,
+  .section-dashboard .page-main-content,
   #content article>header .wrapper,
   #content article>.wrapper,
   #content>header .page-wrapper,

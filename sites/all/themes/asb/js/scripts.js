@@ -34,7 +34,7 @@
   asb.highlight_new_messages = function() {
     $( ".section-dashboard tr, .section-messages tr" ).each( function(){
       var tr = $(this);
-      if( $('mark.new', tr ) ) tr.addClass('new');
+      if( tr.find('mark.new'). ) $(this).addClass('new');
     });
   }
 
