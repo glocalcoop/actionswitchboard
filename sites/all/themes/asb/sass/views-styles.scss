@@ -153,7 +153,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       &:nth-child(4n+4),
       &:last-child {
         border: none;
-        padding:0;
         margin-right: 0;
       }
       #scheme-images img {
@@ -165,7 +164,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
   .views-row {
-    padding-left: 1em;
+    padding-left: 1em !important;
     padding-right: 1em;
     margin: 0 0 2em 0;
     box-sizing: border-box;
@@ -400,7 +399,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             background-image: $previous-image;
           }
           &.pager-next {
-            // right: 0;
             padding-right: 2em;
             background-image: $next-image;
             background-position: right top;
