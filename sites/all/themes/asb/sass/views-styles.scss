@@ -188,7 +188,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
     // Row of Schemes
     .views-row {
-      min-height: 398px;
       padding: 0 10px;
       margin: 1em 0 1.5em 0;
       .scheme-progress {
@@ -218,6 +217,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   .scheme-header {
     min-height: 6em;
+    .scheme-leader:before { line-height: inherit; }
   }
 
   .scheme-info {
@@ -241,7 +241,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
     // Completed Schemes
     &.completed-scheme {
-      margin-top: 3.675em;
+      margin-top: 1em;
       .field-issues-goals {
           text-transform: uppercase;
       }

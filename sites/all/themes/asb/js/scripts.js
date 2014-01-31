@@ -106,7 +106,7 @@
       if( $(this).text() ) $clamp( this, { clamp: 2 } ); 
     });
     // truncate descriptions after 6 lines with …
-    $(".scheme-collection .scheme-description .field-body").each( function(){
+    $(".scheme-collection .scheme-description .field-body p").each( function(){
       // console.log( "asb.scheme_overviews_clamp_descriptions", this );
       if( $(this).text() ) $clamp( this, { clamp: 6 } ); 
     });
