@@ -17,19 +17,6 @@ html, p {
   @include body-text;
 }
 
-// #asb-scheme-user-message {
-
-//   vertical-align: top;
-
-//   a.register-link,
-//   a.login-link {
-//     font-size: 15px;
-//     display: inline-block;
-//     padding: 0;
-//   }
-
-// }
-
 .state {
   @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
 }
@@ -82,7 +69,6 @@ div.messages {
         width: 95%;
       }
       .chosen-container {
-  //    .chosen-single 
         display: block !important;
         width: 100% !important;
       }
