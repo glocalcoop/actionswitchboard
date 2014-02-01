@@ -61,6 +61,8 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 /*  .scheme-collection    */
 /* ---------------------- */
 
+
+
 #content .scheme-collection {
   padding-bottom: 10px;
   font-size: $base-font-size + 1px;
@@ -74,6 +76,8 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   &:nth-child(odd) {
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
+
+
   p {
     font-size: $base-font-size + 1px;
   }
@@ -94,7 +98,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-.node-type-scheme #main .scheme-collection {
+// last scheme collection has border that blends into the footer
+// filtered by children of .main-content or #content
+#content .main-content>.scheme-collection,
+#content>.scheme-collection {
+  &:last-child:nth-child(even) {
+    @include zigzag-border ($even-backdrop, $backdrop);
+  }
+
+  &:last-child:nth-child(odd) {
+    @include zigzag-border ($odd-backdrop, $backdrop);
+  }
+}
+
+// related schemes
+.node-type-scheme #main .scheme-collection:last-child {
   @include zigzag-border ($even-backdrop, $odd-backdrop);
   padding-top: 1em;
   padding-bottom: 1em;
