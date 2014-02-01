@@ -58,8 +58,7 @@ div.messages {
 // .region-search
 //
 
-
-#edit-keys-wrapper {
+.region-search .views-widget-filter-keys{
   float: none;
   @include font-icon-base( $family:"entypo", $font-size: 2em, $margin: 0em, $width: 1em);
   @extend %entypo-search;
@@ -82,7 +81,7 @@ div.messages {
   }
 }
 
-.front #edit-keys-wrapper {
+.front .region-search .views-widget-filter-keys {
   @include breakpoint( md ){
     width: 50%;
     margin-left: 50%;

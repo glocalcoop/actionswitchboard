@@ -225,8 +225,7 @@ aside.scheme-meta {
 #add_page_scroll_wrapper {
   
   #load_more_schemes_button,
-  .views-widget-filter-field_issues_goals_target_id,
-  #edit-keys-wrapper {
+  .views-widget-filter-field_issues_goals_target_id {
     float: left;
   }
   
@@ -239,10 +238,10 @@ aside.scheme-meta {
       @include zen-grid-flow-item( 4 ); 
     }
 
-    #edit-keys-wrapper {
-      @include zen-grid-flow-item( 2 );            
-      padding-left: 1em;
-    }
+    // #edit-keys-wrapper {
+    //   @include zen-grid-flow-item( 2 );            
+    //   padding-left: 1em;
+    // }
 
   }
 

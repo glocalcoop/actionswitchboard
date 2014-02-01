@@ -33,8 +33,8 @@
 
   }
   asb.enhance_search = function(){
-    $("#edit-keys-wrapper label").css("display","none");
-    $("#edit-keys-wrapper input").attr("placeholder","Search for a specific scheme");
+    $(".region-search .views-widget-filter-keys label").css("display","none");
+    $(".region-search .views-widget-filter-keys input").attr("placeholder","Search for a specific scheme");
   }
 
   asb.highlight_new_messages = function() {
