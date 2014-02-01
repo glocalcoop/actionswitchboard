@@ -57,7 +57,40 @@ div.messages {
 // Search filters region
 // .region-search
 //
+
+
+#edit-keys-wrapper {
+  float: none;
+  @include font-icon-base( $family:"entypo", $font-size: 2em, $margin: 0em, $width: 1em);
+  @extend %entypo-search;
+  &:before {
+    position: absolute;
+    z-index: 10;
+    padding-left: .25em;
+    // width: 48px;
+    content: "\1F50D";
+  }
+
+  input {    
+    background-color: $search-input;
+    border: none;
+    font-size: .875em;
+    border-radius: 1em;
+    width: 450px;
+    padding-left: 2em;
+    position: relative;
+  }
+}
+
+.front #edit-keys-wrapper {
+  @include breakpoint( md ){
+    width: 50%;
+    margin-left: 50%;
+  }    
+}
+
 .region-search {
+  padding-top: 1em;
   @include breakpoint( md, max-width ){
 
     .views-exposed-form .views-exposed-widget {
@@ -68,6 +101,7 @@ div.messages {
       input {
         width: 95%;
       }
+
       .chosen-container {
         display: block !important;
         width: 100% !important;
@@ -87,6 +121,8 @@ div.messages {
     }
   }
   @include breakpoint( md ) {
+
+
     .views-reset-button,
     .views-submit-button {
       width: auto;
@@ -105,11 +141,11 @@ div.messages {
 .region-search {
   overflow: visible;
   background: $panel;
-  padding: 1em 0 2em 0;
+  // padding: 1em 0 2em 0;
   @include transition-property(padding,max-height);
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
-  @include zigzag-border($panel, $even-backdrop);
+  @include zigzag-border( $panel, $even-backdrop );
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -135,11 +171,11 @@ div.messages {
 .page-user.logged-in,
 .not-front.page-node {
   .region-search {
-    background-color: $panel;
-    background-image: none;
-    border-bottom: {
-        @include standard-border;
-      }
+    // background-color: $panel;
+    // background-image: none;
+    // border-bottom: {
+    //     @include standard-border;
+    //   }
   }
 }
 
@@ -162,13 +198,11 @@ div.messages {
 }
 
 #content>article {
-
   &>header {
     background-color: $panel;
     padding: 1em 0 1em 0;
     .wrapper {
       min-height: 7em;
-      // height: 7em;
     }
     #page-title {
       padding: 0;
@@ -179,9 +213,7 @@ div.messages {
         @include standard-border($style: dashed, $width: 1px);
       }
     }
-
   }
-
 }
 
 .node-type-scheme,
@@ -207,6 +239,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .scheme-collection {
   h2.block-title {
+    box-sizing: border-box !important;
     margin-top: 15px;
     padding-left: 50px;
     margin-bottom: 4px;
@@ -617,9 +650,6 @@ form .form-actions input{
     min-height: 300px;
   }
   #block-quicktabs-notifications { // Notifications
-    // .quicktabs-tabpage {
-    //   width: 100%;
-    // }
     ul.quicktabs-tabs {
       li {
         a {

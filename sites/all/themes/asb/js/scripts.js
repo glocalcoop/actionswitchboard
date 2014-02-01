@@ -22,6 +22,8 @@
         });
 
         asb.search_visibility_toggle( context, settings );
+        asb.enhance_search();
+
         if( $(".page-user-messages") ){
           asb.highlight_new_messages();
         }
@@ -29,6 +31,10 @@
 
     }
 
+  }
+  asb.enhance_search = function(){
+    $("#edit-keys-wrapper label").css("display","none");
+    $("#edit-keys-wrapper input").attr("placeholder","Search for a specific scheme");
   }
 
   asb.highlight_new_messages = function() {
@@ -149,7 +155,6 @@
     });
 
     searchbox_clone.focus( function(e){
-      console.log("focus");
       $(this).keypress(function(e) {
 //        console.log( "Handler for .keypress() called.", e.which );
         if( e.which == 13 ){

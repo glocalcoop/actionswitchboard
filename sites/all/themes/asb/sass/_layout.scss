@@ -33,7 +33,10 @@ $zen-auto-include-item-base: false;
 .front {
   .region-search {
     position: relative;
-    padding: 30px 0 0 0;
+    padding: 1em 0 0 0;
+  }
+  #content {
+    padding-top: 2em;
   }
 }
 
@@ -59,12 +62,12 @@ $zen-auto-include-item-base: false;
 }
 
 .page-schemes #main {
-  .region-search {
-    padding-top: 1em;
-  }
+  // .region-search {
+  //   padding-top: 1em;
+  // }
   top: -8px;
   #content {
-    padding-top: 2em;
+    // padding-top: 2em;
   }
 }
 
@@ -72,7 +75,7 @@ $zen-auto-include-item-base: false;
   @include breakpoint( md ){
     position: relative;
     top: 86px;
-    padding-top: 2em;
+    // padding-top: 2em;
     margin-bottom: 86px;
   }
 }
@@ -123,14 +126,8 @@ aside.scheme-meta {
   $gutter-width: 20px;
   $zen-column-count: 8;
 
-  // #block-views-exp-scheme-search-page {
-  // // .not-front .main-content {
-  //   width: 960px;
-  //   margin: 0 auto;
-  // }
-
- #main .scheme-collection-view .view-content,
- #main .scheme-collection-view .block-title {
+  #main .scheme-collection-view .view-content,
+  #main .scheme-collection-view .block-title {
     box-sizing: border-box;
     max-width: 960px;
     margin: 0 auto;
@@ -143,11 +140,6 @@ aside.scheme-meta {
     margin-right: 0;
   }
   
-  // #block-views-exp-scheme-search-page .scheme-collection .view-content,
-  // .not-front .main-content {
-  //   width: 960px;
-  //   margin: 0 auto;
-  // }
   // @todo ask ross/pea what is .sidebar-second section.page-content?
   .sidebar-second section.page-content,
   article .wrapper>section.content {
@@ -175,9 +167,10 @@ aside.scheme-meta {
 }
 
 /* ------------------------ */
-/* Footer content:       */
+/* Footer content:          */
 /* ------------------------ */
 #footer {
+
   background: $backdrop; 
 
   #block-views-inspiration-footer-block {
@@ -186,7 +179,6 @@ aside.scheme-meta {
       float: left;
     }
   }
-
   @include breakpoint( md ){
     #block-views-inspiration-footer-block {
       li {
