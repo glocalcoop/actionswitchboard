@@ -59,14 +59,15 @@ div.messages {
 //
 
 .region-search .views-widget-filter-keys{
+
   float: none;
+
   @include font-icon-base( $family:"entypo", $font-size: 2em, $margin: 0em, $width: 1em);
   @extend %entypo-search;
   &:before {
     position: absolute;
     z-index: 10;
     padding-left: .25em;
-    // width: 48px;
     content: "\1F50D";
   }
 
@@ -88,28 +89,42 @@ div.messages {
   }    
 }
 
+.chosen-container {
+  display: block !important;
+  width: 100% !important;
+  border: none;
+}
+
+.chosen-container-single .chosen-single {
+  border-radius: .25em !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  background-image: none !important;
+  background-color: #dde4cc !important;
+}
+
 .region-search {
-  padding-top: 1em;
+
+  @include clearfix;
   @include breakpoint( md, max-width ){
+
+  // padding: 2em 0 2em 0 !important;
 
     .views-exposed-form .views-exposed-widget {
       margin-top: .25em;
-      box-sizing: border-box;
+      @include box-sizing( border-box );
       padding: 0 1em !important;
       float: none !important;
       input {
         width: 95%;
       }
 
-      .chosen-container {
-        display: block !important;
-        width: 100% !important;
-      }
     }
     .views-reset-button,
     .views-submit-button {
       width: 100%;
-      box-sizing: border-box;
+      @include box-sizing( border-box );
       // override views.css
       padding: 0 1em !important;
       #edit-submit-scheme-overview-filtered,
@@ -120,8 +135,6 @@ div.messages {
     }
   }
   @include breakpoint( md ) {
-
-
     .views-reset-button,
     .views-submit-button {
       width: auto;
@@ -138,13 +151,24 @@ div.messages {
 }
 
 .region-search {
-  overflow: visible;
-  background: $panel;
-  // padding: 1em 0 2em 0;
+//  background-color: $panel;
+}
+.region-search,
+.schemes .region-search {
+  background-color: none;
+  @include zigzag-border ($panel, $odd-backdrop);
+}
+.region-search {
+  background-image: none;
+}
+
+.region-search {
   @include transition-property(padding,max-height);
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
-  @include zigzag-border( $panel, $even-backdrop );
+  padding: 1em 0 2em 0;
+  overflow: visible;  
+  max-height: auto;
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -152,7 +176,6 @@ div.messages {
     @include transition-duration( .35s );
     @include transition-timing-function(ease-in-out);    
   }
-  max-height: auto;
   &.atrest {
     @include transition-duration(0);  
   }
@@ -166,18 +189,6 @@ div.messages {
     }
   }
 }
-
-.page-user.logged-in,
-.not-front.page-node {
-  .region-search {
-    // background-color: $panel;
-    // background-image: none;
-    // border-bottom: {
-    //     @include standard-border;
-    //   }
-  }
-}
-
 
 #content {
   header.page-header {
@@ -238,7 +249,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .scheme-collection {
   h2.block-title {
-    box-sizing: border-box !important;
+    @include box-sizing( border-box );
     margin-top: 15px;
     padding-left: 50px;
     margin-bottom: 4px;

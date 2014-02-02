@@ -175,7 +175,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     padding-left: 1em !important;
     padding-right: 1em;
     margin: 0 0 2em 0;
-    box-sizing: border-box;
+    @include box-sizing( border-box );
   }
 
 }
@@ -393,7 +393,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       ul.pager {
         li {
           margin-bottom: 1em;
-          box-sizing: border-box;
+          @include box-sizing( border-box );
           display: inline-block;
           float: left;
           &.pager-previous,
@@ -401,7 +401,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             padding: .25em .5;
             font-size: 1.25em;
             background-repeat: no-repeat;
-            box-sizing: border-box;
+            @include box-sizing( border-box );
           }
           &.pager-previous {
             padding-left: 2em;

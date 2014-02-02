@@ -33,7 +33,6 @@ $zen-auto-include-item-base: false;
 .front {
   .region-search {
     position: relative;
-    padding: 1em 0 0 0;
   }
   #content {
     padding-top: 2em;
@@ -62,21 +61,14 @@ $zen-auto-include-item-base: false;
 }
 
 .page-schemes #main {
-  // .region-search {
-  //   padding-top: 1em;
-  // }
   top: -8px;
   margin-bottom:-8px;
-  #content {
-    // padding-top: 2em;
-  }
 }
 
 .front #main { 
   @include breakpoint( md ){
     position: relative;
     top: 86px;
-    // padding-top: 2em;
     margin-bottom: 86px;
   }
 }
@@ -129,7 +121,7 @@ aside.scheme-meta {
 
   #main .scheme-collection-view .view-content,
   #main .scheme-collection-view .block-title {
-    box-sizing: border-box;
+    @include box-sizing( border-box );
     max-width: 960px;
     margin: 0 auto;
   }
@@ -238,11 +230,6 @@ aside.scheme-meta {
     #load_more_schemes_button {
       @include zen-grid-flow-item( 4 ); 
     }
-
-    // #edit-keys-wrapper {
-    //   @include zen-grid-flow-item( 2 );            
-    //   padding-left: 1em;
-    // }
 
   }
 

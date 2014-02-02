@@ -35,6 +35,7 @@
   asb.enhance_search = function(){
     $(".region-search .views-widget-filter-keys label").css("display","none");
     $(".region-search .views-widget-filter-keys input").attr("placeholder","Search for a specific scheme");
+    $(".region-search label" ).css('display','none');
   }
 
   asb.highlight_new_messages = function() {
