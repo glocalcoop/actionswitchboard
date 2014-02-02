@@ -92,6 +92,7 @@ global $user;
 
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  node--scheme.tpl.php
   <header>
     <div class="wrapper clearfix">
       <section class="content">
@@ -109,10 +110,6 @@ global $user;
             <?php print $edit_me; ?>
           <?php endif; ?>
         </section>
-        <?php if ($title): ?>
-          <h1 class="title" id="page-title"><?php print $title; ?></h1>
-        <?php endif; ?>
-        <?php print render($title_suffix); ?>
         <section class="methods">
           <ul id="ui-button">
             <?php $account = user_load($user->uid); ?>
@@ -123,6 +120,10 @@ global $user;
               <li class="ui-button"><a href="/user/login">Login To Join Group</a></li>
             <?php endif; ?>
         </section>
+        <?php if ($title): ?>
+          <h1 class="title" id="page-title"><?php print $title; ?></h1>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
         <?php if ($action_links): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>

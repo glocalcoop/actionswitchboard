@@ -61,8 +61,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 /*  .scheme-collection    */
 /* ---------------------- */
 
-
-
 #content .scheme-collection {
   padding-bottom: 10px;
   font-size: $base-font-size + 1px;
@@ -76,7 +74,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   &:nth-child(odd) {
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
-
 
   p {
     font-size: $base-font-size + 1px;
@@ -109,13 +106,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   &:last-child:nth-child(odd) {
     @include zigzag-border ($odd-backdrop, $backdrop);
   }
-}
-
-// related schemes
-.node-type-scheme #main .scheme-collection:last-child {
-  @include zigzag-border ($even-backdrop, $odd-backdrop);
-  padding-top: 1em;
-  padding-bottom: 1em;
 }
 
 #main .scheme-collection {
@@ -178,15 +168,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include box-sizing( border-box );
   }
 
-}
-
-#main .related-schemes .scheme-collection {
-  padding: 1em;
-  @include breakpoint(md){
-    .views-row {
-      @include zen-grid-flow-item( 2, 6 );    
-    }    
-  }
 }
 
 #main .scheme-collection {
@@ -418,6 +399,33 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
 } /* /.#main .scheme-collection */
+
+
+// Scheme Collections not on home page
+
+.not-front {
+  #content {
+    .scheme-collection {
+      @include breakpoint(md){
+        padding: 0;
+      }
+      background: transparent;
+      border: none;
+    }
+    .related-schemes {
+      .scheme-collection {
+        @include zen-grid-container;
+        .views-row {
+          @include zen-float();
+          @include zen-grid-flow-item( 2, 6 );
+        }
+      }
+
+    }
+  }
+}
+
+
 
 
 .section-schemes header.page-header {

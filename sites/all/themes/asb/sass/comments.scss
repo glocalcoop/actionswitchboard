@@ -9,10 +9,6 @@
 div#comments{
   margin: 1.5em 0;
 
-  h2.title { /* Heading for the list of comments */
-    display: none;
-  }
-
   .comment { /* Wrapper for a single comment */
     position: relative;
     @include zen-clear;
@@ -140,12 +136,32 @@ div#comments{
 }
 
 .not-logged-in {
-  div#comments {
-    h2.title  {
-      display: inherit;
+  #comments {
+    h2.title.comment-form {
+      display: none;
+    }    
+  }
+
+}
+
+.logged-in {
+  #comments {
+    h2.title {
+      display: none;
     }
-  }    
-}  
+    h2.title.comment-form {
+      display: inherit;
+    }  
+  }
+}
+
+// .not-logged-in {
+//   div#comments {
+//     h2.title  {
+//       display: inherit;
+//     }
+//   }    
+// }  
 
 .indented { /* Nested comments are indented */
   margin-left: $indent-amount; /* Drupal core uses a 25px left margin */
