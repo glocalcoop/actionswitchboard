@@ -155,14 +155,6 @@ div#comments{
   }
 }
 
-// .not-logged-in {
-//   div#comments {
-//     h2.title  {
-//       display: inherit;
-//     }
-//   }    
-// }  
-
 .indented { /* Nested comments are indented */
   margin-left: $indent-amount; /* Drupal core uses a 25px left margin */
 }

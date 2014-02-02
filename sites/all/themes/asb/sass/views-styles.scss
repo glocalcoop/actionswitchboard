@@ -61,6 +61,8 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 /*  .scheme-collection    */
 /* ---------------------- */
 
+
+
 #content .scheme-collection {
   padding-bottom: 10px;
   font-size: $base-font-size + 1px;
@@ -74,6 +76,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   &:nth-child(odd) {
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
+
 
   p {
     font-size: $base-font-size + 1px;
@@ -162,13 +165,36 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
   .views-row {
-    padding-left: 1em !important;
+    padding-left: 1em;
     padding-right: 1em;
     margin: 0 0 2em 0;
     @include box-sizing( border-box );
   }
-
 }
+
+
+
+.node-type-scheme #main .scheme-collection {
+  @include breakpoint(md){
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: transparent;
+    .views-row {
+      @include zen-grid-flow-item( 2, 6 );
+      &:first-child {
+        padding-left: 0;
+      }
+      &:nth-child(3) {
+        padding-right: 0;
+      }
+    }    
+  }
+}
+
+// // related schemes
+// .node-type-scheme #main .scheme-collection {
+//   // @include zigzag-border ($even-backdrop, $odd-backdrop);
+// }
 
 #main .scheme-collection {
 
@@ -310,7 +336,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   position: relative;
 
-
   .item-list {
 
     position: relative;
@@ -401,32 +426,11 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 } /* /.#main .scheme-collection */
 
 
-// Scheme Collections not on home page
-
 .not-front {
-  #content {
-    .scheme-collection {
-      @include breakpoint(md){
-        padding: 0;
-      }
-      background: transparent;
-      border: none;
-    }
-    .related-schemes {
-      .scheme-collection {
-        @include zen-grid-container;
-        .views-row {
-          @include zen-float();
-          @include zen-grid-flow-item( 2, 6 );
-        }
-      }
-
-    }
+  .scheme-collection {
+    background: transparent;
   }
 }
-
-
-
 
 .section-schemes header.page-header {
   display: none;
