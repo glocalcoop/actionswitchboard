@@ -95,20 +95,23 @@ div.messages {
     margin-left: 50%;
   }    
 }
+.region-search {
 
-.chosen-container {
-  display: block !important;
-  width: 100% !important;
-  border: none;
-}
+  .chosen-container {
+    display: block !important;
+    width: 100% !important;
+    border: none;
+  }
 
-.chosen-container-single .chosen-single {
-  border-radius: .25em !important;
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
-  background-image: none !important;
-  background-color: #dde4cc !important;
+  .chosen-container-single .chosen-single {
+    border-radius: .25em !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: #dde4cc !important;
+  }
+
 }
 
 .region-search {
@@ -182,7 +185,6 @@ div.messages {
     @include transition-duration( .35s );
     @include transition-timing-function(ease-in-out);    
   }
-  max-height: auto;
   &.atrest {
     @include transition-duration(0);  
   }
