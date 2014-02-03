@@ -729,9 +729,69 @@ form .form-actions input{
 // ////////////////////////////
 
 .page-user {
-  .user-profile {
-    header.user-profile-header {
+  #user-content {
+    @include zen-grid-container;
+    padding: 10px 10px 0 10px;
+    aside.user-details {
+      @include zen-grid-item(2, 1);
 
+      .user-picture {
+        img {
+          width: 100%;
+          height: auto;
+          }
+        }
+      ul.user-contact {
+        list-style: none;
+        li {
+          a {
+            text-align: center;
+            @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
+            &.facebook {
+              @extend %entypo-social-facebook;
+              span {
+                display: none;
+              }
+            }
+            &.twitter {
+              @extend %entypo-social-twitter;
+              span {
+                display: none;
+              }
+            }
+            &.linkedin {
+              @extend %entypo-social-linkedin;
+              span {
+                display: none;
+              }
+            }
+            margin-right: .25em;
+            &.user-contact { 
+              span {
+                vertical-align: top;
+              }
+              @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center );
+              @extend %entypo-mail; 
+            }
+            padding: 0 .5em;
+          }
+        }
+      }  
+
+    }
+    div.user-bio {
+      @include zen-grid-item(6, 3);
+      padding-left: 20px;
+
+      h2{
+        margin-top: 0;
+      }
+    }
+  }
+
+  .user-profile {
+
+    header.user-profile-header {
       section.content {}
       aside {
         &.user-meta {
@@ -764,74 +824,38 @@ form .form-actions input{
             }
           }
         }
-
-      }
-    }
-    section.main-content {
-
-      aside.user-details {
-        @include zen-float(left);
-        width: 214px;
-        .user-picture {
-          img {
-            width: 100%;
-            height: auto;
-            }
-          }
-        ul.user-contact {
-          list-style: none;
-          li {
-            a {
-              text-align: center;
-              @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
-              &.facebook {
-                @extend %entypo-social-facebook;
-                span {
-                  display: none;
-                }
-              }
-              &.twitter {
-                @extend %entypo-social-twitter;
-                span {
-                  display: none;
-                }
-              }
-              &.linkedin {
-                @extend %entypo-social-linkedin;
-                span {
-                  display: none;
-                }
-              }
-              margin-right: .25em;
-              &.user-contact { 
-                span {
-                  vertical-align: top;
-                }
-                @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center  );
-                @extend %entypo-mail; 
-              }
-              padding: 0 .5em;
-            }
-          }
-        }  
-      }
-      div.user-bio {
-        @include zen-float(right);
-        width: 726px;
-        padding-left: 20px;
       }
     }
   }
-}
-
-#content {
-  .user-details {}
-  .block-views {
-    h2.block-title {
-      @include box-sizing( border-box );
-      max-width: 960px;
-      margin: 0 auto;       
+  #content {
+    .block-views {
+      @include zen-clear;
+      h2.block-title {
+        @include box-sizing( border-box );
+        max-width: 960px;
+        margin: 0 auto; 
+        padding: 10px 10px 0 10px;      
+      }
     }
+    .block-views.even {
+      margin-top: 25px;
+      background: $even-backdrop;
+      .scheme-collection-view {
+        @include zen-clear;
+        background: $even-backdrop;
+        @include zigzag-border ($even-backdrop, $odd-backdrop);
+      }
+    }
+    .scheme-collection:nth-child(2n+1) {
+      border: none;
+    }
+    .block-views {
+      .scheme-collection {
+        border: none;
+      }
+    }
+  }
+  .block-views:first-child {
   }
 }
 
@@ -992,8 +1016,6 @@ form .form-actions input{
       }
     }
   }
-  #block-quicktabs-notifications .notifications-wrap h2.block-title {
-  }
 }
 
 // ///////////////////////
@@ -1069,8 +1091,88 @@ form .form-actions input{
 }
 
 // ////////////////////////////
+// Footer
+// ////////////////////////////
+
+
+#footer {
+
+  section.content {
+    padding-top: 10px;
+
+    td,
+    li {
+      color: $nav-title-color;
+    }
+
+    tr {
+      background: transparent;
+    }
+
+    h2.block-title {
+      color: lighten($text-color, 20%);
+      padding-top: 0;
+      padding-bottom: 10px;
+      border-top: none;
+    }
+
+    ul {
+      @include no-bullets;
+      padding: 0;
+      margin: 0;
+    }
+
+    .block-views {
+      padding-top: 0;
+    }
+
+    #block-views-goals-and-schemes-block {
+      a {
+        color: $nav-title-color;
+      }
+      td {
+        border-bottom: {
+          @include standard-border($color: $text-color);
+        }
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+    }
+    #block-views-inspiration-footer-block {
+      @include zen-nested-container;
+      a {
+        color: $accent;
+      }
+      li:first-child {
+        @include zen-grid-item(1, 1);
+      }
+      li:nth-child(2) {
+        @include zen-grid-item(1, 2);
+      }
+      li:last-child {
+        @include zen-grid-item(1, 3);
+      }
+    }
+    #block-menu-menu-as {
+      h2 {
+        color: $nav-title-color;
+      }
+      li {
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+      a {
+        color: $accent;
+      }
+      text-transform: uppercase;
+    }
+  }
+}
+
+// ////////////////////////////
 // Documents
-// 
+// ////////////////////////////
 
 .node-type-document {
   .field-body {
@@ -1117,6 +1219,81 @@ form .form-actions input{
     }
     .book_printer a {
       @extend %entypo-print;
+    }
+
+  }
+}
+
+
+// ////////////////////////////
+// Scheme Member Management
+// ////////////////////////////
+
+.page-group-node {
+  #content {
+    .view-header {
+      h3 {
+        @include header-style;
+        line-height: 1.2em;
+        margin: 0;
+        padding-top: 10px;
+      }
+      ul {
+        width: 40%;
+        @include no-bullets;
+        margin: 0;
+        padding: 0;
+        li {
+          @include body-text ($size: $base-font-size + 2, $line-height: 1.9em);
+          border-bottom: {
+            @include standard-border;
+          }
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+    .view-filters { // This filter is confusing, so hiding. Unhide if this causes functional problems
+      display: none;
+    }
+    .view-content {
+      margin-top: 25px;
+      // padding-top: 15px;
+      // border-top: {
+      //   @include standard-border;
+      // }    
+      .fieldset-legend {
+        display: none;
+      }
+      legend:before {
+        content: 'Manage Members';
+        @include header-style ($size: $h2-font-size - 6);
+
+      }
+      dl.admin-list {
+        dt {
+          margin-top: 10px;
+          border-top: {
+            @include standard-border;
+          }
+          @include header-style($size: $h2-font-size - 4);
+          line-height: 1.5em;
+          a {
+            color: $text-color-prominent;
+          }
+          &:first-child {
+            border: none;
+            margin-top: 0;
+          }
+        }
+        dd {
+          margin-left: 0;
+        }
+      }
+      table {
+        margin-top: 10px;
+      }
     }
 
   }

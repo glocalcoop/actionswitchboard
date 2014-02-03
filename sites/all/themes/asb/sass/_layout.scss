@@ -167,14 +167,25 @@ aside.scheme-meta {
 /* ------------------------ */
 #footer {
 
-  background: $backdrop; 
+  background: $backdrop;
+  padding-bottom: 5em;
 
-  #block-views-inspiration-footer-block {
-    .footer-image-wrap {
-      display: block;
-      float: left;
+  section.content {
+    @include zen-grid-container;
+    #block-views-goals-and-schemes-block {
+      @include zen-grid-item( 3, 1 );
+      table {
+        width: 95%;
+      }
+    }
+    #block-views-inspiration-footer-block {
+      @include zen-grid-item( 3, 4 );
+    }
+    #block-menu-menu-as {
+      @include zen-grid-item( 2, 7 );
     }
   }
+
   @include breakpoint( md ){
     #block-views-inspiration-footer-block {
       li {
