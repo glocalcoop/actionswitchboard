@@ -35,6 +35,10 @@ html, p {
   margin-bottom: 0;
 }
 
+span.screen-reader-text {
+  display: none;
+}
+
 div.messages {
   margin: 0;
   &.error {
@@ -565,6 +569,9 @@ section.content {
         }
         &#scheme-images-next {
           @extend %entypo-circled-right;
+        }
+        &:hover {
+          color: $brand;
         }
       }
     }
