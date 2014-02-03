@@ -17,6 +17,10 @@ html, p {
   @include body-text;
 }
 
+.main-content p {
+  @include body-text ($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+}
+
 .state {
   @include header-style($color: $funds, $family: $font-body, $size: $base-font-size)
 }
@@ -59,15 +63,14 @@ div.messages {
 //
 
 .region-search .views-widget-filter-keys{
-
   float: none;
-
   @include font-icon-base( $family:"entypo", $font-size: 2em, $margin: 0em, $width: 1em);
   @extend %entypo-search;
   &:before {
     position: absolute;
     z-index: 10;
     padding-left: .25em;
+    // width: 48px;
     content: "\1F50D";
   }
 
@@ -89,42 +92,28 @@ div.messages {
   }    
 }
 
-.chosen-container {
-  display: block !important;
-  width: 100% !important;
-  border: none;
-}
-
-.chosen-container-single .chosen-single {
-  border-radius: .25em !important;
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
-  background-image: none !important;
-  background-color: #dde4cc !important;
-}
-
 .region-search {
-
-  @include clearfix;
+  padding-top: 1em;
   @include breakpoint( md, max-width ){
-
-  // padding: 2em 0 2em 0 !important;
 
     .views-exposed-form .views-exposed-widget {
       margin-top: .25em;
-      @include box-sizing( border-box );
+      box-sizing: border-box;
       padding: 0 1em !important;
       float: none !important;
       input {
         width: 95%;
       }
 
+      .chosen-container {
+        display: block !important;
+        width: 100% !important;
+      }
     }
     .views-reset-button,
     .views-submit-button {
       width: 100%;
-      @include box-sizing( border-box );
+      box-sizing: border-box;
       // override views.css
       padding: 0 1em !important;
       #edit-submit-scheme-overview-filtered,
@@ -135,6 +124,8 @@ div.messages {
     }
   }
   @include breakpoint( md ) {
+
+
     .views-reset-button,
     .views-submit-button {
       width: auto;
@@ -151,24 +142,13 @@ div.messages {
 }
 
 .region-search {
-//  background-color: $panel;
-}
-.region-search,
-.schemes .region-search {
-  background-color: none;
-  @include zigzag-border ($panel, $odd-backdrop);
-}
-.region-search {
-  background-image: none;
-}
-
-.region-search {
+  overflow: visible;
+  background: $panel;
+  // padding: 1em 0 2em 0;
   @include transition-property(padding,max-height);
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
-  padding: 1em 0 2em 0;
-  overflow: visible;  
-  max-height: auto;
+  @include zigzag-border( $panel, $even-backdrop );
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -176,6 +156,7 @@ div.messages {
     @include transition-duration( .35s );
     @include transition-timing-function(ease-in-out);    
   }
+  max-height: auto;
   &.atrest {
     @include transition-duration(0);  
   }
@@ -190,57 +171,16 @@ div.messages {
   }
 }
 
-#content {
-  header.page-header {
-    background-color: $panel;
-    padding: 1em 0 1em 0;
-    .wrapper {
-      min-height: 7em;
-      heigh: 7em;
-    }
-    aside {
-      height: 100%;
-      border-left {
-        @include standard-border($style: dashed, $width: 1px);
-      }
-    }
+.page-user.logged-in,
+.not-front.page-node {
+  .region-search {
+    // background-color: $panel;
+    // background-image: none;
+    // border-bottom: {
+    //     @include standard-border;
+    //   }
   }
 }
-
-#content>article {
-  &>header {
-    background-color: $panel;
-    padding: 1em 0 1em 0;
-    .wrapper {
-      min-height: 7em;
-    }
-    #page-title {
-      padding: 0;
-    }
-    aside {
-      height: 100%;
-      border-left: {
-        @include standard-border($style: dashed, $width: 1px);
-      }
-    }
-  }
-}
-
-.node-type-scheme,
-.page-user {
-  #content > article > header .wrapper { // Only Schemes and User Profiles need tall headings
-    min-height: 12em;
-    // height: 12em;
-  }
-}
-
-.page-user-edit {
-  #content > article > header .wrapper {
-    min-height: 7em;
-    height: 7em;
-  }
-}
-
 
 
 $headers: sprite-map("headers/*.png", $position: -4px);
@@ -249,7 +189,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .scheme-collection {
   h2.block-title {
-    @include box-sizing( border-box );
+    box-sizing: border-box !important;
     margin-top: 15px;
     padding-left: 50px;
     margin-bottom: 4px;
@@ -413,110 +353,235 @@ ul.tags {
   @include load-spinner;
 }
 
-// ////////////////////////////
-// User Profile
-// 
 
-.user-profile {
+// //////////////////////
+// Content Headers
+// //////////////////////
 
-  header.user-profile-header {
+#content {
+  &> header,
+  &> article > header {
+    min-height: 75px;
+    padding: 1em 0;
+    background-color: $panel;
 
-    section.content {}
+    section.content,
     aside {
-      &.user-meta {
-        padding-left: 10px;
+      // padding: 1em;
+    }
+    section.content {
+      h6 {
+        padding-top: 0;
+        margin-top:0;
+      }
+    }
+    aside {}
+  }
+}
 
-        section {
-          margin-top: 10px;
-          &:first-child {
-            margin-top: 0;
+// Scheme Detail and User Profile pages have two column content header
+.node-type-scheme,
+.page-user {
+  #content {
+    header {
+      section.content {}
+      aside {
+        border-left: {
+          @include standard-border($style: dashed);
+        }
+        padding-left: 10px;
+      }
+    }
+  }
+} 
+
+// ////////////////////////////
+// Scheme Detail
+// ////////////////////////////
+
+.node-type-scheme {
+  header {
+    section.methods {
+      @include zen-float(right);
+    }
+  }
+
+  h3.field-label {
+    font-size: 1em;
+    margin: 0;
+    padding: 12px 0 0 0;
+    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+  }
+
+  ul.links.inline li.comment_forbidden {
+    display: none;
+  }
+
+  iframe.media-youtube-player {
+    border: 8px solid $rules-color-accent;
+  }
+
+  #content {
+    .related-schemes {
+      h2 {
+      border-top: {
+        @include standard-border;
+      }
+      padding-top: 10px;
+      }
+    }
+  }
+
+  #scheme-content {
+    margin-top: 1.5em;
+    .field-body,
+    .field-private-description {
+      border-top: {
+        @include standard-border;
+      }
+      margin-top: 10px;
+      p {
+        @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 );
+      }
+      h3 {
+        font-size: 1em;
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+      }
+    }
+    .field-private-description:before {
+      margin-top: 1.5em;
+      content: 'Information For Scheme Members Only';
+      display: block;
+      font-size: 1em;
+      @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+    }
+  }
+
+section.content {
+  aside {
+    @include box-sizing(content-box);
+
+    margin: 0 10px;
+    padding: 2.375em 10px;
+
+    .contextual-links-region {
+      background-color: $sidebar-panel-primary;
+      &:nth-child(1),
+      &:nth-child(2) {
+        background-color: $sidebar-panel-secondary;
+      }
+    }
+
+    &.scheme-meta {
+      h6, dt {
+        line-height: $base-line-height;
+      }
+      .created {
+        @include zen-float(left);
+        margin-right: 20px;
+      }
+      .issue {
+        @include zen-float(left);
+        margin: 0;
+      }
+      .goals {
+        @include zen-clear;
+        padding-top: 10px;
+      }
+    }
+
+  }
+  .view-header {
+    .item-list {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 20px 0;
+        li {
+          margin: 0;
+          padding: 0;
+          a {
+            @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+            color: $text-color;
           }
-          h6 {
-            line-height: $base-line-height;
-            margin: 0;
+          &:first-child a {
+            @extend %entypo-comment;
           }
-          div {}
-          ul {
-            @mixin comma-delimited-list {
-              @include inline-list;
-               }
-            }
-            li {
-              &:after {
-                content: ", "; 
-              }
-              &:last-child {
-                &:after {
-                  content: ""; } 
-                }
-              &.last {
-                &:after {
-                  content: ""; 
-                } 
-              } 
-            }
+          &:nth-child(2) a {
+            @extend %entypo-calendar;
+          }
+          &:nth-child(3) a {
+            @extend %entypo-megaphone;
+          }
         }
       }
-
     }
-
   }
 
-  section.main-content {
+}
 
-    aside.user-details {
-      @include zen-float(left);
-      width: 214px;
-      .user-picture {
+  // scheme-collection-view scheme-collection
+
+
+/* ----------------------- */
+/* Slideshow:              */
+/* ----------------------- */
+
+  #outer-carousel-wrapper {
+    width: 100%;
+    position: relative;
+
+    #carousel-wrapper {
+      z-index: -1;
+      max-width: 960px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+
+      .carousel-div {
+        width: 100% !important;
+        text-align: center;
+
+        &:first-child {
+          position: relative !important;
+          display: block !important;
+          height: auto !important;
+        }
+
         img {
-          width: 100%;
-          height: auto;
-          }
+          max-width:100%;
+          min-width: 200px;
         }
-      ul.user-contact {
-        list-style: none;
-        li {
-          a {
-            text-align: center;
-            @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
-            &.facebook {
-              @extend %entypo-social-facebook;
-              span {
-                display: none;
-              }
-            }
-            &.twitter {
-              @extend %entypo-social-twitter;
-              span {
-                display: none;
-              }
-            }
-            &.linkedin {
-              @extend %entypo-social-linkedin;
-              span {
-                display: none;
-              }
-            }
-            margin-right: .25em;
-            &.user-contact { 
-              span {
-                vertical-align: top;
-              }
-              @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center  );
-              @extend %entypo-mail; 
-            }
-            padding: 0 .5em;
-          }
+      }
+    }
+
+    nav#scheme-images-nav {
+      z-index: 1;
+      a {
+        height: 42px;
+        line-height: 42px;
+        font-size: 42px;
+        width: 25px;
+        color: $rules-color;
+        margin-top: -30%;
+
+        &#scheme-images-previous {
+          @include zen-float(left);
+          @include replace-text($previous-image);
         }
-      }  
+        &#scheme-images-next {
+          @include zen-float(right);
+          @include replace-text($next-image);
+        }
+      }
     }
-    div.user-bio {
-      @include zen-float(right);
-      width: 726px;
-      padding-left: 20px;
-    }
+
   }
 
+  div.field-body {
+    @include zen-clear;
+  }
+   
 }
 
 // ////////////////////////////
@@ -604,6 +669,118 @@ form .form-actions input{
 #title-mfe-modal-style {
   top: 100px;
 }
+
+// ////////////////////////////
+// User Profile
+// 
+
+.page-user {
+  .user-profile {
+    header.user-profile-header {
+
+      section.content {}
+      aside {
+        &.user-meta {
+
+          section {
+            margin-top: 10px;
+            &:first-child {
+              margin-top: 0;
+            }
+            h6 {
+              line-height: $base-line-height;
+              margin: 0;
+            }
+
+            ul {
+              li,
+              &.tags a {
+                &:after {
+                  content: ',';
+                  padding-right: 4px;
+                }
+                &:last-child:after {
+                  content: none;
+                  padding-right: none;
+                }
+                &:nth-child(2) {
+                  padding-left: 0;
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+    section.main-content {
+
+      aside.user-details {
+        @include zen-float(left);
+        width: 214px;
+        .user-picture {
+          img {
+            width: 100%;
+            height: auto;
+            }
+          }
+        ul.user-contact {
+          list-style: none;
+          li {
+            a {
+              text-align: center;
+              @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
+              &.facebook {
+                @extend %entypo-social-facebook;
+                span {
+                  display: none;
+                }
+              }
+              &.twitter {
+                @extend %entypo-social-twitter;
+                span {
+                  display: none;
+                }
+              }
+              &.linkedin {
+                @extend %entypo-social-linkedin;
+                span {
+                  display: none;
+                }
+              }
+              margin-right: .25em;
+              &.user-contact { 
+                span {
+                  vertical-align: top;
+                }
+                @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center  );
+                @extend %entypo-mail; 
+              }
+              padding: 0 .5em;
+            }
+          }
+        }  
+      }
+      div.user-bio {
+        @include zen-float(right);
+        width: 726px;
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+#content {
+  .user-details {}
+  .block-views {
+    h2.block-title {
+      @include box-sizing( border-box );
+      max-width: 960px;
+      margin: 0 auto;       
+    }
+  }
+}
+
 
 // ////////////////////////////
 // User Dashboards

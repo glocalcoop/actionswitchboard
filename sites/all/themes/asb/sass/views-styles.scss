@@ -77,7 +77,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include zigzag-border ($odd-backdrop, $even-backdrop);
   }
 
-
   p {
     font-size: $base-font-size + 1px;
   }
@@ -172,11 +171,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-
-
 .node-type-scheme #main .scheme-collection {
   @include breakpoint(md){
-  padding-top: 1em;
+  // padding-top: 1em;
   padding-bottom: 1em;
   background: transparent;
     .views-row {
@@ -190,11 +187,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }    
   }
 }
-
-// // related schemes
-// .node-type-scheme #main .scheme-collection {
-//   // @include zigzag-border ($even-backdrop, $odd-backdrop);
-// }
 
 #main .scheme-collection {
 
@@ -427,8 +419,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
 
 .not-front {
-  .scheme-collection {
-    background: transparent;
+  #content {
+    // .scheme-collection-view {
+    //   background: transparent;
+    // }
   }
 }
 

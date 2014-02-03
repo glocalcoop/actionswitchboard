@@ -135,9 +135,9 @@ $account = menu_get_object('user');
 
 <?php
 
-echo '<pre>';
-var_dump($civi_contact);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($civi_contact);
+// echo '</pre>';
 
 // echo '<pre>';
 // var_dump($account);

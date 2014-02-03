@@ -5,9 +5,25 @@
 
 @import "base";
 
+.comments-wrapper .comment-wrapper {
+
+  &>h2,
+  &>form {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  h2 {
+    border-top: {
+      @include standard-border;
+    }
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+}
+
 
 div#comments{
-  margin: 1.5em 0;
+  margin: 0;
 
   .comment { /* Wrapper for a single comment */
     position: relative;
@@ -30,12 +46,6 @@ div#comments{
       }
     }
 
-    header,
-    .field-comment-body {
-      @include zen-float;
-      // margin-left: 40px;
-    }
-
     header {
       background-color: transparent;
       min-height: inherit;
@@ -48,6 +58,10 @@ div#comments{
           text-transform: uppercase;
           font-size: 75%;
         }
+      }
+      .field-comment-body {
+        @include zen-float;
+        // margin-left: 40px;
       }
 
     }
