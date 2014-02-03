@@ -1247,7 +1247,8 @@ form .form-actions input{
 // Scheme Member Management
 // ////////////////////////////
 
-.page-group-node {
+.page-group-node ,
+.page-node-group {
   #content {
     .view-header {
       h3 {
@@ -1289,34 +1290,35 @@ form .form-actions input{
         @include header-style ($size: $h2-font-size - 6);
 
       }
-      dl.admin-list {
-        dt {
-          margin-top: 10px;
-          border-top: {
-            @include standard-border;
-          }
-          @include header-style($size: $h2-font-size - 4);
-          line-height: 1.5em;
-          a {
-            color: $text-color-prominent;
-          }
-          &:first-child {
-            border: none;
-            margin-top: 0;
-          }
-        }
-        dd {
-          margin-left: 0;
-        }
-      }
       table {
         margin-top: 10px;
       }
     }
-
+    dl.admin-list {
+      dt {
+        margin-top: 10px;
+        border-top: {
+          @include standard-border;
+        }
+        @include header-style($size: $h2-font-size - 4);
+        line-height: 1.5em;
+        a {
+          color: $text-color-prominent;
+        }
+        &:first-child {
+          border: none;
+          margin-top: 0;
+        }
+      }
+      dd {
+        margin-left: 0;
+      }
+    }
   }
 }
 
+
+// #content div.wrapper section.main-content section.content dl.admin-list
 
 // Flexbox
 
