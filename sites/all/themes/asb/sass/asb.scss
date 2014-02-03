@@ -922,6 +922,25 @@ form .form-actions input{
         }
       }
     }
+    span.ui-button {
+      // @include zen-float(right);
+      .ui-button.new-message {
+        @include button($color: $button-color-primary, $font-family: $font-body);
+      }
+    }
+  }
+
+  div.notifications-wrap {
+    // display: table;
+    @include zen-grid-container;
+    h2.block-title {
+      @include zen-grid-item( 7, 1 );
+    }
+    span.ui-button {
+      @include zen-grid-item( 1, 8 );
+      padding-top: 10px;
+    }
+
   }
 
   input[type="text"] {
@@ -972,6 +991,8 @@ form .form-actions input{
         @include standard-border($width: 2px, $style: dashed);
       }
     }
+  }
+  #block-quicktabs-notifications .notifications-wrap h2.block-title {
   }
 }
 
