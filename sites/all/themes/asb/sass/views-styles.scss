@@ -171,20 +171,27 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-.node-type-scheme #main .scheme-collection {
-  @include breakpoint(md){
-  // padding-top: 1em;
-  padding-bottom: 1em;
-  background: transparent;
-    .views-row {
-      @include zen-grid-flow-item( 2, 6 );
-      &:first-child {
-        padding-left: 0;
-      }
-      &:nth-child(3) {
-        padding-right: 0;
-      }
-    }    
+// /////////////////////////////
+// Scheme Detail & Issues Detail
+// /////////////////////////////
+
+.node-type-scheme,
+.node-type-issue {
+  #main .scheme-collection {
+    @include breakpoint(md){
+    // padding-top: 1em;
+    padding-bottom: 1em;
+    background: transparent;
+      .views-row {
+        @include zen-grid-flow-item( 2, 6 );
+        &:first-child {
+          padding-left: 0;
+        }
+        &:nth-child(3) {
+          padding-right: 0;
+        }
+      }    
+    }
   }
 }
 
@@ -416,7 +423,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 
 } /* /.#main .scheme-collection */
-
 
 .not-front {
   #content {

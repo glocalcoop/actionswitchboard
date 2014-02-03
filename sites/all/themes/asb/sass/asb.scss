@@ -366,7 +366,7 @@ ul.tags {
   &> header,
   &> article > header {
     min-height: 75px;
-    padding: 1em 0;
+    padding: 25px 0;
     background-color: $panel;
 
     section.content,
@@ -461,6 +461,62 @@ ul.tags {
     }
   }
 
+// ////////////////////////////
+// Updates Tab
+// ////////////////////////////
+
+  article.node-by-viewer {
+    #scheme-content {
+      .view-content {
+        .views-row {
+          @include body-text;
+          @include zen-clear;
+          border-top: {
+            @include standard-border;
+          }
+          padding-top: 10px;
+          a {
+            color: $accent;
+          }
+          div {
+            &:first-child,
+            &:nth-child(2) {
+              display: inline;
+              em {
+                font-style: normal;
+              }
+            }
+            &:first-child {
+              &:after {
+                content: ' posted ';
+              }
+            }
+            &:last-child {
+              @include zen-clear;
+              p {
+                @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+              }
+              // a.views-more-link {
+              //   @include zen-float(right);
+              // }
+            }
+            p+a.views-more-link  {
+              padding-bottom: 0;
+            }
+          }
+          &:first-child {
+            border-top: {
+              @include standard-border;
+            }
+          }
+          &:last-child {
+            // border: none;
+          }
+        }
+      }
+    }
+  }
+
 section.content {
   aside {
     @include box-sizing(content-box);
@@ -524,8 +580,7 @@ section.content {
 
 }
 
-  // scheme-collection-view scheme-collection
-
+// Updates tab
 
 /* ----------------------- */
 /* Slideshow:              */
@@ -585,7 +640,7 @@ section.content {
 
 // ////////////////////////////
 // Scheme Members
-// 
+// ////////////////////////////
 
 .page-node-members {
   .scheme-members {
@@ -671,7 +726,7 @@ form .form-actions input{
 
 // ////////////////////////////
 // User Profile
-// 
+// ////////////////////////////
 
 .page-user {
   .user-profile {
@@ -794,12 +849,9 @@ form .form-actions input{
   }
 }
 
-
-
 // ////////////////////////////
 // User Dashboards
-// 
-
+// ////////////////////////////
 
 .page-facilitator-dashboard,
 .page-dashboard {
@@ -918,6 +970,22 @@ form .form-actions input{
     &> .view {
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
+      }
+    }
+  }
+}
+
+// ///////////////////////
+// Issues Detail
+// ///////////////////////
+
+.node-type-issue {
+  .block-views {
+    padding-top: 25px;
+    h2.block-title {
+      padding-top: 10px;
+      border-top: {
+        @include standard-border;
       }
     }
   }
