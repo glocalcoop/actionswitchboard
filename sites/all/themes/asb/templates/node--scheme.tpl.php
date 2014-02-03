@@ -92,7 +92,6 @@ global $user;
 
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  node--scheme.tpl.php
   <header>
     <div class="wrapper clearfix">
       <section class="content">
