@@ -120,14 +120,15 @@ aside.scheme-meta {
   $zen-column-count: 8;
 
   #main .scheme-collection-view .view-content,
-  #main .scheme-collection-view .block-title {
+  #main .scheme-collection-view .block-title,
+  #main section.main-content {
     @include box-sizing( border-box );
     max-width: 960px;
     margin: 0 auto;
   }
-
   .not-front.page-node #content,
-  .not-front.page-user #content {
+  .not-front.page-user #content,
+  .not-front.page-node-edit #content {
     width: 100%;
     margin-left: 0;
     margin-right: 0;

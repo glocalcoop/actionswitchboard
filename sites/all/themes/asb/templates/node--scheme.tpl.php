@@ -101,14 +101,10 @@ global $user;
           <?php print render($highlighted); ?>
         <?php endif; ?>
         <?php //print $breadcrumb; ?>
-        <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <section class="status-info">
           <h6>Status:</h6>
           <span class="state"><?php print $node->workflow_state_name; ?></span>
-          <?php if(!empty($edit_me)): ?>
-            <?php print $edit_me; ?>
-          <?php endif; ?>
         </section>
         <section class="methods">
           <ul id="ui-button">
@@ -117,7 +113,7 @@ global $user;
               <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
               <li class="ui-button"><?php print render($content['group_group']); ?></li>
             <?php else: ?>
-              <li class="ui-button"><a href="/user/login">Login To Join Group</a></li>
+              <li class="ui-button"><a href="/user/login">Login To Join Scheme</a></li>
             <?php endif; ?>
         </section>
         <?php if ($title): ?>

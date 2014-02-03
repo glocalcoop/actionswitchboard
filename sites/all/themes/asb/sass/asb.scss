@@ -539,7 +539,7 @@ section.content {
       position: relative;
 
       .carousel-div {
-        width: 100% !important;
+        width: 100%;
         text-align: center;
 
         &:first-child {
@@ -555,27 +555,19 @@ section.content {
       }
     }
 
-    nav#scheme-images-nav {
-      z-index: 1;
-      a {
-        height: 42px;
-        line-height: 42px;
-        font-size: 42px;
-        width: 25px;
-        color: $rules-color;
-        margin-top: -30%;
+    #scheme-images-nav {
+      @include zen-float(right);
 
+      a {
+        @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
         &#scheme-images-previous {
-          @include zen-float(left);
-          @include replace-text($previous-image);
+          @extend %entypo-circled-left;
         }
         &#scheme-images-next {
-          @include zen-float(right);
-          @include replace-text($next-image);
+          @extend %entypo-circled-right;
         }
       }
     }
-
   }
 
   div.field-body {
@@ -781,6 +773,21 @@ form .form-actions input{
   }
 }
 
+#content {
+  form.confirmation {
+    @include box-sizing( border-box );
+    max-width: 960px;
+    margin: 0 auto;
+    &>div {
+      padding-top: 10px;
+      &:first-line {
+        @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+      }
+    }
+  }
+}
+
+
 
 // ////////////////////////////
 // User Dashboards
@@ -917,6 +924,10 @@ form .form-actions input{
 //   display: block;
 // }
 
+// ///////////////////////
+// Node Add
+// ///////////////////////
+
 .page-node-add {
   .main-content {
     dl.node-type-list {
@@ -951,6 +962,13 @@ form .form-actions input{
         font-size: $base-font-size + 2;
       }
     }
+  }
+}
+
+
+.page-node-edit {
+  #content {
+    header {}
   }
 }
 

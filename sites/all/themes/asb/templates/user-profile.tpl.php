@@ -14,8 +14,6 @@ $account = menu_get_object('user');
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  user-profile.tpl.php
-
   <header class="user-profile-header">
 
     <div class="wrapper">
