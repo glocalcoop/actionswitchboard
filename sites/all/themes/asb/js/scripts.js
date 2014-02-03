@@ -9,9 +9,8 @@
 
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
-      // console.log( context, settings );
+
       if( context == "[object HTMLDocument]" ){
-//        console.log( 'context is window' );
 
         $('.login-normal').remove();
         $('.login-modal').show();

@@ -120,7 +120,6 @@
       display: block;
       line-height: 1em;
       background-color: transparent;
-      // position: static;
       .region-header {
         max-width: none;
         margin: 0;
@@ -210,6 +209,7 @@
 
 .not-front {
   #header {
+    overflow: hidden;
     @include breakpoint(md) {
       height: 81px;
       #navigation {
