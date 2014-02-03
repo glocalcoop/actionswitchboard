@@ -96,28 +96,42 @@ div.messages {
   }    
 }
 
+.chosen-container {
+  display: block !important;
+  width: 100% !important;
+  border: none;
+}
+
+.chosen-container-single .chosen-single {
+  border-radius: .25em !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  background-image: none !important;
+  background-color: #dde4cc !important;
+}
+
 .region-search {
-  padding-top: 1em;
+
+  @include clearfix;
   @include breakpoint( md, max-width ){
+
+  // padding: 2em 0 2em 0 !important;
 
     .views-exposed-form .views-exposed-widget {
       margin-top: .25em;
-      box-sizing: border-box;
+      @include box-sizing( border-box );
       padding: 0 1em !important;
       float: none !important;
       input {
         width: 95%;
       }
 
-      .chosen-container {
-        display: block !important;
-        width: 100% !important;
-      }
     }
     .views-reset-button,
     .views-submit-button {
       width: 100%;
-      box-sizing: border-box;
+      @include box-sizing( border-box );
       // override views.css
       padding: 0 1em !important;
       #edit-submit-scheme-overview-filtered,
@@ -146,13 +160,36 @@ div.messages {
 }
 
 .region-search {
-  overflow: visible;
-  background: $panel;
-  // padding: 1em 0 2em 0;
+//  background-color: $panel;
+}
+.region-search,
+.schemes .region-search {
+  background-color: none;
+  @include zigzag-border ($panel, $odd-backdrop);
+}
+.region-search {
+  background-image: none;
+}
+
+.region-search {
+//  background-color: $panel;
+}
+.region-search,
+.schemes .region-search {
+  background-color: none;
+  @include zigzag-border ($panel, $odd-backdrop);
+}
+.region-search {
+  background-image: none;
+}
+
+.region-search {
   @include transition-property(padding,max-height);
   @include transition-duration(.5s);
   @include transition-timing-function(ease-in-out);
-  @include zigzag-border( $panel, $even-backdrop );
+  padding: 1em 0 2em 0;
+  overflow: visible;  
+  max-height: auto;
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -193,6 +230,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .scheme-collection {
   h2.block-title {
+    @include box-sizing( border-box );
     box-sizing: border-box !important;
     margin-top: 15px;
     padding-left: 50px;
