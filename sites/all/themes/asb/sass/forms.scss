@@ -98,7 +98,7 @@ fieldset#edit-timezone {
 }
 
 // Edit form labels
-body.page-user-edit {
+.page-user-edit {
   form {
     label {
       @include header-style($size: $h3-font-size + 2px);
@@ -135,6 +135,122 @@ body.page-user-edit {
         margin-left: 0;
       }
     }
+  }
+}
+
+// User Registration Form
+
+.page-user-register {
+  #edit-account {
+    margin-top: 35px;
+    &:before {
+      content: 'Basic Information';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+  }
+  #edit-picture {
+    legend {
+      display: none;
+    }
+    &:before {
+      content: 'User Photo';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+  }
+  #edit-civicrm-profile-register {
+    legend {
+      display: none;
+    }
+    fieldset {
+      .label {
+        float: none;
+        text-align: left;
+      }
+    }
+    .edit-value.content {
+      margin-left: 0;
+    }
+    label:first-child,
+    #edit-field-user-bio-und-0-value>div.label,
+    #editrow-custom_53 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_23 > div:nth-child(1) > label:nth-child(1),
+    label[for=edit-field-issue-reference-un],
+    label[for=edit-field-user-bio-und-0-value] {
+      @include header-style ($family: $font-body, $size: $h3-font-size + 4, $weight: bold);
+      width: 100%;
+      margin-left: 0;
+    }
+    div {
+      margin-left: 0;
+    }
+    label[for=first_name],
+    label[for=last_name],
+    label[for=street_address-1],
+    label[for=city-1],
+    label[for=postal_code-1],
+    label[for=country-1],
+    label[for=state_province-1],
+    label[for=custom_54],
+    label[for=custom_37],
+    label[for=custom_63],
+    label[for=custom_72],
+    label[for=custom_73],
+    label[for=custom_57],
+    label[for=custom_54] {
+      display: inherit;
+      @include body-text($weight: bold);
+    }
+    &:before {
+      content: 'User Details';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+    table.form-layout-compressed tbody td.labels {
+        line-height: 1.5em;
+
+    }
+
+    .edit-value,
+    .label {
+      input[type="checkbox"] {
+        display: block;
+        float: left;
+        width: 25px;
+        clear: left;
+      }
+      label {
+        @include body-text;
+        display: block;
+        float: left;
+        line-height: 1.5em;
+      }
+    }
+    .crm-section {
+       div.edit-value {
+        margin-left: 0;
+      }
+    }
+
+    #editrow-custom_23 {
+      .label:first-child {
+        display: inherit;
+      }
+      table {
+        @include zen-clear;
+        tbody {
+          border: none;
+        }
+      }
+    }
+
+    #editrow-custom_53 {
+      &>label {
+        @include zen-clear (both);
+        display: block;
+        margin-left: 20px;
+        margin-top: -15px;
+      }
+    }
+
   }
 }
 
