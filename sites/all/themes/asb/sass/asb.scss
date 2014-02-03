@@ -157,27 +157,15 @@ div.messages {
 }
 
 .region-search {
-//  background-color: $panel;
-}
-.region-search,
-.schemes .region-search {
-  background-color: none;
-  @include zigzag-border ($panel, $odd-backdrop);
-}
-.region-search {
-  background-image: none;
+  background-color: $panel;
+  border-bottom: 1px $rules-color solid;
 }
 
-.region-search {
-//  background-color: $panel;
-}
-.region-search,
-.schemes .region-search {
+.front .region-search,
+.page-schemes .region-search {
   background-color: none;
+  border-bottom: none;
   @include zigzag-border ($panel, $odd-backdrop);
-}
-.region-search {
-  background-image: none;
 }
 
 .region-search {
