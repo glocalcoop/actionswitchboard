@@ -20,6 +20,8 @@
   position: relative;
   z-index: 10;
   background-repeat: repeat-x !important;
+  // overflow: hidden;
+  // height: 170px;
   #site-name {
     height: 81px;
     position: relative;
@@ -209,7 +211,6 @@
 
 .not-front {
   #header {
-    overflow: hidden;
     @include breakpoint(md) {
       height: 81px;
       #navigation {

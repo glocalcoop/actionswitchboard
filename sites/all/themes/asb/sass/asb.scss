@@ -115,9 +115,6 @@ div.messages {
 
   @include clearfix;
   @include breakpoint( md, max-width ){
-
-  // padding: 2em 0 2em 0 !important;
-
     .views-exposed-form .views-exposed-widget {
       margin-top: .25em;
       @include box-sizing( border-box );
@@ -142,8 +139,8 @@ div.messages {
     }
   }
   @include breakpoint( md ) {
-
-
+    width: 100%;
+    padding-top: 1em;
     .views-reset-button,
     .views-submit-button {
       width: auto;
@@ -209,17 +206,6 @@ div.messages {
       display: block;
       opacity: 0;
     }
-  }
-}
-
-.page-user.logged-in,
-.not-front.page-node {
-  .region-search {
-    // background-color: $panel;
-    // background-image: none;
-    // border-bottom: {
-    //     @include standard-border;
-    //   }
   }
 }
 
