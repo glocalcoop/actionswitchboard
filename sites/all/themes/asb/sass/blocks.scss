@@ -84,19 +84,28 @@ aside {
         }
       }
     }
-    &:nth-child(3) {
-      .view-scheme-contribute .view-footer a {
-        background: $skills;
-      }
+  }
+
+  #block-views-scheme-contribute-block {
+    div.donate-button a {
+      background: $skills;
     }
-    &:nth-child(4) {
-      .view-scheme-contribute .view-footer a {
-        background: $supplies;
-      }
+  }
+  #block-views-scheme-contribute-block-1 {
+    div.donate-button a {
+      background: $supplies;
     }
-    &:nth-child(5) {
-      .view-scheme-contribute .view-footer a {
-        background: $funds;
+  }
+  #block-views-scheme-contribute-block-2 {
+    div.donate-button a {
+      background: $funds;
+    }
+  }
+  #block-views-925ec4f76f8d53da36cf50cc845b8316 {
+    div.view-footer {
+      text-align: center;
+      a {
+        @include button($height: 36px, $font-size: $h3-font-size + 10);
       }
     }
   }
@@ -129,7 +138,7 @@ aside {
         .scheme-leader-contact {}
       }
     }
-    &:first-child { /* The first block in the region */
+    &#block-asb-scheme-group-info { 
       display: block;
       margin-top: 1.5em;
       margin-bottom: 0;
@@ -139,7 +148,7 @@ aside {
         border: none;
       }
     }
-    &:nth-child(2) {
+    &#block-views-scheme-members-block-1 {
       background-color: $sidebar-panel-secondary;
       margin-bottom: 1.5em;
       h2.block-title {
@@ -168,10 +177,31 @@ aside {
         }
       }
     }
-    &:nth-child(3) {
+    &#block-views-scheme-contribute-block {
       .view-header p {
         border-top: none;
       }
+    }
+    &#block-views-925ec4f76f8d53da36cf50cc845b8316 { // The member request block that appears for scheme leaders
+      margin-top: 1.5em;
+      .member-requests {
+        li {
+          .user-picture,
+          a {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .user-picture {
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .views-row-last {
+    .item-list ul li {
+      border: none;
+      padding-bottom: 10px;
     }
   }
 }
