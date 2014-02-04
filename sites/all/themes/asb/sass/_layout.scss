@@ -57,6 +57,7 @@ $zen-auto-include-item-base: false;
   top: 0;
   @include breakpoint( md ){
     top: -20px;
+    margin-bottom: -20px;
   }
     @include zigzag-border ($odd-backdrop, $backdrop);
 }

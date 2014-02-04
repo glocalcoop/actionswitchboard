@@ -181,8 +181,8 @@ div.messages {
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
-    @include transition-delay( .15s );
-    @include transition-duration( .35s );
+    @include transition-delay(.15s);
+    @include transition-duration(.35s);
     @include transition-timing-function(ease-in-out);    
   }
   &.atrest {
@@ -523,9 +523,9 @@ ul.tags {
               @include standard-border;
             }
           }
-          &:last-child {
-            // border: none;
-          }
+          // &:last-child {
+          //   // border: none;
+          // }
         }
       }
     }
@@ -601,26 +601,16 @@ section.content {
 /* ----------------------- */
 
   #outer-carousel-wrapper {
-    width: 100%;
     position: relative;
-
     #carousel-wrapper {
       z-index: -1;
-      max-width: 960px;
-      height: auto;
-      margin: 0 auto;
       position: relative;
-
       .carousel-div {
-        width: 100%;
-        text-align: center;
-
         &:first-child {
           position: relative !important;
           display: block !important;
           height: auto !important;
         }
-
         img {
           max-width:100%;
           min-width: 200px;
@@ -983,7 +973,6 @@ form .form-actions input{
       }
     }
     span.ui-button {
-      // @include zen-float(right);
       .ui-button.new-message {
         @include button($color: $button-color-primary, $font-family: $font-body);
       }
@@ -991,7 +980,6 @@ form .form-actions input{
   }
 
   div.notifications-wrap {
-    // display: table;
     @include zen-grid-container;
     h2.block-title {
       @include zen-grid-item( 7, 1 );
