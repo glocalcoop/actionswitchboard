@@ -5,25 +5,27 @@
 
 @import "base";
 
-.comments-wrapper .comment-wrapper {
+#comments {
 
-  &>h2,
-  &>form {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  h2 {
-    border-top: {
-      @include standard-border;
-    }
-    padding-top: 10px;
-    padding-bottom: 0;
-  }
 }
 
 
 div#comments{
   margin: 0;
+
+  form.comment-form {
+    background: $even-backdrop;
+    label,
+    .username {
+      display: none;
+    }
+  }
+  h2 {
+    border-top: {
+      @include standard-border;
+    }
+    padding: 10px 0 0 0;
+  }
 
   .comment { /* Wrapper for a single comment */
     position: relative;
