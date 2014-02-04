@@ -658,7 +658,7 @@ section.content {
 
 .page-node-members {
   .scheme-members {
-    @include standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand);
+    @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $brand);
 
     .item-list {
      ul {
