@@ -1290,17 +1290,13 @@ form .form-actions input{
       display: none;
     }
     .view-content {
-      margin-top: 25px;
-      // padding-top: 15px;
-      // border-top: {
-      //   @include standard-border;
-      // }    
+      margin-top: 25px;  
       .fieldset-legend {
         display: none;
       }
       legend:before {
         content: 'Manage Members';
-        @include header-style ($size: $h2-font-size - 6);
+        @include header-style ($size: $h2-font-size);
 
       }
       table {
@@ -1326,6 +1322,14 @@ form .form-actions input{
       dd {
         margin-left: 0;
       }
+    }
+  }
+}
+
+.page-group-node {
+  #content {
+    .view-header {
+      display: none;
     }
   }
 }
