@@ -689,6 +689,19 @@ section.content {
   }
 }
 
+// ////////////////////////////
+// Private Messages
+// ////////////////////////////
+
+.page-user-messages {
+  #content {
+    form#privatemsg-list {
+
+
+    }
+  }
+}
+
 #edit-actions input,
 form .form-actions input{
   float: none !important;
@@ -1247,7 +1260,7 @@ form .form-actions input{
 // Scheme Member Management
 // ////////////////////////////
 
-.page-group-node ,
+.page-group-node,
 .page-node-group {
   #content {
     .view-header {
@@ -1314,6 +1327,12 @@ form .form-actions input{
         margin-left: 0;
       }
     }
+  }
+}
+
+.page-user-messages {
+  #content {
+    margin-top: 35px;
   }
 }
 

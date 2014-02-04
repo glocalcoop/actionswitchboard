@@ -121,7 +121,8 @@ aside.scheme-meta {
 
   #main .scheme-collection-view .view-content,
   #main .scheme-collection-view .block-title,
-  #main section.main-content {
+  #main section.main-content,
+  #main form#privatemsg-list {
     @include box-sizing( border-box );
     max-width: 960px;
     margin: 0 auto;
