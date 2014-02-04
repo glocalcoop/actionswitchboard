@@ -168,7 +168,7 @@ div.messages {
 .page-schemes .region-search {
   background-color: none;
   border-bottom: none;
-  @include zigzag-border ($panel, $odd-backdrop);
+  @include zigzag-border ($panel, $odd-backdrop, $panel);
 }
 
 .region-search {
