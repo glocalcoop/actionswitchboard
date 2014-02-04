@@ -80,6 +80,28 @@
   line-height: 0;
 }
 
+@mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $text-decoration: none, $text-transform: none, $border: none, $background: transparent) {
+  a,
+  a:link {
+    color: $color;
+    text-decoration: $text-decoration;
+    border: $border;
+    background: $background;
+  }
+  a:visited {
+    color: $vcolor;
+    text-decoration: $text-decoration;
+    border: $border;
+    background: $background;
+  }
+  a:hover {
+    color: $hcolor;
+    text-decoration: $text-decoration;
+    border: $border;
+    background: $background;
+  }
+}
+
 @function blackTranslucent($opacity){
     @return rgba(0,0,0,$opacity)
 }
