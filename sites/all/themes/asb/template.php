@@ -346,7 +346,7 @@ function asb_preprocess_node(&$variables, $hook) {
       // This javascript is added in asb_scheme module, but was not
       // recognized by chromium on modal edit.
       // Adding it here resolves that problem.
-      drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
+      // drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
     }
   }
 }

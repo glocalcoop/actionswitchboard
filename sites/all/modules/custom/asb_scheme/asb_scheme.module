@@ -310,7 +310,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   if($form_id == 'scheme_node_form' && arg(2) != 'edit' && $pos === false) {
     $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
   }else{
-    drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
+    // drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
   }
   // Check if the form has steps and add progress markup.
   if(!empty($form['#steps']) && arg(2) != 'edit' && $pos === false) {
