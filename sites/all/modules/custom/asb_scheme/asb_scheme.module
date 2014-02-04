@@ -283,6 +283,20 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // dsm($form_state['view']);
     // dsm($form_state['view']->display_handler->handlers['filter']['field_material_needs_value']->options['group_info']['group_items']);
   }
+  if($form_id == 'scheme_node_form') {
+    // Here we create an ajax callback that will limit
+    // the taxonomy term selections available based
+    // on which entity is selected in field_issues_goals
+    $form['field_issues_goals']['und']['#ajax'] = array(
+      'event' => 'click',
+      'wrapper' => 'parent-goal-wrapper',
+      'callback' => 'asb_scheme_goals_ajax_callback',
+      'method' => 'replace',
+    );
+    // Add a wrapper for the correct field to change
+    $form['field_scheme_goals_taxonomy']['und']['#prefix'] = '<div id="parent-goal-wrapper">';
+    $form['field_scheme_goals_taxonomy']['und']['#suffix'] = '</div>';
+  }
   $pos = strpos($form['#action'], 'mfe-single-modal-callback');
   // Modify field modal edit form
   if($form_id == 'scheme_node_form' && $pos !== false) {
@@ -448,18 +462,70 @@ function _asb_scheme_goal_clean_refs(&$form_state, $node, $remove = 0) {
  * to the user.
  */
 function asb_scheme_goals_ajax_callback(&$form, &$form_state) {
-  $exclude = $form['field_child_goals']['und']['#default_value'];
-  if(isset($form['nid']['#value'])) {
-    $exclude[] = $form['nid']['#value'];
+  $allowed_goals = asb_scheme_get_allowed_terms($form['field_issues_goals']['und']['#value']);
+  // Build the full list of options
+  $field_goals = asb_scheme_taxonomy_options('goals');
+  // $field_goals = $form['field_scheme_goals_taxonomy']['und']['#options'];
+  foreach($field_goals as $key => $value) {
+    if($key != '_none' && !in_array($key, $allowed_goals)) {
+      unset($field_goals[$key]);
+      unset($form['field_scheme_goals_taxonomy']['und']['#options'][$key]);
+    }
   }
-  $issue = $form['field_issue_reference']['und']['#value'];
-  if($issue != "_none") {
-    $opts = asb_scheme_get_goal_keys($form['nid']['#value'], $issue, $exclude);
-    $form['field_parent_goal']['und']['#options'] = $opts;
-    return $form['field_parent_goal'];
+  // $form['field_scheme_goals_taxonomy']['und']['#options'] = $form['field_scheme_goals_taxonomy']['und']['#options'];
+  if(isset($form['field_scheme_goals_taxonomy']['und']['#options'])) {
+    $form['field_scheme_goals_taxonomy']['und']['#options'] += $field_goals;
+    return $form['field_scheme_goals_taxonomy'];
   }
 }
 
+/**
+ * Returns a array for use with #options in a form field
+ **/
+function asb_scheme_taxonomy_options($machine_name) {
+  $vocab = taxonomy_vocabulary_machine_name_load($machine_name);
+  $tree = taxonomy_get_tree($vocab->vid);
+  foreach ($tree as $item) {
+    $options[$item->tid] = str_repeat('-', $item->depth) . $item->name;
+  }
+  return $options;
+}
+
+/**
+ * Get allowed goal taxonomy terms for a specific nid
+ */
+function asb_scheme_get_allowed_terms($nid) {
+  $value = $nid;
+  $node = node_load($value);
+  // dsm($node);
+  $field_ref_type = field_info_instances('node',$node->type);
+  foreach($field_ref_type as $field_name => $field_value) {
+    if($field_value['widget']['type'] == 'taxonomy_shs') {
+      $field = field_get_items('node', $node, $field_name);
+      // dsm($field);
+    }
+  }
+  $top_parents = array();
+  if(!empty($field)) {
+    $all_terms = array();
+    foreach($field as $key => $term) {
+      $top_parent_term = null;
+      $parent_terms = taxonomy_get_parents_all($term['tid']);
+      foreach($parent_terms as $parent) {
+        $parent_parents = taxonomy_get_parents_all($parent->tid);
+        $all_terms[] = $parent->tid;
+        if(count($parent_parents) == 1) {
+          $top_parents[] = $parent->tid;
+        }
+      }
+    }
+  }else{
+    $all_terms = array();
+  }
+  // dsm($top_parents);
+  // return $top_parents;
+  return $all_terms;
+}
 /**
  * Gets keyed output for goals 
  *
