@@ -227,14 +227,14 @@
   style: $style;
 }
 
-@mixin zigzag-border ($foreground-color: $odd-backdrop, $background-color: $even-backdrop, $angle: 135deg, $size: 12px) {
+@mixin zigzag-border ($foreground-color: $odd-backdrop, $background-color: $even-backdrop, $background: transparent, $angle: 135deg, $size: 12px) {
     background:
       linear-gradient(-$angle, $foreground-color 5px, transparent 0) 0 5px,
       linear-gradient($angle, $foreground-color 5px, $background-color 0) 0 5px;
     background-image: 
       -webkit-gradient(-$angle, $foreground-color 5px, transparent 0) 0 5px,
       -webkit-gradient($angle, $foreground-color 5px, $background-color 0) 0 5px;
-    background-color: $foreground-color;
+    background-color: $background;
     background-position: left bottom;
     background-position-x: left;
     background-position-y: bottom;
