@@ -821,8 +821,8 @@ form .form-actions input{
       }
     }
   }
-
   .user-profile {
+    @include zigzag-border ($odd-backdrop, $even-backdrop);
 
     header.user-profile-header {
       section.content {}
@@ -861,6 +861,9 @@ form .form-actions input{
     }
   }
   #content {
+    .user-profile {
+      padding-bottom: 3em;
+    }
     .block-views {
       @include zen-clear;
       h2.block-title {
@@ -871,7 +874,7 @@ form .form-actions input{
       }
     }
     .block-views.even {
-      margin-top: 25px;
+      // margin-top: 25px;
       background: $even-backdrop;
       .scheme-collection-view {
         @include zen-clear;
