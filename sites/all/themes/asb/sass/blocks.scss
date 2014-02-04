@@ -162,17 +162,23 @@ aside {
       .schemers {
         ul.scheme-members {
           width: 100%;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          text-align: justify;
+          @include inline-list;
+          // margin: 0;
+          // padding: 0;
+          // list-style: none;
+          // text-align: justify;
           li {
-            padding: 0 5px 5px 0;
-            margin: 0;
-            display: inline-block;
-            &:nth-child(5n) {
+            padding-right: 5px;
+            &:nth-child(4n+1) {
               padding-right: 0;
             }
+
+            // padding: 0 5px 5px 0;
+            // margin: 0;
+            // display: inline-block;
+            // &:nth-child(5n) {
+            //   padding-right: 0;
+            // }
           }
         }
       }
