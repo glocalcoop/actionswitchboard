@@ -80,25 +80,26 @@
   line-height: 0;
 }
 
-@mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $text-decoration: none, $text-transform: none, $border: none, $background: transparent) {
+@mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $weight: normal, $text-decoration: none, $text-transform: none, $border: none, $background: transparent) {
   a,
   a:link {
-    color: $color;
-    text-decoration: $text-decoration;
-    border: $border;
     background: $background;
+    border: $border;
+    color: $color;
+    font-weight: $weight;
+    text-decoration: $text-decoration;
   }
   a:visited {
+    background: $background;
+    border: $border;
     color: $vcolor;
     text-decoration: $text-decoration;
-    border: $border;
-    background: $background;
   }
   a:hover {
+    background: $background;
+    border: $border;
     color: $hcolor;
     text-decoration: $text-decoration;
-    border: $border;
-    background: $background;
   }
 }
 
