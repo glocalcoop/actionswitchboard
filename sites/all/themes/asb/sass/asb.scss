@@ -1056,16 +1056,23 @@ form .form-actions input{
 // ///////////////////////
 
 .node-type-issue {
-  .block-views {
-    padding-top: 25px;
-    h2.block-title {
-      padding-top: 10px;
-      border-top: {
-        @include standard-border;
+  #content {
+    article:first-child {
+      margin-top: 2.5em;
+    }
+    .block-views {
+      padding-top: 25px;
+      h2.block-title {
+        padding-top: 5px;
+        border-top: {
+          @include standard-border;
+        }
       }
     }
+
   }
 }
+
 
 // ///////////////////////
 // Node Add

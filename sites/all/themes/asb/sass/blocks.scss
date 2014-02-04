@@ -182,6 +182,7 @@ aside {
         border-top: none;
       }
     }
+
     &#block-views-925ec4f76f8d53da36cf50cc845b8316 { // The member request block that appears for scheme leaders
       margin-top: 1.5em;
       .member-requests {
@@ -205,3 +206,63 @@ aside {
     }
   }
 }
+
+.node-type-issue {
+  #content {
+    aside {
+      .block:first-child {
+        margin-top: 2.5em;
+      }
+      #block-views-goal-tree-block {
+        padding-top: 0;
+      }
+      .block-views {
+        padding-top: 0;
+        @include standard-links ($color: $text-color-prominent, $vcolor: darken($text-color-prominent,10%), $hcolor: lighten($text-color-prominent, 10%));
+
+        h2.block-title {
+          padding-top: 10px;
+          border-top: none;
+          border-bottom: {
+            @include standard-border;
+          }
+        }
+        .view-goal-tree {
+          padding-top: 1.25em;
+        }
+        ul {
+          @include no-bullets;
+          padding: 0;
+          margin: 0;
+          li {}
+          li.first-goal {
+            border-top: {
+              @include standard-border($width: 2px);
+            }
+            padding-top: 1.25em;
+            margin-top: 5px;
+            padding-bottom: 5px;
+            &:first-child {
+              border-top: none;
+              margin-top: 0;
+              padding-top: 0;
+            }
+          }
+          li.sub-goal {
+            border-left: {
+              @include standard-border($color: $accent, $width: 2px);
+            }
+            padding-left: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            &:last-child {
+              padding-top: 0;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
