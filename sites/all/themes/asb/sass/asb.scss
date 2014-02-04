@@ -658,32 +658,38 @@ section.content {
 
 .page-node-members {
   .scheme-members {
-    ul {
-      list-style: none;
+    @include standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand);
+
+    .item-list {
+     ul {
+      @include no-bullets;
       padding: 0;
       margin: 0;
       li {
-        @include zen-clear;
-        padding: 2em 0;
+        padding: 1em 0;
         border-top: {
           @include standard-border();
         }
         &:first-child {
           border: none;
         }
-        div {
-          display: block;
+        .user-picture,
+        .member-name {
+          display: inline-block;
+          vertical-align: middle;
         }
         .user-picture {
-          @include zen-float;
           padding-right: 10px;
         }
+        .member-name {}
+
         h3.member-name {
           padding: 0;
           margin: 0;
           @include body-text($transform: capitalize, $weight: bold, $size: 1.25em);
         }
       }
+    }
     }
 
   }
