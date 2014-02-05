@@ -436,7 +436,36 @@ ul.tags {
         border-left: {
           @include standard-border($style: dashed);
         }
-        padding-left: 10px;
+        padding: 1.25em 10px;
+        // padding-left: 10px;
+
+        &.scheme-meta,
+        &.user-meta {
+          @include box-sizing(content-box);
+          h6, dt {
+            line-height: $base-line-height;
+          }
+          section {
+            vertical-align: top;
+            &.created,
+            &.location {
+              display: inline-block;
+              // padding-right: 2em;
+              width: 35%;
+            }
+            &.issues {
+              display: inline-block;
+              width: 60%;
+            }
+            &.goals,
+            &.skills {
+              display: block;
+              // @include zen-grid-item(2,1);
+              @include zen-clear;
+              margin-top: 10px;
+            }
+          }
+        }
       }
     }
   }
@@ -647,39 +676,6 @@ ul.tags {
   }
 
   section.content {
-    aside {
-      @include box-sizing(content-box);
-
-      margin: 0 10px;
-      padding: 2.375em 10px;
-
-      .contextual-links-region {
-        background-color: $sidebar-panel-primary;
-        &:nth-child(1),
-        &:nth-child(2) {
-          background-color: $sidebar-panel-secondary;
-        }
-      }
-
-      &.scheme-meta {
-        h6, dt {
-          line-height: $base-line-height;
-        }
-        .created {
-          @include zen-float(left);
-          margin-right: 20px;
-        }
-        .issue {
-          @include zen-float(left);
-          margin: 0;
-        }
-        .goals {
-          @include zen-clear;
-          padding-top: 10px;
-        }
-      }
-
-    }
     .view-header {
       .item-list {
         ul {
@@ -707,6 +703,20 @@ ul.tags {
       }
     }
 
+  }
+
+  aside {
+    @include box-sizing(content-box);
+
+    margin: 0 10px;
+    
+    .contextual-links-region {
+      background-color: $sidebar-panel-primary;
+      &:nth-child(1),
+      &:nth-child(2) {
+        background-color: $sidebar-panel-secondary;
+      }
+    }
   }
 
 /* ----------------------- */
@@ -937,9 +947,8 @@ form .form-actions input{
       section.content {}
       aside {
         &.user-meta {
-
           section {
-            margin-top: 10px;
+            // margin-top: 10px;
             &:first-child {
               margin-top: 0;
             }
