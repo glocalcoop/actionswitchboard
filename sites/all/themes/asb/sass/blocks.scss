@@ -159,26 +159,17 @@ aside {
         }
         border-bottom: none;
       }
+
+      ul { margin:0.5em auto }
       .schemers {
         ul.scheme-members {
-          width: 100%;
-          @include inline-list;
-          // margin: 0;
-          // padding: 0;
-          // list-style: none;
-          // text-align: justify;
+          @include no-bullets;
+          margin: 0 auto;
+          padding: 0;
           li {
-            padding-right: 5px;
-            &:nth-child(4n+1) {
-              padding-right: 0;
-            }
-
-            // padding: 0 5px 5px 0;
-            // margin: 0;
-            // display: inline-block;
-            // &:nth-child(5n) {
-            //   padding-right: 0;
-            // }
+            text-align:center; 
+            display:inline-block; 
+            padding:0.1em 0.4em;
           }
         }
       }
