@@ -18,7 +18,6 @@ function asb_modal_form_alter(&$form, &$form_state, $form_id) {
     $form['og_group_ref']['#access'] = false;
     $form['field_image']['#access'] = false;
     $form['field_video']['#access'] = false;
-
     // Remove default option and title from group visibility.
     $form['group_content_access']['und']['#default_value'] = 1;
     unset($form['group_content_access']['und']['#options'][0]);
@@ -76,7 +75,7 @@ function asb_modal_views_pre_view(&$view, &$display_id, &$args) {
     // here we call asb_modal_settings to theme
     // header content add links
     // FIXME: This currently only references one scheme (should be contextual).
-    $header = asb_modal_settings('9', array('update'));
+    $header = asb_modal_settings(arg(3), array('update'));
     // $header = asb_modal_settings();
     // $header = "This is the text that I want in my footer!!!!";
     $options = array(
