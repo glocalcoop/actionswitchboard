@@ -437,7 +437,6 @@ ul.tags {
           @include standard-border($style: dashed);
         }
         padding: 1.25em 10px;
-        // padding-left: 10px;
 
         &.scheme-meta,
         &.user-meta {
@@ -450,7 +449,6 @@ ul.tags {
             &.created,
             &.location {
               display: inline-block;
-              // padding-right: 2em;
               width: 35%;
             }
             &.issues {
@@ -460,7 +458,6 @@ ul.tags {
             &.goals,
             &.skills {
               display: block;
-              // @include zen-grid-item(2,1);
               @include zen-clear;
               margin-top: 10px;
             }
