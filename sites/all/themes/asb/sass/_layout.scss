@@ -182,7 +182,8 @@ aside.scheme-meta {
 
   section.content {
     @include zen-grid-container;
-    #block-views-goals-and-schemes-block {
+    #block-views-goals-and-schemes-block,
+    #block-views-goal-taxonomy-test-block {
       @include zen-grid-item( 3, 1 );
       table {
         width: 95%;
