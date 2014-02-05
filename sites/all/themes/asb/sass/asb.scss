@@ -1258,8 +1258,9 @@ form .form-actions input{
     .block-views {
       padding-top: 0;
     }
-
-    #block-views-goals-and-schemes-block {
+    #block-views-goals-and-schemes-block,
+    #block-views-goal-taxonomy-test-block,
+    .block:first-child {
       a {
         color: $nav-title-color;
       }
