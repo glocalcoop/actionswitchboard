@@ -310,7 +310,7 @@ article.comment,
     &.comment-delete a{ @extend %entypo-circled-cross; }
     &.comment-edit a { @extend %entypo-pencil; }
     &.comment-reply a { @extend %entypo-reply; }
-    &.comment-add a { @extend %entypo-comment; }
+    &.comment-add a { @extend %entypo-reply; }
   }
   
   a.contact-me { 
@@ -520,6 +520,9 @@ ul.tags {
               @include standard-border;
             }
             border-bottom: none;
+          }
+          .permalink {
+            display: none;
           }
         }
         .indented {
