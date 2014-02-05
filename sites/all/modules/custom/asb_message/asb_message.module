@@ -113,11 +113,9 @@ function asb_message_get_facilitator($nids) {
     $node = node_load($value);
     if(isset($node->field_facilitator['und'][0]['target_id'])) {
       $facilitator = $node->field_facilitator['und'][0]['target_id'];
-    }else{
-      $facilitator = '';
+      return $facilitator;
     }
   }
-  return $facilitator;
 }
 
 /**
