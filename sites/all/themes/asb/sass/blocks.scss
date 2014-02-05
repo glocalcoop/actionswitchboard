@@ -36,6 +36,36 @@ aside {
       @include body-text ($size: $h3-font-size, $weight: bold, $transform: uppercase, $color: $text-color-prominent);
     }
   }
+  .item-list {
+    ul.pager { 
+      display: block;
+      @include zen-clear;
+      li {
+        border: none;
+
+        a {
+          &:before {
+            line-height: .2em;
+          }
+        }
+        &.pager-previous {
+          display: inline-block;
+          // @include zen-float(left);
+          a {
+            @extend %entypo-chevron-left;
+          }
+        }
+        &.pager-next {
+          display: inline-block;
+          // @include zen-float(right);
+           a {
+            @extend %entypo-chevron-right;
+            line-height: .5em;
+          }
+        }
+      }
+    }
+  }
 
   //Once styles specified in scheme-layout.tpl.php are implemented, these styles will apply
   #needs {
@@ -66,6 +96,7 @@ aside {
       margin-bottom: 6px;
       .view-footer,
       .donate-button {
+        @include zen-clear;
         width: 100%;
         p {
           margin-bottom: 0;

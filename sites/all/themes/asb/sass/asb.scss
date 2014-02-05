@@ -1524,6 +1524,27 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
   }
 }
 
+// Pagers for all pages but the front page
+.not-front {
+  ul.pager {
+    li {
+      padding: 0;
+      a {
+        @include font-icon-base($font-size: 3rem, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
+      }
+      &.pager-previous a {
+        @extend %entypo-circled-left;
+      }
+      &.pager-current {
+        display: none;
+      }
+      &.pager-next a {
+        @extend %entypo-circled-right;
+      }
+    }
+  }
+}
+
 .badge {
   height: 16px;
   padding: 0 5px;
