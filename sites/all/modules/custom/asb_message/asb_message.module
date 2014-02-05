@@ -111,7 +111,11 @@ function asb_message_group_list(Message $message) {
 function asb_message_get_facilitator($nids) {
   foreach ($nids as $key => $value) {
     $node = node_load($value);
-    $facilitator = $node->field_facilitator['und'][0]['target_id'];
+    if(isset($node->field_facilitator['und'][0]['target_id'])) {
+      $facilitator = $node->field_facilitator['und'][0]['target_id'];
+    }else{
+      $facilitator = false;
+    }
   }
   return $facilitator;
 }
