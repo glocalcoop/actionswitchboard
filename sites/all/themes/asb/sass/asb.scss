@@ -60,6 +60,32 @@ div.messages {
   @include body-text ($size: $base-font-size + 2, $line-height: 1.5em)
 }
 
+//User Images
+#comments {
+  .user-picture img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.scheme-members {
+  .user-picture img {
+    height: 30px;
+    width: 30px;
+  }
+}
+.scheme-leader {
+  .scheme-leader-thumb img {
+    height: 60px;
+    width: 60px;
+  }
+}
+.user-details {
+div.user-picture img {
+  height: 214px;
+  width: 214px;
+}
+}
 
 // //////////////////////
 // Search filters region
@@ -438,7 +464,7 @@ ul.tags {
   iframe.media-youtube-player {
     border: 8px solid $rules-color-accent;
   }
-
+  
   #content {
     .related-schemes {
       h2 {
@@ -475,138 +501,144 @@ ul.tags {
     }
   }
 
-// ////////////////////////////
-// Updates Tab
-// ////////////////////////////
+/* ----------------------- */
+/* Updates Tab:            */
+/* ----------------------- */
 
-#scheme-content {
-  article.node-update {
-    @include body-text;
-    @include zen-clear;
-    border-top: {
-      @include standard-border;
-    }
-    padding-top: 10px;
-    a {
-      color: $accent;
-    }
-    h2.node-title,
-    h2.comment-form,
-    #comments h2.title.comment-form {
-      display: none;
-    }
-    div {
-      &:first-child,
-      &:nth-child(2) {
-        display: inline;
-        em {
-          font-style: normal;
-        }
-      }
-      &:first-child {
-        // &:after {
-        //   content: ' posted ';
-        // }
-      }
-      &:last-child {
-        @include zen-clear;
-        p {
-          @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
-        }
-        // a.views-more-link {
-        //   @include zen-float(right);
-        // }
-      }
-      p+a.views-more-link  {
-        padding-bottom: 0;
-      }
-    }
-    &:first-child {
+  #scheme-content {
+    article.node-update {
+      @include body-text;
+      @include zen-clear;
       border-top: {
         @include standard-border;
       }
-    }
-    // &:last-child {
-    //   // border: none;
-    // }
+      padding-top: 10px;
+      a {
+        color: $accent;
+      }
+      h2.node-title,
+      h2.comment-form,
+      #comments h2.title.comment-form {
+        display: none;
+      }
+      div {
+        &:first-child,
+        &:nth-child(2) {
+          display: inline;
+          em {
+            font-style: normal;
+          }
+        }
+        &:first-child {
+          // &:after {
+          //   content: ' posted ';
+          // }
+        }
+        &:last-child {
+          @include zen-clear;
+          p {
+            @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+          }
+          // a.views-more-link {
+          //   @include zen-float(right);
+          // }
+        }
+        p+a.views-more-link  {
+          padding-bottom: 0;
+        }
+      }
+      &:first-child {
+        border-top: {
+          @include standard-border;
+        }
+      }
+      // &:last-child {
+      //   // border: none;
+      // }
+      ul.inline li.comment-add {
+        display: inherit;
+      }
 
+      .user-picture img {
+        height: 50px;
+        width: 50px;
+      }
+
+    }
+    #comments {
+      form.comment-form {
+        // padding: 20px 20px;
+        // display: none;
+
+      }
+      h2.title.comment-form {
+        display: none;
+      }
+    }
   }
-  #comments {
-    form.comment-form {
-      // padding: 20px 20px;
-      display: none;
 
-    }
-    h2.title.comment-form {
-      display: none;
-    }
-  }
-}
+  section.content {
+    aside {
+      @include box-sizing(content-box);
 
-section.content {
-  aside {
-    @include box-sizing(content-box);
+      margin: 0 10px;
+      padding: 2.375em 10px;
 
-    margin: 0 10px;
-    padding: 2.375em 10px;
-
-    .contextual-links-region {
-      background-color: $sidebar-panel-primary;
-      &:nth-child(1),
-      &:nth-child(2) {
-        background-color: $sidebar-panel-secondary;
+      .contextual-links-region {
+        background-color: $sidebar-panel-primary;
+        &:nth-child(1),
+        &:nth-child(2) {
+          background-color: $sidebar-panel-secondary;
+        }
       }
-    }
 
-    &.scheme-meta {
-      h6, dt {
-        line-height: $base-line-height;
-      }
-      .created {
-        @include zen-float(left);
-        margin-right: 20px;
-      }
-      .issue {
-        @include zen-float(left);
-        margin: 0;
-      }
-      .goals {
-        @include zen-clear;
-        padding-top: 10px;
-      }
-    }
-
-  }
-  .view-header {
-    .item-list {
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0 0 20px 0;
-        li {
+      &.scheme-meta {
+        h6, dt {
+          line-height: $base-line-height;
+        }
+        .created {
+          @include zen-float(left);
+          margin-right: 20px;
+        }
+        .issue {
+          @include zen-float(left);
           margin: 0;
-          padding: 0;
-          a {
-            @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
-            color: $text-color;
-          }
-          &:first-child a {
-            @extend %entypo-comment;
-          }
-          &:nth-child(2) a {
-            @extend %entypo-calendar;
-          }
-          &:nth-child(3) a {
-            @extend %entypo-megaphone;
+        }
+        .goals {
+          @include zen-clear;
+          padding-top: 10px;
+        }
+      }
+
+    }
+    .view-header {
+      .item-list {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0 0 20px 0;
+          li {
+            margin: 0;
+            padding: 0;
+            a {
+              @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+              color: $text-color;
+            }
+            &:first-child a {
+              @extend %entypo-comment;
+            }
+            &:nth-child(2) a {
+              @extend %entypo-calendar;
+            }
+            &:nth-child(3) a {
+              @extend %entypo-megaphone;
+            }
           }
         }
       }
     }
+
   }
-
-}
-
-// Updates tab
 
 /* ----------------------- */
 /* Slideshow:              */
@@ -652,7 +684,10 @@ section.content {
     @include zen-clear;
   }
    
-}
+} // End Scheme Detail
+
+
+
 
 // ////////////////////////////
 // Scheme Members
