@@ -296,11 +296,14 @@ article.comment,
 .status-info,
 .modal-edit {
   a {
-      @include font-icon-base($family:"entypo", $font-size: 1.75em, $margin: 0.1em, $width: .5em);
+      @include font-icon-base($family:"entypo", $font-size: 2.5rem, $margin: 0.1em, $width: .5em);
       color: $text-color;
       text-align: left;
       &.edit,
-      &.ctools-use-modal { @extend %entypo-pencil; }
+      &.ctools-use-modal { 
+        @include font-icon-base($font-size: 3rem);
+        @extend %entypo-pencil; 
+      }
       &:after {
         line-height: 1.2em;
       }
@@ -900,13 +903,16 @@ form .form-actions input{
               span {
                 display: none;
               }
+              &:before {
+                line-height: .5em;
+              }
             }
             margin-right: .25em;
             &.user-contact { 
               span {
                 vertical-align: top;
               }
-              @include font-icon-base($family:"entypo", $font-size: 2.5em, $width: .5em, $margin: .25em, $align: center );
+              @include font-icon-base($font-size: 2.5em, $width: .5em, $line-height: .75em );
               @extend %entypo-mail; 
             }
             padding: 0 .5em;
