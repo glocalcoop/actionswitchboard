@@ -512,19 +512,11 @@ form {
 // Content Edit
 // 
 
-// .page-user-edit-asb-user-profile {
-//   form#user-profile-form {
-//     .crm-profile-name-ASB_User_Profile_19 {
-
-//     }
-//   }
-// }
-
-
 .page-user-edit-name-and-address,
 .page-user-edit-asb-user-profile {
   form#user-profile-form {
-    .crm-profile-name-name_and_address {
+    .crm-profile-name-name_and_address,
+    .crm-profile-name-ASB_User_Profile_19 {
       #crm-container.crm-container {
         .label,
         label {
