@@ -295,21 +295,62 @@ aside.scheme-meta {
 /* ------------------------ */
 #add_page_scroll_wrapper {
   
+  @include breakpoint( md, max-width ) {
+    &:before {
+      content: "Filter schemes";
+      text-transform: uppercase;
+      margin-bottom: 1em;
+      text-align: center;
+      display: block;
+      width: 100%;
+      font-size: 2em;
+      font-family: $header-font-family;
+    }
+    padding-top: 2em;
+    border-top: 1px solid $rules-color;
+    #issues_filter,
+    #collections_filter {
+      width: 50%;
+      margin: 0 auto;
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
+    #load_more_schemes_button {
+      margin: .5em auto !important;
+      width: 50%;
+      display: block;
+    }
+  }
+
   @include breakpoint( md ) {
+
+    #issues_filter,
+    #collections_filter {
+      padding-top: .5em;
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
 
     #issues_filter {
       @include zen-float();
       @include zen-grid-flow-item( 2, 8 );
+      @include box-sizing( border-box );
+      padding-right: 1em;   
     }
 
     #load_more_schemes_button {
       @include zen-float();
       @include zen-grid-flow-item( 4, 8 );
+      @include box-sizing( border-box );
     }
   
     #collections_filter {
       @include zen-float();
       @include zen-grid-flow-item( 2, 8 );
+      @include box-sizing( border-box );
+      padding-left: 1em;        
     }
 
   }
