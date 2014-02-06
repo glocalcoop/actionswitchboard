@@ -519,10 +519,11 @@ form {
     #editrow-custom_73,
     #editrow-custom_57 {
       .label {
-        display: inherit;
+        display: block;
       }
       .resizable-textarea {
         @include zen-clear;
+        display: block;
       }
     }
 
