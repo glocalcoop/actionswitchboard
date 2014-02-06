@@ -39,6 +39,12 @@ span.screen-reader-text {
   display: none;
 }
 
+.view-empty {
+  h3 {
+    @include body-text ($size: $base-font-size + 2, $line-height: 1.5em);
+  }
+}
+
 div.messages {
   margin: 0;
   &.error {
@@ -1334,31 +1340,6 @@ form .form-actions input{
 
 
 .node-type-document {
-  #node-content {
-    p,
-    li {
-       @include body-text($size: 1.35rem, $line-height: 2rem);
-    }
-    p {
-      margin: .75em 0;
-    }
-    li {
-      margin-top: .5em;
-      margin-bottom: .5em;
-      text-indent: -.4em;
-    }
-    ul {
-      li {
-        @include no-bullets;
-        @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem, $color: $text-color-prominent);
-        @extend %entypo-chevron-small-right;      }
-    }
-    ol {
-      li {
-
-      }
-    } 
-  }
   #main {
     h2,
     h3,
@@ -1371,6 +1352,7 @@ form .form-actions input{
     }
     h3 {
       font-size: 1.5em;
+      margin-bottom: .25em;
     }
     h4 {
       font-size: 1.25em;
@@ -1380,24 +1362,108 @@ form .form-actions input{
       color: $accent;
     }
     .book-navigation {
-      .page-links {
-        padding: 1em 0;
-        border-top: {
-          @include standard-border;
+      @include zen-clear;
+      border-top: {
+        @include standard-border;
+      }
+      .menu {
+        border-top: none;
+        padding-top: 0;
+        @include standard-links ($color: $text-color-prominent, $vcolor: lighten($text-color-prominent,10%), $hcolor: $brand);
+      }
+    .page-links {
+      @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+      padding: 1em 0;
+      border-top: none;
+      border-bottom: {
+        @include standard-border;
+      }
+    }
+    .menu + .page-links {
+      border-top: {
+        @include standard-border;
+      }
+    }
+    }
+    #node-content {
+      p,
+      li {
+         @include body-text($size: 1.35rem, $line-height: 2rem);
+      }
+      p {
+        margin: .75em 0;
+      }
+      li {
+        margin-top: .5em;
+        margin-bottom: .5em;
+        text-indent: -.4em;
+      }
+      ul {
+        margin-right: 0;
+        margin-left: 1em;
+        padding-right: 0;
+        padding-left: 0;
+        li {
+          @include no-bullets;
+          @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem);
+          @extend %entypo-chevron-small-right;      
         }
-        border-bottom: {
-          @include standard-border;
+      }
+      ol {
+        list-style: none;
+        counter-reset: li;
+        &> li {
+          position: relative; /* Create a positioning context */
+          margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+          padding: 4px 8px; /* Add some spacing around the content */
+          list-style: none; /* Disable the normal item numbering */
+          border-top: {
+            @include standard-border($width: 2px, $color: $text-color-prominent);
+          }
+          background: $even-backdrop;
+          &:before {
+            content:counter(li); /* Use the counter as content */
+            counter-increment: li; /* Increment the counter by 1 */
+            /* Position and style the number */
+            position: absolute;
+            top: -2px;
+            left: -2em;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 2em;
+            /* Some space between the number and the content in browsers that support
+               generated content but not positioning it (Camino 2 is one example) */
+            margin-right: 8px;
+            padding: 4px;
+              border-top: {
+                @include standard-border($width: 2px, $color: $text-color-prominent);
+              }
+            color: $nav-title-color;
+            background: $text-color-prominent;
+            font-weight: bold;
+            text-align: center;
+          }
+        }     
+      }
+      .field-document-type {
+        @include zen-clear;
+        min-height: 25px;
+        @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+        a {
+          @include zen-clear;
+          display: block;
+          @include zen-float(right);
+          text-align: right;
+          @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
+          @extend %entypo-tag;
+          
         }
+        // display: none;
       }
     }
   }
-  .field-document-type {
-    a {
-      color: $accent;
-      @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
-      @extend %entypo-tag;
-    }  
-  }
+
   .links.inline {
     @include zen-float(right);
     a {
@@ -1410,15 +1476,11 @@ form .form-actions input{
       @extend %entypo-print;
     }
   }
-  .book-navigation {
-    .menu {
-        border-top: {
-          @include standard-border;
-        }
 
-    }
-  }
 }
+
+
+// html.js body.html div#page section#main div#content div.wrapper section.main-content article.node-87 div.wrapper div#node-content div#book-navigation-58.book-navigation ul.menu li.menu__item a.menu__link
 
 // ////////////////////////////
 // Taxonomy Terms
