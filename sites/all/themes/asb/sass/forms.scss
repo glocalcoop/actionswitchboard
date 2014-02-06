@@ -549,7 +549,7 @@ form#user-profile-form {
     #helprow-custom_23 {
       .content {
         margin-left: 0;
-        @include header-style ($size: $h3-font-size - 4);
+        @include header-style ($size: $h3-font-size + 4);
       }
     }
   }
