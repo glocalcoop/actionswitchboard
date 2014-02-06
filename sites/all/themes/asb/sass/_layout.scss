@@ -182,9 +182,6 @@ aside.scheme-meta {
 
   section.content {
     
-    .view-inspiration-footer {
-      @include clearfix;
-    }
 
     #block-views-inspiration-footer-block {
       @include zen-nested-container;
@@ -233,6 +230,9 @@ aside.scheme-meta {
       #block-views-inspiration-footer-block,
       #block-menu-menu-as {
         margin-top: 2em;
+      }
+      .view-inspiration-footer {
+        @include clearfix;
       }
     }
 
