@@ -13,7 +13,7 @@ function asb_modal_init() {
 function asb_modal_form_alter(&$form, &$form_state, $form_id) {
   // Check for update_node_form as a modal and set the og_context
   // for the node to be created and remove access to the form.
-  if($form_id == 'update_node_form' && strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
+  if(preg_match('/^(update|event|announcement)_node_form$/',$form_id) && strpos($form['#action'], '/asb-modal-callback/ajax/') !== false) {
     $form['og_group_ref']['und'][0]['default']['#default_value'] = $form_state['og_context'];
     $form['og_group_ref']['#access'] = false;
     $form['field_image']['#access'] = false;
@@ -75,7 +75,7 @@ function asb_modal_views_pre_view(&$view, &$display_id, &$args) {
     // here we call asb_modal_settings to theme
     // header content add links
     // FIXME: This currently only references one scheme (should be contextual).
-    $header = asb_modal_settings(arg(3), array('update'));
+    $header = asb_modal_settings(arg(3), array('update','event','announcement'));
     // $header = asb_modal_settings();
     // $header = "This is the text that I want in my footer!!!!";
     $options = array(

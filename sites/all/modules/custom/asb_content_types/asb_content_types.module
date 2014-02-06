@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Asb Content Types feature.
+ */
+
+include_once 'asb_content_types.features.inc';

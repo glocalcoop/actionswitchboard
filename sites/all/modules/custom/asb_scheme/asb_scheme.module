@@ -154,7 +154,7 @@ function asb_scheme_display_view($js = NULL, $view_name, $display_name, $gid) {
    $view->set_display($display_name);
    $view->set_arguments(array($gid));
    // Node types we want modals for.
-   $node_types = array('update');
+   $node_types = array('update','event','announcement');
    $header = asb_modal_settings($gid, $node_types);
    // dsm($header);
    $options = array(
@@ -202,6 +202,13 @@ function asb_scheme_media_browser_plugins_alter(&$plugins) {
     unset($plugins['library']);
     unset($plugins['upload']);
   }
+}
+
+/**
+ * Implements hook_form_comment_form_alter()
+ */
+function asb_scheme_form_comment_form_alter(&$form, &$form_state) {
+  $form['actions']['submit']['#value'] = t('Submit');
 }
 
 /**
