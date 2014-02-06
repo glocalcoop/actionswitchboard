@@ -207,7 +207,8 @@ aside.scheme-meta {
 
     @include breakpoint( md ){
       @include zen-grid-container;
-      #block-views-goals-and-schemes-block {
+      #block-views-goals-and-schemes-block,
+      #block-views-goal-taxonomy-test-block {
         @include zen-grid-item( 3, 1 );
         table {
           width: 95%;
@@ -215,6 +216,25 @@ aside.scheme-meta {
       }
       #block-views-inspiration-footer-block {
         @include zen-grid-item( 3, 4 );
+        @include zen-nested-container;
+        li:first-child {
+          @include zen-grid-item(1, 1);
+        }
+        li:nth-child(2) {
+          @include zen-grid-item(1, 2);
+        }
+        li:last-child {
+          @include zen-grid-item(1, 3);
+        }
+        li {
+          @include zen-grid-flow-item( 2,8 );
+          // float: left;
+          .footer-image-wrap {
+            clear: both;
+            display: block;
+            float: none;
+          }
+        }
       }
       #block-menu-menu-as {
         @include zen-grid-item( 2, 7 );
