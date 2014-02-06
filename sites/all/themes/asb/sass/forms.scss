@@ -512,7 +512,16 @@ form {
 // Content Edit
 // 
 
-.page-user-edit-name-and-address {
+// .page-user-edit-asb-user-profile {
+//   form#user-profile-form {
+//     .crm-profile-name-ASB_User_Profile_19 {
+
+//     }
+//   }
+// }
+
+.page-user-edit-name-and-address,
+.page-user-edit-asb-user-profile {
   form#user-profile-form {
     .crm-profile-name-name_and_address {
       #crm-container.crm-container {
@@ -520,7 +529,13 @@ form {
         label {
           display: inherit;
         }
-
+        #helprow-custom_54,
+        #helprow-custom_23 {
+          .content {
+            margin-left: 0;
+            @include header-style ($size: $h3-font-size - 4);
+          }
+        }
       }
     }
   }  
