@@ -512,31 +512,37 @@ form {
 // Content Edit
 // 
 
-.page-user-edit-name-and-address {
+// html.js body.html div#page section#main div#content article.page div.wrapper section.main-content form#user-profile-form div div#edit-1.form-item div.crm-profile-name-ASB_User_Profile_19 div#crm-container.crm-container div#editrow-custom_54.crm-section div.label
+
+.page-user-edit-name-and-address,
+.page-user-edit-asb-user-profile {
   form#user-profile-form {
-    .crm-profile-name-name_and_address, {
+    .crm-profile-name-name_and_address,
+    .crm-profile-name-ASB_User_Profile_19 {
       #crm-container.crm-container {
-        .label,
-        label {
+        .label {
           display: inherit;
         }
       }
     }
   }  
 }
-
-.page-user-edit-asb-user-profile {
-  form#user-profile-form {
-    .crm-profile-name-ASB_User_Profile_19 {
-      #crm-container.crm-container {
-        .label,
-        label {
-          display: inline-block;
-        }
-      }
-    }
-  }
-}
+// .page-user-edit-asb-user-profile {
+//   form#user-profile-form {
+//     .crm-profile-name-ASB_User_Profile_19 {
+//       #crm-container.crm-container {
+//         #editrow-custom_37,
+//         #editrow-custom_72,
+//         #editrow-custom_73,
+//         #editrow-custom_57 {
+//           .label {
+//             display: inherit;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 form#user-profile-form {
   .crm-profile-name-ASB_User_Profile_19 {
