@@ -525,18 +525,18 @@ form {
   }  
 }
 
-// .page-user-edit-asb-user-profile {
-//   form#user-profile-form {
-//     .crm-profile-name-ASB_User_Profile_19 {
-//       #crm-container.crm-container {
-//         .label,
-//         label {
-//           display: inherit;
-//         }
-//       }
-//     }
-//   }
-// }
+.page-user-edit-asb-user-profile {
+  form#user-profile-form {
+    .crm-profile-name-ASB_User_Profile_19 {
+      #crm-container.crm-container {
+        .label,
+        label {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
 
 form#user-profile-form {
   .crm-profile-name-ASB_User_Profile_19 {
