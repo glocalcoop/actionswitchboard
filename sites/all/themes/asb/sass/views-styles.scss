@@ -116,6 +116,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       @include zigzag-border ($odd-backdrop, $backdrop);
     }
   }
+  // the last one on the homepage shouldnt have zigzag.
+  .block-views-scheme-overview-block-1 {
+    background: none !important;
+  }
 }
 
 #main .scheme-collection {
