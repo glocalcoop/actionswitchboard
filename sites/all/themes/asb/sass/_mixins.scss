@@ -68,16 +68,10 @@
   text-transform: $transform;
 }
 
-@mixin hidden-text {
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
-}
-
-@mixin hide-content {
-  font: 0/0;
-  display: none;
-  line-height: 0;
+@mixin standard-border($color: $rules-color, $width: 1px, $style: solid) {
+  color: $color;
+  width: $width;
+  style: $style;
 }
 
 @mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $weight: normal, $text-decoration: none, $text-transform: none, $border: none, $background: transparent) {
@@ -101,6 +95,18 @@
     color: $hcolor;
     text-decoration: $text-decoration;
   }
+}
+
+@mixin hidden-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+@mixin hide-content {
+  font: 0/0;
+  display: none;
+  line-height: 0;
 }
 
 @function blackTranslucent($opacity){
@@ -219,12 +225,6 @@
       position: relative; // Otherwise these elements will appear below the "Unpublished" text.
     }
   }
-}
-
-@mixin standard-border($color: $rules-color, $width: 1px, $style: solid) {
-  color: $color;
-  width: $width;
-  style: $style;
 }
 
 @mixin zigzag-border ($foreground-color: $odd-backdrop, $background-color: $even-backdrop, $background: transparent, $angle: 135deg, $size: 12px) {
