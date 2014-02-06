@@ -1396,17 +1396,20 @@ form .form-actions input{
       li {
         margin-top: .5em;
         margin-bottom: .5em;
-        text-indent: -.4em;
+        // text-indent: -.4em;
       }
       ul {
-        margin-right: 0;
-        margin-left: 1em;
-        padding-right: 0;
-        padding-left: 0;
+        margin: 0;
+        padding: 0;
         li {
           @include no-bullets;
-          @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem);
-          @extend %entypo-chevron-small-right;      
+          border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+          }
+          padding-left: .5em;
+
+          // @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem);
+          // @extend %entypo-chevron-small-right;      
         }
       }
       ol {
@@ -1418,7 +1421,7 @@ form .form-actions input{
           padding: 4px 8px; /* Add some spacing around the content */
           list-style: none; /* Disable the normal item numbering */
           border-top: {
-            @include standard-border($width: 2px, $color: $text-color-prominent);
+            @include standard-border($width: 2px, $color: $accent);
           }
           background: $even-backdrop;
           &:before {
@@ -1437,10 +1440,10 @@ form .form-actions input{
             margin-right: 8px;
             padding: 4px;
               border-top: {
-                @include standard-border($width: 2px, $color: $text-color-prominent);
+                @include standard-border($width: 2px, $color: $accent);
               }
             color: $nav-title-color;
-            background: $text-color-prominent;
+            background: $accent;
             font-weight: bold;
             text-align: center;
           }
