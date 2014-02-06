@@ -515,9 +515,9 @@ form {
 // Drupal user profile edit
 
 .page-user-edit-name-and-address {
-  field {
-      display: inherit;
-    }
+  label {
+     display: inherit;
+  }
 }
 
 form#user-profile-form {
