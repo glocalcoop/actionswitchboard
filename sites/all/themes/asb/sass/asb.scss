@@ -1386,6 +1386,7 @@ form .form-actions input{
     }
     }
     #node-content {
+      margin-top: 1.2em;
       p,
       li {
          @include body-text($size: 1.35rem, $line-height: 2rem);
@@ -1399,17 +1400,31 @@ form .form-actions input{
         // text-indent: -.4em;
       }
       ul {
-        margin: 0;
+        margin: 0 0 0 2em;
         padding: 0;
-        li {
+        &> li {
           @include no-bullets;
+          padding: .25em .5em;
           border-left: {
             @include standard-border($width: 3px, $color: $accent);
           }
-          padding-left: .5em;
-
-          // @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem);
-          // @extend %entypo-chevron-small-right;      
+          // border-top: {
+          //   @include standard-border($width: 1px, $color: $accent);
+          // }
+          ul {
+            margin: 0;
+            li {
+              padding: .5em 1.2em .5em .5em;
+              background: $even-backdrop;
+              border-left: {
+                @include standard-border($width: 3px, $color: $text-color);
+              }
+              border-top: none;
+            }            
+          }
+        }
+        &.menu {
+          margin-left: 0;
         }
       }
       ol {
@@ -1449,6 +1464,7 @@ form .form-actions input{
           }
         }     
       }
+
       .field-document-type {
         @include zen-clear;
         min-height: 25px;
