@@ -1338,7 +1338,6 @@ form .form-actions input{
 // Documents
 // ////////////////////////////
 
-
 .node-type-document {
   #main {
     h2,
@@ -1397,7 +1396,6 @@ form .form-actions input{
       li {
         margin-top: .5em;
         margin-bottom: .5em;
-        // text-indent: -.4em;
       }
       ul {
         margin: 0 0 0 2em;
@@ -1408,9 +1406,6 @@ form .form-actions input{
           border-left: {
             @include standard-border($width: 3px, $color: $accent);
           }
-          // border-top: {
-          //   @include standard-border($width: 1px, $color: $accent);
-          // }
           ul {
             margin: 0;
             li {
@@ -1497,9 +1492,6 @@ form .form-actions input{
   }
 
 }
-
-
-// html.js body.html div#page section#main div#content div.wrapper section.main-content article.node-87 div.wrapper div#node-content div#book-navigation-58.book-navigation ul.menu li.menu__item a.menu__link
 
 // ////////////////////////////
 // Taxonomy Terms
