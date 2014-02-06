@@ -60,6 +60,15 @@ div.messages {
   @include body-text ($size: $base-font-size + 2, $line-height: 1.5em)
 }
 
+// Header Links
+h1,
+h2,
+h3,
+h4 {
+  @include standard-links($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: $brand);
+}
+
+
 //User Images
 #comments {
   .user-picture img {
@@ -1323,13 +1332,34 @@ form .form-actions input{
 // Documents
 // ////////////////////////////
 
+
 .node-type-document {
-  .field-body {
-    @include body-text($size: $base-font-size + 2);
+  #node-content {
     p,
     li {
-       @include body-text($size: $base-font-size +2, $line-height: $base-line-height +2);
+       @include body-text($size: 1.35rem, $line-height: 2rem);
     }
+    p {
+      margin: .75em 0;
+    }
+    li {
+      margin-top: .5em;
+      margin-bottom: .5em;
+      text-indent: -.4em;
+    }
+    ul {
+      li {
+        @include no-bullets;
+        @include font-icon-base($font-size: 2em, $width: .1em, $margin: .1em, $line-height: 2rem, $color: $text-color-prominent);
+        @extend %entypo-chevron-small-right;      }
+    }
+    ol {
+      li {
+
+      }
+    } 
+  }
+  #main {
     h2,
     h3,
     h4,
@@ -1349,8 +1379,18 @@ form .form-actions input{
     a:link {
       color: $accent;
     }
+    .book-navigation {
+      .page-links {
+        padding: 1em 0;
+        border-top: {
+          @include standard-border;
+        }
+        border-bottom: {
+          @include standard-border;
+        }
+      }
+    }
   }
-
   .field-document-type {
     a {
       color: $accent;
@@ -1369,9 +1409,57 @@ form .form-actions input{
     .book_printer a {
       @extend %entypo-print;
     }
+  }
+  .book-navigation {
+    .menu {
+        border-top: {
+          @include standard-border;
+        }
 
+    }
   }
 }
+
+// ////////////////////////////
+// Taxonomy Terms
+// ////////////////////////////
+
+.page-taxonomy-term {
+  #main {
+    h2,
+    h3,
+    h4,
+    h5 {
+      @include body-text($size: $h2-font-size, $line-height: $header-line-height, $transform: none );
+    }
+    h2 {
+      font-size: 1.75em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.25em;
+    } 
+
+    article {
+      padding: 1.2em 0;
+      border-bottom: {
+        @include standard-border;
+      }
+      .field-body {
+        p {
+          margin: .5em 0;
+        }
+      }
+      ul.inline {
+        @include zen-float(right);
+        margin: .5em 0;
+      }
+    }
+  }
+}
+
 
 
 
@@ -1535,11 +1623,23 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
       &.pager-previous a {
         @extend %entypo-circled-left;
       }
-      &.pager-current {
+      &.pager-current,
+      &.pager-last {
         display: none;
       }
       &.pager-next a {
         @extend %entypo-circled-right;
+      }
+      &.pager-item {
+        &:after {
+          content: ' | ';
+          &:last-child {
+            content: none;
+          }
+        }
+
+        a {}
+
       }
     }
   }
