@@ -230,7 +230,8 @@ aside.scheme-meta {
   .node-type-scheme.og-context.og-context-node.section-node-edit #content,
   .page-user.not-logged-in #content,
   #add_page_scroll_wrapper,
-  .no-sidebars section.page-content {
+  .no-sidebars section.page-content,
+  .page-user-edit section.main-content {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
     margin-right: auto;
     margin-left: auto;
