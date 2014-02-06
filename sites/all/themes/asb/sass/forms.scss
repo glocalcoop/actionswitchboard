@@ -512,23 +512,20 @@ form {
 // Content Edit
 // 
 
-// Drupal user profile edit
-
-// #user-profile-form {
-//   .crm-profile-name-name_and_address {
-//     #crm-container {
-//       .label {}
-//     }
-//   }
-
-// }
- // div.crm-container div#editrow-first_name.crm-section div.label
 .page-user-edit-name-and-address {
-  label,
-  .label {
-     display: inherit;
-  }
+  form#user-profile-form {
+    .crm-profile-name-name_and_address {
+      #crm-container.crm-container {
+        .label,
+        label {
+          display: inherit;
+        }
+
+      }
+    }
+  }  
 }
+
 
 form#user-profile-form {
   #edit-account {
