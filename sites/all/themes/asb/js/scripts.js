@@ -136,60 +136,53 @@
   }
 
   asb.modify_append_pager = function() {
+
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
-    var issuesfilter_clone = $("#edit-field-issues-goals-target-id").clone(false, false );
-    var form_filters = $("#views-exposed-form-scheme-overview-filtered-page-1");
-    var form_action = form_filters.attr("action");
-    var form_method = form_filters.attr("method");
-    var form_charset = form_filters.attr("accept-charset");
 
-    // issuesfilter_clone.attr('id', 'pager_issue_filter' );
-    issuesfilter_clone.removeAttr('id');
-    
-// could probably do with a single form, but meh.
-    var issuesfilterform = $("<form></form>");
-    issuesfilterform.attr('action', form_action );
-    issuesfilterform.attr('method', form_method );
-    issuesfilterform.attr('accept-charset', form_charset );
-    issuesfilterform.append( issuesfilter_clone );
+    var issues_filter = $('<div id="issues_filter"></div>');
+    var issues_select = $("#edit-field-issues-goals-target-id").clone(false, false );
+    issues_select.attr('id', 'pager_issue_filter' );
+    issues_filter.append(issues_select);
 
-    var collectionsform = $("<form></form>");
-    collectionsform.attr('action', form_action );
-    collectionsform.attr('method', form_method );
-    collectionsform.attr('accept-charset', form_charset );
-    var collections_pulldown = asb.build_collections_pulldown();
-    collectionsform.append( collections_pulldown );
+    var collections_filter = $('<div id="collections_filter"></div>')
+    var collections_select = asb.build_collections_pulldown();
+    collections_filter.append( collections_select );
 
-    infiniteScrollPager.append( issuesfilterform );
-    infiniteScrollPager.prepend( collectionsform );
+    var load_more_button = $("#load_more_schemes_button");
+    // remove from dom... to add in the right spot later
+    load_more_button.remove();
 
-    issuesfilter_clone.change( function(e) {
+    var schemes_search_form = $("#views-exposed-form-scheme-overview-filtered-page-1");
+    var form_action = schemes_search_form.attr("action");
+    var form_method = schemes_search_form.attr("method");
+    var form_charset = schemes_search_form.attr("accept-charset");
+
+    var pager_form = $("<form></form>");
+    pager_form.attr('action', form_action );
+    pager_form.attr('method', form_method );
+    pager_form.attr('accept-charset', form_charset );
+
+    pager_form.append( issues_filter );
+    pager_form.append( load_more_button );
+    pager_form.append( collections_filter );
+
+    infiniteScrollPager.append( pager_form );
+
+    issues_select.change( function(e) {
       var val = $(this).attr('value');
       console.log( val );
       e.preventDefault();
       window.location.replace( val );
     });
 
-    collections_pulldown.change( function(e) {
+    collections_select.change( function(e) {
       var val = $(this).attr('value');
       console.log( val );
       e.preventDefault();
       window.location.replace( val );
     });
 
-//     searchbox_clone.focus( function(e){
-//       $(this).keypress(function(e) {
-// //        console.log( "Handler for .keypress() called.", e.which );
-//         if( e.which == 13 ){
-//           e.preventDefault();
-//           searchform.submit();
-//         }
-//       });
-//     });
 
-    // searchbox_clone.blur( function(e){
-    //   $(this).unbind( 'keypress' );
-    // });
   }
 
 })(jQuery);

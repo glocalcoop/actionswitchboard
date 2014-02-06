@@ -34,9 +34,11 @@ Drupal.behaviors.views_infinite_scroll = {
             var img_path         = settings.img_path;
             var img              = '<div id="views_infinite_scroll-ajax-loader"><img src="' + img_path + '" alt="loading..."/></div>';
 
-            var load_more_button = $("<a id='load_more_schemes_button' href='#' title='Load more schemes...' href='schemes'> + Load More Schemes +</a>");
+            var load_more_button = $("<a id='load_more_schemes_button' href='#' title='Load more schemes...' href='schemes'>Load More Schemes</a>");
             var pager = $(pager_selector);
+
             pager.hide();
+
             var infiniteScrollPager = $("<div id='add_page_scroll_wrapper'></div>");
             infiniteScrollPager.append( load_more_button );
             infiniteScrollPager.appendTo($(view_selector));
@@ -91,7 +93,7 @@ Drupal.behaviors.views_infinite_scroll = {
             }
             while ($(content_selector).height() > prev_content_height);
 
-          }
+            }
           else {  
             alert(Drupal.t('Views infinite scroll pager is not compatible with Ajax Views. Please disable "Use Ajax" option.'));
           }
@@ -102,8 +104,7 @@ Drupal.behaviors.views_infinite_scroll = {
           // print something on the page.
         }
       }
-    }
-    else {
+    } else {
       alert(Drupal.t('Autopager jquery plugin in not loaded.'));
     }
   }

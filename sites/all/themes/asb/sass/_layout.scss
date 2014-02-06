@@ -295,18 +295,21 @@ aside.scheme-meta {
 /* ------------------------ */
 #add_page_scroll_wrapper {
   
-  #load_more_schemes_button,
-  .views-widget-filter-field_issues_goals_target_id {
-    float: left;
-  }
-  
   @include breakpoint( md ) {
-    .views-widget-filter-field_issues_goals_target_id {
-      @include zen-grid-flow-item( 2 );
+
+    #issues_filter {
+      @include zen-float();
+      @include zen-grid-flow-item( 2, 8 );
     }
 
     #load_more_schemes_button {
-      @include zen-grid-flow-item( 4 ); 
+      @include zen-float();
+      @include zen-grid-flow-item( 4, 8 );
+    }
+  
+    #collections_filter {
+      @include zen-float();
+      @include zen-grid-flow-item( 2, 8 );
     }
 
   }
