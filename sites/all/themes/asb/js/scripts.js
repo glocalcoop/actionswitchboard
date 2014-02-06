@@ -118,18 +118,33 @@
     });
   }
 
+  asb.build_collections_pulldown = function() {
+    var options = $(".region-search .bef-select-as-links");
+    var select = $('<select class="collections"></select>');
+    options.each( function() {
+      var el = $(this);
+      var label = el.find( ".form-type-bef-link a" ).last().text();
+      var href = el.find( ".form-type-bef-link a" ).last().attr('href');
+      var option = $( '<option href="' + href + '">' + label + '</option>' );
+      select.append( option );
+    });
+    var anylink = $('<option value="' + options.find( ".form-type-bef-link a" ).first().href + '">From any collection</option>');
+    select.prepend( anylink );
+    var defaultopt = $('<option selected="selected" value="' + options.find( ".form-type-bef-link a" ).first().href + '">Filter by Collection</option>');
+    select.prepend( defaultopt );
+    return select;
+  }
+
   asb.modify_append_pager = function() {
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
-    var searchbox_clone = $("#edit-keys-wrapper input").clone(false,false);
-    var issuesfilter_clone = $("#edit-field-issues-goals-target-id-wrapper").clone(false, false );
+    var issuesfilter_clone = $("#edit-field-issues-goals-target-id").clone(false, false );
     var form_filters = $("#views-exposed-form-scheme-overview-filtered-page-1");
     var form_action = form_filters.attr("action");
     var form_method = form_filters.attr("method");
     var form_charset = form_filters.attr("accept-charset");
 
-    issuesfilter_clone.attr('id', 'pager_issue_filter' );
+    // issuesfilter_clone.attr('id', 'pager_issue_filter' );
     issuesfilter_clone.removeAttr('id');
-    searchbox_clone.removeAttr('id');
     
 // could probably do with a single form, but meh.
     var issuesfilterform = $("<form></form>");
@@ -138,14 +153,15 @@
     issuesfilterform.attr('accept-charset', form_charset );
     issuesfilterform.append( issuesfilter_clone );
 
-    var searchform = $("<form></form>");
-    searchform.attr('action', form_action );
-    searchform.attr('method', form_method );
-    searchform.attr('accept-charset', form_charset );
-    searchform.append(searchbox_clone);
+    var collectionsform = $("<form></form>");
+    collectionsform.attr('action', form_action );
+    collectionsform.attr('method', form_method );
+    collectionsform.attr('accept-charset', form_charset );
+    var collections_pulldown = asb.build_collections_pulldown();
+    collectionsform.append( collections_pulldown );
 
-    infiniteScrollPager.prepend( issuesfilterform );
-    infiniteScrollPager.append( searchform );
+    infiniteScrollPager.append( issuesfilterform );
+    infiniteScrollPager.prepend( collectionsform );
 
     issuesfilter_clone.change( function(e) {
       var val = $(this).attr('value');
@@ -154,19 +170,26 @@
       window.location.replace( val );
     });
 
-    searchbox_clone.focus( function(e){
-      $(this).keypress(function(e) {
-//        console.log( "Handler for .keypress() called.", e.which );
-        if( e.which == 13 ){
-          e.preventDefault();
-          searchform.submit();
-        }
-      });
+    collections_pulldown.change( function(e) {
+      var val = $(this).attr('value');
+      console.log( val );
+      e.preventDefault();
+      window.location.replace( val );
     });
 
-    searchbox_clone.blur( function(e){
-      $(this).unbind( 'keypress' );
-    });
+//     searchbox_clone.focus( function(e){
+//       $(this).keypress(function(e) {
+// //        console.log( "Handler for .keypress() called.", e.which );
+//         if( e.which == 13 ){
+//           e.preventDefault();
+//           searchform.submit();
+//         }
+//       });
+//     });
+
+    // searchbox_clone.blur( function(e){
+    //   $(this).unbind( 'keypress' );
+    // });
   }
 
 })(jQuery);

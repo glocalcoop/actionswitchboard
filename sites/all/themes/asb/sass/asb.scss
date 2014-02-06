@@ -219,6 +219,7 @@ div.user-picture img {
   padding: 1em 0 2em 0;
   overflow: visible;  
   max-height: auto;
+  display: block;
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -230,6 +231,7 @@ div.user-picture img {
     @include transition-duration(0);  
   }
   &.hidden, &.atrest {
+    display: none;
     max-height: 0px;
     padding: 0;
     overflow: hidden;
@@ -1304,19 +1306,11 @@ form .form-actions input{
 
     }
     #block-views-inspiration-footer-block {
-      @include zen-nested-container;
+
       a {
         color: $accent;
       }
-      li:first-child {
-        @include zen-grid-item(1, 1);
-      }
-      li:nth-child(2) {
-        @include zen-grid-item(1, 2);
-      }
-      li:last-child {
-        @include zen-grid-item(1, 3);
-      }
+
     }
     #block-menu-menu-as {
       h2 {
