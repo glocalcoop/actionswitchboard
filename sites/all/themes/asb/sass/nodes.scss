@@ -20,9 +20,8 @@
     h3 {
       @include body-text ($size: 2em, $color: $text-color-prominent);
     }
-    p {
-      @include body-text ($size: 1.25em, $weight: normal);
-      line-height: 1.25em;
+    p, li {
+      @include body-text ($size: 1.35rem, $line-height: 1.95rem, $weight: normal);
     }
   }
 }
