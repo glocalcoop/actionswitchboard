@@ -521,6 +521,9 @@ form {
       .label {
         display: inherit;
       }
+      .resizable-textarea {
+        @include zen-clear;
+      }
     }
 
   }
