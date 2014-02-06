@@ -18,7 +18,7 @@
 .node-default {
   #node-content {
     h3 {
-      @include body-text ($size: 2em, $color: $text-color-prominent);
+      @include body-text ($size: 2em, $color: $text-color-prominent, $line-height: $header-line-height);
     }
     p, li {
       @include body-text ($size: 1.35rem, $line-height: 1.95rem, $weight: normal);
