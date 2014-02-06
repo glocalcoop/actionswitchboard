@@ -899,7 +899,7 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         if($membership->state == 2) {
           $node->content['group_group'][0]['#title'] = "Membership Pending";
         }elseif($membership->state == 1) {
-          $node->content['group_group'][0]['#title'] = "Leave Group";
+          $node->content['group_group'][0]['#title'] = "Leave Scheme";
         }
       }else{
         $node->content['group_group'][0]['#title'] = "Request Membership";
