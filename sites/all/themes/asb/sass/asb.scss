@@ -912,12 +912,7 @@ ul.tags {
 /* Updates Modals          */
 /* ----------------------- */
 
-// Event
-
-// div.ctools-modal-content .form-item label
-
-// #edit-field-date-und-0-value.date-padding div.form-item label
-
+// Add Event
 
 .node-event-form,
 .page-node-add-event {
@@ -954,6 +949,7 @@ ul.tags {
         display: block;
         @include zen-clear(both);
         width: 100%;
+        margin-bottom: .5em;
       }
       div.date-no-float {
         display: table-cell;
@@ -991,23 +987,10 @@ ul.tags {
         }
       }
 
-      // .date-padding {
-      //   float: none;
-      // }
-
       div.date-float {}
       div.date-no-float {}
 
-      // #edit-field-date-und-0-value {
-      //   float: none;
-      //   display: table;
-      //   .form-type-textfield {
-      //     display: table-cell;
-      //   }
-
-      // }
     }
-
   }
 
   //Location Fields
@@ -1047,14 +1030,23 @@ ul.tags {
           width: 120px;
         }
         .form-item-field-event-location-und-0-city,
-        #location-dropdown-province-wrapper-field_event_location-und-0 {
+        #location-dropdown-province-wrapper-field_event_location-und-0,
+        .form-item-field-event-location-und-0-country {
           display: inline-block;
           vertical-align: top;
           .form-item-field-event-location-und-0-province {
             width: auto;
-            padding: 0;
+            padding: 0 .5em 0 0;
             margin: 0;
           }
+          label {
+            width: auto;
+          }
+        }
+
+        #edit_field_event_location_und_0_province_chosen,
+        #edit_field_event_location_und_0_country_chosen {
+          width: 150px !important;
         }
       }
     }
