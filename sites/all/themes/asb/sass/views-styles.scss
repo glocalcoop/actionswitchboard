@@ -244,6 +244,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   .scheme-header {
     min-height: 6em;
+    @include breakpoint( md, max-width ){
+      min-height: 6.5em; 
+    }
     .scheme-leader:before { line-height: inherit; }
   }
 
