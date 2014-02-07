@@ -68,7 +68,7 @@ Drupal.behaviors.views_infinite_scroll = {
                   load_more_button.html('No more schemes to load!');
                   load_more_button.click( function(e){
                     e.preventDefault();
-                    alert("We dig your enthusiasm, but there are no more schemes to load!");
+                    // alert("We dig your enthusiasm, but there are no more schemes to load!");
                   });
                 }
               }
