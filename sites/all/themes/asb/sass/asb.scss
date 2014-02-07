@@ -657,7 +657,8 @@ ul.tags {
         }      
       }
     }
-    article.node-update {
+    article.node-update,
+    article.node-announcement {
       @include body-text;
       @include zen-clear;
 

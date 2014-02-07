@@ -45,13 +45,5 @@
       <?php print $signature; ?>
     </footer>
   <?php endif; ?>
-
-  <?php print render($content['links']) ?>
-
-<?php
-// echo '<pre>';
-// var_dump($user);
-// echo '</pre>';
-?>
-
+  <?php print render($content['links']); ?>
 </article>

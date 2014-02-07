@@ -1392,3 +1392,15 @@ function asb_scheme_get_user_name($uid) {
   return $name;
 }
 
+/**
+ * Implements hook_preprocess_links()
+ *
+ * Use modals for comment forms.
+ */
+function asb_scheme_preprocess_links(&$variables) {
+  if(isset($variables['links']['comment-reply'])) {
+    $variables['links']['comment-reply']['href'] = 'modal_forms/nojs/' .$variables['links']['comment-reply']['href'];
+    $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-use-modal';
+    $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-modal-mfe-modal';
+  }
+}
