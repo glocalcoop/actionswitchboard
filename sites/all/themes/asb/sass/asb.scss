@@ -596,7 +596,7 @@ ul.tags {
       @include body-text;
       @include zen-clear;
 
-      view
+      // view
 
       .views-row {
         #comments {
@@ -746,32 +746,34 @@ ul.tags {
     }
   }
 
-// div.date-no-float:nth-child(3)
-  // Events Modal
-  .node-event-form {
-    #edit-field-date {
-      .form-type-checkbox {
+/* ----------------------- */
+/* Updates Modals          */
+/* ----------------------- */
+
+// Event
+
+.node-event-form {
+
+  //Date Fields
+  #edit-field-date {
+
+    legend {
+      display: none;
+    }
+
+    .form-type-checkbox {
         margin: 0;
       }
-      &#field-date-add-more-wrapper {
-        &> fieldset:nth-child(1) {
-          // @include zen-grid-container;
-          // .date-float {
-          //   @include zen-grid-item(2,1);
-          // }
-          // .date-no-float.start-date-wrapper {
-          //   @include zen-grid-item(1,1);
-          // }
-          // .date-no-float.end-date-wrapper {
-          //   @include zen-grid-item(1,2);
-          // }
-        }
-      }
-    }
-    #field-date-add-more-wrapper > fieldset:nth-child(1) > div:nth-child(2) {
+
+    .fieldset-wrapper {
       display: table;
-      div.date-no-float,
+      margin-top: 1.2em;
+
       div.date-float {
+        display: none;
+      }
+      div.date-no-float {
+        display: table-cell;
         width: auto;
         margin: 0 .5em;
         .form-item {
@@ -787,34 +789,67 @@ ul.tags {
         input.date-clear {
           width: 80px;
         }
-      }
-      div.date-float {
-        display: block;
-        label.option {
-          white-space:nowrap;
+
+        &.start-date-wrapper {
+           padding-right: 1.2em;
+           &:before {
+            content: 'Start';
+            padding-right: 5px;
+            font-weight: bold;
+          }
         }
-      }
-       // @include zen-grid-container;
-      div.date-no-float:nth-child(3) {
-        // @include zen-grid-item(1,1);
-        display: table-cell;
-        &:before {
-          content: 'Start';
+        &.end-date-wrapper {
+          &:before {
+            content: 'Finish';
+            padding-right: 5px;
+            font-weight: bold;
+          }
         }
+
       }
-      div.date-no-float:nth-child(4) {
-        // @include zen-grid-item(1,2);
-        display: table-cell;
-        &:before {
-          content: 'Finish';
+
+      div.date-float {}
+      div.date-no-float {}
+    }
+
+  }
+
+  //Location Fields
+  #edit-field-event-location {
+    @include zen-clear;
+    margin-top: 1.2em;
+    .fieldset-wrapper {
+      display: table;
+      margin: 0;
+      padding: 0;
+
+      .form-item {
+        &:first-child {
+          margin-top: 0;
         }
       }
     }
+    .description {
+      display: none;
+    }
+    legend {
+      display: block;
+      @include zen-float(left);
+      padding-right: 1.2em;
+      font-weight: bold;
+    }
+    label {
+      font-weight: normal;
+    }
+    div.fieldset-wrapper {
+      @include zen-float(left);
+    }
   }
 
-  // #field-date-add-more-wrapper > fieldset:nth-child(1) > div:nth-child(2)
+  //Content Access Fields
+  #edit-group-content-access {}
 
-  // div.date-no-float:nth-child(3)
+}
 
 /* ----------------------- */
 /* Slideshow:              */
