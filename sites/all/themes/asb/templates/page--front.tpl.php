@@ -92,11 +92,11 @@
           <?php if ($site_slogan): ?>
             <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
           <?php endif; ?>
-          <h2 id="what-is-an-action-switchboard">
-            <a href="#notimportant-though-should-probably-link-to-something">
-              Just what is an action switchboard anyway?
-            </a>
-          </h2>
+          <a href="/new-feature-coming-soon">
+            <h2 id="what-is-an-action-switchboard">
+              <span class="asb-intro-link"></span>
+            </h2>
+          </a>
 
         </section><!-- /#name-and-slogan -->
 
