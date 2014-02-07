@@ -553,6 +553,17 @@ ul.tags {
 
   #scheme-content {
 
+    .view-header {
+      .item-list {
+        ul {
+          li {
+            display: inline-block;
+            padding-right: 1.2em;
+          }
+        }
+      }
+    }
+
     .views-row {
       article.node-update {
         border-top: {
@@ -584,6 +595,8 @@ ul.tags {
     article.node-update {
       @include body-text;
       @include zen-clear;
+
+      view
 
       .views-row {
         #comments {
@@ -700,7 +713,7 @@ ul.tags {
             margin: 0;
             padding: 0;
             a {
-              @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+              @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
               color: $text-color;
             }
             &:first-child a {
@@ -732,6 +745,76 @@ ul.tags {
       }
     }
   }
+
+// div.date-no-float:nth-child(3)
+  // Events Modal
+  .node-event-form {
+    #edit-field-date {
+      .form-type-checkbox {
+        margin: 0;
+      }
+      &#field-date-add-more-wrapper {
+        &> fieldset:nth-child(1) {
+          // @include zen-grid-container;
+          // .date-float {
+          //   @include zen-grid-item(2,1);
+          // }
+          // .date-no-float.start-date-wrapper {
+          //   @include zen-grid-item(1,1);
+          // }
+          // .date-no-float.end-date-wrapper {
+          //   @include zen-grid-item(1,2);
+          // }
+        }
+      }
+    }
+    #field-date-add-more-wrapper > fieldset:nth-child(1) > div:nth-child(2) {
+      display: table;
+      div.date-no-float,
+      div.date-float {
+        width: auto;
+        margin: 0 .5em;
+        .form-item {
+          margin: 0;
+          .date-padding {
+            margin: 0;
+            padding: 0;
+          }
+          label[for=edit-field-date-und-0-value2] {
+            display: none;
+          }
+        }
+        input.date-clear {
+          width: 80px;
+        }
+      }
+      div.date-float {
+        display: block;
+        label.option {
+          white-space:nowrap;
+        }
+      }
+       // @include zen-grid-container;
+      div.date-no-float:nth-child(3) {
+        // @include zen-grid-item(1,1);
+        display: table-cell;
+        &:before {
+          content: 'Start';
+        }
+      }
+      div.date-no-float:nth-child(4) {
+        // @include zen-grid-item(1,2);
+        display: table-cell;
+        &:before {
+          content: 'Finish';
+        }
+      }
+    }
+  }
+
+  // #field-date-add-more-wrapper > fieldset:nth-child(1) > div:nth-child(2)
+
+  // div.date-no-float:nth-child(3)
 
 /* ----------------------- */
 /* Slideshow:              */
