@@ -1321,7 +1321,7 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
       $params = array(
           'version' => 3,
           'sequential' => 1,
-          'entity_id' => 580138,
+          'entity_id' => $contacts['values'][0]['contact_id'],
       );
       $result = civicrm_api('CustomValue', 'get', $params);
       foreach($result['values'] as $key => $value) {
@@ -1366,7 +1366,9 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
 }
 
 function asb_scheme_get_civi_skills($skills_info, $civi_skills) {
-  $civi_skills = asb_scheme_civicrm_api();
+  global $user;
+  $ufid = $user->uid;
+  $civi_skills = asb_scheme_civicrm_api($ufid);
   $skills_values = array();
   foreach($civi_skills['values'] as $key => $value) {
     $skills_values[$value['value']] = $value['label'];
