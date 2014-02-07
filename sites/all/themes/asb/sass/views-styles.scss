@@ -146,30 +146,32 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   }
 
-  @include breakpoint( sm, max-size ) {
-    margin-left: 0; 
-    margin-right: 0; 
-    padding-left: 2em;
-    padding-right: 2em;
-  }
+  // @include breakpoint( sm, max-size ) {
+  //   margin-left: 0; 
+  //   margin-right: 0; 
+  //   padding-left: 2em;
+  //   padding-right: 2em;
+  //   border: 1px $accent solid;
+  // }
 
   @include breakpoint( sm ) {
     margin: 0 auto;
   }
 
-  @include breakpoint( md, max-size ) {
-    .views-row {
-      &:nth-child(2n+2),
-      &:last-child {
-        border: none;
-        margin-right: 0;
-      }
-    }
-    margin-left: 0; 
-    margin-right: 0; 
-    padding-left: 2em;
-    padding-right: 2em;
-  }
+  // @include breakpoint( md, max-size ) {
+  //   border: 1px $accent solid;
+  //   .views-row {
+  //     &:nth-child(2n+2),
+  //     &:last-child {
+  //       border: none;
+  //       margin-right: 0;
+  //     }
+  //   }
+  //   margin-left: 0; 
+  //   margin-right: 0; 
+  //   padding-left: 2em;
+  //   padding-right: 2em;
+  // }
 
   @include breakpoint( md ) {
     .views-row {
@@ -225,8 +227,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 #main .scheme-collection {
 
  .view-content {
-    @include zen-clear();
 
+    // @include zen-clear();
+    @include clearfix;
+    
     // Row of Schemes
     .views-row {
       min-height: 420px;
@@ -427,6 +431,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }    
   }
   @include breakpoint( md, max-width ) {
+
     .item-list {
       ul.pager {
         li {
