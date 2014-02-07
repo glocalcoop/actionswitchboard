@@ -717,20 +717,20 @@ ul.tags {
 /* Updates Tab:            */
 /* ----------------------- */
 
-    .view-header {
-      border-top: {
-          @include standard-border;
-      }
-      padding-top: 1.2em;
-      .item-list {
-        ul {
-          li {
-            display: inline-block;
-            padding-right: 1.2em;
-          }
-        }
-      }
-    }
+    // .view-header {
+    //   border-top: {
+    //       @include standard-border;
+    //   }
+    //   padding-top: 1.2em;
+    //   .item-list {
+    //     ul {
+    //       li {
+    //         display: inline-block;
+    //         padding-right: 1.2em;
+    //       }
+    //     }
+    //   }
+    // }
 
 
 //Updates
@@ -750,7 +750,16 @@ ul.tags {
         }
       }
     }
+
+    .scheme-updates-header {
+      @include header-style ($family: $base-font-family, $size: $h3-font-size + 2, $transform: capitalize, $weight: normal);
+      strong {
+        font-weight: normal;
+      }
+    }
   }
+
+
 
   //Layout
   article {
