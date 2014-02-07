@@ -153,35 +153,38 @@ div.user-picture img {
     background-color: #dde4cc !important;
   }
 
-  #edit-field-from-the-movie-value-1,
   #edit-field-featured-value-1,
+  #edit-field-from-the-movie-value-1,
   #edit-sid-5 {
 
     a {
-      display: inline-block;
-      overflow: hidden;
-      padding-left: 2em;
       vertical-align: baseline;
-      margin-top: .5em;
-      &::before {
-        content: "";
-        display: block;
-        width: 18px;
-        height: 18px;
-        background-image: url( /sites/all/themes/asb/images/sprite_search_icons.png );
-      }
-      &::hover::before {
-        border-radius: 9px;
-        background-color: $backdrop;
-      }
-    
+      margin-top: .125em;
+      line-height: 1.25;
     }
-
+    a::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: .425em;
+      width: 18px;
+      height: 18px;
+      background-image: url( /sites/all/themes/asb/images/sprite_search_icons.png );
+    }
+    &.selected a::before,
+    &:hover a::before {
+      background-color: $accent;
+      border-radius: 9px;
+    }
   }
 
   #edit-field-featured-value-1 {
     a::before {
       background-position: -36px 0px;
+    }
+    &.selected a::before,
+    &:hover a::before {
+      background-position: -36px 18px;
     }
   }
 
@@ -189,18 +192,20 @@ div.user-picture img {
     a::before {
       background-position: 0px 0px;
     }
+    &.selected a::before,
+    &:hover a::before {
+      background-position: 0px 18px;
+    }
   }
-
 
   #edit-sid-5 {
     a::before {
-      background-position: -54px 0px;
+      background-position: -18px 0px;
     }
-    // &:hover {
-    //   &:before {
-    //     background-position: -54px 18px;
-    //   }
-    // }
+    &.selected a::before,
+    &:hover a::before {
+      background-position: -18px 18px;
+    }
   }
 
   #edit-field-from-the-movie-value-all,
@@ -242,14 +247,19 @@ div.user-picture img {
   @include breakpoint( md ) {
     width: 100%;
     padding-top: 1em;
-    .views-reset-button,
-    .views-submit-button {
-      width: auto;
-      #edit-submit-scheme-overview-filtered,
-      #edit-reset {
-        width: auto;
-      }
-    }
+
+  }
+}
+
+.region-search {
+  .views-exposed-form .views-exposed-widget {
+    padding-top: 0 !important;
+  }
+  .views-exposed-form .views-exposed-widget .form-reset,
+  .views-exposed-form .views-exposed-widget .form-submit {
+    // padding: 0 !important;
+    padding-top: 0 !important;
+    margin: 0 0 0 0 !important;
   }
 }
 
