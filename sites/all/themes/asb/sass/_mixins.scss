@@ -74,23 +74,20 @@
   style: $style;
 }
 
-@mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $weight: normal, $text-decoration: none, $text-transform: none, $border: none, $background: transparent) {
+@mixin standard-links ($color: $accent, $vcolor: darken($accent,10%), $hcolor: $brand, $weight: normal, $text-decoration: none, $text-transform: none, $border: none) {
   a,
   a:link {
-    background: $background;
     border: $border;
     color: $color;
     font-weight: $weight;
     text-decoration: $text-decoration;
   }
   a:visited {
-    background: $background;
     border: $border;
     color: $vcolor;
     text-decoration: $text-decoration;
   }
   a:hover {
-    background: $background;
     border: $border;
     color: $hcolor;
     text-decoration: $text-decoration;
