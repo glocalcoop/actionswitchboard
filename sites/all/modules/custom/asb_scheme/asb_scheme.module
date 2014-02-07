@@ -1296,6 +1296,7 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
                     'version' => 3,
                     'sequential' => 1,
                     'uf_id' => $ufid,
+                    'domain_id' => 2,
                   ));
       $params = array(
         'version' => 3,
