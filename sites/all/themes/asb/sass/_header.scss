@@ -165,6 +165,15 @@
       @include box-sizing( border-box );
       padding: .5em 0 .75em 0;
     }
+    @include breakpoint(md,max-width){
+      background-color: $brand;
+      #site-name {
+        float: none;
+        a {
+          background-color: $accent;
+        }
+      }
+    }
     @include breakpoint(md){
       height: 81px;
       background-image: url('../images/logostrip_home.png?1376927784');
