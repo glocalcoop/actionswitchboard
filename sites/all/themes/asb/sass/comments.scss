@@ -6,7 +6,38 @@
 @import "base";
 
 
-div#comments{
+// #comments {
+//   .comment {
+//     padding-top: 1.2em;
+//     .user-picture {
+//       margin: 0;
+//       width: 60px;
+//     }
+//     .comment-content {
+//       margin-left: 60px;
+//       clear: none;
+//       header,
+//       .field-comment-body {
+//         margin-left: 0;
+//         display: block;
+//         p, li {
+//           @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+//         }
+//       }
+//     }
+//     .links.inline {
+//       margin-top: 0;
+//       li.comment-delete,
+//       li.comment-edit,
+//       li.comment-reply {
+//         @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+//       }
+//     }
+//   }
+// }
+
+
+div#comments {
   margin: 0;
 
   form.comment-form {
@@ -23,7 +54,8 @@ div#comments{
     padding: 10px 0 0 0;
   }
 
-  .comment { /* Wrapper for a single comment */
+
+  .comment { 
     position: relative;
     @include zen-clear;
     border-bottom: {
@@ -32,16 +64,6 @@ div#comments{
 
     &.last{
       border: none;
-    }
-
-    .user-picture { /* The picture of the comment author */
-      @include zen-float;
-      margin-right: 15px;
-      margin-top: 1.2em;
-      img {
-        width: 50px;
-        height: 50px;
-      }
     }
 
     header {
@@ -112,7 +134,7 @@ div#comments{
 
       h3.comment-title { /* Comment title */
         @include zen-clear;
-        @include header-style ($family: $font-body, $size: $base-font-size + 3, $transform: none, $color: $text-color);
+        @include header-style ($family: $font-body, $size: $base-font-size + 4, $transform: none, $color: $text-color);
         line-height: $header-line-height;
         margin-bottom: .25em;
       }
@@ -145,6 +167,72 @@ div#comments{
         }
       }
     }
+
+
+
+  .comment {
+    padding-top: 1.2em;
+    // .user-picture {
+    //   width: 60px;
+    // }
+    .comment-content {
+      margin-left: 60px;
+      clear: none;
+      header,
+      .field-comment-body {
+        margin-left: 0;
+        display: block;
+        p, li {
+          @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+        }
+      }
+    }
+    .links.inline {
+      margin-top: 0;
+      li.comment-delete,
+      li.comment-edit,
+      li.comment-reply {
+        @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+      }
+    }
+    .user-picture { /* The picture of the comment author */
+      @include zen-float;
+      margin: 0;
+      width: 60px;
+      // margin-top: 1.2em;
+    }
+    .submitted {
+      margin-top: 0;
+    }
+    article.last {
+      border-bottom: {
+          @include standard-border;
+        }
+    }
+  }
+
+} // End ---
+
+
+#scheme-content {
+  .view-content {
+    // article {
+    //   .user-picture img {
+    //     width: 50px;
+    //     height: 50px;
+    //   }
+    // }
+
+  }
+}
+
+#scheme-content {
+  .user-picture {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
 }
 
 .not-logged-in {
