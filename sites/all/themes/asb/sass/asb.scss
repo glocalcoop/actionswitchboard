@@ -732,78 +732,137 @@ ul.tags {
       }
     }
 
-    //Layout
-    article {
-      &.node-update,
-      &.node-announcement,
-      &.node-event {
-        border-top: {
-          @include standard-border;
-        }
-        padding-top: 1.2em;
-        @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
-          header {
-            .user-picture,
-            .submitted,
-            .node-title {
-              @include zen-float(left);
-            }
-            .user-picture {
-              width: 60px;
-            }
-            p.submitted {
-              margin: 0;
-            }
-            h2.node-title {
-              @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
-              margin-top: 5px;
-              // @include zen-clear;
-            }
-            .submitted,
-            .node-title {
-              // margin-left: 65px;
-              width: 400px;
-            }
-            .submitted {}
-            .node-title {
-              // @include zen-clear(right);
-            }
-          }
-          .field-label,
-          .field-date {
-            display: inline-block;
-            @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
-          }
 
-          div.field-body {
-            border-top: none;
-            margin-top: 0;
-            @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
-            p, li {
-              @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-              &:first-child {
-                margin-top: 0;
+//Updates
+
+#scheme-content {
+
+  .view-header {
+    border-top: {
+        @include standard-border;
+    }
+    padding-top: 1.2em;
+    .item-list {
+      ul {
+        li {
+          display: inline-block;
+          padding-right: 1.2em;
+        }
+      }
+    }
+  }
+
+  //Layout
+  article {
+    &.node-update,
+    &.node-announcement,
+    &.node-event {
+      border-top: {
+        @include standard-border;
+      }
+      padding-top: 1.2em;
+      @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+        header {
+          .user-picture,
+          .submitted,
+          .node-title {
+            @include zen-float(left);
+          }
+          .user-picture {
+            width: 60px;
+          }
+          p.submitted {
+            margin: 0;
+          }
+          h2.node-title {
+            @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
+            margin-top: 5px;
+            // @include zen-clear;
+          }
+          .submitted,
+          .node-title {
+            // margin-left: 65px;
+            width: 400px;
+          }
+          .submitted {}
+          .node-title {
+            // @include zen-clear(right);
+          }
+        }
+        .field-label,
+        .field-date {
+          display: inline-block;
+          @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+        }
+
+        div.field-body {
+          border-top: none;
+          margin-top: 0;
+          @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+          p, li {
+            @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+        .node-default {
+          margin-left: 60px;
+          #node-content {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+          }          
+        }
+      
+      #comments {
+        .comment {
+          padding-top: 1.2em;
+          .user-picture {
+            margin: 0;
+            width: 60px;
+          }
+          .comment-content {
+            margin-left: 60px;
+            clear: none;
+            header,
+            .field-comment-body {
+              margin-left: 0;
+              display: block;
+              p, li {
+                @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
               }
             }
           }
-          .node-default {
-            margin-left: 60px;
-            #node-content {
-              padding-right: 0 !important;
-              padding-left: 0 !important;
-            }          
+          .links.inline {
+            margin-top: 0;
+            li.comment-delete,
+            li.comment-edit,
+            li.comment-reply {
+              @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+            }
           }
-        
-      }
-    }
-
-    .views-row-first {
-      article {
-        &:first-child {
-          border-top: none;
         }
       }
     }
+  }
+
+  .views-row-first {
+    article {
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+
+}
+
+.views-row-first {
+  article {
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
 
   //Add Update Links
   section.content {
@@ -1987,127 +2046,3 @@ li.sub-goal.sub-sub-goal {
   margin-left: 2em;
 }
 
-
-
-//Updates
-
-  #scheme-content {
-
-    .view-header {
-      border-top: {
-          @include standard-border;
-      }
-      padding-top: 1.2em;
-      .item-list {
-        ul {
-          li {
-            display: inline-block;
-            padding-right: 1.2em;
-          }
-        }
-      }
-    }
-
-    //Layout
-    article {
-      &.node-update,
-      &.node-announcement,
-      &.node-event {
-        border-top: {
-          @include standard-border;
-        }
-        padding-top: 1.2em;
-        @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
-          header {
-            .user-picture,
-            .submitted,
-            .node-title {
-              @include zen-float(left);
-            }
-            .user-picture {
-              width: 60px;
-            }
-            p.submitted {
-              margin: 0;
-            }
-            h2.node-title {
-              @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
-              margin-top: 5px;
-              // @include zen-clear;
-            }
-            .submitted,
-            .node-title {
-              // margin-left: 65px;
-              width: 400px;
-            }
-            .submitted {}
-            .node-title {
-              // @include zen-clear(right);
-            }
-          }
-          .field-label,
-          .field-date {
-            display: inline-block;
-            @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
-          }
-
-          div.field-body {
-            border-top: none;
-            margin-top: 0;
-            @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
-            p, li {
-              @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-              &:first-child {
-                margin-top: 0;
-              }
-            }
-          }
-          .node-default {
-            margin-left: 60px;
-            #node-content {
-              padding-right: 0 !important;
-              padding-left: 0 !important;
-            }          
-          }
-        
-        #comments {
-          .comment {
-            padding-top: 1.2em;
-            .user-picture {
-              margin: 0;
-              width: 60px;
-            }
-            .comment-content {
-              margin-left: 60px;
-              clear: none;
-              header,
-              .field-comment-body {
-                margin-left: 0;
-                display: block;
-                p, li {
-                  @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-                }
-              }
-            }
-            .links.inline {
-              margin-top: 0;
-              li.comment-delete,
-              li.comment-edit,
-              li.comment-reply {
-                @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .views-row-first {
-      article {
-        &:first-child {
-          border-top: none;
-        }
-      }
-    }
-
-  }
