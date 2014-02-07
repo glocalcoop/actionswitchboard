@@ -914,6 +914,11 @@ ul.tags {
 
 // Event
 
+// div.ctools-modal-content .form-item label
+
+// #edit-field-date-und-0-value.date-padding div.form-item label
+
+
 .node-event-form,
 .page-node-add-event {
 
@@ -941,20 +946,20 @@ ul.tags {
       }
 
     .fieldset-wrapper {
-      display: table;
+      // display: table;
       margin-top: 1.2em;
 
       div.date-float {
         float: none;
         display: block;
-        @include zen-clear;
+        @include zen-clear(both);
         width: 100%;
       }
       div.date-no-float {
         display: table-cell;
         width: auto;
         margin: 0 .5em;
-        @include zen-clear;
+        // @include zen-clear;
         .form-item {
           margin: 0;
           .date-padding {
@@ -984,11 +989,23 @@ ul.tags {
             font-weight: bold;
           }
         }
-
       }
+
+      // .date-padding {
+      //   float: none;
+      // }
 
       div.date-float {}
       div.date-no-float {}
+
+      // #edit-field-date-und-0-value {
+      //   float: none;
+      //   display: table;
+      //   .form-type-textfield {
+      //     display: table-cell;
+      //   }
+
+      // }
     }
 
   }
@@ -1045,6 +1062,14 @@ ul.tags {
 
   //Content Access Fields
   #edit-group-content-access {}
+
+  div.ctools-modal-content .form-item label {
+    width: auto !important;
+  }
+  #edit-field-date-und-0-value.date-padding div.form-item label,
+#edit-field-date-und-0-value2.date-padding div.form-item label {
+  width: auto;
+}
 
 }
 
