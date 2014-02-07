@@ -752,7 +752,20 @@ ul.tags {
 
 // Event
 
-.node-event-form {
+.node-event-form,
+.page-node-add-event {
+
+  .form-item-title {
+    label,
+    input.edit-title {
+      display: inline-block;
+      // @include zen-float(left);
+    }
+    label {
+      width: auto;
+      padding-right: 1.2em;
+    }
+  }
 
   //Date Fields
   #edit-field-date {
@@ -816,33 +829,51 @@ ul.tags {
 
   //Location Fields
   #edit-field-event-location {
-    @include zen-clear;
-    margin-top: 1.2em;
-    .fieldset-wrapper {
-      display: table;
-      margin: 0;
-      padding: 0;
+    #edit-field-event-location-und-0 {
 
-      .form-item {
-        &:first-child {
+      legend,
+      div.fieldset-wrapper {
+        display: block;
+        @include zen-float(left);
+      }
+
+      legend {
+        padding-right: 1.2em;
+        font-weight: bold;
+      }
+
+      div.fieldset-wrapper {
+        label {
+          font-weight: normal;
+        }
+        .form-item {
+          margin: 0 0 .5em 0;
+          &:first-child {
+            margin-top: 0;
+            padding-top: 0;
+          }
+        }
+        #edit-field-event-location-und-0-name {
+          margin-bottom: 0;
+        }
+        .form-item-field-event-location-und-0-city {
           margin-top: 0;
+          width: 140px;
+        }
+        #edit-field-event-location-und-0-city {
+          width: 120px;
+        }
+        .form-item-field-event-location-und-0-city,
+        #location-dropdown-province-wrapper-field_event_location-und-0 {
+          display: inline-block;
+          vertical-align: top;
+          .form-item-field-event-location-und-0-province {
+            width: auto;
+            padding: 0;
+            margin: 0;
+          }
         }
       }
-    }
-    .description {
-      display: none;
-    }
-    legend {
-      display: block;
-      @include zen-float(left);
-      padding-right: 1.2em;
-      font-weight: bold;
-    }
-    label {
-      font-weight: normal;
-    }
-    div.fieldset-wrapper {
-      @include zen-float(left);
     }
   }
 
