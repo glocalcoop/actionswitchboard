@@ -153,6 +153,63 @@ div.user-picture img {
     background-color: #dde4cc !important;
   }
 
+  #edit-field-from-the-movie-value-1,
+  #edit-field-featured-value-1,
+  #edit-sid-5 {
+
+    a {
+      display: inline-block;
+      overflow: hidden;
+      padding-left: 2em;
+      vertical-align: baseline;
+      margin-top: .5em;
+      &::before {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url( /sites/all/themes/asb/images/sprite_search_icons.png );
+      }
+      &::hover::before {
+        border-radius: 9px;
+        background-color: $backdrop;
+      }
+    
+    }
+
+  }
+
+  #edit-field-featured-value-1 {
+    a::before {
+      background-position: -36px 0px;
+    }
+  }
+
+  #edit-field-from-the-movie-value-1 {
+    a::before {
+      background-position: 0px 0px;
+    }
+  }
+
+
+  #edit-sid-5 {
+    a::before {
+      background-position: -54px 0px;
+    }
+    // &:hover {
+    //   &:before {
+    //     background-position: -54px 18px;
+    //   }
+    // }
+  }
+
+  #edit-field-from-the-movie-value-all,
+  #edit-field-featured-value-all,
+  #edit-sid-all {
+    display: none;
+  }
+
+
 }
 
 .region-search {
