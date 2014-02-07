@@ -370,6 +370,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           line-height: $pager-height;
         }
         @include breakpoint( md ) {
+        }
+      }
+    }
+  } /* /.item-list */
+  @include breakpoint( md ) {
+    .item-list {
+      ul.pager {
+        position: relative;
+        background: rgba( red, .2 );
+        max-width: 960px;
+        margin: 0 auto;
+        width: 100%;
+        li {
+          position: absolute;
+          top: -405px; //$pager-vmargin;
           a {
             display: block;
             height: $pager-height;
@@ -392,18 +407,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               text-indent: 0 !important;
             }
           }
-        }
-      }
-    }
-  } /* /.item-list */
-  @include breakpoint( md ) {
-    .item-list {
-      ul.pager {
-        position: absolute;
-        width: 100%;
-        li {
-          position: absolute;
-          top: -$pager-vmargin;
         }
       }
     }    
