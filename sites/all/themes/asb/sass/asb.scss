@@ -489,6 +489,8 @@ ul.tags {
 // Scheme Detail
 // ////////////////////////////
 
+// html.js body.html div#page section#main div#content article.node-135 div.wrapper section.content div#scheme-content div.field-body
+
 .node-type-scheme {
   header {
     section.methods {
@@ -521,22 +523,76 @@ ul.tags {
       }
     }
   }
-
   #scheme-content {
     margin-top: 1.5em;
-    .field-body,
-    .field-private-description {
+    div.field-body,
+    div.field-private-description {
+      @include standard-links ($color: $accent, $vcolor: lighten($accent,10%), $hcolor: $text-color);
       border-top: {
         @include standard-border;
       }
       margin-top: 10px;
-      p {
-        @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 );
+      p, li {
+        @include body-text ($family: $font-body, $size: $base-font-size + 3, $line-height: 1.75em );
+      }
+      h2,
+      h3,
+      h4 {
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
+        margin: .5em 0 .25em 0;
       }
       h3 {
-        font-size: 1em;
-        @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+        font-size: $h3-font-size + 2;
       }
+      h4 {
+        font-size: $h3-font-size + 2;
+        color: $text-color;
+      }
+      h2 + p,
+      h3 + p,
+      h4 + p {
+        margin-top: .25em;
+      }
+      blockquote {
+        margin: .5em 0 .5em 2em;
+        padding: .5em .75em;
+        border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+        }
+        p {
+          margin: 0;
+          font-size: $h3-font-size + 4;
+          line-height: 1.5em;
+        }
+      }
+      ul {
+        margin: 0 0 0 2em;
+        padding: 0;
+        &> li {
+          @include no-bullets;
+          padding: .25em .5em;
+          margin-top: .5em;
+          margin-bottom: .5em;
+          border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+          }
+          ul {
+            margin: 0;
+            li {
+              padding: .5em 1.2em .5em .5em;
+              background: $even-backdrop;
+              border-left: {
+                @include standard-border($width: 3px, $color: $text-color);
+              }
+              border-top: none;
+            }            
+          }
+        }
+        &.menu {
+          margin-left: 0;
+        }
+      }
+
     }
     .field-private-description:before {
       margin-top: 1.5em;
@@ -581,6 +637,15 @@ ul.tags {
           .permalink {
             display: none;
           }
+          h3.comment-title a.permalink {
+            display: inherit;
+            @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
+          }
+
+          mark.new {
+            display: none;
+          }
+
         }
         .indented {
           margin-left: 84px;
@@ -649,8 +714,8 @@ ul.tags {
         }
         .field-comment-body { 
           @include zen-float(left);
-          margin-top: -30px;
-          p {
+          // margin-top: -30px;
+          p, li {
             @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
           }
         }
@@ -694,9 +759,22 @@ ul.tags {
          p {
             padding-right: 1.2em;
             margin-left: 60px;
-            margin-top: -30px;
             @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+            &:first-child {
+              margin-top: -30px;
+            }
          }
+       }
+       .field-image {
+        padding-right: 1.2em;
+        margin-left: 60px;
+        img {
+          width: 150px;
+          height: auto;
+        }
+       }
+       h3.field-label {
+        display: none;
        }
       }
     }
