@@ -264,7 +264,7 @@
 
 #header {
   a {
-    color: $nav-title-color;
+    color: $nav-title-color; //consider using the standard links mixin
   }
   #navigation {
     .block-menu-block {
