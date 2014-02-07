@@ -1158,6 +1158,7 @@ form .form-actions input{
 
   #quicktabs-container-notifications,
   #quicktabs-container-schemes,
+  #quicktabs-container-schemes_for_schemers,
   #block-views-90f7e874863d363adf55056301e69084 {
     min-height: 300px;
     overflow: hidden;
@@ -1726,7 +1727,8 @@ div#quicktabs-schemes { // wrapper - flex-box
   }
 
   div#quicktabs-container-notifications,
-  div#quicktabs-container-schemes { // main content
+  div#quicktabs-container-schemes,
+  div#quicktabs-container-schemes_for_schemers { // main content
     -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
     -moz-box-flex: 1;         /* OLD - Firefox 19- */
     width: 80%;               /* For old syntax, otherwise collapses. */
