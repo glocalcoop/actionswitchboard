@@ -125,12 +125,15 @@
       var el = $(this);
       var label = el.find( ".form-type-bef-link a" ).last().text();
       var href = el.find( ".form-type-bef-link a" ).last().attr('href');
-      var option = $( '<option href="' + href + '">' + label + '</option>' );
+      var option = $( '<option></option>' );
+      option.text(label);
+      option.attr('value',href);
+      console.log( "build_collections_pulldown", label, href, option );
       select.append( option );
     });
     var anylink = $('<option value="' + options.find( ".form-type-bef-link a" ).first().href + '">From any collection</option>');
     select.prepend( anylink );
-    var defaultopt = $('<option selected="selected" value="' + options.find( ".form-type-bef-link a" ).first().href + '">Filter by Collection</option>');
+    var defaultopt = $('<option selected="selected" value="' + options.find( ".form-type-bef-link a" ).first().val() + '">Filter by Collection</option>');
     select.prepend( defaultopt );
     return select;
   }
@@ -140,11 +143,12 @@
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
 
     var issues_filter = $('<div id="issues_filter"></div>');
-    var issues_select = $("#edit-field-issues-goals-target-id").clone(false, false );
+    var issues_select = $("#edit-field-issues-goals-target-id").clone( false, false );
+    console.log(issues_select);
     issues_select.attr('id', 'pager_issue_filter' );
     issues_filter.append(issues_select);
 
-    var collections_filter = $('<div id="collections_filter"></div>')
+    var collections_filter = $('<div id="collections_filter"></div>');
     var collections_select = asb.build_collections_pulldown();
     collections_filter.append( collections_select );
 
@@ -158,9 +162,9 @@
     var form_charset = schemes_search_form.attr("accept-charset");
 
     var pager_form = $("<form></form>");
-    pager_form.attr('action', form_action );
-    pager_form.attr('method', form_method );
-    pager_form.attr('accept-charset', form_charset );
+    pager_form.attr( 'action', form_action );
+    pager_form.attr( 'method', form_method );
+    pager_form.attr( 'accept-charset', form_charset );
 
     pager_form.append( issues_filter );
     pager_form.append( load_more_button );
@@ -169,18 +173,21 @@
     infiniteScrollPager.append( pager_form );
 
     issues_select.change( function(e) {
-      var val = $(this).attr('value');
-      console.log( val );
+      console.log( e, $(this).val() );
+      var val = $(this).val();
       e.preventDefault();
-      window.location.replace( val );
+      pager_form.submit();
+      // window.location.replace( val );
     });
 
     collections_select.change( function(e) {
-      var val = $(this).attr('value');
-      console.log( val );
+      console.log( e, $(this).val() );
+      var val = ($(this).val() != "undefined" )? $(this).val() : '/schemes';
       e.preventDefault();
       window.location.replace( val );
     });
+    
+    console.log("script.js");
 
 
   }
