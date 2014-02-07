@@ -15,7 +15,7 @@
       var selector = settings.chosen.selector;
 
       $(selector, context)
-        .not('#country-1','#state_province-1','#field-ui-field-overview-form select, #field-ui-display-overview-form select, .wysiwyg, .draggable select[name$="[weight]"], .draggable select[name$="[position]"]') //disable chosen on field ui
+        .not('#country-1, #state_province-1, #country-Primary, #state_province-Primary, #editrow-state_province-Primary, #field-ui-field-overview-form select, #field-ui-display-overview-form select, .wysiwyg, .draggable select[name$="[weight]"], .draggable select[name$="[position]"]') //disable chosen on field ui
         .each(function() {
           var name = $(this).attr('name');
           options = {};
