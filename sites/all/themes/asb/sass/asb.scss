@@ -252,12 +252,15 @@ div.user-picture img {
 }
 
 .region-search {
-  .views-exposed-form .views-exposed-widget {
-    padding-top: 0 !important;
+  .views-reset-button {
+    margin-top: 0;
+    padding-top: 0;
   }
   .views-exposed-form .views-exposed-widget .form-reset,
   .views-exposed-form .views-exposed-widget .form-submit {
-    // padding: 0 !important;
+    .views-exposed-form .views-exposed-widget &{
+      padding-top: 0 !important;
+    }
     padding-top: 0 !important;
     margin: 0 0 0 0 !important;
   }
