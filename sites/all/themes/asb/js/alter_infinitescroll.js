@@ -74,11 +74,6 @@ Drupal.behaviors.views_infinite_scroll = {
               }
             });
 
-            load_more_button.click( function( e ) {
-              e.preventDefault();
-              $.autopager('load');
-            } );
-
             // Trigger autoload if content height is less than doc height already
             var prev_content_height = $(content_selector).height();
             do {

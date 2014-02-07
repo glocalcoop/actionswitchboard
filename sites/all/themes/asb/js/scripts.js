@@ -128,7 +128,7 @@
       var option = $( '<option></option>' );
       option.text(label);
       option.attr('value',href);
-      console.log( "build_collections_pulldown", label, href, option );
+      // console.log( "build_collections_pulldown", label, href, option );
       select.append( option );
     });
     var anylink = $('<option value="' + options.find( ".form-type-bef-link a" ).first().href + '">From any collection</option>');
@@ -144,7 +144,7 @@
 
     var issues_filter = $('<div id="issues_filter"></div>');
     var issues_select = $("#edit-field-issues-goals-target-id").clone( false, false );
-    console.log(issues_select);
+    // console.log(issues_select);
     issues_select.attr('id', 'pager_issue_filter' );
     issues_filter.append(issues_select);
 
@@ -172,16 +172,19 @@
 
     infiniteScrollPager.append( pager_form );
 
+    load_more_button.click( function( e ) {
+      e.preventDefault();
+      $.autopager('load');
+    });
+
+
     issues_select.change( function(e) {
-      console.log( e, $(this).val() );
       var val = $(this).val();
       e.preventDefault();
       pager_form.submit();
-      // window.location.replace( val );
     });
 
     collections_select.change( function(e) {
-      console.log( e, $(this).val() );
       var val = ($(this).val() != "undefined" )? $(this).val() : '/schemes';
       e.preventDefault();
       window.location.replace( val );
