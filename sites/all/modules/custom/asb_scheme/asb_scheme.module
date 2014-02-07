@@ -324,7 +324,6 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // Add scheme title to the steps display
     // TODO: May want to add settings to include images
     // to the progress markup.
-
     // add it after forms.css
     drupal_add_css( drupal_get_path('module', 'asb_scheme') . '/css/scheme_add_edit.css', array('group' => CSS_THEME, 'type' => 'file', 'weight'=>2 ));
 
