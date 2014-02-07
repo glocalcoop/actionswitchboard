@@ -152,7 +152,7 @@ function asb_message_get_pms() {
   $query = _privatemsg_assemble_query('list', $user, 'inbox');
 // Load 5 messages/threads. Replace 5 if you want to display a different amount of messages.
   $list = array();
-  $tp = array();
+  $tb = array();
   $count=0;
   foreach ($query->execute() as $thread) {
     if ($count <=5) {
@@ -280,11 +280,4 @@ function asb_message_quicktabs_tabstyles() {
     }
   }
   return $tabstyles;
-}
-
-/**
- * Implements hook_page_alter()
- */
-function asb_message_page_alter(&$page) {
-  // dsm($page);
 }

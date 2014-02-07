@@ -476,6 +476,13 @@ form {
       line-height: 1.5;
       color: $text-color;
   }
+  label[for=edit-title] {
+    text-transform: lowercase;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
+  }
   input#edit-skip,
   input#edit-preview {
     display: none;
@@ -512,7 +519,50 @@ form {
 // Content Edit
 // 
 
-// Drupal user profile edit
+.page-user-edit-asb-user-profile {
+  form#user-profile-form {
+    #editrow-custom_37,
+    #editrow-custom_72,
+    #editrow-custom_73,
+    #editrow-custom_57 {
+      .label {
+        display: block;
+      }
+      .resizable-textarea {
+        @include zen-clear;
+        display: block;
+      }
+    }
+
+  }
+}
+
+.page-user-edit-name-and-address {
+  form#user-profile-form {
+    .crm-profile-name-name_and_address {
+      #crm-container.crm-container {
+        .label {
+          display: inherit;
+        }
+      }
+    }
+  }  
+}
+
+
+form#user-profile-form {
+  .crm-profile-name-ASB_User_Profile_19 {
+    #helprow-custom_54,
+    #helprow-custom_23 {
+      .content {
+        margin-left: 0;
+        padding-top: 1.2em;
+        @include header-style ($size: $h3-font-size + 4);
+      }
+    }
+  }
+}
+
 
 form#user-profile-form {
   #edit-account {
@@ -555,7 +605,7 @@ form#user-profile-form {
         padding-bottom: 10px;
       }    
     }
-  } 
+  }
 }
 
   .comment-form { 

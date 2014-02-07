@@ -118,55 +118,81 @@
     });
   }
 
+  asb.build_collections_pulldown = function() {
+    var options = $(".region-search .bef-select-as-links");
+    var select = $('<select class="collections"></select>');
+    options.each( function() {
+      var el = $(this);
+      var label = el.find( ".form-type-bef-link a" ).last().text();
+      var href = el.find( ".form-type-bef-link a" ).last().attr('href');
+      var option = $( '<option></option>' );
+      option.text(label);
+      option.attr('value',href);
+      // console.log( "build_collections_pulldown", label, href, option );
+      select.append( option );
+    });
+    var anylink = $('<option value="' + options.find( ".form-type-bef-link a" ).first().href + '">From any collection</option>');
+    select.prepend( anylink );
+    var defaultopt = $('<option selected="selected" value="' + options.find( ".form-type-bef-link a" ).first().val() + '">Filter by Collection</option>');
+    select.prepend( defaultopt );
+    return select;
+  }
+
   asb.modify_append_pager = function() {
+
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
-    var searchbox_clone = $("#edit-keys-wrapper input").clone(false,false);
-    var issuesfilter_clone = $("#edit-field-issues-goals-target-id-wrapper").clone(false, false );
-    var form_filters = $("#views-exposed-form-scheme-overview-filtered-page-1");
-    var form_action = form_filters.attr("action");
-    var form_method = form_filters.attr("method");
-    var form_charset = form_filters.attr("accept-charset");
 
-    issuesfilter_clone.attr('id', 'pager_issue_filter' );
-    issuesfilter_clone.removeAttr('id');
-    searchbox_clone.removeAttr('id');
-    
-// could probably do with a single form, but meh.
-    var issuesfilterform = $("<form></form>");
-    issuesfilterform.attr('action', form_action );
-    issuesfilterform.attr('method', form_method );
-    issuesfilterform.attr('accept-charset', form_charset );
-    issuesfilterform.append( issuesfilter_clone );
+    var issues_filter = $('<div id="issues_filter"></div>');
+    var issues_select = $("#edit-field-issues-goals-target-id").clone( false, false );
+    // console.log(issues_select);
+    issues_select.attr('id', 'pager_issue_filter' );
+    issues_filter.append(issues_select);
 
-    var searchform = $("<form></form>");
-    searchform.attr('action', form_action );
-    searchform.attr('method', form_method );
-    searchform.attr('accept-charset', form_charset );
-    searchform.append(searchbox_clone);
+    var collections_filter = $('<div id="collections_filter"></div>');
+    var collections_select = asb.build_collections_pulldown();
+    collections_filter.append( collections_select );
 
-    infiniteScrollPager.prepend( issuesfilterform );
-    infiniteScrollPager.append( searchform );
+    var load_more_button = $("#load_more_schemes_button");
+    // remove from dom... to add in the right spot later
+    load_more_button.remove();
 
-    issuesfilter_clone.change( function(e) {
-      var val = $(this).attr('value');
-      console.log( val );
+    var schemes_search_form = $("#views-exposed-form-scheme-overview-filtered-page-1");
+    var form_action = schemes_search_form.attr("action");
+    var form_method = schemes_search_form.attr("method");
+    var form_charset = schemes_search_form.attr("accept-charset");
+
+    var pager_form = $("<form></form>");
+    pager_form.attr( 'action', form_action );
+    pager_form.attr( 'method', form_method );
+    pager_form.attr( 'accept-charset', form_charset );
+
+    pager_form.append( issues_filter );
+    pager_form.append( load_more_button );
+    pager_form.append( collections_filter );
+
+    infiniteScrollPager.append( pager_form );
+
+    load_more_button.click( function( e ) {
+      e.preventDefault();
+      $.autopager('load');
+    });
+
+
+    issues_select.change( function(e) {
+      var val = $(this).val();
+      e.preventDefault();
+      pager_form.submit();
+    });
+
+    collections_select.change( function(e) {
+      var val = ($(this).val() != "undefined" )? $(this).val() : '/schemes';
       e.preventDefault();
       window.location.replace( val );
     });
+    
+    console.log("script.js");
 
-    searchbox_clone.focus( function(e){
-      $(this).keypress(function(e) {
-//        console.log( "Handler for .keypress() called.", e.which );
-        if( e.which == 13 ){
-          e.preventDefault();
-          searchform.submit();
-        }
-      });
-    });
 
-    searchbox_clone.blur( function(e){
-      $(this).unbind( 'keypress' );
-    });
   }
 
 })(jQuery);

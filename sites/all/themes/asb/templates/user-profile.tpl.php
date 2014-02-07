@@ -24,16 +24,11 @@ $account = menu_get_object('user');
           <h6>Schemer</h6>
         </section>
         <h1 class="title" id="page-title">
-          <?php
-          
-          if ($civi_contact['first_name']) {
-            print render($civi_contact['first_name']);
-            print " ";
-            print render($civi_contact['last_name']);
-          } else {
-            print render($account->name);
-          }
-          ?>
+          <?php if ($civi_contact['first_name']): ?>
+            <?php print render($civi_contact['first_name']); print " "; print render($civi_contact['last_name']); ?>
+          <?php else: ?>
+            <?php print render($account->name); ?>
+          <?php endif; ?>
         </h1>
       </section>
 
@@ -41,37 +36,29 @@ $account = menu_get_object('user');
           <section class="location">
             <h6>Where</h6>
             <div>
-              <?php
-              if ($civi_contact['country']) {
-                print render($civi_contact['country']);
-              }
-              ?> 
-              <?php
-              if ($civi_contact['state_province_name']) {
-                echo ", ";
-                print render($civi_contact['state_province_name']);
-              }
-              ?>
-              <?php
-              if ($civi_contact['city']) {
-                echo ", ";
-                print render($civi_contact['city']);
-              }
-               ?>
+              <?php if ($civi_contact['country']): ?>
+                <?php print render($civi_contact['country']); ?>
+              <?php endif; ?>
+              <?php if ($civi_contact['state_province_name']): ?>
+                <?php echo ", "; print render($civi_contact['state_province_name']); ?>
+              <?php endif; ?>
+              <?php if ($civi_contact['city']): ?>
+                <?php echo ", "; print render($civi_contact['city']); ?>
+              <?php endif; ?>
             </div>
           </section>
 
           <section class="issues">
-            <?php if ($user_profile['field_issue_reference']) { ?>
+            <?php if (isset($user_profile['field_issue_reference'])): ?>
             <h6>Interests</h6>
             <ul class="tags">
               <?php print render($user_profile['field_issue_reference']); ?>
             </ul>
-            <?php } ?>
+            <?php endif; ?>
           </section>
 
           <section class="skills">
-            <?php if ($civi_contact['skills']) { ?>
+            <?php if ($civi_contact['skills']): ?>
             <h6>Skills</h6>
             <ul class="tags">
             	<?php
@@ -80,7 +67,7 @@ $account = menu_get_object('user');
             	}
             	?>
             </ul>
-          <?php } ?>
+          <?php endif; ?>
           </section>
       </aside> 
 
@@ -117,10 +104,10 @@ $account = menu_get_object('user');
         </aside>
 
         <div class="user-bio">
-          <?php if (isset($user_profile['field_user_bio'])) { ?>
+          <?php if (isset($user_profile['field_user_bio'])): ?>
           <h2>About Me</h2>
           <?php print render($user_profile['field_user_bio']); ?>
-          <?php } ?>
+          <?php endif; ?>
         </div>
 
     </div>
@@ -130,20 +117,4 @@ $account = menu_get_object('user');
   </div>
 
 </article>
-
-<?php
-
-// echo '<pre>';
-// var_dump($civi_contact);
-// echo '</pre>';
-
-// echo '<pre>';
-// var_dump($account);
-// echo '</pre>';
-
-// echo '<pre>';
-// var_dump($user_profile);
-// echo '</pre>';
-
-?>
 

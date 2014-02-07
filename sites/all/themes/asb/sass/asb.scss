@@ -219,6 +219,7 @@ div.user-picture img {
   padding: 1em 0 2em 0;
   overflow: visible;  
   max-height: auto;
+  display: block;
   .views-exposed-form {
     display: block;
     @include transition-property(opacity);
@@ -230,6 +231,7 @@ div.user-picture img {
     @include transition-duration(0);  
   }
   &.hidden, &.atrest {
+    display: none;
     max-height: 0px;
     padding: 0;
     overflow: hidden;
@@ -487,6 +489,8 @@ ul.tags {
 // Scheme Detail
 // ////////////////////////////
 
+// html.js body.html div#page section#main div#content article.node-135 div.wrapper section.content div#scheme-content div.field-body
+
 .node-type-scheme {
   header {
     section.methods {
@@ -519,22 +523,76 @@ ul.tags {
       }
     }
   }
-
   #scheme-content {
     margin-top: 1.5em;
-    .field-body,
-    .field-private-description {
+    div.field-body,
+    div.field-private-description {
+      @include standard-links ($color: $accent, $vcolor: lighten($accent,10%), $hcolor: $text-color);
       border-top: {
         @include standard-border;
       }
       margin-top: 10px;
-      p {
-        @include body-text ($family: $font-body, $size: $base-font-size + 2, $line-height: $base-line-height + 8 );
+      p, li {
+        @include body-text ($family: $font-body, $size: $base-font-size + 3, $line-height: 1.75em );
+      }
+      h2,
+      h3,
+      h4 {
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
+        margin: .5em 0 .25em 0;
       }
       h3 {
-        font-size: 1em;
-        @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+        font-size: $h3-font-size + 2;
       }
+      h4 {
+        font-size: $h3-font-size + 2;
+        color: $text-color;
+      }
+      h2 + p,
+      h3 + p,
+      h4 + p {
+        margin-top: .25em;
+      }
+      blockquote {
+        margin: .5em 0 .5em 2em;
+        padding: .5em .75em;
+        border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+        }
+        p {
+          margin: 0;
+          font-size: $h3-font-size + 4;
+          line-height: 1.5em;
+        }
+      }
+      ul {
+        margin: 0 0 0 2em;
+        padding: 0;
+        &> li {
+          @include no-bullets;
+          padding: .25em .5em;
+          margin-top: .5em;
+          margin-bottom: .5em;
+          border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+          }
+          ul {
+            margin: 0;
+            li {
+              padding: .5em 1.2em .5em .5em;
+              background: $even-backdrop;
+              border-left: {
+                @include standard-border($width: 3px, $color: $text-color);
+              }
+              border-top: none;
+            }            
+          }
+        }
+        &.menu {
+          margin-left: 0;
+        }
+      }
+
     }
     .field-private-description:before {
       margin-top: 1.5em;
@@ -550,6 +608,17 @@ ul.tags {
 /* ----------------------- */
 
   #scheme-content {
+
+    .view-header {
+      .item-list {
+        ul {
+          li {
+            display: inline-block;
+            padding-right: 1.2em;
+          }
+        }
+      }
+    }
 
     .views-row {
       article.node-update {
@@ -568,6 +637,15 @@ ul.tags {
           .permalink {
             display: none;
           }
+          h3.comment-title a.permalink {
+            display: inherit;
+            @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
+          }
+
+          mark.new {
+            display: none;
+          }
+
         }
         .indented {
           margin-left: 84px;
@@ -579,9 +657,12 @@ ul.tags {
         }      
       }
     }
-    article.node-update {
+    article.node-update,
+    article.node-announcement {
       @include body-text;
       @include zen-clear;
+
+      // view
 
       .views-row {
         #comments {
@@ -634,8 +715,8 @@ ul.tags {
         }
         .field-comment-body { 
           @include zen-float(left);
-          margin-top: -30px;
-          p {
+          // margin-top: -30px;
+          p, li {
             @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
           }
         }
@@ -679,9 +760,22 @@ ul.tags {
          p {
             padding-right: 1.2em;
             margin-left: 60px;
-            margin-top: -30px;
             @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+            &:first-child {
+              margin-top: -30px;
+            }
          }
+       }
+       .field-image {
+        padding-right: 1.2em;
+        margin-left: 60px;
+        img {
+          width: 150px;
+          height: auto;
+        }
+       }
+       h3.field-label {
+        display: none;
        }
       }
     }
@@ -698,7 +792,7 @@ ul.tags {
             margin: 0;
             padding: 0;
             a {
-              @include font-icon-base( $family:"entypo", $font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+              @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
               color: $text-color;
             }
             &:first-child a {
@@ -730,6 +824,142 @@ ul.tags {
       }
     }
   }
+
+/* ----------------------- */
+/* Updates Modals          */
+/* ----------------------- */
+
+// Event
+
+.node-event-form,
+.page-node-add-event {
+
+  .form-item-title {
+    label,
+    input.edit-title {
+      display: inline-block;
+      // @include zen-float(left);
+    }
+    label {
+      width: auto;
+      padding-right: 1.2em;
+    }
+  }
+
+  //Date Fields
+  #edit-field-date {
+
+    legend {
+      display: none;
+    }
+
+    .form-type-checkbox {
+        margin: 0;
+      }
+
+    .fieldset-wrapper {
+      display: table;
+      margin-top: 1.2em;
+
+      div.date-float {
+        display: none;
+      }
+      div.date-no-float {
+        display: table-cell;
+        width: auto;
+        margin: 0 .5em;
+        .form-item {
+          margin: 0;
+          .date-padding {
+            margin: 0;
+            padding: 0;
+          }
+          label[for=edit-field-date-und-0-value2] {
+            display: none;
+          }
+        }
+        input.date-clear {
+          width: 80px;
+        }
+
+        &.start-date-wrapper {
+           padding-right: 1.2em;
+           &:before {
+            content: 'Start';
+            padding-right: 5px;
+            font-weight: bold;
+          }
+        }
+        &.end-date-wrapper {
+          &:before {
+            content: 'Finish';
+            padding-right: 5px;
+            font-weight: bold;
+          }
+        }
+
+      }
+
+      div.date-float {}
+      div.date-no-float {}
+    }
+
+  }
+
+  //Location Fields
+  #edit-field-event-location {
+    #edit-field-event-location-und-0 {
+
+      legend,
+      div.fieldset-wrapper {
+        display: block;
+        @include zen-float(left);
+      }
+
+      legend {
+        padding-right: 1.2em;
+        font-weight: bold;
+      }
+
+      div.fieldset-wrapper {
+        label {
+          font-weight: normal;
+        }
+        .form-item {
+          margin: 0 0 .5em 0;
+          &:first-child {
+            margin-top: 0;
+            padding-top: 0;
+          }
+        }
+        #edit-field-event-location-und-0-name {
+          margin-bottom: 0;
+        }
+        .form-item-field-event-location-und-0-city {
+          margin-top: 0;
+          width: 140px;
+        }
+        #edit-field-event-location-und-0-city {
+          width: 120px;
+        }
+        .form-item-field-event-location-und-0-city,
+        #location-dropdown-province-wrapper-field_event_location-und-0 {
+          display: inline-block;
+          vertical-align: top;
+          .form-item-field-event-location-und-0-province {
+            width: auto;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  //Content Access Fields
+  #edit-group-content-access {}
+
+}
 
 /* ----------------------- */
 /* Slideshow:              */
@@ -1073,6 +1303,7 @@ form .form-actions input{
 
   #quicktabs-container-notifications,
   #quicktabs-container-schemes,
+  #quicktabs-container-schemes_for_schemers,
   #block-views-90f7e874863d363adf55056301e69084 {
     min-height: 300px;
     overflow: hidden;
@@ -1304,19 +1535,11 @@ form .form-actions input{
 
     }
     #block-views-inspiration-footer-block {
-      @include zen-nested-container;
+
       a {
         color: $accent;
       }
-      li:first-child {
-        @include zen-grid-item(1, 1);
-      }
-      li:nth-child(2) {
-        @include zen-grid-item(1, 2);
-      }
-      li:last-child {
-        @include zen-grid-item(1, 3);
-      }
+
     }
     #block-menu-menu-as {
       h2 {
@@ -1649,7 +1872,8 @@ div#quicktabs-schemes { // wrapper - flex-box
   }
 
   div#quicktabs-container-notifications,
-  div#quicktabs-container-schemes { // main content
+  div#quicktabs-container-schemes,
+  div#quicktabs-container-schemes_for_schemers { // main content
     -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
     -moz-box-flex: 1;         /* OLD - Firefox 19- */
     width: 80%;               /* For old syntax, otherwise collapses. */

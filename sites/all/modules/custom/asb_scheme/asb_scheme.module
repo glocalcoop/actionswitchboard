@@ -324,7 +324,6 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // Add scheme title to the steps display
     // TODO: May want to add settings to include images
     // to the progress markup.
-
     // add it after forms.css
     drupal_add_css( drupal_get_path('module', 'asb_scheme') . '/css/scheme_add_edit.css', array('group' => CSS_THEME, 'type' => 'file', 'weight'=>2 ));
 
@@ -899,7 +898,7 @@ function asb_scheme_node_view($node, $view_mode, $langcode){
         if($membership->state == 2) {
           $node->content['group_group'][0]['#title'] = "Membership Pending";
         }elseif($membership->state == 1) {
-          $node->content['group_group'][0]['#title'] = "Leave Group";
+          $node->content['group_group'][0]['#title'] = "Leave Scheme";
         }
       }else{
         $node->content['group_group'][0]['#title'] = "Request Membership";
@@ -1393,3 +1392,15 @@ function asb_scheme_get_user_name($uid) {
   return $name;
 }
 
+/**
+ * Implements hook_preprocess_links()
+ *
+ * Use modals for comment forms.
+ */
+function asb_scheme_preprocess_links(&$variables) {
+  if(isset($variables['links']['comment-reply'])) {
+    $variables['links']['comment-reply']['href'] = 'modal_forms/nojs/' .$variables['links']['comment-reply']['href'];
+    $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-use-modal';
+    $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-modal-mfe-modal';
+  }
+}

@@ -7,7 +7,7 @@
  * @see https://drupal.org/node/1728216
  */
 ?>
-<article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="<?php if($new) { echo 'new'; } ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print $picture; ?>
   <header>
@@ -45,13 +45,5 @@
       <?php print $signature; ?>
     </footer>
   <?php endif; ?>
-
-  <?php print render($content['links']) ?>
-
-<?php
-// echo '<pre>';
-// var_dump($user);
-// echo '</pre>';
-?>
-
+  <?php print render($content['links']); ?>
 </article>

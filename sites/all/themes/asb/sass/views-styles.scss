@@ -103,6 +103,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
+// Don't show on the Goals Detail page
+.page-taxonomy-term {
+  #content {
+    .scheme-collection {
+    &:last-child:nth-child(even),
+    &:last-child:nth-child(odd) {
+      background: transparent;
+      background-image: none;
+      background-color: none;
+    }
+  }
+
+  }
+}
+
 // Home page only
 .front {
   #content .scheme-collection {
@@ -115,6 +130,10 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     &:last-child {
       @include zigzag-border ($odd-backdrop, $backdrop);
     }
+  }
+  // the last one on the homepage shouldnt have zigzag.
+  .block-views-scheme-overview-block-1 {
+    background: none !important;
   }
 }
 
@@ -240,6 +259,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   .scheme-header {
     min-height: 6em;
+    @include breakpoint( md, max-width ){
+      min-height: 6.5em; 
+    }
     .scheme-leader:before { line-height: inherit; }
   }
 
@@ -363,6 +385,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           line-height: $pager-height;
         }
         @include breakpoint( md ) {
+        }
+      }
+    }
+  } /* /.item-list */
+  @include breakpoint( md ) {
+    .item-list {
+      ul.pager {
+        position: relative;
+        background: rgba( red, .2 );
+        max-width: 960px;
+        margin: 0 auto;
+        width: 100%;
+        li {
+          position: absolute;
+          top: -405px; //$pager-vmargin;
           a {
             display: block;
             height: $pager-height;
@@ -385,18 +422,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               text-indent: 0 !important;
             }
           }
-        }
-      }
-    }
-  } /* /.item-list */
-  @include breakpoint( md ) {
-    .item-list {
-      ul.pager {
-        position: absolute;
-        width: 100%;
-        li {
-          position: absolute;
-          top: -$pager-vmargin;
         }
       }
     }    

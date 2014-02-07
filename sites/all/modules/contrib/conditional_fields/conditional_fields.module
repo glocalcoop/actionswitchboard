@@ -592,9 +592,9 @@ function conditional_fields_form_after_build($form, &$form_state) {
     if (!empty($behaviors)) {
       foreach ($behaviors as $behavior) {
         // Custom behaviors are callbacks.
-        if (function_exists($$behavior)) {
-          $$behavior($form, $form_state, $dependent, $dependent_info);
-        }
+        if (function_exists($behavior)) {
+          $behavior('edit', $form, $form_state, $dependent, $dependencies);
+         }
       }
     }
     unset($behaviors);

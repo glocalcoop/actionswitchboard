@@ -34,14 +34,11 @@ Drupal.behaviors.views_infinite_scroll = {
             var img_path         = settings.img_path;
             var img              = '<div id="views_infinite_scroll-ajax-loader"><img src="' + img_path + '" alt="loading..."/></div>';
 
-
-            // @todo ... separation of concerns, move bits that add the search parameters to the pager to scripts.js
-            // and pull them out of here, make sure that scripts loads BEFORE chosen
-            // basically chosen should load last.
-
             var load_more_button = $("<a id='load_more_schemes_button' href='#' title='Load more schemes...' href='schemes'>Load More Schemes</a>");
             var pager = $(pager_selector);
+
             pager.hide();
+
             var infiniteScrollPager = $("<div id='add_page_scroll_wrapper'></div>");
             infiniteScrollPager.append( load_more_button );
             infiniteScrollPager.appendTo($(view_selector));
@@ -50,7 +47,6 @@ Drupal.behaviors.views_infinite_scroll = {
             $(content_selector).css({
               'position': 'relative'
             });
-            console.log('alter infinitescroll');
             var spinner = $('<div class="loading_spinner"><h4>Message</h4></div>').appendTo( $(view_selector) );
             spinner.hide();
             var handle = $.autopager({
@@ -64,7 +60,6 @@ Drupal.behaviors.views_infinite_scroll = {
                 spinner.fadeIn();
               },
               load: function( current, next ) {
-//                console.log( 'load', current, next );
                 Drupal.attachBehaviors(this);
                 spinner.fadeOut();
                 if(!next || next.url == undefined ) {
@@ -78,11 +73,6 @@ Drupal.behaviors.views_infinite_scroll = {
                 }
               }
             });
-
-            load_more_button.click( function( e ) {
-              e.preventDefault();
-              $.autopager('load');
-            } );
 
             // Trigger autoload if content height is less than doc height already
             var prev_content_height = $(content_selector).height();
@@ -98,7 +88,7 @@ Drupal.behaviors.views_infinite_scroll = {
             }
             while ($(content_selector).height() > prev_content_height);
 
-          }
+            }
           else {  
             alert(Drupal.t('Views infinite scroll pager is not compatible with Ajax Views. Please disable "Use Ajax" option.'));
           }
@@ -109,8 +99,7 @@ Drupal.behaviors.views_infinite_scroll = {
           // print something on the page.
         }
       }
-    }
-    else {
+    } else {
       alert(Drupal.t('Autopager jquery plugin in not loaded.'));
     }
   }
