@@ -605,6 +605,9 @@ ul.tags {
         font-size: $h3-font-size + 2;
         color: $text-color;
       }
+      h5 {
+        font-weight: bold;
+      }
       h2 + p,
       h3 + p,
       h4 + p {
@@ -649,6 +652,43 @@ ul.tags {
           margin-left: 0;
         }
       }
+      ol {
+        list-style: none;
+        counter-reset: li;
+        &> li {
+          position: relative; /* Create a positioning context */
+          margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+          padding: 4px 8px; /* Add some spacing around the content */
+          list-style: none; /* Disable the normal item numbering */
+          border-top: {
+            @include standard-border($width: 2px, $color: $accent);
+          }
+          background: $even-backdrop;
+          &:before {
+            content:counter(li); /* Use the counter as content */
+            counter-increment: li; /* Increment the counter by 1 */
+            /* Position and style the number */
+            position: absolute;
+            top: -2px;
+            left: -2em;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 2em;
+            /* Some space between the number and the content in browsers that support
+               generated content but not positioning it (Camino 2 is one example) */
+            margin-right: 8px;
+            padding: 4px;
+              border-top: {
+                @include standard-border($width: 2px, $color: $accent);
+              }
+            color: $nav-title-color;
+            background: $accent;
+            font-weight: bold;
+            text-align: center;
+          }
+        }     
+      }
 
     }
     .field-private-description:before {
@@ -664,9 +704,11 @@ ul.tags {
 /* Updates Tab:            */
 /* ----------------------- */
 
-  #scheme-content {
-
     .view-header {
+      border-top: {
+          @include standard-border;
+      }
+      padding-top: 1.2em;
       .item-list {
         ul {
           li {
@@ -677,167 +719,80 @@ ul.tags {
       }
     }
 
-    .views-row {
-      article.node-update {
+    //Layout
+    article {
+      &.node-update,
+      &.node-announcement,
+      &.node-event {
         border-top: {
           @include standard-border;
         }
-        #comments {
-          padding-left: 84px;
-          article.comment {
-            padding-top: 1.2em;
-            border-top: {
-              @include standard-border;
+        padding-top: 1.2em;
+        @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+          header {
+            .user-picture,
+            .submitted,
+            .node-title {
+              @include zen-float(left);
             }
-            border-bottom: none;
-          }
-          .permalink {
-            display: none;
-          }
-          h3.comment-title a.permalink {
-            display: inherit;
-            @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
-          }
-
-          mark.new {
-            display: none;
-          }
-
-        }
-        .indented {
-          margin-left: 84px;
-        }
-      }
-      &:first-child {
-        article.node-update {
-          border: none;
-        }      
-      }
-    }
-    article.node-update,
-    article.node-announcement {
-      @include body-text;
-      @include zen-clear;
-
-      // view
-
-      .views-row {
-        #comments {
-          article.comment {
-            border-bottom: {
-              @include standard-border;
+            .user-picture {
+              width: 60px;
             }
-            &.first {
-              border-top: {
-                @include standard-border;
+            p.submitted {
+              margin: 0;
+            }
+            h2.node-title {
+              @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
+              margin-top: 5px;
+              // @include zen-clear;
+            }
+            .submitted,
+            .node-title {
+              // margin-left: 65px;
+              width: 400px;
+            }
+            .submitted {}
+            .node-title {
+              // @include zen-clear(right);
+            }
+          }
+          .field-label,
+          .field-date {
+            display: inline-block;
+            @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+          }
+
+          div.field-body {
+            border-top: none;
+            margin-top: 0;
+            @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+            p, li {
+              @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+              &:first-child {
+                margin-top: 0;
               }
             }
-            &.last {
-              border: none;
-            }
           }
-        }
-      }
-
-      padding-top: 10px;
-      a {
-        color: $accent;
-      }
-      h2.node-title,
-      h2.comment-form,
-      #comments h2.title.comment-form {
-        display: none;
-      }
-      ul.inline {
-        display: block;
-         li.comment-add {
-          display: inline-block;
-          @include zen-float(right);
-          padding-right: 0;
-          margin-top: -25px;
-        }
-        @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
-      }
-      .user-picture {
-        margin-top: 0;
-        img {
-          height: 50px;
-          width: 50px;
-        }
-      }
-       #comments {
-        form.comment-form {}
-        h2.title.comment-form {
-          display: none;
-        }
-        .field-comment-body { 
-          @include zen-float(left);
-          // margin-top: -30px;
-          p, li {
-            @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
-          }
-        }
-        .comment {
-          display: block;
-          @include zen-clear;
-        }
-        ul.inline {
-          border: none;
-          margin-top: 0;
-        }
-        .user-picture {
-          padding-bottom: 1.2em;
-        }
-      }
-      .field-body {
-        p {
-          margin-top: 0;
-        }
-        border-top: none;
-      }
-      p.submitted {
-        @include body-text;
-        span {
-          display: inline-block;
-          vertical-align: top;
-        }
-        span.user-picture {
-          padding-right: 10px;
-          @include zen-float(left);
-        }
-        span:nth-child(2) {}
-      }
-      .submitted,
-      p.submitted {
-        font-size: $base-font-size;
-        margin-top: 0;
-      }
-      #node-content {
-       .field-body {
-         p {
-            padding-right: 1.2em;
+          .node-default {
             margin-left: 60px;
-            @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
-            &:first-child {
-              margin-top: -30px;
-            }
-         }
-       }
-       .field-image {
-        padding-right: 1.2em;
-        margin-left: 60px;
-        img {
-          width: 150px;
-          height: auto;
-        }
-       }
-       h3.field-label {
-        display: none;
-       }
+            #node-content {
+              padding-right: 0 !important;
+              padding-left: 0 !important;
+            }          
+          }
+        
       }
     }
-  }
 
+    .views-row-first {
+      article {
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+
+  //Add Update Links
   section.content {
     .view-header {
       .item-list {
@@ -865,7 +820,6 @@ ul.tags {
         }
       }
     }
-
   }
 
   aside {
@@ -919,12 +873,16 @@ ul.tags {
       margin-top: 1.2em;
 
       div.date-float {
-        display: none;
+        float: none;
+        display: block;
+        @include zen-clear;
+        width: 100%;
       }
       div.date-no-float {
         display: table-cell;
         width: auto;
         margin: 0 .5em;
+        @include zen-clear;
         .form-item {
           margin: 0;
           .date-padding {
@@ -1063,8 +1021,6 @@ ul.tags {
   }
    
 } // End Scheme Detail
-
-
 
 
 // ////////////////////////////
@@ -2017,3 +1973,128 @@ li.sub-goal {
 li.sub-goal.sub-sub-goal {
   margin-left: 2em;
 }
+
+
+
+//Updates
+
+  #scheme-content {
+
+    .view-header {
+      border-top: {
+          @include standard-border;
+      }
+      padding-top: 1.2em;
+      .item-list {
+        ul {
+          li {
+            display: inline-block;
+            padding-right: 1.2em;
+          }
+        }
+      }
+    }
+
+    //Layout
+    article {
+      &.node-update,
+      &.node-announcement,
+      &.node-event {
+        border-top: {
+          @include standard-border;
+        }
+        padding-top: 1.2em;
+        @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+          header {
+            .user-picture,
+            .submitted,
+            .node-title {
+              @include zen-float(left);
+            }
+            .user-picture {
+              width: 60px;
+            }
+            p.submitted {
+              margin: 0;
+            }
+            h2.node-title {
+              @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
+              margin-top: 5px;
+              // @include zen-clear;
+            }
+            .submitted,
+            .node-title {
+              // margin-left: 65px;
+              width: 400px;
+            }
+            .submitted {}
+            .node-title {
+              // @include zen-clear(right);
+            }
+          }
+          .field-label,
+          .field-date {
+            display: inline-block;
+            @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+          }
+
+          div.field-body {
+            border-top: none;
+            margin-top: 0;
+            @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+            p, li {
+              @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+              &:first-child {
+                margin-top: 0;
+              }
+            }
+          }
+          .node-default {
+            margin-left: 60px;
+            #node-content {
+              padding-right: 0 !important;
+              padding-left: 0 !important;
+            }          
+          }
+        
+        #comments {
+          .comment {
+            padding-top: 1.2em;
+            .user-picture {
+              margin: 0;
+              width: 60px;
+            }
+            .comment-content {
+              margin-left: 60px;
+              clear: none;
+              header,
+              .field-comment-body {
+                margin-left: 0;
+                display: block;
+                p, li {
+                  @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+                }
+              }
+            }
+            .links.inline {
+              margin-top: 0;
+              li.comment-delete,
+              li.comment-edit,
+              li.comment-reply {
+                @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .views-row-first {
+      article {
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+
+  }
