@@ -231,7 +231,7 @@ div.user-picture img {
     @include transition-duration(0);  
   }
   &.hidden, &.atrest {
-    display: none;
+    // display: none;
     max-height: 0px;
     padding: 0;
     overflow: hidden;
