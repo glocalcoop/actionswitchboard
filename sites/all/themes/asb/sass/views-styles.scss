@@ -124,7 +124,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
       &:nth-child(4n+4),
       &:last-child {
-        // border: none;
+        border: none;
         margin-right: 0;
       }
       #scheme-images img {
