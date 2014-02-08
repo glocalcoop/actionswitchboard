@@ -691,10 +691,12 @@ function asb_scheme_format_issues_goals($node) {
       }
     }
   }
-  foreach($node->field_scheme_goals_taxonomy['und'] as $key => $tid) {
-    $term = taxonomy_term_load($tid['tid']);
-    $output['goals'] .= '<li><a href="/taxonomy/term/' .$tid['tid'] .'">'
-      .$term->name .'</a></li>';
+  if(isset($node->field_scheme_goals_taxonomy['und'])) {
+    foreach($node->field_scheme_goals_taxonomy['und'] as $key => $tid) {
+      $term = taxonomy_term_load($tid['tid']);
+      $output['goals'] .= '<li><a href="/taxonomy/term/' .$tid['tid'] .'">'
+        .$term->name .'</a></li>';
+    }
   }
   return $output;
 }
