@@ -85,11 +85,9 @@ $zen-auto-include-item-base: false;
 }
 
 #main #content .wrapper{
-  @include breakpoint( md, max-width ) {
-    section.content,
-    #node-content {
-      padding: 0 10px;
-    }
+  section.content,
+  #node-content {
+    padding: 0 10px;
   }
 }
 
@@ -106,7 +104,7 @@ $zen-auto-include-item-base: false;
   // width: 100%;
   @include breakpoint(md){
     @include zen-grid-item(2, 6);
-    @include box-sizing(content-box);    
+    @include box-sizing(content-box);
   }
 }
 
