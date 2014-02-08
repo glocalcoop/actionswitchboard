@@ -717,21 +717,6 @@ ul.tags {
 /* Updates Tab:            */
 /* ----------------------- */
 
-    // .view-header {
-    //   border-top: {
-    //       @include standard-border;
-    //   }
-    //   padding-top: 1.2em;
-    //   .item-list {
-    //     ul {
-    //       li {
-    //         display: inline-block;
-    //         padding-right: 1.2em;
-    //       }
-    //     }
-    //   }
-    // }
-
 
 //Updates
 
@@ -759,18 +744,32 @@ ul.tags {
     }
   }
 
-
-
+// #node-content h3.field-label
   //Layout
   article {
     &.node-update,
     &.node-announcement,
     &.node-event {
+      h3.field-label {
+        @include zen-clear;
+        padding-top: 0;
+      }
+      .location.vcard {
+        margin: 0 0 1.2em 0;
+        padding-left: .5em;
+        border-left: {
+          @include standard-border($color: $accent, $width: 3px);
+        }
+        @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+      }
+      .field-group-content-access {
+        padding-bottom: 1.2em;
+      }
       border-top: {
         @include standard-border;
       }
       padding-top: 1.2em;
-      @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+      @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $text-color);
         header {
           .user-picture,
           .submitted,
@@ -802,6 +801,10 @@ ul.tags {
         .field-date {
           display: inline-block;
           @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+        }
+
+        h3.field-label {
+          display: block;
         }
 
         div.field-body {
