@@ -52,7 +52,7 @@ function asb_modal_form_alter(&$form, &$form_state, $form_id) {
     $form['field_image']['#access'] = false;
     $form['field_video']['#access'] = false;
     // Remove default option and title from group visibility.
-    $form['group_content_access']['und']['#default_value'] = 1;
+    $form['group_content_access']['und']['#default_value'] = 2;
     unset($form['group_content_access']['und']['#options'][0]);
     unset($form['group_content_access']['und']['#title']);
     
