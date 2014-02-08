@@ -109,7 +109,7 @@ global $user;
           <ul id="ui-button">
             <?php $account = user_load($user->uid); ?>
             <?php if ($account->uid != 0): ?>
-              <li class="ui-button"><a class="ui-button" href="Follow Scheme">Follow Scheme</a></li>
+              <li class="ui-button"><a class="ui-button" href=" /new-feature-coming-soon">Follow Scheme</a></li>
               <li class="ui-button"><?php print render($content['group_group']); ?></li>
             <?php else: ?>
               <li class="ui-button"><a href="/user/login">Login To Join Scheme</a></li>
@@ -179,9 +179,12 @@ global $user;
         </section>
 
 
+        <?php if(isset($content['comments'])) { ?>
         <div class="comments-wrapper">
+          <h2 class="scheme-comments-heading">Public Comments About this Scheme</h2>
           <?php print render($content['comments']); ?>
         </div>
+        <?php } ?>
 
 
     </section>
