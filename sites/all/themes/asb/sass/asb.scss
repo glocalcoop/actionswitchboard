@@ -1324,7 +1324,7 @@ form .form-actions input{
     }
   }
   .user-profile {
-    @include zigzag-border ($odd-backdrop, $even-backdrop);
+    // @include zigzag-border ($odd-backdrop, $even-backdrop);
 
     header.user-profile-header {
       section.content {}
@@ -1379,8 +1379,8 @@ form .form-actions input{
       background: $even-backdrop;
       .scheme-collection-view {
         @include zen-clear;
-        background: $even-backdrop;
-        @include zigzag-border ($even-backdrop, $odd-backdrop);
+        // background: $even-backdrop;
+        // @include zigzag-border ($even-backdrop, $odd-backdrop);
       }
     }
     .scheme-collection:nth-child(2n+1) {
