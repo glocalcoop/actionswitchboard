@@ -167,7 +167,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
   }
 
-  .page-user #content .scheme-collection:last-child,
   #content .main-content>.scheme-collection:last-child,
   #content>.scheme-collection:last-child {
     &:nth-child(even) {
