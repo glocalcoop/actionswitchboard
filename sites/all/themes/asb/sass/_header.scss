@@ -164,6 +164,10 @@
       margin: 0 auto;
       @include box-sizing( border-box );
       padding: .5em 0 .75em 0;
+      a {
+        display: block;
+        height: 100%;
+      }
     }
     @include breakpoint(md,max-width){
       background-color: $brand;
