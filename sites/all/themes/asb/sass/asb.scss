@@ -1324,7 +1324,8 @@ form .form-actions input{
     }
   }
   .user-profile {
-    // @include zigzag-border ($odd-backdrop, $even-backdrop);
+
+    @include zigzag-border ($odd-backdrop, $even-backdrop);
 
     header.user-profile-header {
       section.content {}
@@ -1374,23 +1375,23 @@ form .form-actions input{
         // padding: 10px 10px 0 10px;      
       }
     }
-    .block-views.even {
-      // margin-top: 25px;
-      background: $even-backdrop;
-      .scheme-collection-view {
-        @include zen-clear;
-        // background: $even-backdrop;
-        // @include zigzag-border ($even-backdrop, $odd-backdrop);
-      }
-    }
-    .scheme-collection:nth-child(2n+1) {
-      border: none;
-    }
-    .block-views {
-      .scheme-collection {
-        border: none;
-      }
-    }
+    // .block-views.even {
+    //   // margin-top: 25px;
+    //   // background: $even-backdrop;
+    //   .scheme-collection-view {
+    //     @include zen-clear;
+    //     // background: $even-backdrop;
+    //     // @include zigzag-border ($even-backdrop, $odd-backdrop);
+    //   }
+    // }
+    // .scheme-collection:nth-child(2n+1) {
+    //   border: none;
+    // }
+    // .block-views {
+    //   .scheme-collection {
+    //     border: none;
+    //   }
+    // }
   }
   .block-views:first-child {
   }
