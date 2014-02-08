@@ -96,7 +96,6 @@ $zen-auto-include-item-base: false;
   }
 }
 
-// Reverted commit 16fd4dd20c07c139052e124e84ed407d48eb818f [16fd4dd] because it removed needed spacing between content and sidebar on Scheme Detail and Issue Detail pages.
 #main #content .wrapper{
   section.content,
   #node-content {
@@ -113,8 +112,6 @@ $zen-auto-include-item-base: false;
 #content aside.scheme-meta,
 #content aside.user-meta,
 #content aside#sidebar {
-  // this 100% was causing overflow-horizontal on breakpoint(sm) 
-  // width: 100%;
   @include breakpoint(md){
     @include zen-grid-item(2, 6);
     @include box-sizing(content-box);
@@ -123,7 +120,6 @@ $zen-auto-include-item-base: false;
 
 aside.scheme-meta {
   @include breakpoint( md ){
-    // margin-top: 1em;
     @include clearfix;
   }
 }
@@ -158,6 +154,10 @@ aside.scheme-meta {
     @include clearfix;
     overflow: visible;
   }
+
+  /* ------------------------------------------------ */
+  /* Elements that should span 100% of the page width */
+  /* ------------------------------------------------ */
   .not-front.page-node #content,
   .not-front.page-user #content,
   .not-front.page-node-edit #content {
@@ -166,8 +166,14 @@ aside.scheme-meta {
     margin-right: 0;
   }
   
-  // @todo ask ross/pea what is .sidebar-second section.page-content?
+  /* ------------------------ */
+  /* Two column layouts:      */
+  /* ------------------------ */
+  // Goals and issues pages use .main-content not section.content or .page-content 
+  // as the lauout wrapper (Container of content and sidebars )
+  // This floats the content eft of the sidebar
   .sidebar-second section.page-content,
+  // article .wrapper>section.content is the scheme node.
   article .wrapper>section.content {
     @include zen-grid-item(6,0);
     margin-left: 0;
@@ -215,7 +221,6 @@ aside.scheme-meta {
       }
       li {
         @include zen-grid-flow-item( 2,8 );
-        // float: left;
         .footer-image-wrap {
           clear: both;
           display: block;
@@ -247,7 +252,6 @@ aside.scheme-meta {
         }
         li {
           @include zen-grid-flow-item( 2,8 );
-          // float: left;
           .footer-image-wrap {
             clear: both;
             display: block;
@@ -278,9 +282,10 @@ aside.scheme-meta {
   }
 }
 
-/* ------------------------ */
-/* Centering content:       */
-/* ------------------------ */
+/* ----------------------------- */
+/* Centering content:            */
+/* Too many template variations  */
+/* ----------------------------- */
 @include breakpoint(md){
   #header .content,
   .page-node-members .page-main-content,
