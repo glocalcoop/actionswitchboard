@@ -84,6 +84,7 @@ $zen-auto-include-item-base: false;
   }
 }
 
+// Reverted commit 16fd4dd20c07c139052e124e84ed407d48eb818f [16fd4dd] because it removed needed spacing between content and sidebar on Scheme Detail and Issue Detail pages.
 #main #content .wrapper{
   section.content,
   #node-content {
