@@ -1381,19 +1381,14 @@ form .form-actions input{
       .scheme-collection-view {
         @include zen-clear;
         background: $even-backdrop;
-        @include zigzag-border ($even-backdrop, $backdrop);
+        @include zigzag-border ($even-backdrop, $odd-backdrop);
       }
     }
-    .scheme-collection:nth-child(2n+1) {
-      border: none;
+    .blocks-view.odd {
+        background: $odd-backdrop;
+        // footer color
+        @include zigzag-border ($even-backdrop, $backdrop);      
     }
-    .block-views {
-      .scheme-collection {
-        border: none;
-      }
-    }
-  }
-  .block-views:first-child {
   }
 }
 
