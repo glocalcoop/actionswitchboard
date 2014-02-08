@@ -70,6 +70,94 @@ function asb_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
+  // Exported field_base: 'field_event_location'
+  $field_bases['field_event_location'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_location',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'lid' => array(
+        0 => 'lid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'location_cck',
+    'settings' => array(
+      'gmap_macro' => '[gmap ]',
+      'gmap_marker' => 'drupal',
+      'location_settings' => array(
+        'display' => array(
+          'hide' => array(
+            'additional' => 'additional',
+            'city' => 0,
+            'coords' => 'coords',
+            'country' => 0,
+            'country_name' => 0,
+            'locpick' => 'locpick',
+            'map_link' => 'map_link',
+            'name' => 0,
+            'postal_code' => 'postal_code',
+            'province' => 0,
+            'province_name' => 'province_name',
+            'street' => 0,
+          ),
+        ),
+        'form' => array(
+          'fields' => array(
+            'additional' => array(
+              'collect' => 0,
+              'default' => '',
+              'weight' => 6,
+            ),
+            'city' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 8,
+            ),
+            'country' => array(
+              'collect' => 1,
+              'default' => 'us',
+              'weight' => 14,
+            ),
+            'locpick' => array(
+              'collect' => 0,
+              'weight' => 20,
+            ),
+            'name' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 2,
+            ),
+            'postal_code' => array(
+              'collect' => 0,
+              'default' => '',
+              'weight' => 12,
+            ),
+            'province' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 10,
+              'widget' => 'select',
+            ),
+            'street' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 4,
+            ),
+          ),
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'location',
+  );
+
   // Exported field_base: 'group_content_access'
   $field_bases['group_content_access'] = array(
     'active' => 1,
@@ -92,7 +180,7 @@ function asb_content_types_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => 'Public - accessible to all site users',
-        2 => 'Private - accessible only to group members',
+        2 => 'Private - accessible only to scheme members',
       ),
       'allowed_values_function' => '',
     ),
@@ -107,6 +195,9 @@ function asb_content_types_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'og_group_ref',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -129,10 +220,16 @@ function asb_content_types_field_default_field_bases() {
           'og_behavior' => array(
             'status' => TRUE,
           ),
+          'views-select-list' => array(
+            'status' => 0,
+          ),
         ),
         'membership_type' => 'og_membership_type_default',
+        'sort' => array(
+          'type' => 'none',
+        ),
         'target_bundles' => array(
-          0 => 'scheme',
+          'scheme' => 'scheme',
         ),
       ),
       'handler_submit' => 'Change handler',
