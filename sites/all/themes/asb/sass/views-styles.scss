@@ -88,19 +88,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-// last scheme collection has border that blends into the footer
-// filtered by children of .main-content or #content
-#content .main-content>.scheme-collection,
-#content>.scheme-collection {
-  &:last-child:nth-child(even) {
-    @include zigzag-border ($even-backdrop, $backdrop);
-  }
-
-  &:last-child:nth-child(odd) {
-    @include zigzag-border ($odd-backdrop, $backdrop);
-  }
-}
-
 // Don't show on the Goals Detail page
 .page-taxonomy-term {
   #content {
@@ -116,25 +103,6 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-// Home page only
-.front {
-  #content .scheme-collection {
-    &:nth-child(even) {
-      @include zigzag-border ($even-backdrop, $odd-backdrop, $even-backdrop);
-    }
-    &:nth-child(odd) {
-      @include zigzag-border ($odd-backdrop, $even-backdrop);
-    }
-    &:last-child {
-      @include zigzag-border ($odd-backdrop, $backdrop);
-    }
-  }
-  // the last one on the homepage shouldnt have zigzag.
-  .block-views-scheme-overview-block-1 {
-    background: none !important;
-  }
-}
-
 #main .scheme-collection {
 
   .views-row {
@@ -144,32 +112,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
   }
 
-  // @include breakpoint( sm, max-size ) {
-  //   margin-left: 0; 
-  //   margin-right: 0; 
-  //   padding-left: 2em;
-  //   padding-right: 2em;
-  //   border: 1px $accent solid;
-  // }
-
   @include breakpoint( sm ) {
     margin: 0 auto;
   }
-
-  // @include breakpoint( md, max-size ) {
-  //   border: 1px $accent solid;
-  //   .views-row {
-  //     &:nth-child(2n+2),
-  //     &:last-child {
-  //       border: none;
-  //       margin-right: 0;
-  //     }
-  //   }
-  //   margin-left: 0; 
-  //   margin-right: 0; 
-  //   padding-left: 2em;
-  //   padding-right: 2em;
-  // }
 
   @include breakpoint( md ) {
     .views-row {
@@ -179,7 +124,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       }
       &:nth-child(4n+4),
       &:last-child {
-        border: none;
+        // border: none;
         margin-right: 0;
       }
       #scheme-images img {
@@ -197,6 +142,45 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     @include box-sizing( border-box );
   }
 }
+
+
+// /////////////////////////////
+// ZigZags
+// /////////////////////////////
+
+// last scheme collection has border that blends into the footer
+// filtered by children of .main-content or #content
+
+// Home page only
+// .front {
+  #content .scheme-collection {
+    &:nth-child(even) {
+      @include zigzag-border ($even-backdrop, $odd-backdrop );
+      background-color: $even-backdrop;
+    }
+    &:nth-child(odd) {
+      @include zigzag-border ($odd-backdrop, $even-backdrop);
+      background-color: $odd-backdrop;
+    }
+    &:last-child {
+      padding-bottom: 2em;
+    }
+  }
+
+
+  #content .main-content>.scheme-collection:last-child,
+  #content>.scheme-collection:last-child {
+    &:nth-child(even) {
+      @include zigzag-border ($even-backdrop, $backdrop);
+      background-color: $even-backdrop;
+    }
+    &:nth-child(odd) {
+      @include zigzag-border ($odd-backdrop, $backdrop);
+      background-color: $odd-backdrop;
+    }
+  }
+
+
 
 // /////////////////////////////
 // Scheme Detail & Issues Detail

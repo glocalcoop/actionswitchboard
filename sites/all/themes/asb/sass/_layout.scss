@@ -51,7 +51,15 @@ $zen-auto-include-item-base: false;
   display: none;
 }
 
+////////////////////
+// #main 
+////////////////////
+
 #main {
+  padding-bottom: 2em;
+}
+
+.not-front #main {
   // @include clearfix;
   position: relative;
   top: 0;
@@ -59,21 +67,24 @@ $zen-auto-include-item-base: false;
     top: -20px;
     margin-bottom: -20px;
   }
-    @include zigzag-border ($odd-backdrop, $backdrop);
+  @include zigzag-border ($odd-backdrop, $backdrop);
 }
 
-
+.front #main,
+.page-schemes #main {
+  padding-bottom: 0;
+}
 
 // Create a scheme has different background color
-  .page-node-add-scheme {
+.page-node-add-scheme {
   #main {
-    @include zigzag-border ($panel, $backdrop);
+    @include zigzag-border ( $panel, $backdrop );
   }
 }
 
 .page-schemes #main {
   top: -8px;
-  margin-bottom:-8px;
+  margin-bottom: -8px;
 }
 
 .front #main { 
@@ -136,7 +147,7 @@ aside.scheme-meta {
 
   #main .scheme-collection-view .view-content,
   #main .scheme-collection-view .block-title,
-  #main section.main-content,
+  // #main section.main-content,
   #main form#privatemsg-list {
     @include box-sizing( border-box );
     max-width: 960px;
@@ -289,10 +300,6 @@ aside.scheme-meta {
     margin-left: auto;
     max-width: 960px;
   }
-}
-
-#main {
-  padding-bottom: 5em;
 }
 
 /* ------------------------ */
