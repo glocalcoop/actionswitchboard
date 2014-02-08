@@ -26,6 +26,10 @@
         if( $(".page-user-messages") ){
           asb.highlight_new_messages();
         }
+
+        if( $('.region-search').length ) {
+          asb.setup_filter_icon_toggle();
+        }
       }
 
     }
@@ -103,6 +107,7 @@
     if( $(".scheme-collection") ){
       asb.scheme_overviews_clamp_descriptions();
     }
+
   }
 
   asb.scheme_overviews_clamp_descriptions = function(){
@@ -128,7 +133,6 @@
       var option = $( '<option></option>' );
       option.text(label);
       option.attr('value',href);
-      // console.log( "build_collections_pulldown", label, href, option );
       select.append( option );
     });
     var anylink = $('<option value="' + options.find( ".form-type-bef-link a" ).first().href + '">From any collection</option>');
@@ -136,6 +140,36 @@
     var defaultopt = $('<option selected="selected" value="' + options.find( ".form-type-bef-link a" ).first().val() + '">Filter by Collection</option>');
     select.prepend( defaultopt );
     return select;
+  }
+
+  asb.setup_filter_icon_toggle = function(){
+    var featured_all_href = $("#edit-field-featured-value-all a").attr('href');
+    var featured_icon= $("#edit-field-featured-value-1");
+    if( featured_icon.hasClass('selected') ){
+      featured_icon.on( 'click', function(e){
+        e.preventDefault();
+        window.location.replace( featured_all_href );
+      });
+    }
+    var movie_all_href = $("#edit-field-from-the-movie-value-all a").attr('href');
+    var movie_icon= $("#edit-field-from-the-movie-value-1");
+    if( movie_icon.hasClass('selected') ){
+      movie_icon.on( 'click', function(e){
+        e.preventDefault();
+        window.location.replace( movie_all_href );
+      });
+    }
+    var completed_all_href = $("#edit-sid-all a").attr('href');
+    var completed_icon= $("#edit-sid-5");
+    if( completed_icon.hasClass('selected') ){
+      completed_icon.on( 'click', function(e){
+        e.preventDefault();
+        window.location.replace( completed_all_href );
+      });
+    }
+    // console.log( completed_all_href );
+    // console.log( movie_all_href );
+    // console.log( featured_all_href );
   }
 
   asb.modify_append_pager = function() {
@@ -177,7 +211,6 @@
       $.autopager('load');
     });
 
-
     issues_select.change( function(e) {
       var val = $(this).val();
       e.preventDefault();
@@ -189,9 +222,6 @@
       e.preventDefault();
       window.location.replace( val );
     });
-    
-    console.log("script.js");
-
 
   }
 
