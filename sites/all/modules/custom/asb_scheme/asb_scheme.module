@@ -539,6 +539,15 @@ function asb_scheme_facilitator_link() {
     $link_markup = '<div class="facilitator-button"><a href="/';
     $link_markup .= $contact .'?facilitator=1&gid=' .$gid['gid'] .'">Contact ' .$user->name .'</a></div>';
     $link_markup .= '<div class="facilitator-text">Your Facilitator</div>';
+  }else{
+    $result = db_query("SELECT uid FROM {users_roles} ur WHERE rid = 6 ORDER BY RAND() LIMIT 1");
+    $record = $result->fetchObject();
+    $user = user_load($record->uid);
+    $contact = privatemsg_get_link($user);
+    $link_markup = '<div class="facilitator-text">Uh Oh! Looks like you haven\'t been assigned a Facilitator.';
+    $link_markup .= 'Please send a message to the Facilitator below and let them know you need help.</div>';
+    $link_markup .= '<div class="facilitator-button"><a href="/';
+    $link_markup .= $contact .'?facilitator=1&gid=' .$gid['gid'] .'">Contact ' .$user->name .'</a></div>';
   }
   return $link_markup;
 }
