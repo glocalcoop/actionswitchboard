@@ -342,7 +342,7 @@ function asb_preprocess_node(&$variables, $hook) {
   if($variables['type'] == 'scheme') {
     $account = clone $user;
     if (node_access("update", $variables['node'], $account) === TRUE) {
-      $variables['issue_edit'] = '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/article/field_issues_goals">Edit</a>';
+      $variables['issue_edit'] = '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/scheme/field_issues_goals">Edit</a>';
       // This javascript is added in asb_scheme module, but was not
       // recognized by chromium on modal edit.
       // Adding it here resolves that problem.
