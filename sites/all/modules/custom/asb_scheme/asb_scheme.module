@@ -532,7 +532,6 @@ function asb_scheme_block_view($delta = '') {
 function asb_scheme_facilitator_link() {
   $scheme = og_context('node');
   $node = node_load($scheme['gid']);
-  dsm($node);
   if(isset($node->field_facilitator['und'][0]['target_id'])) {
     $fac_uid = $node->field_facilitator['und'][0]['target_id'];
     $user = user_load($node->field_facilitator['und'][0]['target_id']);
