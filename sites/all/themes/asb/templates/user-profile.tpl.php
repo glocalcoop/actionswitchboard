@@ -112,6 +112,18 @@ $account = menu_get_object('user');
 
     </div>
 
+    <?php
+    // echo "<pre>";
+    // var_dump($user_profile);
+    // echo "</pre>";
+    echo "<pre>";
+    var_dump($civi_contact);
+    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($account);
+    // echo "</pre>";
+    ?>
+
     </section>
 
   </div>
