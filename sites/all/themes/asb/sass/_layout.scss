@@ -302,7 +302,17 @@ aside.scheme-meta {
     margin-left: auto;
     max-width: 960px;
   }
+  .section-goals .tabs-primary,
+  .section-issues .tabs-primary {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    max-width: 960px !important;
+
+  }
+
 }
+
+
 
 /* ------------------------ */
 /* Schemes Pager:           */
