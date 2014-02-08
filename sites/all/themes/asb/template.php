@@ -630,3 +630,23 @@ function asb_preprocess_region(&$variables, $hook) {
     }
   }
 }
+
+function asb_date_combo_alter(&$variables) {
+  dsm($variables);
+  $variables['element']['value2']['#title'] = 'Finish';
+  $element = $variables['element'];
+  $element['value2']['date']['#description'] = '(MM/DD/YYYY)';
+  $field = field_info_field($element['#field_name']);
+  $instance = field_info_instance($element['#entity_type'], $element['#field_name'], $element['#bundle']);
+  
+  // Group start/end items together in fieldset.
+  $fieldset = array(
+    '#title' => t($element['#title']) . ' ' . ($element['#delta'] > 0 ? intval($element['#delta'] + 1) : ''),
+    '#value' => '',
+    '#description' => !empty($element['#fieldset_description']) ? $element['#fieldset_description'] : '',
+    '#attributes' => array(),
+    '#children' => $element['#children'],
+  );
+  dsm($element);
+  return theme('fieldset', array('element' => $fieldset));
+}

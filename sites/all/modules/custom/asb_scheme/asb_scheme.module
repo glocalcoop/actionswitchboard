@@ -119,7 +119,7 @@ function theme_asb_scheme_local_task(&$variables) {
     
     // return '<li' . (!empty($variables['element']['#active']) ? ' class="active ctools-use-ajax"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";   
     // Returns an ajax response tab containing the scheme updates view url
-    return '<li' . (!empty($variables['element']['#active']) ? ' class="active ctools-use-ajax"' : '') . '>' .ctools_ajax_text_button( 'Updates', 'asb_scheme/nojs/scheme_content/page/' .arg(1), t('Get view content.')) . "</li><!-- Added in asb_scheme module line 61. -->\n";
+    return '<li' . (!empty($variables['element']['#active']) ? ' class="active update-tab ctools-use-ajax"' : '') . '>' .ctools_ajax_text_button( 'Updates', 'asb_scheme/nojs/scheme_content/page/' .arg(1), t('Get view content.')) . "</li><!-- Added in asb_scheme module line 61. -->\n";
   }else{ 
     return '<li' . (!empty($variables['element']['#active']) ? ' class="active"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
   }
@@ -224,10 +224,26 @@ function asb_scheme_form_comment_form_alter(&$form, &$form_state) {
 }
 
 /**
+ * ajax callback for comments
+ */
+function asb_scheme_return_node_callback() {
+  $output = "Comment here";
+  return $output;
+}
+/**
  * Implements hook_form_alter
  */
 function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if($form_id == 'comment_node_scheme_form') {
+    $form['actions']['submit']['#ajax'] = array(
+      'wrapper' => 'comment-form',
+      'callback' => 'asb_scheme_return_node_callback',
+      'method' => 'replace',
+      'effect' => 'fade'
+    );
+    // dsm($form);
+  }
   if($form_id == 'user_login') {
     $form['html_markup'] = array('#markup' => t('<div class="reset-pass"><a class="reset-pass-link" href="/user/password">Forgot your password?</a></div><!-- Added in asb_scheme.module -->'));
   }
@@ -1418,4 +1434,25 @@ function asb_scheme_preprocess_links(&$variables) {
     $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-use-modal';
     $variables['links']['comment-reply']['attributes']['class'][] = 'ctools-modal-mfe-modal';
   }
+}
+
+function asb_scheme_date_combo_process_alter(&$element, &$form_state, $context) {
+  /* dsm($form_state); */
+  /* dsm($context); */
+  $element['value2']['#title'] = 'Finish';
+  /* dsm($element); */
+
+}
+
+function asb_scheme_date_formatter_pre_view_alter(&$entity, &$variables) {
+  /* dsm($entity); */
+  /* dsm($variables); */
+/* function asb_scheme_date_combo_pre_validate_alter(&$element, &$form_state, $context) { */
+/*   dsm($element); */
+/*   dsm($element['value']['date']['#description']); // (MM/DD/YYYY) (HH:MM) */
+/*   $element['value']['date']['#description'] = '(MM/DD/YYYY)'; */
+/*   dsm($form_state); */
+/*   dsm($context); */
+/*   dsm('Hi mom'); */
+/* } */
 }
