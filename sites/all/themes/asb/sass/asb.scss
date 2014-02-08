@@ -498,6 +498,16 @@ ul.ui-button li.ui-button a,
   }
 }
 
+a.ui-button.primary,
+.ui-button.primary a {
+  @include button($color: $accent, $font-family: $base-font-family, $transform: none);
+  &:link,
+  &:visited,
+  &:hover {
+    color: #fff;
+  }
+}
+
 ul.tags {
   list-style:none;
   li {
