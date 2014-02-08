@@ -309,6 +309,7 @@ div.user-picture img {
     max-height: 0px;
     padding: 0;
     overflow: hidden;
+    border-bottom: none;
     .views-exposed-form {
       display: block;
       opacity: 0;
@@ -513,7 +514,6 @@ ul.tags {
         margin-top:0;
       }
     }
-    aside {}
   }
 }
 
@@ -2071,6 +2071,11 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
   line-height: 16px;
   color: white;
   border-radius: 10px;
+}
+
+// Hide the ugly messages notification since we have the badge indicator.
+.messages--status {
+  display: none;
 }
 
 /* Goals hierarchy */
