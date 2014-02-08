@@ -291,6 +291,7 @@ aside.scheme-meta {
   #footer section.content,
   .messages__list,
   .views-exposed-widgets,
+  .section-node-add #main,
   .page-node-add-scheme #main,
   .node-type-scheme.og-context.og-context-node.section-node-edit #content,
   .page-user.not-logged-in #content,
@@ -357,6 +358,7 @@ aside.scheme-meta {
       @include zen-float();
       @include zen-grid-flow-item( 4, 8 );
       @include box-sizing( border-box );
+      a { color: white; }
     }
   
     #collections_filter {
