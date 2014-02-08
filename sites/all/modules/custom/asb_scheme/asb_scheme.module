@@ -258,6 +258,8 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
       'callback' => 'asb_scheme_goals_ajax_callback',
       'method' => 'replace',
     );
+    
+    $form['field_issues_goals']['#suffix'] = '<div class="goal-rec"><a href="/node/add/goal" target="_blank">Recommend Your Own Goal</a></div>';
     // Add a wrapper for the correct field to change
     $form['field_scheme_goals_taxonomy']['und']['#prefix'] = '<div id="parent-goal-wrapper">';
     $form['field_scheme_goals_taxonomy']['und']['#suffix'] = '</div>';
