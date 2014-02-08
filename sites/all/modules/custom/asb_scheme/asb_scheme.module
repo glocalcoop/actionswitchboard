@@ -261,6 +261,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     // Add a wrapper for the correct field to change
     $form['field_scheme_goals_taxonomy']['und']['#prefix'] = '<div id="parent-goal-wrapper">';
     $form['field_scheme_goals_taxonomy']['und']['#suffix'] = '</div>';
+    drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
   }
   $pos = strpos($form['#action'], 'mfe-single-modal-callback');
   // Modify field modal edit form
