@@ -361,6 +361,25 @@ function asb_preprocess_node_scheme(&$variables, $hook) {
       $variables['sidebar_second'] = array_merge($plugin->block_get_blocks_by_region('sidebar_second'), $blocks);
       drupal_static_reset('context_reaction_block_list');
     }
+    // Here we set up a view for inclusion in the scheme-node template.
+    // First we execute the view with the entity reference from
+    // the node object.
+    $view = views_get_view('scheme_overview_filtered');
+    $view->set_display('block_6');
+    if(isset($variables['node']->field_issues_goals[0]['target_id'])) {
+      $a = $variables['node']->field_issues_goals[0]['target_id'];
+      $view->set_arguments(array($a));
+      $view->execute();
+    }
+    // Make sure the view has content.  We create a boolean 
+    // variable to validate against in the template and generate
+    // the view to be passed to the template.
+    if (count($view->result) > 0) {
+      $variables['show_related'] = true;
+      $variables['related_view'] = $view->preview('block_6',array($a));
+    }else{
+      $variables['show_related'] = false;
+    }
   }
 }
 

@@ -1082,7 +1082,9 @@ ul.tags {
 /* ----------------------- */
 
   #outer-carousel-wrapper {
+    max-height: 380px;
     position: relative;
+    overflow: hidden;
     #carousel-wrapper {
       z-index: -1;
       position: relative;

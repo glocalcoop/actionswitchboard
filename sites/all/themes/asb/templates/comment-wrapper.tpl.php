@@ -35,15 +35,18 @@
  *
  * @ingroup themeable
  */
+
 ?>
 <div id="comments" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if ($content['comment_form']): ?>
-      <?php if($node->type == 'scheme') { ?>
-      <h2 class="title comment-form"><?php print t('Add a Public Comment About this Scheme'); ?></h2>
-      <?php } else { ?>
-      <h2 class="title comment-form"><?php print t('Add new comment'); ?></h2>
-      <?php } ?>
-    <?php print render($content['comment_form']); ?>
+    <div id="ajax-comment-wrap-<?php print $content['comment_form']['nid']['#value'] ?>"><!-- Very important! -->
+      <?php if($node->type == 'scheme'): ?>
+        <h2 class="title comment-form"><?php print t('Add a Public Comment About this Scheme'); ?></h2>
+      <?php else: ?>
+        <h2 class="title comment-form"><?php print t('Add new comment'); ?></h2>
+      <?php endif; ?>
+      <?php print render($content['comment_form']); ?>
+    </div>
   <?php endif; ?>
 
   <?php if ($content['comments'] && $node->type != 'forum'): ?>

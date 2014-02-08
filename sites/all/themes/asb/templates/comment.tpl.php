@@ -6,9 +6,13 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728216
  */
+// dsm($content);
+if(isset($content['comment_body']['#object']->ajax_header)) {
+  print $content['comment_body']['#object']->ajax_header;
+}
 ?>
-<article class="<?php if($new) { echo 'new'; } ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
+<article class="<?php if($new) { echo 'new'; } ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $picture; ?>
   <div class="comment-content">
     <header>
