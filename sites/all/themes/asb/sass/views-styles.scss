@@ -179,6 +179,11 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
   }
 
+  .view-empty .scheme-collection {
+    border: none;
+    background-image: none;    
+  }
+
 
 
 // /////////////////////////////

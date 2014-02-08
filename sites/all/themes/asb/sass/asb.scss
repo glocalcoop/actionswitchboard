@@ -1376,7 +1376,6 @@ form .form-actions input{
       }
     }
     .block-views.even {
-      // margin-top: 25px;
       background: $even-backdrop;
       .scheme-collection-view {
         @include zen-clear;
@@ -1385,9 +1384,10 @@ form .form-actions input{
       }
     }
     .blocks-view.odd {
+      border: 1px #f00 solid;
         background: $odd-backdrop;
         // footer color
-        @include zigzag-border ($even-backdrop, $backdrop);      
+        @include zigzag-border ($odd-backdrop, $backdrop);      
     }
   }
 }
