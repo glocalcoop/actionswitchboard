@@ -272,7 +272,7 @@ function asb_scheme_form_alter(&$form, &$form_state, $form_id) {
     $form['#after_build'][] = '_asb_scheme_manage_workflow';
   }
   // Add redirect on scheme creation
-  if($form_id == 'scheme_node_form' && arg(2) != 'edit' && $pos === false) {
+  if($form_id == 'scheme_node_form' && arg(2) != 'edit' && $pos == false) {
     $form['actions']['submit']['#submit'][] = 'asb_scheme_redirect_success';
   }else{
     // drupal_add_js(drupal_get_path('module', 'asb_scheme') . '/js/scheme-issues.js', 'file');
@@ -448,6 +448,10 @@ function asb_scheme_block_info() {
     'info' => t('User Custom Login'),
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['facilitator_contact'] = array(
+    'info' => t('Contact Facilitator'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -513,8 +517,29 @@ function asb_scheme_block_view($delta = '') {
         $block['content'] = $content;
       }
       break;
+    case 'facilitator_contact':
+      // Show facilitator contact link
+      $block['subject'] = t('Need help?');
+      $block['content'] = asb_scheme_facilitator_link();
+      break;
   }
   return $block;
+}
+
+/**
+ * Get and theme facilitator contact link
+ */
+function asb_scheme_facilitator_link() {
+  $scheme = og_context('node');
+  $node = node_load($scheme['gid']);
+  dsm($node);
+  if(isset($node->field_facilitator['und'][0]['target_id'])) {
+    $fac_uid = $node->field_facilitator['und'][0]['target_id'];
+    $user = user_load($node->field_facilitator['und'][0]['target_id']);
+    $output = '<div class="facilitator-button"><a href="/messages/new/';
+    $output .= $fac_uid .'">Contact ' .$user->name .', Your Facilitator</a></div>';
+  }
+  return $output;
 }
 
 /**
