@@ -1271,22 +1271,26 @@ function asb_scheme_civicrm_api($type = 'contact', $ufid = 0) {
       );
       $result = civicrm_api('CustomValue', 'get', $params);
       foreach($result['values'] as $key => $value) {
+	// dsm($key);
+	// dsm($value);
         if($value['id'] == 23) {
           $skill_set = $value['latest'];
         }
       }
       // print_r($result);
-      foreach($skill_set as $key => $value) {
-        $option_params = array(
-          'version' => 3,
-          'sequential' => 1,
-          'option_group_id' => 90,
-          'value' => $value,
-        );
-        $option = civicrm_api3('OptionValue', 'get', $option_params);
-        $contacts['skills'][] = $option['values'][0]['label'];
-      }
+      if(!empty($skill_set)) {
+	foreach($skill_set as $key => $value) {
+	  $option_params = array(
+				 'version' => 3,
+				 'sequential' => 1,
+				 'option_group_id' => 90,
+				 'value' => $value,
+				 );
+	  $option = civicrm_api3('OptionValue', 'get', $option_params);
+	  $contacts['skills'][] = $option['values'][0]['label'];
+	}
       asort($contacts['skills']);
+      }
     }
     catch (CiviCRM_API3_Exception $e) {
       $error = $e->getMessage();
