@@ -1384,10 +1384,10 @@ form .form-actions input{
       }
     }
     .blocks-view.odd {
-      border: 1px #f00 solid;
         background: $odd-backdrop;
+        background-image: none;
         // footer color
-        @include zigzag-border ($odd-backdrop, $backdrop);      
+        // @include zigzag-border ($odd-backdrop, $backdrop);      
     }
   }
 }
