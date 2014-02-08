@@ -97,47 +97,6 @@ fieldset#edit-timezone {
   }
 }
 
-// Edit form labels
-.page-user-edit {
-  form {
-    label {
-      @include header-style($size: $h3-font-size + 2px);
-      &.option {
-        @include body-text;
-      }
-    }
-    #edit-picture {
-      legend {
-        @include header-style($size: $h3-font-size + 2px);
-      }
-    }
-    .edit-value,
-    .label {
-      input[type="checkbox"] {
-        display: block;
-        float: left;
-        width: 25px;
-        clear: left;
-      }
-      label {
-        @include body-text;
-        display: block;
-        float: left;
-      }
-    }
-    .crm-section {
-      .label {
-        &:first-child {
-          display: none;
-        }
-      }
-      div.edit-value {
-        margin-left: 0;
-      }
-    }
-  }
-}
-
 // User Registration Form
 
 .page-user-register {
@@ -516,10 +475,55 @@ form {
 }
 
 // ////////////////////////////
-// Content Edit
+// User Profile Edit
 // 
 
-.page-user-edit-asb-user-profile {
+// Edit form labels
+.page-user-edit {
+  form {
+    label {
+      @include header-style($size: $h3-font-size + 2px);
+      &.option {
+        @include body-text;
+      }
+    }
+    .description {
+      font-style: italic;
+    }
+    #edit-picture {
+      legend {
+        @include header-style($size: $h3-font-size + 2px);
+      }
+    }
+    .edit-value,
+    .label {
+      input[type="checkbox"] {
+        display: block;
+        float: left;
+        width: 25px;
+        clear: left;
+      }
+      label {
+        @include body-text;
+        display: block;
+        float: left;
+      }
+    }
+    .crm-section {
+      .label {
+        &:first-child {
+          display: none;
+        }
+      }
+      div.edit-value {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.page-user-edit-asb-user-profile,
+.page-user-edit-more-about-me {
   form#user-profile-form {
     #editrow-custom_37,
     #editrow-custom_72,
@@ -533,11 +537,40 @@ form {
         display: block;
       }
     }
+    .crm-section {
+      .label {
+        &:first-child {
+          display: inherit;
+        }
+      }
+      // div.edit-value {
+      //   margin-left: 0;
+      // }
+    }
+    .description {
+      margin-left: 0;
+      font-style: italic;
+    }
+    table.form-layout-compressed {
+      @include zen-clear;
+    }
+    #editrow-custom_23 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_101 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_72 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_57 > div:nth-child(1) > label:nth-child(1) {
+      @include header-style($size: $h3-font-size + 2px);
+    }
+    #editrow-custom_101 > div:nth-child(2) > label:nth-child(2),
+    #editrow-custom_101 > div:nth-child(2) > label:nth-child(4) {
+      display: inline;
+      float: none;
+    }
 
   }
 }
 
-.page-user-edit-name-and-address {
+.page-user-edit-name-and-address,
+.page-user-edit-more-about-me {
   form#user-profile-form {
     .crm-profile-name-name_and_address {
       #crm-container.crm-container {
@@ -608,20 +641,29 @@ form#user-profile-form {
   }
 }
 
-  .comment-form { 
-      @include zen-clear;
-      margin-bottom: 20px;
-      padding: 10px 20px 35px 20px;
-      // background: $odd-backdrop;
 
-      #edit-author--2 {
-        display: none;
-      }
-      fieldset.filter-wrapper {
-        display: none;
-      }
+
+
+
+
+
+.comment-form { 
+    @include zen-clear;
+    margin-bottom: 20px;
+    padding: 10px 20px 35px 20px;
+    // background: $odd-backdrop;
+
+    #edit-author--2 {
+      display: none;
     }
+    fieldset.filter-wrapper {
+      display: none;
+    }
+  }
 
+// ////////////////////////////
+// Scheme Edit
+// 
 
 .section-node-edit {
 
