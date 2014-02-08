@@ -205,14 +205,23 @@ function asb_message_form_privatemsg_new_alter(&$form, &$form_state) {
     if (!isset($form['thread_id'])) {
       $recipients_plain = str_replace('[user]', '', $form['recipient']['#default_value']);
       // Here we set the title for skills donations
-      if(isset($url_vals['type'])) {
+      if(!empty($url_vals['type'])) {
         // Add the custom validation handler to add scheme link
         $form['#validate'][] = 'asb_message_add_scheme_link_validate';
-        drupal_set_title(t('Tell @recipient what '.$url_vals['type'] .' you can provide', array('@recipient' => $recipients_plain)));
-        if(isset($url_vals['group'])) {
-          $form['subject']['#default_value'] = $user->name ." has ".$url_vals['type'] ." for " .$url_vals['group'];
-          $form['subject']['#type'] = 'hidden';
-          $form_state['scheme_name'] = $url_vals['group'];
+        if($url_vals['type'] == 'facilitator') {
+          drupal_set_title(t('Tell @recipient what you need help with', array('@recipient' => $recipients_plain)));
+          if(isset($url_vals['group'])) {
+            $form['subject']['#default_value'] = $user->name ." needs help with " .$url_vals['group'];
+            $form['subject']['#type'] = 'hidden';
+            $form_state['scheme_name'] = $url_vals['group'];
+          }
+        }else{
+          drupal_set_title(t('Tell @recipient what '.$url_vals['type'] .' you can provide', array('@recipient' => $recipients_plain)));
+          if(isset($url_vals['group'])) {
+            $form['subject']['#default_value'] = $user->name ." has ".$url_vals['type'] ." for " .$url_vals['group'];
+            $form['subject']['#type'] = 'hidden';
+            $form_state['scheme_name'] = $url_vals['group'];
+          }
         }
         if(isset($url_vals['gid'])) {
           $form_state['gid'] = $url_vals['gid'];
@@ -232,17 +241,26 @@ function asb_message_form_privatemsg_new_alter(&$form, &$form_state) {
  * the title of the private message page to the scheme leader.
  */
 function asb_message_privatemsg_check_url() {
+  $vals = array();
   $url_vals = array();
   // Get the current url
   $url = drupal_get_destination();
   // Explode the url to get added elements
   $url_parse = explode('?',$url['destination']);
   // Get additional values
-  $vals = explode('&', $url_parse[1]);
-  if($vals[0] === 'skills=1') {
-    $url_vals['type'] = 'skills';
-  }elseif($vals[0] === 'supplies=1') {
-    $url_vals['type'] = 'supplies';
+  if(isset($url_parse[1])) {
+    $vals = explode('&', $url_parse[1]);
+  }
+  if(isset($vals[0])) {
+    if($vals[0] === 'skills=1') {
+      $url_vals['type'] = 'skills';
+    }elseif($vals[0] === 'supplies=1') {
+      $url_vals['type'] = 'supplies';
+    }elseif($vals[0] === 'facilitator=1') {
+      $url_vals['type'] = 'facilitator';
+    }else{
+      $url_vals['type'] = '';
+    }
   }else{
     $url_vals['type'] = '';
   }

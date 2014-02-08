@@ -133,8 +133,18 @@ aside {
     }
   }
   #block-asb-scheme-facilitator-contact {
-    div.facilitator-button a {
-      background: $skills;
+    div.facilitator-button {
+      @include zen-clear;
+      width: 100%;
+      a {
+        @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family, $display: block);
+        background: $skills;
+      }
+    }
+    .facilitator-text {
+      text-align: center;
+      font-size: 1.3em;
+      padding: .5em;
     }
   }
   #block-views-925ec4f76f8d53da36cf50cc845b8316 {

@@ -530,15 +530,17 @@ function asb_scheme_block_view($delta = '') {
  * Get and theme facilitator contact link
  */
 function asb_scheme_facilitator_link() {
-  $scheme = og_context('node');
-  $node = node_load($scheme['gid']);
+  $gid = og_context('node');
+  $node = node_load($gid['gid']);
   if(isset($node->field_facilitator['und'][0]['target_id'])) {
     $fac_uid = $node->field_facilitator['und'][0]['target_id'];
     $user = user_load($node->field_facilitator['und'][0]['target_id']);
-    $output = '<div class="facilitator-button"><a href="/messages/new/';
-    $output .= $fac_uid .'">Contact ' .$user->name .', Your Facilitator</a></div>';
+    $contact = privatemsg_get_link($user);
+    $link_markup = '<div class="facilitator-button"><a href="/';
+    $link_markup .= $contact .'?facilitator=1&gid=' .$gid['gid'] .'">Contact ' .$user->name .'</a></div>';
+    $link_markup .= '<div class="facilitator-text">Your Facilitator</div>';
   }
-  return $output;
+  return $link_markup;
 }
 
 /**
@@ -802,6 +804,16 @@ function asb_scheme_views_pre_render(&$view) {
   }
 }
 
+/**
+ * Implements hook_views_post_render
+ *
+ * This function takes commented text from a view footer
+ * and replaces it with our markup.
+ *
+ * @params 
+ * <!--skills-MESSAGE-->
+ * <!--supplies-MESSAGE-->
+ */
 function asb_scheme_views_post_render(&$view, &$output, &$cache) {
   if($view->name == 'scheme_contribute') {
     $gid = og_context('node');
@@ -812,6 +824,7 @@ function asb_scheme_views_post_render(&$view, &$output, &$cache) {
       if($view->current_display == 'block') {
         $contact = privatemsg_get_link($user);
         $link_markup .= $contact .'?skills=1&gid=' .$gid['gid'] .'">Donate Skills</a></div>';
+        // this strstr function replaces the necessary string.
         $output = strtr($output, array('<!--skills-MESSAGE-->' => $link_markup));
       }elseif($view->current_display == 'block_1') {
         $contact = privatemsg_get_link($user);
