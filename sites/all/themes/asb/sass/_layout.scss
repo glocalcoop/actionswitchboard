@@ -358,7 +358,8 @@ aside.scheme-meta {
       @include zen-float();
       @include zen-grid-flow-item( 4, 8 );
       @include box-sizing( border-box );
-      a { color: white; }
+      color: white;
+      letter-spacing: 2px;
     }
   
     #collections_filter {
