@@ -20,103 +20,60 @@ $tabs-border: #bbb;
  * Basic positioning styles shared by primary and secondary tabs.
  */
 
-ul.tabs-primary.primary { 
-  margin: -2px 0 0 -25px;
+ ul.tabs-primary.primary {
+  // @include no-bullets;
+  @include inline-block-list;
+  @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: lighten($text-color-prominent, 10%));
+  font-size: $h3-font-size;
 
-  li {
-      position: relative;
-      display: inline-block;
-      padding: .5em 1em;
-      margin: 0 .5em;
-      // line-height: 16px;
-      @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: lighten($text-color-prominent, 10%), $weight: normal, $text-decoration: none);
-
-      &::before {
-        box-shadow: inset 0 6px 2px -3px $text-color;
-        content: ''; /* To generate the box */
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-        background: $tabs-container-bg;
-        -webkit-transform: perspective(3px) rotateX(-2deg);
-        -moz-transform: perspective(3px) rotateX(-2deg);
-        -ms-transform: perspective(3px) rotateX(-2deg);
-        -o-transform:  perspective(3px) rotateX(-2deg);
-        transform: perspective(3px) rotateX(-2deg);
-        // line-height: 16px;
+    li {
+      margin: 0 -2px;
+      line-height: 34px;
+      height: 35px;
+      background-color: $panel;
+      background-image: url(/sites/all/themes/asb/images/tabs/left.png), url(/sites/all/themes/asb/images/tabs/right.png);
+      background-position: left bottom, right bottom; 
+      background-repeat: no-repeat, no-repeat;
+      a {
+        @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .75em);
       }
-
-    a {
-      @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .75em);
-      color: $text-color-prominent !important;
-      font-size: $base-font-size + 2px;
-      text-decoration: none;
-      padding: 0;
-      margin: 0;
-      line-height: 18px;
-      &.active {
-        border-top: none;
-        // line-height: 16px;
+      &:first-child { // View (tab)
+        margin-left: 0;
+        a {
+          @extend %entypo-eye;
+        }
       }
-      &.use-ajax {
-        @extend %entypo-megaphone;
-        // line-height: 16px;
+      &:last-child {
+        margin-right: 0;
       }
-
-      &:before {
-        padding: 0;
-        margin: 0;
-        line-height: 18px;
+      a {
+        display: inline-block;
+        padding-right: 1em;
+        padding-left: 1em;
+        box-shadow: inset 0 4px 2px -3px $text-color;
+        &.active {
+          box-shadow: none;
+        }
+      }
+      &:nth-child(2) a { // Edit tab
+        @extend %entypo-pencil;
+      }
+      &.active { // Active tab has no shadow
+        a {
+          box-shadow: none;
+        }
+      }
+      &.update-tab { // Special case for the updates tab which has active class when view is active
+        a {
+          box-shadow: inset 0 4px 2px -3px $text-color;
+          @extend %entypo-megaphone;
+          &.active {
+            box-shadow: none;
+          }
+        }
       }
     }
-    &:first-child a {
-      @extend %entypo-eye;
-    }
-    &:nth-child(2) a {
-      @extend %entypo-pencil;
-    }
-
-  }
-}
-
-// ul.tabs-primary {
-//   li {
-//     a {
-//       @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0.1em, $width: .5em);
-//     }
-//     &.ctools-use-ajax a { 
-//       @extend %entypo-megaphone;
-//     }
-//     &:first-child a {
-//       @include font-icon-base($family:"entypo", $font-size: 1.75em, $margin: 0.2em, $width: .5em);
-//       @extend %entypo-eye;
-//     }
-
-//   }
-// }
-
-// p {
-//   position: relative;
-//   display: inline-block;
-//   padding: 1em;
-//   margin: 2em;
-// }
-
-// p::before {
-//   content: ''; /* To generate the box */
-//   position: absolute;
-//   top: 0; right: 0; bottom: 0; left: 0;
-//   z-index: -1;
-//   background: skyblue;
-//   transform: perspective(4px) rotateX(1deg);
-// }
-
-// p.tab::before {
-//   /* Tip by @krofdrakula */
-//   border-radius: 10px 10px 0 0;
-// }
-
-
+ }
 
 ul.tabs-secondary {
   margin: 0;
@@ -124,8 +81,6 @@ ul.tabs-secondary {
   li {
     margin: 0;
     padding: 0;
-    // height: 23px;
-    // line-height: 23px;
     display: inline-block;
     a {
       @include button($color: $button-color-secondary, $font-family: $font-body);
