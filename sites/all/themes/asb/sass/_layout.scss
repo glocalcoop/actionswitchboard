@@ -156,6 +156,7 @@ aside.scheme-meta {
     max-width: 960px;
     margin: 0 auto;
   }
+
   #main #block-views-scheme-overview-block-1.scheme-collection-view .view-content {
     @include clearfix;
     overflow: visible;
@@ -312,7 +313,13 @@ aside.scheme-meta {
   .section-issue .main-content,
   .no-sidebars section.page-content,
   .node-type-document .page-wrapper,
-  .page-taxonomy-term .page-wrapper {
+  .page-taxonomy-term .page-wrapper,
+  .page-node-log .page-wrapper,
+  .page-node-track .page-wrapper,
+  .page-node-workflow div#page section#main div#content,
+  .page-node-workflow div#page section#main .region,
+  .page-node-outline div#page section#main div#content,
+  .page-node-outline div#page section#main .region {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
     margin-right: auto;
     margin-left: auto;
