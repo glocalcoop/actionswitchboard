@@ -25,6 +25,9 @@ $tabs-border: #bbb;
   @include inline-block-list;
   @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: lighten($text-color-prominent, 10%));
   font-size: $h3-font-size;
+    a, a:link {
+      color: $text-color-prominent !important;
+    }
 
     li {
       margin: 0 -2px;
