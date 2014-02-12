@@ -80,8 +80,10 @@ ul.tabs-primary.primary {
 
 .page-scheme-updates {
   ul.tabs-primary.primary {
-    a{
-      box-shadow: none;
+    li.active {
+      a {
+        box-shadow: none;
+      }
     }
   }
 }
