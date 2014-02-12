@@ -221,6 +221,7 @@ function asb_preprocess_page(&$variables, $hook) {
     // - page--type-blog--edit.tpl.php
     //
     // Latter items take precedence.
+
     if($variables['node']->type == 'issue') {
       // dsm($variables);
       // dsm($variables['node']);
@@ -235,6 +236,13 @@ function asb_preprocess_page(&$variables, $hook) {
         $variables['node_classes'] = 'node node-edit';
       }
     }
+
+  }
+
+  // add updates tab
+  if(arg(0) == 'scheme' && arg(2) == 'updates') {
+    $target_scheme = arg(1); 
+    $variables['updates_tabs'] = "<ul id='update-tabs' class=' tabs-primary tabs primary'><li><a href='/scheme/${target_scheme}'>Scheme</a></li><li><a href='/node/${target_scheme}/members'>Members</a></li><li class='active update-tab'><a href='#'>Updates</a></li></ul>";
   }
   
   if(arg(2) != 'edit') {

@@ -54,10 +54,15 @@
         <div class="wrapper page-wrapper">
           <section class="main-content page-main-content">
             <?php if($page['sidebar_second'] || $page['sidebar_first']): ?>
-              <section class="content page-content">
+               <section class="content page-content">
             <?php endif; ?>
-              <?php print render($tabs); ?>
-              <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
+  
+            <?php print render($tabs); ?>
+           <?php if( isset( $updates_tabs ) ):?>
+              <?php print $updates_tabs; ?>
+            <?php endif;?>
+
+            <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
                 <?php print render($tabs); ?>
               <?php endif; ?>
               <?php print render($page['content']); ?>
