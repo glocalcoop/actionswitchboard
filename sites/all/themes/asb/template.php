@@ -242,7 +242,7 @@ function asb_preprocess_page(&$variables, $hook) {
   // add updates tab
   if(arg(0) == 'scheme' && arg(2) == 'updates') {
     $scheme_id = arg(1); 
-    $variables['updates_tabs'] = "<ul id='update-tabs' class=' tabs-primary tabs primary'><li><a href='/node/${scheme_id}'>Scheme</a></li><li><a href='/node/${scheme_id}/members'>Members</a></li><li class='active update-tab'><a href='#'>Updates</a></li></ul>";
+    $variables['updates_tabs'] = "<ul id='updates-tabs' class=' tabs-primary tabs primary'><li class='scheme'><a href='/node/${scheme_id}'>Scheme</a></li><li class='members'><a href='/node/${scheme_id}/members'>Members</a></li><li class='active update-tab'><a href='#'>Updates</a></li></ul>";
   }
   
   if(arg(2) != 'edit') {
