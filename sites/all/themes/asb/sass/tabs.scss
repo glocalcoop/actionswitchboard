@@ -20,7 +20,7 @@ $tabs-border: #bbb;
  * Basic positioning styles shared by primary and secondary tabs.
  */
 
- ul.tabs-primary.primary {
+ul.tabs-primary.primary {
   // @include no-bullets;
   @include inline-block-list;
   @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: lighten($text-color-prominent, 10%));
@@ -76,7 +76,17 @@ $tabs-border: #bbb;
         }
       }
     }
- }
+}
+
+.page-scheme-updates {
+  ul.tabs-primary.primary {
+    li.active {
+      a {
+        box-shadow: none;
+      }
+    }
+  }
+}
 
 ul.tabs-secondary {
   margin: 0;
