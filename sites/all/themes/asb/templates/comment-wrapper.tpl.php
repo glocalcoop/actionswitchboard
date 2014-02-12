@@ -43,7 +43,7 @@
       <?php if($node->type == 'scheme'): ?>
         <h2 class="title comment-form"><?php print t('Add a Public Comment About this Scheme'); ?></h2>
       <?php else: ?>
-        <h2 class="title comment-form"><?php print t('Add new comment'); ?></h2>
+        <h2 class="title comment-form"><?php print t('Reply'); ?></h2>
       <?php endif; ?>
       <?php print render($content['comment_form']); ?>
     </div>
