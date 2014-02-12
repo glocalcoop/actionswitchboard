@@ -74,6 +74,16 @@ h4 {
   @include standard-links($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: $brand);
 }
 
+.node-default {
+  #node-content {
+    h3 {
+      @include body-text ($size: 2em, $color: $text-color-prominent, $line-height: $header-line-height);
+    }
+    p, li {
+      @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+    }
+  }
+}
 
 //User Images
 #comments {
@@ -377,19 +387,6 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 // Icons
 // entypo-
 
-mark.new {
-  background: transparent;
-  @include font-icon-base($family:"entypo", $font-size: 2em, $margin: 2em, $width: .3em);
-  @extend %entypo-new;
-  &:before {
-    color: $accent;
-    vertical-align: baseline;
-  }
-  span {
-    @include hidden-text;
-  }
-}
-
 .field-location {
   @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-location;
@@ -590,619 +587,6 @@ ul.tags {
   }
 } 
 
-// ////////////////////////////
-// Scheme Detail
-// ////////////////////////////
-
-// html.js body.html div#page section#main div#content article.node-135 div.wrapper section.content div#scheme-content div.field-body
-
-.node-type-scheme {
-  header {
-    section.methods {
-      @include zen-float(right);
-    }
-  }
-
-  h3.field-label {
-    font-size: 1em;
-    margin: 0;
-    padding: 12px 0 0 0;
-    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
-  }
-
-  ul.links.inline li.comment_forbidden {
-    display: none;
-  }
-
-  iframe.media-youtube-player {
-    border: 8px solid $rules-color-accent;
-  }
-  
-  #content {
-    .related-schemes {
-      h2 {
-      border-top: {
-        @include standard-border;
-      }
-      padding-top: 10px;
-      }
-    }
-  }
-  #scheme-content {
-    margin-top: 1.5em;
-    div.field-body,
-    div.field-private-description {
-      @include standard-links ($color: $accent, $vcolor: lighten($accent,10%), $hcolor: $text-color);
-      border-top: {
-        @include standard-border;
-      }
-      margin-top: 10px;
-      p, li {
-        @include body-text ($family: $font-body, $size: $base-font-size + 3, $line-height: 1.75em );
-      }
-      h2,
-      h3,
-      h4 {
-        @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
-        margin: .5em 0 .25em 0;
-      }
-      h3 {
-        font-size: $h3-font-size + 2;
-      }
-      h4 {
-        font-size: $h3-font-size + 2;
-        color: $text-color;
-      }
-      h5 {
-        font-weight: bold;
-      }
-      h2 + p,
-      h3 + p,
-      h4 + p {
-        margin-top: .25em;
-      }
-      blockquote {
-        margin: .5em 0 .5em 2em;
-        padding: .5em .75em;
-        border-left: {
-            @include standard-border($width: 3px, $color: $accent);
-        }
-        p {
-          margin: 0;
-          font-size: $h3-font-size + 4;
-          line-height: 1.5em;
-        }
-      }
-      ul {
-        margin: 0 0 0 2em;
-        padding: 0;
-        &> li {
-          @include no-bullets;
-          padding: .25em .5em;
-          margin-top: .5em;
-          margin-bottom: .5em;
-          border-left: {
-            @include standard-border($width: 3px, $color: $accent);
-          }
-          ul {
-            margin: 0;
-            li {
-              padding: .5em 1.2em .5em .5em;
-              background: $even-backdrop;
-              border-left: {
-                @include standard-border($width: 3px, $color: $text-color);
-              }
-              border-top: none;
-            }            
-          }
-        }
-        &.menu {
-          margin-left: 0;
-        }
-      }
-      ol {
-        list-style: none;
-        counter-reset: li;
-        &> li {
-          position: relative; /* Create a positioning context */
-          margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
-          padding: 4px 8px; /* Add some spacing around the content */
-          list-style: none; /* Disable the normal item numbering */
-          border-top: {
-            @include standard-border($width: 2px, $color: $accent);
-          }
-          background: $even-backdrop;
-          &:before {
-            content:counter(li); /* Use the counter as content */
-            counter-increment: li; /* Increment the counter by 1 */
-            /* Position and style the number */
-            position: absolute;
-            top: -2px;
-            left: -2em;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            width: 2em;
-            /* Some space between the number and the content in browsers that support
-               generated content but not positioning it (Camino 2 is one example) */
-            margin-right: 8px;
-            padding: 4px;
-              border-top: {
-                @include standard-border($width: 2px, $color: $accent);
-              }
-            color: $nav-title-color;
-            background: $accent;
-            font-weight: bold;
-            text-align: center;
-          }
-        }     
-      }
-
-    }
-    .field-private-description:before {
-      margin-top: 1.5em;
-      content: 'Information For Scheme Members Only';
-      display: block;
-      font-size: 1em;
-      @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
-    }
-  }
-
-/* ----------------------- */
-/* Updates Tab:            */
-/* ----------------------- */
-
-
-//Updates
-
-#scheme-content {
-
-  .view-header {
-    border-top: {
-        @include standard-border;
-    }
-    padding-top: 1.2em;
-    .item-list {
-      ul {
-        li {
-          display: inline-block;
-          padding-right: 1.2em;
-        }
-      }
-    }
-
-    .scheme-updates-header {
-      @include header-style ($family: $base-font-family, $size: $h3-font-size + 2, $transform: capitalize, $weight: normal);
-      strong {
-        font-weight: normal;
-      }
-    }
-  }
-
-// #node-content h3.field-label
-  //Layout
-  article {
-    &.node-update,
-    &.node-announcement,
-    &.node-event {
-      h3.field-label {
-        @include zen-clear;
-        padding-top: 0;
-      }
-      .location.vcard {
-        margin: 0 0 1.2em 0;
-        padding-left: .5em;
-        border-left: {
-          @include standard-border($color: $accent, $width: 3px);
-        }
-        @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
-      }
-      .field-group-content-access {
-        padding-bottom: 1.2em;
-      }
-      border-top: {
-        @include standard-border;
-      }
-      padding-top: 1.2em;
-      @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $text-color);
-        header {
-          .user-picture,
-          .submitted,
-          .node-title {
-            @include zen-float(left);
-          }
-          .user-picture {
-            width: 60px;
-          }
-          p.submitted {
-            margin: 0;
-          }
-          h2.node-title {
-            @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
-            margin-top: 5px;
-            // @include zen-clear;
-          }
-          .submitted,
-          .node-title {
-            // margin-left: 65px;
-            width: 400px;
-          }
-          .submitted {}
-          .node-title {
-            // @include zen-clear(right);
-          }
-        }
-        .field-label,
-        .field-date {
-          display: inline-block;
-          @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
-        }
-
-        h3.field-label {
-          display: block;
-        }
-
-        div.field-body {
-          border-top: none;
-          margin-top: 0;
-          @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
-          p, li {
-            @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-            &:first-child {
-              margin-top: 0;
-            }
-          }
-        }
-        .node-default {
-          margin-left: 60px;
-          #node-content {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
-          }          
-        }
-      
-      #comments {
-        .comment {
-          padding-top: 1.2em;
-          .user-picture {
-            margin: 0;
-            width: 60px;
-          }
-          .comment-content {
-            margin-left: 60px;
-            clear: none;
-            header,
-            .field-comment-body {
-              margin-left: 0;
-              display: block;
-              p, li {
-                @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-              }
-            }
-          }
-          .links.inline {
-            margin-top: 0;
-            li.comment-delete,
-            li.comment-edit,
-            li.comment-reply {
-              @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .views-row-first {
-    article {
-      &:first-child {
-        border-top: none;
-      }
-    }
-  }
-
-}
-
-.views-row-first {
-  article {
-    &:first-child {
-      border-top: none;
-    }
-  }
-}
-
-  //Add Update Links
-  section.content {
-    .view-header {
-      .item-list {
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0 0 20px 0;
-          li {
-            margin: 0;
-            padding: 0;
-            a {
-              @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
-              color: $text-color;
-            }
-            &:first-child a {
-              @extend %entypo-comment;
-            }
-            &:nth-child(2) a {
-              @extend %entypo-calendar;
-            }
-            &:nth-child(3) a {
-              @extend %entypo-megaphone;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  aside {
-    @include box-sizing(content-box);
-
-    margin: 0 10px;
-    
-    .contextual-links-region {
-      background-color: $sidebar-panel-primary;
-      &:nth-child(1),
-      &:nth-child(2) {
-        background-color: $sidebar-panel-secondary;
-      }
-    }
-  }
-
-/* ----------------------- */
-/* Updates Modals          */
-/* ----------------------- */
-
-// Add Event
-
-.node-event-form,
-.page-node-add-event {
-
-  .form-item-title {
-    label,
-    input.edit-title {
-      display: inline-block;
-      // @include zen-float(left);
-    }
-    label {
-      width: auto;
-      padding-right: 1.2em;
-    }
-  }
-
-  //Date Fields
-  #edit-field-date {
-
-    legend {
-      display: none;
-    }
-
-    .form-type-checkbox {
-        margin: 0;
-      }
-
-    .fieldset-wrapper {
-      // display: table;
-      margin-top: 1.2em;
-
-      div.date-float {
-        float: none;
-        display: block;
-        @include zen-clear(both);
-        width: 100%;
-        margin-bottom: .5em;
-      }
-      div.date-no-float {
-        display: table-cell;
-        width: auto;
-        margin: 0 .5em;
-        // @include zen-clear;
-        .form-item {
-          margin: 0;
-          .date-padding {
-            margin: 0;
-            padding: 0;
-          }
-          label[for=edit-field-date-und-0-value2] {
-            display: none;
-          }
-        }
-        input.date-clear {
-          width: 80px;
-        }
-
-        &.start-date-wrapper {
-           padding-right: 1.2em;
-           &:before {
-            content: 'Start';
-            padding-right: 5px;
-            font-weight: bold;
-          }
-        }
-        &.end-date-wrapper {
-          &:before {
-            content: 'Finish';
-            padding-right: 5px;
-            font-weight: bold;
-          }
-        }
-      }
-
-      div.date-float {}
-      div.date-no-float {}
-
-    }
-  }
-
-  //Location Fields
-  #edit-field-event-location {
-    #edit-field-event-location-und-0 {
-
-      legend,
-      div.fieldset-wrapper {
-        display: block;
-        @include zen-float(left);
-      }
-
-      legend {
-        padding-right: 1.2em;
-        font-weight: bold;
-      }
-
-      div.fieldset-wrapper {
-        label {
-          font-weight: normal;
-        }
-        .form-item {
-          margin: 0 0 .5em 0;
-          &:first-child {
-            margin-top: 0;
-            padding-top: 0;
-          }
-        }
-        #edit-field-event-location-und-0-name {
-          margin-bottom: 0;
-        }
-        .form-item-field-event-location-und-0-city {
-          margin-top: 0;
-          width: 140px;
-        }
-        #edit-field-event-location-und-0-city {
-          width: 120px;
-        }
-        .form-item-field-event-location-und-0-city,
-        #location-dropdown-province-wrapper-field_event_location-und-0,
-        .form-item-field-event-location-und-0-country {
-          display: inline-block;
-          vertical-align: top;
-          .form-item-field-event-location-und-0-province {
-            width: auto;
-            padding: 0 .5em 0 0;
-            margin: 0;
-          }
-          label {
-            width: auto;
-          }
-        }
-
-        #edit_field_event_location_und_0_province_chosen,
-        #edit_field_event_location_und_0_country_chosen {
-          width: 150px !important;
-        }
-      }
-    }
-  }
-
-  //Content Access Fields
-  #edit-group-content-access {}
-
-  div.ctools-modal-content .form-item label {
-    width: auto !important;
-  }
-  #edit-field-date-und-0-value.date-padding div.form-item label,
-#edit-field-date-und-0-value2.date-padding div.form-item label {
-  width: auto;
-}
-
-}
-
-/* ----------------------- */
-/* Slideshow:              */
-/* ----------------------- */
-
-  #outer-carousel-wrapper {
-    max-height: 380px;
-    position: relative;
-    overflow: hidden;
-    #carousel-wrapper {
-      z-index: -1;
-      position: relative;
-      .carousel-div {
-        &:first-child {
-          position: relative !important;
-          display: block !important;
-          height: auto !important;
-        }
-        img {
-          max-width:100%;
-          min-width: 200px;
-        }
-      }
-    }
-
-    #scheme-images-nav {
-      @include zen-float(right);
-
-      a {
-        @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
-        &#scheme-images-previous {
-          @extend %entypo-circled-left;
-        }
-        &#scheme-images-next {
-          @extend %entypo-circled-right;
-        }
-        &:hover {
-          color: $brand;
-        }
-      }
-    }
-  }
-
-  div.field-body {
-    @include zen-clear;
-  }
-   
-} // End Scheme Detail
-
-
-// ////////////////////////////
-// Scheme Members
-// ////////////////////////////
-
-.page-node-members {
-  .scheme-members {
-    @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $brand);
-
-    .item-list {
-     ul {
-      @include no-bullets;
-      padding: 0;
-      margin: 0;
-      li {
-        padding: 1em 0;
-        border-top: {
-          @include standard-border();
-        }
-        &:first-child {
-          border: none;
-        }
-        .user-picture,
-        .member-name {
-          display: inline-block;
-          vertical-align: middle;
-        }
-        .user-picture {
-          padding-right: 10px;
-        }
-        .member-name {}
-
-        h3.member-name {
-          padding: 0;
-          margin: 0;
-          @include body-text($transform: capitalize, $weight: bold, $size: 1.25em);
-        }
-      }
-    }
-    }
-
-  }
-}
 
 // ////////////////////////////
 // Private Messages
@@ -1920,6 +1304,722 @@ form .form-actions input{
 }
 
 
+// #content div.wrapper section.main-content section.content dl.admin-list
+
+// Flexbox
+
+div#quicktabs-notifications,
+div#quicktabs-schemes { // wrapper - flex-box
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  &> div.item-list {  // tabs
+    width: 20%;               /* For old syntax, otherwise collapses. */
+  }
+
+  div#quicktabs-container-notifications,
+  div#quicktabs-container-schemes,
+  div#quicktabs-container-schemes_for_schemers { // main content
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    width: 80%;               /* For old syntax, otherwise collapses. */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;    
+
+    padding: 0;
+
+    .view-filters {
+      padding: 0 20px;
+    }
+  } 
+}
+
+div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
+  div.dashboard-contacts,
+  &> .view {
+    width: 80%;
+    @include zen-float(right);
+
+    .view-filters {
+      padding: 0 20px;
+    }
+  }
+}
+
+// Hide the mark the permalink tags
+.permalink,
+mark.new {
+  display: none;
+}
+
+// Hide modal edit link if user isn't logged in
+.not-logged-in {
+  .modal-edit,
+  .view-scheme-members div.view-header {
+    @include hide-content;
+  }
+}
+
+// Pagers for all pages but the front page
+.not-front {
+  ul.pager {
+    li {
+      padding: 0;
+      a {
+        @include font-icon-base($font-size: 3rem, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
+      }
+      &.pager-previous a {
+        @extend %entypo-circled-left;
+      }
+      &.pager-current,
+      &.pager-last {
+        display: none;
+      }
+      &.pager-next a {
+        @extend %entypo-circled-right;
+      }
+      &.pager-item {
+        &:after {
+          content: ' | ';
+          &:last-child {
+            content: none;
+          }
+        }
+
+        a {}
+
+      }
+    }
+  }
+}
+
+.badge {
+  height: 16px;
+  padding: 0 5px;
+  margin-left: 2px;
+  background: $brand;
+  line-height: 16px;
+  color: white;
+  border-radius: 10px;
+}
+
+// Hide the ugly messages notification since we have the badge indicator.
+.messages--status {
+  display: none;
+}
+
+/* Goals hierarchy */
+li.sub-goal {
+  margin-left: 1em;
+}
+
+li.sub-goal.sub-sub-goal {
+  margin-left: 2em;
+}
+
+// ////////////////////////////
+// Scheme Detail
+// ////////////////////////////
+
+.node-type-scheme {
+  header {
+    section.methods {
+      @include zen-float(right);
+    }
+  }
+
+  h3.field-label {
+    font-size: 1em;
+    margin: 0;
+    padding: 12px 0 0 0;
+    @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+  }
+
+  ul.links.inline li.comment_forbidden {
+    display: none;
+  }
+
+  iframe.media-youtube-player {
+    border: 8px solid $rules-color-accent;
+  }
+  
+  #content {
+    .related-schemes {
+      h2 {
+      border-top: {
+        @include standard-border;
+      }
+      padding-top: 10px;
+      }
+    }
+  }
+  #scheme-content {
+    margin-top: 1.5em;
+    div.field-body,
+    div.field-private-description {
+      @include standard-links ($color: $accent, $vcolor: lighten($accent,10%), $hcolor: $text-color);
+      border-top: {
+        @include standard-border;
+      }
+      margin-top: 10px;
+      p, li {
+        @include body-text ($family: $font-body, $size: $base-font-size + 3, $line-height: 1.75em );
+      }
+      h2,
+      h3,
+      h4 {
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 4, $transform: capitalize, $weight: normal);
+        margin: .5em 0 .25em 0;
+      }
+      h3 {
+        font-size: $h3-font-size + 2;
+      }
+      h4 {
+        font-size: $h3-font-size + 2;
+        color: $text-color;
+      }
+      h5 {
+        font-weight: bold;
+      }
+      h2 + p,
+      h3 + p,
+      h4 + p {
+        margin-top: .25em;
+      }
+      blockquote {
+        margin: .5em 0 .5em 2em;
+        padding: .5em .75em;
+        border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+        }
+        p {
+          margin: 0;
+          font-size: $h3-font-size + 4;
+          line-height: 1.5em;
+        }
+      }
+      ul {
+        margin: 0 0 0 2em;
+        padding: 0;
+        &> li {
+          @include no-bullets;
+          padding: .25em .5em;
+          margin-top: .5em;
+          margin-bottom: .5em;
+          border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+          }
+          ul {
+            margin: 0;
+            li {
+              padding: .5em 1.2em .5em .5em;
+              background: $even-backdrop;
+              border-left: {
+                @include standard-border($width: 3px, $color: $text-color);
+              }
+              border-top: none;
+            }            
+          }
+        }
+        &.menu {
+          margin-left: 0;
+        }
+      }
+      ol {
+        list-style: none;
+        counter-reset: li;
+        &> li {
+          position: relative; /* Create a positioning context */
+          margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+          padding: 4px 8px; /* Add some spacing around the content */
+          list-style: none; /* Disable the normal item numbering */
+          border-top: {
+            @include standard-border($width: 2px, $color: $accent);
+          }
+          background: $even-backdrop;
+          &:before {
+            content:counter(li); /* Use the counter as content */
+            counter-increment: li; /* Increment the counter by 1 */
+            /* Position and style the number */
+            position: absolute;
+            top: -2px;
+            left: -2em;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 2em;
+            /* Some space between the number and the content in browsers that support
+               generated content but not positioning it (Camino 2 is one example) */
+            margin-right: 8px;
+            padding: 4px;
+              border-top: {
+                @include standard-border($width: 2px, $color: $accent);
+              }
+            color: $nav-title-color;
+            background: $accent;
+            font-weight: bold;
+            text-align: center;
+          }
+        }     
+      }
+
+    }
+    .field-private-description:before {
+      margin-top: 1.5em;
+      content: 'Information For Scheme Members Only';
+      display: block;
+      font-size: 1em;
+      @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: normal);
+    }
+  }
+
+  aside {
+    @include box-sizing(content-box);
+
+    margin: 0 10px;
+    
+    .contextual-links-region {
+      background-color: $sidebar-panel-primary;
+      &:nth-child(1),
+      &:nth-child(2) {
+        background-color: $sidebar-panel-secondary;
+      }
+    }
+  }
+
+  /* ----------------------- */
+  /* Updates Tab:            */
+  /* ----------------------- */
+
+  #scheme-content {
+
+    .view-header {
+      border-top: {
+          @include standard-border;
+      }
+      padding-top: 1.2em;
+      .item-list {
+        ul {
+          li {
+            display: inline-block;
+            padding-right: 1.2em;
+          }
+        }
+      }
+
+      .scheme-updates-header {
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 2, $transform: capitalize, $weight: normal);
+        strong {
+          font-weight: normal;
+        }
+      }
+    }
+
+    //Layout
+    article {
+      &.node-update,
+      &.node-announcement,
+      &.node-event {
+        h3.field-label {
+          @include zen-clear;
+          padding-top: 0;
+        }
+        .location.vcard {
+          margin: 0 0 1.2em 0;
+          padding-left: .5em;
+          border-left: {
+            @include standard-border($color: $accent, $width: 3px);
+          }
+          @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+        }
+        .field-group-content-access {
+          padding-bottom: 1.2em;
+        }
+        border-top: {
+          @include standard-border;
+        }
+        padding-top: 1.2em;
+        @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $text-color);
+          header {
+            .user-picture {
+              @include zen-float(left);
+              width: 60px;
+            }
+            p.submitted {
+              margin: 0;
+            }
+            h2.node-title {
+              @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
+              margin-top: 5px;
+            }
+          }
+          .field-label,
+          .field-date {
+            display: inline-block;
+            @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+          }
+
+          h3.field-label {
+            display: block;
+          }
+
+          div.field-body {
+            border-top: none;
+            margin-top: 0;
+            @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+            p, li {
+              @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+              &:first-child {
+                margin-top: 0;
+              }
+            }
+          }
+          .node-default {
+            margin-left: 60px;
+            #node-content {
+              padding-right: 0 !important;
+              padding-left: 0 !important;
+            }          
+          }
+        
+        #comments {
+          form.comment-form {
+              padding: 0;
+              background: none;
+            }
+            .cke_contents {
+              height: 150px !important;
+            }
+
+          .comment {
+            padding-top: 1.2em;
+            .user-picture {
+              margin: 0;
+              width: 60px;
+            }
+            .comment-content {
+              margin-left: 60px;
+              clear: none;
+              header,
+              .field-comment-body {
+                margin-left: 0;
+                display: block;
+                p, li {
+                  @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+                }
+              }
+            }
+            .links.inline {
+              margin-top: 0;
+              li.comment-delete,
+              li.comment-edit,
+              li.comment-reply {
+                @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .views-row-first {
+      article {
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+
+  }
+
+  .views-row-first {
+    article {
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+
+  //Add Update Links
+  section.content {
+    .view-header {
+      .item-list {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0 0 20px 0;
+          li {
+            margin: 0;
+            padding: 0;
+            a {
+              @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+              color: $text-color;
+            }
+            &:first-child a {
+              @extend %entypo-comment;
+            }
+            &:nth-child(2) a {
+              @extend %entypo-calendar;
+            }
+            &:nth-child(3) a {
+              @extend %entypo-megaphone;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* ----------------------- */
+  /* Updates Modals          */
+  /* ----------------------- */
+
+  // Add Event
+  .node-event-form,
+  .page-node-add-event {
+
+    .form-item-title {
+      label,
+      input.edit-title {
+        display: inline-block;
+        // @include zen-float(left);
+      }
+      label {
+        width: auto;
+        padding-right: 1.2em;
+      }
+    }
+
+    //Date Fields
+    #edit-field-date {
+
+      legend {
+        display: none;
+      }
+
+      .form-type-checkbox {
+          margin: 0;
+        }
+
+      .fieldset-wrapper {
+        // display: table;
+        margin-top: 1.2em;
+
+        div.date-float {
+          float: none;
+          display: block;
+          @include zen-clear(both);
+          width: 100%;
+          margin-bottom: .5em;
+        }
+        div.date-no-float {
+          display: table-cell;
+          width: auto;
+          margin: 0 .5em;
+          // @include zen-clear;
+          .form-item {
+            margin: 0;
+            .date-padding {
+              margin: 0;
+              padding: 0;
+            }
+            label[for=edit-field-date-und-0-value2] {
+              display: none;
+            }
+          }
+          input.date-clear {
+            width: 80px;
+          }
+
+          &.start-date-wrapper {
+             padding-right: 1.2em;
+             &:before {
+              content: 'Start';
+              padding-right: 5px;
+              font-weight: bold;
+            }
+          }
+          &.end-date-wrapper {
+            &:before {
+              content: 'Finish';
+              padding-right: 5px;
+              font-weight: bold;
+            }
+          }
+        }
+
+        div.date-float {}
+        div.date-no-float {}
+
+      }
+    }
+
+    //Location Fields
+    #edit-field-event-location {
+      #edit-field-event-location-und-0 {
+
+        legend,
+        div.fieldset-wrapper {
+          display: block;
+          @include zen-float(left);
+        }
+
+        legend {
+          padding-right: 1.2em;
+          font-weight: bold;
+        }
+
+        div.fieldset-wrapper {
+          label {
+            font-weight: normal;
+          }
+          .form-item {
+            margin: 0 0 .5em 0;
+            &:first-child {
+              margin-top: 0;
+              padding-top: 0;
+            }
+          }
+          #edit-field-event-location-und-0-name {
+            margin-bottom: 0;
+          }
+          .form-item-field-event-location-und-0-city {
+            margin-top: 0;
+            width: 140px;
+          }
+          #edit-field-event-location-und-0-city {
+            width: 120px;
+          }
+          .form-item-field-event-location-und-0-city,
+          #location-dropdown-province-wrapper-field_event_location-und-0,
+          .form-item-field-event-location-und-0-country {
+            display: inline-block;
+            vertical-align: top;
+            .form-item-field-event-location-und-0-province {
+              width: auto;
+              padding: 0 .5em 0 0;
+              margin: 0;
+            }
+            label {
+              width: auto;
+            }
+          }
+
+          #edit_field_event_location_und_0_province_chosen,
+          #edit_field_event_location_und_0_country_chosen {
+            width: 150px !important;
+          }
+        }
+      }
+    }
+
+    //Content Access Fields
+    #edit-group-content-access {}
+
+    div.ctools-modal-content .form-item label {
+      width: auto !important;
+    }
+    #edit-field-date-und-0-value.date-padding div.form-item label,
+    #edit-field-date-und-0-value2.date-padding div.form-item label {
+      width: auto;
+    }
+  }
+
+  /* ----------------------- */
+  /* Slideshow:              */
+  /* ----------------------- */
+
+    #outer-carousel-wrapper {
+      max-height: 380px;
+      position: relative;
+      overflow: hidden;
+      #carousel-wrapper {
+        z-index: -1;
+        position: relative;
+        .carousel-div {
+          &:first-child {
+            position: relative !important;
+            display: block !important;
+            height: auto !important;
+          }
+          img {
+            max-width:100%;
+            min-width: 200px;
+          }
+        }
+      }
+
+      #scheme-images-nav {
+        @include zen-float(right);
+
+        a {
+          @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
+          &#scheme-images-previous {
+            @extend %entypo-circled-left;
+          }
+          &#scheme-images-next {
+            @extend %entypo-circled-right;
+          }
+          &:hover {
+            color: $brand;
+          }
+        }
+      }
+    }
+
+    div.field-body {
+      @include zen-clear;
+    }
+     
+  } // End Scheme Detail
+
+
+  /* ----------------------- */
+  /* Scheme Members          */
+  /* ----------------------- */
+
+  .page-node-members {
+    .scheme-members {
+      @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $brand);
+
+      .item-list {
+       ul {
+        @include no-bullets;
+        padding: 0;
+        margin: 0;
+        li {
+          padding: 1em 0;
+          border-top: {
+            @include standard-border();
+          }
+          &:first-child {
+            border: none;
+          }
+          .user-picture,
+          .member-name {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .user-picture {
+            padding-right: 10px;
+          }
+          .member-name {}
+
+          h3.member-name {
+            padding: 0;
+            margin: 0;
+            @include body-text($transform: capitalize, $weight: bold, $size: 1.25em);
+          }
+        }
+      }
+      }
+
+    }
+}
 
 // ////////////////////////////
 // Scheme Member Management
@@ -2006,114 +2106,231 @@ form .form-actions input{
 }
 
 
-// #content div.wrapper section.main-content section.content dl.admin-list
+// ////////////////////////////
+// Updates Page
+// ////////////////////////////
 
-// Flexbox
-
-div#quicktabs-notifications,
-div#quicktabs-schemes { // wrapper - flex-box
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-
-  &> div.item-list {  // tabs
-    width: 20%;               /* For old syntax, otherwise collapses. */
-  }
-
-  div#quicktabs-container-notifications,
-  div#quicktabs-container-schemes,
-  div#quicktabs-container-schemes_for_schemers { // main content
-    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 1;         /* OLD - Firefox 19- */
-    width: 80%;               /* For old syntax, otherwise collapses. */
-    -webkit-flex: 1;          /* Chrome */
-    -ms-flex: 1;              /* IE 10 */
-    flex: 1;    
-
-    padding: 0;
-
-    .view-filters {
-      padding: 0 20px;
-    }
-  } 
-}
-
-div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
-  div.dashboard-contacts,
-  &> .view {
-    width: 80%;
-    @include zen-float(right);
-
-    .view-filters {
-      padding: 0 20px;
-    }
-  }
-}
-
-// Hide modal edit link if user isn't logged in
-.not-logged-in {
-  .modal-edit,
-  .view-scheme-members div.view-header {
-    @include hide-content;
-  }
-}
-
-// Pagers for all pages but the front page
-.not-front {
-  ul.pager {
-    li {
-      padding: 0;
-      a {
-        @include font-icon-base($font-size: 3rem, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
+.page-scheme-updates {
+  div.view-header {
+    padding-top: 1.2em;
+    .item-list {
+      ul {
+        li {
+          display: inline-block;
+          padding-right: 1.2em;
+        }
       }
-      &.pager-previous a {
-        @extend %entypo-circled-left;
-      }
-      &.pager-current,
-      &.pager-last {
-        display: none;
-      }
-      &.pager-next a {
-        @extend %entypo-circled-right;
-      }
-      &.pager-item {
-        &:after {
-          content: ' | ';
-          &:last-child {
-            content: none;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 20px 0;
+        li {
+          margin: 0;
+          padding: 0 1.2em 0 0;
+          a {
+            @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
+            color: $text-color;
+          }
+          &:first-child a {
+            @extend %entypo-comment;
+          }
+          &:nth-child(2) a {
+            @extend %entypo-calendar;
+          }
+          &:nth-child(3) a {
+            @extend %entypo-megaphone;
           }
         }
-
-        a {}
-
       }
+    }
+
+    .scheme-updates-header {
+      @include header-style ($family: $base-font-family, $size: $h3-font-size + 2, $transform: capitalize, $weight: normal);
+      strong {
+        font-weight: normal;
+      }
+    }
+  }
+  div.view-filters {}
+  div.view-content {
+    article {
+      &.node-update,
+      &.node-announcement,
+      &.node-event {
+        h3.field-label {
+          @include zen-clear;
+          padding-top: 0;
+        }
+        .location.vcard {
+          margin: 0 0 1.2em 0;
+          padding-left: .5em;
+          border-left: {
+            @include standard-border($color: $accent, $width: 3px);
+          }
+          @include body-text($size: $base-font-size + 2, $line-height: $base-line-height + 4);
+        }
+        .field-group-content-access {
+          padding-bottom: 1.2em;
+        }
+        border-top: {
+          @include standard-border;
+        }
+        padding-top: 1.2em;
+        @include standard-links ($color: $accent, $vcolor: $accent, $hcolor: $text-color);
+        header {
+          .user-picture {
+            width: 60px;
+             @include zen-float(left);
+          }
+          p.submitted {
+            margin: 0;
+          }
+          h2.node-title {
+            @include body-text($size: $h3-font-size + 6, $line-height: $header-line-height, $transform: none );
+            margin-top: 5px;
+          }
+        }
+        .field-label,
+        .field-date {
+          display: inline-block;
+          @include body-text ($size: $base-font-size + 4, $line-height: 1.5em, $color: $text-color-prominent);
+        }
+        h3.field-label {
+          display: block;
+        }
+        div.field-body {
+          border-top: none;
+          margin-top: 0;
+          @include standard-links ($color: $accent, $vcolor: darken($accent, 10%), $hcolor: $text-color);
+          p, li {
+            @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+        .node-default {
+
+          #node-content {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            margin-left: 60px;
+          }
+          #comments {
+            form.comment-form {
+              padding: 0;
+              background: none;
+            }
+            .cke_contents {
+              height: 150px !important;
+            }
+            .comment {
+              padding-top: 1.2em;
+              .user-picture {
+                margin: 0;
+                width: 60px;
+                @include zen-float(left);
+              }
+              .comment-content {
+                margin-left: 60px;
+                clear: none;
+                header,
+                .field-comment-body {
+                  margin-left: 0;
+                  display: block;
+                  p, li {
+                    @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+                  }
+                }
+              }
+              .links.inline {
+                margin-top: 0;
+                li.comment-delete,
+                li.comment-edit,
+                li.comment-reply {
+                  @include standard-links ($color: $text-color, $vcolor: $text-color, $hcolor: $brand);
+                }
+              }
+            }
+          }
+        }
+      }
+    }  
+  }
+  #node-content,
+  .comment-content {
+    p, li {
+      @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
+    }
+    li {
+        margin-top: .5em;
+        margin-bottom: .5em;
+      }
+    ul {
+      margin: 0 0 0 2em;
+      padding: 0;
+      &> li {
+        @include no-bullets;
+        padding: .25em .5em;
+        border-left: {
+          @include standard-border($width: 3px, $color: $accent);
+        }
+        ul {
+          margin: 0;
+          li {
+            padding: .5em 1.2em .5em .5em;
+            background: $even-backdrop;
+            border-left: {
+              @include standard-border($width: 3px, $color: $text-color);
+            }
+            border-top: none;
+          }            
+        }
+      }
+      &.menu {
+        margin-left: 0;
+      }
+    }
+    ol {
+      list-style: none;
+      counter-reset: li;
+      &> li {
+        position: relative; /* Create a positioning context */
+        margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+        padding: 4px 8px; /* Add some spacing around the content */
+        list-style: none; /* Disable the normal item numbering */
+        border-top: {
+          @include standard-border($width: 2px, $color: $accent);
+        }
+        background: $even-backdrop;
+        &:before {
+          content:counter(li); /* Use the counter as content */
+          counter-increment: li; /* Increment the counter by 1 */
+          /* Position and style the number */
+          position: absolute;
+          top: -2px;
+          left: -2em;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 2em;
+          /* Some space between the number and the content in browsers that support
+             generated content but not positioning it (Camino 2 is one example) */
+          margin-right: 8px;
+          padding: 4px;
+            border-top: {
+              @include standard-border($width: 2px, $color: $accent);
+            }
+          color: $nav-title-color;
+          background: $accent;
+          font-weight: bold;
+          text-align: center;
+        }
+      }     
     }
   }
 }
 
-.badge {
-  height: 16px;
-  padding: 0 5px;
-  margin-left: 2px;
-  background: $brand;
-  line-height: 16px;
-  color: white;
-  border-radius: 10px;
-}
 
-// Hide the ugly messages notification since we have the badge indicator.
-.messages--status {
-  display: none;
-}
 
-/* Goals hierarchy */
-li.sub-goal {
-  margin-left: 1em;
-}
-
-li.sub-goal.sub-sub-goal {
-  margin-left: 2em;
-}
 
