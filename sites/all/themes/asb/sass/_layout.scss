@@ -98,15 +98,21 @@ $zen-auto-include-item-base: false;
 
 #main #content .wrapper{
   section.content,
-  #node-content {
+  #node-content,
+  .page-main-content {
     padding: 0 10px;
   }
 }
 
-.page-user-edit {
+.page-user-edit,
+.page-scheme-updates {
   section.main-content {
     padding: 0 10px;
   }
+}
+
+.page-taxonomy-term #main #content .wrapper #node-content {
+  padding: 0;
 }
 
 #content aside.scheme-meta,
@@ -290,6 +296,7 @@ aside.scheme-meta {
   #header .content,
   .page-node-members .page-main-content,
   .section-dashboard .page-main-content,
+  .page-scheme-updates .page-main-content,
   #content article>header .wrapper,
   #content article>.wrapper,
   #content>header .page-wrapper,
@@ -303,7 +310,9 @@ aside.scheme-meta {
   #add_page_scroll_wrapper,
   .section-goals .main-content,
   .section-issue .main-content,
-  .no-sidebars section.page-content {
+  .no-sidebars section.page-content,
+  .node-type-document .page-wrapper,
+  .page-taxonomy-term .page-wrapper {
     /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
     margin-right: auto;
     margin-left: auto;
