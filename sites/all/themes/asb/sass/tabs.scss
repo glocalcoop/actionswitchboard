@@ -78,11 +78,16 @@ ul.tabs-primary.primary {
     }
 }
 
-.page-scheme-updates {
-  ul.tabs-primary.primary {
-    li.active {
+ul#update-tabs.tabs-primary.primary {
+  li {
+    &.active {
       a {
         box-shadow: none;
+      }
+    }
+    &:nth-child(2) {
+      a {
+        @extend %entypo-users;
       }
     }
   }
