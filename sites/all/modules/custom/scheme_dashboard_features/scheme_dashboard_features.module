@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Scheme Dashboard_features feature.
- */
-
-include_once 'scheme_dashboard_features.features.inc';

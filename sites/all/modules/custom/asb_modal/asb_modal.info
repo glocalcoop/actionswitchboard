@@ -1,8 +1,0 @@
-name = Custom Modals
-description = "Any custom modals."
-core = 7.x
-package = Action Switchboard
-
-dependencies[] = ctools
-dependencies[] = modal_forms
-dependencies[] = mfe

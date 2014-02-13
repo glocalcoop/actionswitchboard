@@ -1,6 +1,0 @@
-name = ASB Custom Message
-description = "Utility functions for handling messages."
-core = 7.x
-package = Action Switchboard
-dependencies[] = message
-

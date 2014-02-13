@@ -1,5 +1,0 @@
-name = asb_contexts export module
-description = Export objects from CTools
-dependencies[] = context
-package = Action Switchboard
-core = 7.x
