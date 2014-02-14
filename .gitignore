@@ -28,3 +28,4 @@ asb_civi.sql.gz
 asb_drup.sql.gz
 /sites/all/modules/contrib/civicrm
 /sites/all/modules
+/dev/sync.beta
