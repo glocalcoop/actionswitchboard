@@ -1407,11 +1407,6 @@ mark.new {
   border-radius: 10px;
 }
 
-// Hide the ugly messages notification since we have the badge indicator.
-.messages--status {
-  display: none;
-}
-
 /* Goals hierarchy */
 li.sub-goal {
   margin-left: 1em;
