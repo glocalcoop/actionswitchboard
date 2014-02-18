@@ -63,7 +63,7 @@ ul.tabs-primary.primary {
         }
       }
       &.active {
-        a {
+        a[href^="/scheme"] {
            @extend %entypo-eye;
         }
         a[href^="/asb_scheme"] {
@@ -73,7 +73,9 @@ ul.tabs-primary.primary {
       a[href*="edit"] {
         @extend %entypo-pencil;
       }
-      a[href*="group"] {}
+      a[href*="group"] {
+        @extend %entypo-cog;
+      }
       a[href*="members"] {
         @extend %entypo-users;
       }
@@ -85,6 +87,9 @@ ul.tabs-primary.primary {
         @extend %entypo-flow-tree;
       }
       a[href*="log"] {}
+      a[href*="email"] {
+        @extend %entypo-mail;
+      }
       a[href*="updates"],
       a[href^="/asb_scheme"] {
         @extend %entypo-megaphone;
