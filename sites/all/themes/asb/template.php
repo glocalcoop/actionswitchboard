@@ -360,7 +360,7 @@ function asb_preprocess_node(&$variables, $hook) {
 }
 
 function asb_preprocess_node_scheme(&$variables, $hook) {
-  // Here we call context to control what blacks appear
+  // Here we call context to control what blocks appear
   // in the sidebar.  Then we merge the standard block
   // callback to make sure all theming remains consistent
   if($variables['view_mode'] == 'full') {
@@ -659,7 +659,7 @@ function asb_preprocess_region(&$variables, $hook) {
 }
 
 function asb_date_combo_alter(&$variables) {
-  dsm($variables);
+  // dsm($variables);
   $variables['element']['value2']['#title'] = 'Finish';
   $element = $variables['element'];
   $element['value2']['date']['#description'] = '(MM/DD/YYYY)';
@@ -674,6 +674,6 @@ function asb_date_combo_alter(&$variables) {
     '#attributes' => array(),
     '#children' => $element['#children'],
   );
-  dsm($element);
+  // dsm($element);
   return theme('fieldset', array('element' => $fieldset));
 }
