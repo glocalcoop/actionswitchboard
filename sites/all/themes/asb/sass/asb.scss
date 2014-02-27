@@ -951,8 +951,16 @@ form .form-actions input{
 // Issues Detail
 // ///////////////////////
 
+
 .node-type-issue {
   #content {
+    h1#page-title {
+      &:before {
+        display: block;
+        content: 'Issue';
+        @include body-text;
+      }
+    }
     article:first-child {
       margin-top: 2.5em;
     }
@@ -965,7 +973,18 @@ form .form-actions input{
         }
       }
     }
+  }
+}
 
+.section-goals {
+  #content {
+    h1#page-title {
+      &:before {
+        display: block;
+        content: 'Goal';
+        @include body-text;
+      }
+    }
   }
 }
 
