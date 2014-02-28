@@ -618,7 +618,7 @@ function asb_menu_link(array $variables) {
    * Add menu item's description below the menu title
    * Source: fusiondrupalthemes.com/forum/using-fusion/descriptions-under-main-menu
    */
-  if ($element['#original_link']['menu_name'] == "main-menu" && isset($element['#localized_options']['attributes']['title'])){
+  if ($element['#original_link']['menu_name'] == "main-menu" || "social-links" && isset($element['#localized_options']['attributes']['title'])){
     $titleSlug = 'nav-' . drupal_html_id( $element['#title'] );
     $element['#attributes']['id'] = $titleSlug;
     $element['#title'] = "<span class='title'>" . $element['#title'] . "</span>";
