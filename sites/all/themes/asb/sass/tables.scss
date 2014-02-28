@@ -155,7 +155,8 @@ tr td:last-child {
 
 // Scheme Member Edit
 .page-group-node,
-.page-node-group {
+.page-node-group,
+.page-user-message-subscribe {
   div.view-content {
     table.views-table {
       @include body-text($size: 1.1em, $color: $text-color-prominent);
