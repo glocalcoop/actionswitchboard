@@ -57,7 +57,9 @@
         margin-top: 0 !important;
       }
       li {
-        border-right: 1px $text-color solid;
+        border-right: {
+          @include standard-border ($color: $text-color)
+        }
         padding: 1em 1em 2em 1em;
       }
       .description { 
@@ -368,3 +370,72 @@
     }
   }
 }
+
+#block-menu-menu-social-links {
+  @include box-sizing( border-box );
+  display: inline-block;
+  margin: 0;
+  padding: 0 25px 0 10px;
+  border-right: {
+    @include standard-border ($color: $text-color)
+  }
+  ul.menu {
+    @include no-bullets;
+    margin: 0;
+    padding: 0;
+    li {
+      &#nav-twitter,
+      &#nav-facebook {
+        border-right: none;
+        padding: 0;
+        a {
+          
+          .title {
+            display: none
+          }
+          .description {
+            @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: .5rem, $margin: 0, $color: $nav-title-color);
+            display: inline-block;
+          }
+        }
+      }
+      &#nav-twitter {
+        a { 
+          .description {
+            @extend %entypo-social-twitter; 
+          }
+        }
+      }
+      &#nav-facebook {
+        clear: both;
+        a { 
+          .description {
+            @extend %entypo-social-facebook;
+          }
+        }
+      }
+    }      
+  }
+} 
+
+// Donate Button
+
+#header {
+  #block-block-2,
+  #block-block-3 {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    p {
+      padding: 0;
+      margin: 0;
+      a.donate {
+        @include button($height: 30px, $color: $brand, $radius: 4px, $font-size: 2rem);
+      }
+    }
+  }
+}
+
+
