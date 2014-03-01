@@ -413,6 +413,7 @@ article.comment,
         @include font-icon-base($font-size: 3rem);
         @extend %entypo-pencil; 
       }
+      &.contact-me { @extend %entypo-mail; }
       &:after {
         line-height: 1.2em;
       }
