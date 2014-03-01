@@ -427,7 +427,7 @@ article.comment,
 }
 
 #block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal {
-  @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
+  @include font-icon-base($family:"entypo", $font-size: 2.5rem, $margin: 0.1em, $width: .5em);
   @extend %entypo-mail;
   &.contact-me {
     @extend %entypo-mail;
