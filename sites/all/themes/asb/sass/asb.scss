@@ -412,9 +412,7 @@ article.comment,
       &.ctools-use-modal { 
         @include font-icon-base($font-size: 3rem);
         @extend %entypo-pencil; 
-        &.contact-me { @extend %entypo-mail; }
       }
-      &.contact-me { @extend %entypo-mail; }
       &:after {
         line-height: 1.2em;
       }
@@ -429,6 +427,7 @@ article.comment,
 }
 
 #block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal {
+  @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
   @extend %entypo-mail;
   &.contact-me {
     @extend %entypo-mail;
