@@ -427,12 +427,14 @@ article.comment,
     &.comment-add a { @extend %entypo-reply; }
   }
 }
-.scheme-leader-contact {
-  a.ctools-use-modal {
+
+#block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal {
+  @extend %entypo-mail;
+  &.contact-me {
     @extend %entypo-mail;
   }
 }
-// #block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal
+
 aside.scheme-meta {
   h6 {
     padding: 0;
