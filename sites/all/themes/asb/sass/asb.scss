@@ -427,7 +427,11 @@ article.comment,
     &.comment-add a { @extend %entypo-reply; }
   }
 }
-
+.scheme-leader-contact {
+  a.ctools-use-modal.contact-me {
+    @extend %entypo-mail;
+  }
+}
 aside.scheme-meta {
   h6 {
     padding: 0;
