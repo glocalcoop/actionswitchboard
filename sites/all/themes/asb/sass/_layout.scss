@@ -294,40 +294,32 @@ aside.scheme-meta {
 /* Too many template variations  */
 /* ----------------------------- */
 @include breakpoint(md){
+  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
+  // add scheme
+  .page-node-add-scheme #main,
+  // search
+  .no-sidebars section.page-content,
+  .views-exposed-widgets,
+  .page-main-content,
+  // empty search results
+    /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
+  .scheme-search .view-empty,
   #header .content,
-  .page-node-members .page-main-content,
-  .section-dashboard .page-main-content,
-  .page-scheme-updates .page-main-content,
+  #content>header .page-wrapper,
   #content article>header .wrapper,
   #content article>.wrapper,
   #content>header .page-wrapper,
   #footer section.content,
-  .messages__list,
-  .views-exposed-widgets,
-  .section-node-add #main,
-  .page-node-add-scheme #main,
-  .node-type-scheme.og-context.og-context-node.section-node-edit #content,
-  .page-user.not-logged-in #content,
-  #add_page_scroll_wrapper,
-  .section-goals .main-content,
-  .section-issue .main-content,
-  .no-sidebars section.page-content,
-  .node-type-document .page-wrapper,
-  .page-taxonomy-term .page-wrapper,
-  .page-node-log .page-wrapper,
-  .page-node-track .page-wrapper,
-  .page-node-workflow div#page section#main div#content,
-  .page-node-workflow div#page section#main .region,
-  .page-node-outline div#page section#main div#content,
-  .page-node-outline div#page section#main .region,
-  .page-user div#page section#main div#content .page-wrapper,
-  .page-user-message-subscribe div#page section#main div#content .page-wrapper{
-    /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
+  .node-type-scheme.og-context.og-context-node.section-node-edit #content {
     margin-right: auto;
     margin-left: auto;
     max-width: 960px;
   }
 
+}
+
+.page-user-track .page-main-content>table {
+  margin: 1em 0 1em;
 }
 
 
