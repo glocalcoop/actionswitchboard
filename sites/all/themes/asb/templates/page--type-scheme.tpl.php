@@ -117,8 +117,6 @@
             <?php if($page['sidebar_second'] || $page['sidebar_first']): ?>
                <section class="content page-content">
             <?php endif; ?>
-<? dsm($update_tabs); ?>
-            <?php print render($tabs); ?>
            <?php if( isset( $updates_tabs ) ):?>
               <?php print $updates_tabs; ?>
             <?php endif;?>
