@@ -37,6 +37,7 @@
  *     render element, it needs to be rendered with the render() function and
  *     then printed using:
  *       <?php print render($variable); ?>
+
  *
  * ABOUT THE TEMPLATE.PHP FILE
  *
