@@ -10,6 +10,12 @@
   margin-bottom: 6px;
 }
 
+// Generalized for sidebar region
+aside {
+  section.sidebar {
+    margin-top: 2.5em;
+  }
+}
 
 aside {
   .block { /* Block wrapper */
@@ -246,55 +252,6 @@ aside {
     .item-list ul li {
       border: none;
       padding-bottom: 10px;
-    }
-  }
-}
-
-
-
-
-.node-type-issue {
-  #content {
-    aside {
-      .block:first-child {
-        margin-top: 2.5em;
-      }
-      #block-views-goal-tree-block {
-        padding-top: 0;
-      }
-      .block-views {
-        padding-top: 0;
-        @include standard-links ($color: $text-color-prominent, $vcolor: darken($text-color-prominent,10%), $hcolor: lighten($text-color-prominent, 10%));
-
-        h2.block-title {
-          padding-top: 10px;
-          border-top: none;
-          border-bottom: {
-            @include standard-border;
-          }
-        }
-        .view-goal-tree {
-          padding-top: 1.25em;
-        }
-
-        ul.goal-tree {
-          @include no-bullets;
-          padding: 0;
-          margin: 0;
-          li.goal {
-            border-bottom: none;
-            &>div.field-goals-taxonomy {
-              padding: .5em 0;
-              border-bottom: {
-                @include standard-border;
-              }
-              &:last-child {
-                border-bottom: none;
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
