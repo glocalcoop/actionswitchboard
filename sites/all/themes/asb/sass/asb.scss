@@ -975,19 +975,16 @@ form .form-actions input{
     article:first-child {
       margin-top: 2.5em;
     }
-    // .block-views {
-    //   padding-top: 25px;
-    //   h2.block-title {
-    //     padding-top: 5px;
-    //     border-top: {
-    //       @include standard-border;
-    //     }
-    //   }
-    // }
+    .block-views {
+      padding-top: 25px;
+      h2.block-title {
+        padding-top: 5px;
+        border-top: {
+          @include standard-border;
+        }
+      }
+    }
   }
-}
-
-.node-type-issue {
   aside {
     h2 {
       &.block__title {
