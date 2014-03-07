@@ -967,6 +967,9 @@ form .form-actions input{
 .section-goals {
   #content {
     .page-content {
+        #node-content {
+          padding: 0 !important;
+        }   
       h1#page-title {
         &:before {
           display: block;
