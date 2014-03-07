@@ -966,12 +966,18 @@ form .form-actions input{
 .node-type-issue,
 .section-goals {
   #content {
-    h1#page-title {
-      &:before {
-        display: block;
-        @include body-text;
-      }
+    .page-content {
+      h1#page-title {
+        &:before {
+          display: block;
+          @include body-text;
+        }
+      }   
+      h2.block-title {
+        border-top: { @include standard-border; }
+      }   
     }
+
   }
   aside {
     h2 {
