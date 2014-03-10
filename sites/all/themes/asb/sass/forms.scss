@@ -807,7 +807,8 @@ form#user-profile-form {
       input[type="submit"] {
         &#edit-submit {}
         &#edit-preview {
-          @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+          // @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+          display: none;
         }
         &#edit-delete {
           @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
