@@ -188,6 +188,18 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     }
   }
 
+// Hide zig-zag on last collection on User Page
+  .page-user {
+      #content {
+        .scheme-collection {
+          &:last-child {
+            background-image: none;
+            background-size: inherit;
+          }
+        }
+      }
+  }
+
 
 
 // /////////////////////////////
