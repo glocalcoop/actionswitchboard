@@ -93,7 +93,8 @@ h4 {
   }
 }
 
-.scheme-members {
+.scheme-members,
+.privatemsg-message {
   .user-picture img {
     height: 30px;
     width: 30px;
@@ -106,10 +107,10 @@ h4 {
   }
 }
 .user-details {
-div.user-picture img {
-  height: 214px;
-  width: 214px;
-}
+  div.user-picture img {
+    height: 214px;
+    width: 214px;
+  }
 }
 
 // //////////////////////
@@ -2402,6 +2403,8 @@ li.sub-goal.sub-sub-goal {
     }
   }
 }
+
+
 
 
 
