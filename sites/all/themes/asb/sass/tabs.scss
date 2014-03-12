@@ -94,6 +94,20 @@ ul.tabs-primary.primary {
       a[href^="/asb_scheme"] {
         @extend %entypo-megaphone;
       }
+      a[href$="messages"] {
+        @extend %entypo-download;
+      }
+      a[href$="sent"] {
+        @extend %entypo-upload;
+      }
+      a[href$="list"] {
+        @extend %entypo-inbox;
+      }
+
+      a[href^="/messages/view/"] {
+        @extend %entypo-eye;
+      }
+      
    }
 }
 
