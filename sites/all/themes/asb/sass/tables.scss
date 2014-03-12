@@ -75,7 +75,8 @@ tr td:last-child {
 // General Table Styling
 // 
 #content {
-  .page-content {
+  .page-content,
+  .page-main-content {
       table.views-table,
       table.sticky-table {
         @include body-text($size: 1.1em, $color: $text-color-prominent);
@@ -224,7 +225,9 @@ tr td:last-child {
 .page-node-group,
 .page-user,
 .page-node-workflow,
-.page-user-track {
+.page-user-track,
+.section-messages,
+.section-user {
   #content {
     div.view-content {
       table.views-table {
