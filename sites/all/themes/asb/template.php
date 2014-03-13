@@ -641,12 +641,13 @@ function asb_views_post_render(&$view) {
 
 function asb_page_alter( &$page ){
   $scripts = drupal_add_js();
-  unset( $scripts['sites/​all/libraries/​chosen/chosen.jquery.min.js'] );
-  unset( $scripts['sites/all/modules/contrib/chosen/chosen.js'] );
+  $chosen = drupal_get_path('module', 'chosen');
+  unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
+  unset( $scripts[$chosen .'/chosen.js'] );
   unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
   drupal_add_js( "sites/all/themes/asb/js/scripts.js" );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
-  drupal_add_js( "sites/all/modules/contrib/chosen/chosen.js" );
+  drupal_add_js( $chosen .'/chosen.js' );
   drupal_add_js( "sites/all/themes/asb/js/clamp.js" );
 }
 
