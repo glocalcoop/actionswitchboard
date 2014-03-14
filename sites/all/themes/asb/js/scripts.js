@@ -167,9 +167,6 @@
         window.location.replace( completed_all_href );
       });
     }
-    // console.log( completed_all_href );
-    // console.log( movie_all_href );
-    // console.log( featured_all_href );
   }
 
   asb.modify_append_pager = function() {

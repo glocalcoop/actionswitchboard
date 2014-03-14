@@ -361,6 +361,8 @@ aside.scheme-meta {
     }
 
   }
+  background: #0af;
+  @include clearfix;
 
 }
 
@@ -382,7 +384,8 @@ aside.scheme-meta {
 // footer content
 #footer .content,
 // schemes
-#content article>.wrapper  {
+#content article>.wrapper,
+#add_page_scroll_wrapper  {
   @extend %full-centered;
 }
 
