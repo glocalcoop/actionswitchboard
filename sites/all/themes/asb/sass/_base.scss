@@ -142,5 +142,6 @@ $screen-sm: 480px;
 /*@import "font-icons";*/
 @import "compass/css3/box-sizing";
 @import "includes/entypo";
-@import "mixins";           // Import our custom mixins last.
+@import "mixins";           // Import our custom mixins.
+@import "extends";           // Import our custom extendables.
 
