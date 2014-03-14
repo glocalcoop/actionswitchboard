@@ -166,10 +166,11 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
-  if(arg(2) == 'edit') {
+  if(arg(2) == 'edit' && isset($variables['node'])) {
     /* $suggests = &$variables['theme_hook_suggestions']; */
     /* $args = array(); */
-    $edit = "page__edit";
+    $edit = "page__edit_{$variables['node']->type}";
+    // $edit = "page__edit";
     $variables['theme_hook_suggestion'] = $edit;
     /* $suggests = array_merge( */
     /*   $suggests, */
