@@ -79,7 +79,7 @@
 	}
 
 	.modal-content {
-		overflow: visible;
+		overflow: auto;
 		padding: 0 1em;
 		height: auto !important;
 	}
@@ -87,7 +87,8 @@
 }
 
 #modalContent.login .ctools-modal-content {
-	height: 350px !important;
+	min-height: 350px !important;
+	height: auto !important;
 }
 
 #edit-field-issues-goals {
