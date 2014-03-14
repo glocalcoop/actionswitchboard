@@ -114,9 +114,6 @@ tr td:last-child {
               em {
                 font-style: normal;
               }
-              // mark.new {
-              //   display: none;
-              // }
               &:first-child {
                 padding-left: 10px;
               }
@@ -126,6 +123,9 @@ tr td:last-child {
             }
             &.new {
               font-weight: bold;
+              a {
+                font-weight: bold
+              }
             }
             ul {
               @include no-bullets;
