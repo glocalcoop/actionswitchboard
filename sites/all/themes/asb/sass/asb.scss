@@ -337,7 +337,8 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";
 @include all-headers-sprites;
 
-.scheme-collection{
+.scheme-collection,
+.section-user {
   h2.block-title {
     @include box-sizing( border-box );
     box-sizing: border-box !important;
@@ -385,6 +386,8 @@ $headers: sprite-map("headers/*.png", $position: -4px);
   }
  
 }
+
+#block-views-467d272784c6e1a84b15cc4f6b486792 h2.block-title
 
 
 // ////////////////////////////
