@@ -112,7 +112,7 @@
         </header>
         <div class="wrapper page-wrapper">
           <section class="main-content page-main-content">
-            <?php if($page['sidebar_second'] || $page['sidebar_first']): ?>
+            <?php if($page['sidebar_second']): ?>
                <section class="content page-content">
             <?php endif; ?>
            <?php if( isset( $updates_tabs ) ):?>
@@ -120,7 +120,7 @@
             <?php endif;?>
                 <?php print render($tabs); ?>
               <?php print render($page['content']); ?>
-            <?php if($page['sidebar_second'] || $page['sidebar_first']): ?>
+            <?php if($page['sidebar_second']): ?>
               </section>
             <?php endif; ?>
             <?php if($page['sidebar_second']): ?>
