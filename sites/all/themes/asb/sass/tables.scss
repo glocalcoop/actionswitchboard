@@ -122,9 +122,11 @@ tr td:last-child {
               background: $even-backdrop;
             }
             &.new {
-              font-weight: bold;
-              a {
-                font-weight: bold
+              td {
+                font-weight: bold;
+                a {
+                  font-weight: bold
+                }
               }
             }
             ul {
