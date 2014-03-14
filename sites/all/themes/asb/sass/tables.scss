@@ -79,6 +79,7 @@ tr td:last-child {
   .page-main-content {
       table.views-table,
       table.sticky-table {
+        margin-top: 10px;
         @include body-text($size: 1.1em, $color: $text-color-prominent);
         thead {
           border-top: {
@@ -174,6 +175,7 @@ tr td:last-child {
   }
 
   table {
+    margin-top: 0 !important;
     thead {
       border-top: {
         @include standard-border;
