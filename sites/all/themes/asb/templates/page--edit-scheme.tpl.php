@@ -114,8 +114,6 @@
 
     <div id="content">
 
-      <?php print render($tabs); ?>
-
       <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
         <header class="edit-header">
@@ -138,9 +136,7 @@
 
           <section class="main-content">
 
-          <?php if(arg(0) == 'user' && arg(2) == 'edit'): ?>
-            <?php print render($tabs); ?>
-          <?php endif; ?>
+          <?php print render($tabs); ?>
           <?php print render($page['content']); ?>
 
           </section>
