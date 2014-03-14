@@ -116,7 +116,7 @@
 
       <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-        <header class="edit-header">
+        <header class="page-header edit-header">
 
           <div class="wrapper clearfix">
 

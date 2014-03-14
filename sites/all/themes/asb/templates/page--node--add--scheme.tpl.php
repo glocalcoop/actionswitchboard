@@ -115,19 +115,16 @@
 
   <section id="main">
   
-  <?php print $messages; ?>
-  <?php print render($page['help']); ?>
+    <?php print $messages; ?>
+    <?php print render($page['help']); ?>
+    <?php print render($page['search']); ?>
 
-      <?php print render($page['search']); ?>
-
-    <h2 class="step-title"><?php print $full_title;?></h2>
-
-    <div id="content">
-
-
-      <?php print render($page['content']); ?>
-
-    </div><!-- /#content -->
+    <div class="wrapper">
+      <h2 class="step-title"><?php print $full_title;?></h2>
+      <div id="content">
+        <?php print render($page['content']); ?>
+      </div><!-- /#content -->
+    </div>
 
   </section><!-- /#main -->
 

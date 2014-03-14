@@ -93,7 +93,7 @@ global $user;
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
-    <header>
+    <header class="page-header">
       <?php print $user_picture; ?>
       <?php if ($display_submitted): ?>
         <p class="submitted">

@@ -14,7 +14,7 @@ $account = menu_get_object('user');
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <header class="user-profile-header">
+  <header class="page-header user-profile-header">
 
     <div class="wrapper">
 

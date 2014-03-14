@@ -289,35 +289,6 @@ aside.scheme-meta {
   }
 }
 
-/* ----------------------------- */
-/* Centering content:            */
-/* Too many template variations  */
-/* ----------------------------- */
-@include breakpoint(md){
-  /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
-  // add scheme
-  .page-node-add-scheme #main,
-  // search
-  .no-sidebars section.page-content,
-  .views-exposed-widgets,
-  .page-main-content,
-  // empty search results
-    /* For screen sizes larger than 960px, prevent excessively long lines of text by setting a max-width. */
-  .scheme-search .view-empty,
-  #header .content,
-  #content>header .page-wrapper,
-  #content article>header .wrapper,
-  #content article>.wrapper,
-  #content>header .page-wrapper,
-  #footer section.content,
-  .node-type-scheme.og-context.og-context-node.section-node-edit #content {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 960px;
-  }
-
-}
-
 .page-user-track .page-main-content>table {
   margin: 1em 0 1em;
 }
@@ -392,3 +363,31 @@ aside.scheme-meta {
   }
 
 }
+
+
+//////////////////////
+// Centering content          
+//
+
+// center the site masthead
+#header .content,
+// search container
+.views-exposed-widgets,
+// add scheme
+.page-node-add-scheme #main .wrapper,
+// centering beige header content
+.page-header .wrapper,
+// pages with full-width jaggies
+.page-main-content,
+// footer content
+#footer .content,
+// schemes
+#content article>.wrapper  {
+  @extend %full-centered;
+}
+
+.page-node-add-scheme #content {
+  padding-right: 2em;
+  width: auto !important;
+}
+

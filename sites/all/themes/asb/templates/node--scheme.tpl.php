@@ -93,7 +93,7 @@ global $user;
 // dsm($content['flag_subscribe_og']);
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <header>
+  <header class="page-header">
     <div class="wrapper clearfix">
       <section class="content">
         <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
