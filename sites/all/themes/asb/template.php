@@ -456,62 +456,9 @@ function asb_scheme_preprocess_views_view(&$vars) {
     // dsm($vars['view']);
   }
 }
-function asb_preprocess_views_view_field__issues_and_goals_reference__entityreference_1(&$vars) {
-  // dsm($vars['view']->row_index);
-  // dsm($vars['field']);
-
-  if ($vars['field']->field_alias == "nid") {
-    foreach ($vars['view']->result as $key => $value) {
-      // dsm($result);
-      // dsm($key);
-      // dsm($vars['view']->row_index);
-      if($key == $vars['view']->row_index) {
-        if($vars['view']->result[$key]->node_type == 'goal') {
-          $eid = $value->nid;
-          $sql = "SELECT field_hidden_issue_reference_target_id as target
-                  FROM field_data_field_hidden_issue_reference 
-                  WHERE bundle = 'goal' and entity_id = '$eid'";
-          $goal_list = db_query($sql)->fetchAll();
-          // dsm($goal_list[0]->target);
-          if(isset($goal_list[0])) {
-            $vars['view']->field['nid']->iid = $goal_list[0]->target;
-            $value->iid = $goal_list[0]->target;
-            /* dsm($vars['view']->row_index); */
-            /* dsm($vars['view']->field['nid']->original_value); */
-            /* dsm($value->iid); */
-
-            /* if($vars['view']->row_index == 6) { */
-            /*   $vars['view']->field['nid']->iid = 22; */
-
-            /*   /\* dsm($value->iid); *\/ */
-            /* } */
-          }
-          // Get parent goals
-          $gsql = "SELECT entity_id AS parent 
-                   FROM field_revision_field_child_goals 
-                   WHERE bundle = 'goal' AND field_child_goals_target_id = '$eid'";
-          /* $gsql = "SELECT field_child_goals_target_id AS target  */
-          /*          FROM field_data_field_child_goals  */
-          /*          WHERE bundle = 'goal' AND entity_id = '$eid'"; */
-          $parent_goal_list  = db_query($gsql)->fetchAll();
-          $vars['view']->field['nid']->target_classes = "goal-nid-" .$vars['view']->field['nid']->original_value;
-          if(isset($parent_goal_list[0])) {
-            // dsm($parent_goal_list);
-            foreach($parent_goal_list as $parents) {
-              $vars['view']->field['nid']->target_classes .= " pgoal-" .$parents->parent;
-            }
-          }
-        }
-        // dsm($vars['view']->field['nid']);
-        // $result->iid = $goal_list[0]->target;
-      }
-    }
-    // dsm($vars['view']->result);
-  }
-}
 
 function asb_preprocess_views_view_field(&$vars) {
-  // dsm($vars['view']->field['nid']);
+  // Allow field specific views processing
   // @see http://drupal.org/node/939462#comment-4476264
   if (isset($vars['view']->name)) {
     $function = 'asb_preprocess_views_view_field__' . $vars['view']->name . '__' . $vars['view']->current_display;
@@ -643,13 +590,14 @@ function asb_views_post_render(&$view) {
 function asb_page_alter( &$page ){
   $scripts = drupal_add_js();
   $chosen = drupal_get_path('module', 'chosen');
+  $asb = drupal_get_path('theme', 'asb');
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
   unset( $scripts[$chosen .'/chosen.js'] );
   unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
-  drupal_add_js( "sites/all/themes/asb/js/scripts.js" );
+  drupal_add_js( $asb .'/js/scripts.js' );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( $chosen .'/chosen.js' );
-  drupal_add_js( "sites/all/themes/asb/js/clamp.js" );
+  drupal_add_js( $asb .'/js/clamp.js' );
 }
 
 function asb_preprocess_region(&$variables, $hook) {
