@@ -786,7 +786,8 @@ form .form-actions input{
 }
 
 
-.page-user {
+.page-user,
+.section-user {
   #main .view-empty {
     background-image: none;
     background-size: inherit;
@@ -815,8 +816,12 @@ form .form-actions input{
       }
       &.even {
         background: $even-backdrop;
+        background-image: none;
+        background-size: inherit;
         .scheme-collection {
           background: transparent;
+          background-image: none;
+          background-size: inherit;
         }
       }
       &.odd {}
