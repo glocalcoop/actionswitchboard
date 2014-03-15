@@ -298,6 +298,7 @@ tr td:last-child {
 
 .page-user-messages {
   table.privatemsg-list {
+    margin-top: 10px;
     @include body-text($size: 1.1em, $color: $text-color-prominent);
     thead {
       border-top: {
