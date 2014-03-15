@@ -340,7 +340,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";
 @include all-headers-sprites;
 
-// .scheme-collection,
+
 .section-user {
   #content {
     h2.block-title {
@@ -806,25 +806,20 @@ form .form-actions input{
   }
   #block-views-467d272784c6e1a84b15cc4f6b486792,
   #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
-    &.last.even {
-      background: $even-backdrop;
+    &.last {
       background-image: none;
       background-size: inherit;
       .scheme-collection {
-        background: transparent;
         background-image: none;
         background-size: inherit;
       }
-    }
-    &.last.odd {
-      .scheme-collection {
-        background-image: none;
-        background-size: inherit;
+      &.even {
+        background: $even-backdrop;
+        .scheme-collection {
+          background: transparent;
+        }
       }
-    }
-    .view-empty {
-      background-image: none;
-      background-size: inherit
+      &.odd {}
     }
   }
 }
