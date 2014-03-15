@@ -97,6 +97,7 @@ fieldset#edit-timezone {
   }
 }
 
+
 // User Registration Form
 
 .page-user-register {
@@ -582,7 +583,6 @@ form {
   }  
 }
 
-
 form#user-profile-form {
   .crm-profile-name-ASB_User_Profile_19 {
     #helprow-custom_54,
@@ -595,7 +595,6 @@ form#user-profile-form {
     }
   }
 }
-
 
 form#user-profile-form {
   #edit-account {
@@ -640,12 +639,6 @@ form#user-profile-form {
     }
   }
 }
-
-
-
-
-
-
 
 .comment-form { 
     @include zen-clear;
@@ -828,6 +821,55 @@ form#user-profile-form {
     .form-field-type-image {}
   }
 }
+
+// ////////////////////////////
+// Messages
+// 
+
+.section-messages {
+  #main {
+    form#privatemsg-list {
+      margin-top: 10px;
+    }  
+    #privatemsg-filter-tags {
+      margin-top: 10px;
+    }
+    .privatemsg-message-participants {
+      @include body-text ($size: 1.25rem);
+      border-bottom: {
+        @include standard-border;
+      }
+    }
+  }
+  .privatemsg-author-avatar,
+  .privatemsg-message-column {
+    @include zen-float(left);
+  }
+  .privatemsg-author-avatar {
+    width: 10%;
+    min-width: 30px;
+    padding-right: 1%;
+  }
+  .privatemsg-message-column  {
+    width: 89%;
+    .privatemsg-message-information {
+      border-bottom: {
+        @include standard-border;
+      }
+      .privatemsg-author-name,
+      .privatemsg-message-date {
+        @include body-text ($size: 1.25rem);
+      }
+    }
+    .privatemsg-message-body {
+      margin-left: 0;
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
 
 
 /*
