@@ -152,7 +152,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 // filtered by children of .main-content or #content
 
 // Home page only
-// .front {
+.front {
   #content .scheme-collection {
     &:nth-child(even) {
       @include zigzag-border ($even-backdrop, $odd-backdrop );
@@ -166,6 +166,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       padding-bottom: 2em;
     }
   }
+}
 
   #content .main-content>.scheme-collection:last-child,
   #content>.scheme-collection:last-child {
