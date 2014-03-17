@@ -81,7 +81,6 @@ $account = menu_get_object('user');
       <?php print render($tabs); ?>
 
       <div id="user-content" class="content">
-
         <aside class="user-details">
           <div class="user-picture">
             <?php print render($user_profile['user_picture']); ?>
@@ -100,6 +99,16 @@ $account = menu_get_object('user');
             <li class="linkedin ui-button">
               <a class="icon linkedin" href=""><span>Linked In</span></a>
             </li>
+            <?php if(isset($user_profile['flag_abuse_user'])): ?>
+              <li class="report-user">
+                <?php print render($user_profile['flag_abuse_user']); ?>
+              </li>
+            <?php endif; ?>
+            <?php if(isset($user_profile['abuse_whitelist_user'])): ?>
+              <li class="whitelist-user">
+                <?php print render($user_profile['abuse_whitelist_user']); ?>
+              </li>
+            <?php endif; ?>
           </ul>
         </aside>
 
