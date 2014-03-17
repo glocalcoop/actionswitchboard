@@ -340,7 +340,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";
 @include all-headers-sprites;
 
-
+.front,
 .section-user {
   #content {
     h2.block-title {
