@@ -104,9 +104,9 @@ $account = menu_get_object('user');
                 <?php print render($user_profile['flag_abuse_user']); ?>
               </li>
             <?php endif; ?>
-            <?php if(isset($user_profile['abuse_whitelist_user'])): ?>
+            <?php if(isset($user_profile['flag_abuse_whitelist_user'])): ?>
               <li class="whitelist-user">
-                <?php print render($user_profile['abuse_whitelist_user']); ?>
+                <?php print render($user_profile['flag_abuse_whitelist_user']); ?>
               </li>
             <?php endif; ?>
           </ul>
