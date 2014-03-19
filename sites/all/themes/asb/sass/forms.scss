@@ -835,6 +835,7 @@ form#user-profile-form {
       margin-top: 10px;
     }
     .privatemsg-message-participants {
+      margin-top: 10px;
       @include body-text ($size: 1.25rem);
       border-bottom: {
         @include standard-border;
