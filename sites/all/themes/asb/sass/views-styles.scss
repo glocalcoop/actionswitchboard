@@ -162,24 +162,21 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
       @include zigzag-border ($odd-backdrop, $even-backdrop);
       background-color: $odd-backdrop;
     }
-    &:last-child {
-      padding-bottom: 2em;
-    }
   }
 }
 
-  #content .main-content>.scheme-collection:last-child,
-  #content>.scheme-collection:last-child {
-    &:nth-child(even) {
-      @include zigzag-border ($even-backdrop, $backdrop);
-      background-color: $even-backdrop;
-    }
-    &:nth-child(odd) {
-      @include zigzag-border ($odd-backdrop, $backdrop);
-      background-color: $odd-backdrop;
-    }
+#content>.scheme-collection:last-child {
+  &:nth-child(even) {
+    @include zigzag-border ($even-backdrop, $backdrop);
+    background-color: $even-backdrop;
   }
+  &:nth-child(odd) {
+    @include zigzag-border ($odd-backdrop, $backdrop);
+    background-color: $odd-backdrop;
+  }
+}
 
+  .section-location,
   .section-goals,
   .section-issue,
   .section-user

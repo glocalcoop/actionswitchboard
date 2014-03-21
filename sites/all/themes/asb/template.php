@@ -582,6 +582,8 @@ isset($element['#localized_options']['attributes']['title'])){
 function asb_views_post_render(&$view) {
   if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
     //load this stuff before chosen
+    $scripts = drupal_add_js();
+    unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
     drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
     drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js' );  
   }
@@ -593,7 +595,6 @@ function asb_page_alter( &$page ){
   $asb = drupal_get_path('theme', 'asb');
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
   unset( $scripts[$chosen .'/chosen.js'] );
-  unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
   drupal_add_js( $asb .'/js/scripts.js' );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( $chosen .'/chosen.js' );

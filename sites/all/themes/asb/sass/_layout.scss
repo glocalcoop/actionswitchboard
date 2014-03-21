@@ -300,7 +300,9 @@ aside.scheme-meta {
 /* Schemes Pager:           */
 /* ------------------------ */
 #add_page_scroll_wrapper {
-  
+
+  padding-bottom: 2em;
+
   @include breakpoint( md, max-width ) {
     &:before {
       content: "Filter schemes";
