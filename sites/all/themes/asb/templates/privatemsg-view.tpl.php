@@ -21,7 +21,7 @@ print $anchors; ?>
           <?php if(isset($message_links) && count($message_links) > 0): ?>
             <ul class="ui-button">
             <?php foreach($message_links as $key => $link) {
-              print '<li class="ui-button">' .l($link['title'], $link['href']) .'</li>';} ?>
+              print '<li class="ui-button ' .$link['attributes']['class'] .'">' .l($link['title'], $link['href']) .'</li>';} ?>
             </ul>
           <?php endif; ?>
         <?php endif; ?>
