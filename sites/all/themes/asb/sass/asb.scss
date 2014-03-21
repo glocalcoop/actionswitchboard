@@ -122,6 +122,10 @@ h4 {
   margin-bottom: .25em;
 }
 
+.not-front .views-exposed-widgets {
+  padding-top: .5em;
+}
+
 .region-search .views-widget-filter-keys{
   float: none;
   @include font-icon-base( $family:"entypo", $font-size: 2em, $margin: 0em, $width: 1em);
