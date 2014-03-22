@@ -1010,7 +1010,10 @@ form .form-actions input{
       }   
       h2.block-title {
         border-top: { @include standard-border; }
-      }   
+      }
+      .block-views {
+        margin-top: 10px;
+      }
     }
 
   }
@@ -1076,7 +1079,6 @@ form .form-actions input{
     }
   } 
 }
-
 
 // ///////////////////////
 // Node Add
