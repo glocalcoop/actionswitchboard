@@ -386,7 +386,8 @@ $headers: sprite-map("headers/*.png", $position: -4px);
       background-position: sprite-position( $headers, leading, 0, -2px);
     }
   }
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
+  #block-views-6d49aa04d92fbf681ed33c7a9575c935,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     h2.block-title {
       @extend .headers-added;
       background-position: sprite-position( $headers, following, 0, -2px);
@@ -847,7 +848,8 @@ form .form-actions input{
       padding: 0 10px;
     }
   }
-  #block-views-467d272784c6e1a84b15cc4f6b486792 {
+  #block-views-467d272784c6e1a84b15cc4f6b486792,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     background: $even-backdrop;
     .scheme-collection {
       @include zigzag-border ($even-backdrop, $odd-backdrop);
@@ -858,7 +860,8 @@ form .form-actions input{
     @include zigzag-border ($even-backdrop, $odd-backdrop);
   }
   #block-views-467d272784c6e1a84b15cc4f6b486792,
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
+  #block-views-6d49aa04d92fbf681ed33c7a9575c935,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     &.last {
       background-image: none;
       background-size: inherit;
@@ -2238,6 +2241,8 @@ li.sub-goal.sub-sub-goal {
 // ////////////////////////////
 // Updates Page
 // ////////////////////////////
+
+html.js body.html div#page section#main div#content div.wrapper section.main-content div.view div.view-header
 
 #scheme-content { // Apply to all pages that load updates content
   .view-header {
