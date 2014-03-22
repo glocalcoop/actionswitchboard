@@ -70,6 +70,9 @@ ul.tabs-primary.primary {
           @extend %entypo-megaphone;
         }
       }
+      a[href^="/scheme"] {
+        @extend %entypo-eye;
+      }
       a[href*="edit"] {
         @extend %entypo-pencil;
       }
