@@ -489,6 +489,11 @@ article.comment,
   }
 }
 
+ul li.ui-button .field-group-group a.ctools-use-modal:before {
+  content:"";
+  width: 0;
+}
+
 #block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal {
   @include font-icon-base($family:"entypo", $font-size: 2.5rem, $margin: 0.1em, $width: .5em);
   @extend %entypo-mail;
@@ -1516,14 +1521,6 @@ div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
 .permalink,
 mark.new {
   display: none;
-}
-
-// Hide modal edit link if user isn't logged in
-.not-logged-in {
-  .modal-edit,
-  .view-scheme-members div.view-header {
-    @include hide-content;
-  }
 }
 
 // Pagers for all pages but the front page
