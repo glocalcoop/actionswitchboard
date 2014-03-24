@@ -2239,8 +2239,6 @@ li.sub-goal.sub-sub-goal {
 // Updates Page
 // ////////////////////////////
 
-html.js body.html div#page section#main div#content div.wrapper section.main-content div.view div.view-header
-
 #scheme-content { // Apply to all pages that load updates content
   .view-header {
     padding-top: 1.2em;
@@ -2249,12 +2247,6 @@ html.js body.html div#page section#main div#content div.wrapper section.main-con
     }
    
     .item-list {
-      // ul {
-      //   li {
-          
-      //     padding-right: 1.2em;
-      //   }
-      // }
       ul {
         list-style: none;
         margin: 0;
