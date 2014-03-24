@@ -351,7 +351,7 @@ function asb_preprocess_node(&$variables, $hook) {
   // dsm($variables);
   if($variables['type'] == 'scheme') {
     $account = clone $user;
-    $variables['join_link'] = 'asb-modal/group/node/' .$variables['nid'] .'/subscribe/og_user_node/nojs';
+    $variables['join_link'] = 'asb-modal/group/node/' .$variables['nid'] .'/subscribe/og_user_node/nojs/join';
     if(isset($variables['elements']['group_group'][0]['#href'])) {
       if(strpos($variables['elements']['group_group'][0]['#href'], 'unsubscribe') === false) {
         $variables['member'] = false;
