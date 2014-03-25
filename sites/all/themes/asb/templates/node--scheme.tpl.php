@@ -112,10 +112,10 @@ global $user;
               <li class="ui-button"><?php print render($content['flag_subscribe_og']); ?></li>
               <!-- <li class="ui-button"><a class="ui-button" href="/new-feature-coming-soon">Follow Scheme</a></li> -->
               <li class="ui-button">
-                <?php if(isset($member) && $member == false): ?>
+                <?php if(isset($member) && $member == 'request'): ?>
                   <div class="field-group-group">
                     <?php print ctools_modal_text_button('Request Membership', $join_link, t('Request Membership'), 'ctools-use_modal'); ?>
-                <?php else: ?>
+                <?php elseif(!isset($member) || $member == 'current'): ?>
                   <?php print render($content['group_group']); ?>
                 <?php endif; ?>
               </li>
