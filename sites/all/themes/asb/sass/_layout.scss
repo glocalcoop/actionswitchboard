@@ -1,34 +1,3 @@
-/**
- * @file
- * Positioning for responsive layout .
- *
- * Define CSS classes to create a table-free, 3-column, 2-column, or single
- * column layout depending on whether blocks are enabled in the left or right
- * columns.
- *
- * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
- */
-
-// We are going to create a 980px wide, 5 column grid with 20px gutters between
-// columns (applied as 10px of left/right padding on each column).
-$zen-column-count:  8;
-$zen-gutter-width:  10px;
-
-// IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
-// - Drop support for IE 6/7. :-) In the _base.scss, set $legacy-support-for-ie6
-//   and $legacy-support-for-ie7 to false.
-// - (Preferred) Install the box-sizing polyfill and set the variable below to
-//   the absolute path URL to the boxsizing.htc file.
-//   @see https://github.com/Schepp/box-sizing-polyfill
-//   $box-sizing-polyfill-path: "/path/to/boxsizing.htc";
-// - Use the same CSS unit for grid width and gutter width (use px for both or
-//   use % for both, etc.) and set the box-sizing variable to content-box.
-//   $zen-box-sizing: content-box;
-
-// You can generate more efficient CSS if you manually apply the
-// zen-grid-item-base mixin to all grid items from within a single ruleset.
-$zen-auto-include-item-base: false;
-
 // Region Search
 .front {
   .region-search {
@@ -144,9 +113,8 @@ aside.scheme-meta {
 }
 
 @include breakpoint( md ) {
-  $zen-grid-width: 960px;
   $gutter-width: 20px;
-  $zen-column-count: 8;
+  // $zen-column-count: 8;
 
   #main .scheme-collection-view .view-content,
   #main .scheme-collection-view .block-title,
@@ -302,8 +270,11 @@ aside.scheme-meta {
 #add_page_scroll_wrapper {
 
   padding-bottom: 2em;
+  @include pie-clearfix;
 
   @include breakpoint( md, max-width ) {
+    padding-top: 2em;
+    border-top: 1px solid $rules-color;
     &:before {
       content: "Filter schemes";
       text-transform: uppercase;
@@ -314,8 +285,6 @@ aside.scheme-meta {
       font-size: 2em;
       font-family: $header-font-family;
     }
-    padding-top: 2em;
-    border-top: 1px solid $rules-color;
     #issues_filter,
     #collections_filter {
       width: 50%;
@@ -332,6 +301,8 @@ aside.scheme-meta {
   }
 
   @include breakpoint( md ) {
+
+    height: 4em;
 
     #issues_filter,
     #collections_filter {
@@ -364,7 +335,6 @@ aside.scheme-meta {
     }
 
   }
-  @include clearfix;
 
 }
 
@@ -387,8 +357,14 @@ aside.scheme-meta {
 #footer .content,
 // schemes
 #content article>.wrapper,
-#add_page_scroll_wrapper  {
+#add_page_scroll_wrapper,
+.not-logged-in.section-user #user-login {
   @extend %full-centered;
+}
+
+#user-login {
+  display: block;
+  padding-top: 3em;
 }
 
 .page-node-add-scheme #content {
