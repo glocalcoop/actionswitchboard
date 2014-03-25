@@ -308,7 +308,8 @@ aside.scheme-meta {
     #collections_filter {
       padding-top: .5em;
       .chosen-container {
-        width: 100% !important;
+        min-width: 160px !important;
+        // width: 100% !important;
       }
     }
 
@@ -317,6 +318,9 @@ aside.scheme-meta {
       @include zen-grid-flow-item( 2, 8 );
       @include box-sizing( border-box );
       padding-right: 1em;   
+    }
+
+    #edit_field_issues_goals_target_id_chosen .chosen-drop{
     }
 
     #load_more_schemes_button {

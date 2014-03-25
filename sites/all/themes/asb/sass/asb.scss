@@ -159,7 +159,9 @@ h4 {
 
   .chosen-container {
     display: block !important;
-    width: 100% !important;
+    // width: 100% !important;
+    min-width: 80px;
+    max-width: 130px;
     border: none;
   }
 
@@ -276,7 +278,7 @@ h4 {
 
 .region-search {
   .views-reset-button {
-    margin-top: 0;
+    margin-top: .45em;
     padding-top: 0;
   }
   .views-exposed-form .views-exposed-widget .form-reset,
