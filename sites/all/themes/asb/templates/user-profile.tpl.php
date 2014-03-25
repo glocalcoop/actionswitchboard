@@ -89,16 +89,11 @@ $account = menu_get_object('user');
             <li class="user-contact ui-button">
               <a class="icon user-contact" href="/messages/new/<?php print render($account->uid); ?>"><span>Contact Me</span></a>
             </li>
-            <li class="facebook ui-button">
-              <a class="icon facebook" href=""><span>Facebook</span></a>
-            </li>
-            <li class="twitter ui-button">
-              <a class="icon twitter"  href=""><span>Twitter</span></a>
-            </li>
-            <!-- should we do linked in? does it make sense here? -->
-            <li class="linkedin ui-button">
-              <a class="icon linkedin" href=""><span>Linked In</span></a>
-            </li>
+            <?php print render($user_profile['social_links']['twitter']); ?>
+            <?php print render($user_profile['social_links']['facebook']); ?>
+            <?php print render($user_profile['social_links']['linkedin']); ?>
+            <!-- social_links can be modified in asb_scheme.module using the function
+            asb_scheme_user_view() -->
             <?php if(isset($user_profile['flag_abuse_user'])): ?>
               <li class="report-user">
                 <?php print render($user_profile['flag_abuse_user']); ?>
