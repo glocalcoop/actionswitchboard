@@ -11,24 +11,7 @@
 // - Last we import a _custom.scss partial that includes our custom mixins.
 //
 
-//
-// Legacy IE support
-//
-// These variables are used by many mixins to add additional CSS to support
-// specific versions of IE or specific vendor prefixes.
-//
-// To turn on support for IE6 or IE7, set those variables to true.
-//
-// Zen does not require special handling for IE8 or later. But Compass uses that
-// variable for a couple edge cases. We include it for completeness sake. See
-// the documentation at http://compass-style.org/reference/compass/support/
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: true;
-
-//
 // Colors, etc.
-//D4D5D7
 $accent: #EF3F26; //orange
 $accent-secondary: #F15D38; //links etc.
 $panel: #F3F2E0; //beige background
@@ -120,6 +103,12 @@ $pager-vmargin: $pager-hmargin;
 $screen-lg: 1100px;
 $screen-md: 960px;
 $screen-sm: 480px;
+
+$zen-grid-width: 960px;
+$zen-column-count:  8;
+$zen-gutter-width:  10px;
+$zen-auto-include-item-base: false;
+
 // We don't need the xs
 // $scren-xs: 480px;
 
