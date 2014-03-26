@@ -2209,10 +2209,10 @@ li.sub-goal.sub-sub-goal {
         margin-top: 10px;
         &.views-table {
           .views-field-approve-button-membership a {
-            @include button($height: 30px, $font-size: $h3-font-size + 6px);
+            @include button($font-size: $h3-font-size + 2px);
           }
           .views-field-delete-button-membership a {
-            @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+            @include button($font-size: $h3-font-size + 2px, $color: $button-color-tertiary);
           }
         }
       }
