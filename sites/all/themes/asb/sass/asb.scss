@@ -846,12 +846,17 @@ form .form-actions input{
 
 .page-user,
 .section-user {
-  #main .view-empty {
-    background-image: none;
-    background-size: inherit;
-    p {
-      padding: 0 10px;
+  #main {
+    .tabs-secondary {
+      padding-top: 10px;
     }
+    .view-empty {
+      background-image: none;
+      background-size: inherit;
+      p {
+        padding: 0 10px;
+      }
+    }    
   }
   #block-views-467d272784c6e1a84b15cc4f6b486792,
   #block-views-741a73ef0a114f623b54449caf2fc4fb {
