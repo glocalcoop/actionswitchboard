@@ -105,7 +105,7 @@ tr td:last-child {
             td.active {
               padding: 10px 0;
               background: transparent;
-              vertical-align: top;
+              // vertical-align: top;
               @include body-text($size: 1.1em, $color: $text-color-prominent);
               p {
                 padding: 0;
@@ -157,7 +157,6 @@ tr td:last-child {
       // margin: 0;
       div.bef-select-as-links {
         div.form-item {
-        // 
           display: inline-block;
           a {
             @include button($font-family: $base-font-family, $color: #fff, $font-color: $text-color);
@@ -199,7 +198,6 @@ tr td:last-child {
         td.active {
           padding: 10px 0;
           background: transparent;
-          vertical-align: top;
           @include body-text($size: 1.1em, $color: $text-color-prominent);
           p {
             padding: 0;
@@ -260,7 +258,7 @@ tr td:last-child {
             td.active {
               padding: 10px 0;
               background: transparent;
-              vertical-align: top;
+              // vertical-align: top;
               @include body-text($size: 1.1em, $color: $text-color-prominent);
               p {
                 padding: 0;
@@ -324,7 +322,7 @@ tr td:last-child {
         td.active {
           padding: 10px 0;
           background: transparent;
-          vertical-align: top;
+          // vertical-align: top;
           @include body-text($size: 1.1em, $color: $text-color-prominent);
           p {
             padding: 0;
