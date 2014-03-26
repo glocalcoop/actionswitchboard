@@ -580,26 +580,39 @@ isset($element['#localized_options']['attributes']['title'])){
 }
 
 function asb_views_post_render(&$view) {
+  // dpm( $view->name );
+  // dpm( $view->current_display );
   if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
     //load this stuff before chosen
-    $scripts = drupal_add_js();
-    unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
-    drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
-    drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js' );  
+
   }
 }
 
 function asb_page_alter( &$page ){
   $scripts = drupal_add_js();
-  $chosen = drupal_get_path('module', 'chosen');
-  $asb = drupal_get_path('theme', 'asb');
+  $chosen_path = drupal_get_path('module', 'chosen');
+  $asb_theme_path = drupal_get_path('theme', 'asb');
+  // dpm( "--------------------------------------");
+  // dpm( $scripts );
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
-  unset( $scripts[$chosen .'/chosen.js'] );
-  drupal_add_js( $asb .'/js/scripts.js' );
+  unset( $scripts[$chosen_path .'/chosen.js'] );
+  unset( $scripts['sites/all/libraries/autopager/jquery.autopager-1.0.0.js']);
+  unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
+  drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
+  drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js' );  
+  drupal_add_js( $asb_theme_path .'/js/scripts.js' );
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
-  drupal_add_js( $chosen .'/chosen.js' );
-  drupal_add_js( $asb .'/js/clamp.js' );
+  drupal_add_js( $chosen_path .'/chosen.js' );
+  drupal_add_js( $asb_theme_path .'/js/clamp.js' );
+  // dpm( drupal_add_js() );
+  // dpm( "--------------------------------------");
+//  dpm( drupal_add_js() );
 }
+
+// function front_preprocess_page( &$variables ) {
+//   dpm( "scripts -------------------------------------");
+//   dpm($variables);
+// }
 
 function asb_preprocess_region(&$variables, $hook) {
   // Add hidden class to search region if not schemes page
