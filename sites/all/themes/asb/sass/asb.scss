@@ -790,6 +790,7 @@ form .form-actions input{
       }
     }
   }
+  
   .user-profile {
 
     @include zigzag-border ($odd-backdrop, $even-backdrop);
@@ -798,8 +799,8 @@ form .form-actions input{
       section.content {}
       aside {
         &.user-meta {
+          padding-top: 2em !important;
           section {
-            // margin-top: 10px;
             &:first-child {
               margin-top: 0;
             }

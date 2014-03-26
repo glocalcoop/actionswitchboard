@@ -166,6 +166,9 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
+  
+  $variables['global_donate'] = '<div id="donate-positioning-wrapper"><a href="#" id="global-donate" title="Help keep the action switchboard running!">Donate</a></div>';
+
   if(arg(2) == 'edit' && isset($variables['node'])) {
     /* $suggests = &$variables['theme_hook_suggestions']; */
     /* $args = array(); */
@@ -595,7 +598,6 @@ function asb_views_post_render(&$view) {
   // dpm( $view->current_display );
   if( ( $view->name == 'scheme_overview' || $view->name == 'scheme_overview_filtered' )  && ($view->current_display == 'block_1' || $view->current_display == "page_1") ){
     //load this stuff before chosen
-
   }
 }
 
@@ -603,15 +605,18 @@ function asb_page_alter( &$page ){
   $scripts = drupal_add_js();
   $chosen_path = drupal_get_path('module', 'chosen');
   $asb_theme_path = drupal_get_path('theme', 'asb');
+  $infinite_scroll_path = drupal_get_path('module', 'views_infinite_scroll');
+  // 
   // dpm( "--------------------------------------");
   // dpm( $scripts );
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
   unset( $scripts[$chosen_path .'/chosen.js'] );
   unset( $scripts['sites/all/libraries/autopager/jquery.autopager-1.0.0.js']);
-  unset( $scripts['sites/all/modules/contrib/views_infinite_scroll/js/views_infinite_scroll.js'] );
+  unset( $scripts[ $infinite_scroll_path . 'js/views_infinite_scroll.js'] );
   drupal_add_js( 'sites/all/libraries/autopager/jquery.autopager-1.0.0.js' );
-  drupal_add_js('sites/all/themes/asb/js/alter_infinitescroll.js' );  
-  drupal_add_js( $asb_theme_path .'/js/scripts.js' );
+  drupal_add_js( $asb_theme_path . '/js/alter_infinitescroll.js' );  
+  drupal_add_js( $asb_theme_path . '/js/scripts.js' );
+  // chosen should come after the search bits in js/scripts, 
   drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( $chosen_path .'/chosen.js' );
   drupal_add_js( $asb_theme_path .'/js/clamp.js' );

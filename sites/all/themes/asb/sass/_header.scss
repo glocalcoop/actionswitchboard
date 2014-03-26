@@ -106,9 +106,13 @@
     }
   }
   @include breakpoint( md ){
-
-    background-image: url('../images/logostrip.png?1376927784');
-    background-position: center bottom;
+    .container {
+      @include pie-clearfix;
+      position: relative;
+      z-index: 5;
+      background-image: url('../images/logostrip.png?1376927784');
+      background-position: center bottom;      
+    }
     #site-name {
       width: 428px;
       background-image: none;
@@ -181,9 +185,14 @@
       }
     }
     @include breakpoint(md){
-      height: 81px;
-      background-image: url('../images/logostrip_home.png?1376927784');
-      background-position: center bottom;
+      .container {
+        position: relative;
+        z-index: 5;
+        height: 81px;
+        @include pie-clearfix;
+        background-image: url('../images/logostrip_home.png?1376927784');
+        background-position: center bottom;        
+      }
 
       #name-and-slogan {
         
@@ -206,6 +215,7 @@
           width: 428px;
           height: 120px;
           z-index: 100;
+          top: 81px;
           margin: 0;
           padding: 0;
           line-height: 1;
@@ -419,22 +429,21 @@
 } 
 
 // Donate Button
+#donate-positioning-wrapper {
+  @extend %full-centered;
+  position: relative;
+}
 
-#header {
-  #block-block-2,
-  #block-block-3 {
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    top: 75px;
-    right: 0;
-    p {
-      padding: 0;
-      margin: 0;
-      a.donate {
-        @include button($height: 30px, $color: $brand, $radius: 4px, $font-size: 2rem);
-      }
-    }
+#global-donate {
+  @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
+  position: absolute;
+  top: -0.25em;
+  letter-spacing: .05em;
+  .front & {
+    right: 0.425em;
+  }
+  .not-front & {
+    right: -0.875em;
   }
 }
 
