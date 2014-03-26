@@ -2,11 +2,6 @@
   
   asb = {};
   
-  /*
-@Todo add class new to messages that have <mark class="new"></mark>
-  */
-
-
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
 
@@ -82,7 +77,6 @@
     var html = '';
     html += '  <div id="modal-throbber">';
     html += '    <div class="modal-throbber-wrapper">';
-    // html +=        Drupal.CTools.Modal.currentSettings.throbber;
     html += '    </div>';
     html += '  </div>';
 
