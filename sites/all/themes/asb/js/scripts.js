@@ -23,22 +23,30 @@
         asb.search_visibility_toggle( context, settings );
         asb.enhance_search();
 
+        if( $("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered") ){
+          console.log("append_pager");
+          asb.modify_append_pager();
+        }
+        if( $(".scheme-collection") ){
+          asb.scheme_overviews_clamp_descriptions();
+        }
+
+
         if( $(".page-user-messages") ){
           asb.highlight_new_messages();
         }
 
-        if( $('.region-search').length ) {
-          asb.setup_filter_icon_toggle();
-        }
       }
 
     }
 
   }
+
   asb.enhance_search = function(){
     $(".region-search .views-widget-filter-keys label").css("display","none");
     $(".region-search .views-widget-filter-keys input").attr("placeholder","Search for a specific scheme");
     $(".region-search label" ).css('display','none');
+    asb.setup_filter_icon_toggle();
   }
 
   asb.highlight_new_messages = function() {
@@ -100,12 +108,6 @@
       });
     } catch (err) {
       if (err.name === 'TypeError') { console.log('Skipping javascript hide search.'); }
-    }
-    if( $(".view-display-id-page_1") || $(".views-display-id-block_1") ){
-      asb.modify_append_pager();
-    }
-    if( $(".scheme-collection") ){
-      asb.scheme_overviews_clamp_descriptions();
     }
 
   }
@@ -171,6 +173,7 @@
 
   asb.modify_append_pager = function() {
 
+    console.log( "asb.modify_append_pager" );
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
 
     var issues_filter = $('<div id="issues_filter"></div>');

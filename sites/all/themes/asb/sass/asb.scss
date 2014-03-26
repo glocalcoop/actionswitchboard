@@ -272,7 +272,6 @@ h4 {
   @include breakpoint( md ) {
     width: 100%;
     padding-top: 1em;
-
   }
 }
 
@@ -308,32 +307,32 @@ h4 {
 }
 
 .region-search {
+  @include pie-clearfix;
   @include transition-property(padding,max-height);
-  @include transition-duration(.5s);
-  @include transition-timing-function(ease-in-out);
+  @include transition-duration(2s);
+  @include transition-timing-function(ease-out-expo);
   padding: 1em 0 2em 0;
-  overflow: visible;  
+  overflow: visible;
   max-height: auto;
-  display: block;
+  // display: block;
   .views-exposed-form {
-    display: block;
-    @include transition-property(opacity);
-    @include transition-delay(.15s);
-    @include transition-duration(.35s);
-    @include transition-timing-function(ease-in-out);    
+    // display: block;
+    // @include transition-property(opacity);
+    // @include transition-duration(2s);
+    // @include transition-timing-function(ease-out-expo);    
   }
   &.atrest {
     @include transition-duration(0);  
   }
-  &.hidden, &.atrest {
+  &.hidden,
+  &.atrest {
     // display: none;
     max-height: 0px;
-    padding: 0;
+    padding: 0 0 0 0;
     overflow: hidden;
     border-bottom: none;
     .views-exposed-form {
-      display: block;
-      opacity: 0;
+      // opacity: 0;
     }
   }
 }
