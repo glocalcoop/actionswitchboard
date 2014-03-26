@@ -387,7 +387,8 @@ $headers: sprite-map("headers/*.png", $position: -4px);
       background-position: sprite-position( $headers, leading, 0, -2px);
     }
   }
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
+  #block-views-6d49aa04d92fbf681ed33c7a9575c935,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     h2.block-title {
       @extend .headers-added;
       background-position: sprite-position( $headers, following, 0, -2px);
@@ -413,6 +414,60 @@ $headers: sprite-map("headers/*.png", $position: -4px);
   color: $text-color;
 }
 
+// Comment Icons
+ul.links.inline {
+  li {
+    a {
+      @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2.5rem, $margin: 0.1em, $width: .5em);
+    }
+    &.comment-delete a{ @extend %entypo-circled-cross; }
+    &.comment-edit a { @extend %entypo-pencil; }
+    &.comment-reply a { @extend %entypo-reply; }
+    &.comment-add a { @extend %entypo-reply; }
+  }
+}
+
+// Abuse Flag Icons
+li {
+  &.flag-abuse_comment,
+  &.flag-abuse_node,
+  &.flag-abuse_user,
+  &.flag-abuse_whitelist_comment,
+  &.flag-abuse_whitelist_node,
+  &.whitelist-user {
+    a {
+      @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 1.5rem, $margin: 0.1em, $width: .5em);
+      margin-left: 0;
+    }
+  }
+  &.flag-abuse_comment a,
+  &.flag-abuse_node a,
+  &.report-user a  { 
+    color: $text-color !important;
+    @extend %entypo-flag; 
+    &.unflag-action {
+      @extend %entypo-check;
+    }
+  }
+  &.flag-abuse_whitelist_comment a,
+  &.flag-abuse_whitelist_node a,
+  &.whitelist-user a { 
+    color: $text-color !important;
+    @extend %entypo-check;
+    &.unflag-action {
+      @extend %entypo-flag; 
+    }
+  }
+  &.report-user a:before,
+  &.whitelist-user a:before {
+    font-size: 1.5em !important;
+    width: 1em !important;
+    padding-top: 6px;
+  }
+}
+
+
+
 section.content,
 article.comment,
 .scheme-leader-contact,
@@ -433,12 +488,11 @@ article.comment,
       }
     // @include replace-text();
   }
-  ul.links.inline li {
-    &.comment-delete a{ @extend %entypo-circled-cross; }
-    &.comment-edit a { @extend %entypo-pencil; }
-    &.comment-reply a { @extend %entypo-reply; }
-    &.comment-add a { @extend %entypo-reply; }
-  }
+}
+
+ul li.ui-button .field-group-group a.ctools-use-modal:before {
+  content:"";
+  width: 0;
 }
 
 #block-asb-scheme-group-info .scheme-leader .scheme-leader-contact a.ctools-use-modal {
@@ -793,14 +847,20 @@ form .form-actions input{
 
 .page-user,
 .section-user {
-  #main .view-empty {
-    background-image: none;
-    background-size: inherit;
-    p {
-      padding: 0 10px;
+  #main {
+    .tabs-secondary {
+      padding-top: 10px;
     }
+    .view-empty {
+      background-image: none;
+      background-size: inherit;
+      p {
+        padding: 0 10px;
+      }
+    }    
   }
-  #block-views-467d272784c6e1a84b15cc4f6b486792 {
+  #block-views-467d272784c6e1a84b15cc4f6b486792,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     background: $even-backdrop;
     .scheme-collection {
       @include zigzag-border ($even-backdrop, $odd-backdrop);
@@ -811,7 +871,8 @@ form .form-actions input{
     @include zigzag-border ($even-backdrop, $odd-backdrop);
   }
   #block-views-467d272784c6e1a84b15cc4f6b486792,
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
+  #block-views-6d49aa04d92fbf681ed33c7a9575c935,
+  #block-views-741a73ef0a114f623b54449caf2fc4fb {
     &.last {
       background-image: none;
       background-size: inherit;
@@ -1011,7 +1072,10 @@ form .form-actions input{
       }   
       h2.block-title {
         border-top: { @include standard-border; }
-      }   
+      }
+      .block-views {
+        margin-top: 10px;
+      }
     }
 
   }
@@ -1077,7 +1141,6 @@ form .form-actions input{
     }
   } 
 }
-
 
 // ///////////////////////
 // Node Add
@@ -1466,14 +1529,6 @@ mark.new {
   display: none;
 }
 
-// Hide modal edit link if user isn't logged in
-.not-logged-in {
-  .modal-edit,
-  .view-scheme-members div.view-header {
-    @include hide-content;
-  }
-}
-
 // Pagers for all pages but the front page
 .not-front {
   ul.pager {
@@ -1530,6 +1585,10 @@ li.sub-goal.sub-sub-goal {
 // Scheme Detail
 // ////////////////////////////
 
+#scheme-content {
+  margin-top: 1.5em;
+}
+
 .node-type-scheme {
   header {
     section.methods {
@@ -1563,7 +1622,6 @@ li.sub-goal.sub-sub-goal {
     }
   }
   #scheme-content {
-    margin-top: 1.5em;
     div.field-body,
     div.field-private-description {
       @include standard-links ($color: $accent, $vcolor: lighten($accent,10%), $hcolor: $text-color);
@@ -1701,29 +1759,10 @@ li.sub-goal.sub-sub-goal {
   /* ----------------------- */
 
   #scheme-content {
-
-    .view-header {
-      border-top: {
-          @include standard-border;
-      }
-      padding-top: 1.2em;
-      .item-list {
-        ul {
-          li {
-            display: inline-block;
-            padding-right: 1.2em;
-          }
-        }
-      }
-
-      .scheme-updates-header {
-        @include header-style ($family: $base-font-family, $size: $h3-font-size + 2, $transform: capitalize, $weight: normal);
-        strong {
-          font-weight: normal;
-        }
-      }
+    .view-content .views-row article .wrapper { // Fix comment width on scheme updates tab
+      max-width: inherit;
+      width: inherit;
     }
-
     //Layout
     article {
       &.node-update,
@@ -1830,7 +1869,6 @@ li.sub-goal.sub-sub-goal {
         }
       }
     }
-
     .views-row-first {
       article {
         &:first-child {
@@ -1838,7 +1876,6 @@ li.sub-goal.sub-sub-goal {
         }
       }
     }
-
   }
 
   .views-row-first {
@@ -2171,6 +2208,14 @@ li.sub-goal.sub-sub-goal {
       }
       table {
         margin-top: 10px;
+        &.views-table {
+          .views-field-approve-button-membership a {
+            @include button($font-size: $h3-font-size + 2px);
+          }
+          .views-field-delete-button-membership a {
+            @include button($font-size: $h3-font-size + 2px, $color: $button-color-tertiary);
+          }
+        }
       }
     }
     dl.admin-list {
@@ -2208,23 +2253,23 @@ li.sub-goal.sub-sub-goal {
 // Updates Page
 // ////////////////////////////
 
-.page-scheme-updates {
-  div.view-header {
+#scheme-content { // Apply to all pages that load updates content
+  .view-header {
     padding-top: 1.2em;
+    border-top: {
+      @include standard-border;
+    }
+   
     .item-list {
-      ul {
-        li {
-          display: inline-block;
-          padding-right: 1.2em;
-        }
-      }
       ul {
         list-style: none;
         margin: 0;
         padding: 0 0 20px 0;
         li {
+          display: inline-block;
           margin: 0;
           padding: 0 1.2em 0 0;
+          border-top: none;
           a {
             @include font-icon-base($font-size: 2.5em, $margin: 0.1em, $width: .5em, $align: center );
             color: $text-color;
@@ -2249,6 +2294,12 @@ li.sub-goal.sub-sub-goal {
       }
     }
   }
+}
+
+.page-scheme-updates,
+.page-node-members,
+.page-node-group {
+
   div.view-filters {}
   div.view-content {
     article {
@@ -2308,7 +2359,6 @@ li.sub-goal.sub-sub-goal {
           }
         }
         .node-default {
-
           #node-content {
             padding-right: 0 !important;
             padding-left: 0 !important;
@@ -2356,77 +2406,77 @@ li.sub-goal.sub-sub-goal {
     }  
   }
   #node-content,
-  .comment-content {
-    p, li {
-      @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
-    }
-    li {
-        margin-top: .5em;
-        margin-bottom: .5em;
+    .comment-content {
+      p, li {
+        @include body-text ($size: $base-font-size + 2, $line-height: 1.5em );
       }
-    ul {
-      margin: 0 0 0 2em;
-      padding: 0;
-      &> li {
-        @include no-bullets;
-        padding: .25em .5em;
-        border-left: {
-          @include standard-border($width: 3px, $color: $accent);
+      li {
+          margin-top: .5em;
+          margin-bottom: .5em;
         }
-        ul {
-          margin: 0;
-          li {
-            padding: .5em 1.2em .5em .5em;
-            background: $even-backdrop;
-            border-left: {
-              @include standard-border($width: 3px, $color: $text-color);
-            }
-            border-top: none;
-          }            
+      ul {
+        margin: 0 0 0 2em;
+        padding: 0;
+        &> li {
+          @include no-bullets;
+          padding: .25em .5em;
+          border-left: {
+            @include standard-border($width: 3px, $color: $accent);
+          }
+          ul {
+            margin: 0;
+            li {
+              padding: .5em 1.2em .5em .5em;
+              background: $even-backdrop;
+              border-left: {
+                @include standard-border($width: 3px, $color: $text-color);
+              }
+              border-top: none;
+            }            
+          }
+        }
+        &.menu {
+          margin-left: 0;
         }
       }
-      &.menu {
-        margin-left: 0;
+      ol {
+        list-style: none;
+        counter-reset: li;
+        &> li {
+          position: relative; /* Create a positioning context */
+          margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+          padding: 4px 8px; /* Add some spacing around the content */
+          list-style: none; /* Disable the normal item numbering */
+          border-top: {
+            @include standard-border($width: 2px, $color: $accent);
+          }
+          background: $even-backdrop;
+          &:before {
+            content:counter(li); /* Use the counter as content */
+            counter-increment: li; /* Increment the counter by 1 */
+            /* Position and style the number */
+            position: absolute;
+            top: -2px;
+            left: -2em;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 2em;
+            /* Some space between the number and the content in browsers that support
+               generated content but not positioning it (Camino 2 is one example) */
+            margin-right: 8px;
+            padding: 4px;
+              border-top: {
+                @include standard-border($width: 2px, $color: $accent);
+              }
+            color: $nav-title-color;
+            background: $accent;
+            font-weight: bold;
+            text-align: center;
+          }
+        }     
       }
     }
-    ol {
-      list-style: none;
-      counter-reset: li;
-      &> li {
-        position: relative; /* Create a positioning context */
-        margin: 0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
-        padding: 4px 8px; /* Add some spacing around the content */
-        list-style: none; /* Disable the normal item numbering */
-        border-top: {
-          @include standard-border($width: 2px, $color: $accent);
-        }
-        background: $even-backdrop;
-        &:before {
-          content:counter(li); /* Use the counter as content */
-          counter-increment: li; /* Increment the counter by 1 */
-          /* Position and style the number */
-          position: absolute;
-          top: -2px;
-          left: -2em;
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 2em;
-          /* Some space between the number and the content in browsers that support
-             generated content but not positioning it (Camino 2 is one example) */
-          margin-right: 8px;
-          padding: 4px;
-            border-top: {
-              @include standard-border($width: 2px, $color: $accent);
-            }
-          color: $nav-title-color;
-          background: $accent;
-          font-weight: bold;
-          text-align: center;
-        }
-      }     
-    }
-  }
 }
 
 

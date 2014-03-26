@@ -348,9 +348,20 @@ function asb_preprocess_node(&$variables, $hook) {
   if($variables['view_mode'] != 'full') {
     unset($variables['tabs']);
   }
-  // dsm($variables);
   if($variables['type'] == 'scheme') {
     $account = clone $user;
+    $variables['join_link'] = 'asb-modal/group/node/' .$variables['nid'] .'/subscribe/og_user_node/nojs/join';
+    if(isset($variables['elements']['group_group'][0]['#href'])) {
+      if(strpos($variables['elements']['group_group'][0]['#href'], 'unsubscribe') === false) {
+        $variables['member'] = 'request';
+      }
+      if(strpos($variables['elements']['group_group'][0]['#href'], 'unsubscribe') === true) {
+        $variables['member'] = 'current';
+      }
+      if($variables['node']->workflow_state_name == 'Completed') {
+        $variables['member'] = 'complete';
+      }
+    }
     if (node_access("update", $variables['node'], $account) === TRUE) {
       $variables['issue_edit'] = '<a class="ctools-use-modal ctools-modal-mfe-modal" href="/mfe-single-modal-callback/nojs/' .arg(1) .'/scheme/field_issues_goals">Edit</a>';
       // This javascript is added in asb_scheme module, but was not
