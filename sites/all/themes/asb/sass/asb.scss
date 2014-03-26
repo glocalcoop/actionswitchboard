@@ -309,7 +309,7 @@ h4 {
 .region-search {
   @include pie-clearfix;
   @include transition-property(padding,max-height);
-  @include transition-duration(2s);
+  @include transition-duration(0.25s);
   @include transition-timing-function(ease-out-expo);
   padding: 1em 0 2em 0;
   overflow: visible;
@@ -662,30 +662,22 @@ ul.tags {
 } 
 
 
-// ////////////////////////////
+//////////////////////////////
 // Private Messages
-// ////////////////////////////
-
-.page-user-messages {
-  #content {
-    form#privatemsg-list {}
-  }
-}
+//////////////////////////////
 
 #edit-actions input,
 form .form-actions input{
   float: none !important;
 } 
 
-
 .no-more-results {
   background-color: #dedede !important;
 }
 
-// #sidebar .ctools-use-modal,
 .icon.edit {
   position: relative;
-  display: block;
+  display: inline-block;
   left: -3em;
   top: 5em;
   span {
