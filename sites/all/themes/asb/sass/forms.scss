@@ -594,9 +594,6 @@ form#user-profile-form {
       }
     }
   }
-}
-
-form#user-profile-form {
   #edit-account {
     .form-item-pass {
       padding-top: 20px;
@@ -627,15 +624,22 @@ form#user-profile-form {
     }
   }
   #edit-picture {
-          border-bottom: {
-        @include standard-border;
-      }
+    border-bottom: {
+      @include standard-border;
+    }
     legend .fieldset-legend {
       @include header-style;
         &:before {
         content: "Profile ";
         padding-bottom: 10px;
       }    
+    }
+  }
+  #edit-actions {
+    input {
+      &#edit-cancel {
+        @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+      }
     }
   }
 }
