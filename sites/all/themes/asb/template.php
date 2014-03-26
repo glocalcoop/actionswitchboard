@@ -449,6 +449,11 @@ function asb_preprocess_region(&$variables, $hook) {
  */
 
 function asb_preprocess_block(&$variables, $hook) {
+  if($variables['block']->delta == '467d272784c6e1a84b15cc4f6b486792') {
+    /* dsm($variables); */
+    /* dsm($variables['block']->delta); */
+    /* dsm($variables['classes_array']); */
+  }
   if(strpos($variables['block']->delta, 'scheme_overview') !== false) {
     $variables['classes_array'][] = 'scheme-collection-view';
     $variables['theme_hook_suggestions'][] = 'block__views__scheme_overview';
