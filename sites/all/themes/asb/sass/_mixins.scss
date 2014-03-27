@@ -94,6 +94,35 @@
   }
 }
 
+@mixin mini-pager {
+  $dimension: 13px;
+  li {
+    padding: 0;
+    a {
+      @include font-icon-base($font-size: 22px, $margin: 0, $width: $dimension, $align: center, $color: $even-backdrop);
+      &:before {
+        background: $text-color;
+        border-radius: 50%;
+        height: $dimension;
+        line-height: $dimension;
+      }
+    }
+    &.pager-previous a {
+      @extend %entypo-triangle-left;
+    }
+    &.pager-next a {
+      @extend %entypo-triangle-right;
+    }
+    &.pager-last {
+      display: none;
+    }
+    &.pager-current {
+      color: $text-color;
+      font-weight: normal;
+    }
+  }
+}
+
 @mixin hidden-text {
   font: 0/0 a;
   text-shadow: none;
