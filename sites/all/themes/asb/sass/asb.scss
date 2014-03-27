@@ -889,83 +889,6 @@ form .form-actions input{
 // User Dashboards
 // ////////////////////////////
 
-// .section-dashboard {
-//   #content {
-//     // @include zen-grid-container();
-//     #quicktabs-notifications,
-//     #quicktabs-schemes,
-//     #block-views-90f7e874863d363adf55056301e69084 {
-//       // @include zen-nested-container;
-//       // @include zen-clear(both); 
-//     }
-
-//     #quicktabs-notifications > div.item-list,
-//     #quicktabs-schemes > div.item-list {
-//       // width: 240px;
-//     }
-
-//     #quicktabs-notifications > div.item-list > ul,
-//     #quicktabs-schemes > div.item-list > ul,
-//     #quicktabs-schemes_for_schemers > div.item-list > ul {
-//       width: 240px;
-//     }
-
-//     #quicktabs-container-notifications,
-//     #quicktabs-container-schemes,
-//     #block-views-90f7e874863d363adf55056301e69084 > div.civicrm-contacts {
-//       // width: 75%;
-//       // @include zen-grid-item(6, 2);
-//     }
-//     #quicktabs-container-schemes,
-//     #block-views-90f7e874863d363adf55056301e69084 > div.civicrm-contacts {
-//       // @include zen-clear(); 
-//     }
-
-//     #quicktabs-container-schemes {
-//       @include box-sizing(content-box);
-//       // width: 73%;
-//     }
-
-//     // .block-quicktabs { //Row containers
-//     //   @include zen-nested-container;
-//     //   .item-list {
-//     //     // @include zen-grid-item(2, 0);
-//     //   }
-//     //   .quicktabs_main {
-//     //     // @include zen-grid-item(4, 2);
-//     //   }
-//     // }
-
-//     .quicktabs-style-asbtabs {
-//       .quicktabs_main { 
-//         background-color: transparent;
-//         border: none;
-//         border-left: {
-//           @include standard-border($width: 2px, $style: dashed);
-//         }
-//       }
-//       ul.quicktabs-tabs { // Tabs
-//         li {
-//           padding-bottom: .5em;
-//           a {
-//             text-align: inherit;
-//             @include body-text($size: 1.25em, $color: $text-color-secondary);
-//           }
-//           &.active {
-//             border: none;
-//             background: transparent;
-//             a {
-//               color: $accent;
-//             }
-//           }
-//         }
-//       }
-//     }
-
-//   }
-// }
-
-
 .section-dashboard {
   .quicktabs_main {
     padding-left: 20px;
@@ -1097,9 +1020,9 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
-      margin-left: 240px;
+      // margin-left: 240px;
       padding-left: 20px;
-      width: 76%;
+      // width: 76%;
     }
   }
 }
