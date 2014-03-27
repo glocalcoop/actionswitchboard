@@ -1086,9 +1086,7 @@ form .form-actions input{
 
   #block-views-90f7e874863d363adf55056301e69084 { // Civi contact block
     @include zen-clear;
-    // &>.civicrm-contacts {
 
-    // }
     .views-exposed-widget label,
     .views-widget {
       display: inline-block;
@@ -1099,7 +1097,7 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
-      margin-left: 240px;
+      margin-left: 20%;
       padding-left: 20px;
     }
   }
