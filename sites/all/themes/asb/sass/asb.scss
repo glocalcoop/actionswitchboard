@@ -1527,52 +1527,49 @@ form .form-actions input{
   text-align: left;
 }
 
-
-// #content div.wrapper section.main-content section.content dl.admin-list
-
 // Flexbox
 
-// div#quicktabs-notifications,
-// div#quicktabs-schemes { // wrapper - flex-box
-//   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-//   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-//   display: -ms-flexbox;      /* TWEENER - IE 10 */
-//   display: -webkit-flex;     /* NEW - Chrome */
-//   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+div#quicktabs-notifications,
+div#quicktabs-schemes { // wrapper - flex-box
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 
-//   &> div.item-list {  // tabs
-//     width: 20%;               /* For old syntax, otherwise collapses. */
-//   }
+  &> div.item-list {  // tabs
+    width: 20%;               /* For old syntax, otherwise collapses. */
+  }
 
-//   div#quicktabs-container-notifications,
-//   div#quicktabs-container-schemes,
-//   div#quicktabs-container-schemes_for_schemers { // main content
-//     -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-//     -moz-box-flex: 1;         /* OLD - Firefox 19- */
-//     width: 80%;               /* For old syntax, otherwise collapses. */
-//     -webkit-flex: 1;          /* Chrome */
-//     -ms-flex: 1;              /* IE 10 */
-//     flex: 1;    
+  div#quicktabs-container-notifications,
+  div#quicktabs-container-schemes,
+  div#quicktabs-container-schemes_for_schemers { // main content
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    width: 80%;               /* For old syntax, otherwise collapses. */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;    
 
-//     padding: 0;
+    // padding: 0;
 
-//     .view-filters {
-//       padding: 0 20px;
-//     }
-//   } 
-// }
+    .view-filters {
+      padding: 0 20px;
+    }
+  } 
+}
 
-// div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
-//   div.dashboard-contacts,
-//   &> .view {
-//     width: 80%;
-//     @include zen-float(right);
+div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
+  div.dashboard-contacts,
+  &> .view {
+    width: 80%;
+    @include zen-float(right);
 
-//     .view-filters {
-//       padding: 0 20px;
-//     }
-//   }
-// }
+    .view-filters {
+      padding: 0 20px;
+    }
+  }
+}
 
 // Hide the mark the permalink tags
 .permalink,
