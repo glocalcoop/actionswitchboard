@@ -2216,6 +2216,8 @@ li.sub-goal.sub-sub-goal {
   }
 }
 
+#edit-og-user > legend > span
+
 //Add members
 .page-group-node {
   #og-ui-add-users {
@@ -2223,11 +2225,14 @@ li.sub-goal.sub-sub-goal {
     .back-scheme {
       a {}
     }
+    #edit-og-user {
+      margin-top: 10px;
+      &> legend {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
-
-
-// html.js body.html div#page section#main div#content div.wrapper section.main-content form#og-ui-add-users div div.ui-button a
 
 // ////////////////////////////
 // Updates Page
