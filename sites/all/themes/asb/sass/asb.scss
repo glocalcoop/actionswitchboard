@@ -1060,8 +1060,17 @@ form .form-actions input{
       }
     }
     #block-asb-issues-goals-tree {
+      h3.issue-title {
+        @include body-text;
+        a { 
+          display: block; 
+          font-size: 1.2rem;
+          color: $accent;
+        }
+      }
       @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: $accent);
       ul {
+
         @include no-bullets;
         margin: 0;
         padding: 10px 5px 0 5px;
@@ -1095,6 +1104,8 @@ form .form-actions input{
     }
   }
 }
+
+// #block-asb-issues-goals-tree.block h3.issue-title a.issue-link
 
 .node-type-issue {
   #content {
