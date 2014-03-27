@@ -1020,6 +1020,9 @@ form .form-actions input{
       border-left: {
         @include standard-border($width: 2px, $style: dashed);
       }
+      &> .view-content {
+        padding-left: 20px;
+      }
     }
   }
 }
