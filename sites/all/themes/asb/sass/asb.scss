@@ -94,7 +94,8 @@ h4 {
 }
 
 .scheme-members,
-.privatemsg-message {
+.privatemsg-message,
+.section-dashboard {
   .user-picture img {
     height: 30px;
     width: 30px;
@@ -782,7 +783,6 @@ form .form-actions input{
       }
     }
   }
-  
   .user-profile {
 
     @include zigzag-border ($odd-backdrop, $even-backdrop);
@@ -837,8 +837,6 @@ form .form-actions input{
   }
 }
 
-
-.page-user,
 .section-user {
   #main {
     .tabs-secondary {
@@ -850,42 +848,27 @@ form .form-actions input{
       p {
         padding: 0 10px;
       }
-    }    
-  }
-  #block-views-467d272784c6e1a84b15cc4f6b486792,
-  #block-views-741a73ef0a114f623b54449caf2fc4fb {
-    background: $even-backdrop;
-    .scheme-collection {
-      @include zigzag-border ($even-backdrop, $odd-backdrop);
     }
   }
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935 {
-    background: $odd-backdrop;
-    @include zigzag-border ($even-backdrop, $odd-backdrop);
-  }
-  #block-views-467d272784c6e1a84b15cc4f6b486792,
-  #block-views-6d49aa04d92fbf681ed33c7a9575c935,
-  #block-views-741a73ef0a114f623b54449caf2fc4fb {
-    &.last {
-      background-image: none;
-      background-size: inherit;
-      .scheme-collection {
-        background-image: none;
-        background-size: inherit;
+  #content {
+    // #block-views-467d272784c6e1a84b15cc4f6b486792,
+    // #block-views-741a73ef0a114f623b54449caf2fc4fb,
+    // #block-views-997f8cf8c2d78c2a03a9bb156443c392
+    .block-views {
+      margin-bottom: 0;
+      &:nth-child(2) {
+        @include zigzag-border ($even-backdrop, $odd-backdrop);
       }
-      &.even {
+      &:nth-child(2),
+      &:last-child {
         background: $even-backdrop;
-        background-image: none;
-        background-size: inherit;
-        .scheme-collection {
-          background: transparent;
-          background-image: none;
-          background-size: inherit;
-        }
       }
-      &.odd {}
+      &:nth-child(3) {
+        @include zigzag-border ($odd-backdrop, $even-backdrop);
+      }
+      &:nth-child(4) {}
     }
-  }
+  }   
 }
 
 #content {
@@ -906,8 +889,87 @@ form .form-actions input{
 // User Dashboards
 // ////////////////////////////
 
-.page-facilitator-dashboard,
-.page-dashboard {
+// .section-dashboard {
+//   #content {
+//     // @include zen-grid-container();
+//     #quicktabs-notifications,
+//     #quicktabs-schemes,
+//     #block-views-90f7e874863d363adf55056301e69084 {
+//       // @include zen-nested-container;
+//       // @include zen-clear(both); 
+//     }
+
+//     #quicktabs-notifications > div.item-list,
+//     #quicktabs-schemes > div.item-list {
+//       // width: 240px;
+//     }
+
+//     #quicktabs-notifications > div.item-list > ul,
+//     #quicktabs-schemes > div.item-list > ul,
+//     #quicktabs-schemes_for_schemers > div.item-list > ul {
+//       width: 240px;
+//     }
+
+//     #quicktabs-container-notifications,
+//     #quicktabs-container-schemes,
+//     #block-views-90f7e874863d363adf55056301e69084 > div.civicrm-contacts {
+//       // width: 75%;
+//       // @include zen-grid-item(6, 2);
+//     }
+//     #quicktabs-container-schemes,
+//     #block-views-90f7e874863d363adf55056301e69084 > div.civicrm-contacts {
+//       // @include zen-clear(); 
+//     }
+
+//     #quicktabs-container-schemes {
+//       @include box-sizing(content-box);
+//       // width: 73%;
+//     }
+
+//     // .block-quicktabs { //Row containers
+//     //   @include zen-nested-container;
+//     //   .item-list {
+//     //     // @include zen-grid-item(2, 0);
+//     //   }
+//     //   .quicktabs_main {
+//     //     // @include zen-grid-item(4, 2);
+//     //   }
+//     // }
+
+//     .quicktabs-style-asbtabs {
+//       .quicktabs_main { 
+//         background-color: transparent;
+//         border: none;
+//         border-left: {
+//           @include standard-border($width: 2px, $style: dashed);
+//         }
+//       }
+//       ul.quicktabs-tabs { // Tabs
+//         li {
+//           padding-bottom: .5em;
+//           a {
+//             text-align: inherit;
+//             @include body-text($size: 1.25em, $color: $text-color-secondary);
+//           }
+//           &.active {
+//             border: none;
+//             background: transparent;
+//             a {
+//               color: $accent;
+//             }
+//           }
+//         }
+//       }
+//     }
+
+//   }
+// }
+
+
+.section-dashboard {
+  .quicktabs_main {
+    padding-left: 20px;
+  }
   .quicktabs-style-asbtabs {
     .quicktabs_main { 
       background-color: transparent;
@@ -917,6 +979,7 @@ form .form-actions input{
       }
     }
     ul.quicktabs-tabs { // Tabs
+      min-width: 150px;
       li {
         padding-bottom: .5em;
         a {
@@ -933,13 +996,13 @@ form .form-actions input{
       }
     }
   }
-
   #quicktabs-container-notifications,
   #quicktabs-container-schemes,
   #quicktabs-container-schemes_for_schemers,
   #block-views-90f7e874863d363adf55056301e69084 {
     min-height: 300px;
     overflow: hidden;
+    width: 76%;
 
     div.view-content,
     div.view-empty {
@@ -1002,31 +1065,22 @@ form .form-actions input{
       @extend %entypo-search;
     }
   }
-
-  .form-type-select {
-    .form-select {}  
-  }
   
   div.item-list {
     position: relative;
+    padding-top: 10px;
     ul.pager {
       position: absolute;
-      padding-top: 0;
       margin-top: 0;
       right: 0;
-      li {
-        padding: 0;
-        a {
-          @include font-icon-base($font-size: 3em, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
-        }
-        &.pager-previous a {
-          @extend %entypo-circled-left;
-        }
-        &.pager-current a {}
-        &.pager-next a {
-          @extend %entypo-circled-right;
-        }
-      }
+      @include mini-pager;
+    }
+  }
+  #block-views-scheme-list-for-users-block > .view-scheme-list-for-users > div.item-list,
+  #block-asb-message-pmessages > div.item-list,
+  #block-views-90f7e874863d363adf55056301e69084 > .civicrm-contacts > div.item-list {
+    border-top: {
+      @include standard-border;
     }
   }
 
@@ -1474,47 +1528,47 @@ form .form-actions input{
 
 // Flexbox
 
-div#quicktabs-notifications,
-div#quicktabs-schemes { // wrapper - flex-box
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+// div#quicktabs-notifications,
+// div#quicktabs-schemes { // wrapper - flex-box
+//   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+//   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+//   display: -ms-flexbox;      /* TWEENER - IE 10 */
+//   display: -webkit-flex;     /* NEW - Chrome */
+//   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 
-  &> div.item-list {  // tabs
-    width: 20%;               /* For old syntax, otherwise collapses. */
-  }
+//   &> div.item-list {  // tabs
+//     width: 20%;               /* For old syntax, otherwise collapses. */
+//   }
 
-  div#quicktabs-container-notifications,
-  div#quicktabs-container-schemes,
-  div#quicktabs-container-schemes_for_schemers { // main content
-    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 1;         /* OLD - Firefox 19- */
-    width: 80%;               /* For old syntax, otherwise collapses. */
-    -webkit-flex: 1;          /* Chrome */
-    -ms-flex: 1;              /* IE 10 */
-    flex: 1;    
+//   div#quicktabs-container-notifications,
+//   div#quicktabs-container-schemes,
+//   div#quicktabs-container-schemes_for_schemers { // main content
+//     -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+//     -moz-box-flex: 1;         /* OLD - Firefox 19- */
+//     width: 80%;               /* For old syntax, otherwise collapses. */
+//     -webkit-flex: 1;          /* Chrome */
+//     -ms-flex: 1;              /* IE 10 */
+//     flex: 1;    
 
-    padding: 0;
+//     padding: 0;
 
-    .view-filters {
-      padding: 0 20px;
-    }
-  } 
-}
+//     .view-filters {
+//       padding: 0 20px;
+//     }
+//   } 
+// }
 
-div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
-  div.dashboard-contacts,
-  &> .view {
-    width: 80%;
-    @include zen-float(right);
+// div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
+//   div.dashboard-contacts,
+//   &> .view {
+//     width: 80%;
+//     @include zen-float(right);
 
-    .view-filters {
-      padding: 0 20px;
-    }
-  }
-}
+//     .view-filters {
+//       padding: 0 20px;
+//     }
+//   }
+// }
 
 // Hide the mark the permalink tags
 .permalink,
@@ -1522,36 +1576,12 @@ mark.new {
   display: none;
 }
 
-// Pagers for all pages but the front page
-.not-front {
+// Mini Pager
+// Side pagers
+
+.not-front.one-sidebar {
   ul.pager {
-    li {
-      padding: 0;
-      a {
-        @include font-icon-base($font-size: 3rem, $margin: 0.1em, $width: .5em, $color: $text-color-secondary);
-      }
-      &.pager-previous a {
-        @extend %entypo-circled-left;
-      }
-      &.pager-current,
-      &.pager-last {
-        display: none;
-      }
-      &.pager-next a {
-        @extend %entypo-circled-right;
-      }
-      &.pager-item {
-        &:after {
-          content: ' | ';
-          &:last-child {
-            content: none;
-          }
-        }
-
-        a {}
-
-      }
-    }
+    @include mini-pager;
   }
 }
 
@@ -2091,18 +2121,19 @@ li.sub-goal.sub-sub-goal {
       #scheme-images-nav {
         @include zen-float(right);
 
-        a {
-          @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
-          &#scheme-images-previous {
-            @extend %entypo-circled-left;
-          }
-          &#scheme-images-next {
-            @extend %entypo-circled-right;
-          }
-          &:hover {
-            color: $brand;
-          }
-        }
+        // a {
+        //   @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
+
+        //   &#scheme-images-previous {
+        //     @extend %entypo-circled-left;
+        //   }
+        //   &#scheme-images-next {
+        //     @extend %entypo-circled-right;
+        //   }
+        //   &:hover {
+        //     color: $brand;
+        //   }
+        // }
       }
     }
 
