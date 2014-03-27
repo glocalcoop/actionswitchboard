@@ -352,102 +352,105 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
 }
 
-#main .scheme-collection {
-
-  position: relative;
-
-  .item-list {
+.front,
+.section-user {
+  #main .scheme-collection {
 
     position: relative;
-    display: block;
 
-    ul.pager {
-
-      li {
-        &.pager-current,
-        &.pager-item,
-        &.pager-first,
-        &.pager-last {
-          display: none;
-        }
-        a {
-          display: block;
-          height: $pager-height;          
-          line-height: $pager-height;
-        }
-        @include breakpoint( md ) {
-        }
-      }
-    }
-  } /* /.item-list */
-  @include breakpoint( md ) {
     .item-list {
+
+      position: relative;
+      display: block;
+
       ul.pager {
-        position: relative;
-        background: rgba( red, .2 );
-        max-width: 960px;
-        margin: 0 auto;
-        width: 100%;
+
         li {
-          position: absolute;
-          top: -405px; //$pager-vmargin;
+          &.pager-current,
+          &.pager-item,
+          &.pager-first,
+          &.pager-last {
+            display: none;
+          }
           a {
             display: block;
-            height: $pager-height;
-            width: $pager-width;
+            height: $pager-height;          
             line-height: $pager-height;
-            font-size: 0;
-            color: $rules-color;
-          }     
-          &.pager-next {
-            right: $pager-hmargin;
-            a {
-              @include replace-text($next-image);
-              text-indent: 0 !important;
-            }
           }
-          &.pager-previous {
-            left: $pager-hmargin;
-            a {
-              @include replace-text($previous-image);
-              text-indent: 0 !important;
-            }
+          @include breakpoint( md ) {
           }
         }
       }
-    }    
-  }
-  @include breakpoint( md, max-width ) {
-
-    .item-list {
-      ul.pager {
-        li {
-          margin-bottom: 1em;
-          @include box-sizing( border-box );
-          display: inline-block;
-          float: left;
-          &.pager-previous,
-          &.pager-next {
-            padding: .25em .5;
-            font-size: 1.25em;
-            background-repeat: no-repeat;
-            @include box-sizing( border-box );
-          }
-          &.pager-previous {
-            padding-left: 2em;
-            background-image: $previous-image;
-          }
-          &.pager-next {
-            padding-right: 2em;
-            background-image: $next-image;
-            background-position: right top;
+    } /* /.item-list */
+    @include breakpoint( md ) {
+      .item-list {
+        ul.pager {
+          position: relative;
+          background: rgba( red, .2 );
+          max-width: 960px;
+          margin: 0 auto;
+          width: 100%;
+          li {
+            position: absolute;
+            top: -405px; //$pager-vmargin;
+            a {
+              display: block;
+              height: $pager-height;
+              width: $pager-width;
+              line-height: $pager-height;
+              font-size: 0;
+              color: $rules-color;
+            }     
+            &.pager-next {
+              right: $pager-hmargin;
+              a {
+                @include replace-text($next-image);
+                text-indent: 0 !important;
+              }
+            }
+            &.pager-previous {
+              left: $pager-hmargin;
+              a {
+                @include replace-text($previous-image);
+                text-indent: 0 !important;
+              }
+            }
           }
         }
-      }      
+      }    
     }
-  }
+    @include breakpoint( md, max-width ) {
 
-} /* /.#main .scheme-collection */
+      .item-list {
+        ul.pager {
+          li {
+            margin-bottom: 1em;
+            @include box-sizing( border-box );
+            display: inline-block;
+            float: left;
+            &.pager-previous,
+            &.pager-next {
+              padding: .25em .5;
+              font-size: 1.25em;
+              background-repeat: no-repeat;
+              @include box-sizing( border-box );
+            }
+            &.pager-previous {
+              padding-left: 2em;
+              background-image: $previous-image;
+            }
+            &.pager-next {
+              padding-right: 2em;
+              background-image: $next-image;
+              background-position: right top;
+            }
+          }
+        }      
+      }
+    }
+  } /* /.#main .scheme-collection */
+}
+
 
 .not-front {
   #content {
