@@ -610,6 +610,7 @@ function asb_js_alter( &$page ){
   $scripts = drupal_add_js();
   $chosen_path = drupal_get_path('module', 'chosen');
   $asb_theme_path = drupal_get_path('theme', 'asb');
+
   // remove chosen, we need it to come in after our js, 
   // (which builds out some progressive enhancement form elements)
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
@@ -620,10 +621,13 @@ function asb_js_alter( &$page ){
   // add our theme script (which builds out the infinite scroll pager)
   drupal_add_js( $asb_theme_path . '/js/scripts.js' );
   // then we load chosen back in
-  drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
+  drupal_add_js(libraries_get_path('chosen') . '/chosen.jquery.min.js');
+  // drupal_add_js( "sites/all/libraries/chosen/chosen.jquery.min.js" );
   drupal_add_js( $chosen_path .'/chosen.js' );
   // and clamp.js
   drupal_add_js( $asb_theme_path .'/js/clamp.js' );
+  // and autopager.js
+  drupal_add_js(libraries_get_path('autopager') . '/jquery.autopager-1.0.0.js');
 }
 
 function asb_preprocess_region(&$variables, $hook) {
