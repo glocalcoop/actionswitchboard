@@ -2125,7 +2125,7 @@ li.sub-goal.sub-sub-goal {
 // ////////////////////////////
 // Scheme Member Management
 // ////////////////////////////
-
+// html.js body.html div#page section#main div#content div.wrapper section.main-content div#scheme-content div.view div.view-footer div#add-people a
 .page-group-node,
 .page-node-group {
   #content {
@@ -2177,6 +2177,14 @@ li.sub-goal.sub-sub-goal {
         }
       }
     }
+    .view-footer {
+      margin-top: 10px;
+      #add-people {
+        a {
+          @include button($height: 30px, $font-size: $h3-font-size + 6px);
+        }
+      }
+    }
     dl.admin-list {
       dt {
         margin-top: 10px;
@@ -2207,6 +2215,19 @@ li.sub-goal.sub-sub-goal {
     }
   }
 }
+
+//Add members
+.page-group-node {
+  #og-ui-add-users {
+    margin-top: 10px;
+    .back-scheme {
+      a {}
+    }
+  }
+}
+
+
+// html.js body.html div#page section#main div#content div.wrapper section.main-content form#og-ui-add-users div div.ui-button a
 
 // ////////////////////////////
 // Updates Page
