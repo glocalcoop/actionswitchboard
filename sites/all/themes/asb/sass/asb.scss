@@ -389,7 +389,8 @@ $headers: sprite-map("headers/*.png", $position: -4px);
     }
   }
   #block-views-6d49aa04d92fbf681ed33c7a9575c935,
-  #block-views-741a73ef0a114f623b54449caf2fc4fb {
+  #block-views-741a73ef0a114f623b54449caf2fc4fb,
+  #block-views-997f8cf8c2d78c2a03a9bb156443c392 {
     h2.block-title {
       @extend .headers-added;
       background-position: sprite-position( $headers, following, 0, -2px);
