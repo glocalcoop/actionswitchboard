@@ -390,8 +390,8 @@ function asb_preprocess_node_scheme(&$variables, $hook) {
     // the node object.
     $view = views_get_view('scheme_overview_filtered');
     $view->set_display('block_6');
-    if(isset($variables['node']->field_issues_goals[0]['target_id'])) {
-      $a = $variables['node']->field_issues_goals[0]['target_id'];
+    if(isset($variables['node']->field_issues_goals['und'][0]['target_id'])) {
+      $a = $variables['node']->field_issues_goals['und'][0]['target_id'];
       $view->set_arguments(array($a));
       $view->execute();
     }
