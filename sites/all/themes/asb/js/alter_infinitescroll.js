@@ -100,7 +100,7 @@ Drupal.behaviors.views_infinite_scroll = {
         }
       }
     } else {
-      alert(Drupal.t('Autopager jquery plugin in not loaded.'));
+      console.log(Drupal.t('Autopager jquery plugin is not loaded.'));
     }
   }
 }
