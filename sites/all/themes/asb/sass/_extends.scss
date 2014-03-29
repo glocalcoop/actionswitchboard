@@ -1,11 +1,11 @@
 %fullwidth {
-	width: 100% !important;
+  width: 100% !important;
 }
 
 %full-centered {
-	width: 100%;
-	@include breakpoint( md ){
-		max-width: $screen-md;
-	}
-	margin: 0 auto;
+  width: 100%;
+  @include breakpoint( md ){
+    max-width: $screen-md;
+  }
+  margin: 0 auto;
 }

@@ -15,6 +15,11 @@
           $(window).resize();
         });
 
+        $('a[title="Request Membership"]').click( function(e){
+          $("#modalContent").addClass('request-membership');
+          // $(window).resize();
+        });
+
         asb.search_visibility_toggle( context, settings );
         asb.enhance_search();
 
@@ -22,10 +27,10 @@
           console.log("append_pager");
           asb.modify_append_pager();
         }
+
         if( $(".scheme-collection") ){
           asb.scheme_overviews_clamp_descriptions();
         }
-
 
         if( $(".page-user-messages") ){
           asb.highlight_new_messages();

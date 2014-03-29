@@ -12,27 +12,36 @@
 
 $header-font-family: League, Helvetica, sans;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-.modal-update-title,
-#modal-title {
+%header {
   text-transform: uppercase;
   color: $text-color-prominent;
   font-family: $header-font-family;
   font-weight: $header-font-weight;
 }
 
-  h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+#modal-title {
+  @extend %header;
+}
+
+%h2 {
+  @extend %header;
+  font-size: $h2-font-size;
+}
+
+h1 {
   font-size: $h1-font-size;
 }
 
+h2,
 .modal-update-title,
 #modal-title,
-h2 {
-  font-size: $h2-font-size;
+#og-ui-confirm-subscribe .fieldset-legend {
+  @extend %h2;
 }
 
 h3 {

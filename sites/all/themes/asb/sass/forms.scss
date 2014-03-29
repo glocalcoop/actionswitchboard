@@ -897,3 +897,24 @@ td.menu-disabled {
   margin-right: 5%;
   display: inline-block;
 }
+
+// request membership modal
+.request-membership {
+  .modal-head-wrapper {
+    display:none;
+  }
+  div.ctools-modal-content .form-item label {
+    width: auto;
+  }
+  #edit-skills {
+    .form-item {
+      display: inline-block;
+      margin-right: .5em;
+      margin-bottom: .25em;
+      padding: .5em .75em;
+      border-radius: .25em;
+      background: rgba(black,.1);
+    }
+  }
+}
+
