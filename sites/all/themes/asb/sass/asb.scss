@@ -1046,10 +1046,18 @@ form .form-actions input{
         }
       }   
       h2.block-title {
-        border-top: { @include standard-border; }
+        // border-top: { @include standard-border; }
       }
       .block-views {
         margin-top: 10px;
+        padding-top: 10px;
+        border-top: { @include standard-border; }
+        position: relative;
+        .item-list {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
       }
     }
 
@@ -1071,7 +1079,6 @@ form .form-actions input{
       }
       @include standard-links ($color: $text-color-prominent, $vcolor: $text-color-prominent, $hcolor: $accent);
       ul {
-
         @include no-bullets;
         margin: 0;
         padding: 10px 5px 0 5px;
@@ -1105,8 +1112,6 @@ form .form-actions input{
     }
   }
 }
-
-// #block-asb-issues-goals-tree.block h3.issue-title a.issue-link
 
 .node-type-issue {
   #content {
