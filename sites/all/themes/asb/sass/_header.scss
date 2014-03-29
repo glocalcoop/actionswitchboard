@@ -439,9 +439,9 @@
   position: absolute;
   top: -0.25em;
   letter-spacing: .05em;
-  .front & {
-    right: 0.425em;
-  }
+  // .front & {
+  //   right: 0.425em;
+  // }
   .not-front & {
     right: -0.875em;
   }
