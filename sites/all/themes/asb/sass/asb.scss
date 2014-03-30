@@ -1047,11 +1047,12 @@ form .form-actions input{
           display: block;
           @include body-text;
         }
-      }   
-      h2.block-title {
-        // border-top: { @include standard-border; }
       }
-      .block-views {
+      h2.block-title {
+        @include header-style;
+      }
+      .block-views,
+      .view-scheme-overview-filtered {
         margin-top: 10px;
         padding-top: 10px;
         border-top: { @include standard-border; }
@@ -1060,6 +1061,27 @@ form .form-actions input{
           position: absolute;
           top: 10px;
           right: 10px;
+        }
+      }
+      #block-views-66bdec9b9f4ce57f714b9d45808dd248 {
+        .view-id-scheme_overview_filtered {
+          margin-top: 0;
+          padding-top: 0;
+        }
+      }
+    }
+    .scheme-collection {
+      .view-content {
+        .views-row {
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
+          &.views-row-first.views-row-last {
+            padding-right: 10px;
+          }
         }
       }
     }
@@ -1132,6 +1154,9 @@ form .form-actions input{
       &:before {
         content: 'Goal';
       }
+    }
+    .view-content {
+
     }
   } 
 }
@@ -1524,7 +1549,6 @@ mark.new {
 }
 
 // Mini Pager
-// Side pagers
 
 .not-front.one-sidebar {
   ul.pager {
