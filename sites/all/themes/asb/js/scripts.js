@@ -19,7 +19,7 @@
       console[method] = noop;
     }
   }
-}());
+})();
 
 ( function($) {
   
