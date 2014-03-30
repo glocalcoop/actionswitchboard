@@ -62,6 +62,10 @@ Drupal.behaviors.views_infinite_scroll = {
               load: function( current, next ) {
                 Drupal.attachBehaviors(this);
                 spinner.fadeOut();
+                if( $(".scheme-collection") ){
+                  asb.scheme_overviews_clamp_descriptions();
+                }
+
                 if(!next || next.url == undefined ) {
                   load_more_button.addClass('no-more-results');
                   load_more_button.unbind( 'click' );
