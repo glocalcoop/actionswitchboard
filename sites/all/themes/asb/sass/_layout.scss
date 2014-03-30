@@ -134,9 +134,9 @@ aside.scheme-meta {
   /* ------------------------------------------------ */
   /* Elements that should span 100% of the page width */
   /* ------------------------------------------------ */
-  .not-front.page-node #content,
-  .not-front.page-user #content,
-  .not-front.page-node-edit #content {
+  .page-node #content,
+  .page-user #content,
+  .page-node-edit #content {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -344,6 +344,11 @@ aside.scheme-meta {
 // Centering content          
 //
 
+.page-user-register #user-register-form {
+  display: block;
+}
+
+.page-user-register #user-register-form,
 // center the site masthead
 #header .content,
 // search container
