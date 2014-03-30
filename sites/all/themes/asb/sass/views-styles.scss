@@ -149,11 +149,24 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 // /////////////////////////////
 
 // last scheme collection has border that blends into the footer
-// filtered by children of .main-content or #content
+// filtered by children of #content
 
 // Home page only
 .front {
   #content .scheme-collection {
+    &:nth-child(even) {
+      @include zigzag-border ($even-backdrop, $odd-backdrop );
+      background-color: $even-backdrop;
+    }
+    &:nth-child(odd) {
+      @include zigzag-border ($odd-backdrop, $even-backdrop);
+      background-color: $odd-backdrop;
+    }
+  }
+}
+
+.page-user {
+  #content>.block-views{
     &:nth-child(even) {
       @include zigzag-border ($even-backdrop, $odd-backdrop );
       background-color: $even-backdrop;
@@ -176,15 +189,27 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   }
 }
 
-  .section-location,
-  .section-goals,
-  .section-issue,
-  .view-empty {
-    .scheme-collection {
-      border: none !important;
-      background-image: none !important;
-    }
+
+.page-user #content>.block-views:last-child {
+  &:nth-child(even) {
+    @include zigzag-border ($even-backdrop, $backdrop);
+    background-color: $even-backdrop;
   }
+  &:nth-child(odd) {
+    @include zigzag-border ($odd-backdrop, $backdrop);
+    background-color: $odd-backdrop;
+  }
+}
+
+.section-location,
+.section-goals,
+.section-issue,
+.view-empty {
+  .scheme-collection {
+    border: none !important;
+    background-image: none !important;
+  }
+}
 
 
 // /////////////////////////////

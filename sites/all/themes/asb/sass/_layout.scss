@@ -40,9 +40,13 @@
 }
 
 .front #main,
-.page-user,
+.page-user #main,
 .page-schemes #main {
   padding-bottom: 0;
+}
+
+#user-content {
+  margin-top: 2em;
 }
 
 // Create a scheme has different background color
@@ -91,6 +95,10 @@
     @include zen-grid-item(2, 6);
     @include box-sizing(content-box);
   }
+}
+
+.page-user #content>.block-views {
+  padding-top: 1.25em !important;
 }
 
 aside.scheme-meta {
