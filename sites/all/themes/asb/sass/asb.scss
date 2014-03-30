@@ -35,8 +35,8 @@ html, p {
   margin-bottom: 0;
 }
 
-span.screen-reader-text {
-  display: none;
+.screen-reader-text {
+  @include offscreen;
 }
 
 .view-empty {
@@ -535,9 +535,6 @@ ul li.ui-button .field-group-group a.ctools-use-modal:before {
   .edit .page-header {
     .content {
       padding-top: 1.25em !important;      
-    }
-    .user-meta,
-    .scheme-meta {
     }
   }
 
@@ -2126,9 +2123,10 @@ li.sub-goal.sub-sub-goal {
   /* ----------------------- */
 
     #outer-carousel-wrapper {
-      max-height: 380px;
-      position: relative;
-      overflow: hidden;
+      max-height: 420px;
+      max-width: 665px;
+      // position: relative;
+      // overflow: hidden;
       #carousel-wrapper {
         z-index: -1;
         position: relative;
@@ -2146,21 +2144,22 @@ li.sub-goal.sub-sub-goal {
       }
 
       #scheme-images-nav {
-        @include zen-float(right);
 
-        // a {
-        //   @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
+        @include pie-clearfix;
+        float: right;
+        a {
+          @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
 
-        //   &#scheme-images-previous {
-        //     @extend %entypo-circled-left;
-        //   }
-        //   &#scheme-images-next {
-        //     @extend %entypo-circled-right;
-        //   }
-        //   &:hover {
-        //     color: $brand;
-        //   }
-        // }
+          &#scheme-images-previous {
+            @extend %entypo-circled-left;
+          }
+          &#scheme-images-next {
+            @extend %entypo-circled-right;
+          }
+          &:hover {
+            color: $brand;
+          }
+        }
       }
     }
 
