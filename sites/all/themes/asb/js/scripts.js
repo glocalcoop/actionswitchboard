@@ -33,15 +33,19 @@
         $('.login-normal').remove();
         $('.login-modal').show();
 
-        $(".login-link.ctools-use-modal").click( function(e){
-          $("#modalContent").addClass('login');
-          $(window).resize();
-        });
+        if( $(".login-link.ctools-use-modal").length ){
+          $(".login-link.ctools-use-modal").click( function(e){
+            $("#modalContent").addClass('login');
+            $(window).resize();
+          });
+        }
 
-        $('a[title="Request Membership"`]').click( function(e){
-          $("#modalContent").addClass('request-membership');
-          // $(window).resize();
-        });
+        if( $('a[title="Request Membership"]').length ){
+          $('a[title="Request Membership"]').click( function(e){
+            $("#modalContent").addClass('request-membership');
+            // $(window).resize();
+          });
+        }
 
         asb.search_visibility_toggle( context, settings );
         asb.enhance_search();
