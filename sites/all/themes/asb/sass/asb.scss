@@ -91,10 +91,15 @@ h4 {
     width: 50px;
   }
 }
-.scheme-members,
 .privatemsg-message,
 .section-dashboard {
   .user-picture img {
+    height: 30px;
+    width: 30px;
+  }
+}
+.scheme-members {
+  img {
     height: 30px;
     width: 30px;
   }
