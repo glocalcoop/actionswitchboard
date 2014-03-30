@@ -162,6 +162,18 @@ aside.scheme-meta {
     @include zen-grid-item(6,0);
     margin-left: 0;
   }
+
+  .section-scheme {
+    #sidebar {
+      margin-top: 0em;
+    }
+    .edit #sidebar {
+      margin-top: 4.75em;
+      .block-asb-scheme-group-info {
+        margin-top: 0 !important;
+      }
+    }
+  }
 }
 
 /* ------------------------ */
