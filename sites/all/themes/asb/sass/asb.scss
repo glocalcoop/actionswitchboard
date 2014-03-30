@@ -508,12 +508,41 @@ ul li.ui-button .field-group-group a.ctools-use-modal:before {
   }
 }
 
-aside.scheme-meta {
-  h6 {
-    padding: 0;
-    margin: 0;
+//////////////////////////////
+// Scheme Meta, User Meta
+//
+.page-user,
+.node-type-scheme {
+  
+  .page-header {
+    .content {
+      padding-top: 2.075em !important;
+    }
+    .methods {
+      padding-top: .75em;
+      @include zen-float(right);
+    }
   }
+
+  .user-meta,
+  .scheme-meta {
+    h6 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .edit .page-header {
+    .content {
+      padding-top: 1.25em !important;      
+    }
+    .user-meta,
+    .scheme-meta {
+    }
+  }
+
 }
+
 
 
 //Lists
@@ -629,12 +658,12 @@ ul.tags {
 .page-user {
   #content {
     header {
-      section.content {}
+      // section.content {}
       aside {
         border-left: {
           @include standard-border($style: dashed);
         }
-        padding: 1.25em 10px;
+        padding: 2.25em 10px;
 
         &.scheme-meta,
         &.user-meta {
@@ -681,20 +710,26 @@ form .form-actions input{
 }
 
 .icon.edit {
-  position: relative;
+  // position: relative;
+  margin-top: 1em;
   display: inline-block;
-  left: -3em;
-  top: 5em;
+  top: .5em;
+  left: -.5em;
+  // left: -3em;
+  top: .5em;
+  margin-bottom: -.5em; 
   span {
     display: none;
   }
   &::before {
     font-size: 1em;
     margin: 0;
-    width: 1.25em;
+    width: 3em;
     height: 1em;
-    line-height: 1 !important;
-    border-radius: 1.25em;
+    line-height: 1em;
+    // line-height: -1.5 !important;
+    // padding-bottom:.25em;
+    border-radius: 1.5em;
     text-align: center !important;
     vertical-align: middle;
   }
@@ -1610,11 +1645,6 @@ li.sub-goal.sub-sub-goal {
 }
 
 .node-type-scheme {
-  header {
-    section.methods {
-      @include zen-float(right);
-    }
-  }
 
   h3.field-label {
     font-size: 1em;
@@ -1648,7 +1678,7 @@ li.sub-goal.sub-sub-goal {
       border-top: {
         @include standard-border;
       }
-      margin-top: 10px;
+      // margin-top: 10px;
       p, li {
         @include body-text ($family: $font-body, $size: $base-font-size + 3, $line-height: 1.75em );
       }
