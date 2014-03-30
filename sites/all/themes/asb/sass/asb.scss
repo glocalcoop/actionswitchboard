@@ -2124,9 +2124,10 @@ li.sub-goal.sub-sub-goal {
 
     #outer-carousel-wrapper {
       max-height: 420px;
-      max-width: 665px;
+      // max-width: 665px;
       // position: relative;
       // overflow: hidden;
+      margin-bottom: 20px;
       #carousel-wrapper {
         z-index: -1;
         position: relative;
@@ -2148,18 +2149,36 @@ li.sub-goal.sub-sub-goal {
         @include pie-clearfix;
         float: right;
         a {
-          @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
-
+          $dimension: 13px;
+          @include font-icon-base($font-size: 22px, $margin: 0, $width: $dimension, $align: center, $color: $even-backdrop);
+          &:before {
+            background: $text-color;
+            border-radius: 50%;
+            height: $dimension;
+            line-height: $dimension;
+          }
           &#scheme-images-previous {
-            @extend %entypo-circled-left;
+            @extend %entypo-triangle-left;
+            padding-right: 10px;
           }
           &#scheme-images-next {
-            @extend %entypo-circled-right;
-          }
-          &:hover {
-            color: $brand;
+            @extend %entypo-triangle-right;
           }
         }
+
+        // a {
+        //   @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
+
+        //   &#scheme-images-previous {
+        //     @extend %entypo-circled-left;
+        //   }
+        //   &#scheme-images-next {
+        //     @extend %entypo-circled-right;
+        //   }
+        //   &:hover {
+        //     color: $brand;
+        //   }
+        // }
       }
     }
 
