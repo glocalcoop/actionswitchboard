@@ -193,11 +193,11 @@ aside.scheme-meta {
     position: relative;
     @include box-sizing( border-box );
     padding-left: 150px;
-    .form-field-type-text-long,
-    .form-type-textfield,
-    .form-wrapper {
-      max-width: 500px;
-    }
+    // .form-field-type-text-long,
+    // .form-type-textfield {
+    // .form-wrapper {
+    //   max-width: 500px;
+    // }
   }
 }
 

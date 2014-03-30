@@ -891,11 +891,24 @@ td.menu-disabled {
 
 
 // add scheme
-.page-node-add-scheme .edit-field-issues-goals-und {
-  float: left;
-  width:40%;
-  margin-right: 5%;
-  display: inline-block;
+.page-node-add-scheme {
+  #content form{
+    font-size: 1.2rem;
+  }
+  #edit-field-issues-goals-und {
+    @include pie-clearfix;
+    .description {
+      @include pie-clearfix;    
+    }
+    .form-item{
+      float: left;
+      width: 28%;
+      margin-right: 3%;
+      display: inline-block;
+      margin-bottom: .5em;
+      line-height: 1.5;
+    }
+  }
 }
 
 // request membership modal
