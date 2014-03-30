@@ -5,7 +5,7 @@
 var views_infinite_scroll_was_initialised = false;
 Drupal.behaviors.views_infinite_scroll = {
   attach:function( context, settings ) {
-    console.log( 'alter_infinitescroll.js', context, settings, Drupal );
+    // console.log( 'alter_infinitescroll.js', context, settings, Drupal );
     // Make sure that autopager plugin is loaded
     if($.autopager) {
       if(!views_infinite_scroll_was_initialised) {

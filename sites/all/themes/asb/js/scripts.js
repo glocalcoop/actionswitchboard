@@ -51,7 +51,6 @@
         asb.enhance_search();
 
         if( $("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered") ){
-          console.log("append_pager");
           asb.modify_append_pager();
         }
 
@@ -86,7 +85,6 @@
 
   Drupal.theme.prototype.CToolsModalDialog = function () {
     // console.log(Drupal.settings.asb_modal.types);
-    console.log("asb_modal");
     var html = '';
     html += '<div id="ctools-modal" class="popups-box">';
     html += '   <div class="ctools-modal-content ctools-modal-asb-modal-update">';
@@ -199,7 +197,7 @@
 
   asb.modify_append_pager = function() {
 
-    console.log( "asb.modify_append_pager" );
+    // console.log( "asb.modify_append_pager" );
     var infiniteScrollPager = $('#add_page_scroll_wrapper');
 
     var issues_filter = $('<div id="issues_filter"></div>');
