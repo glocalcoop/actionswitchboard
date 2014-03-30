@@ -1161,6 +1161,32 @@ form .form-actions input{
   } 
 }
 
+// Submit a Goal Confirm
+
+.section-goal {
+  .page-header {
+    mark.unpublished { display: none; }
+  }
+  .node-unpublished {
+    background-color: transparent;
+    margin-top: 10px;
+    #node-content {
+      padding: 0 !important;
+      p {
+        @include body-text($size: $base-font-size +4, $line-height: 2rem);
+      }
+      h3.field-label {
+        margin-bottom: 0;
+      }
+      .field-scheme-goals-taxonomy {
+        @include body-text($size: $base-font-size +4, $line-height: 2rem);
+        a {}
+      }
+    }
+  }
+}
+
+
 // ///////////////////////
 // Node Add
 // ///////////////////////
