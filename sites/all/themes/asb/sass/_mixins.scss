@@ -94,8 +94,7 @@
   }
 }
 
-@mixin mini-pager {
-  $dimension: 13px;
+@mixin mini-pager( $dimension: 13px ) {
   li {
     padding: 0;
     a {
