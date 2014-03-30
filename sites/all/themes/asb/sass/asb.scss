@@ -317,7 +317,7 @@ h4 {
   .views-exposed-form {
     // display: block;
     @include transition-property(opacity);
-    @include transition-duration(2s);
+    @include transition-duration(.25s);
     @include transition-timing-function(ease-out-expo);    
   }
   &.atrest {
