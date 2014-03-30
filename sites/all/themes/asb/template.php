@@ -167,7 +167,7 @@ function asb_preprocess_page(&$variables, $hook) {
 // */
 function asb_preprocess_page(&$variables, $hook) {
   
-  $variables['global_donate'] = '<div id="donate-positioning-wrapper"><a href="#" id="global-donate" title="Help keep the action switchboard running!">Donate</a></div>';
+  $variables['global_donate'] = '<div id="donate-positioning-wrapper"><a href="http://yeslab.org/donate-to-asb" id="global-donate" title="Help keep the action switchboard running!">Donate</a></div>';
 
   if(arg(2) == 'edit' && isset($variables['node'])) {
     /* $suggests = &$variables['theme_hook_suggestions']; */
