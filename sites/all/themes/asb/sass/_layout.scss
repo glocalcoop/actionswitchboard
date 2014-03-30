@@ -30,6 +30,7 @@
 
 .not-front #main {
   // @include clearfix;
+  min-height: 30em;
   position: relative;
   top: 0;
   @include breakpoint( md ){
@@ -37,16 +38,6 @@
     margin-bottom: -20px;
   }
   @include zigzag-border ($odd-backdrop, $backdrop);
-}
-
-.front #main,
-.page-user #main,
-.page-schemes #main {
-  padding-bottom: 0;
-}
-
-#user-content {
-  margin-top: 2em;
 }
 
 // Create a scheme has different background color
@@ -67,6 +58,23 @@
     top: 83px;
     margin-bottom: 83px;
   }
+}
+
+#user-content {
+  margin-top: 2em;
+}
+
+.front #main,
+.page-user #main,
+.page-schemes #main {
+  padding-bottom: 0;
+}
+
+.not-logged-in.page-user #main,
+.page-user-password #main {
+  top: 0;
+  margin-bottom: 0;
+  padding-bottom: 3em;
 }
 
 #main #content .wrapper{
@@ -364,10 +372,12 @@ aside.scheme-meta {
 // Centering content          
 //
 
+.page-user-password #user-pass,
 .page-user-register #user-register-form {
   display: block;
 }
 
+.page-user-password #user-pass,
 .page-user-register #user-register-form,
 // center the site masthead
 #header .content,
