@@ -6,6 +6,23 @@
 	z-index: 1100;
 }
 
+%modal-close {
+		@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
+		@extend %entypo-circled-cross;
+		// overflow: visible ;
+		float: right;
+		position: relative;
+		right: -0.5em;
+		top: -2.5em;
+		color: $accent !important;
+		display: block;
+		cursor: pointer;
+		span {
+			display: none;
+		}	
+}
+
+
 .ctools-modal-content {
 
 	border: none !important;
@@ -42,7 +59,26 @@
 		overflow: visible !important;
 		height: auto !important;
 		.modal-header {
+			background: $panel;
 			width: auto;
+			.close { 
+				@extend %modal-close;
+				text-indent: none;
+				background-image: none;
+				top: -1.5em;
+				background: $panel;
+				border-radius: 1em;
+				right: -1.5em;
+				position: relative;
+				overflow: hidden;
+				&::before {
+					text-indent: 0;
+					position: absolute;
+					left: 0;
+					top: -.225em;
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -58,18 +94,7 @@
 			display: none;
 		}
 		.close { 
-			@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
-		  @extend %entypo-circled-cross;
-		  float: right;
-		  position: relative;
-		  right: -0.5em;
-		  top: -2.5em;
-		  color: $accent;
-		  display: inline-block;
-		  cursor: pointer;
-		  span {
-		  	display: none;
-		  }
+			@extend %modal-close;
 		}
 	}
 
