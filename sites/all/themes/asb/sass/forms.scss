@@ -917,6 +917,9 @@ td.menu-disabled {
   .modal-head-wrapper {
     // display:none;
   }
+  #modal-content {
+    height: auto !important;
+  }
   div.ctools-modal-content .form-item label {
     width: auto;
   }

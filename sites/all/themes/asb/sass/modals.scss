@@ -43,12 +43,14 @@
 		border: none !important;
 	}
 	
+	.modal-header,
 	.modal-head-wrapper {
 		z-index: 5;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
 		}
+		.popus-close,
 		a.close { 
 			@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
 		  @extend %entypo-circled-cross;
