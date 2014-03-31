@@ -1,0 +1,323 @@
+/**
+ * @file
+ * Block Styling
+ */
+/*@import "font-icons";*/
+/* line 9, ../sass/blocks.scss */
+.block {
+  /* Block wrapper */
+  margin-bottom: 6px;
+}
+
+/* line 15, ../sass/blocks.scss */
+aside section.sidebar {
+  margin-top: 2.5em;
+}
+
+/* line 21, ../sass/blocks.scss */
+aside .block {
+  /* Block wrapper */
+  padding: 12px;
+  background: #ebebeb;
+  color: #414042;
+}
+/* line 26, ../sass/blocks.scss */
+aside .block .view-scheme-members div.view-header p {
+  border: none;
+}
+/* line 29, ../sass/blocks.scss */
+aside .block h6 {
+  color: #414042;
+  margin-bottom: 0;
+}
+/* line 32, ../sass/blocks.scss */
+aside .block h6:first-letter {
+  font-size: 29.4284px;
+}
+/* line 36, ../sass/blocks.scss */
+aside .block .view-header h3 {
+  margin: 0;
+  padding-top: 10px;
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: bold;
+  line-height: 16.4px;
+  text-transform: uppercase;
+}
+/* line 48, ../sass/blocks.scss */
+aside #needs a#bigbutton {
+  display: inline-block;
+  padding: 0 20px;
+  height: 58px;
+  line-height: 58px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 33.4284px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+/* line 319, ../sass/_mixins.scss */
+aside #needs a#bigbutton:hover, aside #needs a#bigbutton:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 53, ../sass/blocks.scss */
+aside #needs #needs-skills a#bigbutton {
+  background: #912a1b;
+}
+/* line 58, ../sass/blocks.scss */
+aside #needs #needs-supplies a#bigbutton {
+  background: #56cbc8;
+}
+/* line 63, ../sass/blocks.scss */
+aside #needs #needs-funds a#bigbutton {
+  background: #5fc86c;
+}
+/* line 71, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute {
+  margin-bottom: 6px;
+}
+/* line 74, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer,
+aside .block-views .view-scheme-contribute .donate-button {
+  clear: left;
+  width: 100%;
+}
+/* line 77, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer p,
+aside .block-views .view-scheme-contribute .donate-button p {
+  margin-bottom: 0;
+}
+/* line 80, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer a,
+aside .block-views .view-scheme-contribute .donate-button a {
+  display: block;
+  padding: 0 20px;
+  height: 58px;
+  line-height: 58px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 33.4284px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 319, ../sass/_mixins.scss */
+aside .block-views .view-scheme-contribute .view-footer a:hover, aside .block-views .view-scheme-contribute .view-footer a:focus,
+aside .block-views .view-scheme-contribute .donate-button a:hover,
+aside .block-views .view-scheme-contribute .donate-button a:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 83, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer.skills a,
+aside .block-views .view-scheme-contribute .donate-button.skills a {
+  background: #912a1b;
+}
+/* line 86, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer.supplies a,
+aside .block-views .view-scheme-contribute .donate-button.supplies a {
+  background: #56cbc8;
+}
+/* line 89, ../sass/blocks.scss */
+aside .block-views .view-scheme-contribute .view-footer.funds a,
+aside .block-views .view-scheme-contribute .donate-button.funds a {
+  background: #5fc86c;
+}
+/* line 98, ../sass/blocks.scss */
+aside #block-views-scheme-contribute-block div.donate-button a,
+aside #block-views-scheme-contribute-block .view-footer a {
+  background: #912a1b;
+}
+/* line 104, ../sass/blocks.scss */
+aside #block-views-scheme-contribute-block-1 div.donate-button a,
+aside #block-views-scheme-contribute-block-1 .view-footer a {
+  background: #56cbc8;
+}
+/* line 110, ../sass/blocks.scss */
+aside #block-views-scheme-contribute-block-2 div.donate-button a,
+aside #block-views-scheme-contribute-block-2 .view-footer a {
+  background: #5fc86c;
+}
+/* line 115, ../sass/blocks.scss */
+aside #block-asb-scheme-facilitator-contact div.facilitator-button {
+  clear: left;
+  width: 100%;
+}
+/* line 118, ../sass/blocks.scss */
+aside #block-asb-scheme-facilitator-contact div.facilitator-button a {
+  display: block;
+  padding: 0 20px;
+  height: 58px;
+  line-height: 58px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 33.4284px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #912a1b;
+}
+/* line 319, ../sass/_mixins.scss */
+aside #block-asb-scheme-facilitator-contact div.facilitator-button a:hover, aside #block-asb-scheme-facilitator-contact div.facilitator-button a:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 123, ../sass/blocks.scss */
+aside #block-asb-scheme-facilitator-contact .facilitator-text {
+  text-align: center;
+  font-size: 1.3em;
+  padding: .5em;
+}
+/* line 130, ../sass/blocks.scss */
+aside #block-views-925ec4f76f8d53da36cf50cc845b8316 div.view-footer {
+  text-align: center;
+}
+/* line 132, ../sass/blocks.scss */
+aside #block-views-925ec4f76f8d53da36cf50cc845b8316 div.view-footer a {
+  display: inline-block;
+  padding: 0 20px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 24.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 319, ../sass/_mixins.scss */
+aside #block-views-925ec4f76f8d53da36cf50cc845b8316 div.view-footer a:hover, aside #block-views-925ec4f76f8d53da36cf50cc845b8316 div.view-footer a:focus {
+  background-color: #912a1b;
+  color: white;
+}
+
+/* line 140, ../sass/blocks.scss */
+.node-type-scheme aside > .block {
+  /* Block wrapper */
+  padding: 18px 15px 10px 15px;
+  background: #ebebeb;
+}
+/* line 144, ../sass/blocks.scss */
+.node-type-scheme aside > .block .view-header p {
+  margin-top: 0;
+  padding-top: 4px;
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+/* line 153, ../sass/blocks.scss */
+.node-type-scheme aside > .block.block-asb-scheme .scheme-leader {
+  min-height: 72px;
+}
+/* line 155, ../sass/blocks.scss */
+.node-type-scheme aside > .block.block-asb-scheme .scheme-leader .scheme-leader-name {
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+/* line 158, ../sass/blocks.scss */
+.node-type-scheme aside > .block.block-asb-scheme .scheme-leader .scheme-leader-thumb {
+  float: left;
+  width: 71px;
+}
+/* line 166, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-asb-scheme-group-info {
+  display: block;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+  background-color: #e1eaea;
+}
+/* line 171, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-asb-scheme-group-info h2.block-title {
+  font-size: 17.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  font-weight: bold;
+  border: none;
+}
+/* line 176, ../sass/blocks.scss */
+.edit .node-type-scheme aside > .block#block-asb-scheme-group-info {
+  margin-top: 0;
+}
+/* line 179, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 {
+  background-color: #e1eaea;
+  margin-bottom: 1.5em;
+}
+/* line 182, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 h2.block-title {
+  padding-top: 10px;
+  font-size: 14.04px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  text-transform: capitalize;
+  font-weight: bold;
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom: none;
+}
+/* line 191, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 ul {
+  margin: 0.5em auto;
+}
+/* line 193, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 .schemers ul.scheme-members {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 .schemers ul.scheme-members li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+/* line 197, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-members-block-1 .schemers ul.scheme-members li {
+  text-align: center;
+  display: inline-block;
+  padding: 0.1em 0.4em;
+}
+/* line 206, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-scheme-contribute-block .view-header p {
+  border-top: none;
+}
+/* line 211, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-925ec4f76f8d53da36cf50cc845b8316 {
+  margin-top: 1.5em;
+}
+/* line 216, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-925ec4f76f8d53da36cf50cc845b8316 .member-requests li .user-picture,
+.node-type-scheme aside > .block#block-views-925ec4f76f8d53da36cf50cc845b8316 .member-requests li a {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 220, ../sass/blocks.scss */
+.node-type-scheme aside > .block#block-views-925ec4f76f8d53da36cf50cc845b8316 .member-requests li .user-picture {
+  padding-right: 5px;
+}
+/* line 228, ../sass/blocks.scss */
+.node-type-scheme .views-row-last .item-list ul li {
+  border: none;
+  padding-bottom: 10px;
+}

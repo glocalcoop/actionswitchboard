@@ -1,0 +1,16 @@
+/* line 1, ../sass/mail.scss */
+strong {
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+/* line 6, ../sass/mail.scss */
+em {
+  text-style: italic;
+}
+
+/* line 10, ../sass/mail.scss */
+h2 {
+  font-size: 3em;
+  line-height: 2em;
+}

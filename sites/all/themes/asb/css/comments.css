@@ -1,0 +1,285 @@
+/**
+ * @file
+ * Comment Styling
+ */
+/*@import "font-icons";*/
+/* line 40, ../sass/comments.scss */
+div#comments {
+  margin: 0;
+}
+/* line 43, ../sass/comments.scss */
+div#comments form.comment-form {
+  background: #f0f0f0;
+}
+/* line 46, ../sass/comments.scss */
+div#comments form.comment-form label,
+div#comments form.comment-form .username {
+  display: none;
+}
+/* line 50, ../sass/comments.scss */
+div#comments h2 {
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding: 10px 0 0 0;
+}
+/* line 58, ../sass/comments.scss */
+div#comments .comment {
+  position: relative;
+  clear: left;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 65, ../sass/comments.scss */
+div#comments .comment.last {
+  border: none;
+}
+/* line 69, ../sass/comments.scss */
+div#comments .comment header {
+  background-color: transparent;
+  min-height: inherit;
+}
+/* line 72, ../sass/comments.scss */
+div#comments .comment header .submitted {
+  /* The "posted by" information */
+  float: left;
+}
+/* line 74, ../sass/comments.scss */
+div#comments .comment header .submitted a.username {
+  color: #ef3f26;
+}
+/* line 77, ../sass/comments.scss */
+div#comments .comment header .submitted .permalink {
+  /* Comment's permalink wrapper */
+  text-transform: uppercase;
+  font-size: 75%;
+}
+/* line 82, ../sass/comments.scss */
+div#comments .comment header .field-comment-body {
+  float: left;
+}
+/* line 89, ../sass/comments.scss */
+div#comments .comment .field-comment-body {
+  clear: left;
+  margin-left: 65px;
+}
+/* line 92, ../sass/comments.scss */
+div#comments .comment .field-comment-body p:first-child {
+  margin-top: 0;
+}
+/* line 95, ../sass/comments.scss */
+div#comments .comment .field-comment-body img {
+  float: left;
+  margin-right: .5em;
+  margin-bottom: .75em;
+  border-color: #cfcfcf;
+  border-width: 1px;
+  border-style: solid;
+  max-width: 300px;
+  height: auto;
+}
+/* line 107, ../sass/comments.scss */
+div#comments .comment.comment-preview {
+  /* Preview of the comment before submitting new or updated comment */
+  background-color: #ffffea;
+  /* Drupal core will use a #ffffea background. See #1110842 */
+}
+/* line 111, ../sass/comments.scss */
+div#comments .comment.new {
+  /* A new comment since the user last viewed the page. */
+}
+/* line 114, ../sass/comments.scss */
+div#comments .comment.first {
+  /* The first comment in the list of comments */
+}
+/* line 117, ../sass/comments.scss */
+div#comments .comment.last {
+  /* The last comment in the list of comments */
+}
+/* line 120, ../sass/comments.scss */
+div#comments .comment.odd {
+  /* An odd-numbered comment in the list of comments */
+}
+/* line 123, ../sass/comments.scss */
+div#comments .comment.even {
+  /* An even-numbered comment in the list of comments */
+}
+/* line 126, ../sass/comments.scss */
+div#comments .comment.comment-by-anonymous {
+  /* A comment created by an anonymous user */
+}
+/* line 129, ../sass/comments.scss */
+div#comments .comment.comment-by-node-author {
+  /* A comment created by the node's author */
+}
+/* line 132, ../sass/comments.scss */
+div#comments .comment.comment-by-viewer {
+  /* A comment created by the current user */
+}
+/* line 135, ../sass/comments.scss */
+div#comments .comment h3.comment-title {
+  /* Comment title */
+  clear: left;
+  font-size: 16px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  text-transform: none;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: .25em;
+}
+/* line 147, ../sass/comments.scss */
+div#comments .comment .user-signature {
+  /* The user's signature */
+}
+/* line 150, ../sass/comments.scss */
+div#comments .comment .rdf-meta {
+  display: none;
+}
+/* line 156, ../sass/comments.scss */
+div#comments .comment ul.links {
+  /* Comment links. See also the ul.links declaration in the pages.css. */
+}
+/* line 157, ../sass/comments.scss */
+div#comments .comment ul.links.inline {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 163, ../sass/comments.scss */
+div#comments .comment ul.links.inline a:before {
+  font-size: 2.25em;
+}
+/* line 173, ../sass/comments.scss */
+div#comments .comment {
+  padding-top: 1.2em;
+}
+/* line 178, ../sass/comments.scss */
+div#comments .comment .comment-content {
+  margin-left: 60px;
+  clear: none;
+}
+/* line 182, ../sass/comments.scss */
+div#comments .comment .comment-content header,
+div#comments .comment .comment-content .field-comment-body {
+  margin-left: 0;
+  display: block;
+}
+/* line 185, ../sass/comments.scss */
+div#comments .comment .comment-content header p, div#comments .comment .comment-content header li,
+div#comments .comment .comment-content .field-comment-body p,
+div#comments .comment .comment-content .field-comment-body li {
+  font-size: 14px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: normal;
+  line-height: 1.5em;
+  text-transform: none;
+}
+/* line 190, ../sass/comments.scss */
+div#comments .comment .links.inline {
+  margin-top: 0;
+}
+/* line 79, ../sass/_mixins.scss */
+div#comments .comment .links.inline li.comment-delete a,
+div#comments .comment .links.inline li.comment-delete a:link,
+div#comments .comment .links.inline li.comment-edit a,
+div#comments .comment .links.inline li.comment-edit a:link,
+div#comments .comment .links.inline li.comment-reply a,
+div#comments .comment .links.inline li.comment-reply a:link {
+  border: none;
+  color: #7c7f7e;
+  font-weight: normal;
+  text-decoration: none;
+}
+/* line 85, ../sass/_mixins.scss */
+div#comments .comment .links.inline li.comment-delete a:visited,
+div#comments .comment .links.inline li.comment-edit a:visited,
+div#comments .comment .links.inline li.comment-reply a:visited {
+  border: none;
+  color: #7c7f7e;
+  text-decoration: none;
+}
+/* line 90, ../sass/_mixins.scss */
+div#comments .comment .links.inline li.comment-delete a:hover,
+div#comments .comment .links.inline li.comment-edit a:hover,
+div#comments .comment .links.inline li.comment-reply a:hover {
+  border: none;
+  color: #912a1b;
+  text-decoration: none;
+}
+/* line 198, ../sass/comments.scss */
+div#comments .comment .user-picture {
+  /* The picture of the comment author */
+  float: left;
+  margin: 0;
+  width: 60px;
+}
+/* line 204, ../sass/comments.scss */
+div#comments .comment .submitted {
+  margin-top: 0;
+}
+/* line 207, ../sass/comments.scss */
+div#comments .comment article.last {
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+/* line 231, ../sass/comments.scss */
+#scheme-content .user-picture img {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 240, ../sass/comments.scss */
+.not-logged-in #comments h2.title.comment-form {
+  display: none;
+}
+
+/* line 249, ../sass/comments.scss */
+.logged-in #comments h2.title {
+  display: none;
+}
+/* line 252, ../sass/comments.scss */
+.logged-in #comments h2.title.comment-form {
+  display: inherit;
+}
+
+/* line 258, ../sass/comments.scss */
+.indented {
+  /* Nested comments are indented */
+  margin-left: 30px;
+  /* Drupal core uses a 25px left margin */
+}
+
+/* line 262, ../sass/comments.scss */
+.comment-unpublished {
+  /* Unpublished comments */
+  /* background-color: #fff4f4; */
+  /* Drupal core uses a #fff4f4 background */
+}
+/* line 265, ../sass/comments.scss */
+.comment-unpublished p.unpublished {
+  /* The word "Unpublished" displayed underneath the content. */
+  height: 0;
+  overflow: visible;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word;
+}
+/* line 249, ../sass/_mixins.scss */
+.lt-ie8 .comment-unpublished p.unpublished > * {
+  position: relative;
+}
+
+/* line 270, ../sass/comments.scss */
+ul.inline li.comment-add {
+  display: none;
+}

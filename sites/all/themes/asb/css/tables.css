@@ -1,0 +1,624 @@
+/**
+ * @file
+ * Tables Styling
+ */
+/*@import "font-icons";*/
+/* line 8, ../sass/tables.scss */
+table {
+  width: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+/* line 14, ../sass/tables.scss */
+table td,
+table th {
+  border: none;
+  background: transparent;
+  background-color: none;
+}
+
+/* line 22, ../sass/tables.scss */
+tr.even,
+tr.odd,
+tr.active,
+th.active {
+  border: none;
+  background: transparent;
+  background-color: none;
+}
+
+/* line 37, ../sass/tables.scss */
+table th a {
+  display: block;
+  position: relative;
+}
+
+/* line 41, ../sass/tables.scss */
+table th.active a {
+  padding: 0 25px 0 0;
+  /* LTR */
+}
+
+/* line 44, ../sass/tables.scss */
+table th.active img {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  /* LTR */
+}
+
+/**
+ * Exception for webkit bug with the right border of the last cell
+ * in some tables, since it's webkit only, we can use :last-child
+ */
+/* line 81, ../sass/tables.scss */
+#content .page-content table.views-table,
+#content .page-content table.sticky-table,
+#content .page-main-content table.views-table,
+#content .page-main-content table.sticky-table {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 84, ../sass/tables.scss */
+#content .page-content table.views-table thead,
+#content .page-content table.sticky-table thead,
+#content .page-main-content table.views-table thead,
+#content .page-main-content table.sticky-table thead {
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 91, ../sass/tables.scss */
+#content .page-content table.views-table thead th,
+#content .page-content table.sticky-table thead th,
+#content .page-main-content table.views-table thead th,
+#content .page-main-content table.sticky-table thead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 10px;
+  border-bottom: none;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 97, ../sass/tables.scss */
+#content .page-content table.views-table thead th:first-child,
+#content .page-content table.sticky-table thead th:first-child,
+#content .page-main-content table.views-table thead th:first-child,
+#content .page-main-content table.sticky-table thead th:first-child {
+  padding-left: 10px;
+}
+/* line 105, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr td,
+#content .page-content table.views-table tbody tr td.active,
+#content .page-content table.sticky-table tbody tr td,
+#content .page-content table.sticky-table tbody tr td.active,
+#content .page-main-content table.views-table tbody tr td,
+#content .page-main-content table.views-table tbody tr td.active,
+#content .page-main-content table.sticky-table tbody tr td,
+#content .page-main-content table.sticky-table tbody tr td.active {
+  padding: 10px 0;
+  background: transparent;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 110, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr td p,
+#content .page-content table.views-table tbody tr td.active p,
+#content .page-content table.sticky-table tbody tr td p,
+#content .page-content table.sticky-table tbody tr td.active p,
+#content .page-main-content table.views-table tbody tr td p,
+#content .page-main-content table.views-table tbody tr td.active p,
+#content .page-main-content table.sticky-table tbody tr td p,
+#content .page-main-content table.sticky-table tbody tr td.active p {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 115, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr td em,
+#content .page-content table.views-table tbody tr td.active em,
+#content .page-content table.sticky-table tbody tr td em,
+#content .page-content table.sticky-table tbody tr td.active em,
+#content .page-main-content table.views-table tbody tr td em,
+#content .page-main-content table.views-table tbody tr td.active em,
+#content .page-main-content table.sticky-table tbody tr td em,
+#content .page-main-content table.sticky-table tbody tr td.active em {
+  font-style: normal;
+}
+/* line 118, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr td:first-child,
+#content .page-content table.views-table tbody tr td.active:first-child,
+#content .page-content table.sticky-table tbody tr td:first-child,
+#content .page-content table.sticky-table tbody tr td.active:first-child,
+#content .page-main-content table.views-table tbody tr td:first-child,
+#content .page-main-content table.views-table tbody tr td.active:first-child,
+#content .page-main-content table.sticky-table tbody tr td:first-child,
+#content .page-main-content table.sticky-table tbody tr td.active:first-child {
+  padding-left: 10px;
+}
+/* line 122, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr.even,
+#content .page-content table.sticky-table tbody tr.even,
+#content .page-main-content table.views-table tbody tr.even,
+#content .page-main-content table.sticky-table tbody tr.even {
+  background: #f0f0f0;
+}
+/* line 126, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr.new td,
+#content .page-content table.sticky-table tbody tr.new td,
+#content .page-main-content table.views-table tbody tr.new td,
+#content .page-main-content table.sticky-table tbody tr.new td {
+  font-weight: bold;
+}
+/* line 128, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr.new td a,
+#content .page-content table.sticky-table tbody tr.new td a,
+#content .page-main-content table.views-table tbody tr.new td a,
+#content .page-main-content table.sticky-table tbody tr.new td a {
+  font-weight: bold;
+}
+/* line 133, ../sass/tables.scss */
+#content .page-content table.views-table tbody tr ul,
+#content .page-content table.sticky-table tbody tr ul,
+#content .page-main-content table.views-table tbody tr ul,
+#content .page-main-content table.sticky-table tbody tr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+#content .page-content table.views-table tbody tr ul li,
+#content .page-content table.sticky-table tbody tr ul li,
+#content .page-main-content table.views-table tbody tr ul li,
+#content .page-main-content table.sticky-table tbody tr ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+/* line 156, ../sass/tables.scss */
+.page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item {
+  display: inline-block;
+}
+/* line 158, ../sass/tables.scss */
+.page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a {
+  display: inline-block;
+  padding: 0 20px;
+  height: 24px;
+  line-height: 24px;
+  background-color: white;
+  color: #7c7f7e;
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 319, ../sass/_mixins.scss */
+.page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:hover, .page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 161, ../sass/tables.scss */
+.page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item.selected a {
+  background: #ef3f26;
+  color: white;
+}
+/* line 167, ../sass/tables.scss */
+.page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.chosen-container,
+.page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.chosen-container,
+.page-facilitator-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.chosen-container,
+.page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.chosen-container,
+.page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.chosen-container,
+.page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.chosen-container {
+  display: none !important;
+}
+/* line 173, ../sass/tables.scss */
+.page-facilitator-dashboard table,
+.page-dashboard table {
+  margin-top: 0 !important;
+}
+/* line 175, ../sass/tables.scss */
+.page-facilitator-dashboard table thead,
+.page-dashboard table thead {
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 182, ../sass/tables.scss */
+.page-facilitator-dashboard table thead th,
+.page-dashboard table thead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 10px;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 187, ../sass/tables.scss */
+.page-facilitator-dashboard table thead th:first-child,
+.page-dashboard table thead th:first-child {
+  padding-left: 10px;
+}
+/* line 195, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr td,
+.page-facilitator-dashboard table tbody tr td.active,
+.page-dashboard table tbody tr td,
+.page-dashboard table tbody tr td.active {
+  padding: 10px 0;
+  background: transparent;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 199, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr td p,
+.page-facilitator-dashboard table tbody tr td.active p,
+.page-dashboard table tbody tr td p,
+.page-dashboard table tbody tr td.active p {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 204, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr td mark.new,
+.page-facilitator-dashboard table tbody tr td.active mark.new,
+.page-dashboard table tbody tr td mark.new,
+.page-dashboard table tbody tr td.active mark.new {
+  display: none;
+}
+/* line 207, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr td:first-child,
+.page-facilitator-dashboard table tbody tr td.active:first-child,
+.page-dashboard table tbody tr td:first-child,
+.page-dashboard table tbody tr td.active:first-child {
+  padding-left: 10px;
+}
+/* line 211, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr.even,
+.page-dashboard table tbody tr.even {
+  background: #f0f0f0;
+}
+/* line 214, ../sass/tables.scss */
+.page-facilitator-dashboard table tbody tr.new,
+.page-dashboard table tbody tr.new {
+  font-weight: bold;
+}
+
+/* line 232, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table,
+.page-node-group #content div.view-content table.views-table,
+.page-user #content div.view-content table.views-table,
+.page-node-workflow #content div.view-content table.views-table,
+.page-user-track #content div.view-content table.views-table,
+.section-messages #content div.view-content table.views-table,
+.section-user #content div.view-content table.views-table {
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 234, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table thead,
+.page-node-group #content div.view-content table.views-table thead,
+.page-user #content div.view-content table.views-table thead,
+.page-node-workflow #content div.view-content table.views-table thead,
+.page-user-track #content div.view-content table.views-table thead,
+.section-messages #content div.view-content table.views-table thead,
+.section-user #content div.view-content table.views-table thead {
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 241, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table thead th,
+.page-node-group #content div.view-content table.views-table thead th,
+.page-user #content div.view-content table.views-table thead th,
+.page-node-workflow #content div.view-content table.views-table thead th,
+.page-user-track #content div.view-content table.views-table thead th,
+.section-messages #content div.view-content table.views-table thead th,
+.section-user #content div.view-content table.views-table thead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 10px;
+  border-bottom: none;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 247, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table thead th:first-child,
+.page-node-group #content div.view-content table.views-table thead th:first-child,
+.page-user #content div.view-content table.views-table thead th:first-child,
+.page-node-workflow #content div.view-content table.views-table thead th:first-child,
+.page-user-track #content div.view-content table.views-table thead th:first-child,
+.section-messages #content div.view-content table.views-table thead th:first-child,
+.section-user #content div.view-content table.views-table thead th:first-child {
+  padding-left: 10px;
+}
+/* line 255, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr td,
+.page-group-node #content div.view-content table.views-table tbody tr td.active,
+.page-node-group #content div.view-content table.views-table tbody tr td,
+.page-node-group #content div.view-content table.views-table tbody tr td.active,
+.page-user #content div.view-content table.views-table tbody tr td,
+.page-user #content div.view-content table.views-table tbody tr td.active,
+.page-node-workflow #content div.view-content table.views-table tbody tr td,
+.page-node-workflow #content div.view-content table.views-table tbody tr td.active,
+.page-user-track #content div.view-content table.views-table tbody tr td,
+.page-user-track #content div.view-content table.views-table tbody tr td.active,
+.section-messages #content div.view-content table.views-table tbody tr td,
+.section-messages #content div.view-content table.views-table tbody tr td.active,
+.section-user #content div.view-content table.views-table tbody tr td,
+.section-user #content div.view-content table.views-table tbody tr td.active {
+  padding: 10px 0;
+  background: transparent;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 260, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr td p,
+.page-group-node #content div.view-content table.views-table tbody tr td.active p,
+.page-node-group #content div.view-content table.views-table tbody tr td p,
+.page-node-group #content div.view-content table.views-table tbody tr td.active p,
+.page-user #content div.view-content table.views-table tbody tr td p,
+.page-user #content div.view-content table.views-table tbody tr td.active p,
+.page-node-workflow #content div.view-content table.views-table tbody tr td p,
+.page-node-workflow #content div.view-content table.views-table tbody tr td.active p,
+.page-user-track #content div.view-content table.views-table tbody tr td p,
+.page-user-track #content div.view-content table.views-table tbody tr td.active p,
+.section-messages #content div.view-content table.views-table tbody tr td p,
+.section-messages #content div.view-content table.views-table tbody tr td.active p,
+.section-user #content div.view-content table.views-table tbody tr td p,
+.section-user #content div.view-content table.views-table tbody tr td.active p {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 265, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr td em,
+.page-group-node #content div.view-content table.views-table tbody tr td.active em,
+.page-node-group #content div.view-content table.views-table tbody tr td em,
+.page-node-group #content div.view-content table.views-table tbody tr td.active em,
+.page-user #content div.view-content table.views-table tbody tr td em,
+.page-user #content div.view-content table.views-table tbody tr td.active em,
+.page-node-workflow #content div.view-content table.views-table tbody tr td em,
+.page-node-workflow #content div.view-content table.views-table tbody tr td.active em,
+.page-user-track #content div.view-content table.views-table tbody tr td em,
+.page-user-track #content div.view-content table.views-table tbody tr td.active em,
+.section-messages #content div.view-content table.views-table tbody tr td em,
+.section-messages #content div.view-content table.views-table tbody tr td.active em,
+.section-user #content div.view-content table.views-table tbody tr td em,
+.section-user #content div.view-content table.views-table tbody tr td.active em {
+  font-style: normal;
+}
+/* line 271, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr td:first-child,
+.page-group-node #content div.view-content table.views-table tbody tr td.active:first-child,
+.page-node-group #content div.view-content table.views-table tbody tr td:first-child,
+.page-node-group #content div.view-content table.views-table tbody tr td.active:first-child,
+.page-user #content div.view-content table.views-table tbody tr td:first-child,
+.page-user #content div.view-content table.views-table tbody tr td.active:first-child,
+.page-node-workflow #content div.view-content table.views-table tbody tr td:first-child,
+.page-node-workflow #content div.view-content table.views-table tbody tr td.active:first-child,
+.page-user-track #content div.view-content table.views-table tbody tr td:first-child,
+.page-user-track #content div.view-content table.views-table tbody tr td.active:first-child,
+.section-messages #content div.view-content table.views-table tbody tr td:first-child,
+.section-messages #content div.view-content table.views-table tbody tr td.active:first-child,
+.section-user #content div.view-content table.views-table tbody tr td:first-child,
+.section-user #content div.view-content table.views-table tbody tr td.active:first-child {
+  padding-left: 10px;
+}
+/* line 275, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr.even,
+.page-node-group #content div.view-content table.views-table tbody tr.even,
+.page-user #content div.view-content table.views-table tbody tr.even,
+.page-node-workflow #content div.view-content table.views-table tbody tr.even,
+.page-user-track #content div.view-content table.views-table tbody tr.even,
+.section-messages #content div.view-content table.views-table tbody tr.even,
+.section-user #content div.view-content table.views-table tbody tr.even {
+  background: #f0f0f0;
+}
+/* line 278, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr.new,
+.page-node-group #content div.view-content table.views-table tbody tr.new,
+.page-user #content div.view-content table.views-table tbody tr.new,
+.page-node-workflow #content div.view-content table.views-table tbody tr.new,
+.page-user-track #content div.view-content table.views-table tbody tr.new,
+.section-messages #content div.view-content table.views-table tbody tr.new,
+.section-user #content div.view-content table.views-table tbody tr.new {
+  font-weight: bold;
+}
+/* line 281, ../sass/tables.scss */
+.page-group-node #content div.view-content table.views-table tbody tr ul,
+.page-node-group #content div.view-content table.views-table tbody tr ul,
+.page-user #content div.view-content table.views-table tbody tr ul,
+.page-node-workflow #content div.view-content table.views-table tbody tr ul,
+.page-user-track #content div.view-content table.views-table tbody tr ul,
+.section-messages #content div.view-content table.views-table tbody tr ul,
+.section-user #content div.view-content table.views-table tbody tr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+.page-group-node #content div.view-content table.views-table tbody tr ul li,
+.page-node-group #content div.view-content table.views-table tbody tr ul li,
+.page-user #content div.view-content table.views-table tbody tr ul li,
+.page-node-workflow #content div.view-content table.views-table tbody tr ul li,
+.page-user-track #content div.view-content table.views-table tbody tr ul li,
+.section-messages #content div.view-content table.views-table tbody tr ul li,
+.section-user #content div.view-content table.views-table tbody tr ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+/* line 295, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 298, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list thead {
+  border-top-color: #cfcfcf;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+/* line 305, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list thead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 10px;
+  border-bottom: none;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 311, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list thead th:first-child {
+  padding-left: 10px;
+}
+/* line 319, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr td,
+.page-user-messages table.privatemsg-list tbody tr td.active {
+  padding: 10px 0;
+  background: transparent;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 324, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr td p,
+.page-user-messages table.privatemsg-list tbody tr td.active p {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 329, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr td em,
+.page-user-messages table.privatemsg-list tbody tr td.active em {
+  font-style: normal;
+}
+/* line 335, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr td:first-child,
+.page-user-messages table.privatemsg-list tbody tr td.active:first-child {
+  padding-left: 10px;
+}
+/* line 339, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr.even {
+  background: #f0f0f0;
+}
+/* line 342, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr.new {
+  font-weight: bold;
+}
+/* line 345, ../sass/tables.scss */
+.page-user-messages table.privatemsg-list tbody tr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+.page-user-messages table.privatemsg-list tbody tr ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
