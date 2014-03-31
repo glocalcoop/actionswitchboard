@@ -2330,8 +2330,11 @@ li.sub-goal.sub-sub-goal {
     #edit-og-user {
       margin-top: 10px;
       &> legend {
-        font-size: 1.2rem;
+        @include header-style;
       }
+    }
+    .back-scheme+fieldset#edit-og-user {
+      margin-top: 20px;
     }
   }
 }
