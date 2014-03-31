@@ -37,21 +37,25 @@
 		margin: 0;
 		padding: 0;
 	}
+	
+	.popups-container {
+		overflow: visible;
+		height: auto
+	}
 
 	.messages {
 		margin-top:1em;
 		border: none !important;
 	}
 	
-	.modal-header,
+	.modal-header,	
 	.modal-head-wrapper {
 		z-index: 5;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
 		}
-		.popus-close,
-		a.close { 
+		.close { 
 			@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
 		  @extend %entypo-circled-cross;
 		  float: right;
@@ -72,6 +76,7 @@
 		border: none;
 	}
 
+	.modal-scroll,
 	.modal-content-wrapper {
 		background: $panel;
 		@include border-radius( 3px );
@@ -80,6 +85,7 @@
 		padding-bottom: 1em;
 	}
 
+	.popups-body,
 	.modal-content {
 		overflow: auto;
 		padding: 0 1em;
