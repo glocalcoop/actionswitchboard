@@ -114,7 +114,7 @@ global $user;
               <li class="ui-button">
                 <?php if(isset($member) && $member == 'request'): ?>
                   <div class="field-group-group">
-                    <?php print ctools_modal_text_button('Request Membership', $join_link, t('Request Membership'), 'ctools-use_modal'); ?>
+                    <?php print ctools_modal_text_button('Request Membership', $join_link, t('Request Membership'), 'ctools-use_modal ctools-modal-asb-scheme-modal'); ?>
                 <?php elseif(!isset($member) || $member == 'current'): ?>
                   <?php print render($content['group_group']); ?>
                 <?php endif; ?>
