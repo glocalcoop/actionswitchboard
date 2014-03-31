@@ -42,41 +42,11 @@ aside {
       @include body-text ($size: $h3-font-size, $weight: bold, $transform: uppercase, $color: $text-color-prominent);
     }
   }
-  // .item-list {
-  //   // ul.pager { 
-  //   //   display: block;
-  //   //   @include zen-clear;
-  //   //   li {
-  //   //     border: none;
-
-  //   //     a {
-  //   //       &:before {
-  //   //         line-height: .2em;
-  //   //       }
-  //   //     }
-  //   //     &.pager-previous {
-  //   //       display: inline-block;
-  //   //       // @include zen-float(left);
-  //   //       a {
-  //   //         @extend %entypo-chevron-left;
-  //   //       }
-  //   //     }
-  //   //     &.pager-next {
-  //   //       display: inline-block;
-  //   //       // @include zen-float(right);
-  //   //        a {
-  //   //         @extend %entypo-chevron-right;
-  //   //         line-height: .5em;
-  //   //       }
-  //   //     }
-  //   //   }
-  //   // }
-  // }
 
   //Once styles specified in scheme-layout.tpl.php are implemented, these styles will apply
   #needs {
     a#bigbutton {
-      @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family);
+      @include button($height: 58px, $font-size: $h2-font-size, $font-color: $nav-title-color, $font-family: $header-font-family);
       width: 100%;
     }
     #needs-skills {
@@ -108,7 +78,7 @@ aside {
           margin-bottom: 0;
         }
         a {
-          @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family, $display: block);
+          @include button($height: 58px, $font-size: $h2-font-size, $font-color: $nav-title-color, $font-family: $header-font-family, $display: block);
         }
         &.skills a {
           background: $skills;
@@ -124,17 +94,20 @@ aside {
   }
 
   #block-views-scheme-contribute-block {
-    div.donate-button a {
+    div.donate-button a,
+    .view-footer a {
       background: $skills;
     }
   }
   #block-views-scheme-contribute-block-1 {
-    div.donate-button a {
+    div.donate-button a,
+    .view-footer a {
       background: $supplies;
     }
   }
   #block-views-scheme-contribute-block-2 {
-    div.donate-button a {
+    div.donate-button a,
+    .view-footer a {
       background: $funds;
     }
   }
