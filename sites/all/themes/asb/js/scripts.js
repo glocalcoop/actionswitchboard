@@ -43,7 +43,12 @@
         if( $('a[title="Request Membership"]').length ){
           $('a[title="Request Membership"]').click( function(e){
             $("#modalContent").addClass('request-membership');
-            // $(window).resize();
+          });
+        }
+
+        if( $('.view-display-id-block .donate-button a').length ){
+          $('.view-display-id-block .donate-button a').click( function(e){
+            $("#modalContent").addClass('donate-skills');
           });
         }
 

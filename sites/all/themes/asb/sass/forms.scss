@@ -912,7 +912,8 @@ td.menu-disabled {
 }
 
 // request membership modal
-.request-membership {
+#modalContent.donate-skills,
+#modalContent.request-membership {
   .modal-head-wrapper {
     display:none;
   }
