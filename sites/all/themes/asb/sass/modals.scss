@@ -39,8 +39,11 @@
 	}
 	
 	.popups-container {
-		overflow: visible;
-		height: auto
+		overflow: visible !important;
+		height: auto !important;
+		.modal-header {
+			width: auto;
+		}
 	}
 
 	.messages {
@@ -48,7 +51,6 @@
 		border: none !important;
 	}
 	
-	.modal-header,	
 	.modal-head-wrapper {
 		z-index: 5;
 		width: 100%;
