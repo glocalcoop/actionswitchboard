@@ -2127,7 +2127,8 @@ li.sub-goal.sub-sub-goal {
       // max-width: 665px;
       // position: relative;
       // overflow: hidden;
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
+      @include pie-clearfix;
       #carousel-wrapper {
         z-index: -1;
         position: relative;
@@ -2145,7 +2146,6 @@ li.sub-goal.sub-sub-goal {
       }
 
       #scheme-images-nav {
-
         @include pie-clearfix;
         float: right;
         a {
@@ -2165,25 +2165,15 @@ li.sub-goal.sub-sub-goal {
             @extend %entypo-triangle-right;
           }
         }
-
-        // a {
-        //   @include font-icon-base($font-size: 3em, $width: 1, $margin: 0.2em);
-
-        //   &#scheme-images-previous {
-        //     @extend %entypo-circled-left;
-        //   }
-        //   &#scheme-images-next {
-        //     @extend %entypo-circled-right;
-        //   }
-        //   &:hover {
-        //     color: $brand;
-        //   }
-        // }
       }
     }
 
     div.field-body {
       @include zen-clear;
+    }
+
+    .field-body+#outer-carousel-wrapper { // When the carousel appears under the description, add a margin after
+      margin-bottom: 10px;
     }
      
   } // End Scheme Detail
