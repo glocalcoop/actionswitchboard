@@ -915,7 +915,10 @@ td.menu-disabled {
 #modalContent.donate-skills,
 #modalContent.request-membership {
   .modal-head-wrapper {
-    display:none;
+    // display:none;
+  }
+  #modal-content {
+    height: auto !important;
   }
   div.ctools-modal-content .form-item label {
     width: auto;

@@ -1,6 +1,6 @@
 /*@import "font-icons";*/
 /* line 128, ../sass/includes/_entypo.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before {
   content: '\2716';
 }
 
@@ -10,63 +10,17 @@
 }
 
 /* line 9, ../sass/modals.scss */
-.ctools-modal-content {
-  border: none !important;
-  position: relative;
-  background: transparent !important;
-}
-/* line 15, ../sass/modals.scss */
-.ctools-modal-content header .modal-update-title {
-  padding: .5em;
-}
-/* line 19, ../sass/modals.scss */
-.ctools-modal-content label {
-  float: none !important;
-  display: block;
-}
-/* line 24, ../sass/modals.scss */
-.ctools-modal-content .form-textarea-wrapper {
-  margin: 0 !important;
-}
-/* line 28, ../sass/modals.scss */
-.ctools-modal-content .filter-help {
-  display: none;
-}
-/* line 32, ../sass/modals.scss */
-.ctools-modal-content #edit-field-people-skills .form-type-select {
-  display: block;
-}
-/* line 36, ../sass/modals.scss */
-.ctools-modal-content ul.tips {
-  margin: 0;
-  padding: 0;
-}
-/* line 41, ../sass/modals.scss */
-.ctools-modal-content .messages {
-  margin-top: 1em;
-  border: none !important;
-}
-/* line 46, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper {
-  z-index: 5;
-  width: 100%;
-}
-/* line 49, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper h2.element-invisible {
-  display: none;
-}
-/* line 52, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper a.close {
+.ctools-modal-content .popups-container .modal-header .close, .ctools-modal-content .modal-head-wrapper .close {
   float: right;
   position: relative;
   right: -0.5em;
   top: -2.5em;
-  color: #ef3f26;
-  display: inline-block;
+  color: #ef3f26 !important;
+  display: block;
   cursor: pointer;
 }
 /* line 40, ../sass/_mixins.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before {
   font-family: "entypo";
   font-style: normal;
   font-size: 4em;
@@ -78,16 +32,93 @@
   color: inherit;
   vertical-align: middle;
 }
-/* line 62, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper a.close span {
+/* line 20, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close span, .ctools-modal-content .modal-head-wrapper .close span {
   display: none;
 }
-/* line 69, ../sass/modals.scss */
+
+/* line 26, ../sass/modals.scss */
+.ctools-modal-content {
+  border: none !important;
+  position: relative;
+  background: transparent !important;
+}
+/* line 32, ../sass/modals.scss */
+.ctools-modal-content header .modal-update-title {
+  padding: .5em;
+}
+/* line 36, ../sass/modals.scss */
+.ctools-modal-content label {
+  float: none !important;
+  display: block;
+}
+/* line 41, ../sass/modals.scss */
+.ctools-modal-content .form-textarea-wrapper {
+  margin: 0 !important;
+}
+/* line 45, ../sass/modals.scss */
+.ctools-modal-content .filter-help {
+  display: none;
+}
+/* line 49, ../sass/modals.scss */
+.ctools-modal-content #edit-field-people-skills .form-type-select {
+  display: block;
+}
+/* line 53, ../sass/modals.scss */
+.ctools-modal-content ul.tips {
+  margin: 0;
+  padding: 0;
+}
+/* line 58, ../sass/modals.scss */
+.ctools-modal-content .popups-container {
+  overflow: visible !important;
+  height: auto !important;
+}
+/* line 61, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header {
+  background: #f3f2e0;
+  width: auto;
+}
+/* line 64, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close {
+  text-indent: none;
+  background-image: none;
+  top: -1.5em;
+  background: #f3f2e0;
+  border-radius: 1em;
+  right: -1.5em;
+  position: relative;
+  overflow: hidden;
+}
+/* line 74, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close::before {
+  text-indent: 0;
+  position: absolute;
+  left: 0;
+  top: -.225em;
+  display: block;
+}
+/* line 85, ../sass/modals.scss */
+.ctools-modal-content .messages {
+  margin-top: 1em;
+  border: none !important;
+}
+/* line 90, ../sass/modals.scss */
+.ctools-modal-content .modal-head-wrapper {
+  z-index: 5;
+  width: 100%;
+}
+/* line 93, ../sass/modals.scss */
+.ctools-modal-content .modal-head-wrapper h2.element-invisible {
+  display: none;
+}
+/* line 102, ../sass/modals.scss */
 .ctools-modal-content .popups-container,
 .ctools-modal-content .modal-content-wrapper {
   border: none;
 }
-/* line 73, ../sass/modals.scss */
+/* line 107, ../sass/modals.scss */
+.ctools-modal-content .modal-scroll,
 .ctools-modal-content .modal-content-wrapper {
   background: #f3f2e0;
   -webkit-border-radius: 3px;
@@ -101,20 +132,21 @@
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 81, ../sass/modals.scss */
+/* line 116, ../sass/modals.scss */
+.ctools-modal-content .popups-body,
 .ctools-modal-content .modal-content {
   overflow: auto;
   padding: 0 1em;
   height: auto !important;
 }
 
-/* line 89, ../sass/modals.scss */
+/* line 124, ../sass/modals.scss */
 #modalContent.login .ctools-modal-content {
   min-height: 350px !important;
   height: auto !important;
 }
 
-/* line 95, ../sass/modals.scss */
+/* line 130, ../sass/modals.scss */
 #edit-field-issues-goals .form-type-checkbox {
   line-height: 2;
   border-bottom: 1px #dedede solid;
@@ -124,19 +156,19 @@
   margin: 0 1em 0 0;
 }
 
-/* line 105, ../sass/modals.scss */
+/* line 140, ../sass/modals.scss */
 #field-video-add-more-wrapper {
   padding-top: .125em;
 }
-/* line 109, ../sass/modals.scss */
+/* line 144, ../sass/modals.scss */
 #field-video-add-more-wrapper .mediaBrowserLaunch-processed label {
   display: none;
 }
-/* line 113, ../sass/modals.scss */
+/* line 148, ../sass/modals.scss */
 #field-video-add-more-wrapper .form-submit {
   margin-left: 1em;
 }
-/* line 117, ../sass/modals.scss */
+/* line 152, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview {
   display: block !important;
   margin-top: 1em;
@@ -144,11 +176,11 @@
   height: 400px;
   margin-bottom: 1em;
 }
-/* line 125, ../sass/modals.scss */
+/* line 160, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview .form-item {
   margin: 0;
 }
-/* line 131, ../sass/modals.scss */
+/* line 166, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview div,
 #field-video-add-more-wrapper .preview iframe {
   padding: 0 !important;
@@ -157,25 +189,25 @@
   height: 100%;
   border: none;
 }
-/* line 141, ../sass/modals.scss */
+/* line 176, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item {
   width: auto !important;
   border: none !important;
   background-color: transparent;
 }
-/* line 146, ../sass/modals.scss */
+/* line 181, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper {
   width: auto;
   height: auto;
 }
-/* line 151, ../sass/modals.scss */
+/* line 186, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper:hover {
   border: none;
   background: none;
   box-shadow: none;
   text-decoration: none;
 }
-/* line 158, ../sass/modals.scss */
+/* line 193, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .media-filename {
   width: auto;
   border: none;
@@ -185,68 +217,68 @@
   color: #7c7f7e;
 }
 
-/* line 173, ../sass/modals.scss */
+/* line 208, ../sass/modals.scss */
 #edit-field-image tr.even {
   background-color: transparent;
 }
-/* line 177, ../sass/modals.scss */
+/* line 212, ../sass/modals.scss */
 #edit-field-image td {
   padding-top: 1em;
   padding-bottom: .5em;
   border-bottom: 1px #dedede solid;
   vertical-align: top;
 }
-/* line 187, ../sass/modals.scss */
+/* line 222, ../sass/modals.scss */
 #edit-field-image > legend,
 #edit-field-image thead,
 #edit-field-image .tabledrag-changed,
 #edit-field-image .tabledrag-toggle-weight-wrapper {
   display: none !important;
 }
-/* line 191, ../sass/modals.scss */
+/* line 226, ../sass/modals.scss */
 #edit-field-image a.tabledrag-handle {
   display: inline-block;
 }
-/* line 197, ../sass/modals.scss */
+/* line 232, ../sass/modals.scss */
 #edit-field-image table .image-widget {
   float: none;
   width: auto;
 }
-/* line 202, ../sass/modals.scss */
+/* line 237, ../sass/modals.scss */
 #edit-field-image table .image-preview {
   width: 180px;
   float: left;
 }
-/* line 205, ../sass/modals.scss */
+/* line 240, ../sass/modals.scss */
 #edit-field-image table .image-preview img {
   display: block;
 }
-/* line 210, ../sass/modals.scss */
+/* line 245, ../sass/modals.scss */
 #edit-field-image table .image-widget-data {
   width: 320px;
 }
-/* line 213, ../sass/modals.scss */
+/* line 248, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .file,
 #edit-field-image table .image-widget-data .file-size {
   display: none;
 }
-/* line 216, ../sass/modals.scss */
+/* line 251, ../sass/modals.scss */
 #edit-field-image table .image-widget-data label {
   float: none;
 }
-/* line 219, ../sass/modals.scss */
+/* line 254, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .description {
   white-space: normal;
   width: 300px;
   margin-bottom: 1em;
 }
-/* line 224, ../sass/modals.scss */
+/* line 259, ../sass/modals.scss */
 #edit-field-image table .image-widget-data input[type="text"] {
   width: 300px;
   font-size: .875em;
   display: block;
 }
-/* line 231, ../sass/modals.scss */
+/* line 266, ../sass/modals.scss */
 #edit-field-image table input[value="Remove"] {
   width: 24px;
   height: 24px;
@@ -262,30 +294,30 @@
   background-repeat: no-repeat;
 }
 
-/* line 250, ../sass/modals.scss */
+/* line 285, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file {
   background: #fff;
   border-radius: 6px;
   padding: 1em;
 }
-/* line 256, ../sass/modals.scss */
+/* line 291, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file label {
   display: block;
   float: none;
 }
-/* line 261, ../sass/modals.scss */
+/* line 296, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix {
   clear: none;
   float: left;
 }
-/* line 264, ../sass/modals.scss */
+/* line 299, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"] {
   margin-left: 1em;
   position: relative;
   top: .125em;
 }
 
-/* line 273, ../sass/modals.scss */
+/* line 308, ../sass/modals.scss */
 #modal-throbber .modal-throbber-wrapper {
   border-radius: 4px;
   min-height: 12em;

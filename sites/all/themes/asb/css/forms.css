@@ -1247,17 +1247,17 @@ td.menu-disabled {
   line-height: 1.5;
 }
 
-/* line 917, ../sass/forms.scss */
-#modalContent.donate-skills .modal-head-wrapper,
-#modalContent.request-membership .modal-head-wrapper {
-  display: none;
-}
 /* line 920, ../sass/forms.scss */
+#modalContent.donate-skills #modal-content,
+#modalContent.request-membership #modal-content {
+  height: auto !important;
+}
+/* line 923, ../sass/forms.scss */
 #modalContent.donate-skills div.ctools-modal-content .form-item label,
 #modalContent.request-membership div.ctools-modal-content .form-item label {
   width: auto;
 }
-/* line 924, ../sass/forms.scss */
+/* line 927, ../sass/forms.scss */
 #modalContent.donate-skills #edit-skills .form-item,
 #modalContent.request-membership #edit-skills .form-item {
   display: inline-block;

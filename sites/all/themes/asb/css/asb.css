@@ -87,7 +87,7 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
 }
 
 /* line 128, ../sass/includes/_entypo.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before, ul.links.inline li.comment-delete a:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
@@ -430,7 +430,7 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
 }
 
 /* line 128, ../sass/includes/_entypo.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before, ul.links.inline li.comment-delete a:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
@@ -502,63 +502,17 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
 }
 
 /* line 9, ../sass/modals.scss */
-.ctools-modal-content {
-  border: none !important;
-  position: relative;
-  background: transparent !important;
-}
-/* line 15, ../sass/modals.scss */
-.ctools-modal-content header .modal-update-title {
-  padding: .5em;
-}
-/* line 19, ../sass/modals.scss */
-.ctools-modal-content label {
-  float: none !important;
-  display: block;
-}
-/* line 24, ../sass/modals.scss */
-.ctools-modal-content .form-textarea-wrapper {
-  margin: 0 !important;
-}
-/* line 28, ../sass/modals.scss */
-.ctools-modal-content .filter-help {
-  display: none;
-}
-/* line 32, ../sass/modals.scss */
-.ctools-modal-content #edit-field-people-skills .form-type-select {
-  display: block;
-}
-/* line 36, ../sass/modals.scss */
-.ctools-modal-content ul.tips {
-  margin: 0;
-  padding: 0;
-}
-/* line 41, ../sass/modals.scss */
-.ctools-modal-content .messages {
-  margin-top: 1em;
-  border: none !important;
-}
-/* line 46, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper {
-  z-index: 5;
-  width: 100%;
-}
-/* line 49, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper h2.element-invisible {
-  display: none;
-}
-/* line 52, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper a.close {
+.ctools-modal-content .popups-container .modal-header .close, .ctools-modal-content .modal-head-wrapper .close {
   float: right;
   position: relative;
   right: -0.5em;
   top: -2.5em;
-  color: #ef3f26;
-  display: inline-block;
+  color: #ef3f26 !important;
+  display: block;
   cursor: pointer;
 }
 /* line 40, ../sass/_mixins.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before {
   font-family: "entypo";
   font-style: normal;
   font-size: 4em;
@@ -570,16 +524,93 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   color: inherit;
   vertical-align: middle;
 }
-/* line 62, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper a.close span {
+/* line 20, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close span, .ctools-modal-content .modal-head-wrapper .close span {
   display: none;
 }
-/* line 69, ../sass/modals.scss */
+
+/* line 26, ../sass/modals.scss */
+.ctools-modal-content {
+  border: none !important;
+  position: relative;
+  background: transparent !important;
+}
+/* line 32, ../sass/modals.scss */
+.ctools-modal-content header .modal-update-title {
+  padding: .5em;
+}
+/* line 36, ../sass/modals.scss */
+.ctools-modal-content label {
+  float: none !important;
+  display: block;
+}
+/* line 41, ../sass/modals.scss */
+.ctools-modal-content .form-textarea-wrapper {
+  margin: 0 !important;
+}
+/* line 45, ../sass/modals.scss */
+.ctools-modal-content .filter-help {
+  display: none;
+}
+/* line 49, ../sass/modals.scss */
+.ctools-modal-content #edit-field-people-skills .form-type-select {
+  display: block;
+}
+/* line 53, ../sass/modals.scss */
+.ctools-modal-content ul.tips {
+  margin: 0;
+  padding: 0;
+}
+/* line 58, ../sass/modals.scss */
+.ctools-modal-content .popups-container {
+  overflow: visible !important;
+  height: auto !important;
+}
+/* line 61, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header {
+  background: #f3f2e0;
+  width: auto;
+}
+/* line 64, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close {
+  text-indent: none;
+  background-image: none;
+  top: -1.5em;
+  background: #f3f2e0;
+  border-radius: 1em;
+  right: -1.5em;
+  position: relative;
+  overflow: hidden;
+}
+/* line 74, ../sass/modals.scss */
+.ctools-modal-content .popups-container .modal-header .close::before {
+  text-indent: 0;
+  position: absolute;
+  left: 0;
+  top: -.225em;
+  display: block;
+}
+/* line 85, ../sass/modals.scss */
+.ctools-modal-content .messages {
+  margin-top: 1em;
+  border: none !important;
+}
+/* line 90, ../sass/modals.scss */
+.ctools-modal-content .modal-head-wrapper {
+  z-index: 5;
+  width: 100%;
+}
+/* line 93, ../sass/modals.scss */
+.ctools-modal-content .modal-head-wrapper h2.element-invisible {
+  display: none;
+}
+/* line 102, ../sass/modals.scss */
 .ctools-modal-content .popups-container,
 .ctools-modal-content .modal-content-wrapper {
   border: none;
 }
-/* line 73, ../sass/modals.scss */
+/* line 107, ../sass/modals.scss */
+.ctools-modal-content .modal-scroll,
 .ctools-modal-content .modal-content-wrapper {
   background: #f3f2e0;
   -webkit-border-radius: 3px;
@@ -593,20 +624,21 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 81, ../sass/modals.scss */
+/* line 116, ../sass/modals.scss */
+.ctools-modal-content .popups-body,
 .ctools-modal-content .modal-content {
   overflow: auto;
   padding: 0 1em;
   height: auto !important;
 }
 
-/* line 89, ../sass/modals.scss */
+/* line 124, ../sass/modals.scss */
 #modalContent.login .ctools-modal-content {
   min-height: 350px !important;
   height: auto !important;
 }
 
-/* line 95, ../sass/modals.scss */
+/* line 130, ../sass/modals.scss */
 #edit-field-issues-goals .form-type-checkbox {
   line-height: 2;
   border-bottom: 1px #dedede solid;
@@ -616,19 +648,19 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   margin: 0 1em 0 0;
 }
 
-/* line 105, ../sass/modals.scss */
+/* line 140, ../sass/modals.scss */
 #field-video-add-more-wrapper {
   padding-top: .125em;
 }
-/* line 109, ../sass/modals.scss */
+/* line 144, ../sass/modals.scss */
 #field-video-add-more-wrapper .mediaBrowserLaunch-processed label {
   display: none;
 }
-/* line 113, ../sass/modals.scss */
+/* line 148, ../sass/modals.scss */
 #field-video-add-more-wrapper .form-submit {
   margin-left: 1em;
 }
-/* line 117, ../sass/modals.scss */
+/* line 152, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview {
   display: block !important;
   margin-top: 1em;
@@ -636,11 +668,11 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   height: 400px;
   margin-bottom: 1em;
 }
-/* line 125, ../sass/modals.scss */
+/* line 160, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview .form-item {
   margin: 0;
 }
-/* line 131, ../sass/modals.scss */
+/* line 166, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview div,
 #field-video-add-more-wrapper .preview iframe {
   padding: 0 !important;
@@ -649,25 +681,25 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   height: 100%;
   border: none;
 }
-/* line 141, ../sass/modals.scss */
+/* line 176, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item {
   width: auto !important;
   border: none !important;
   background-color: transparent;
 }
-/* line 146, ../sass/modals.scss */
+/* line 181, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper {
   width: auto;
   height: auto;
 }
-/* line 151, ../sass/modals.scss */
+/* line 186, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper:hover {
   border: none;
   background: none;
   box-shadow: none;
   text-decoration: none;
 }
-/* line 158, ../sass/modals.scss */
+/* line 193, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .media-filename {
   width: auto;
   border: none;
@@ -677,68 +709,68 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   color: #7c7f7e;
 }
 
-/* line 173, ../sass/modals.scss */
+/* line 208, ../sass/modals.scss */
 #edit-field-image tr.even {
   background-color: transparent;
 }
-/* line 177, ../sass/modals.scss */
+/* line 212, ../sass/modals.scss */
 #edit-field-image td {
   padding-top: 1em;
   padding-bottom: .5em;
   border-bottom: 1px #dedede solid;
   vertical-align: top;
 }
-/* line 187, ../sass/modals.scss */
+/* line 222, ../sass/modals.scss */
 #edit-field-image > legend,
 #edit-field-image thead,
 #edit-field-image .tabledrag-changed,
 #edit-field-image .tabledrag-toggle-weight-wrapper {
   display: none !important;
 }
-/* line 191, ../sass/modals.scss */
+/* line 226, ../sass/modals.scss */
 #edit-field-image a.tabledrag-handle {
   display: inline-block;
 }
-/* line 197, ../sass/modals.scss */
+/* line 232, ../sass/modals.scss */
 #edit-field-image table .image-widget {
   float: none;
   width: auto;
 }
-/* line 202, ../sass/modals.scss */
+/* line 237, ../sass/modals.scss */
 #edit-field-image table .image-preview {
   width: 180px;
   float: left;
 }
-/* line 205, ../sass/modals.scss */
+/* line 240, ../sass/modals.scss */
 #edit-field-image table .image-preview img {
   display: block;
 }
-/* line 210, ../sass/modals.scss */
+/* line 245, ../sass/modals.scss */
 #edit-field-image table .image-widget-data {
   width: 320px;
 }
-/* line 213, ../sass/modals.scss */
+/* line 248, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .file,
 #edit-field-image table .image-widget-data .file-size {
   display: none;
 }
-/* line 216, ../sass/modals.scss */
+/* line 251, ../sass/modals.scss */
 #edit-field-image table .image-widget-data label {
   float: none;
 }
-/* line 219, ../sass/modals.scss */
+/* line 254, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .description {
   white-space: normal;
   width: 300px;
   margin-bottom: 1em;
 }
-/* line 224, ../sass/modals.scss */
+/* line 259, ../sass/modals.scss */
 #edit-field-image table .image-widget-data input[type="text"] {
   width: 300px;
   font-size: .875em;
   display: block;
 }
-/* line 231, ../sass/modals.scss */
+/* line 266, ../sass/modals.scss */
 #edit-field-image table input[value="Remove"] {
   width: 24px;
   height: 24px;
@@ -754,30 +786,30 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   background-repeat: no-repeat;
 }
 
-/* line 250, ../sass/modals.scss */
+/* line 285, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file {
   background: #fff;
   border-radius: 6px;
   padding: 1em;
 }
-/* line 256, ../sass/modals.scss */
+/* line 291, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file label {
   display: block;
   float: none;
 }
-/* line 261, ../sass/modals.scss */
+/* line 296, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix {
   clear: none;
   float: left;
 }
-/* line 264, ../sass/modals.scss */
+/* line 299, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"] {
   margin-left: 1em;
   position: relative;
   top: .125em;
 }
 
-/* line 273, ../sass/modals.scss */
+/* line 308, ../sass/modals.scss */
 #modal-throbber .modal-throbber-wrapper {
   border-radius: 4px;
   min-height: 12em;
@@ -882,7 +914,7 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
 }
 
 /* line 128, ../sass/includes/_entypo.scss */
-.ctools-modal-content .modal-head-wrapper a.close:before, ul.links.inline li.comment-delete a:before {
+.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
@@ -2072,7 +2104,6 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
 /* line 401, ../sass/_layout.scss */
 #user-login {
   display: block;
-  padding-top: 3em;
 }
 
 /* line 406, ../sass/_layout.scss */
@@ -5459,30 +5490,38 @@ li.sub-goal.sub-sub-goal {
 }
 /* line 2332, ../sass/asb.scss */
 .page-group-node #og-ui-add-users #edit-og-user > legend {
-  font-size: 1.2rem;
+  font-size: 33.4284px;
+  font-family: League, sans-serif;
+  color: #414042;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+/* line 2336, ../sass/asb.scss */
+.page-group-node #og-ui-add-users .back-scheme + fieldset#edit-og-user {
+  margin-top: 20px;
 }
 
-/* line 2344, ../sass/asb.scss */
+/* line 2347, ../sass/asb.scss */
 #scheme-content .view-header {
   padding-top: 1.2em;
   border-top-color: #cfcfcf;
   border-top-width: 1px;
   border-top-style: solid;
 }
-/* line 2351, ../sass/asb.scss */
+/* line 2354, ../sass/asb.scss */
 #scheme-content .view-header .item-list ul {
   list-style: none;
   margin: 0;
   padding: 0 0 20px 0;
 }
-/* line 2355, ../sass/asb.scss */
+/* line 2358, ../sass/asb.scss */
 #scheme-content .view-header .item-list ul li {
   display: inline-block;
   margin: 0;
   padding: 0 1.2em 0 0;
   border-top: none;
 }
-/* line 2360, ../sass/asb.scss */
+/* line 2363, ../sass/asb.scss */
 #scheme-content .view-header .item-list ul li a {
   color: #7c7f7e;
 }
@@ -5499,7 +5538,7 @@ li.sub-goal.sub-sub-goal {
   color: inherit;
   vertical-align: middle;
 }
-/* line 2377, ../sass/asb.scss */
+/* line 2380, ../sass/asb.scss */
 #scheme-content .view-header .scheme-updates-header {
   font-size: 16.04px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -5507,12 +5546,12 @@ li.sub-goal.sub-sub-goal {
   text-transform: capitalize;
   font-weight: normal;
 }
-/* line 2379, ../sass/asb.scss */
+/* line 2382, ../sass/asb.scss */
 #scheme-content .view-header .scheme-updates-header strong {
   font-weight: normal;
 }
 
-/* line 2395, ../sass/asb.scss */
+/* line 2398, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update, .page-scheme-updates div.view-content article.node-announcement, .page-scheme-updates div.view-content article.node-event,
 .page-node-members div.view-content article.node-update,
 .page-node-members div.view-content article.node-announcement,
@@ -5525,7 +5564,7 @@ li.sub-goal.sub-sub-goal {
   border-top-style: solid;
   padding-top: 1.2em;
 }
-/* line 2396, ../sass/asb.scss */
+/* line 2399, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update h3.field-label, .page-scheme-updates div.view-content article.node-announcement h3.field-label, .page-scheme-updates div.view-content article.node-event h3.field-label,
 .page-node-members div.view-content article.node-update h3.field-label,
 .page-node-members div.view-content article.node-announcement h3.field-label,
@@ -5536,7 +5575,7 @@ li.sub-goal.sub-sub-goal {
   clear: left;
   padding-top: 0;
 }
-/* line 2400, ../sass/asb.scss */
+/* line 2403, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .location.vcard, .page-scheme-updates div.view-content article.node-announcement .location.vcard, .page-scheme-updates div.view-content article.node-event .location.vcard,
 .page-node-members div.view-content article.node-update .location.vcard,
 .page-node-members div.view-content article.node-announcement .location.vcard,
@@ -5556,7 +5595,7 @@ li.sub-goal.sub-sub-goal {
   line-height: 18.4px;
   text-transform: none;
 }
-/* line 2408, ../sass/asb.scss */
+/* line 2411, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .field-group-content-access, .page-scheme-updates div.view-content article.node-announcement .field-group-content-access, .page-scheme-updates div.view-content article.node-event .field-group-content-access,
 .page-node-members div.view-content article.node-update .field-group-content-access,
 .page-node-members div.view-content article.node-announcement .field-group-content-access,
@@ -5612,7 +5651,7 @@ li.sub-goal.sub-sub-goal {
   color: #7c7f7e;
   text-decoration: none;
 }
-/* line 2417, ../sass/asb.scss */
+/* line 2420, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update header .user-picture, .page-scheme-updates div.view-content article.node-announcement header .user-picture, .page-scheme-updates div.view-content article.node-event header .user-picture,
 .page-node-members div.view-content article.node-update header .user-picture,
 .page-node-members div.view-content article.node-announcement header .user-picture,
@@ -5623,7 +5662,7 @@ li.sub-goal.sub-sub-goal {
   width: 60px;
   float: left;
 }
-/* line 2421, ../sass/asb.scss */
+/* line 2424, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update header p.submitted, .page-scheme-updates div.view-content article.node-announcement header p.submitted, .page-scheme-updates div.view-content article.node-event header p.submitted,
 .page-node-members div.view-content article.node-update header p.submitted,
 .page-node-members div.view-content article.node-announcement header p.submitted,
@@ -5633,7 +5672,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group div.view-content article.node-event header p.submitted {
   margin: 0;
 }
-/* line 2424, ../sass/asb.scss */
+/* line 2427, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update header h2.node-title, .page-scheme-updates div.view-content article.node-announcement header h2.node-title, .page-scheme-updates div.view-content article.node-event header h2.node-title,
 .page-node-members div.view-content article.node-update header h2.node-title,
 .page-node-members div.view-content article.node-announcement header h2.node-title,
@@ -5649,7 +5688,7 @@ li.sub-goal.sub-sub-goal {
   text-transform: none;
   margin-top: 5px;
 }
-/* line 2430, ../sass/asb.scss */
+/* line 2433, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .field-label,
 .page-scheme-updates div.view-content article.node-update .field-date, .page-scheme-updates div.view-content article.node-announcement .field-label,
 .page-scheme-updates div.view-content article.node-announcement .field-date, .page-scheme-updates div.view-content article.node-event .field-label,
@@ -5674,7 +5713,7 @@ li.sub-goal.sub-sub-goal {
   line-height: 1.5em;
   text-transform: none;
 }
-/* line 2434, ../sass/asb.scss */
+/* line 2437, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update h3.field-label, .page-scheme-updates div.view-content article.node-announcement h3.field-label, .page-scheme-updates div.view-content article.node-event h3.field-label,
 .page-node-members div.view-content article.node-update h3.field-label,
 .page-node-members div.view-content article.node-announcement h3.field-label,
@@ -5684,7 +5723,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group div.view-content article.node-event h3.field-label {
   display: block;
 }
-/* line 2437, ../sass/asb.scss */
+/* line 2440, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update div.field-body, .page-scheme-updates div.view-content article.node-announcement div.field-body, .page-scheme-updates div.view-content article.node-event div.field-body,
 .page-node-members div.view-content article.node-update div.field-body,
 .page-node-members div.view-content article.node-announcement div.field-body,
@@ -5741,7 +5780,7 @@ li.sub-goal.sub-sub-goal {
   color: #7c7f7e;
   text-decoration: none;
 }
-/* line 2441, ../sass/asb.scss */
+/* line 2444, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update div.field-body p, .page-scheme-updates div.view-content article.node-update div.field-body li, .page-scheme-updates div.view-content article.node-announcement div.field-body p, .page-scheme-updates div.view-content article.node-announcement div.field-body li, .page-scheme-updates div.view-content article.node-event div.field-body p, .page-scheme-updates div.view-content article.node-event div.field-body li,
 .page-node-members div.view-content article.node-update div.field-body p,
 .page-node-members div.view-content article.node-update div.field-body li,
@@ -5762,7 +5801,7 @@ li.sub-goal.sub-sub-goal {
   line-height: 1.5em;
   text-transform: none;
 }
-/* line 2443, ../sass/asb.scss */
+/* line 2446, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update div.field-body p:first-child, .page-scheme-updates div.view-content article.node-update div.field-body li:first-child, .page-scheme-updates div.view-content article.node-announcement div.field-body p:first-child, .page-scheme-updates div.view-content article.node-announcement div.field-body li:first-child, .page-scheme-updates div.view-content article.node-event div.field-body p:first-child, .page-scheme-updates div.view-content article.node-event div.field-body li:first-child,
 .page-node-members div.view-content article.node-update div.field-body p:first-child,
 .page-node-members div.view-content article.node-update div.field-body li:first-child,
@@ -5778,7 +5817,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group div.view-content article.node-event div.field-body li:first-child {
   margin-top: 0;
 }
-/* line 2449, ../sass/asb.scss */
+/* line 2452, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #node-content, .page-scheme-updates div.view-content article.node-announcement .node-default #node-content, .page-scheme-updates div.view-content article.node-event .node-default #node-content,
 .page-node-members div.view-content article.node-update .node-default #node-content,
 .page-node-members div.view-content article.node-announcement .node-default #node-content,
@@ -5790,7 +5829,7 @@ li.sub-goal.sub-sub-goal {
   padding-left: 0 !important;
   margin-left: 60px;
 }
-/* line 2455, ../sass/asb.scss */
+/* line 2458, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments form.comment-form, .page-scheme-updates div.view-content article.node-announcement .node-default #comments form.comment-form, .page-scheme-updates div.view-content article.node-event .node-default #comments form.comment-form,
 .page-node-members div.view-content article.node-update .node-default #comments form.comment-form,
 .page-node-members div.view-content article.node-announcement .node-default #comments form.comment-form,
@@ -5801,7 +5840,7 @@ li.sub-goal.sub-sub-goal {
   padding: 0;
   background: none;
 }
-/* line 2459, ../sass/asb.scss */
+/* line 2462, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .cke_contents, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .cke_contents, .page-scheme-updates div.view-content article.node-event .node-default #comments .cke_contents,
 .page-node-members div.view-content article.node-update .node-default #comments .cke_contents,
 .page-node-members div.view-content article.node-announcement .node-default #comments .cke_contents,
@@ -5811,7 +5850,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group div.view-content article.node-event .node-default #comments .cke_contents {
   height: 150px !important;
 }
-/* line 2462, ../sass/asb.scss */
+/* line 2465, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment, .page-scheme-updates div.view-content article.node-event .node-default #comments .comment,
 .page-node-members div.view-content article.node-update .node-default #comments .comment,
 .page-node-members div.view-content article.node-announcement .node-default #comments .comment,
@@ -5821,7 +5860,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group div.view-content article.node-event .node-default #comments .comment {
   padding-top: 1.2em;
 }
-/* line 2464, ../sass/asb.scss */
+/* line 2467, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .user-picture, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .user-picture, .page-scheme-updates div.view-content article.node-event .node-default #comments .comment .user-picture,
 .page-node-members div.view-content article.node-update .node-default #comments .comment .user-picture,
 .page-node-members div.view-content article.node-announcement .node-default #comments .comment .user-picture,
@@ -5833,7 +5872,7 @@ li.sub-goal.sub-sub-goal {
   width: 60px;
   float: left;
 }
-/* line 2469, ../sass/asb.scss */
+/* line 2472, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .comment-content, .page-scheme-updates div.view-content article.node-event .node-default #comments .comment .comment-content,
 .page-node-members div.view-content article.node-update .node-default #comments .comment .comment-content,
 .page-node-members div.view-content article.node-announcement .node-default #comments .comment .comment-content,
@@ -5844,7 +5883,7 @@ li.sub-goal.sub-sub-goal {
   margin-left: 60px;
   clear: none;
 }
-/* line 2473, ../sass/asb.scss */
+/* line 2476, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content header,
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content .field-comment-body, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .comment-content header,
 .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .comment-content .field-comment-body, .page-scheme-updates div.view-content article.node-event .node-default #comments .comment .comment-content header,
@@ -5864,7 +5903,7 @@ li.sub-goal.sub-sub-goal {
   margin-left: 0;
   display: block;
 }
-/* line 2476, ../sass/asb.scss */
+/* line 2479, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content header p, .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content header li,
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content .field-comment-body p,
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .comment-content .field-comment-body li, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .comment-content header p, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .comment-content header li,
@@ -5903,7 +5942,7 @@ li.sub-goal.sub-sub-goal {
   line-height: 1.5em;
   text-transform: none;
 }
-/* line 2481, ../sass/asb.scss */
+/* line 2484, ../sass/asb.scss */
 .page-scheme-updates div.view-content article.node-update .node-default #comments .comment .links.inline, .page-scheme-updates div.view-content article.node-announcement .node-default #comments .comment .links.inline, .page-scheme-updates div.view-content article.node-event .node-default #comments .comment .links.inline,
 .page-node-members div.view-content article.node-update .node-default #comments .comment .links.inline,
 .page-node-members div.view-content article.node-announcement .node-default #comments .comment .links.inline,
@@ -6031,7 +6070,7 @@ li.sub-goal.sub-sub-goal {
   color: #912a1b;
   text-decoration: none;
 }
-/* line 2497, ../sass/asb.scss */
+/* line 2500, ../sass/asb.scss */
 .page-scheme-updates #node-content p, .page-scheme-updates #node-content li,
 .page-scheme-updates .comment-content p,
 .page-scheme-updates .comment-content li,
@@ -6050,7 +6089,7 @@ li.sub-goal.sub-sub-goal {
   line-height: 1.5em;
   text-transform: none;
 }
-/* line 2500, ../sass/asb.scss */
+/* line 2503, ../sass/asb.scss */
 .page-scheme-updates #node-content li,
 .page-scheme-updates .comment-content li,
 .page-node-members #node-content li,
@@ -6060,7 +6099,7 @@ li.sub-goal.sub-sub-goal {
   margin-top: .5em;
   margin-bottom: .5em;
 }
-/* line 2504, ../sass/asb.scss */
+/* line 2507, ../sass/asb.scss */
 .page-scheme-updates #node-content ul,
 .page-scheme-updates .comment-content ul,
 .page-node-members #node-content ul,
@@ -6070,7 +6109,7 @@ li.sub-goal.sub-sub-goal {
   margin: 0 0 0 2em;
   padding: 0;
 }
-/* line 2507, ../sass/asb.scss */
+/* line 2510, ../sass/asb.scss */
 .page-scheme-updates #node-content ul > li,
 .page-scheme-updates .comment-content ul > li,
 .page-node-members #node-content ul > li,
@@ -6094,7 +6133,7 @@ li.sub-goal.sub-sub-goal {
   list-style-type: none;
   margin-left: 0;
 }
-/* line 2513, ../sass/asb.scss */
+/* line 2516, ../sass/asb.scss */
 .page-scheme-updates #node-content ul > li ul,
 .page-scheme-updates .comment-content ul > li ul,
 .page-node-members #node-content ul > li ul,
@@ -6103,7 +6142,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group .comment-content ul > li ul {
   margin: 0;
 }
-/* line 2515, ../sass/asb.scss */
+/* line 2518, ../sass/asb.scss */
 .page-scheme-updates #node-content ul > li ul li,
 .page-scheme-updates .comment-content ul > li ul li,
 .page-node-members #node-content ul > li ul li,
@@ -6117,7 +6156,7 @@ li.sub-goal.sub-sub-goal {
   border-left-style: solid;
   border-top: none;
 }
-/* line 2525, ../sass/asb.scss */
+/* line 2528, ../sass/asb.scss */
 .page-scheme-updates #node-content ul.menu,
 .page-scheme-updates .comment-content ul.menu,
 .page-node-members #node-content ul.menu,
@@ -6126,7 +6165,7 @@ li.sub-goal.sub-sub-goal {
 .page-node-group .comment-content ul.menu {
   margin-left: 0;
 }
-/* line 2529, ../sass/asb.scss */
+/* line 2532, ../sass/asb.scss */
 .page-scheme-updates #node-content ol,
 .page-scheme-updates .comment-content ol,
 .page-node-members #node-content ol,
@@ -6136,7 +6175,7 @@ li.sub-goal.sub-sub-goal {
   list-style: none;
   counter-reset: li;
 }
-/* line 2532, ../sass/asb.scss */
+/* line 2535, ../sass/asb.scss */
 .page-scheme-updates #node-content ol > li,
 .page-scheme-updates .comment-content ol > li,
 .page-node-members #node-content ol > li,
@@ -6156,7 +6195,7 @@ li.sub-goal.sub-sub-goal {
   border-top-style: solid;
   background: #f0f0f0;
 }
-/* line 2541, ../sass/asb.scss */
+/* line 2544, ../sass/asb.scss */
 .page-scheme-updates #node-content ol > li:before,
 .page-scheme-updates .comment-content ol > li:before,
 .page-node-members #node-content ol > li:before,
