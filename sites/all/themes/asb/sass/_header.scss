@@ -436,14 +436,17 @@
 
 #global-donate {
   @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
-  position: absolute;
-  top: -0.25em;
-  letter-spacing: .05em;
-  // .front & {
-  //   right: 0.425em;
-  // }
-  .not-front & {
-    right: -0.875em;
+  @include breakpoint( md, max-width ) {
+    width: 100%;
+    @include border-radius(0);
+  }
+  @include breakpoint(md) {
+    position: absolute;
+    top: -0.25em;
+    letter-spacing: .05em;
+    .not-front & {
+      right: -0.875em;
+    }    
   }
 }
 
