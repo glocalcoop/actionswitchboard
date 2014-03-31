@@ -436,6 +436,7 @@
 
 #global-donate {
   @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
+  right: 0;
   @include breakpoint( md, max-width ) {
     width: 100%;
     @include border-radius(0);
