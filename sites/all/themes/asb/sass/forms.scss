@@ -955,6 +955,10 @@ td.menu-disabled {
 // Civi Formss
 .section-civicrm {
   #crm-container {
+    .crm-button {
+      border: none;
+      text-shadow: none;
+    }
     input[type="button"], 
     input[type="reset"], 
     input[type="submit"] {
