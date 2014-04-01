@@ -1010,10 +1010,32 @@ td.menu-disabled {
       @include header-style;
     }
   }
-  .crm-container .crm-section .content, .crm-container-snippet .crm-section .content {
+  .crm-container .crm-section .content, 
+  .crm-container-snippet .crm-section .content,
+  .crm-container .display-block {
     margin-left: 0;
   }
+  #help {
+    border-radius: 0;
+    background-color: none;
+    border: none;
+    @include body-text;
+    margin: 0 0 8px;
+    padding: 4px;
+    padding: .25em .5em;
+    border-left: {
+      @include standard-border($width: 3px, $color: $accent);
+    }
+  }
+  .messages {
+    border-radius: none;
+    padding: 12px;
+    background: $sidebar-panel-primary;
+    color: $text-color-prominent;
+  }
 } 
+
+
 
 
 
