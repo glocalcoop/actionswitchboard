@@ -958,6 +958,7 @@ td.menu-disabled {
     .crm-button {
       border: none;
       text-shadow: none;
+      background: transparent;
     }
     input[type="button"], 
     input[type="reset"], 
@@ -972,11 +973,12 @@ td.menu-disabled {
     form {
       .label {
         label {
+          @include body-text;
           font-weight: bold;
         }
       } 
       label .crm-price-amount-amount {
-        @include body-text;
+        @include body-text($size: 1.2rem, $weight: bold);
       }
       .highlight {
         label .crm-price-amount-amount {
