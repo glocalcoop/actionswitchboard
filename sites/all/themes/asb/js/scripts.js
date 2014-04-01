@@ -60,6 +60,7 @@
         }
 
         if( $(".scheme-collection") ){
+          //console.log("clamp!");
           asb.scheme_overviews_clamp_descriptions();
         }
 
