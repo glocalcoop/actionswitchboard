@@ -1018,20 +1018,13 @@ td.menu-disabled {
   .crm-container .help,
   .crm-container #help {
     margin: 10px 0;
-    padding: .25em .5em;
-    border-radius: 0;
-    background-color: transparent;
-    border: none;
-    @include body-text;
-    border-left: {
-      @include standard-border($width: 3px, $color: $accent);
-    }
   }
+  .crm-container .help,
+  .crm-container #help,
   .messages,
   .status {
-    border-radius: none;
     border: none;
-    border-radius: none;
+    border-radius: 0;
     padding: 12px;
     background: $sidebar-panel-primary;
     color: $text-color-prominent;
