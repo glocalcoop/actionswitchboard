@@ -608,6 +608,12 @@ a.ui-button.primary,
   }
 }
 
+.section-civicrm {
+  input.form-submit {
+    @include button($height: 30px, $font-size: $h3-font-size + 6px);
+  }
+} 
+
 a#edit-cancel {
   @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
 }
