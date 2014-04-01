@@ -977,6 +977,9 @@ td.menu-disabled {
       }
     }
   }
+  fieldset {
+    border: none;
+  }
   fieldset>legend {
     margin: 0 10px;
     padding-top: 10px;
