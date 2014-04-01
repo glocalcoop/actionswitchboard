@@ -975,6 +975,10 @@ td.menu-disabled {
       border-radius: 4px;
       border: 1px solid $rules-color;
     }
+    input[type="checkbox"], 
+    input[type="radio"] {
+      margin-right: 5px;
+    }
     form {
       .price-set-row {
        display: inline-block;
@@ -992,6 +996,7 @@ td.menu-disabled {
       } 
       label .crm-price-amount-amount {
         @include body-text($size: 1.2rem);
+        font-weight: normal !important;
       }
       .highlight {
         label .crm-price-amount-amount {
