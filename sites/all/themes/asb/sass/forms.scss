@@ -970,15 +970,17 @@ td.menu-disabled {
     input[type="submit"].cancel {
       @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
     }
+    // .crm-public .price-set-row .crm-price-amount-amount {
+
+    // }
     form {
       .label {
         label {
-          @include body-text;
-          font-weight: bold;
+          @include body-text($weight: bold);
         }
       } 
       label .crm-price-amount-amount {
-        @include body-text($size: 1.2rem, $weight: bold);
+        @include body-text($size: 1.2rem);
       }
       .highlight {
         label .crm-price-amount-amount {
