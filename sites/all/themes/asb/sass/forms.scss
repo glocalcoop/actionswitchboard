@@ -1015,19 +1015,22 @@ td.menu-disabled {
   .crm-container .display-block {
     margin-left: 0;
   }
-  #help {
+  .crm-container .help,
+  .crm-container #help {
+    margin: 10px 0;
+    padding: .25em .5em;
     border-radius: 0;
-    background-color: none;
+    background-color: transparent;
     border: none;
     @include body-text;
-    margin: 0 0 8px;
-    padding: 4px;
-    padding: .25em .5em;
     border-left: {
       @include standard-border($width: 3px, $color: $accent);
     }
   }
-  .messages {
+  .messages,
+  .status {
+    border-radius: none;
+    border: none;
     border-radius: none;
     padding: 12px;
     background: $sidebar-panel-primary;
