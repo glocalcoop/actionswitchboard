@@ -1005,13 +1005,7 @@ td.menu-disabled {
       margin: 0;
       padding-top: 10px;
       padding-bottom: 10px;
-      border-top: {
-        @include standard-border;
-      }
-      border-bottom: {
-        @include standard-border;
-      }
-      @include body-text($size: 1.1em, $color: $text-color-prominent);
+      @include header-style;
     }
   }
   .crm-container .crm-section .content, .crm-container-snippet .crm-section .content {
