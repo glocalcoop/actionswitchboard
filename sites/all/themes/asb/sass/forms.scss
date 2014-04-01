@@ -959,6 +959,8 @@ td.menu-disabled {
     input[type="reset"], 
     input[type="submit"] {
       @include button($height: 30px, $font-size: $h3-font-size + 6px);
+      border: none;
+      text-shadow: none;
     }
     input[type="submit"].cancel {
       @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
