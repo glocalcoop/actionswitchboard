@@ -954,45 +954,47 @@ td.menu-disabled {
 
 // Civi Formss
 .section-civicrm {
-  input[type="button"], 
-  input[type="reset"], 
-  input[type="submit"] {
-    @include button($height: 30px, $font-size: $h3-font-size + 6px);
-  }
-  input[type="submit"].cancel {
-    @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
-  }
-  form {
-    .label {
-      label {
-        font-weight: bold;
-      }
-    } 
-    label .crm-price-amount-amount {
-      @include body-text;
+  #crm-container {
+    input[type="button"], 
+    input[type="reset"], 
+    input[type="submit"] {
+      @include button($height: 30px, $font-size: $h3-font-size + 6px);
     }
-    .highlight {
+    input[type="submit"].cancel {
+      @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+    }
+    form {
+      .label {
+        label {
+          font-weight: bold;
+        }
+      } 
       label .crm-price-amount-amount {
-        font-weight: bold;
+        @include body-text;
+      }
+      .highlight {
+        label .crm-price-amount-amount {
+          font-weight: bold;
+        }
       }
     }
-  }
-  fieldset {
-    border: none !important;
-  }
-  fieldset>legend {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: {
-      @include standard-border;
+    fieldset {
+      border: none !important;
     }
-    border-bottom: {
-      @include standard-border;
+    fieldset>legend {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-top: {
+        @include standard-border;
+      }
+      border-bottom: {
+        @include standard-border;
+      }
+      @include body-text($size: 1.1em, $color: $text-color-prominent);
     }
-    @include body-text($size: 1.1em, $color: $text-color-prominent);
   }
 } 
 
