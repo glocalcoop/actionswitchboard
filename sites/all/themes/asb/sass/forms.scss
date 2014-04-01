@@ -1024,7 +1024,7 @@ td.menu-disabled {
   .messages,
   .status {
     border: none;
-    border-radius: 0;
+    border-radius: 0 !important;
     padding: 12px;
     background: $sidebar-panel-primary;
     color: $text-color-prominent;
