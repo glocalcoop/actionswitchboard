@@ -970,9 +970,11 @@ td.menu-disabled {
     input[type="submit"].cancel {
       @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
     }
-    // .crm-public .price-set-row .crm-price-amount-amount {
-
-    // }
+    input[type="text"],
+    input[type="password"] {
+      border-radius: 4px;
+      border: 1px solid $rules-color;
+    }
     form {
       .price-set-row {
        display: inline-block;
@@ -985,6 +987,7 @@ td.menu-disabled {
       .label {
         label {
           @include body-text($weight: bold);
+          margin: 10px 0 5px 0;
         }
       } 
       label .crm-price-amount-amount {
@@ -1003,8 +1006,7 @@ td.menu-disabled {
       display: block;
       width: 100%;
       margin: 0;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 20px 0 10px 0;
       @include header-style;
     }
   }
