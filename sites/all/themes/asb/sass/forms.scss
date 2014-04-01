@@ -978,10 +978,11 @@ td.menu-disabled {
     }
   }
   fieldset {
-    border: none;
+    border: none !important;
   }
   fieldset>legend {
-    margin: 0 10px;
+    display: block;
+    margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     border-top: {
