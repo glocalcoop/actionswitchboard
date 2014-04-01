@@ -974,6 +974,14 @@ td.menu-disabled {
 
     // }
     form {
+      .price-set-row {
+       display: inline-block;
+        margin-right: .5em;
+        margin-bottom: .25em;
+        padding: .5em .75em;
+        border-radius: .25em;
+        background: rgba(black,.1);
+      }
       .label {
         label {
           @include body-text($weight: bold);
@@ -1005,6 +1013,9 @@ td.menu-disabled {
       }
       @include body-text($size: 1.1em, $color: $text-color-prominent);
     }
+  }
+  .crm-container .crm-section .content, .crm-container-snippet .crm-section .content {
+    margin-left: 0;
   }
 } 
 
