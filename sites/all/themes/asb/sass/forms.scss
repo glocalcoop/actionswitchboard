@@ -1044,8 +1044,9 @@ td.menu-disabled {
     #intro_text.crm-section {
       @include body-text($size: 1.4rem, $line-height: 2rem);
       a {
+        @include zen-float(right);
         margin: 10px 0; 
-        @include button($height: 30px, $font-size: $h3-font-size + 6px);
+        @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
         display: block;
         width: 100px;
         white-space: nowrap;
@@ -1058,7 +1059,7 @@ td.menu-disabled {
       margin-top: 10px;
     }
     .pcpSupporterText-section {
-      margin: 20px 0;
+      margin: 20px 0 !important;
       border: none;
       border-radius: 0 !important;
       padding: 12px;
