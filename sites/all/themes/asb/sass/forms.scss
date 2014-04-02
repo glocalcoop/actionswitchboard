@@ -1041,7 +1041,7 @@ td.menu-disabled {
   // Scheme-specific donation page
   .crm-contribution-main-form-block {
     margin-top: 10px;
-    
+
     #intro_text.crm-section {
       @include pie-clearfix;
       padding-bottom: 10px;
@@ -1060,9 +1060,6 @@ td.menu-disabled {
     .crm-section>.content {
       @include body-text($size: 1.2rem);
     }
-    #nameID {
-      margin-top: 10px;
-    }
     .pcpSupporterText-section {
       margin: 20px 0 !important;
       border: none;
@@ -1072,6 +1069,17 @@ td.menu-disabled {
       color: $text-color-prominent;
       &>.label {
         display: none;
+      }
+    }
+    #nameID,
+    #nickID,
+    #personalNoteID {
+      margin-top: 10px;
+    }
+    #nickID {}
+    #personalNoteID {
+      &>.label {
+        float: none;
       }
     }
   }
