@@ -1040,13 +1040,14 @@ td.menu-disabled {
 
   // Scheme-specific donation page
   .crm-contribution-main-form-block {
-    @include pie-clearfix;
     margin-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: {
-      @include standard-border;
-    }
+    
     #intro_text.crm-section {
+      @include pie-clearfix;
+      padding-bottom: 10px;
+      border-bottom: {
+        @include standard-border;
+      }
       @include body-text($size: 1.4rem, $line-height: 2rem);
       a {
         margin: 10px 0; 
