@@ -65,8 +65,8 @@
 }
 
 .front #main,
-.page-user #main,
-.page-user-edit #main,
+.page-user:not(.page-user-edit) #main,
+// .page-user-edit #main,
 .page-schemes #main {
   padding-bottom: 0;
 }
