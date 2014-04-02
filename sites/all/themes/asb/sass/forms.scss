@@ -981,7 +981,7 @@ td.menu-disabled {
     }
     form {
       .price-set-row {
-       display: inline-block;
+        display: inline-block;
         margin-right: .5em;
         margin-bottom: .25em;
         padding: .5em .75em;
@@ -1027,7 +1027,8 @@ td.menu-disabled {
   .crm-container .help,
   .crm-container #help,
   .messages,
-  .status {
+  .status,
+  .crm-container .crm-section .content {
     border: none;
     border-radius: 0 !important;
     padding: 12px;
@@ -1037,6 +1038,24 @@ td.menu-disabled {
   #crm-submit-buttons {
     margin: 10px 0;
   }
+
+  // Scheme-specific donation page
+  .crm-contribution-main-form-block {
+    margin-top: 10px;
+    #intro_text.crm-section {
+      @include body-text($size: 1.2rem);
+      a {
+        @include button;
+      }
+    }
+    .crm-section>.content {
+      @include body-text($size: 1.2rem);
+    }
+    #nameID {
+      margin-top: 10px;
+    }
+  }
+
 } 
 
 
