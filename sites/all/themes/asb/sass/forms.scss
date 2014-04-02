@@ -1042,7 +1042,7 @@ td.menu-disabled {
   .crm-contribution-main-form-block {
     margin-top: 10px;
     #intro_text.crm-section {
-      @include body-text($size: 1.4rem, $line-height: 1.6rem);
+      @include body-text($size: 1.4rem, $line-height: 2rem);
       a {
         margin: 10px 0; 
         @include button($height: 30px, $font-size: $h3-font-size + 6px);
@@ -1058,13 +1058,13 @@ td.menu-disabled {
       margin-top: 10px;
     }
     .pcpSupporterText-section {
-      margin: 10px 0;
+      margin: 20px 0;
       border: none;
       border-radius: 0 !important;
       padding: 12px;
       background: $sidebar-panel-primary;
       color: $text-color-prominent;
-      &>label {
+      &>.label {
         display: none;
       }
     }
