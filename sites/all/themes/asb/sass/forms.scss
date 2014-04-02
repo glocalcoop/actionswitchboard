@@ -1027,8 +1027,7 @@ td.menu-disabled {
   .crm-container .help,
   .crm-container #help,
   .messages,
-  .status,
-  .pcpSupporterText-section>.content {
+  .status {
     border: none;
     border-radius: 0 !important;
     padding: 12px;
@@ -1043,7 +1042,7 @@ td.menu-disabled {
   .crm-contribution-main-form-block {
     margin-top: 10px;
     #intro_text.crm-section {
-      @include body-text($size: 1.4rem, $line-height: 1.4rem);
+      @include body-text($size: 1.4rem, $line-height: 1.6rem);
       a {
         margin: 10px 0; 
         @include button($height: 30px, $font-size: $h3-font-size + 6px);
@@ -1057,6 +1056,17 @@ td.menu-disabled {
     }
     #nameID {
       margin-top: 10px;
+    }
+    .pcpSupporterText-section {
+      margin: 10px 0;
+      border: none;
+      border-radius: 0 !important;
+      padding: 12px;
+      background: $sidebar-panel-primary;
+      color: $text-color-prominent;
+      &>label {
+        display: none;
+      }
     }
   }
 
