@@ -1045,7 +1045,10 @@ td.menu-disabled {
     #intro_text.crm-section {
       @include body-text($size: 1.2rem);
       a {
-        @include button;
+        @include button($height: 30px, $font-size: $h3-font-size + 6px);
+        display: block;
+        width: 100px;
+        white-space: nowrap;
       }
     }
     .crm-section>.content {
