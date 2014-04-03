@@ -352,7 +352,30 @@ tr td:last-child {
   }
 }
 
-
-
+.crm-container .messages td.tasklist {
+  padding: 10px 0;
+  background: transparent;
+  // vertical-align: top;
+  @include body-text($size: 1.1em, $color: $text-color-prominent);
+  p {
+    padding: 0;
+    margin: 0;
+    @include body-text($size: 1em, $color: $text-color-prominent);
+  }
+  em {
+    font-style: normal;
+  }
+  &:first-child {
+    padding-left: 10px;
+  }
+  &:nth-child(odd) {
+    background: $even-backdrop;
+  }
+  ul {
+    @include no-bullets;
+      margin: 0;
+      padding: 0;
+  }
+}
 
 
