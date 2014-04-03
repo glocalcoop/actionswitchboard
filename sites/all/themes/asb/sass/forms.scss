@@ -982,6 +982,9 @@ td.menu-disabled {
         }
       }
     }
+    .button span div.icon {
+      display: none;
+    }
     input[type="submit"].cancel,
     #crm-container .crm-button-type-cancel input[type="submit"].cancel {
       @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
