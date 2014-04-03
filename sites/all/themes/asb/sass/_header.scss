@@ -213,7 +213,7 @@
           position: absolute;
           background-color: transparent;
           width: 428px;
-          height: 120px;
+          height: 123px;
           z-index: 100;
           top: 81px;
           margin: 0;
@@ -436,6 +436,7 @@
 
 #global-donate {
   @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
+  right: 0;
   @include breakpoint( md, max-width ) {
     width: 100%;
     @include border-radius(0);
