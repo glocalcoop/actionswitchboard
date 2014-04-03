@@ -975,6 +975,9 @@ td.menu-disabled {
       border: none;
       text-shadow: none;
       color: $nav-title-color !important;
+      span {
+        line-height: 30px;
+      }
     }
     input[type="submit"].cancel,
     #crm-container .crm-button-type-cancel input[type="submit"].cancel {
