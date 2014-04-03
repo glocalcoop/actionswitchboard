@@ -66,7 +66,8 @@
 <?php else: ?>
 <div id="page">
   <header id="header" role="banner">
-    <div class="content">
+    <div class="container">
+      <div class="content">
       <?php if ($logo): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
       <?php endif; ?>
@@ -133,6 +134,7 @@
           </section>
         </div>
     </div><!-- /#content -->
+  </div><!-- /#container -->
   </section><!-- /#main -->
   <?php print render($page['footer']); ?>
 </div>
