@@ -961,14 +961,16 @@ td.menu-disabled {
     &.crm-container {
       @include standard-links;
     }
-    .crm-button {
+    .crm-button,
+    .button {
       border: none;
       text-shadow: none;
       background: transparent;
     }
     input[type="button"], 
     input[type="reset"], 
-    input[type="submit"] {
+    input[type="submit"],
+    .button {
       @include button($height: 30px, $font-size: $h3-font-size + 6px);
       border: none;
       text-shadow: none;
