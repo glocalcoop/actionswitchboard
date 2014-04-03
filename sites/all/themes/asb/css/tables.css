@@ -622,3 +622,50 @@ table th.active img {
   list-style-type: none;
   margin-left: 0;
 }
+
+/* line 355, ../sass/tables.scss */
+.crm-container .messages td.tasklist {
+  padding: 10px 0;
+  background: transparent;
+  font-size: 1.1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 360, ../sass/tables.scss */
+.crm-container .messages td.tasklist p {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #414042;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 365, ../sass/tables.scss */
+.crm-container .messages td.tasklist em {
+  font-style: normal;
+}
+/* line 368, ../sass/tables.scss */
+.crm-container .messages td.tasklist:first-child {
+  padding-left: 10px;
+}
+/* line 371, ../sass/tables.scss */
+.crm-container .messages td.tasklist:nth-child(odd) {
+  background: #f0f0f0;
+}
+/* line 374, ../sass/tables.scss */
+.crm-container .messages td.tasklist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+.crm-container .messages td.tasklist ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}

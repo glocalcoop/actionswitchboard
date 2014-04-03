@@ -1014,11 +1014,11 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   clear: left;
   padding-bottom: 1.5em;
 }
-/* line 756, ../sass/forms.scss */
+/* line 772, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-video #field-video-add-more-wrapper .mediaBrowserLaunch-processed label {
   display: inherit;
 }
-/* line 760, ../sass/forms.scss */
+/* line 776, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-video label.media-filename {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -1027,7 +1027,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   line-height: 18.4px;
   text-transform: none;
 }
-/* line 767, ../sass/forms.scss */
+/* line 783, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-image label,
 .section-node-edit.node-type-scheme .form-field-name-field-image label:first-child {
   font-size: 12px;
@@ -1037,7 +1037,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   line-height: 16.4px;
   text-transform: none;
 }
-/* line 770, ../sass/forms.scss */
+/* line 786, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-image legend {
   font-size: 33.4284px;
   font-family: League, sans-serif;
@@ -1046,7 +1046,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   font-weight: normal;
   line-height: 1.2;
 }
-/* line 774, ../sass/forms.scss */
+/* line 790, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-image input[type="submit"] {
   display: inline-block;
   padding: 0 20px;
@@ -1065,11 +1065,11 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   background-color: #912a1b;
   color: white;
 }
-/* line 778, ../sass/forms.scss */
+/* line 794, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .workflow-form-container {
   padding-bottom: 1.5em;
 }
-/* line 780, ../sass/forms.scss */
+/* line 796, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .workflow-form-container .workflow-buttons input[type="submit"] {
   display: inline-block;
   padding: 0 20px;
@@ -1088,15 +1088,15 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   background-color: #912a1b;
   color: white;
 }
-/* line 788, ../sass/forms.scss */
+/* line 804, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-material-needs thead tr th {
   border: none;
 }
-/* line 806, ../sass/forms.scss */
+/* line 822, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-actions input[type="submit"]#edit-preview {
   display: none;
 }
-/* line 810, ../sass/forms.scss */
+/* line 826, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-actions input[type="submit"]#edit-delete {
   display: inline-block;
   padding: 0 20px;
@@ -1115,11 +1115,11 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   background-color: #912a1b;
   color: white;
 }
-/* line 812, ../sass/forms.scss */
+/* line 828, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-actions input[type="submit"]#edit-delete:after {
   content: ' \2716';
 }
-/* line 818, ../sass/forms.scss */
+/* line 834, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .field-add-more-submit {
   display: inline-block;
   padding: 0 20px;
@@ -1139,15 +1139,15 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   color: white;
 }
 
-/* line 835, ../sass/forms.scss */
+/* line 851, ../sass/forms.scss */
 .section-messages #main form#privatemsg-list {
   margin-top: 10px;
 }
-/* line 838, ../sass/forms.scss */
+/* line 854, ../sass/forms.scss */
 .section-messages #main #privatemsg-filter-tags {
   margin-top: 10px;
 }
-/* line 841, ../sass/forms.scss */
+/* line 857, ../sass/forms.scss */
 .section-messages #main .privatemsg-message-participants {
   margin-top: 10px;
   font-size: 1.25rem;
@@ -1160,28 +1160,28 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
-/* line 850, ../sass/forms.scss */
+/* line 866, ../sass/forms.scss */
 .section-messages .privatemsg-author-avatar,
 .section-messages .privatemsg-message-column {
   float: left;
 }
-/* line 853, ../sass/forms.scss */
+/* line 869, ../sass/forms.scss */
 .section-messages .privatemsg-author-avatar {
   width: 10%;
   min-width: 30px;
   padding-right: 1%;
 }
-/* line 858, ../sass/forms.scss */
+/* line 874, ../sass/forms.scss */
 .section-messages .privatemsg-message-column {
   width: 89%;
 }
-/* line 860, ../sass/forms.scss */
+/* line 876, ../sass/forms.scss */
 .section-messages .privatemsg-message-column .privatemsg-message-information {
   border-bottom-color: #cfcfcf;
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
-/* line 865, ../sass/forms.scss */
+/* line 881, ../sass/forms.scss */
 .section-messages .privatemsg-message-column .privatemsg-message-information .privatemsg-author-name,
 .section-messages .privatemsg-message-column .privatemsg-message-information .privatemsg-message-date {
   font-size: 1.25rem;
@@ -1191,16 +1191,16 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   line-height: 16.4px;
   text-transform: none;
 }
-/* line 869, ../sass/forms.scss */
+/* line 885, ../sass/forms.scss */
 .section-messages .privatemsg-message-column .privatemsg-message-body {
   margin-left: 0;
 }
-/* line 871, ../sass/forms.scss */
+/* line 887, ../sass/forms.scss */
 .section-messages .privatemsg-message-column .privatemsg-message-body p {
   margin: 10px 0;
 }
 
-/* line 878, ../sass/forms.scss */
+/* line 894, ../sass/forms.scss */
 #canned-email-form {
   margin-top: 10px;
 }
@@ -1208,16 +1208,16 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
 /*
  * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.
  */
-/* line 888, ../sass/forms.scss */
+/* line 904, ../sass/forms.scss */
 td.menu-disabled {
   background: #ccc;
 }
 
-/* line 895, ../sass/forms.scss */
+/* line 911, ../sass/forms.scss */
 .page-node-add-scheme #content form {
   font-size: 1.2rem;
 }
-/* line 898, ../sass/forms.scss */
+/* line 914, ../sass/forms.scss */
 .page-node-add-scheme #edit-field-issues-goals-und {
   *zoom: 1;
 }
@@ -1227,7 +1227,7 @@ td.menu-disabled {
   display: table;
   clear: both;
 }
-/* line 900, ../sass/forms.scss */
+/* line 916, ../sass/forms.scss */
 .page-node-add-scheme #edit-field-issues-goals-und .description {
   *zoom: 1;
 }
@@ -1237,7 +1237,7 @@ td.menu-disabled {
   display: table;
   clear: both;
 }
-/* line 903, ../sass/forms.scss */
+/* line 919, ../sass/forms.scss */
 .page-node-add-scheme #edit-field-issues-goals-und .form-item {
   float: left;
   width: 28%;
@@ -1247,17 +1247,17 @@ td.menu-disabled {
   line-height: 1.5;
 }
 
-/* line 920, ../sass/forms.scss */
+/* line 936, ../sass/forms.scss */
 #modalContent.donate-skills #modal-content,
 #modalContent.request-membership #modal-content {
   height: auto !important;
 }
-/* line 923, ../sass/forms.scss */
+/* line 939, ../sass/forms.scss */
 #modalContent.donate-skills div.ctools-modal-content .form-item label,
 #modalContent.request-membership div.ctools-modal-content .form-item label {
   width: auto;
 }
-/* line 927, ../sass/forms.scss */
+/* line 943, ../sass/forms.scss */
 #modalContent.donate-skills #edit-skills .form-item,
 #modalContent.request-membership #edit-skills .form-item {
   display: inline-block;
@@ -1266,4 +1266,296 @@ td.menu-disabled {
   padding: .5em .75em;
   border-radius: .25em;
   background: rgba(0, 0, 0, 0.1);
+}
+
+/* line 957, ../sass/forms.scss */
+.section-civicrm .main-content {
+  margin-top: 10px;
+}
+/* line 79, ../sass/_mixins.scss */
+.section-civicrm #crm-container.crm-container a,
+.section-civicrm #crm-container.crm-container a:link {
+  border: none;
+  color: #ef3f26;
+  font-weight: normal;
+  text-decoration: none;
+}
+/* line 85, ../sass/_mixins.scss */
+.section-civicrm #crm-container.crm-container a:visited {
+  border: none;
+  color: #d22810;
+  text-decoration: none;
+}
+/* line 90, ../sass/_mixins.scss */
+.section-civicrm #crm-container.crm-container a:hover {
+  border: none;
+  color: #912a1b;
+  text-decoration: none;
+}
+/* line 965, ../sass/forms.scss */
+.section-civicrm #crm-container .crm-button,
+.section-civicrm #crm-container .button {
+  border: none;
+  text-shadow: none;
+  background: transparent;
+}
+/* line 973, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="button"],
+.section-civicrm #crm-container input[type="reset"],
+.section-civicrm #crm-container input[type="submit"],
+.section-civicrm #crm-container .button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  text-shadow: none;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.section-civicrm #crm-container input[type="button"]:hover, .section-civicrm #crm-container input[type="button"]:focus,
+.section-civicrm #crm-container input[type="reset"]:hover,
+.section-civicrm #crm-container input[type="reset"]:focus,
+.section-civicrm #crm-container input[type="submit"]:hover,
+.section-civicrm #crm-container input[type="submit"]:focus,
+.section-civicrm #crm-container .button:hover,
+.section-civicrm #crm-container .button:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 978, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="button"] span,
+.section-civicrm #crm-container input[type="reset"] span,
+.section-civicrm #crm-container input[type="submit"] span,
+.section-civicrm #crm-container .button span {
+  line-height: 30px;
+}
+/* line 980, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="button"] span .icon,
+.section-civicrm #crm-container input[type="reset"] span .icon,
+.section-civicrm #crm-container input[type="submit"] span .icon,
+.section-civicrm #crm-container .button span .icon {
+  display: none;
+}
+/* line 985, ../sass/forms.scss */
+.section-civicrm #crm-container .button span div.icon {
+  display: none;
+}
+/* line 989, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="submit"].cancel,
+.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #56cbc8;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.section-civicrm #crm-container input[type="submit"].cancel:hover, .section-civicrm #crm-container input[type="submit"].cancel:focus,
+.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel:hover,
+.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 994, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="text"],
+.section-civicrm #crm-container input[type="password"] {
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+}
+/* line 999, ../sass/forms.scss */
+.section-civicrm #crm-container input[type="checkbox"],
+.section-civicrm #crm-container input[type="radio"] {
+  margin-right: 5px;
+}
+/* line 1003, ../sass/forms.scss */
+.section-civicrm #crm-container form .price-set-row {
+  display: inline-block;
+  margin-right: .5em;
+  margin-bottom: .25em;
+  padding: .5em .75em;
+  border-radius: .25em;
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 1012, ../sass/forms.scss */
+.section-civicrm #crm-container form .label label {
+  font-size: 12px;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: bold;
+  line-height: 16.4px;
+  text-transform: none;
+  margin: 10px 0 5px 0;
+}
+/* line 1017, ../sass/forms.scss */
+.section-civicrm #crm-container form label .crm-price-amount-amount {
+  font-size: 1.2rem;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+  font-weight: normal !important;
+}
+/* line 1022, ../sass/forms.scss */
+.section-civicrm #crm-container form .highlight label .crm-price-amount-amount {
+  font-weight: bold !important;
+}
+/* line 1027, ../sass/forms.scss */
+.section-civicrm #crm-container fieldset {
+  border: none !important;
+}
+/* line 1030, ../sass/forms.scss */
+.section-civicrm #crm-container fieldset > legend {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0 10px 0;
+  font-size: 33.4284px;
+  font-family: League, sans-serif;
+  color: #414042;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+/* line 1040, ../sass/forms.scss */
+.section-civicrm .crm-container .crm-section .content,
+.section-civicrm .crm-container-snippet .crm-section .content,
+.section-civicrm .crm-container .display-block {
+  margin-left: 0;
+}
+/* line 1044, ../sass/forms.scss */
+.section-civicrm .crm-container .help,
+.section-civicrm .crm-container #help {
+  margin: 10px 0;
+}
+/* line 1051, ../sass/forms.scss */
+.section-civicrm .crm-container .help,
+.section-civicrm .crm-container #help,
+.section-civicrm .messages,
+.section-civicrm .status,
+.section-civicrm .crm-container .crm-form-block {
+  border: none;
+  border-radius: 0 !important;
+  padding: 12px;
+  background: #ebebeb;
+  color: #414042;
+}
+/* line 1058, ../sass/forms.scss */
+.section-civicrm #crm-submit-buttons {
+  margin: 10px 0;
+}
+/* line 1063, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block {
+  margin-top: 10px;
+}
+/* line 1066, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section {
+  *zoom: 1;
+  padding-bottom: 10px;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  font-size: 1.4rem;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: normal;
+  line-height: 2rem;
+  text-transform: none;
+}
+/* line 38, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 1073, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a {
+  margin: 10px 0;
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #56cbc8;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  width: 100px;
+  white-space: nowrap;
+}
+/* line 319, ../sass/_mixins.scss */
+.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a:hover, .section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 1080, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section p {
+  font-size: 1.4rem;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: normal;
+  line-height: 2rem;
+  text-transform: none;
+}
+/* line 1084, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block .crm-section > .content {
+  font-size: 1.2rem;
+  font-family: SourceSansPro, Tahoma, sans-serif;
+  color: #7c7f7e;
+  font-weight: normal;
+  line-height: 16.4px;
+  text-transform: none;
+}
+/* line 1087, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block .pcpSupporterText-section {
+  display: none;
+}
+/* line 1099, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block fieldset.pcp-group {
+  display: none;
+}
+/* line 1104, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block #nameID,
+.section-civicrm .crm-contribution-main-form-block #nickID,
+.section-civicrm .crm-contribution-main-form-block #personalNoteID {
+  margin-top: 10px;
+}
+/* line 1109, ../sass/forms.scss */
+.section-civicrm .crm-contribution-main-form-block #personalNoteID > .label {
+  float: none;
+}
+/* line 1128, ../sass/forms.scss */
+.section-civicrm .crm-container div.status,
+.section-civicrm div.m ul#civicrm-menu,
+.section-civicrm .crm-container #help,
+.section-civicrm .crm-container .help,
+.section-civicrm .crm-container .ui-tabs-panel,
+.section-civicrm .crm-container .crm-content-block,
+.section-civicrm #full-screen-header,
+.section-civicrm .crm-container .crm-pager,
+.section-civicrm .crm-container form .section-hidden-border,
+.section-civicrm .crm-container #search-status,
+.section-civicrm .crm-container .crm-form-block,
+.section-civicrm .crm-container .crm-search-tasks,
+.section-civicrm .crm-container .crm-tasks,
+.section-civicrm .crm-container div.form-item,
+.section-civicrm .crm-container div.messages {
+  border-radius: 0 !important;
 }

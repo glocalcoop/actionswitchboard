@@ -173,41 +173,39 @@
   display: block !important;
   margin-top: 1em;
   width: 100%;
-  height: 400px;
   margin-bottom: 1em;
 }
-/* line 160, ../sass/modals.scss */
+/* line 159, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview .form-item {
   margin: 0;
 }
-/* line 166, ../sass/modals.scss */
-#field-video-add-more-wrapper .preview div,
+/* line 165, ../sass/modals.scss */
 #field-video-add-more-wrapper .preview iframe {
   padding: 0 !important;
   margin: 0 !important;
   width: 100%;
-  height: 100%;
+  height: 400px;
   border: none;
 }
-/* line 176, ../sass/modals.scss */
+/* line 175, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item {
   width: auto !important;
   border: none !important;
   background-color: transparent;
 }
-/* line 181, ../sass/modals.scss */
+/* line 180, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper {
   width: auto;
   height: auto;
 }
-/* line 186, ../sass/modals.scss */
+/* line 185, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .label-wrapper:hover {
   border: none;
   background: none;
   box-shadow: none;
   text-decoration: none;
 }
-/* line 193, ../sass/modals.scss */
+/* line 192, ../sass/modals.scss */
 #field-video-add-more-wrapper .media-item .media-filename {
   width: auto;
   border: none;
@@ -217,68 +215,68 @@
   color: #7c7f7e;
 }
 
-/* line 208, ../sass/modals.scss */
+/* line 207, ../sass/modals.scss */
 #edit-field-image tr.even {
   background-color: transparent;
 }
-/* line 212, ../sass/modals.scss */
+/* line 211, ../sass/modals.scss */
 #edit-field-image td {
   padding-top: 1em;
   padding-bottom: .5em;
   border-bottom: 1px #dedede solid;
   vertical-align: top;
 }
-/* line 222, ../sass/modals.scss */
+/* line 221, ../sass/modals.scss */
 #edit-field-image > legend,
 #edit-field-image thead,
 #edit-field-image .tabledrag-changed,
 #edit-field-image .tabledrag-toggle-weight-wrapper {
   display: none !important;
 }
-/* line 226, ../sass/modals.scss */
+/* line 225, ../sass/modals.scss */
 #edit-field-image a.tabledrag-handle {
   display: inline-block;
 }
-/* line 232, ../sass/modals.scss */
+/* line 231, ../sass/modals.scss */
 #edit-field-image table .image-widget {
   float: none;
   width: auto;
 }
-/* line 237, ../sass/modals.scss */
+/* line 236, ../sass/modals.scss */
 #edit-field-image table .image-preview {
   width: 180px;
   float: left;
 }
-/* line 240, ../sass/modals.scss */
+/* line 239, ../sass/modals.scss */
 #edit-field-image table .image-preview img {
   display: block;
 }
-/* line 245, ../sass/modals.scss */
+/* line 244, ../sass/modals.scss */
 #edit-field-image table .image-widget-data {
   width: 320px;
 }
-/* line 248, ../sass/modals.scss */
+/* line 247, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .file,
 #edit-field-image table .image-widget-data .file-size {
   display: none;
 }
-/* line 251, ../sass/modals.scss */
+/* line 250, ../sass/modals.scss */
 #edit-field-image table .image-widget-data label {
   float: none;
 }
-/* line 254, ../sass/modals.scss */
+/* line 253, ../sass/modals.scss */
 #edit-field-image table .image-widget-data .description {
   white-space: normal;
   width: 300px;
   margin-bottom: 1em;
 }
-/* line 259, ../sass/modals.scss */
+/* line 258, ../sass/modals.scss */
 #edit-field-image table .image-widget-data input[type="text"] {
   width: 300px;
   font-size: .875em;
   display: block;
 }
-/* line 266, ../sass/modals.scss */
+/* line 265, ../sass/modals.scss */
 #edit-field-image table input[value="Remove"] {
   width: 24px;
   height: 24px;
@@ -294,30 +292,30 @@
   background-repeat: no-repeat;
 }
 
-/* line 285, ../sass/modals.scss */
+/* line 284, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file {
   background: #fff;
   border-radius: 6px;
   padding: 1em;
 }
-/* line 291, ../sass/modals.scss */
+/* line 290, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file label {
   display: block;
   float: none;
 }
-/* line 296, ../sass/modals.scss */
+/* line 295, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix {
   clear: none;
   float: left;
 }
-/* line 299, ../sass/modals.scss */
+/* line 298, ../sass/modals.scss */
 div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"] {
   margin-left: 1em;
   position: relative;
   top: .125em;
 }
 
-/* line 308, ../sass/modals.scss */
+/* line 307, ../sass/modals.scss */
 #modal-throbber .modal-throbber-wrapper {
   border-radius: 4px;
   min-height: 12em;
