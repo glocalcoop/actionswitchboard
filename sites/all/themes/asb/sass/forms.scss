@@ -1061,15 +1061,19 @@ td.menu-disabled {
       @include body-text($size: 1.2rem);
     }
     .pcpSupporterText-section {
-      margin: 20px 0 !important;
-      border: none;
-      border-radius: 0 !important;
-      padding: 12px;
-      background: $sidebar-panel-primary;
-      color: $text-color-prominent;
-      &>.label {
-        display: none;
-      }
+      // margin: 20px 0 !important;
+      // border: none;
+      // border-radius: 0 !important;
+      // padding: 12px;
+      // background: $sidebar-panel-primary;
+      // color: $text-color-prominent;
+      // &>.label {
+      //   display: none;
+      // }
+      display: none;
+    }
+    fieldset.pcp-group {
+      display: none;
     }
     #nameID,
     #nickID,
