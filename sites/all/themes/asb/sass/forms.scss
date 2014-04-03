@@ -977,6 +977,9 @@ td.menu-disabled {
       color: $nav-title-color !important;
       span {
         line-height: 30px;
+        .icon {
+          display: none;
+        }
       }
     }
     input[type="submit"].cancel,
