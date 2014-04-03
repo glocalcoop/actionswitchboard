@@ -952,12 +952,15 @@ td.menu-disabled {
 }
 
 
-// Civi Formss
+// Civi Forms
 .section-civicrm {
   .main-content {
     margin-top: 10px;
   }
   #crm-container {
+    &.crm-container {
+      @include standard-links;
+    }
     .crm-button {
       border: none;
       text-shadow: none;
