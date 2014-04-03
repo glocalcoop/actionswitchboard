@@ -954,6 +954,9 @@ td.menu-disabled {
 
 // Civi Formss
 .section-civicrm {
+  .main-content {
+    margin-top: 10px;
+  }
   #crm-container {
     .crm-button {
       border: none;
@@ -1029,7 +1032,8 @@ td.menu-disabled {
   .crm-container .help,
   .crm-container #help,
   .messages,
-  .status {
+  .status,
+  .crm-container .crm-form-block {
     border: none;
     border-radius: 0 !important;
     padding: 12px;
@@ -1092,7 +1096,25 @@ td.menu-disabled {
       }
     }
   }
+  .crm-container div.status, 
+  div.m ul#civicrm-menu, 
+  .crm-container #help, 
+  .crm-container .help, 
+  .crm-container .ui-tabs-panel, 
+  .crm-container .crm-content-block, 
+  #full-screen-header, 
+  .crm-container .crm-pager, 
+  .crm-container form .section-hidden-border, 
+  .crm-container #search-status, 
+  .crm-container .crm-form-block, 
+  .crm-container .crm-search-tasks, 
+  .crm-container .crm-tasks, 
+  .crm-container div.form-item, 
+  .crm-container div.messages {
+    border-radius: 0 !important;
+  }
 } 
+
 
 
 
