@@ -622,13 +622,12 @@ li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action
   -moz-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   padding-top: 1em;
-  padding-bottom: 1em;
 }
 /* line 116, ../sass/modals.scss */
 .ctools-modal-content .popups-body,
 .ctools-modal-content .modal-content {
-  overflow: auto;
-  padding: 0 1em;
+  overflow: visible !important;
+  padding: 0 1em 1em 1em !important;
   height: auto !important;
 }
 
@@ -817,6 +816,11 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
   background-image: url("/sites/all/modules/custom/asb_modal/images/ajax-loader.gif");
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+/* line 323, ../sass/modals.scss */
+.form-item-field-people-skills-und .chosen-container {
+  width: 100% !important;
 }
 
 /**
