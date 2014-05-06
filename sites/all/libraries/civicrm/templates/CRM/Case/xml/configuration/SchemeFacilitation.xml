@@ -16,6 +16,21 @@
     <ActivityType>
       <name>Facilitator Follow up</name>
     </ActivityType>
+    <ActivityType>
+      <name>Meeting Request</name>
+    </ActivityType>
+    <ActivityType>
+      <name>Meeting Reminder</name>
+    </ActivityType>
+    <ActivityType>
+      <name>Meeting Agenda</name>
+    </ActivityType>
+    <ActivityType>
+      <name>Meeting Email</name>
+    </ActivityType>
+    <ActivityType>
+      <name>General Task</name>
+    </ActivityType>
   <ActivityType>
       <name>Change Case Type</name>
     </ActivityType>
