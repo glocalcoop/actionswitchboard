@@ -31,6 +31,9 @@
     <ActivityType>
       <name>General Task</name>
     </ActivityType>
+    <ActivityType>
+      <name>Find Scheme Members</name>
+    </ActivityType>
   <ActivityType>
       <name>Change Case Type</name>
     </ActivityType>
