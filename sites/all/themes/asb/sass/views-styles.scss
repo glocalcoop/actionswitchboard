@@ -489,3 +489,44 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   display: none;
 }
 
+/* .front .view-grand-tour */
+.front {
+  .view-grand-tour {
+    .view-footer {
+      ul.pager {
+        position: relative;
+        background: rgba( red, .2 );
+        max-width: 960px;
+        margin: 0 auto;
+        width: 100%;
+        li {
+          position: absolute;
+          top: -230px; //$pager-vmargin;
+          list-style: none;
+          a {
+            display: block;
+            height: $pager-height;
+            width: $pager-width;
+            line-height: $pager-height;
+            font-size: 0;
+            color: $rules-color;
+            }     
+            &.pager-next {
+              right: $pager-hmargin + 24px;
+              a {
+                @include replace-text($next-image);
+                text-indent: 0 !important;
+                }
+              }
+            &.pager-item {
+              left: $pager-hmargin;
+              a {
+                @include replace-text($previous-image);
+                text-indent: 0 !important;
+                }
+            }
+        }
+      }
+    }
+    }
+    }

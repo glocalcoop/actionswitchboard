@@ -3976,7 +3976,7 @@ form .form-actions input {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/footer-logo.png?1396249511');
+  background-image: url('../images/footer-logo.png?1398889958');
   background-repeat: no-repeat;
   background-position: 0 25%;
   color: white;
@@ -6248,4 +6248,42 @@ li.sub-goal.sub-sub-goal {
   background: #ef3f26;
   font-weight: bold;
   text-align: center;
+}
+
+/* line 2580, ../sass/asb.scss */
+.front #modalContent .field-image {
+  position: relative;
+}
+/* line 2583, ../sass/asb.scss */
+.front #modalContent .field-image .article-title {
+  display: none;
+}
+/* line 2588, ../sass/asb.scss */
+.front #modalContent .field-image h4.index-0,
+.front #modalContent .field-image .img-title {
+  position: absolute;
+  margin: 0;
+  padding: 10px 10px 10px 20px;
+  background: black;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: League, sans-serif;
+}
+/* line 2600, ../sass/asb.scss */
+.front #modalContent .field-image h4.index-0 {
+  display: inline-block;
+  bottom: 80px;
+  left: 0;
+  clear: both;
+  font-size: 3.1rem;
+  line-height: .75;
+}
+/* line 2610, ../sass/asb.scss */
+.front #modalContent .field-image .img-title {
+  display: block;
+  bottom: 20px;
+  left: 0;
+  font-size: 1.75rem;
+  line-height: 1;
+  width: 57%;
 }

@@ -625,3 +625,56 @@
 .section-schemes header.page-header {
   display: none;
 }
+
+/* .front .view-grand-tour */
+/* line 496, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager {
+  position: relative;
+  background: rgba(255, 0, 0, 0.2);
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+/* line 502, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li {
+  position: absolute;
+  top: -230px;
+  list-style: none;
+}
+/* line 506, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li a {
+  display: block;
+  height: 42px;
+  width: 28px;
+  line-height: 42px;
+  font-size: 0;
+  color: #cfcfcf;
+}
+/* line 514, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li.pager-next {
+  right: -16px;
+}
+/* line 516, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li.pager-next a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url("/sites/all/themes/asb/images/pager/next.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  text-indent: 0 !important;
+}
+/* line 521, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li.pager-item {
+  left: -40px;
+}
+/* line 523, ../sass/views-styles.scss */
+.front .view-grand-tour .view-footer ul.pager li.pager-item a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url("/sites/all/themes/asb/images/pager/previous.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  text-indent: 0 !important;
+}
