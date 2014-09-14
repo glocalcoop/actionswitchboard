@@ -2575,6 +2575,68 @@ li.sub-goal.sub-sub-goal {
     }
 }
 
+.front {
+  .field-image {
+    position: relative;
+
+    .article-title {
+      display: none;
+    }
+
+    .img-title {
+      position: absolute;
+      display: block;
+      bottom: 20px;
+      left: 0;
+
+      background: $gray-dark;
+      background: rgba(0,0,0,0.6);  
+      padding: 10px 10px 10px 20px;
+      margin: 0;
+
+      font-family: $header-font-family;
+      font-size: 1.75rem;
+      color: $site-title-color;
+      line-height: 1;
+      width: 57%;
+    }
+  }
+}
+
+// .tour {
+//   .carousel-div {
+//     position: relative;
+
+//     .caption {
+//       // z-index: 10;
+//       position: absolute;
+//       bottom: 20px;
+//       h4,
+//       p {
+//         background: $gray-dark;
+//         background: rgba(0,0,0,0.6);  
+//         color: $site-title-color;
+//         padding: 10px 10px 10px 20px;
+//         font-family: $header-font-family;
+//         margin: 0;
+//       }
+//       h4 {
+//         font-size: 3.1rem;
+//         line-height: .75;
+//         display: inline-block;
+//       }
+//       p {
+//         font-size: 1.75rem;
+//         line-height: 1;
+//         width: 57%;
+//       }
+//     }
+//   }
+// }
+
+
+
+
 
 
 
