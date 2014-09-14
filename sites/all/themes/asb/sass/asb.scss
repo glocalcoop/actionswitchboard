@@ -2583,23 +2583,39 @@ li.sub-goal.sub-sub-goal {
       display: none;
     }
 
+    h4.index-0,
     .img-title {
       position: absolute;
+      margin: 0;
+      padding: 10px 10px 10px 20px;
+
+      background: $gray-dark;
+      background: rgba(0,0,0,0.6);  
+
+      color: $site-title-color;
+      font-family: $header-font-family;
+    }
+
+    h4.index-0 {
+      display: inline-block;
+      bottom: 80px;
+      left: 0;
+      clear: both;
+
+      font-size: 3.1rem;
+      line-height: .75;
+    }
+
+    .img-title {
       display: block;
       bottom: 20px;
       left: 0;
 
-      background: $gray-dark;
-      background: rgba(0,0,0,0.6);  
-      padding: 10px 10px 10px 20px;
-      margin: 0;
-
-      font-family: $header-font-family;
       font-size: 1.75rem;
-      color: $site-title-color;
       line-height: 1;
       width: 57%;
     }
+
   }
 }
 
