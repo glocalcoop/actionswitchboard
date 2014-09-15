@@ -515,14 +515,14 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             &.pager-next {
               right: $pager-hmargin - 20px;
               a {
-                @include replace-text($next-image);
+                @include replace-text($next-image-dark);
                 text-indent: 0 !important;
                 }
               }
             &.pager-item {
               left: $pager-hmargin;
               a {
-                @include replace-text($previous-image);
+                @include replace-text($previous-image-dark);
                 text-indent: 0 !important;
                 }
             }
