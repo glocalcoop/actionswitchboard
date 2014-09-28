@@ -106,10 +106,9 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 #main .scheme-collection {
 
   .views-row {
-
     @include zen-float();
     @include zen-grid-flow-item( 4, 8 );
-
+    width: 50%;
   }
 
   @include breakpoint( sm ) {
@@ -231,7 +230,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         &:nth-child(3) {
           padding-right: 0;
         }
-      }    
+      }
     }
   }
 }
@@ -242,7 +241,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
 
     // @include zen-clear();
     @include clearfix;
-    
+
     // Row of Schemes
     .views-row {
       min-height: 420px;
@@ -276,13 +275,13 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   .scheme-header {
     min-height: 6.375em;
     @include breakpoint( md, max-width ){
-      min-height: 6.5em; 
+      min-height: 6.5em;
     }
     .scheme-leader:before { line-height: inherit; }
   }
 
   .scheme-info {
-    
+
     @include zen-clear(both);
     margin-top: .5em;
     padding: .25em 0 0 0;
@@ -318,7 +317,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
         vertical-align: top;
         width: 30%;
         display: inline-block;
-        font-weight: bold;            
+        font-weight: bold;
       }
     }
 
@@ -352,7 +351,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
   .scheme-leader {
     @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
     @extend %entypo-user;
-    a { 
+    a {
       margin-left: .25em;
     }
     &:before{
@@ -399,10 +398,8 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
           }
           a {
             display: block;
-            height: $pager-height;          
+            height: $pager-height;
             line-height: $pager-height;
-          }
-          @include breakpoint( md ) {
           }
         }
       }
@@ -425,7 +422,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               line-height: $pager-height;
               font-size: 0;
               color: $rules-color;
-            }     
+            }
             &.pager-next {
               right: $pager-hmargin;
               a {
@@ -442,7 +439,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             }
           }
         }
-      }    
+      }
     }
     @include breakpoint( md, max-width ) {
 
@@ -470,7 +467,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               background-position: right top;
             }
           }
-        }      
+        }
       }
     }
   } /* /.#main .scheme-collection */
@@ -511,7 +508,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
             line-height: $pager-height;
             font-size: 0;
             color: $rules-color;
-            }     
+            }
             &.pager-next {
               right: $pager-hmargin - 20px;
               a {
