@@ -10,7 +10,7 @@
 
 html, body {
   min-height : 100%;
-  width: 100%; 
+  width: 100%;
 }
 
 html, p {
@@ -46,6 +46,8 @@ html, p {
 }
 
 div.messages {
+  box-sizing: border-box;
+  overflow: hidden;
   margin: 0;
   &.error {
     background-image: none;
@@ -58,7 +60,7 @@ div.messages {
   margin: 1em 0 0 0;
 }
 
-.admin-menu-icon.expandable { 
+.admin-menu-icon.expandable {
   img { width: 16px; }
 }
 
@@ -142,7 +144,7 @@ h4 {
     content: "\1F50D";
   }
 
-  input {    
+  input {
     background-color: $search-input;
     border: none;
     font-size: .875em;
@@ -157,7 +159,7 @@ h4 {
   @include breakpoint( md ){
     width: 50%;
     margin-left: 50%;
-  }    
+  }
 }
 .region-search {
 
@@ -323,10 +325,10 @@ h4 {
     // display: block;
     @include transition-property(opacity);
     @include transition-duration(.25s);
-    @include transition-timing-function(ease-out-expo);    
+    @include transition-timing-function(ease-out-expo);
   }
   &.atrest {
-    @include transition-duration(0);  
+    @include transition-duration(0);
   }
   &.hidden,
   &.atrest {
@@ -343,7 +345,7 @@ h4 {
 
 // ////////////////////////////
 // Scheme Collection Headers
-// 
+//
 
 $headers: sprite-map("headers/*.png", $position: -4px);
 @import "headers/*.png";
@@ -358,7 +360,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
       margin-top: 15px;
       padding-left: 50px;
       margin-bottom: 4px;
-    }    
+    }
   }
   #block-views-scheme-overview-block-1 {
     h2.block-title {
@@ -399,7 +401,7 @@ $headers: sprite-map("headers/*.png", $position: -4px);
       background-position: sprite-position( $headers, following, 0, -2px);
     }
   }
- 
+
 }
 
 // ////////////////////////////
@@ -447,20 +449,20 @@ li {
   }
   &.flag-abuse_comment a,
   &.flag-abuse_node a,
-  &.report-user a  { 
+  &.report-user a  {
     color: $text-color !important;
-    @extend %entypo-flag; 
+    @extend %entypo-flag;
     &.unflag-action {
       @extend %entypo-check;
     }
   }
   &.flag-abuse_whitelist_comment a,
   &.flag-abuse_whitelist_node a,
-  &.whitelist-user a { 
+  &.whitelist-user a {
     color: $text-color !important;
     @extend %entypo-check;
     &.unflag-action {
-      @extend %entypo-flag; 
+      @extend %entypo-flag;
     }
   }
   &.report-user a:before,
@@ -483,9 +485,9 @@ article.comment,
       color: $text-color;
       text-align: left;
       &.edit,
-      &.ctools-use-modal { 
+      &.ctools-use-modal {
         @include font-icon-base($font-size: 3rem);
-        @extend %entypo-pencil; 
+        @extend %entypo-pencil;
       }
       &.contact-me { @extend %entypo-mail; }
       &:after {
@@ -513,7 +515,7 @@ ul li.ui-button .field-group-group a.ctools-use-modal:before {
 //
 .page-user,
 .node-type-scheme {
-  
+
   .page-header {
     .content {
       padding-top: 2.075em !important;
@@ -534,7 +536,7 @@ ul li.ui-button .field-group-group a.ctools-use-modal:before {
 
   .edit .page-header {
     .content {
-      padding-top: 1.25em !important;      
+      padding-top: 1.25em !important;
     }
   }
 
@@ -612,7 +614,7 @@ a.ui-button.primary,
   input.form-submit {
     @include button($height: 30px, $font-size: $h3-font-size + 6px);
   }
-} 
+}
 
 a#edit-cancel {
   @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
@@ -700,7 +702,7 @@ ul.tags {
       }
     }
   }
-} 
+}
 
 
 //////////////////////////////
@@ -710,7 +712,7 @@ ul.tags {
 #edit-actions input,
 form .form-actions input{
   float: none !important;
-} 
+}
 
 .no-more-results {
   background-color: #dedede !important;
@@ -724,7 +726,7 @@ form .form-actions input{
   left: -.5em;
   // left: -3em;
   top: .5em;
-  margin-bottom: -.5em; 
+  margin-bottom: -.5em;
   span {
     display: none;
   }
@@ -807,17 +809,17 @@ form .form-actions input{
               }
             }
             margin-right: .25em;
-            &.user-contact { 
+            &.user-contact {
               span {
                 vertical-align: top;
               }
               @include font-icon-base($font-size: 2.5em, $width: .5em, $line-height: .75em );
-              @extend %entypo-mail; 
+              @extend %entypo-mail;
             }
             padding: 0 .5em;
           }
         }
-      }  
+      }
 
     }
     div.user-bio {
@@ -877,7 +879,7 @@ form .form-actions input{
       h2.block-title {
         @include box-sizing( border-box );
         max-width: 960px;
-        margin: 0 auto; 
+        margin: 0 auto;
       }
     }
   }
@@ -914,7 +916,7 @@ form .form-actions input{
       }
       &:nth-child(4) {}
     }
-  }   
+  }
 }
 
 #content {
@@ -940,7 +942,7 @@ form .form-actions input{
     padding-left: 20px;
   }
   .quicktabs-style-asbtabs {
-    .quicktabs_main { 
+    .quicktabs_main {
       background-color: transparent;
       border: none;
       border-left: {
@@ -1034,7 +1036,7 @@ form .form-actions input{
       @extend %entypo-search;
     }
   }
-  
+
   div.item-list {
     position: relative;
     padding-top: 10px;
@@ -1083,7 +1085,7 @@ form .form-actions input{
     .page-content {
         #node-content {
           padding: 0 !important;
-        }   
+        }
       h1#page-title {
         &:before {
           display: block;
@@ -1138,8 +1140,8 @@ form .form-actions input{
     #block-asb-issues-goals-tree {
       h3.issue-title {
         @include body-text;
-        a { 
-          display: block; 
+        a {
+          display: block;
           font-size: 1.2rem;
           color: $accent;
         }
@@ -1200,7 +1202,7 @@ form .form-actions input{
     .view-content {
 
     }
-  } 
+  }
 }
 
 // Submit a Goal Confirm
@@ -1438,7 +1440,7 @@ form .form-actions input{
                 @include standard-border($width: 3px, $color: $text-color);
               }
               border-top: none;
-            }            
+            }
           }
         }
         &.menu {
@@ -1480,7 +1482,7 @@ form .form-actions input{
             font-weight: bold;
             text-align: center;
           }
-        }     
+        }
       }
 
       .field-document-type {
@@ -1494,7 +1496,7 @@ form .form-actions input{
           text-align: right;
           @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
           @extend %entypo-tag;
-          
+
         }
         // display: none;
       }
@@ -1536,7 +1538,7 @@ form .form-actions input{
     }
     h4 {
       font-size: 1.25em;
-    } 
+    }
 
     article {
       padding: 1.2em 0;
@@ -1588,14 +1590,14 @@ div#quicktabs-schemes { // wrapper - flex-box
     width: 80%;               /* For old syntax, otherwise collapses. */
     -webkit-flex: 1;          /* Chrome */
     -ms-flex: 1;              /* IE 10 */
-    flex: 1;    
+    flex: 1;
 
     // padding: 0;
 
     .view-filters {
       padding: 0 20px;
     }
-  } 
+  }
 }
 
 div#block-views-90f7e874863d363adf55056301e69084 { // Civi contacts block
@@ -1667,7 +1669,7 @@ li.sub-goal.sub-sub-goal {
   iframe.media-youtube-player {
     border: 8px solid $rules-color-accent;
   }
-  
+
   #content {
     .related-schemes {
       h2 {
@@ -1742,7 +1744,7 @@ li.sub-goal.sub-sub-goal {
                 @include standard-border($width: 3px, $color: $text-color);
               }
               border-top: none;
-            }            
+            }
           }
         }
         &.menu {
@@ -1784,7 +1786,7 @@ li.sub-goal.sub-sub-goal {
             font-weight: bold;
             text-align: center;
           }
-        }     
+        }
       }
 
     }
@@ -1801,7 +1803,7 @@ li.sub-goal.sub-sub-goal {
     @include box-sizing(content-box);
 
     margin: 0 10px;
-    
+
     .contextual-links-region {
       background-color: $sidebar-panel-primary;
       &:nth-child(1),
@@ -1884,9 +1886,9 @@ li.sub-goal.sub-sub-goal {
             #node-content {
               padding-right: 0 !important;
               padding-left: 0 !important;
-            }          
+            }
           }
-        
+
         #comments {
           form.comment-form {
               padding: 0;
@@ -2185,7 +2187,7 @@ li.sub-goal.sub-sub-goal {
     .field-body+#outer-carousel-wrapper { // When the carousel appears under the description, add a margin after
       margin-bottom: 10px;
     }
-     
+
   } // End Scheme Detail
 
 
@@ -2266,7 +2268,7 @@ li.sub-goal.sub-sub-goal {
       display: none;
     }
     .view-content {
-      margin-top: 25px;  
+      margin-top: 25px;
       .fieldset-legend {
         display: none;
       }
@@ -2355,7 +2357,7 @@ li.sub-goal.sub-sub-goal {
     border-top: {
       @include standard-border;
     }
-   
+
     .item-list {
       ul {
         list-style: none;
@@ -2499,7 +2501,7 @@ li.sub-goal.sub-sub-goal {
           }
         }
       }
-    }  
+    }
   }
   #node-content,
     .comment-content {
@@ -2528,7 +2530,7 @@ li.sub-goal.sub-sub-goal {
                 @include standard-border($width: 3px, $color: $text-color);
               }
               border-top: none;
-            }            
+            }
           }
         }
         &.menu {
@@ -2570,7 +2572,7 @@ li.sub-goal.sub-sub-goal {
             font-weight: bold;
             text-align: center;
           }
-        }     
+        }
       }
     }
 }
@@ -2591,7 +2593,7 @@ li.sub-goal.sub-sub-goal {
         padding: 10px 10px 10px 20px;
 
         background: $gray-dark;
-        background: rgba(0,0,0,0.8);  
+        background: rgba(0,0,0,0.8);
 
         color: $site-title-color;
         font-family: $header-font-family;
@@ -2618,7 +2620,7 @@ li.sub-goal.sub-sub-goal {
       }
 
     }
-    
+
   }
 }
 

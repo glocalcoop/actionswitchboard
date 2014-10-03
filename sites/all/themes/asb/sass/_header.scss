@@ -435,7 +435,6 @@
 }
 
 #global-donate {
-  @include box-sizing( border-box );
   @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
   right: 0;
   @include breakpoint( md, max-width ) {
@@ -450,6 +449,8 @@
       right: -0.875em;
     }
   }
+  box-sizing: border-box:
+  @include box-sizing( border-box );
 }
 
 
