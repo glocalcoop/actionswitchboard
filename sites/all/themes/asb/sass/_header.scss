@@ -62,7 +62,7 @@
         }
         padding: 1em 1em 2em 1em;
       }
-      .description { 
+      .description {
         display: block;
         line-height: 1.875em;
       }
@@ -111,7 +111,7 @@
       position: relative;
       z-index: 5;
       background-image: url('../images/logostrip.png?1376927784');
-      background-position: center bottom;      
+      background-position: center bottom;
     }
     #site-name {
       width: 428px;
@@ -191,15 +191,15 @@
         height: 81px;
         @include pie-clearfix;
         background-image: url('../images/logostrip_home.png?1376927784');
-        background-position: center bottom;        
+        background-position: center bottom;
       }
 
       #name-and-slogan {
-        
+
         display:block;
         float: left;
         width: 428px;
-    
+
         #site-name {
           height: 81px;
           background-image: none;
@@ -231,7 +231,7 @@
         }
       }
     }
-  } 
+  }
 }
 
 .not-front {
@@ -270,9 +270,9 @@
           display: inline-block;
           vertical-align: bottom;
           line-height: 1.5;
-        }      
+        }
         .username { margin: 0 .25em; }
-      }      
+      }
     }
   }
 }
@@ -317,7 +317,7 @@
         color: $nav-title-color;
       }
     }
-    &.is-active a, 
+    &.is-active a,
     &.is-active span {
       color: $text-color;
     }
@@ -399,7 +399,7 @@
         border-right: none;
         padding: 0;
         a {
-          
+
           .title {
             display: none
           }
@@ -410,23 +410,23 @@
         }
       }
       &#nav-twitter {
-        a { 
+        a {
           .description {
-            @extend %entypo-social-twitter; 
+            @extend %entypo-social-twitter;
           }
         }
       }
       &#nav-facebook {
         clear: both;
-        a { 
+        a {
           .description {
             @extend %entypo-social-facebook;
           }
         }
       }
-    }      
+    }
   }
-} 
+}
 
 // Donate Button
 #donate-positioning-wrapper {
@@ -435,6 +435,7 @@
 }
 
 #global-donate {
+  @include box-sizing( border-box );
   @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
   right: 0;
   @include breakpoint( md, max-width ) {
@@ -447,7 +448,7 @@
     letter-spacing: .05em;
     .not-front & {
       right: -0.875em;
-    }    
+    }
   }
 }
 
