@@ -6251,26 +6251,26 @@ li.sub-goal.sub-sub-goal {
 }
 
 /* line 2580, ../sass/asb.scss */
-.front #modalContent .field-image {
+.front .view-grand-tour .field-image {
   position: relative;
 }
 /* line 2583, ../sass/asb.scss */
-.front #modalContent .field-image .article-title {
+.front .view-grand-tour .field-image .article-title {
   display: none;
 }
 /* line 2588, ../sass/asb.scss */
-.front #modalContent .field-image h4.index-0,
-.front #modalContent .field-image .img-title {
+.front .view-grand-tour .field-image h4.index-0,
+.front .view-grand-tour .field-image .img-title {
   position: absolute;
   margin: 0;
   padding: 10px 10px 10px 20px;
   background: black;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   font-family: League, sans-serif;
 }
 /* line 2600, ../sass/asb.scss */
-.front #modalContent .field-image h4.index-0 {
+.front .view-grand-tour .field-image h4.index-0 {
   display: inline-block;
   bottom: 80px;
   left: 0;
@@ -6279,7 +6279,7 @@ li.sub-goal.sub-sub-goal {
   line-height: .75;
 }
 /* line 2610, ../sass/asb.scss */
-.front #modalContent .field-image .img-title {
+.front .view-grand-tour .field-image .img-title {
   display: block;
   bottom: 20px;
   left: 0;
