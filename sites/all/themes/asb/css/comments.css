@@ -227,40 +227,50 @@ div#comments .comment article.last {
   border-bottom-style: solid;
 }
 
-/* line 231, ../sass/comments.scss */
+/* line 229, ../sass/comments.scss */
+.view-id-scheme_members_tab {
+  margin-top: 1.5em;
+}
+/* line 232, ../sass/comments.scss */
+.view-id-scheme_members_tab .user-picture img {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 241, ../sass/comments.scss */
 #scheme-content .user-picture img {
   width: 50px;
   height: 50px;
 }
 
-/* line 240, ../sass/comments.scss */
+/* line 250, ../sass/comments.scss */
 .not-logged-in #comments h2.title.comment-form {
   display: none;
 }
 
-/* line 249, ../sass/comments.scss */
+/* line 259, ../sass/comments.scss */
 .logged-in #comments h2.title {
   display: none;
 }
-/* line 252, ../sass/comments.scss */
+/* line 262, ../sass/comments.scss */
 .logged-in #comments h2.title.comment-form {
   display: inherit;
 }
 
-/* line 258, ../sass/comments.scss */
+/* line 268, ../sass/comments.scss */
 .indented {
   /* Nested comments are indented */
   margin-left: 30px;
   /* Drupal core uses a 25px left margin */
 }
 
-/* line 262, ../sass/comments.scss */
+/* line 272, ../sass/comments.scss */
 .comment-unpublished {
   /* Unpublished comments */
   /* background-color: #fff4f4; */
   /* Drupal core uses a #fff4f4 background */
 }
-/* line 265, ../sass/comments.scss */
+/* line 275, ../sass/comments.scss */
 .comment-unpublished p.unpublished {
   /* The word "Unpublished" displayed underneath the content. */
   height: 0;
@@ -279,7 +289,7 @@ div#comments .comment article.last {
   position: relative;
 }
 
-/* line 270, ../sass/comments.scss */
+/* line 280, ../sass/comments.scss */
 ul.inline li.comment-add {
   display: none;
 }
