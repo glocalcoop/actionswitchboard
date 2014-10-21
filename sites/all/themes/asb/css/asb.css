@@ -6256,17 +6256,6 @@ li.sub-goal.sub-sub-goal {
   text-align: center;
 }
 
-<<<<<<< HEAD
-/* line 2580, ../sass/asb.scss */
-.front .view-grand-tour .field-image {
-  position: relative;
-}
-/* line 2583, ../sass/asb.scss */
-.front .view-grand-tour .field-image .article-title {
-  display: none;
-}
-/* line 2588, ../sass/asb.scss */
-=======
 /* line 2583, ../sass/asb.scss */
 .front .view-grand-tour .field-image {
   position: relative;
@@ -6276,7 +6265,6 @@ li.sub-goal.sub-sub-goal {
   display: none;
 }
 /* line 2591, ../sass/asb.scss */
->>>>>>> develop
 .front .view-grand-tour .field-image h4.index-0,
 .front .view-grand-tour .field-image .img-title {
   position: absolute;
@@ -6287,11 +6275,7 @@ li.sub-goal.sub-sub-goal {
   color: white;
   font-family: League, sans-serif;
 }
-<<<<<<< HEAD
-/* line 2600, ../sass/asb.scss */
-=======
 /* line 2603, ../sass/asb.scss */
->>>>>>> develop
 .front .view-grand-tour .field-image h4.index-0 {
   display: inline-block;
   bottom: 80px;
@@ -6300,11 +6284,7 @@ li.sub-goal.sub-sub-goal {
   font-size: 3.1rem;
   line-height: .75;
 }
-<<<<<<< HEAD
-/* line 2610, ../sass/asb.scss */
-=======
 /* line 2613, ../sass/asb.scss */
->>>>>>> develop
 .front .view-grand-tour .field-image .img-title {
   display: block;
   bottom: 20px;
