@@ -521,7 +521,7 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
               a {
                 @include replace-text($previous-image-dark);
                 text-indent: 0 !important;
-                }
+              }
             }
         }
       }
