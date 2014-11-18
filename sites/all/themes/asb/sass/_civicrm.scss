@@ -2,6 +2,14 @@
 .intro_text-section {
 
 	// Social Links
+
+	.social-links {
+		float: right;
+		@include clearfix;
+		& + p {
+			@include clearfix;
+		}
+	}
 	a[href*="twitter"],
 	a[href*="facebook"] {
 		padding: 0 !important;
