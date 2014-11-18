@@ -2,12 +2,13 @@
 .intro_text-section {
 
 	// Social Links
-
 	.social-links {
 		float: right;
-		@include clearfix;
+		margin-top: 0;
 		& + p {
-			@include clearfix;
+			content: "";
+			display: table;
+			clear: both;
 		}
 	}
 	a[href*="twitter"],
@@ -16,20 +17,28 @@
 		width: 30px !important;
 		display: inline-block !important;
 		&:before {
-			font-family: FontAwesome;
+			font-family: "entypo-social";
+			font-size: 2em;
 		}
 	}
 	a[href*="twitter"] {
 		background-color: #00B0ED !important;
 		&:before {
-			content:"\f099";
+			// content:"";
+			content:'\F309'
 		}
 	}
 	a[href*="facebook"] {
 		background-color: #3B5998 !important;
 		&:before {
-			content:"\f09a";
+			// content:"";
+			content:"\F30C";
 		}
+	}
+
+	// Heading
+	h2 {
+		clear: both;
 	}
 
 	// Video Content
