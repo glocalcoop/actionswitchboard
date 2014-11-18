@@ -1,0 +1,52 @@
+// Campaign Pages
+.intro_text-section {
+
+	// Social Links
+	a[href*="twitter"],
+	a[href*="facebook"] {
+		padding: 0 !important;
+		width: 30px !important;
+		display: inline-block !important;
+		&:before {
+			font-family: FontAwesome;
+		}
+	}
+	a[href*="twitter"] {
+		background-color: #00B0ED !important;
+		&:before {
+			content:"\f099";
+		}
+	}
+	a[href*="facebook"] {
+		background-color: #3B5998 !important;
+		&:before {
+			content:"\f09a";
+		}
+	}
+
+	// Video Content
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		max-height: 350px;
+		overflow: hidden;
+		iframe,
+		object {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// Images
+	p img {
+		float: right;
+	}
+}
+
+
+
