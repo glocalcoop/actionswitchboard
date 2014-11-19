@@ -65,17 +65,17 @@
   background: url('../images/needs-sa39b67d2f3.png') no-repeat;
 }
 
-/* line 60, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, #main .scheme-collection .scheme-info .scheme-needs .needed-funds {
   background-position: 0 -12px;
 }
 
-/* line 60, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills {
   background-position: 0 -24px;
 }
 
-/* line 60, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.4/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, #main .scheme-collection .scheme-info .scheme-needs .needed-supplies {
   background-position: 0 0;
 }
