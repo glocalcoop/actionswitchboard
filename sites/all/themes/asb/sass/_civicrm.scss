@@ -10,9 +10,38 @@
 			display: table;
 			clear: both;
 		}
+
+		// Auto add FB and Twitter icons
+		a[href*="twitter.com"],
+		a[href*="facebook.com"] {
+			padding: 0 !important;
+			width: 30px !important;
+			display: inline-block !important;
+			&:before {
+				font-family: "entypo-social";
+				font-size: 2.25em;
+				color: #fff;
+			}
+		}
+		a[href*="twitter.com"] {
+			background-color: #00B0ED !important;
+			&:before {
+				// content:"";
+				content:'\F309'
+			}
+		}
+		a[href*="facebook.com"] {
+			background-color: #3B5998 !important;
+			&:before {
+				// content:"";
+				content:"\F30C";
+			}
+		}
 	}
-	a[href*="twitter"],
-	a[href*="facebook"] {
+
+	// Manually added classes for FB and Twitter icons
+	a.fa-facebook,
+	a.fa-twitter {
 		padding: 0 !important;
 		width: 30px !important;
 		display: inline-block !important;
@@ -21,17 +50,15 @@
 			font-size: 2em;
 		}
 	}
-	a[href*="twitter"] {
+	a.fa-twitter {
 		background-color: #00B0ED !important;
 		&:before {
-			// content:"";
 			content:'\F309'
 		}
 	}
-	a[href*="facebook"] {
+	a.fa-facebook {
 		background-color: #3B5998 !important;
 		&:before {
-			// content:"";
 			content:"\F30C";
 		}
 	}
@@ -39,6 +66,12 @@
 	// Heading
 	h2 {
 		clear: both;
+	}
+
+	// Images
+	p img {
+		float: right;
+		max-width: 450px;
 	}
 
 	// Video Content
@@ -59,11 +92,190 @@
 		}
 	}
 
-	// Images
-	p img {
-		float: right;
+	// Hidden
+	.hidden {
+		display: none;
 	}
 }
+
+// Scheme-specific donation page
+.crm-contribution-main-form-block {
+margin-top: 10px;
+
+#intro_text.crm-section {
+  @include pie-clearfix;
+  padding-bottom: 10px;
+  border-bottom: {
+    @include standard-border;
+  }
+  @include body-text($size: 1.4rem, $line-height: 2rem);
+  p {
+    @include body-text($size: 1.4rem, $line-height: 2rem);
+  }
+  // a {
+  //   margin: 10px 0; 
+  //   @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+  //   display: block;
+  //   width: 100px;
+  //   white-space: nowrap;
+  // }
+}
+.crm-section>.content {
+  @include body-text($size: 1.2rem);
+}
+.pcpSupporterText-section {
+  // margin: 20px 0 !important;
+  // border: none;
+  // border-radius: 0 !important;
+  // padding: 12px;
+  // background: $sidebar-panel-primary;
+  // color: $text-color-prominent;
+  // &>.label {
+  //   display: none;
+  // }
+  display: none;
+}
+fieldset.pcp-group {
+  display: none;
+}
+#nameID,
+#nickID,
+#personalNoteID {
+  margin-top: 10px;
+}
+#nickID {}
+#personalNoteID {
+  &>.label {
+    float: none;
+  }
+}
+}
+
+// Civi Forms
+.section-civicrm {
+  .main-content {
+    margin-top: 10px;
+  }
+  #crm-container {
+    &.crm-container {
+      @include standard-links;
+    }
+    .crm-button,
+    .button {
+      border: none;
+      text-shadow: none;
+      background: transparent;
+    }
+    input[type="button"], 
+    input[type="reset"], 
+    input[type="submit"],
+    .button {
+      @include button($height: 30px, $font-size: $h3-font-size + 6px);
+      border: none;
+      text-shadow: none;
+      color: $nav-title-color !important;
+      span {
+        line-height: 30px;
+        .icon {
+          display: none;
+        }
+      }
+      span div.icon {
+      	display: none;
+      }
+    }
+    input[type="submit"].cancel,
+    #crm-container .crm-button-type-cancel input[type="submit"].cancel {
+      @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+      color: $nav-title-color !important;
+    }
+    input[type="text"],
+    input[type="password"] {
+      border-radius: 4px;
+      border: 1px solid $rules-color;
+    }
+    input[type="checkbox"], 
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    form {
+      .price-set-row {
+        display: inline-block;
+        margin-right: .5em;
+        margin-bottom: .25em;
+        padding: .5em .75em;
+        border-radius: .25em;
+        background: rgba(black,.1);
+      }
+      .label {
+        label {
+          @include body-text($weight: bold);
+          margin: 10px 0 5px 0;
+        }
+      } 
+      label .crm-price-amount-amount {
+        @include body-text($size: 1.2rem);
+        font-weight: normal !important;
+      }
+      .highlight {
+        label .crm-price-amount-amount {
+          font-weight: bold !important;
+        }
+      }
+    }
+    fieldset {
+      border: none !important;
+    }
+    fieldset>legend {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 20px 0 10px 0;
+      @include header-style;
+    }
+  }
+  .crm-container .crm-section .content, 
+  .crm-container-snippet .crm-section .content,
+  .crm-container .display-block {
+    margin-left: 0;
+  }
+  .crm-container .help,
+  .crm-container #help {
+    margin: 10px 0;
+  }
+  .crm-container .help,
+  .crm-container #help,
+  .messages,
+  .status,
+  .crm-container .crm-form-block {
+    border: none;
+    border-radius: 0 !important;
+    padding: 12px;
+    background: $sidebar-panel-primary;
+    color: $text-color-prominent;
+  }
+  #crm-submit-buttons {
+    margin: 10px 0;
+  }
+
+  .crm-container div.status, 
+  div.m ul#civicrm-menu, 
+  .crm-container #help, 
+  .crm-container .help, 
+  .crm-container .ui-tabs-panel, 
+  .crm-container .crm-content-block, 
+  #full-screen-header, 
+  .crm-container .crm-pager, 
+  .crm-container form .section-hidden-border, 
+  .crm-container #search-status, 
+  .crm-container .crm-form-block, 
+  .crm-container .crm-search-tasks, 
+  .crm-container .crm-tasks, 
+  .crm-container div.form-item, 
+  .crm-container div.messages {
+    border-radius: 0 !important;
+  }
+} 
 
 
 
