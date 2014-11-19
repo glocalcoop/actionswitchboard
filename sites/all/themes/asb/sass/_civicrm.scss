@@ -216,7 +216,6 @@
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $twitter-color, $hvcolor: $twitter-color);
 			// background-color: #00B0ED !important;
 			&:before {
-				// content:"";
 				content:'\F309'
 			}
 		}
@@ -224,7 +223,6 @@
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $facebook-color, $hvcolor: $facebook-color);
 			// background-color: #3B5998 !important;
 			&:before {
-				// content:"";
 				content:"\F30C";
 			}
 		}
