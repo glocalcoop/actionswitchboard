@@ -1,157 +1,8 @@
-// Campaign Pages
-.intro_text-section {
+.page-civicrm {}
 
-	// Social Links
-	.social-links {
-		float: right;
-		margin-top: 0;
-		& + p {
-			content: "";
-			display: table;
-			clear: both;
-		}
-
-		// Auto add FB and Twitter icons
-		a[href*="twitter.com"],
-		a[href*="facebook.com"] {
-			padding: 0 !important;
-			width: 30px !important;
-			display: inline-block !important;
-			&:before {
-				font-family: "entypo-social";
-				font-size: 2.25em;
-				color: #fff;
-			}
-		}
-		a[href*="twitter.com"] {
-			background-color: #00B0ED !important;
-			&:before {
-				// content:"";
-				content:'\F309'
-			}
-		}
-		a[href*="facebook.com"] {
-			background-color: #3B5998 !important;
-			&:before {
-				// content:"";
-				content:"\F30C";
-			}
-		}
-	}
-
-	// Manually added classes for FB and Twitter icons
-	a.fa-facebook,
-	a.fa-twitter {
-		padding: 0 !important;
-		width: 30px !important;
-		display: inline-block !important;
-		&:before {
-			font-family: "entypo-social";
-			font-size: 2em;
-		}
-	}
-	a.fa-twitter {
-		background-color: #00B0ED !important;
-		&:before {
-			content:'\F309'
-		}
-	}
-	a.fa-facebook {
-		background-color: #3B5998 !important;
-		&:before {
-			content:"\F30C";
-		}
-	}
-
-	// Heading
-	h2 {
-		clear: both;
-	}
-
-	// Images
-	p img {
-		float: right;
-		max-width: 450px;
-	}
-
-	// Video Content
-	.video-container {
-		position: relative;
-		padding-bottom: 56.25%;
-		padding-top: 30px;
-		height: 0;
-		max-height: 350px;
-		overflow: hidden;
-		iframe,
-		object {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	// Hidden
-	.hidden {
-		display: none;
-	}
-}
-
-// Scheme-specific donation page
-.crm-contribution-main-form-block {
-margin-top: 10px;
-
-#intro_text.crm-section {
-  @include pie-clearfix;
-  padding-bottom: 10px;
-  border-bottom: {
-    @include standard-border;
-  }
-  @include body-text($size: 1.4rem, $line-height: 2rem);
-  p {
-    @include body-text($size: 1.4rem, $line-height: 2rem);
-  }
-  // a {
-  //   margin: 10px 0; 
-  //   @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
-  //   display: block;
-  //   width: 100px;
-  //   white-space: nowrap;
-  // }
-}
-.crm-section>.content {
-  @include body-text($size: 1.2rem);
-}
-.pcpSupporterText-section {
-  // margin: 20px 0 !important;
-  // border: none;
-  // border-radius: 0 !important;
-  // padding: 12px;
-  // background: $sidebar-panel-primary;
-  // color: $text-color-prominent;
-  // &>.label {
-  //   display: none;
-  // }
-  display: none;
-}
-fieldset.pcp-group {
-  display: none;
-}
-#nameID,
-#nickID,
-#personalNoteID {
-  margin-top: 10px;
-}
-#nickID {}
-#personalNoteID {
-  &>.label {
-    float: none;
-  }
-}
-}
-
+// //////////////////////
 // Civi Forms
+// //////////////////////
 .section-civicrm {
   .main-content {
     margin-top: 10px;
@@ -277,5 +128,165 @@ fieldset.pcp-group {
   }
 } 
 
+// //////////////////////
+// Donation Pages
+// //////////////////////
+.crm-contribution-main-form-block {
+	margin-top: 10px;
+
+	#intro_text.crm-section {
+	  @include pie-clearfix;
+	  padding-bottom: 10px;
+	  border-bottom: {
+	    @include standard-border;
+	  }
+	  @include body-text($size: 1.4rem, $line-height: 2rem);
+	  p {
+	    @include body-text($size: 1.4rem, $line-height: 2rem);
+	  }
+	}
+	.crm-section {
+		a {
+			margin: 10px 0; 
+			@include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+			display: block;
+			width: 100px;
+			white-space: nowrap;
+		}
+		&>.content {
+			@include body-text($size: 1.2rem);
+		}
+	}
+	.pcpSupporterText-section {
+	  // margin: 20px 0 !important;
+	  // border: none;
+	  // border-radius: 0 !important;
+	  // padding: 12px;
+	  // background: $sidebar-panel-primary;
+	  // color: $text-color-prominent;
+	  // &>.label {
+	  //   display: none;
+	  // }
+	  display: none;
+	}
+	fieldset.pcp-group {
+	  display: none;
+	}
+	#nameID,
+	#nickID,
+	#personalNoteID {
+	  margin-top: 10px;
+	}
+	#nickID {}
+	#personalNoteID {
+	  &>.label {
+	    float: none;
+	  }
+	}
+}
+
+// //////////////////////
+// Campaign Pages
+// //////////////////////
+.intro_text-section {
+
+	// Social Links
+	.social-links {
+		float: right;
+		margin-top: 0;
+		& + p {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		// Auto add FB and Twitter icons
+		a[href*="twitter.com"],
+		a[href*="facebook.com"] {
+			// display: inline-block !important;
+			padding: 0 !important;
+			width: 30px !important;
+			&:before {
+				font-family: "entypo-social";
+				font-size: 2.25em;
+				color: $white;
+			}
+		}
+		a[href*="twitter.com"] {
+			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $twitter-color, $hvcolor: $twitter-color);
+			// background-color: #00B0ED !important;
+			&:before {
+				// content:"";
+				content:'\F309'
+			}
+		}
+		a[href*="facebook.com"] {
+			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $facebook-color, $hvcolor: $facebook-color);
+			// background-color: #3B5998 !important;
+			&:before {
+				// content:"";
+				content:"\F30C";
+			}
+		}
+	}
+
+	// Manually added classes for FB and Twitter icons
+	a.fa-facebook,
+	a.fa-twitter {
+		padding: 0 !important;
+		width: 30px !important;
+		display: inline-block !important;
+		&:before {
+			font-family: "entypo-social";
+			font-size: 2em;
+		}
+	}
+	a.fa-twitter {
+		background-color: $twitter-color !important;
+		&:before {
+			content:'\F309'
+		}
+	}
+	a.fa-facebook {
+		background-color: $facebook-color !important;
+		&:before {
+			content:"\F30C";
+		}
+	}
+
+	// Heading
+	h2 {
+		// clear: both;
+		@include pie-clearfix;
+	}
+
+	// Images
+	p img {
+		float: right;
+		max-width: 450px;
+	}
+
+	// Video Content
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+		iframe,
+		object {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// Hidden
+	.hidden {
+		@include hide-content;
+	}
+}
 
 
