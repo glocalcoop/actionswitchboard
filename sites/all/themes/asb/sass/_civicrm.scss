@@ -135,15 +135,15 @@
 	margin-top: 10px;
 
 	#intro_text.crm-section {
-	  @include pie-clearfix;
-	  padding-bottom: 10px;
-	  border-bottom: {
-	    @include standard-border;
-	  }
-	  @include body-text($size: 1.4rem, $line-height: 2rem);
-	  p {
-	    @include body-text($size: 1.4rem, $line-height: 2rem);
-	  }
+	  // @include pie-clearfix;
+	  // padding-bottom: 10px;
+	  // border-bottom: {
+	  //   @include standard-border;
+	  // }
+	  // @include body-text($size: 1.4rem, $line-height: 2rem);
+	  // p {
+	  //   @include body-text($size: 1.4rem, $line-height: 2rem);
+	  // }
 	}
 	.crm-section {
 		a {
@@ -189,6 +189,34 @@
 // Campaign Pages
 // //////////////////////
 .intro_text-section {
+
+	@include pie-clearfix;
+	padding-bottom: 10px;
+	border-bottom: {
+		@include standard-border;
+	}
+	@include body-text($size: 1.4rem, $line-height: 2rem);
+	p {
+		@include body-text($size: 1.4rem, $line-height: 2rem);
+	}
+
+	a,
+	a:link {
+		background-color: initial;
+		border-radius: 0;
+		color: $accent;
+		display: inline;
+		font-family: $font-body;
+		font-size: $base-font-size;
+		height: auto;
+		line-height: $base-line-height;
+		margin: 0;
+		padding: 0;
+		text-align: inherit;
+		text-transform: none;
+		white-space: initial;
+		width: auto;
+	}
 
 	// Social Links
 	.social-links {
