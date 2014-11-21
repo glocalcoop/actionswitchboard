@@ -209,10 +209,11 @@
 		padding: 0;
 		background-color: initial;
 		border-radius: 0;
-		@include body-text($size: 1.4rem, $line-height: 2rem);
+		// @include body-text($size: 1.4rem, $line-height: 2rem);
+		font-size: 1.4rem !important;
+		line-height: 2rem !important;
 		color: $accent;
 		text-align: inherit;
-		text-transform: none;
 		white-space: initial;
 	}
 
