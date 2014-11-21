@@ -244,6 +244,7 @@
 				font-size: 4rem;
 				color: $white;
 			}
+			height: 30px !important;
 		}
 		a[href*="twitter.com"] {
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $twitter-color, $hvcolor: $twitter-color);
