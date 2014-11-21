@@ -198,6 +198,8 @@
 	@include body-text($size: 1.4rem, $line-height: 2rem);
 	p {
 		@include body-text($size: 1.4rem, $line-height: 2rem);
+		font-size: 1.4rem !important;
+		line-height: 2rem !important;
 	}
 
 	a,
@@ -209,9 +211,7 @@
 		padding: 0;
 		background-color: initial;
 		border-radius: 0;
-		// @include body-text($size: 1.4rem, $line-height: 2rem);
-		font-size: 1.4rem !important;
-		line-height: 2rem !important;
+		@include body-text($size: 1.4rem, $line-height: 2rem);
 		color: $accent;
 		text-align: inherit;
 		white-space: initial;
