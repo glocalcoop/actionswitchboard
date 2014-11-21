@@ -238,13 +238,13 @@
 			// display: inline-block !important;
 			padding: 0 !important;
 			width: 30px !important;
+			height: 30px !important;
 			&:before {
 				font-family: "entypo-social";
 				// font-size: 2.25em;
 				font-size: 4rem;
 				color: $white;
 			}
-			height: 30px !important;
 		}
 		a[href*="twitter.com"] {
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $twitter-color, $hvcolor: $twitter-color);
@@ -267,6 +267,7 @@
 	a.fa-twitter {
 		padding: 0 !important;
 		width: 30px !important;
+		height: 30px !important;
 		display: inline-block !important;
 		&:before {
 			font-family: "entypo-social";
