@@ -97,7 +97,7 @@
             <?php endif; ?>
             <?php if($is_front):?>
               <h2 id="what-is-an-action-switchboard">
-                <a href="#notimportant-though-should-probably-link-to-something">
+                <a href="/about-action-switchboard">
                   Just what is an action switchboard anyway?
                 </a>
               </h2>
