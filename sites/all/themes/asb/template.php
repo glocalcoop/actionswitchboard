@@ -130,7 +130,7 @@ function asb_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("html" in this case.)
  */
 function asb_preprocess_html(&$variables, $hook) {
-  $variables['newsletter_html'] = '<form action="<?php $base_url; ?>/civicrm/profile/create?gid=43&amp;reset=1" method="post" name="Edit" id="Edit" >
+  $variables['newsletter_html'] = '<form action="'.$base_url.'/civicrm/profile/create?gid=43&amp;reset=1" method="post" name="Edit" id="Edit" >
   <div>
   <input name="entryURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile/create?gid=43&amp;reset=1/field/add?reset=1&amp;amp;action=add&amp;amp;gid=43" />
   <input id="profileId" type="hidden" value="43" />

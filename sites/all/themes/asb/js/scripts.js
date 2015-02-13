@@ -126,17 +126,17 @@
           asb.highlight_new_messages();
         }
 
-        // $('#nav-join-newsletter').on( 'click', function(e) {
-        //   e.preventDefault();
-        //   $("#newsletterModal").toggleClass('hidden');
-        //   $("#newsletterModal").toggleClass('active');
-        // });
-        //
-        // $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
-        //   e.preventDefault();
-        //   $("#newsletterModal").addClass('hidden');
-        //   $("#newsletterModal").removeClass('active');
-        // });
+        $('#nav-join-newsletter').on( 'click', function(e) {
+          e.preventDefault();
+          $("#newsletterModal").toggleClass('hidden');
+          $("#newsletterModal").toggleClass('active');
+        });
+
+        $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
+          e.preventDefault();
+          $("#newsletterModal").addClass('hidden');
+          $("#newsletterModal").removeClass('active');
+        });
 
       }
 
