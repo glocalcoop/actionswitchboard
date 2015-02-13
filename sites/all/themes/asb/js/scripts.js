@@ -52,22 +52,33 @@
         '_qf_default' : '',
         '_qf_Edit_next' : ''
       };
-      $.ajax({
-        'url': url,
+      $.ajax( url, {
         'data': data,
         'type': 'POST',
-        'complete': asb.newsletterSubmissionResponse
-      });
-
-      $('div.newsletter-email input#email-Primary').val('Thanks for signing up!');
+        'crossDomain': true
+      }).done( asb.newsletterSubmitSuccess )
+      .fail( asb.newsletterSubmitError )
+      .always( asb.newsletterSubmissionResponse );
 
     };
 
-    asb.newsletterSubmissionResponse = function() {
+    asb.newsletterSubmissionSuccess = function( res, status ) {
+      console.log("Success: ", res, status);
       $('#newsletterResponse').html('Thanks for signing up!');
-      setTimeout(function() {
+      $('#newsletterResponse').fadeIn('slow');
+    }
+
+    asb.newsletterSubmissionError = function( res, status ) {
+      $('#newsletterResponse').html('Oops, something went wrong. Please try again later, or cotnact the site admin.');
+      console.log("Error: ", res, status);
+    }
+
+    asb.newsletterSubmissionResponse = function( res, status ) {
+      // complete... now hide the message after timeout (ms)
+      var timeout = 5000;
+      setTimeout( function() {
         $('#newsletterResponse').fadeOut('slow');
-      }, 5000);
+      }, timeout);
     };
 
   }
@@ -75,57 +86,57 @@
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
 
-      if( context == "[object HTMLDocument]" ){
+      if(context == "[object HTMLDocument]"){
 
         $('.login-normal').remove();
         $('.login-modal').show();
 
-        if( $(".login-link.ctools-use-modal").length ){
+        if($(".login-link.ctools-use-modal").length){
           $(".login-link.ctools-use-modal").click( function(e){
             $("#modalContent").addClass('login');
             $(window).resize();
           });
         }
 
-        if( $('a[title="Request Membership"]').length ){
+        if($('a[title="Request Membership"]').length){
           $('a[title="Request Membership"]').click( function(e){
             $("#modalContent").addClass('request-membership');
           });
         }
 
-        if( $('.view-display-id-block .donate-button a').length ){
+        if($('.view-display-id-block .donate-button a').length){
           $('.view-display-id-block .donate-button a').click( function(e){
             $("#modalContent").addClass('donate-skills');
           });
         }
 
-        asb.search_visibility_toggle( context, settings );
+        asb.search_visibility_toggle(context, settings);
         asb.enhance_search();
 
-        if( $("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered") ){
+        if($("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered")){
           asb.modify_append_pager();
         }
 
-        if( $(".scheme-collection") ){
+        if($(".scheme-collection")) {
           //console.log("clamp!");
           asb.scheme_overviews_clamp_descriptions();
         }
 
-        if( $(".page-user-messages") ){
+        if($(".page-user-messages")) {
           asb.highlight_new_messages();
         }
 
-        $('#nav-join-newsletter').on( 'click', function(e) {
-          e.preventDefault();
-          $("#newsletterModal").toggleClass('hidden');
-          $("#newsletterModal").toggleClass('active');
-                    // asb.submitNewsletter();
-        });
-        $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
-          e.preventDefault();
-          $("#newsletterModal").addClass('hidden');
-          $("#newsletterModal").removeClass('active');
-        });
+        // $('#nav-join-newsletter').on( 'click', function(e) {
+        //   e.preventDefault();
+        //   $("#newsletterModal").toggleClass('hidden');
+        //   $("#newsletterModal").toggleClass('active');
+        // });
+        //
+        // $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
+        //   e.preventDefault();
+        //   $("#newsletterModal").addClass('hidden');
+        //   $("#newsletterModal").removeClass('active');
+        // });
 
       }
 
