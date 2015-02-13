@@ -4,6 +4,41 @@
   content: '\2716';
 }
 
+/* line 13, ../sass/_extends.scss */
+.civi-button, #newsletterModal .button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  text-shadow: none;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.civi-button:hover, #newsletterModal .button:hover, .civi-button:focus, #newsletterModal .button:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span, #newsletterModal .button span {
+  line-height: 30px;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon, #newsletterModal .button span .icon {
+  display: none;
+}
+/* line 25, ../sass/_extends.scss */
+.civi-button span div.icon, #newsletterModal .button span div.icon {
+  display: none;
+}
+
 /* line 5, ../sass/modals.scss */
 .ui-dialog {
   z-index: 1100;
@@ -303,12 +338,12 @@ div.ctools-modal-content .form-type-mfw-managed-file label {
   float: none;
 }
 /* line 295, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix {
+div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix, div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper, #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper {
   clear: none;
   float: left;
 }
 /* line 298, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"] {
+div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"], div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"], #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"] {
   margin-left: 1em;
   position: relative;
   top: .125em;
@@ -329,4 +364,43 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
 /* line 323, ../sass/modals.scss */
 .form-item-field-people-skills-und .chosen-container {
   width: 100% !important;
+}
+
+/* line 329, ../sass/modals.scss */
+#newsletterModal {
+  @extends #modalContent;
+  position: fixed;
+  z-index: 1000;
+  transition-property: top;
+  transition-duration: .25s;
+  width: 100%;
+  top: -100%;
+}
+/* line 340, ../sass/modals.scss */
+#newsletterModal.active {
+  top: 3em;
+}
+/* line 344, ../sass/modals.scss */
+#newsletterModal .modal-head-wrapper {
+  position: relative;
+}
+/* line 347, ../sass/modals.scss */
+#newsletterModal .modal-head-wrapper .close {
+  position: absolute;
+  right: 0;
+  top: -3em;
+}
+/* line 354, ../sass/modals.scss */
+#newsletterModal .modal-title {
+  font-size: 3em;
+  padding-left: .5em;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 362, ../sass/modals.scss */
+#newsletterModal .ctools-modal-content {
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
 }

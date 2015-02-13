@@ -8,6 +8,41 @@
   content: '\1F464';
 }
 
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  text-shadow: none;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 30px;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none;
+}
+/* line 25, ../sass/_extends.scss */
+.civi-button span div.icon {
+  display: none;
+}
+
 /*
  * Views' admin tabs
  *
@@ -65,17 +100,17 @@
   background: url('../images/needs-sa39b67d2f3.png') no-repeat;
 }
 
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../opt/vagrant_ruby/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, #main .scheme-collection .scheme-info .scheme-needs .needed-funds {
   background-position: 0 -12px;
 }
 
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../opt/vagrant_ruby/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills {
   background-position: 0 -24px;
 }
 
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../../opt/vagrant_ruby/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, #main .scheme-collection .scheme-info .scheme-needs .needed-supplies {
   background-position: 0 0;
 }

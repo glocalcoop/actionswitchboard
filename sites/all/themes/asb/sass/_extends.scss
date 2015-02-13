@@ -9,3 +9,21 @@
   }
   margin: 0 auto;
 }
+
+.civi-button {
+
+  @include button($height: 30px, $font-size: $h3-font-size + 6px);
+  border: none;
+  text-shadow: none;
+  color: $nav-title-color !important;
+  span {
+    line-height: 30px;
+    .icon {
+      display: none;
+    }
+  }
+  span div.icon {
+    display: none;
+  }
+
+}

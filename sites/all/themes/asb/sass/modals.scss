@@ -19,7 +19,7 @@
 		cursor: pointer;
 		span {
 			display: none;
-		}	
+		}
 }
 
 
@@ -28,16 +28,16 @@
 	border: none !important;
 	position: relative;
 	background: transparent !important;
-	
+
 	header .modal-update-title{
 		padding: .5em;
 	}
-	
+
 	label {
 		float: none !important;
 		display: block;
 	}
-	
+
 	.form-textarea-wrapper {
 		margin: 0 !important;
 	}
@@ -49,19 +49,19 @@
   #edit-field-people-skills .form-type-select {
       display: block;
   }
-          
+
 	ul.tips {
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	.popups-container {
 		overflow: visible !important;
 		height: auto !important;
 		.modal-header {
 			background: $panel;
 			width: auto;
-			.close { 
+			.close {
 				@extend %modal-close;
 				text-indent: none;
 				background-image: none;
@@ -86,14 +86,14 @@
 		margin-top:1em;
 		border: none !important;
 	}
-	
+
 	.modal-head-wrapper {
 		z-index: 5;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
 		}
-		.close { 
+		.close {
 			@extend %modal-close;
 		}
 	}
@@ -107,7 +107,7 @@
 	.modal-content-wrapper {
 		background: $panel;
 		@include border-radius( 3px );
-		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
+		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );
 		padding-top: 1em;
 		// padding-bottom: 1em;
 	}
@@ -244,7 +244,7 @@
 		.image-widget-data {
 			width: 320px;
 			.file,
-			.file-size { 
+			.file-size {
 				display: none;
 			}
 			label {
@@ -324,3 +324,49 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 	width: 100% !important;
 }
 
+
+
+#newsletterModal {
+
+	@extends #modalContent;
+
+	position: fixed;
+	z-index: 1000;
+	transition-property: top;
+	transition-duration: .25s;
+	width: 100%;
+	top: -100%;
+
+	&.active {
+		top: 3em;
+	}
+
+	.modal-head-wrapper {
+		@extend .clearfix;
+		position: relative;
+		.close {
+			position: absolute;
+			right: 0;
+			top: -3em;
+		}
+	}
+
+	.modal-title {
+		font-size: 3em;
+		padding-left: .5em;
+		color: #000;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.ctools-modal-content {
+		width: 400px;
+		height: 500px;
+		margin: 0 auto;
+	}
+
+	.button {
+		@extend .civi-button;
+	}
+
+}

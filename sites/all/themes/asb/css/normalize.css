@@ -10,6 +10,41 @@
          @see http://snook.ca/archives/html_and_css/no_css_reset/
    ========================================================================== */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  text-shadow: none;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 30px;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none;
+}
+/* line 25, ../sass/_extends.scss */
+.civi-button span div.icon {
+  display: none;
+}
+
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */

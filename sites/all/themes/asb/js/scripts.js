@@ -22,9 +22,56 @@
 })();
 
 ( function($) {
-  
+
   asb = {};
-  
+
+  // send an email address to civi
+  asb.submitNewsletter = function() {
+
+    var form = $("#newsletter-modal form");
+    var email = $('#email-Primary').val();
+    var emailpatt = /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+
+    if( !emailpatt.test( email ) ){
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    if (email) {
+      // send the data to civi
+      var profileId = form.find("profileId").val();
+      var groupId = form.find("groupId").val();
+      var url = form.attr('action');
+      // var postURL = form.find("#postURL");
+      var cancelURL = form.find("#cancelURL").val();
+      var data = {
+        'postURL': '',
+        'cancelURL': cancelURL,
+        'add_to_group' : groupId,
+        'email-Primary' : email,
+        '_qf_default' : '',
+        '_qf_Edit_next' : ''
+      };
+      $.ajax({
+        'url': url,
+        'data': data,
+        'type': 'POST',
+        'complete': asb.newsletterSubmissionResponse
+      });
+
+      $('div.newsletter-email input#email-Primary').val('Thanks for signing up!');
+
+    };
+
+    asb.newsletterSubmissionResponse = function() {
+      $('#newsletterResponse').html('Thanks for signing up!');
+      setTimeout(function() {
+        $('#newsletterResponse').fadeOut('slow');
+      }, 5000);
+    };
+
+  }
+
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
 
@@ -67,6 +114,18 @@
         if( $(".page-user-messages") ){
           asb.highlight_new_messages();
         }
+
+        $('#nav-join-newsletter').on( 'click', function(e) {
+          e.preventDefault();
+          $("#newsletterModal").toggleClass('hidden');
+          $("#newsletterModal").toggleClass('active');
+                    // asb.submitNewsletter();
+        });
+        $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
+          e.preventDefault();
+          $("#newsletterModal").addClass('hidden');
+          $("#newsletterModal").removeClass('active');
+        });
 
       }
 
@@ -131,7 +190,7 @@
         $( ".region-search" ).addClass('hidden');
       }
       // only hide search for people with JS.
-      $( "#nav-find" ).click( function( e ) { 
+      $( "#nav-find" ).click( function( e ) {
         e.preventDefault();
         $( ".region-search" ).removeClass('atrest');
         $( ".region-search" ).toggleClass('hidden');
@@ -146,12 +205,12 @@
     // truncate titles after 2 lines with …
     $(".scheme-collection .scheme-name a").each( function(){
       // console.log( "asb.scheme-name a", this );
-      if( $(this).text() ) $clamp( this, { clamp: 2 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 2 } );
     });
     // truncate descriptions after 6 lines with …
     $(".scheme-collection .scheme-description .field-body p").each( function(){
       // console.log( "asb.scheme_overviews_clamp_descriptions", this );
-      if( $(this).text() ) $clamp( this, { clamp: 6 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 6 } );
     });
   }
 

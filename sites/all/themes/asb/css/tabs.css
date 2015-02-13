@@ -64,6 +64,41 @@ ul.tabs-primary.primary li a[href*="workflow"]:before {
   content: '\1F56A';
 }
 
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ef3f26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  text-shadow: none;
+  color: white !important;
+}
+/* line 319, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912a1b;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 30px;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none;
+}
+/* line 25, ../sass/_extends.scss */
+.civi-button span div.icon {
+  display: none;
+}
+
 /*
  * Basic positioning styles shared by primary and secondary tabs.
  */
@@ -76,7 +111,7 @@ ul.tabs-primary.primary {
   *zoom: 1;
   font-size: 14.04px;
 }
-/* line 49, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
+/* line 49, ../../../../../../../../opt/vagrant_ruby/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
 ul.tabs-primary.primary li {
   list-style-image: none;
   list-style-type: none;

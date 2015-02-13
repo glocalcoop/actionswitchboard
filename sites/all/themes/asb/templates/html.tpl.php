@@ -14,7 +14,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 
 <head>
-  
+
 
   <?php print $head; ?>
 
@@ -61,5 +61,56 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+
+  <div id="newsletterModal" class="hidden">
+
+    <div class="ctools-modal-content ctools-modal-asb-modal-update">
+
+      <div class="modal-content-wrapper">
+
+        <header class="modal-head-wrapper">
+          <h3 class="modal-title" >Sign up for the Mailing List</h3>
+          <a class="close" href="#"><span>Close Window</span></a>
+        </header>
+
+        <div class="modal-scroll">
+
+          <div id="modal-content" class="modal-content popups-body" style="width: 675px; height: 455px;">
+
+            <form  action="https://actionswitchboard.net/civicrm/profile/create?gid=43&amp;reset=1" method="post" name="Edit" id="Edit" >
+
+              <div>
+                <input name="entryURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile/create?gid=43&amp;reset=1/field/add?reset=1&amp;amp;action=add&amp;amp;gid=43" />
+                <input id="profileId" type="hidden" value="43" />
+                <input id="postURL" name="postURL" type="hidden" value="" />
+                <input id="cancelURL" name="cancelURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile?reset=1&amp;gid=43" />
+                <input id="groupId" name="add_to_group" type="hidden" value="131" />
+                <input name="_qf_default" type="hidden" value="Edit:cancel" />
+              </div>
+
+              <div class="crm-profile-name-ASB_Newsletter_43">
+                <h3 id="newsletterResponse"></h3>
+                <div id="crm-container" class="crm-container crm-public" lang="en" xml:lang="en">
+
+                  <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
+                      <input placeholder="Enter your eamil…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
+                  </div>
+                  <div class="crm-submit-buttons" style=''>
+                    <input class="button validate form-submit default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next" />
+                    <input class="button cancel form-submit default" name="_qf_Edit_cancel" value="Cancel" type="submit" id="_qf_Edit_cancel" />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
