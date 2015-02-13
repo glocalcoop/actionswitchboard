@@ -129,15 +129,30 @@ function asb_preprocess_maintenance_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function asb_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
+  $variables['newsletter_html'] = '<form action="<?php $base_url; ?>/civicrm/profile/create?gid=43&amp;reset=1" method="post" name="Edit" id="Edit" >
+  <div>
+  <input name="entryURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile/create?gid=43&amp;reset=1/field/add?reset=1&amp;amp;action=add&amp;amp;gid=43" />
+  <input id="profileId" type="hidden" value="43" />
+  <input id="postURL" name="postURL" type="hidden" value="" />
+  <input id="cancelURL" name="cancelURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile?reset=1&amp;gid=43" />
+  <input id="groupId" name="add_to_group" type="hidden" value="131" />
+  <input name="_qf_default" type="hidden" value="Edit:cancel" />
+  </div>
+  <div class="crm-profile-name-ASB_Newsletter_43">
+  <h3 id="newsletterResponse"></h3>
+  <div id="crm-container" class="crm-container crm-public" lang="en" xml:lang="en">
+  <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
+  <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
+  </div>
+  <div class="crm-submit-buttons">
+  <input class="button validate default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next" />
+  <input class="button cancel default" name="_qf_Edit_cancel" value="Cancel" type="submit" id="_qf_Edit_cancel" />
+  </div>
+  </div>
+  </div>
+  </form>';
 }
-// */
 
 /**
  * Override or insert variables into the user_profile templates.
