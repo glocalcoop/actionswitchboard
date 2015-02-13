@@ -11,33 +11,29 @@
   padding: 0 20px;
   height: 30px;
   line-height: 30px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 20.04px;
   font-family: League, sans-serif;
   border-radius: 4px;
   text-align: center;
   text-transform: uppercase;
-  border: none;
-  text-shadow: none;
+  border: none !important;
+  text-shadow: none !important;
   color: white !important;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .civi-button:hover, .civi-button:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 19, ../sass/_extends.scss */
 .civi-button span {
-  line-height: 30px;
+  line-height: 2;
 }
 /* line 21, ../sass/_extends.scss */
 .civi-button span .icon {
-  display: none;
-}
-/* line 25, ../sass/_extends.scss */
-.civi-button span div.icon {
-  display: none;
+  display: none !important;
 }
 
 /* line 10, ../sass/nodes.scss */
@@ -59,8 +55,4 @@
   text-transform: uppercase;
   text-align: center;
   word-wrap: break-word;
-}
-/* line 249, ../sass/_mixins.scss */
-.lt-ie8 .node-unpublished p.unpublished > * {
-  position: relative;
 }

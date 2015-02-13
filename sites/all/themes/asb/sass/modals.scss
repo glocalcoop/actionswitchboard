@@ -338,7 +338,7 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 	top: -100%;
 
 	&.active {
-		top: 3em;
+		top: 0;
 	}
 
 	.modal-head-wrapper {
@@ -346,8 +346,15 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 		position: relative;
 		.close {
 			position: absolute;
-			right: 0;
-			top: -3em;
+			right: -.75em;
+			top: .25em;
+			background-color: $panel;
+			border-radius: 50%;
+			border: 2px $panel solid;
+			padding: 0 0 0 0;
+			&::before {
+				line-height: .5;
+			}
 		}
 	}
 
@@ -357,12 +364,21 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 		color: #000;
 		margin-top: 0;
 		margin-bottom: 0;
+		line-height: 1;
 	}
 
 	.ctools-modal-content {
-		width: 400px;
+		width: 450px;
 		height: 500px;
 		margin: 0 auto;
+	}
+
+	.modal-scroll {
+		padding-top: 0;
+	}
+
+	#email-Primary {
+		width: 300px;
 	}
 
 	.button {

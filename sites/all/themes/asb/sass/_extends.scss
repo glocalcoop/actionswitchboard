@@ -13,17 +13,14 @@
 .civi-button {
 
   @include button($height: 30px, $font-size: $h3-font-size + 6px);
-  border: none;
-  text-shadow: none;
+  border: none !important;
+  text-shadow: none !important;
   color: $nav-title-color !important;
   span {
-    line-height: 30px;
+    line-height: 2;
     .icon {
-      display: none;
+      display: none !important;
     }
-  }
-  span div.icon {
-    display: none;
   }
 
 }

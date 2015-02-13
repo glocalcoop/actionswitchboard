@@ -93,11 +93,11 @@
                 <div id="crm-container" class="crm-container crm-public" lang="en" xml:lang="en">
 
                   <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
-                      <input placeholder="Enter your eamil…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
+                      <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
                   </div>
                   <div class="crm-submit-buttons" style=''>
-                    <input class="button validate form-submit default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next" />
-                    <input class="button cancel form-submit default" name="_qf_Edit_cancel" value="Cancel" type="submit" id="_qf_Edit_cancel" />
+                    <input class="button validate default" accesskey="S" name="_qf_Edit_next" value="Save" type="submit" id="_qf_Edit_next" />
+                    <input class="button cancel default" name="_qf_Edit_cancel" value="Cancel" type="submit" id="_qf_Edit_cancel" />
                   </div>
 
                 </div>
