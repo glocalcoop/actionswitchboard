@@ -127,21 +127,42 @@
         }
 
         $('#nav-join-newsletter').on( 'click', function(e) {
-          e.preventDefault();
-          $("#newsletterModal").toggleClass('hidden');
-          $("#newsletterModal").toggleClass('active');
+          asb.openNewsletterSubscribeModal(e);
         });
 
-        $("#newsletterModal .modal-head-wrapper .close, #newsletterModal .button.cancel").on( 'click', function(e) {
-          e.preventDefault();
-          $("#newsletterModal").addClass('hidden');
-          $("#newsletterModal").removeClass('active');
+        $("#newsletterModal .close, #newsletterModal .button.cancel").on( 'click', function(e) {
+          asb.closeNewsletterSubscribeModal(e);
         });
-
       }
 
     }
 
+  }
+
+  asb.openNewsletterSubscribeModal = function(e) {
+    e.preventDefault();
+    $("#newsletterModal").toggleClass('hidden');
+    $("#newsletterModal").toggleClass('active');
+    $(document).bind('keydown', asb.newsletterSubscribeKeyEvents );
+  }
+
+  asb.closeNewsletterSubscribeModal = function(e) {
+    e.preventDefault();
+    $(document).unbind('keydown', asb.newsletterSubscribeKeyEvents );
+    $("#newsletterModal").addClass('hidden');
+    $("#newsletterModal").removeClass('active');
+  }
+
+  asb.newsletterSubscribeKeyEvents = function(e) {
+    console.log("»»",e.keyCode);
+    switch(e.keyCode) {
+      case  13: // enter
+        $('#_qf_Edit_next').click();
+        break;
+      case 27: //esc
+        asb.closeNewsletterSubscribeModal(e);
+        break;
+    }
   }
 
   asb.enhance_search = function(){
@@ -157,7 +178,6 @@
       if( tr.find('mark.new').length ) $(this).addClass('new');
     });
   }
-
 
   Drupal.theme.prototype.CToolsModalDialog = function () {
     // console.log(Drupal.settings.asb_modal.types);

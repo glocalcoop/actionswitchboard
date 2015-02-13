@@ -330,6 +330,9 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 
 	@extends #modalContent;
 
+	&.active {
+		background-color: rgba(#fff, .8);
+	}
 	position: fixed;
 	z-index: 1000;
 	transition-property: top;
