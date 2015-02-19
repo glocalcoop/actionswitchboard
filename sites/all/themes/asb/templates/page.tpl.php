@@ -38,18 +38,6 @@
         </section><!-- /#navigation -->
       </div>
     </div>
-    <div class="ad-hoc-menu" style="background: #333; min-height: 4em;">
-      <div class="menu-container">
-        <nav class="centered-container" style="max-width: 960px; margin: 0 auto;">
-          <ul class="nav">
-            <li><a href="#">Whatever link</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Something else</a></li>
-            <li><a href="#">Donate!?</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
     <?php print $global_donate;?>
   </header>
 
