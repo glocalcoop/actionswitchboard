@@ -21,61 +21,83 @@
   }
 })();
 
-( function($) {
+(function($) {
 
   asb = {};
 
   // send an email address to civi
-  asb.submitNewsletter = function() {
+  asb.submitNewsletter = function(e) {
 
-    var form = $("#newsletter-modal form");
+    if( e ) e.preventDefault();
+
+    var modal = $("#newsletterModal");
+    var form = $("#newsletter_form");
     var email = $('#email-Primary').val();
-    var emailpatt = /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+    var emailpattern = /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
 
-    if( !emailpatt.test( email ) ){
+    // console.log(" «»»»» submitletter ");
+
+    if( !emailpattern.test( email ) ){
       alert("Please enter a valid email address.");
       return false;
     }
 
     if (email) {
+
       // send the data to civi
-      var profileId = form.find("profileId").val();
-      var groupId = form.find("groupId").val();
-      var url = form.attr('action');
-      // var postURL = form.find("#postURL");
-      var cancelURL = form.find("#cancelURL").val();
+      var profileId = form.data('profileid');
+      var groupId = form.data('groupid');
+
+      var url = form.data('posturl')  + '?gid='+profileId + '&reset=1&json=1';
+
       var data = {
-        'postURL': '',
-        'cancelURL': cancelURL,
+        // 'json': 1,
+        'reset': 1,
+        'gid': profileId,
         'add_to_group' : groupId,
-        'email-Primary' : email,
-        '_qf_default' : '',
-        '_qf_Edit_next' : ''
+        'email-Primary' : email
       };
-      $.ajax( url, {
-        'data': data,
-        'type': 'POST',
-        'crossDomain': true
-      }).done( asb.newsletterSubmitSuccess )
-      .fail( asb.newsletterSubmitError )
-      .always( asb.newsletterSubmissionResponse );
+
+      var request = $.ajax({
+        url: url,
+        data: data,
+        type: 'POST',
+        // crossDomain: true,
+        error: function(res,status){
+          asb.newsletterSubmissionError(res,status);
+        },
+        success: function(res,status){
+          asb.newsletterSubmissionSuccess(res,status);
+        },
+        complete: function(res,status){
+          asb.newsletterSubmissionResponse(res,status);
+        }
+      });
+
+      modal.find('.newsletter-modal-scroll').addClass('spinner');
+      modal.find('.newsletter-form').fadeOut('slow');
 
     };
 
     asb.newsletterSubmissionSuccess = function( res, status ) {
-      console.log("Success: ", res, status);
-      $('#newsletterResponse').html('Thanks for signing up!');
-      $('#newsletterResponse').fadeIn('slow');
+      // console.log("Success: ", res, status);
+      // console.log("Success »", status);
     }
 
     asb.newsletterSubmissionError = function( res, status ) {
-      $('#newsletterResponse').html('Oops, something went wrong. Please try again later, or cotnact the site admin.');
-      console.log("Error: ", res, status);
+      // console.log("Error: ", res, status);
+      alert('Oops, something went wrong. Please contact the site admin.');
+
     }
 
     asb.newsletterSubmissionResponse = function( res, status ) {
+      // console.log("Always: ", res, status);
       // complete... now hide the message after timeout (ms)
-      var timeout = 5000;
+      var modal = $("#newsletterModal");
+      var timeout = 7000;
+      modal.find('.newsletter-modal-scroll').removeClass('spinner');
+      modal.find('.newsletter-form').fadeIn('slow');
+      $('#newsletterResponse').removeClass('offscreen');
       setTimeout( function() {
         $('#newsletterResponse').fadeOut('slow');
       }, timeout);
@@ -127,10 +149,11 @@
         }
 
         $('#nav-join-newsletter').on( 'click', function(e) {
+          // console.log("nav-join-newsletter", e );
           asb.openNewsletterSubscribeModal(e);
         });
 
-        $("#newsletterModal .close, #newsletterModal .button.cancel").on( 'click', function(e) {
+        $("#newsletterModal .close").on( 'click', function(e) {
           asb.closeNewsletterSubscribeModal(e);
         });
       }
@@ -143,7 +166,8 @@
     e.preventDefault();
     $("#newsletterModal").toggleClass('hidden');
     $("#newsletterModal").toggleClass('active');
-    $(document).bind('keydown', asb.newsletterSubscribeKeyEvents );
+    $(document).bind('keydown', asb.newsletterSubscribeKeyEvents);
+    $("#newsletter_submit").on('click', asb.submitNewsletter);
   }
 
   asb.closeNewsletterSubscribeModal = function(e) {
@@ -154,10 +178,9 @@
   }
 
   asb.newsletterSubscribeKeyEvents = function(e) {
-    console.log("»»",e.keyCode);
     switch(e.keyCode) {
       case  13: // enter
-        $('#_qf_Edit_next').click();
+        asb.submitNewsletter(e);
         break;
       case 27: //esc
         asb.closeNewsletterSubscribeModal(e);

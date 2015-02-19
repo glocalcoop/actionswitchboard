@@ -29,7 +29,7 @@
 	position: relative;
 	background: transparent !important;
 
-	header .modal-update-title{
+	header .modal-update-title {
 		padding: .5em;
 	}
 
@@ -325,6 +325,9 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 }
 
 
+.offscreen {
+	@include offscreen;
+}
 
 #newsletterModal {
 
@@ -337,23 +340,30 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 	width: 100%;
 	height: 100%;
 	top: -100%;
+	display:none;
 
 	&.active {
 		background-color: rgba(#fff, .8);
-	}
-
-	&.active {
+		display: block;
 		top: 0;
 	}
 
-	.modal-head-wrapper {
+	.newsletter-modal-content {
+		background-color: $panel;
+		width: 450px;
+		min-height: 180px;
+		margin: 0 auto;
+		padding: 2em;
+	}
+
+	.newsletter-modal-head-wrapper {
 		@extend .clearfix;
 		position: relative;
 		.close {
+			@extend %modal-close;
 			position: absolute;
 			right: -.75em;
 			top: .25em;
-			background-color: $panel;
 			border-radius: 50%;
 			border: 2px $panel solid;
 			padding: 0 0 0 0;
@@ -363,26 +373,26 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 		}
 	}
 
-	.newsletter-modal-title {
+	.modal-title {
 		font-size: 3em;
-		padding-left: .5em;
 		color: #000;
 		margin-top: 0;
 		margin-bottom: 0;
 		line-height: 1;
 	}
 
-	.newsletter-modal-content {
-		@extend .ctools-modal-content;
-		width: 450px;
-		height: 500px;
-		margin: 0 auto;
-		width: auto !important;
-	}
-
 	.newsletter-modal-scroll {
 		@extend .modal-scroll;
 		padding-top: 0;
+		&.spinner {
+			background-repeat: no-repeat;
+			background-image: url(/sites/all/themes/asb/images/spinner.gif);
+			background-position: center center;
+		}
+	}
+
+	.blurb {
+		font-size: 16px;
 	}
 
 	#email-Primary {

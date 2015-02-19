@@ -131,8 +131,8 @@ function asb_preprocess_maintenance_page(&$variables, $hook) {
  */
 function asb_preprocess_html(&$variables, $hook) {
   $variables['newsletter_profileId'] = 43;
+  $variables['newsletter_profile_name'] = 'ASB_Newsletter_43';
   $variables['newsletter_groupId'] = 131;
-  $variables['newsletter_profile_name'] = 'ASB_Newsletter';
   $variables['newsletter_title'] = 'Sign up for the A/S Newsletter';
   $variables['newsletter_blurb'] = 'Get the insider scoop about new Schemes on the Action Switchboard!';
   $variables['newsletter_thanks'] = 'Great! You will now start receiving the A/S newsletter. We strongly encourage you to <a href="/user/register">register as a full Schemer</a>. We&apos;ll be able to connect you with projects that match your interests!';
@@ -145,44 +145,24 @@ function asb_preprocess_html(&$variables, $hook) {
 </header>
 
 <div class="newsletter-modal-scroll">
-
-  <div class="modal-content">
-
-    <p>'.$variables['newsletter_blurb'].'</p>
-
-    <form id="newsletter_form" action="'.$base_url.'/civicrm/profile/create?gid='.$variables['newsletter_groupId'].'" method="post">
-      <div>
-        <div aria-hidden class="offscreen" id="newsletter_success">'.$variables['newsletter_thanks'].'</div>
-        <input name="entryURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile/create?gid='.$variables['newsletter_groupId'].'&reset=1/field/add?reset=1&action=add&gid='.$variables['newsletter_groupId'].'" />
-        <input id="profileId" type="hidden" value="'.$variables['newsletter_groupId'].'" />
-        <input id="postURL" name="postURL" type="hidden" value="" />
-        <input id="cancelURL" name="cancelURL" type="hidden" value="https://actionswitchboard.net/civicrm/profile?reset=1&gid='.$variables['groupId'].'" />
-        <input id="groupId" name="add_to_group" type="hidden" value="'.$variables['newsletter_profileId'].'" />
-    <!--
-        <input name="_qf_default" type="hidden" value="Edit:cancel" />
-    -->
-      </div>
-    <!--
-      <div class="crm-profile-name-'.$variables['newsletter_profile_name'].'_'.$variables['newsletter_profileId'].'">
-    -->
-        <h3 id="newsletterResponse"></h3>
-    <!--
-        <div id="crm-container" class="crm-container crm-public" lang="en" xml:lang="en">
-    -->
-          <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
-            <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
-          </div>
-          <div class="crm-submit-buttons">
-            <input class="button validate default" accesskey="S" value="Save" type="submit" id="newsletter_submit" />
-          </div>
-    <!--
-          </div>
-      </div>
-    -->
-    </form>
-
+  <div id="newsletter_form" class="newsletter-form"
+  data-posturl="'.$base_url.'/civicrm/profile/create"
+  data-groupid="'.$variables['newsletter_groupId'].'"
+  data-profileid="'.$variables['newsletter_profileId'].'"
+  method="post">
+    <div class="newsletter-form-content">
+      <p id="newsletterBlurb" class="blurb">'.$variables['newsletter_blurb'].'</p>
+      <p id="newsletterResponse" class="blurb offscreen">'.$variables['newsletter_thanks'].'</p>
+      <div aria-hidden class="offscreen" id="newsletter_success">'.$variables['newsletter_thanks'].'</div>
+      <h3 id="newsletterResponse"></h3>
+        <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
+          <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
+        </div>
+        <div class="crm-submit-buttons">
+          <input class="button validate default" accesskey="S" value="Save" type="submit" id="newsletter_submit" />
+        </div>
+    </div>
   </div>
-
 </div>';
 }
 
