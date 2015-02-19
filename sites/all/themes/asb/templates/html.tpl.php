@@ -64,26 +64,14 @@
 
   <div id="newsletterModal" class="hidden">
 
-    <div class="ctools-modal-content ctools-modal-asb-modal-update">
+    <div class="newsletter-modal-content">
 
-      <div class="modal-content-wrapper">
-
-        <header class="modal-head-wrapper">
-          <h3 class="modal-title" >Sign up for the Mailing List</h3>
-          <a class="close" href="#"><span>Close Window</span></a>
-        </header>
-
-        <div class="modal-scroll">
-
-          <div id="modal-content" class="modal-content popups-body" style="width: 675px; height: 455px;">
-            <?php
-            echo $newsletter_html;
-            ?>
-          </div>
-          
-        </div>
+      <div class="newsletter-modal-content-wrapper">
+          <?php echo $newsletter_html;?>
       </div>
+
     </div>
+
   </div>
 
 </body>

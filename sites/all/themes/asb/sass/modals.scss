@@ -330,15 +330,17 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 
 	@extends #modalContent;
 
-	&.active {
-		background-color: rgba(#fff, .8);
-	}
 	position: fixed;
 	z-index: 1000;
 	transition-property: top;
 	transition-duration: .25s;
 	width: 100%;
+	height: 100%;
 	top: -100%;
+
+	&.active {
+		background-color: rgba(#fff, .8);
+	}
 
 	&.active {
 		top: 0;
@@ -361,7 +363,7 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 		}
 	}
 
-	.modal-title {
+	.newsletter-modal-title {
 		font-size: 3em;
 		padding-left: .5em;
 		color: #000;
@@ -370,22 +372,28 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 		line-height: 1;
 	}
 
-	.ctools-modal-content {
+	.newsletter-modal-content {
+		@extend .ctools-modal-content;
 		width: 450px;
 		height: 500px;
 		margin: 0 auto;
+		width: auto !important;
 	}
 
-	.modal-scroll {
+	.newsletter-modal-scroll {
+		@extend .modal-scroll;
 		padding-top: 0;
 	}
 
 	#email-Primary {
-		width: 300px;
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0;
 	}
 
 	.button {
 		@extend .civi-button;
+		width: 100%;
 	}
 
 }

@@ -1,6 +1,6 @@
 /*@import "font-icons";*/
 /* line 128, ../sass/includes/_entypo.scss */
-.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before {
+.ctools-modal-content .popups-container .modal-header .close:before, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, #newsletterModal .newsletter-modal-content .modal-head-wrapper .close:before {
   content: '\2716';
 }
 
@@ -41,7 +41,7 @@
 }
 
 /* line 9, ../sass/modals.scss */
-.ctools-modal-content .popups-container .modal-header .close, .ctools-modal-content .modal-head-wrapper .close {
+.ctools-modal-content .popups-container .modal-header .close, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close, .ctools-modal-content .modal-head-wrapper .close, #newsletterModal .newsletter-modal-content .modal-head-wrapper .close {
   float: right;
   position: relative;
   right: -0.5em;
@@ -51,7 +51,7 @@
   cursor: pointer;
 }
 /* line 40, ../sass/_mixins.scss */
-.ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before {
+.ctools-modal-content .popups-container .modal-header .close:before, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, #newsletterModal .newsletter-modal-content .modal-head-wrapper .close:before {
   font-family: "entypo";
   font-style: normal;
   font-size: 4em;
@@ -64,54 +64,54 @@
   vertical-align: middle;
 }
 /* line 20, ../sass/modals.scss */
-.ctools-modal-content .popups-container .modal-header .close span, .ctools-modal-content .modal-head-wrapper .close span {
+.ctools-modal-content .popups-container .modal-header .close span, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close span, .ctools-modal-content .modal-head-wrapper .close span, #newsletterModal .newsletter-modal-content .modal-head-wrapper .close span {
   display: none;
 }
 
 /* line 26, ../sass/modals.scss */
-.ctools-modal-content {
+.ctools-modal-content, #newsletterModal .newsletter-modal-content {
   border: none !important;
   position: relative;
   background: transparent !important;
 }
 /* line 32, ../sass/modals.scss */
-.ctools-modal-content header .modal-update-title {
+.ctools-modal-content header .modal-update-title, #newsletterModal .newsletter-modal-content header .modal-update-title {
   padding: .5em;
 }
 /* line 36, ../sass/modals.scss */
-.ctools-modal-content label {
+.ctools-modal-content label, #newsletterModal .newsletter-modal-content label {
   float: none !important;
   display: block;
 }
 /* line 41, ../sass/modals.scss */
-.ctools-modal-content .form-textarea-wrapper {
+.ctools-modal-content .form-textarea-wrapper, #newsletterModal .newsletter-modal-content .form-textarea-wrapper {
   margin: 0 !important;
 }
 /* line 45, ../sass/modals.scss */
-.ctools-modal-content .filter-help {
+.ctools-modal-content .filter-help, #newsletterModal .newsletter-modal-content .filter-help {
   display: none;
 }
 /* line 49, ../sass/modals.scss */
-.ctools-modal-content #edit-field-people-skills .form-type-select {
+.ctools-modal-content #edit-field-people-skills .form-type-select, #newsletterModal .newsletter-modal-content #edit-field-people-skills .form-type-select {
   display: block;
 }
 /* line 53, ../sass/modals.scss */
-.ctools-modal-content ul.tips {
+.ctools-modal-content ul.tips, #newsletterModal .newsletter-modal-content ul.tips {
   margin: 0;
   padding: 0;
 }
 /* line 58, ../sass/modals.scss */
-.ctools-modal-content .popups-container {
+.ctools-modal-content .popups-container, #newsletterModal .newsletter-modal-content .popups-container {
   overflow: visible !important;
   height: auto !important;
 }
 /* line 61, ../sass/modals.scss */
-.ctools-modal-content .popups-container .modal-header {
+.ctools-modal-content .popups-container .modal-header, #newsletterModal .newsletter-modal-content .popups-container .modal-header {
   background: #F3F2E0;
   width: auto;
 }
 /* line 64, ../sass/modals.scss */
-.ctools-modal-content .popups-container .modal-header .close {
+.ctools-modal-content .popups-container .modal-header .close, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close {
   text-indent: none;
   background-image: none;
   top: -1.5em;
@@ -122,7 +122,7 @@
   overflow: hidden;
 }
 /* line 74, ../sass/modals.scss */
-.ctools-modal-content .popups-container .modal-header .close::before {
+.ctools-modal-content .popups-container .modal-header .close::before, #newsletterModal .newsletter-modal-content .popups-container .modal-header .close::before {
   text-indent: 0;
   position: absolute;
   left: 0;
@@ -130,27 +130,29 @@
   display: block;
 }
 /* line 85, ../sass/modals.scss */
-.ctools-modal-content .messages {
+.ctools-modal-content .messages, #newsletterModal .newsletter-modal-content .messages {
   margin-top: 1em;
   border: none !important;
 }
 /* line 90, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper {
+.ctools-modal-content .modal-head-wrapper, #newsletterModal .newsletter-modal-content .modal-head-wrapper {
   z-index: 5;
   width: 100%;
 }
 /* line 93, ../sass/modals.scss */
-.ctools-modal-content .modal-head-wrapper h2.element-invisible {
+.ctools-modal-content .modal-head-wrapper h2.element-invisible, #newsletterModal .newsletter-modal-content .modal-head-wrapper h2.element-invisible {
   display: none;
 }
 /* line 101, ../sass/modals.scss */
-.ctools-modal-content .popups-container,
-.ctools-modal-content .modal-content-wrapper {
+.ctools-modal-content .popups-container, #newsletterModal .newsletter-modal-content .popups-container,
+.ctools-modal-content .modal-content-wrapper,
+#newsletterModal .newsletter-modal-content .modal-content-wrapper {
   border: none;
 }
 /* line 106, ../sass/modals.scss */
-.ctools-modal-content .modal-scroll,
-.ctools-modal-content .modal-content-wrapper {
+.ctools-modal-content .modal-scroll, #newsletterModal .newsletter-modal-content .modal-scroll, .ctools-modal-content #newsletterModal .newsletter-modal-scroll, #newsletterModal .ctools-modal-content .newsletter-modal-scroll, #newsletterModal .newsletter-modal-content .newsletter-modal-scroll,
+.ctools-modal-content .modal-content-wrapper,
+#newsletterModal .newsletter-modal-content .modal-content-wrapper {
   background: #F3F2E0;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -161,15 +163,16 @@
   padding-top: 1em;
 }
 /* line 115, ../sass/modals.scss */
-.ctools-modal-content .popups-body,
-.ctools-modal-content .modal-content {
+.ctools-modal-content .popups-body, #newsletterModal .newsletter-modal-content .popups-body,
+.ctools-modal-content .modal-content,
+#newsletterModal .newsletter-modal-content .modal-content {
   overflow: visible !important;
   padding: 0 1em 1em 1em !important;
   height: auto !important;
 }
 
 /* line 124, ../sass/modals.scss */
-#modalContent.login .ctools-modal-content {
+#modalContent.login .ctools-modal-content, #modalContent.login #newsletterModal .newsletter-modal-content, #newsletterModal #modalContent.login .newsletter-modal-content {
   min-height: 350px !important;
   height: auto !important;
 }
@@ -321,23 +324,23 @@
 }
 
 /* line 284, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file {
+div.ctools-modal-content .form-type-mfw-managed-file, #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file {
   background: #fff;
   border-radius: 6px;
   padding: 1em;
 }
 /* line 290, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file label {
+div.ctools-modal-content .form-type-mfw-managed-file label, #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file label {
   display: block;
   float: none;
 }
 /* line 295, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix, div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper, #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper {
+div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix, #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix, div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper, #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper, #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper {
   clear: none;
   float: left;
 }
 /* line 298, ../sass/modals.scss */
-div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"], div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"], #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"] {
+div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"], #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.clearfix input[value="Upload"], div.ctools-modal-content .form-type-mfw-managed-file #newsletterModal .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"], #newsletterModal div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"], #newsletterModal div.newsletter-modal-content .form-type-mfw-managed-file .image-widget.form-managed-file.modal-head-wrapper input[value="Upload"] {
   margin-left: 1em;
   position: relative;
   top: .125em;
@@ -368,17 +371,22 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
   transition-property: top;
   transition-duration: .25s;
   width: 100%;
+  height: 100%;
   top: -100%;
 }
-/* line 340, ../sass/modals.scss */
+/* line 341, ../sass/modals.scss */
+#newsletterModal.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* line 345, ../sass/modals.scss */
 #newsletterModal.active {
   top: 0;
 }
-/* line 344, ../sass/modals.scss */
+/* line 349, ../sass/modals.scss */
 #newsletterModal .modal-head-wrapper {
   position: relative;
 }
-/* line 347, ../sass/modals.scss */
+/* line 352, ../sass/modals.scss */
 #newsletterModal .modal-head-wrapper .close {
   position: absolute;
   right: -.75em;
@@ -388,12 +396,12 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
   border: 2px #F3F2E0 solid;
   padding: 0 0 0 0;
 }
-/* line 355, ../sass/modals.scss */
+/* line 360, ../sass/modals.scss */
 #newsletterModal .modal-head-wrapper .close::before {
   line-height: .5;
 }
-/* line 361, ../sass/modals.scss */
-#newsletterModal .modal-title {
+/* line 366, ../sass/modals.scss */
+#newsletterModal .newsletter-modal-title {
   font-size: 3em;
   padding-left: .5em;
   color: #000;
@@ -401,17 +409,24 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
   margin-bottom: 0;
   line-height: 1;
 }
-/* line 370, ../sass/modals.scss */
-#newsletterModal .ctools-modal-content {
+/* line 375, ../sass/modals.scss */
+#newsletterModal .newsletter-modal-content {
   width: 450px;
   height: 500px;
   margin: 0 auto;
+  width: auto !important;
 }
-/* line 376, ../sass/modals.scss */
-#newsletterModal .modal-scroll {
+/* line 383, ../sass/modals.scss */
+#newsletterModal .newsletter-modal-scroll {
   padding-top: 0;
 }
-/* line 380, ../sass/modals.scss */
+/* line 388, ../sass/modals.scss */
 #newsletterModal #email-Primary {
-  width: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+/* line 394, ../sass/modals.scss */
+#newsletterModal .button {
+  width: 100%;
 }
