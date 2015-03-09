@@ -9,15 +9,15 @@ article.comment a.contact-me:before,
 }
 
 /* line 8, ../sass/includes/_entypo.scss */
-.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:before,
+.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:not(.login-link):before,
 article.comment a.edit:before,
-article.comment a.ctools-use-modal:before,
+article.comment a.ctools-use-modal:not(.login-link):before,
 .scheme-leader-contact a.edit:before,
-.scheme-leader-contact a.ctools-use-modal:before,
+.scheme-leader-contact a.ctools-use-modal:not(.login-link):before,
 .status-info a.edit:before,
-.status-info a.ctools-use-modal:before,
+.status-info a.ctools-use-modal:not(.login-link):before,
 .modal-edit a.edit:before,
-.modal-edit a.ctools-use-modal:before {
+.modal-edit a.ctools-use-modal:not(.login-link):before {
   content: '\270E';
 }
 
@@ -352,15 +352,15 @@ article.comment a.contact-me:before,
 }
 
 /* line 8, ../sass/includes/_entypo.scss */
-.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:before,
+.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:not(.login-link):before,
 article.comment a.edit:before,
-article.comment a.ctools-use-modal:before,
+article.comment a.ctools-use-modal:not(.login-link):before,
 .scheme-leader-contact a.edit:before,
-.scheme-leader-contact a.ctools-use-modal:before,
+.scheme-leader-contact a.ctools-use-modal:not(.login-link):before,
 .status-info a.edit:before,
-.status-info a.ctools-use-modal:before,
+.status-info a.ctools-use-modal:not(.login-link):before,
 .modal-edit a.edit:before,
-.modal-edit a.ctools-use-modal:before {
+.modal-edit a.ctools-use-modal:not(.login-link):before {
   content: '\270E';
 }
 
@@ -838,15 +838,15 @@ article.comment a.contact-me:before,
 }
 
 /* line 8, ../sass/includes/_entypo.scss */
-.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:before,
+.status-info a.icon:before, ul.links.inline li.comment-edit a:before, section.content a.edit:before, section.content a.ctools-use-modal:not(.login-link):before,
 article.comment a.edit:before,
-article.comment a.ctools-use-modal:before,
+article.comment a.ctools-use-modal:not(.login-link):before,
 .scheme-leader-contact a.edit:before,
-.scheme-leader-contact a.ctools-use-modal:before,
+.scheme-leader-contact a.ctools-use-modal:not(.login-link):before,
 .status-info a.edit:before,
-.status-info a.ctools-use-modal:before,
+.status-info a.ctools-use-modal:not(.login-link):before,
 .modal-edit a.edit:before,
-.modal-edit a.ctools-use-modal:before {
+.modal-edit a.ctools-use-modal:not(.login-link):before {
   content: '\270E';
 }
 
@@ -2856,15 +2856,15 @@ article.comment a:before,
   vertical-align: middle;
 }
 /* line 40, ../sass/_mixins.scss */
-section.content a.edit:before, section.content a.ctools-use-modal:before,
+section.content a.edit:before, section.content a.ctools-use-modal:not(.login-link):before,
 article.comment a.edit:before,
-article.comment a.ctools-use-modal:before,
+article.comment a.ctools-use-modal:not(.login-link):before,
 .scheme-leader-contact a.edit:before,
-.scheme-leader-contact a.ctools-use-modal:before,
+.scheme-leader-contact a.ctools-use-modal:not(.login-link):before,
 .status-info a.edit:before,
-.status-info a.ctools-use-modal:before,
+.status-info a.ctools-use-modal:not(.login-link):before,
 .modal-edit a.edit:before,
-.modal-edit a.ctools-use-modal:before {
+.modal-edit a.ctools-use-modal:not(.login-link):before {
   font-family: "entypo";
   font-style: normal;
   font-size: 3rem;
