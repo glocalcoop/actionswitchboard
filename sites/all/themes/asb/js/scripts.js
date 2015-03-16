@@ -21,57 +21,171 @@
   }
 })();
 
-( function($) {
-  
+(function($) {
+
   asb = {};
-  
+
+  // send an email address to civi
+  asb.submitNewsletter = function(e) {
+
+    if( e ) e.preventDefault();
+
+    var modal = $("#newsletterModal");
+    var form = $("#newsletter_form");
+    var email = $('#email-Primary').val();
+    var emailpattern = /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+
+    // console.log(" «»»»» submitletter ");
+
+    if( !emailpattern.test( email ) ){
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    if (email) {
+
+      // send the data to civi
+      var profileId = form.data('profileid');
+      var groupId = form.data('groupid');
+
+      var url = form.data('posturl')  + '?gid='+profileId + '&reset=1&json=1';
+
+      var data = {
+        // 'json': 1,
+        'reset': 1,
+        'gid': profileId,
+        'add_to_group' : groupId,
+        'email-Primary' : email
+      };
+
+      var request = $.ajax({
+        url: url,
+        data: data,
+        type: 'POST',
+        // crossDomain: true,
+        error: function(res,status){
+          asb.newsletterSubmissionError(res,status);
+        },
+        success: function(res,status){
+          asb.newsletterSubmissionSuccess(res,status);
+        },
+        complete: function(res,status){
+          asb.newsletterSubmissionResponse(res,status);
+        }
+      });
+
+      modal.find('.newsletter-modal-scroll').addClass('spinner');
+      modal.find('.newsletter-form').fadeOut('slow');
+
+    };
+
+    asb.newsletterSubmissionSuccess = function( res, status ) {
+      // console.log("Success: ", res, status);
+      // console.log("Success »", status);
+    }
+
+    asb.newsletterSubmissionError = function( res, status ) {
+      // console.log("Error: ", res, status);
+      alert('Oops, something went wrong. Please contact the site admin.');
+
+    }
+
+    asb.newsletterSubmissionResponse = function( res, status ) {
+      // console.log("Always: ", res, status);
+      // complete... now hide the message after timeout (ms)
+      var modal = $("#newsletterModal");
+      var timeout = 7000;
+      modal.find('.newsletter-modal-scroll').removeClass('spinner');
+      modal.find('.newsletter-form').fadeIn('slow');
+      $('#newsletterResponse').removeClass('offscreen');
+      setTimeout( function() {
+        $('#newsletterResponse').fadeOut('slow');
+      }, timeout);
+    };
+
+  }
+
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
 
-      if( context == "[object HTMLDocument]" ){
+      if(context == "[object HTMLDocument]"){
 
         $('.login-normal').remove();
         $('.login-modal').show();
 
-        if( $(".login-link.ctools-use-modal").length ){
+        if($(".login-link.ctools-use-modal").length){
           $(".login-link.ctools-use-modal").click( function(e){
             $("#modalContent").addClass('login');
             $(window).resize();
           });
         }
 
-        if( $('a[title="Request Membership"]').length ){
+        if($('a[title="Request Membership"]').length){
           $('a[title="Request Membership"]').click( function(e){
             $("#modalContent").addClass('request-membership');
           });
         }
 
-        if( $('.view-display-id-block .donate-button a').length ){
+        if($('.view-display-id-block .donate-button a').length){
           $('.view-display-id-block .donate-button a').click( function(e){
             $("#modalContent").addClass('donate-skills');
           });
         }
 
-        asb.search_visibility_toggle( context, settings );
+        asb.search_visibility_toggle(context, settings);
         asb.enhance_search();
 
-        if( $("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered") ){
+        if($("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered")){
           asb.modify_append_pager();
         }
 
-        if( $(".scheme-collection") ){
+        if($(".scheme-collection")) {
           //console.log("clamp!");
           asb.scheme_overviews_clamp_descriptions();
         }
 
-        if( $(".page-user-messages") ){
+        if($(".page-user-messages")) {
           asb.highlight_new_messages();
         }
 
+        $('#nav-join-newsletter').on( 'click', function(e) {
+          // console.log("nav-join-newsletter", e );
+          asb.openNewsletterSubscribeModal(e);
+        });
+
+        $("#newsletterModal .close").on( 'click', function(e) {
+          asb.closeNewsletterSubscribeModal(e);
+        });
       }
 
     }
 
+  }
+
+  asb.openNewsletterSubscribeModal = function(e) {
+    e.preventDefault();
+    $("#newsletterModal").toggleClass('hidden');
+    $("#newsletterModal").toggleClass('active');
+    $(document).bind('keydown', asb.newsletterSubscribeKeyEvents);
+    $("#newsletter_submit").on('click', asb.submitNewsletter);
+  }
+
+  asb.closeNewsletterSubscribeModal = function(e) {
+    e.preventDefault();
+    $(document).unbind('keydown', asb.newsletterSubscribeKeyEvents );
+    $("#newsletterModal").addClass('hidden');
+    $("#newsletterModal").removeClass('active');
+  }
+
+  asb.newsletterSubscribeKeyEvents = function(e) {
+    switch(e.keyCode) {
+      case  13: // enter
+        asb.submitNewsletter(e);
+        break;
+      case 27: //esc
+        asb.closeNewsletterSubscribeModal(e);
+        break;
+    }
   }
 
   asb.enhance_search = function(){
@@ -87,7 +201,6 @@
       if( tr.find('mark.new').length ) $(this).addClass('new');
     });
   }
-
 
   Drupal.theme.prototype.CToolsModalDialog = function () {
     // console.log(Drupal.settings.asb_modal.types);
@@ -131,7 +244,7 @@
         $( ".region-search" ).addClass('hidden');
       }
       // only hide search for people with JS.
-      $( "#nav-find" ).click( function( e ) { 
+      $( "#nav-find" ).click( function( e ) {
         e.preventDefault();
         $( ".region-search" ).removeClass('atrest');
         $( ".region-search" ).toggleClass('hidden');
@@ -146,12 +259,12 @@
     // truncate titles after 2 lines with …
     $(".scheme-collection .scheme-name a").each( function(){
       // console.log( "asb.scheme-name a", this );
-      if( $(this).text() ) $clamp( this, { clamp: 2 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 2 } );
     });
     // truncate descriptions after 6 lines with …
     $(".scheme-collection .scheme-description .field-body p").each( function(){
       // console.log( "asb.scheme_overviews_clamp_descriptions", this );
-      if( $(this).text() ) $clamp( this, { clamp: 6 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 6 } );
     });
   }
 

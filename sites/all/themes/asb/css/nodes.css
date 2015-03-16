@@ -5,6 +5,37 @@
  * Style anything that isn't in the $content variable.
  */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /* line 10, ../sass/nodes.scss */
 .node-unpublished {
   /* Unpublished nodes */
@@ -24,8 +55,4 @@
   text-transform: uppercase;
   text-align: center;
   word-wrap: break-word;
-}
-/* line 249, ../sass/_mixins.scss */
-.lt-ie8 .node-unpublished p.unpublished > * {
-  position: relative;
 }

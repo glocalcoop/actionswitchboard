@@ -14,7 +14,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 
 <head>
-  
+
 
   <?php print $head; ?>
 
@@ -61,5 +61,18 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+
+  <div id="newsletterModal" class="hidden">
+
+    <div class="newsletter-modal-content">
+
+      <div class="newsletter-modal-content-wrapper">
+          <?php echo $newsletter_html;?>
+      </div>
+
+    </div>
+
+  </div>
+
 </body>
 </html>

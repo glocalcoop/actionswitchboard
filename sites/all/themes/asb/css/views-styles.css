@@ -8,6 +8,37 @@
   content: '\1F464';
 }
 
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /*
  * Views' admin tabs
  *
@@ -21,7 +52,7 @@
   float: none;
   margin: 0 6px 0;
 }
-/* line 26, ../sass/views-styles.scss */
+/* line 25, ../sass/views-styles.scss */
 .views-displays .secondary a:link,
 .views-displays .secondary a:visited {
   text-shadow: none;
@@ -29,10 +60,8 @@
 }
 /* line 31, ../sass/views-styles.scss */
 .views-displays .secondary .open > a {
-  -webkit-border-radius: 7px 7px 0 0;
   -moz-border-radius: 7px 7px 0 0;
-  -ms-border-radius: 7px 7px 0 0;
-  -o-border-radius: 7px 7px 0 0;
+  -webkit-border-radius: 7px;
   border-radius: 7px 7px 0 0;
 }
 /* line 33, ../sass/views-styles.scss */
@@ -45,39 +74,36 @@
 }
 /* line 40, ../sass/views-styles.scss */
 .views-displays .secondary .action-list li:first-child {
-  -webkit-border-radius: 0 7px 0 0;
   -moz-border-radius: 0 7px 0 0;
-  -ms-border-radius: 0 7px 0 0;
-  -o-border-radius: 0 7px 0 0;
+  -webkit-border-radius: 0;
   border-radius: 0 7px 0 0;
 }
 /* line 43, ../sass/views-styles.scss */
 .views-displays .secondary .action-list li:last-child {
-  -webkit-border-radius: 0 0 7px 7px;
   -moz-border-radius: 0 0 7px 7px;
-  -ms-border-radius: 0 0 7px 7px;
-  -o-border-radius: 0 0 7px 7px;
+  -webkit-border-radius: 0;
   border-radius: 0 0 7px 7px;
 }
 
-/* line 58, needs/*.png */
+/* line 64, needs/*.png */
 .needs-sprite, .needs-funds, #main .scheme-collection .scheme-info .scheme-needs .needed-funds, .needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills, .needs-supplies, #main .scheme-collection .scheme-info .scheme-needs .needed-supplies {
-  background: url('../images/needs-sa39b67d2f3.png') no-repeat;
+  background-image: url('../images/needs-s8563fc8c1e.png');
+  background-repeat: no-repeat;
 }
 
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, #main .scheme-collection .scheme-info .scheme-needs .needed-funds {
+  background-position: 0 0;
+}
+
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills {
   background-position: 0 -12px;
 }
 
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills {
-  background-position: 0 -24px;
-}
-
-/* line 60, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, #main .scheme-collection .scheme-info .scheme-needs .needed-supplies {
-  background-position: 0 0;
+  background-position: 0 -24px;
 }
 
 /* ---------------------- */
@@ -88,11 +114,9 @@
 #content .scheme-collection {
   padding-bottom: 10px;
   font-size: 13px;
-  color: #7c7f7e;
-  *position: relative;
-  *zoom: 1;
+  color: #7C7F7E;
 }
-/* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 45, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #content .scheme-collection:before, #content .scheme-collection:after {
   content: "";
   display: table;
@@ -107,7 +131,7 @@
 }
 /* line 75, ../sass/views-styles.scss */
 #content .scheme-collection a {
-  color: #f15d38;
+  color: #F15D38;
 }
 /* line 79, ../sass/views-styles.scss */
 #content .scheme-collection h2.block-title {
@@ -125,7 +149,7 @@
   margin: 0 0 .25em 0;
 }
 
-/* line 96, ../sass/views-styles.scss */
+/* line 95, ../sass/views-styles.scss */
 .page-taxonomy-term #content .scheme-collection:last-child:nth-child(even), .page-taxonomy-term #content .scheme-collection:last-child:nth-child(odd) {
   background: transparent;
   background-image: none;
@@ -142,10 +166,6 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
-  *behavior: url("../polyfills/boxsizing.htc");
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
   width: 480px;
   padding-left: 0;
   padding-right: 10px;
@@ -167,10 +187,6 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
-    *behavior: url("../polyfills/boxsizing.htc");
-    _display: inline;
-    _overflow: hidden;
-    _overflow-y: visible;
     width: 240px;
     padding-left: 0;
     padding-right: 10px;
@@ -178,7 +194,7 @@
     border-right-width: 1px;
     border-right-style: solid;
   }
-  /* line 125, ../sass/views-styles.scss */
+  /* line 124, ../sass/views-styles.scss */
   #main .scheme-collection .views-row:nth-child(4n+4), #main .scheme-collection .views-row:last-child {
     border: none;
     margin-right: 0;
@@ -194,14 +210,14 @@
   padding-left: 1em;
   padding-right: 1em;
   margin: 0 0 2em 0;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /* line 156, ../sass/views-styles.scss */
 .front #content .scheme-collection:nth-child(even) {
-  background: linear-gradient(-135deg, #f0f0f0 5px, transparent 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #ffffff 0%) 0 5px;
+  background: linear-gradient(-135deg, #f0f0f0 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #ffffff 0%) 0 5px;
   background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, white 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
@@ -213,7 +229,7 @@
 }
 /* line 160, ../sass/views-styles.scss */
 .front #content .scheme-collection:nth-child(odd) {
-  background: linear-gradient(-135deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #f0f0f0 0%) 0 5px;
+  background: linear-gradient(-135deg, #ffffff 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #f0f0f0 0%) 0 5px;
   background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #f0f0f0 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
@@ -226,7 +242,7 @@
 
 /* line 169, ../sass/views-styles.scss */
 .page-user #content > .block-views:nth-child(even) {
-  background: linear-gradient(-135deg, #f0f0f0 5px, transparent 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #ffffff 0%) 0 5px;
+  background: linear-gradient(-135deg, #f0f0f0 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #ffffff 0%) 0 5px;
   background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, white 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
@@ -238,7 +254,7 @@
 }
 /* line 173, ../sass/views-styles.scss */
 .page-user #content > .block-views:nth-child(odd) {
-  background: linear-gradient(-135deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #f0f0f0 0%) 0 5px;
+  background: linear-gradient(-135deg, #ffffff 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #f0f0f0 0%) 0 5px;
   background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #f0f0f0 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
@@ -251,8 +267,8 @@
 
 /* line 181, ../sass/views-styles.scss */
 #content > .scheme-collection:last-child:nth-child(even) {
-  background: linear-gradient(-135deg, #f0f0f0 5px, transparent 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #2d2d2e 0%) 0 5px;
-  background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, #2d2d2e 0) 0 5px;
+  background: linear-gradient(-135deg, #f0f0f0 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #2d2d2e 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, #2D2D2E 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
   background-position-x: left;
@@ -263,8 +279,8 @@
 }
 /* line 185, ../sass/views-styles.scss */
 #content > .scheme-collection:last-child:nth-child(odd) {
-  background: linear-gradient(-135deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #2d2d2e 0%) 0 5px;
-  background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #2d2d2e 0) 0 5px;
+  background: linear-gradient(-135deg, #ffffff 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #2d2d2e 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #2D2D2E 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
   background-position-x: left;
@@ -276,8 +292,8 @@
 
 /* line 193, ../sass/views-styles.scss */
 .page-user #content > .block-views:last-child:nth-child(even) {
-  background: linear-gradient(-135deg, #f0f0f0 5px, transparent 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #2d2d2e 0%) 0 5px;
-  background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, #2d2d2e 0) 0 5px;
+  background: linear-gradient(-135deg, #f0f0f0 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #f0f0f0 5px, #2d2d2e 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, #f0f0f0 5px, transparent 0) 0 5px, -webkit-gradient(135deg, #f0f0f0 5px, #2D2D2E 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
   background-position-x: left;
@@ -288,8 +304,8 @@
 }
 /* line 197, ../sass/views-styles.scss */
 .page-user #content > .block-views:last-child:nth-child(odd) {
-  background: linear-gradient(-135deg, #ffffff 5px, transparent 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #2d2d2e 0%) 0 5px;
-  background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #2d2d2e 0) 0 5px;
+  background: linear-gradient(-135deg, #ffffff 5px, rgba(0, 0, 0, 0) 0%) 0 5px, linear-gradient(135deg, #ffffff 5px, #2d2d2e 0%) 0 5px;
+  background-image: -webkit-gradient(-135deg, white 5px, transparent 0) 0 5px, -webkit-gradient(135deg, white 5px, #2D2D2E 0) 0 5px;
   background-color: transparent;
   background-position: left bottom;
   background-position-x: left;
@@ -325,10 +341,6 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
-    *behavior: url("../polyfills/boxsizing.htc");
-    _display: inline;
-    _overflow: hidden;
-    _overflow-y: visible;
     width: 240px;
     padding-left: 0;
     padding-right: 10px;
@@ -438,8 +450,8 @@
 }
 /* line 325, ../sass/views-styles.scss */
 #main .scheme-collection .scheme-info .scheme-needs li {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-left: 23px;
 }
@@ -451,7 +463,7 @@
 #main .scheme-collection .scheme-info h4 {
   font-size: 9.96px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: gray;
+  color: #808080;
   text-transform: uppercase;
   font-weight: normal;
   display: inline-block;
@@ -494,7 +506,7 @@
   vertical-align: top;
 }
 
-/* line 380, ../sass/views-styles.scss */
+/* line 379, ../sass/views-styles.scss */
 .front,
 .section-user {
   /* /.#main .scheme-collection */
@@ -511,7 +523,7 @@
   position: relative;
   display: block;
 }
-/* line 396, ../sass/views-styles.scss */
+/* line 393, ../sass/views-styles.scss */
 .front #main .scheme-collection .item-list ul.pager li.pager-current, .front #main .scheme-collection .item-list ul.pager li.pager-item, .front #main .scheme-collection .item-list ul.pager li.pager-first, .front #main .scheme-collection .item-list ul.pager li.pager-last,
 .section-user #main .scheme-collection .item-list ul.pager li.pager-current,
 .section-user #main .scheme-collection .item-list ul.pager li.pager-item,
@@ -563,6 +575,7 @@
     text-indent: -119988px;
     overflow: hidden;
     text-align: left;
+    text-transform: capitalize;
     background-image: url("/sites/all/themes/asb/images/pager/next.png");
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -579,6 +592,7 @@
     text-indent: -119988px;
     overflow: hidden;
     text-align: left;
+    text-transform: capitalize;
     background-image: url("/sites/all/themes/asb/images/pager/previous.png");
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -590,21 +604,21 @@
   .front #main .scheme-collection .item-list ul.pager li,
   .section-user #main .scheme-collection .item-list ul.pager li {
     margin-bottom: 1em;
-    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
     float: left;
   }
-  /* line 454, ../sass/views-styles.scss */
+  /* line 453, ../sass/views-styles.scss */
   .front #main .scheme-collection .item-list ul.pager li.pager-previous, .front #main .scheme-collection .item-list ul.pager li.pager-next,
   .section-user #main .scheme-collection .item-list ul.pager li.pager-previous,
   .section-user #main .scheme-collection .item-list ul.pager li.pager-next {
     padding: .25em .5;
     font-size: 1.25em;
     background-repeat: no-repeat;
-    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
   /* line 460, ../sass/views-styles.scss */
@@ -664,6 +678,7 @@
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
+  text-transform: capitalize;
   background-image: url("/sites/all/themes/asb/images/pager/next-dark.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -678,6 +693,7 @@
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
+  text-transform: capitalize;
   background-image: url("/sites/all/themes/asb/images/pager/previous-dark.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;

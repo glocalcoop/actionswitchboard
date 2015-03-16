@@ -3,6 +3,37 @@
  * Comment Styling
  */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /* line 40, ../sass/comments.scss */
 div#comments {
   margin: 0;
@@ -11,7 +42,7 @@ div#comments {
 div#comments form.comment-form {
   background: #f0f0f0;
 }
-/* line 46, ../sass/comments.scss */
+/* line 45, ../sass/comments.scss */
 div#comments form.comment-form label,
 div#comments form.comment-form .username {
   display: none;
@@ -47,7 +78,7 @@ div#comments .comment header .submitted {
 }
 /* line 74, ../sass/comments.scss */
 div#comments .comment header .submitted a.username {
-  color: #ef3f26;
+  color: #EF3F26;
 }
 /* line 77, ../sass/comments.scss */
 div#comments .comment header .submitted .permalink {
@@ -123,7 +154,7 @@ div#comments .comment h3.comment-title {
   clear: left;
   font-size: 16px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   text-transform: none;
   font-weight: normal;
   line-height: 1.2;
@@ -160,7 +191,7 @@ div#comments .comment .comment-content {
   margin-left: 60px;
   clear: none;
 }
-/* line 182, ../sass/comments.scss */
+/* line 181, ../sass/comments.scss */
 div#comments .comment .comment-content header,
 div#comments .comment .comment-content .field-comment-body {
   margin-left: 0;
@@ -172,7 +203,7 @@ div#comments .comment .comment-content .field-comment-body p,
 div#comments .comment .comment-content .field-comment-body li {
   font-size: 14px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 1.5em;
   text-transform: none;
@@ -181,7 +212,7 @@ div#comments .comment .comment-content .field-comment-body li {
 div#comments .comment .links.inline {
   margin-top: 0;
 }
-/* line 79, ../sass/_mixins.scss */
+/* line 78, ../sass/_mixins.scss */
 div#comments .comment .links.inline li.comment-delete a,
 div#comments .comment .links.inline li.comment-delete a:link,
 div#comments .comment .links.inline li.comment-edit a,
@@ -189,7 +220,7 @@ div#comments .comment .links.inline li.comment-edit a:link,
 div#comments .comment .links.inline li.comment-reply a,
 div#comments .comment .links.inline li.comment-reply a:link {
   border: none;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   text-decoration: none;
 }
@@ -198,7 +229,7 @@ div#comments .comment .links.inline li.comment-delete a:visited,
 div#comments .comment .links.inline li.comment-edit a:visited,
 div#comments .comment .links.inline li.comment-reply a:visited {
   border: none;
-  color: #7c7f7e;
+  color: #7C7F7E;
   text-decoration: none;
 }
 /* line 90, ../sass/_mixins.scss */
@@ -206,7 +237,7 @@ div#comments .comment .links.inline li.comment-delete a:hover,
 div#comments .comment .links.inline li.comment-edit a:hover,
 div#comments .comment .links.inline li.comment-reply a:hover {
   border: none;
-  color: #912a1b;
+  color: #912A1B;
   text-decoration: none;
 }
 /* line 198, ../sass/comments.scss */
@@ -283,10 +314,6 @@ div#comments .comment article.last {
   text-transform: uppercase;
   text-align: center;
   word-wrap: break-word;
-}
-/* line 249, ../sass/_mixins.scss */
-.lt-ie8 .comment-unpublished p.unpublished > * {
-  position: relative;
 }
 
 /* line 280, ../sass/comments.scss */

@@ -3,16 +3,47 @@
  * Form Styling
  */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /* line 8, ../sass/forms.scss */
 form {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
 }
-/* line 13, ../sass/forms.scss */
+/* line 10, ../sass/forms.scss */
 form input[type="button"],
 form input[type="reset"],
 form input[type="submit"],
@@ -21,7 +52,7 @@ form .button-no.fake-cancel {
   padding: 0 20px;
   height: 30px;
   line-height: 30px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 20.04px;
   font-family: League, sans-serif;
@@ -33,7 +64,7 @@ form .button-no.fake-cancel {
   letter-spacing: 0.05em;
   cursor: pointer;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 form input[type="button"]:hover, form input[type="button"]:focus,
 form input[type="reset"]:hover,
 form input[type="reset"]:focus,
@@ -41,7 +72,7 @@ form input[type="submit"]:hover,
 form input[type="submit"]:focus,
 form .button-no.fake-cancel:hover,
 form .button-no.fake-cancel:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 20, ../sass/forms.scss */
@@ -49,13 +80,13 @@ form fieldset {
   border: none;
   padding: 4px 0;
 }
-/* line 28, ../sass/forms.scss */
+/* line 26, ../sass/forms.scss */
 form .crm-container input[type="text"],
 form .crm-container input[type="password"],
 form .crm-container textarea {
   font-size: 14px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -64,7 +95,7 @@ form .crm-container textarea {
 form .form-actions {
   margin-top: 0;
 }
-/* line 40, ../sass/forms.scss */
+/* line 36, ../sass/forms.scss */
 form input[type="text"],
 form input[type="password"],
 form textarea,
@@ -86,18 +117,18 @@ form input[type="password"]:focus,
 form textarea:focus,
 form select:focus,
 form .chosen-container-single .chosen-single:focus {
-  border-color: #56cbc8;
+  border-color: #56CBC8;
   border-width: 1px;
   border-style: solid;
 }
-/* line 59, ../sass/forms.scss */
+/* line 56, ../sass/forms.scss */
 form input[type="text"],
 form input[type="password"],
 form textarea,
 form select {
   font-size: 14px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -108,7 +139,7 @@ form input[type="password"] {
 }
 /* line 65, ../sass/forms.scss */
 form .chosen-container-active .chosen-single {
-  border-color: #56cbc8;
+  border-color: #56CBC8;
   border-width: 1px;
   border-style: solid;
 }
@@ -129,7 +160,7 @@ fieldset#edit-timezone legend {
   padding: 0 20px;
   height: 50px;
   line-height: 50px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 33.4284px;
   font-family: League, sans-serif;
@@ -137,13 +168,13 @@ fieldset#edit-timezone legend {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 #load_more_schemes_button:hover, #load_more_schemes_button:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 
-/* line 94, ../sass/forms.scss */
+/* line 92, ../sass/forms.scss */
 .page-node-add-scheme form input[type="button"],
 .page-node-add-scheme form input[type="reset"],
 .page-node-add-scheme form input[type="submit"] {
@@ -151,7 +182,7 @@ fieldset#edit-timezone legend {
   padding: 0 20px;
   height: 50px;
   line-height: 50px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 33.4284px;
   font-family: League, sans-serif;
@@ -159,13 +190,13 @@ fieldset#edit-timezone legend {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .page-node-add-scheme form input[type="button"]:hover, .page-node-add-scheme form input[type="button"]:focus,
 .page-node-add-scheme form input[type="reset"]:hover,
 .page-node-add-scheme form input[type="reset"]:focus,
 .page-node-add-scheme form input[type="submit"]:hover,
 .page-node-add-scheme form input[type="submit"]:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 
@@ -208,7 +239,7 @@ fieldset#edit-timezone legend {
 .page-user-register #edit-civicrm-profile-register .edit-value.content {
   margin-left: 0;
 }
-/* line 138, ../sass/forms.scss */
+/* line 133, ../sass/forms.scss */
 .page-user-register #edit-civicrm-profile-register label:first-child,
 .page-user-register #edit-civicrm-profile-register #edit-field-user-bio-und-0-value > div.label,
 .page-user-register #edit-civicrm-profile-register #editrow-custom_53 > div:nth-child(1) > label:nth-child(1),
@@ -227,7 +258,7 @@ fieldset#edit-timezone legend {
 .page-user-register #edit-civicrm-profile-register div {
   margin-left: 0;
 }
-/* line 159, ../sass/forms.scss */
+/* line 146, ../sass/forms.scss */
 .page-user-register #edit-civicrm-profile-register label[for=first_name],
 .page-user-register #edit-civicrm-profile-register label[for=last_name],
 .page-user-register #edit-civicrm-profile-register label[for=street_address-1],
@@ -245,7 +276,7 @@ fieldset#edit-timezone legend {
   display: inherit;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: bold;
   line-height: 16.4px;
   text-transform: none;
@@ -276,7 +307,7 @@ fieldset#edit-timezone legend {
 .page-user-register #edit-civicrm-profile-register .label label {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -308,7 +339,7 @@ fieldset#edit-timezone legend {
   margin-top: -15px;
 }
 
-/* line 221, ../sass/forms.scss */
+/* line 219, ../sass/forms.scss */
 form .form-textarea-wrapper,
 form .ctools-modal-content,
 form span.cke_skin_kama {
@@ -346,7 +377,7 @@ form span.cke_skin_kama .wysiwyg-toggle-wrapper {
 form fieldset.filter-wrapper {
   display: block;
 }
-/* line 246, ../sass/forms.scss */
+/* line 245, ../sass/forms.scss */
 form #edit-actions,
 form .form-actions {
   clear: left;
@@ -364,7 +395,7 @@ form .form-actions input {
   /* Wrapper for a form element (or group of form elements) and its label */
   margin: 1.5em 0;
 }
-/* line 262, ../sass/forms.scss */
+/* line 260, ../sass/forms.scss */
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
@@ -393,12 +424,12 @@ form .form-actions input {
   /* The descriptive help text (separate from the label) */
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
 }
-/* line 285, ../sass/forms.scss */
+/* line 284, ../sass/forms.scss */
 .form-checkboxes .form-item, .form-radios .form-item {
   /* Pack groups of checkboxes and radio buttons closer together */
   margin: 0;
@@ -410,7 +441,7 @@ form .form-actions input {
   /* The submit button */
 }
 
-/* line 295, ../sass/forms.scss */
+/* line 294, ../sass/forms.scss */
 .container-inline div,
 .container-inline label {
   /* Inline labels and form divs */
@@ -425,15 +456,14 @@ form .form-actions input {
 /* line 303, ../sass/forms.scss */
 a.button {
   /* Buttons used by contrib modules like Media */
-  -webkit-appearance: button;
   -moz-appearance: button;
-  appearance: button;
+  -webkit-appearance: button;
 }
 
 /*
  * Password confirmation
  */
-/* line 312, ../sass/forms.scss */
+/* line 311, ../sass/forms.scss */
 .password-parent,
 .confirm-parent {
   margin: 0;
@@ -467,7 +497,7 @@ a.button {
   margin-bottom: 0;
   /* Position OpenID's ul next to the rest of the links. */
 }
-/* line 342, ../sass/forms.scss */
+/* line 341, ../sass/forms.scss */
 html.js #user-login-form li.openid-link,
 #user-login-form li.openid-link {
   /* The "Log in using OpenID" link. */
@@ -518,21 +548,10 @@ form table .item-list ul {
   margin: 0;
 }
 
-/* line 391, ../sass/forms.scss */
-.lt-ie8 tr.even th,
-.lt-ie8 tr.even td,
-.lt-ie8 tr.odd th,
-.lt-ie8 tr.odd td {
-  border-bottom-color: #cfcfcf;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  /* IE doesn't display borders on table rows */
-}
-
 /* node editing */
 /* line 404, ../sass/forms.scss */
 .page-node-add-scheme {
-  background: #f3f2e0;
+  background: #F3F2E0;
 }
 /* line 406, ../sass/forms.scss */
 .page-node-add-scheme .step-title {
@@ -558,7 +577,7 @@ form table .item-list ul {
   text-transform: uppercase;
   font-weight: normal;
   line-height: 1.5;
-  color: #7c7f7e;
+  color: #7C7F7E;
 }
 /* line 426, ../sass/forms.scss */
 .page-node-add-scheme .description strong:nth-child(2) {
@@ -569,14 +588,14 @@ form table .item-list ul {
   text-transform: uppercase;
   font-weight: normal;
   line-height: 1.25;
-  color: #7c7f7e;
+  color: #7C7F7E;
 }
 /* line 433, ../sass/forms.scss */
 .page-node-add-scheme h3 {
   margin-top: 0;
   font-size: 2.5em;
   line-height: 1.5;
-  color: #7c7f7e;
+  color: #7C7F7E;
 }
 /* line 439, ../sass/forms.scss */
 .page-node-add-scheme label[for=edit-title] {
@@ -586,7 +605,7 @@ form table .item-list ul {
 .page-node-add-scheme label[for=edit-title]::first-letter {
   text-transform: capitalize;
 }
-/* line 447, ../sass/forms.scss */
+/* line 446, ../sass/forms.scss */
 .page-node-add-scheme input#edit-skip,
 .page-node-add-scheme input#edit-preview {
   display: none;
@@ -608,11 +627,12 @@ form table .item-list ul {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
+  text-transform: capitalize;
 }
 /* line 464, ../sass/forms.scss */
 .page-node-add-scheme #stepper-add-scheme ul li.current {
   font-size: 2.5em;
-  color: #ef3f26;
+  color: #EF3F26;
   position: relative;
   left: .1875em;
 }
@@ -634,7 +654,7 @@ form table .item-list ul {
 .page-user-edit form label.option {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -664,7 +684,7 @@ form table .item-list ul {
 .page-user-edit form .label label {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -719,7 +739,7 @@ form table .item-list ul {
 .page-user-edit-more-about-me form#user-profile-form table.form-layout-compressed {
   clear: left;
 }
-/* line 561, ../sass/forms.scss */
+/* line 558, ../sass/forms.scss */
 .page-user-edit-asb-user-profile form#user-profile-form #editrow-custom_23 > div:nth-child(1) > label:nth-child(1),
 .page-user-edit-asb-user-profile form#user-profile-form #editrow-custom_101 > div:nth-child(1) > label:nth-child(1),
 .page-user-edit-asb-user-profile form#user-profile-form #editrow-custom_72 > div:nth-child(1) > label:nth-child(1),
@@ -734,7 +754,7 @@ form table .item-list ul {
   text-transform: uppercase;
   font-weight: normal;
 }
-/* line 565, ../sass/forms.scss */
+/* line 564, ../sass/forms.scss */
 .page-user-edit-asb-user-profile form#user-profile-form #editrow-custom_101 > div:nth-child(2) > label:nth-child(2),
 .page-user-edit-asb-user-profile form#user-profile-form #editrow-custom_101 > div:nth-child(2) > label:nth-child(4),
 .page-user-edit-more-about-me form#user-profile-form #editrow-custom_101 > div:nth-child(2) > label:nth-child(2),
@@ -787,7 +807,7 @@ form#user-profile-form #edit-account .form-item-pass .password-parent {
 }
 /* line 615, ../sass/forms.scss */
 form#user-profile-form #edit-account .form-item-pass .password-suggestions {
-  border-color: #56cbc8;
+  border-color: #56CBC8;
   border-width: 1px;
   border-style: solid;
   -moz-border-radius: 4px;
@@ -820,7 +840,7 @@ form#user-profile-form #edit-actions input#edit-cancel {
   padding: 0 20px;
   height: 30px;
   line-height: 30px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 20.04px;
   font-family: League, sans-serif;
@@ -828,9 +848,9 @@ form#user-profile-form #edit-actions input#edit-cancel {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-form #edit-actions input#edit-cancel:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 
@@ -853,7 +873,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
 .section-node-edit.node-type-scheme .description {
   font-style: italic;
 }
-/* line 691, ../sass/forms.scss */
+/* line 675, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-item-title,
 .section-node-edit.node-type-scheme .form-field-name-field-location,
 .section-node-edit.node-type-scheme .form-field-name-field-brief-internal-description,
@@ -929,11 +949,11 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   border-color: #cfcfcf;
   border-width: 1px;
   border-style: solid;
-  background: #56cbc8;
+  background: #56CBC8;
 }
 /* line 727, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-progress .ui-slider-handle {
-  background: #ef3f26;
+  background: #EF3F26;
 }
 /* line 731, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .field-type-text-with-summary {
@@ -954,7 +974,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -962,9 +982,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-video a.button:hover, .section-node-edit.node-type-scheme .form-field-name-field-video a.button:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 742, ../sass/forms.scss */
@@ -973,7 +993,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -981,9 +1001,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-video a.button.launcher:hover, .section-node-edit.node-type-scheme .form-field-name-field-video a.button.launcher:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 745, ../sass/forms.scss */
@@ -992,7 +1012,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -1000,9 +1020,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-video a.button.remove:hover, .section-node-edit.node-type-scheme .form-field-name-field-video a.button.remove:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 747, ../sass/forms.scss */
@@ -1022,12 +1042,12 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
 .section-node-edit.node-type-scheme .form-field-name-field-video label.media-filename {
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: bold;
   line-height: 18.4px;
   text-transform: none;
 }
-/* line 783, ../sass/forms.scss */
+/* line 782, ../sass/forms.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-image label,
 .section-node-edit.node-type-scheme .form-field-name-field-image label:first-child {
   font-size: 12px;
@@ -1052,7 +1072,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -1060,9 +1080,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .form-field-name-field-image input[type="submit"]:hover, .section-node-edit.node-type-scheme .form-field-name-field-image input[type="submit"]:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 794, ../sass/forms.scss */
@@ -1075,7 +1095,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -1083,9 +1103,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .workflow-form-container .workflow-buttons input[type="submit"]:hover, .section-node-edit.node-type-scheme .workflow-form-container .workflow-buttons input[type="submit"]:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 804, ../sass/forms.scss */
@@ -1102,7 +1122,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 30px;
   line-height: 30px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 20.04px;
   font-family: League, sans-serif;
@@ -1110,9 +1130,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .form-actions input[type="submit"]#edit-delete:hover, .section-node-edit.node-type-scheme .form-actions input[type="submit"]#edit-delete:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 828, ../sass/forms.scss */
@@ -1125,7 +1145,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #56cbc8;
+  background-color: #56CBC8;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -1133,9 +1153,9 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .section-node-edit.node-type-scheme .field-add-more-submit:hover, .section-node-edit.node-type-scheme .field-add-more-submit:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 
@@ -1152,7 +1172,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   margin-top: 10px;
   font-size: 1.25rem;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -1160,7 +1180,7 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
-/* line 866, ../sass/forms.scss */
+/* line 865, ../sass/forms.scss */
 .section-messages .privatemsg-author-avatar,
 .section-messages .privatemsg-message-column {
   float: left;
@@ -1181,12 +1201,12 @@ form#user-profile-form #edit-actions input#edit-cancel:hover, form#user-profile-
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
-/* line 881, ../sass/forms.scss */
+/* line 880, ../sass/forms.scss */
 .section-messages .privatemsg-message-column .privatemsg-message-information .privatemsg-author-name,
 .section-messages .privatemsg-message-column .privatemsg-message-information .privatemsg-message-date {
   font-size: 1.25rem;
   font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
+  color: #7C7F7E;
   font-weight: normal;
   line-height: 16.4px;
   text-transform: none;
@@ -1221,7 +1241,7 @@ td.menu-disabled {
 .page-node-add-scheme #edit-field-issues-goals-und {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
 .page-node-add-scheme #edit-field-issues-goals-und:after {
   content: "";
   display: table;
@@ -1231,7 +1251,7 @@ td.menu-disabled {
 .page-node-add-scheme #edit-field-issues-goals-und .description {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
 .page-node-add-scheme #edit-field-issues-goals-und .description:after {
   content: "";
   display: table;
@@ -1266,296 +1286,4 @@ td.menu-disabled {
   padding: .5em .75em;
   border-radius: .25em;
   background: rgba(0, 0, 0, 0.1);
-}
-
-/* line 957, ../sass/forms.scss */
-.section-civicrm .main-content {
-  margin-top: 10px;
-}
-/* line 79, ../sass/_mixins.scss */
-.section-civicrm #crm-container.crm-container a,
-.section-civicrm #crm-container.crm-container a:link {
-  border: none;
-  color: #ef3f26;
-  font-weight: normal;
-  text-decoration: none;
-}
-/* line 85, ../sass/_mixins.scss */
-.section-civicrm #crm-container.crm-container a:visited {
-  border: none;
-  color: #d22810;
-  text-decoration: none;
-}
-/* line 90, ../sass/_mixins.scss */
-.section-civicrm #crm-container.crm-container a:hover {
-  border: none;
-  color: #912a1b;
-  text-decoration: none;
-}
-/* line 965, ../sass/forms.scss */
-.section-civicrm #crm-container .crm-button,
-.section-civicrm #crm-container .button {
-  border: none;
-  text-shadow: none;
-  background: transparent;
-}
-/* line 973, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="button"],
-.section-civicrm #crm-container input[type="reset"],
-.section-civicrm #crm-container input[type="submit"],
-.section-civicrm #crm-container .button {
-  display: inline-block;
-  padding: 0 20px;
-  height: 30px;
-  line-height: 30px;
-  background-color: #ef3f26;
-  color: white;
-  font-size: 20.04px;
-  font-family: League, sans-serif;
-  border-radius: 4px;
-  text-align: center;
-  text-transform: uppercase;
-  border: none;
-  text-shadow: none;
-  color: white !important;
-}
-/* line 319, ../sass/_mixins.scss */
-.section-civicrm #crm-container input[type="button"]:hover, .section-civicrm #crm-container input[type="button"]:focus,
-.section-civicrm #crm-container input[type="reset"]:hover,
-.section-civicrm #crm-container input[type="reset"]:focus,
-.section-civicrm #crm-container input[type="submit"]:hover,
-.section-civicrm #crm-container input[type="submit"]:focus,
-.section-civicrm #crm-container .button:hover,
-.section-civicrm #crm-container .button:focus {
-  background-color: #912a1b;
-  color: white;
-}
-/* line 978, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="button"] span,
-.section-civicrm #crm-container input[type="reset"] span,
-.section-civicrm #crm-container input[type="submit"] span,
-.section-civicrm #crm-container .button span {
-  line-height: 30px;
-}
-/* line 980, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="button"] span .icon,
-.section-civicrm #crm-container input[type="reset"] span .icon,
-.section-civicrm #crm-container input[type="submit"] span .icon,
-.section-civicrm #crm-container .button span .icon {
-  display: none;
-}
-/* line 985, ../sass/forms.scss */
-.section-civicrm #crm-container .button span div.icon {
-  display: none;
-}
-/* line 989, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="submit"].cancel,
-.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel {
-  display: inline-block;
-  padding: 0 20px;
-  height: 30px;
-  line-height: 30px;
-  background-color: #56cbc8;
-  color: white;
-  font-size: 20.04px;
-  font-family: League, sans-serif;
-  border-radius: 4px;
-  text-align: center;
-  text-transform: uppercase;
-  color: white !important;
-}
-/* line 319, ../sass/_mixins.scss */
-.section-civicrm #crm-container input[type="submit"].cancel:hover, .section-civicrm #crm-container input[type="submit"].cancel:focus,
-.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel:hover,
-.section-civicrm #crm-container #crm-container .crm-button-type-cancel input[type="submit"].cancel:focus {
-  background-color: #912a1b;
-  color: white;
-}
-/* line 994, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="text"],
-.section-civicrm #crm-container input[type="password"] {
-  border-radius: 4px;
-  border: 1px solid #cfcfcf;
-}
-/* line 999, ../sass/forms.scss */
-.section-civicrm #crm-container input[type="checkbox"],
-.section-civicrm #crm-container input[type="radio"] {
-  margin-right: 5px;
-}
-/* line 1003, ../sass/forms.scss */
-.section-civicrm #crm-container form .price-set-row {
-  display: inline-block;
-  margin-right: .5em;
-  margin-bottom: .25em;
-  padding: .5em .75em;
-  border-radius: .25em;
-  background: rgba(0, 0, 0, 0.1);
-}
-/* line 1012, ../sass/forms.scss */
-.section-civicrm #crm-container form .label label {
-  font-size: 12px;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
-  font-weight: bold;
-  line-height: 16.4px;
-  text-transform: none;
-  margin: 10px 0 5px 0;
-}
-/* line 1017, ../sass/forms.scss */
-.section-civicrm #crm-container form label .crm-price-amount-amount {
-  font-size: 1.2rem;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
-  font-weight: normal;
-  line-height: 16.4px;
-  text-transform: none;
-  font-weight: normal !important;
-}
-/* line 1022, ../sass/forms.scss */
-.section-civicrm #crm-container form .highlight label .crm-price-amount-amount {
-  font-weight: bold !important;
-}
-/* line 1027, ../sass/forms.scss */
-.section-civicrm #crm-container fieldset {
-  border: none !important;
-}
-/* line 1030, ../sass/forms.scss */
-.section-civicrm #crm-container fieldset > legend {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 20px 0 10px 0;
-  font-size: 33.4284px;
-  font-family: League, sans-serif;
-  color: #414042;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-/* line 1040, ../sass/forms.scss */
-.section-civicrm .crm-container .crm-section .content,
-.section-civicrm .crm-container-snippet .crm-section .content,
-.section-civicrm .crm-container .display-block {
-  margin-left: 0;
-}
-/* line 1044, ../sass/forms.scss */
-.section-civicrm .crm-container .help,
-.section-civicrm .crm-container #help {
-  margin: 10px 0;
-}
-/* line 1051, ../sass/forms.scss */
-.section-civicrm .crm-container .help,
-.section-civicrm .crm-container #help,
-.section-civicrm .messages,
-.section-civicrm .status,
-.section-civicrm .crm-container .crm-form-block {
-  border: none;
-  border-radius: 0 !important;
-  padding: 12px;
-  background: #ebebeb;
-  color: #414042;
-}
-/* line 1058, ../sass/forms.scss */
-.section-civicrm #crm-submit-buttons {
-  margin: 10px 0;
-}
-/* line 1063, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block {
-  margin-top: 10px;
-}
-/* line 1066, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section {
-  *zoom: 1;
-  padding-bottom: 10px;
-  border-bottom-color: #cfcfcf;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  font-size: 1.4rem;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
-  font-weight: normal;
-  line-height: 2rem;
-  text-transform: none;
-}
-/* line 38, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/* line 1073, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a {
-  margin: 10px 0;
-  display: inline-block;
-  padding: 0 20px;
-  height: 30px;
-  line-height: 30px;
-  background-color: #56cbc8;
-  color: white;
-  font-size: 20.04px;
-  font-family: League, sans-serif;
-  border-radius: 4px;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-  width: 100px;
-  white-space: nowrap;
-}
-/* line 319, ../sass/_mixins.scss */
-.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a:hover, .section-civicrm .crm-contribution-main-form-block #intro_text.crm-section a:focus {
-  background-color: #912a1b;
-  color: white;
-}
-/* line 1080, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block #intro_text.crm-section p {
-  font-size: 1.4rem;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
-  font-weight: normal;
-  line-height: 2rem;
-  text-transform: none;
-}
-/* line 1084, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block .crm-section > .content {
-  font-size: 1.2rem;
-  font-family: SourceSansPro, Tahoma, sans-serif;
-  color: #7c7f7e;
-  font-weight: normal;
-  line-height: 16.4px;
-  text-transform: none;
-}
-/* line 1087, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block .pcpSupporterText-section {
-  display: none;
-}
-/* line 1099, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block fieldset.pcp-group {
-  display: none;
-}
-/* line 1104, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block #nameID,
-.section-civicrm .crm-contribution-main-form-block #nickID,
-.section-civicrm .crm-contribution-main-form-block #personalNoteID {
-  margin-top: 10px;
-}
-/* line 1109, ../sass/forms.scss */
-.section-civicrm .crm-contribution-main-form-block #personalNoteID > .label {
-  float: none;
-}
-/* line 1128, ../sass/forms.scss */
-.section-civicrm .crm-container div.status,
-.section-civicrm div.m ul#civicrm-menu,
-.section-civicrm .crm-container #help,
-.section-civicrm .crm-container .help,
-.section-civicrm .crm-container .ui-tabs-panel,
-.section-civicrm .crm-container .crm-content-block,
-.section-civicrm #full-screen-header,
-.section-civicrm .crm-container .crm-pager,
-.section-civicrm .crm-container form .section-hidden-border,
-.section-civicrm .crm-container #search-status,
-.section-civicrm .crm-container .crm-form-block,
-.section-civicrm .crm-container .crm-search-tasks,
-.section-civicrm .crm-container .crm-tasks,
-.section-civicrm .crm-container div.form-item,
-.section-civicrm .crm-container div.messages {
-  border-radius: 0 !important;
 }

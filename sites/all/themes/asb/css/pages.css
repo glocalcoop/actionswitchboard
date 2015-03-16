@@ -7,6 +7,37 @@
  * ul.links, .pager, .more-link, etc.
  */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /*
  * Body
  */
@@ -29,7 +60,7 @@ body {
 #skip-link {
   margin: 0;
 }
-/* line 33, ../sass/pages.scss */
+/* line 32, ../sass/pages.scss */
 #skip-link a,
 #skip-link a:visited {
   display: block;
@@ -60,7 +91,7 @@ body {
 #site-name {
   /* The name of the website */
 }
-/* line 59, ../sass/pages.scss */
+/* line 58, ../sass/pages.scss */
 #site-name a:hover,
 #site-name a:focus {
   text-decoration: underline;
@@ -105,7 +136,7 @@ body {
   padding: 0;
 }
 
-/* line 99, ../sass/pages.scss */
+/* line 94, ../sass/pages.scss */
 h1.title,
 h2.node-title,
 h2.block-title,

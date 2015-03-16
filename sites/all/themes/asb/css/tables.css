@@ -3,6 +3,37 @@
  * Tables Styling
  */
 /*@import "font-icons";*/
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /* line 8, ../sass/tables.scss */
 table {
   width: 100%;
@@ -10,7 +41,7 @@ table {
   background: transparent;
 }
 
-/* line 14, ../sass/tables.scss */
+/* line 13, ../sass/tables.scss */
 table td,
 table th {
   border: none;
@@ -18,7 +49,7 @@ table th {
   background-color: none;
 }
 
-/* line 22, ../sass/tables.scss */
+/* line 19, ../sass/tables.scss */
 tr.even,
 tr.odd,
 tr.active,
@@ -52,7 +83,7 @@ table th.active img {
  * Exception for webkit bug with the right border of the last cell
  * in some tables, since it's webkit only, we can use :last-child
  */
-/* line 81, ../sass/tables.scss */
+/* line 80, ../sass/tables.scss */
 #content .page-content table.views-table,
 #content .page-content table.sticky-table,
 #content .page-main-content table.views-table,
@@ -100,7 +131,7 @@ table th.active img {
 #content .page-main-content table.sticky-table thead th:first-child {
   padding-left: 10px;
 }
-/* line 105, ../sass/tables.scss */
+/* line 104, ../sass/tables.scss */
 #content .page-content table.views-table tbody tr td,
 #content .page-content table.views-table tbody tr td.active,
 #content .page-content table.sticky-table tbody tr td,
@@ -188,7 +219,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 #content .page-content table.views-table tbody tr ul li,
 #content .page-content table.sticky-table tbody tr ul li,
 #content .page-main-content table.views-table tbody tr ul li,
@@ -218,15 +249,15 @@ table th.active img {
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: white;
-  color: #7c7f7e;
+  background-color: #fff;
+  color: #7C7F7E;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
   border-radius: 4px;
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 .page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:hover, .page-facilitator-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
 .page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
 .page-facilitator-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
@@ -238,7 +269,7 @@ table th.active img {
 .page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item a:focus,
 .page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:hover,
 .page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item a:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 161, ../sass/tables.scss */
@@ -248,7 +279,7 @@ table th.active img {
 .page-dashboard #block-quicktabs-notifications div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
 .page-dashboard #block-quicktabs-schemes div.views-exposed-widget div.bef-select-as-links div.form-item.selected a,
 .page-dashboard #block-quicktabs-schemes-for-schemers div.views-exposed-widget div.bef-select-as-links div.form-item.selected a {
-  background: #ef3f26;
+  background: #EF3F26;
   color: white;
 }
 /* line 167, ../sass/tables.scss */
@@ -293,7 +324,7 @@ table th.active img {
 .page-dashboard table thead th:first-child {
   padding-left: 10px;
 }
-/* line 195, ../sass/tables.scss */
+/* line 194, ../sass/tables.scss */
 .page-facilitator-dashboard table tbody tr td,
 .page-facilitator-dashboard table tbody tr td.active,
 .page-dashboard table tbody tr td,
@@ -405,7 +436,7 @@ table th.active img {
 .section-user #content div.view-content table.views-table thead th:first-child {
   padding-left: 10px;
 }
-/* line 255, ../sass/tables.scss */
+/* line 254, ../sass/tables.scss */
 .page-group-node #content div.view-content table.views-table tbody tr td,
 .page-group-node #content div.view-content table.views-table tbody tr td.active,
 .page-node-group #content div.view-content table.views-table tbody tr td,
@@ -519,7 +550,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .page-group-node #content div.view-content table.views-table tbody tr ul li,
 .page-node-group #content div.view-content table.views-table tbody tr ul li,
 .page-user #content div.view-content table.views-table tbody tr ul li,
@@ -568,7 +599,7 @@ table th.active img {
 .page-user-messages table.privatemsg-list thead th:first-child {
   padding-left: 10px;
 }
-/* line 319, ../sass/tables.scss */
+/* line 318, ../sass/tables.scss */
 .page-user-messages table.privatemsg-list tbody tr td,
 .page-user-messages table.privatemsg-list tbody tr td.active {
   padding: 10px 0;
@@ -616,7 +647,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .page-user-messages table.privatemsg-list tbody tr ul li {
   list-style-image: none;
   list-style-type: none;
@@ -663,7 +694,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .crm-container .messages td.tasklist ul li {
   list-style-image: none;
   list-style-type: none;
