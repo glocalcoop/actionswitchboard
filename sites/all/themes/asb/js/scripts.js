@@ -25,85 +25,6 @@
 
   asb = {};
 
-  // // send an email address to civi
-  // asb.submitNewsletter = function(e) {
-  //
-  //   if( e ) e.preventDefault();
-  //
-  //   var modal = $("#newsletterModal");
-  //   var form = $("#newsletter_form");
-  //   var email = $('#email-Primary').val();
-  //   var emailpattern = /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
-  //
-  //   // console.log(" «»»»» submitletter ");
-  //
-  //   if( !emailpattern.test( email ) ){
-  //     alert("Please enter a valid email address.");
-  //     return false;
-  //   }
-  //
-  //   if (email) {
-  //
-  //     // send the data to civi
-  //     var profileId = form.data('profileid');
-  //     var groupId = form.data('groupid');
-  //
-  //     var url = form.data('posturl')  + '?gid='+profileId + '&reset=1&json=1';
-  //
-  //     var data = {
-  //       // 'json': 1,
-  //       'reset': 1,
-  //       'gid': profileId,
-  //       'add_to_group' : groupId,
-  //       'email-Primary' : email
-  //     };
-  //
-  //     var request = $.ajax({
-  //       url: url,
-  //       data: data,
-  //       type: 'POST',
-  //       // crossDomain: true,
-  //       error: function(res,status){
-  //         asb.newsletterSubmissionError(res,status);
-  //       },
-  //       success: function(res,status){
-  //         asb.newsletterSubmissionSuccess(res,status);
-  //       },
-  //       complete: function(res,status){
-  //         asb.newsletterSubmissionResponse(res,status);
-  //       }
-  //     });
-  //
-  //     modal.find('.newsletter-modal-scroll').addClass('spinner');
-  //     modal.find('.newsletter-form').fadeOut('slow');
-  //
-  //   };
-  //
-  //   asb.newsletterSubmissionSuccess = function( res, status ) {
-  //     // console.log("Success: ", res, status);
-  //     // console.log("Success »", status);
-  //   }
-  //
-  //   asb.newsletterSubmissionError = function( res, status ) {
-  //     // console.log("Error: ", res, status);
-  //     alert('Oops, something went wrong. Please contact the site admin.');
-  //
-  //   }
-  //
-  //   asb.newsletterSubmissionResponse = function( res, status ) {
-  //     // console.log("Always: ", res, status);
-  //     // complete... now hide the message after timeout (ms)
-  //     var modal = $("#newsletterModal");
-  //     var timeout = 7000;
-  //     modal.find('.newsletter-modal-scroll').removeClass('spinner');
-  //     modal.find('.newsletter-form').fadeIn('slow');
-  //     $('#newsletterResponse').removeClass('offscreen');
-  //     setTimeout( function() {
-  //       $('#newsletterResponse').fadeOut('slow');
-  //     }, timeout);
-  //   };
-  //
-  // }
 
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
@@ -148,34 +69,12 @@
           asb.highlight_new_messages();
         }
 
-        // $('#nav-join-newsletter').on( 'click', function(e) {
-        //   // console.log("nav-join-newsletter", e );
-        //   asb.openNewsletterSubscribeModal(e);
-        // });
-        //
-        // $("#newsletterModal .close").on( 'click', function(e) {
-        //   asb.closeNewsletterSubscribeModal(e);
-        // });
       }
 
     }
 
   }
 
-  // asb.openNewsletterSubscribeModal = function(e) {
-  //   e.preventDefault();
-  //   $("#newsletterModal").toggleClass('hidden');
-  //   $("#newsletterModal").toggleClass('active');
-  //   $(document).bind('keydown', asb.newsletterSubscribeKeyEvents);
-  //   $("#newsletter_submit").on('click', asb.submitNewsletter);
-  // }
-  //
-  // asb.closeNewsletterSubscribeModal = function(e) {
-  //   e.preventDefault();
-  //   $(document).unbind('keydown', asb.newsletterSubscribeKeyEvents );
-  //   $("#newsletterModal").addClass('hidden');
-  //   $("#newsletterModal").removeClass('active');
-  // }
 
   asb.newsletterSubscribeKeyEvents = function(e) {
     switch(e.keyCode) {
