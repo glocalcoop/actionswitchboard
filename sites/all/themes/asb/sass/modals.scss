@@ -19,7 +19,7 @@
 		cursor: pointer;
 		span {
 			display: none;
-		}	
+		}
 }
 
 
@@ -28,16 +28,16 @@
 	border: none !important;
 	position: relative;
 	background: transparent !important;
-	
-	header .modal-update-title{
+
+	header .modal-update-title {
 		padding: .5em;
 	}
-	
+
 	label {
 		float: none !important;
 		display: block;
 	}
-	
+
 	.form-textarea-wrapper {
 		margin: 0 !important;
 	}
@@ -49,19 +49,19 @@
   #edit-field-people-skills .form-type-select {
       display: block;
   }
-          
+
 	ul.tips {
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	.popups-container {
 		overflow: visible !important;
 		height: auto !important;
 		.modal-header {
 			background: $panel;
 			width: auto;
-			.close { 
+			.close {
 				@extend %modal-close;
 				text-indent: none;
 				background-image: none;
@@ -86,14 +86,14 @@
 		margin-top:1em;
 		border: none !important;
 	}
-	
+
 	.modal-head-wrapper {
 		z-index: 5;
 		width: 100%;
 		h2.element-invisible {
 			display: none;
 		}
-		.close { 
+		.close {
 			@extend %modal-close;
 		}
 	}
@@ -107,7 +107,7 @@
 	.modal-content-wrapper {
 		background: $panel;
 		@include border-radius( 3px );
-		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );  
+		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );
 		padding-top: 1em;
 		// padding-bottom: 1em;
 	}
@@ -244,7 +244,7 @@
 		.image-widget-data {
 			width: 320px;
 			.file,
-			.file-size { 
+			.file-size {
 				display: none;
 			}
 			label {
@@ -324,3 +324,86 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 	width: 100% !important;
 }
 
+
+.offscreen {
+	@include offscreen;
+}
+
+#newsletterModal {
+
+	@extends #modalContent;
+
+	position: fixed;
+	z-index: 1000;
+	transition-property: top;
+	transition-duration: .25s;
+	width: 100%;
+	height: 100%;
+	top: -100%;
+	display:none;
+
+	&.active {
+		background-color: rgba(#fff, .8);
+		display: block;
+		top: 0;
+	}
+
+	.newsletter-modal-content {
+		background-color: $panel;
+		width: 450px;
+		min-height: 180px;
+		margin: 0 auto;
+		padding: 2em;
+	}
+
+	.newsletter-modal-head-wrapper {
+		@extend .clearfix;
+		position: relative;
+		.close {
+			@extend %modal-close;
+			position: absolute;
+			right: -.75em;
+			top: .25em;
+			border-radius: 50%;
+			border: 2px $panel solid;
+			padding: 0 0 0 0;
+			&::before {
+				line-height: .5;
+			}
+		}
+	}
+
+	.modal-title {
+		font-size: 3em;
+		color: #000;
+		margin-top: 0;
+		margin-bottom: 0;
+		line-height: 1;
+	}
+
+	.newsletter-modal-scroll {
+		@extend .modal-scroll;
+		padding-top: 0;
+		&.spinner {
+			background-repeat: no-repeat;
+			background-image: url(/sites/all/themes/asb/images/spinner.gif);
+			background-position: center center;
+		}
+	}
+
+	.blurb {
+		font-size: 16px;
+	}
+
+	#email-Primary {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0;
+	}
+
+	.button {
+		@extend .civi-button;
+		width: 100%;
+	}
+
+}

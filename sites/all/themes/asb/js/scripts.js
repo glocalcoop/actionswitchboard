@@ -21,50 +21,51 @@
   }
 })();
 
-( function($) {
-  
+(function($) {
+
   asb = {};
-  
+
+
   Drupal.behaviors.asb = {
     attach: function(context, settings) {
 
-      if( context == "[object HTMLDocument]" ){
+      if(context == "[object HTMLDocument]"){
 
         $('.login-normal').remove();
         $('.login-modal').show();
 
-        if( $(".login-link.ctools-use-modal").length ){
+        if($(".login-link.ctools-use-modal").length){
           $(".login-link.ctools-use-modal").click( function(e){
             $("#modalContent").addClass('login');
             $(window).resize();
           });
         }
 
-        if( $('a[title="Request Membership"]').length ){
+        if($('a[title="Request Membership"]').length){
           $('a[title="Request Membership"]').click( function(e){
             $("#modalContent").addClass('request-membership');
           });
         }
 
-        if( $('.view-display-id-block .donate-button a').length ){
+        if($('.view-display-id-block .donate-button a').length){
           $('.view-display-id-block .donate-button a').click( function(e){
             $("#modalContent").addClass('donate-skills');
           });
         }
 
-        asb.search_visibility_toggle( context, settings );
+        asb.search_visibility_toggle(context, settings);
         asb.enhance_search();
 
-        if( $("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered") ){
+        if($("block-views-scheme-overview-block-1") || $(".view-id-scheme_overview_filtered")){
           asb.modify_append_pager();
         }
 
-        if( $(".scheme-collection") ){
+        if($(".scheme-collection")) {
           //console.log("clamp!");
           asb.scheme_overviews_clamp_descriptions();
         }
 
-        if( $(".page-user-messages") ){
+        if($(".page-user-messages")) {
           asb.highlight_new_messages();
         }
 
@@ -72,6 +73,18 @@
 
     }
 
+  }
+
+
+  asb.newsletterSubscribeKeyEvents = function(e) {
+    switch(e.keyCode) {
+      case  13: // enter
+        asb.submitNewsletter(e);
+        break;
+      case 27: //esc
+        asb.closeNewsletterSubscribeModal(e);
+        break;
+    }
   }
 
   asb.enhance_search = function(){
@@ -87,7 +100,6 @@
       if( tr.find('mark.new').length ) $(this).addClass('new');
     });
   }
-
 
   Drupal.theme.prototype.CToolsModalDialog = function () {
     // console.log(Drupal.settings.asb_modal.types);
@@ -131,7 +143,7 @@
         $( ".region-search" ).addClass('hidden');
       }
       // only hide search for people with JS.
-      $( "#nav-find" ).click( function( e ) { 
+      $( "#nav-find" ).click( function( e ) {
         e.preventDefault();
         $( ".region-search" ).removeClass('atrest');
         $( ".region-search" ).toggleClass('hidden');
@@ -146,12 +158,12 @@
     // truncate titles after 2 lines with …
     $(".scheme-collection .scheme-name a").each( function(){
       // console.log( "asb.scheme-name a", this );
-      if( $(this).text() ) $clamp( this, { clamp: 2 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 2 } );
     });
     // truncate descriptions after 6 lines with …
     $(".scheme-collection .scheme-description .field-body p").each( function(){
       // console.log( "asb.scheme_overviews_clamp_descriptions", this );
-      if( $(this).text() ) $clamp( this, { clamp: 6 } ); 
+      if( $(this).text() ) $clamp( this, { clamp: 6 } );
     });
   }
 

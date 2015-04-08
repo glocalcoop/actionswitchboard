@@ -303,7 +303,7 @@
     background-position: -$width;
 }
 
-@mixin button($height: 24px, $color: $button-color-primary, $radius: 4px, $font-size: $base-font-size, $font-color: $nav-title-color, $font-family: $header-font-family, $transform: uppercase, $display: inline-block) {
+@mixin button($height: 24px, $color: $button-color-primary, $radius: 4px, $font-size: $base-font-size, $font-color: $nav-title-color, $font-family: $header-font-family, $transform: uppercase, $display: inline-block, $hvfontcolor: $nav-title-color, $hvcolor: $brand) {
   display: $display;
   padding: 0 20px;
   height: $height;
@@ -318,8 +318,8 @@
   &:hover,
   &:focus {
     // background-color: darken($button-color-primary, 10%);
-    background-color: $brand;
-    color: $nav-title-color;
+    background-color: $hvcolor;
+    color: $hvfontcolor;
   }
 }
 

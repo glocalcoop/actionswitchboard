@@ -64,6 +64,37 @@ ul.tabs-primary.primary li a[href*="workflow"]:before {
   content: '\1F56A';
 }
 
+/* line 13, ../sass/_extends.scss */
+.civi-button {
+  display: inline-block;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #EF3F26;
+  color: white;
+  font-size: 20.04px;
+  font-family: League, sans-serif;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none !important;
+  text-shadow: none !important;
+  color: white !important;
+}
+/* line 318, ../sass/_mixins.scss */
+.civi-button:hover, .civi-button:focus {
+  background-color: #912A1B;
+  color: white;
+}
+/* line 19, ../sass/_extends.scss */
+.civi-button span {
+  line-height: 2;
+}
+/* line 21, ../sass/_extends.scss */
+.civi-button span .icon {
+  display: none !important;
+}
+
 /*
  * Basic positioning styles shared by primary and secondary tabs.
  */
@@ -76,20 +107,19 @@ ul.tabs-primary.primary {
   *zoom: 1;
   font-size: 14.04px;
 }
-/* line 49, ../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
+/* line 49, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
 ul.tabs-primary.primary li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
-  display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
-  zoom: 1;
+  *zoom: 1;
   *display: inline;
   white-space: nowrap;
 }
-/* line 79, ../sass/_mixins.scss */
+/* line 78, ../sass/_mixins.scss */
 ul.tabs-primary.primary a,
 ul.tabs-primary.primary a:link {
   border: none;
@@ -118,7 +148,7 @@ ul.tabs-primary.primary li {
   margin: 0 -2px;
   line-height: 34px;
   height: 35px;
-  background-color: #f3f2e0;
+  background-color: #F3F2E0;
   background-image: url(/sites/all/themes/asb/images/tabs/left.png), url(/sites/all/themes/asb/images/tabs/right.png);
   background-position: left bottom, right bottom;
   background-repeat: no-repeat, no-repeat;
@@ -130,7 +160,7 @@ ul.tabs-primary.primary li a {
   display: inline-block;
   padding-right: 1em;
   padding-left: 1em;
-  box-shadow: inset 0 4px 2px -3px #7c7f7e;
+  box-shadow: inset 0 4px 2px -3px #7C7F7E;
 }
 /* line 40, ../sass/_mixins.scss */
 ul.tabs-primary.primary li a:before {
@@ -155,7 +185,7 @@ ul.tabs-primary.primary li.active a {
 }
 /* line 58, ../sass/tabs.scss */
 ul.tabs-primary.primary li.update-tab a {
-  box-shadow: inset 0 4px 2px -3px #7c7f7e;
+  box-shadow: inset 0 4px 2px -3px #7C7F7E;
 }
 /* line 61, ../sass/tabs.scss */
 ul.tabs-primary.primary li.update-tab a.active {
@@ -192,9 +222,9 @@ ul.tabs-secondary li a {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 ul.tabs-secondary li a:hover, ul.tabs-secondary li a:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }
 /* line 135, ../sass/tabs.scss */
@@ -203,7 +233,7 @@ ul.tabs-secondary li a.active {
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
-  background-color: #ef3f26;
+  background-color: #EF3F26;
   color: white;
   font-size: 12px;
   font-family: SourceSansPro, Tahoma, sans-serif;
@@ -211,8 +241,8 @@ ul.tabs-secondary li a.active {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_mixins.scss */
+/* line 318, ../sass/_mixins.scss */
 ul.tabs-secondary li a.active:hover, ul.tabs-secondary li a.active:focus {
-  background-color: #912a1b;
+  background-color: #912A1B;
   color: white;
 }

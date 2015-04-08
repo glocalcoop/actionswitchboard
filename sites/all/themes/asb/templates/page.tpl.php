@@ -10,7 +10,7 @@
 <div id="page">
 
   <header id="header" role="banner">
-    <!-- 
+    <!--
       div.container is unecessary really,
       but the donate button sits under the zigzag borders so... we need it.
     -->
@@ -33,14 +33,14 @@
             <?php endif; ?>
           </section><!-- /#name-and-slogan -->
         <?php endif; ?>
-        <section id="navigation"> 
+        <section id="navigation">
           <?php print render($page['header']); ?>
         </section><!-- /#navigation -->
       </div>
     </div>
     <?php print $global_donate;?>
   </header>
-  
+
   <section id="main">
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
@@ -65,7 +65,7 @@
             <?php if($page['sidebar_second']): ?>
                <section class="content page-content">
             <?php endif; ?>
-  
+
             <?php print render($tabs); ?>
            <?php if( isset( $updates_tabs ) ):?>
               <?php print $updates_tabs; ?>
@@ -93,5 +93,5 @@
   </section><!-- /#main -->
   <?php print render($page['footer']); ?>
 </div>
-<?php print render($page['bottom']); ?>
 
+<?php print render($page['bottom']); ?>

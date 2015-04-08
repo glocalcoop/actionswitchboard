@@ -129,15 +129,42 @@ function asb_preprocess_maintenance_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function asb_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+  $variables['newsletter_profileId'] = 43;
+  $variables['newsletter_profile_name'] = 'ASB_Newsletter_43';
+  $variables['newsletter_groupId'] = 131;
+  $variables['newsletter_title'] = 'Sign up for the A/S Newsletter';
+  $variables['newsletter_blurb'] = 'Get the insider scoop about new Schemes on the Action Switchboard!';
+  $variables['newsletter_thanks'] = 'Great! You will now start receiving the A/S newsletter. We strongly encourage you to <a href="/user/register">register as a full Schemer</a>. We&apos;ll be able to connect you with projects that match your interests!';
+  $variables['newsletter_html'] = '
+<!-- civi newsletter signup modal -->
 
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
+<header class="newsletter-modal-head-wrapper">
+  <h3 class="modal-title" >'.$variables['newsletter_title'].'</h3>
+  <a class="close" href="#"><span>Close Window</span></a>
+</header>
+
+<div class="newsletter-modal-scroll">
+  <div id="newsletter_form" class="newsletter-form"
+  data-posturl="'.$base_url.'/civicrm/profile/create"
+  data-groupid="'.$variables['newsletter_groupId'].'"
+  data-profileid="'.$variables['newsletter_profileId'].'"
+  method="post">
+    <div class="newsletter-form-content">
+      <p id="newsletterBlurb" class="blurb">'.$variables['newsletter_blurb'].'</p>
+      <p id="newsletterResponse" class="blurb offscreen">'.$variables['newsletter_thanks'].'</p>
+      <div aria-hidden class="offscreen" id="newsletter_success">'.$variables['newsletter_thanks'].'</div>
+      <h3 id="newsletterResponse"></h3>
+        <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
+          <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
+        </div>
+        <div class="crm-submit-buttons">
+          <input class="button validate default" accesskey="S" value="Save" type="submit" id="newsletter_submit" />
+        </div>
+    </div>
+  </div>
+</div>';
 }
-// */
 
 /**
  * Override or insert variables into the user_profile templates.
@@ -166,7 +193,7 @@ function asb_preprocess_page(&$variables, $hook) {
 }
 // */
 function asb_preprocess_page(&$variables, $hook) {
-  
+
   $variables['global_donate'] = '<div id="donate-positioning-wrapper"><a href="http://yeslab.org/donate-to-asb" id="global-donate" title="Help keep the action switchboard running!">Donate</a></div>';
 
   if(arg(2) == 'edit' && isset($variables['node'])) {
@@ -246,16 +273,16 @@ function asb_preprocess_page(&$variables, $hook) {
 
   // add updates tab
   if(arg(0) == 'scheme' && arg(2) == 'updates') {
-    $scheme_id = arg(1); 
+    $scheme_id = arg(1);
     $variables['updates_tabs'] = "<ul id='updates-tabs' class=' tabs-primary tabs primary'><li class='scheme'><a href='/node/${scheme_id}'>Scheme</a></li><li class='members'><a href='/node/${scheme_id}/members'>Members</a></li><li class='active update-tab'><a href='#'>Updates</a></li></ul>";
   }
-  
+
   if(arg(2) != 'edit') {
     if(isset($variables['page']['content']['system_main']['#form_id'] ) && $variables['page']['content']['system_main']['#form_id'] == 'scheme_node_form') {
       if( $variables['page']['content']['system_main']['title']['#value'] ){
         $scheme_title = $variables['page']['content']['system_main']['title']['#value'];
-        $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;    
-        $variables['full_title'] = $scheme_title . "&mdash;" . $step_description; 
+        $step_description = $variables['page']['content']['system_main']['#steps']['step_add_title_and_description']->label;
+        $variables['full_title'] = $scheme_title . "&mdash;" . $step_description;
       }else{
         $variables['full_title'] = t("Create a Scheme!");
       }
@@ -310,7 +337,7 @@ function asb_local_tasks_alter(&$data, $router_item, $root_path) {
         ),
       ),
     ),
-    
+
     // Define whether this link is active. This can be omitted for
     // implementations that add links to pages outside of the current page
     // context.
@@ -396,7 +423,7 @@ function asb_preprocess_node_scheme(&$variables, $hook) {
       $view->set_arguments(array($a));
       $view->execute();
     }
-    // Make sure the view has content.  We create a boolean 
+    // Make sure the view has content.  We create a boolean
     // variable to validate against in the template and generate
     // the view to be passed to the template.
     if (count($view->result) > 0) {
@@ -511,15 +538,15 @@ function asb_preprocess_views_view_field(&$vars) {
       // dsm(array_keys((array)$vars['row']));
       if($vars['field']->field == 'title') {
         $gid = $scheme->nid;
-        $sql = "SELECT u.uid, name FROM users u 
-              INNER JOIN og_membership ogm ON u.uid = ogm.etid 
-              INNER JOIN og_users_roles our ON ogm.etid = our.uid 
+        $sql = "SELECT u.uid, name FROM users u
+              INNER JOIN og_membership ogm ON u.uid = ogm.etid
+              INNER JOIN og_users_roles our ON ogm.etid = our.uid
               WHERE ogm.gid = '$gid'
-              AND ogm.entity_type = 'user' 
+              AND ogm.entity_type = 'user'
               AND our.rid = 3 AND our.gid = '$gid'";
 
         $user_list = db_query($sql)->fetchAll();
-        $vars['leader'][$gid] = array('name' => $user_list[0]->name, 
+        $vars['leader'][$gid] = array('name' => $user_list[0]->name,
                                 'uid' => $user_list[0]->uid);
         $vars['leader_markup'] = '<div class="scheme-leader"><a href="/user/' .$vars['leader'][$gid]['uid'] .'">';
         $vars['leader_markup'] .= $vars['leader'][$gid]['name'] .'</a></div>';
@@ -558,7 +585,7 @@ function asb_preprocess_views_view_field(&$vars) {
     }
     // $vars['row']->field_body[0]['rendered'] = '<div class="scheme-collection-wrapper">' .$vars['row']->field_body[0]['rendered'] ."</div>";
     $progress_decimal = asb_scheme_val_to_dec($progress);
-    $vars['progress'] = '<div class="progress-bar scheme-overview" data-progress="' .$progress_decimal[1]; 
+    $vars['progress'] = '<div class="progress-bar scheme-overview" data-progress="' .$progress_decimal[1];
     $vars['progress'] .= '"><div class="progress" style="width:'.$progress_decimal[0] .'%;background-color:red;">&nbsp;</div></div>';
     $vars['progress'] .= '<div class="scheme-major-ticks"><div class="scheme-minor-ticks"></div></div>';
     $vars['progress'] .= '<!-- Progress bar code built in template.php preprecess_views_view_field';
@@ -569,16 +596,11 @@ function asb_preprocess_views_view_field(&$vars) {
 }
 
 function asb_menu_link(array $variables) {
+
   $element = $variables['element'];
   $sub_menu = '';
   $element['#localized_options']['html'] = TRUE;
 
-  /* Even/odd class on menu items */
-  static $count = 0;
-  $zebra = ($count % 2) ? 'even' : 'odd';
-  $count++;
-  $element['#attributes']['class'][] = $zebra;
-  
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
   }
@@ -587,16 +609,29 @@ function asb_menu_link(array $variables) {
    * Add menu item's description below the menu title
    * Source: fusiondrupalthemes.com/forum/using-fusion/descriptions-under-main-menu
    */
-  if ($element['#original_link']['menu_name'] == "main-menu" || $element['#original_link']['menu_name'] == "menu-social-links" &&
-isset($element['#localized_options']['attributes']['title'])){ 
-    $titleSlug = 'nav-' . drupal_html_id( $element['#title'] );
+
+  if (
+    $element['#original_link']['menu_name'] == "main-menu" ||
+    $element['#original_link']['menu_name'] == "menu-social-links" &&
+    isset($element['#localized_options']['attributes']['title'])
+  ){
+
+    $titleSlug = 'nav-' . drupal_html_id($element['#title']);
     $element['#attributes']['id'] = $titleSlug;
-    $element['#title'] = "<span class='title'>" . $element['#title'] . "</span>";
-    $element['#title'] .= '<span class="description">' . $element['#localized_options']['attributes']['title'] . '</span>';
+
+    if( $titleSlug == "nav-join-newsletter" || $titleSlug == "nav-twitter" || $titleSlug == "nav-facebook") {
+      $element['#attributes']['id'] = $titleSlug;
+      $element['#title'] = "<span class=\"icon mail\"></span><div class='title'>" . $element['#localized_options']['attributes']['title'] . "</div>";
+    } else {
+      $element['#title'] = "<div class='title'>" . $element['#title'] . "</div>";
+      $element['#title'] .= '<div class="description">' . $element['#localized_options']['attributes']['title'] . '</div>';
+    }
+
   }
-  
+
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+
 }
 
 function asb_views_post_render(&$view) {
@@ -612,13 +647,13 @@ function asb_js_alter( &$page ){
   $chosen_path = drupal_get_path('module', 'chosen');
   $asb_theme_path = drupal_get_path('theme', 'asb');
 
-  // remove chosen, we need it to come in after our js, 
+  // remove chosen, we need it to come in after our js,
   // (which builds out some progressive enhancement form elements)
   unset( $scripts['sites/all/libraries/chosen/chosen.jquery.min.js'] );
   unset( $scripts[$chosen_path .'/chosen.js'] );
-  // add our modified infite scroll 
+  // add our modified infite scroll
   // (we remove the original in the asb_scheme module asb_scheme_js_alter)
-  drupal_add_js( $asb_theme_path . '/js/alter_infinitescroll.js' );  
+  drupal_add_js( $asb_theme_path . '/js/alter_infinitescroll.js' );
   // add our theme script (which builds out the infinite scroll pager)
   drupal_add_js( $asb_theme_path . '/js/scripts.js' );
   // then we load chosen back in
@@ -648,7 +683,7 @@ function asb_date_combo_alter(&$variables) {
   $element['value2']['date']['#description'] = '(MM/DD/YYYY)';
   $field = field_info_field($element['#field_name']);
   $instance = field_info_instance($element['#entity_type'], $element['#field_name'], $element['#bundle']);
-  
+
   // Group start/end items together in fieldset.
   $fieldset = array(
     '#title' => t($element['#title']) . ' ' . ($element['#delta'] > 0 ? intval($element['#delta'] + 1) : ''),

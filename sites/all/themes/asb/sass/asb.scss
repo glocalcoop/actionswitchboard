@@ -486,7 +486,7 @@ article.comment,
       color: $text-color;
       text-align: left;
       &.edit,
-      &.ctools-use-modal {
+      &.ctools-use-modal:not(.login-link) {
         @include font-icon-base($font-size: 3rem);
         @extend %entypo-pencil;
       }
@@ -2624,5 +2624,3 @@ li.sub-goal.sub-sub-goal {
 
   }
 }
-
-

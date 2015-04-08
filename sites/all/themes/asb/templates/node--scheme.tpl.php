@@ -120,7 +120,7 @@ global $user;
                 <?php endif; ?>
               </li>
             <?php else: ?>
-              <li class="ui-button"><a href="/user/login">Login To Join Scheme</a></li>
+              <li class="ui-button"><a class="login-link ctools-use-modal ctools-modal-modal-popup-small" href="/modal_forms/nojs/login">Login To Join Scheme</a></li>
             <?php endif; ?>
         </section>
         <?php if ($title): ?>
@@ -155,7 +155,7 @@ global $user;
             <?php print render($content['goals']); ?>
           </ul>
         </section>
-      </aside>      
+      </aside>
     </div>
   </header>
   <div class="wrapper">

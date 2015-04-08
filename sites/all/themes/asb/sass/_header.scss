@@ -42,7 +42,6 @@
   }
   #navigation {
     position: relative;
-    width: 100%;
     background: $backdrop;
     .region-header {
       margin: 0 auto;
@@ -57,14 +56,14 @@
         margin-top: 0 !important;
       }
       li {
-        border-right: {
-          @include standard-border ($color: $text-color)
-        }
-        padding: 1em 1em 2em 1em;
+        border-right: 1px $text-color solid;
+        padding: 1em .5em 0 .5em;
+        margin-right: .875em;
+        min-height: 4.5em;
       }
       .description {
         display: block;
-        line-height: 1.875em;
+        margin-top: .5em;
       }
       .description,
       .logout {
@@ -78,8 +77,14 @@
       font-size: 15px;
       color: $nav-title-color;
     }
-    .username,
-    .logout { line-height: 2; }
+    .username {
+      line-height: 1.25;
+      display: inline-block;
+      margin-left: .5em;
+    }
+    .logout {
+      line-height: 2;
+    }
     .block-asb-scheme {
       padding-left: 1em;
       .asb-scheme-user-message>div {
@@ -99,12 +104,12 @@
   }
 
   @include breakpoint( sm ){
-
     .block-asb-scheme,
     .block-menu-block {
       display: inline-block;
     }
   }
+
   @include breakpoint( md ){
     .container {
       @include pie-clearfix;
@@ -126,7 +131,6 @@
       margin-right: 0;
       float: left;
       display: block;
-      line-height: 1em;
       background-color: transparent;
       .region-header {
         max-width: none;
@@ -137,7 +141,7 @@
         display:inline-block;
         padding: 0;
         ul.menu {
-          padding: 0;
+          padding: 0 .5em;
           margin: 0;
         }
       }
@@ -287,12 +291,15 @@
       background: none;
       ul li {
         display: inline-block;
-        margin-right: .5em;
+        vertical-align: top;
+        margin-right: 0;
+        padding-left: .5em;
       }
     }
     #block-asb-scheme-user-message,
     #block-system-user-menu {
-      padding: 1em;
+      padding-top: 1em;
+      padding-left: .5em;
     }
   }
 
@@ -309,7 +316,7 @@
     }
     .logout {
       display: inline-block;
-      margin-left: 10px;
+      margin-left: 6px;
     }
     .login,
     .register {
@@ -318,11 +325,17 @@
       }
     }
     &.is-active a,
-    &.is-active span {
+    &.is-active div {
       color: $text-color;
     }
   }
 
+}
+
+#block-asb-scheme-user-message {
+  .title {
+    float: left;
+  }
 }
 
 #nav-find {
@@ -381,51 +394,64 @@
   }
 }
 
+/* Social Nav */
+
 #block-menu-menu-social-links {
   @include box-sizing( border-box );
   display: inline-block;
   margin: 0;
-  padding: 0 25px 0 10px;
-  border-right: {
-    @include standard-border ($color: $text-color)
-  }
+  padding: 0 .5em;
+  border-right: 1px $text-color solid;
   ul.menu {
     @include no-bullets;
     margin: 0;
     padding: 0;
-    li {
-      &#nav-twitter,
-      &#nav-facebook {
-        border-right: none;
-        padding: 0;
-        a {
+  }
+}
 
-          .title {
-            display: none
-          }
-          .description {
-            @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: .5rem, $margin: 0, $color: $nav-title-color);
-            display: inline-block;
-          }
-        }
-      }
-      &#nav-twitter {
-        a {
-          .description {
-            @extend %entypo-social-twitter;
-          }
-        }
-      }
-      &#nav-facebook {
-        clear: both;
-        a {
-          .description {
-            @extend %entypo-social-facebook;
-          }
-        }
-      }
+#nav-twitter,
+#nav-facebook {
+  display: inline-block;
+  border-right: none;
+  padding: 0;
+  .title {
+    @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+  }
+  .description {
+    line-height: 1;
+    display: none;
+  }
+}
+
+#nav-twitter {
+  .title {
+    @extend %entypo-social-twitter;
+  }
+}
+
+#nav-facebook {
+  .title {
+    @extend %entypo-social-facebook;
+  }
+}
+
+#nav-join-newsletter {
+  min-width: 106px;
+  .title {
+    font-size: 12px !important;
+    font-weight: normal !important;
+    color: $text-color !important;
+    display: inline-block;
+  }
+  .icon.mail {
+    display: inline-block;
+    @include font-icon-base( $family:"entypo", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+    @extend %entypo-mail;
+    &::before {
+      line-height: .5;
     }
   }
+  padding-bottom: 1em;
 }
 
 // Donate Button
@@ -455,5 +481,3 @@
   @include box-sizing( border-box );
 
 }
-
-
