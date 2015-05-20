@@ -34,6 +34,16 @@
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after {
+  clear: both;
+}
+
 /* line 8, ../sass/tables.scss */
 table {
   width: 100%;
@@ -219,7 +229,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 #content .page-content table.views-table tbody tr ul li,
 #content .page-content table.sticky-table tbody tr ul li,
 #content .page-main-content table.views-table tbody tr ul li,
@@ -550,7 +560,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .page-group-node #content div.view-content table.views-table tbody tr ul li,
 .page-node-group #content div.view-content table.views-table tbody tr ul li,
 .page-user #content div.view-content table.views-table tbody tr ul li,
@@ -647,7 +657,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .page-user-messages table.privatemsg-list tbody tr ul li {
   list-style-image: none;
   list-style-type: none;
@@ -694,7 +704,7 @@ table th.active img {
   margin: 0;
   padding: 0;
 }
-/* line 11, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_bullets.scss */
+/* line 11, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_bullets.scss */
 .crm-container .messages td.tasklist ul li {
   list-style-image: none;
   list-style-type: none;

@@ -41,6 +41,16 @@
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after {
+  clear: both;
+}
+
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */

@@ -95,6 +95,16 @@ ul.tabs-primary.primary li a[href*="workflow"]:before {
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after {
+  clear: both;
+}
+
 /*
  * Basic positioning styles shared by primary and secondary tabs.
  */
@@ -107,7 +117,7 @@ ul.tabs-primary.primary {
   *zoom: 1;
   font-size: 14.04px;
 }
-/* line 49, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
+/* line 49, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_inline-block-list.scss */
 ul.tabs-primary.primary li {
   list-style-image: none;
   list-style-type: none;

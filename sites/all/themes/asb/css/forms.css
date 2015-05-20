@@ -34,6 +34,16 @@
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after {
+  clear: both;
+}
+
 /* line 8, ../sass/forms.scss */
 form {
   font-size: 12px;
@@ -1241,7 +1251,7 @@ td.menu-disabled {
 .page-node-add-scheme #edit-field-issues-goals-und {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
 .page-node-add-scheme #edit-field-issues-goals-und:after {
   content: "";
   display: table;
@@ -1251,7 +1261,7 @@ td.menu-disabled {
 .page-node-add-scheme #edit-field-issues-goals-und .description {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
 .page-node-add-scheme #edit-field-issues-goals-und .description:after {
   content: "";
   display: table;

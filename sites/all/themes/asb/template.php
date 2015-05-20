@@ -129,42 +129,8 @@ function asb_preprocess_maintenance_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-function asb_preprocess_html(&$variables, $hook) {
-  $variables['newsletter_profileId'] = 43;
-  $variables['newsletter_profile_name'] = 'ASB_Newsletter_43';
-  $variables['newsletter_groupId'] = 131;
-  $variables['newsletter_title'] = 'Sign up for the A/S Newsletter';
-  $variables['newsletter_blurb'] = 'Get the insider scoop about new Schemes on the Action Switchboard!';
-  $variables['newsletter_thanks'] = 'Great! You will now start receiving the A/S newsletter. We strongly encourage you to <a href="/user/register">register as a full Schemer</a>. We&apos;ll be able to connect you with projects that match your interests!';
-  $variables['newsletter_html'] = '
-<!-- civi newsletter signup modal -->
-
-<header class="newsletter-modal-head-wrapper">
-  <h3 class="modal-title" >'.$variables['newsletter_title'].'</h3>
-  <a class="close" href="#"><span>Close Window</span></a>
-</header>
-
-<div class="newsletter-modal-scroll">
-  <div id="newsletter_form" class="newsletter-form"
-  data-posturl="'.$base_url.'/civicrm/profile/create"
-  data-groupid="'.$variables['newsletter_groupId'].'"
-  data-profileid="'.$variables['newsletter_profileId'].'"
-  method="post">
-    <div class="newsletter-form-content">
-      <p id="newsletterBlurb" class="blurb">'.$variables['newsletter_blurb'].'</p>
-      <p id="newsletterResponse" class="blurb offscreen">'.$variables['newsletter_thanks'].'</p>
-      <div aria-hidden class="offscreen" id="newsletter_success">'.$variables['newsletter_thanks'].'</div>
-      <h3 id="newsletterResponse"></h3>
-        <div id="editrow-email-Primary" class="crm-section editrow_email-Primary-section form-item">
-          <input placeholder="Please enter your email address…" maxlength="254" size="20" name="email-Primary" type="text" id="email-Primary" class="form-text medium required" />
-        </div>
-        <div class="crm-submit-buttons">
-          <input class="button validate default" accesskey="S" value="Save" type="submit" id="newsletter_submit" />
-        </div>
-    </div>
-  </div>
-</div>';
-}
+// function asb_preprocess_html(&$variables, $hook) {
+// }
 
 /**
  * Override or insert variables into the user_profile templates.

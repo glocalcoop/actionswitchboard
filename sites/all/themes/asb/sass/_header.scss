@@ -5,6 +5,53 @@
 
 @import "base";
 
+#adhoc_nav {
+    position: relative;
+    z-index: 1000;
+    clear: both;
+    width: 100%;
+    @extend .clearfix;
+    @media (min-width: $screen-sm) {
+      height: 3.25em;
+    }
+    @media (min-width: $screen-md) {
+      @include zigzag-border (#000,transparent);
+    }
+    .region-adhoc-nav {
+      background-color: #000;
+      height: 2.25em;
+      @extend .clearfix;
+    }
+    .block-menu {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .block-title {
+      @extend .offscreen;
+    }
+    ul.menu {
+      @extend .clearfix;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        float: left;
+        a {
+          display: block;
+          height: 1.25em;
+          color: $panel;
+          background-color: #000;
+          border-right: 1px #333 solid;
+          padding: .5em 1em;
+          &:hover {
+            background: #fff;
+            color: $backdrop;
+          }
+        }
+      }
+    }
+}
+
 #navigation {
   .block {
     margin-bottom: 0;
@@ -22,6 +69,7 @@
   background-repeat: repeat-x !important;
   // overflow: hidden;
   // height: 170px;
+  @extend .clearfix;
   #site-name {
     height: 81px;
     position: relative;
@@ -93,7 +141,7 @@
     }
   }
 
-  @include breakpoint( sm, max-width ){
+  @include breakpoint( sm, max-width ) {
     .block-menu-block {
       .menu-block-wrapper {
         text-align: left;
@@ -103,14 +151,14 @@
     }
   }
 
-  @include breakpoint( sm ){
+  @include breakpoint( sm ) {
     .block-asb-scheme,
     .block-menu-block {
       display: inline-block;
     }
   }
 
-  @include breakpoint( md ){
+  @include breakpoint( md ) {
     .container {
       @include pie-clearfix;
       position: relative;
@@ -179,7 +227,7 @@
         height: 100%;
       }
     }
-    @include breakpoint(md,max-width){
+    @include breakpoint(md,max-width) {
       background-color: $brand;
       #site-name {
         float: none;
@@ -188,7 +236,7 @@
         }
       }
     }
-    @include breakpoint(md){
+    @include breakpoint(md) {
       .container {
         position: relative;
         z-index: 5;
@@ -219,7 +267,7 @@
           width: 428px;
           height: 123px;
           z-index: 100;
-          top: 81px;
+          top: 110px;
           margin: 0;
           padding: 0;
           line-height: 1;
@@ -242,6 +290,9 @@
   #header {
     @include breakpoint(md) {
       height: 81px;
+      > .container {
+        height: 81px;
+      }
       #navigation {
         top: 0;
       }
@@ -251,7 +302,7 @@
 
 .logged-in {
   #navigation {
-    @include breakpoint( sm, max-width ){
+    @include breakpoint( sm, max-width ) {
       .block-menu-block {
         float: none;
         li.last {
@@ -359,7 +410,7 @@
     @include breakpoint( md ) {
       display: block;
       position: absolute;
-      top: 72px;
+      top: 102px;
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
@@ -379,7 +430,7 @@
         height: auto;
       }
       .logged-in.admin-menu & {
-        top: 78px;
+        top: 77px;
       }
     }
   }
@@ -389,7 +440,7 @@
 .front.logged-in.admin-menu {
  #header-image-strip {
     @include breakpoint( md ) {
-      top: 92px;
+      top: 122px;
     }
   }
 }
@@ -461,18 +512,33 @@
 }
 
 #global-donate {
-  @include button($height: 1.75em, $color: $brand, $radius: 4px, $font-size: 2rem);
+  @include button($height: 1.75em, $color: transparent, $radius: 4px, $font-size: 2rem);
   right: 0;
-  @include breakpoint( md, max-width ) {
+  @media ( max-width: $screen-md ){
     width: 100%;
     @include border-radius(0);
+    background-color: $brand;
   }
-  @include breakpoint(md) {
+  @media ( min-width: $screen-md ){
     position: absolute;
-    top: -0.25em;
+    top: -1.25em;
+    background-color: none !important;
+    background-image: url('/sites/all/themes/asb/images/donate-starburst.png');
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    padding:0;
+    padding-top: 1em;
+    border-radius: 50%;
+    z-index: 1001;
     letter-spacing: .05em;
-    .not-front & {
-      right: -0.875em;
+    transform: rotate(-7deg);
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition-duration: .175s;
+    &:hover {
+      background-color: none !important;
+      transform: rotate(0);
     }
   }
 
