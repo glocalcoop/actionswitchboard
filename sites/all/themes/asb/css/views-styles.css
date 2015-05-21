@@ -39,6 +39,16 @@
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after {
+  clear: both;
+}
+
 /*
  * Views' admin tabs
  *
@@ -91,17 +101,17 @@
   background-repeat: no-repeat;
 }
 
-/* line 84, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-funds, #main .scheme-collection .scheme-info .scheme-needs .needed-funds {
   background-position: 0 0;
 }
 
-/* line 84, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-skills, #main .scheme-collection .scheme-info .scheme-needs .needed-skills {
   background-position: 0 -12px;
 }
 
-/* line 84, ../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../../../.rvm/gems/ruby-2.1.5/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .needs-supplies, #main .scheme-collection .scheme-info .scheme-needs .needed-supplies {
   background-position: 0 -24px;
 }

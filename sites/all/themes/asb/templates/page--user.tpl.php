@@ -9,13 +9,13 @@
 <div id="page">
 
   <header id="header" role="banner">
-    <!-- 
-      div.container is unecessary really, 
-      but the donate button sits under the zigzag borders so... 
+    <!--
+      div.container is unecessary really,
+      but the donate button sits under the zigzag borders so...
     -->
     <div class="container">
       <div class="content">
-   
+
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         <?php endif; ?>
@@ -37,16 +37,20 @@
 
         <?php endif; ?>
 
-        <section id="navigation"> 
+        <section id="navigation">
           <?php print render($page['header']); ?>
         </section><!-- /#navigation -->
       </div>
+      <section id="adhoc_nav">
+        <?php print render($page['adhoc_nav']); ?>
+      </section><!-- /#adhoc_nav -->
+
     </div>
     <?php print $global_donate;?>
   </header>
 
   <section id="main">
-  
+
   <?php print $messages; ?>
   <?php print render($page['help']); ?>
 
@@ -93,7 +97,7 @@
             <?php endif; ?>
           </section><!-- /#name-and-slogan -->
         <?php endif; ?>
-        <section id="navigation"> 
+        <section id="navigation">
           <?php print render($page['header']); ?>
         </section><!-- /#navigation -->
       </div>
@@ -122,7 +126,7 @@
             <?php if($page['sidebar_second']): ?>
                <section class="content page-content">
             <?php endif; ?>
-  
+
             <?php print render($tabs); ?>
            <?php if( isset( $updates_tabs ) ):?>
               <?php print $updates_tabs; ?>

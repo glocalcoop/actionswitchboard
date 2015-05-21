@@ -61,18 +61,5 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-
-  <div id="newsletterModal" class="hidden">
-
-    <div class="newsletter-modal-content">
-
-      <div class="newsletter-modal-content-wrapper">
-          <?php echo $newsletter_html;?>
-      </div>
-
-    </div>
-
-  </div>
-
 </body>
 </html>

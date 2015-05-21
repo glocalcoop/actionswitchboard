@@ -4,10 +4,10 @@
 
 %full-centered {
   width: 100%;
-  @include breakpoint( md ){
+  margin: 0 auto;
+  @media (min-width: $screen-md ) {
     max-width: $screen-md;
   }
-  margin: 0 auto;
 }
 
 .civi-button {
@@ -23,4 +23,16 @@
     }
   }
 
+}
+
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+   clear: both;
+  }
 }

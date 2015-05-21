@@ -35,6 +35,16 @@
   display: none !important;
 }
 
+/* line 30, ../sass/_extends.scss */
+.clearfix:before, #newsletterModal .newsletter-modal-head-wrapper:before, .clearfix:after, #newsletterModal .newsletter-modal-head-wrapper:after {
+  content: " ";
+  display: table;
+}
+/* line 35, ../sass/_extends.scss */
+.clearfix:after, #newsletterModal .newsletter-modal-head-wrapper:after {
+  clear: both;
+}
+
 /* line 5, ../sass/modals.scss */
 .ui-dialog {
   z-index: 1100;

@@ -37,8 +37,14 @@
           <?php print render($page['header']); ?>
         </section><!-- /#navigation -->
       </div>
+      <section id="adhoc_nav">
+        <?php print render($page['adhoc_nav']); ?>
+      </section><!-- /#adhoc_nav -->
+
     </div>
     <?php print $global_donate;?>
+
+
   </header>
 
   <section id="main">

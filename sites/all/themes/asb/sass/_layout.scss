@@ -21,7 +21,7 @@
 }
 
 ////////////////////
-// #main 
+// #main
 ////////////////////
 
 #main {
@@ -33,9 +33,8 @@
   min-height: 30em;
   position: relative;
   top: 0;
-  @include breakpoint( md ){
-    top: -20px;
-    margin-bottom: -20px;
+  @include breakpoint( md ) {
+    padding-top: 2em;
   }
   @include zigzag-border ($odd-backdrop, $backdrop);
 }
@@ -52,11 +51,11 @@
   margin-bottom: -8px;
 }
 
-.front #main { 
+.front #main {
   @include breakpoint( md ){
     position: relative;
-    top: 83px;
-    margin-bottom: 83px;
+    top: 110px;
+    margin-bottom: 110px;
   }
 }
 
@@ -117,7 +116,7 @@ aside.scheme-meta {
 }
 
 #content article>header, {
-  @include clearfix;    
+  @include clearfix;
 }
 
 /* ------------------------ */
@@ -130,8 +129,8 @@ aside.scheme-meta {
 }
 
 @include breakpoint( md ) {
+
   $gutter-width: 20px;
-  // $zen-column-count: 8;
 
   #main .scheme-collection-view .view-content,
   #main .scheme-collection-view .block-title,
@@ -158,11 +157,11 @@ aside.scheme-meta {
     margin-left: 0;
     margin-right: 0;
   }
-  
+
   /* ------------------------ */
   /* Two column layouts:      */
   /* ------------------------ */
-  // Goals and issues pages use .main-content not section.content or .page-content 
+  // Goals and issues pages use .main-content not section.content or .page-content
   // as the lauout wrapper (Container of content and sidebars )
   // This floats the content eft of the sidebar
   .sidebar-second section.page-content,
@@ -211,7 +210,7 @@ aside.scheme-meta {
   padding-bottom: 5em;
 
   section.content {
-    
+
 
     #block-views-inspiration-footer-block {
       @include zen-nested-container;
@@ -345,7 +344,7 @@ aside.scheme-meta {
       @include zen-float();
       @include zen-grid-flow-item( 2, 8 );
       @include box-sizing( border-box );
-      padding-right: 1em;   
+      padding-right: 1em;
     }
 
 
@@ -356,12 +355,12 @@ aside.scheme-meta {
       color: white;
       letter-spacing: 2px;
     }
-  
+
     #collections_filter {
       @include zen-float();
       @include zen-grid-flow-item( 2, 8 );
       @include box-sizing( border-box );
-      padding-left: 1em;        
+      padding-left: 1em;
     }
 
   }
@@ -370,7 +369,7 @@ aside.scheme-meta {
 
 
 //////////////////////
-// Centering content          
+// Centering content
 //
 
 .page-user-password #user-pass,
@@ -408,4 +407,3 @@ aside.scheme-meta {
   padding-right: 2em;
   width: auto !important;
 }
-

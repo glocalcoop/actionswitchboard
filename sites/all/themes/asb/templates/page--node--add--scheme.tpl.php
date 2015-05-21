@@ -74,9 +74,9 @@
 <div id="page">
 
   <header id="header" role="banner">
-    <!-- 
-      div.container is unecessary really, 
-      but the donate button sits under the zigzag borders so... 
+    <!--
+      div.container is unecessary really,
+      but the donate button sits under the zigzag borders so...
     -->
     <div class="container">
       <div class="content">
@@ -104,16 +104,19 @@
             <?php endif;?>
           </section><!-- /#name-and-slogan -->
         <?php endif; ?>
-        <section id="navigation"> 
+        <section id="navigation">
           <?php print render($page['header']); ?>
         </section><!-- /#navigation -->
       </div>
+      <section id="adhoc_nav">
+        <?php print render($page['adhoc_nav']); ?>
+      </section><!-- /#adhoc_nav -->
     </div>
     <?php print $global_donate;?>
   </header>
 
   <section id="main">
-  
+
     <?php print $messages; ?>
     <?php print render($page['help']); ?>
     <?php print render($page['search']); ?>
