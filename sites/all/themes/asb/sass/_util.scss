@@ -11,3 +11,11 @@
 .invisible {
   @include element-invisible();  
 }
+
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
