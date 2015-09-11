@@ -94,12 +94,9 @@
             <?php if ($site_slogan): ?>
               <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
             <?php endif; ?>
-            <h2 id="what-is-an-action-switchboard">
-              <a href="/about-action-switchboard">
-              <!-- <a class="ctools-use-modal ctools-modal-asb-modal-gt" href="/asb-modal/nojs/grand-tour"> -->
-                Just what is an action switchboard anyway?
-              </a>
-            </h2>
+           
+            <!-- Grand Tour region and block templates used -->
+            <?php print render($page['tour']); ?>
 
           </section><!-- /#name-and-slogan -->
 
