@@ -407,36 +407,3 @@ div.ctools-modal-content .form-type-mfw-managed-file {
 	}
 
 }
-
-/**
- * Colorbox module style:
- */
-
-#colorbox {
-	background: $panel;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-
-	#cboxWrapper {
-		-moz-border-radius: 2px;
-		-webkit-border-radius: 2px;
-		border-radius: 2px;
-	}
-
-	#cboxContent {
-		background: $panel;
-		overflow: visible;
-		padding: 1em;
-	}
-
-	#cboxClose {
-		background: $panel url('/sites/all/themes/asb/images/button-remove.png') no-repeat 0 0;
-		border-radius: 50%;
-		&:hover,
-		&:focus {
-			background-position: 0 0;
-		}
-	}
-
-}

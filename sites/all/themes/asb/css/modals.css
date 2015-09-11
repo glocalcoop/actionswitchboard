@@ -455,35 +455,3 @@ div.ctools-modal-content .form-type-mfw-managed-file .image-widget.form-managed-
 #newsletterModal .button {
   width: 100%;
 }
-
-/**
- * Colorbox module style:
- */
-/* line 415, ../sass/modals.scss */
-#colorbox {
-  background: #F3F2E0;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
-/* line 421, ../sass/modals.scss */
-#colorbox #cboxWrapper {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
-/* line 427, ../sass/modals.scss */
-#colorbox #cboxContent {
-  background: #F3F2E0;
-  overflow: visible;
-  padding: 1em;
-}
-/* line 433, ../sass/modals.scss */
-#colorbox #cboxClose {
-  background: #F3F2E0 url("/sites/all/themes/asb/images/button-remove.png") no-repeat 0 0;
-  border-radius: 50%;
-}
-/* line 436, ../sass/modals.scss */
-#colorbox #cboxClose:hover, #colorbox #cboxClose:focus {
-  background-position: 0 0;
-}
