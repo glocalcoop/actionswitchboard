@@ -1,8 +1,10 @@
+@charset "UTF-8";
 /**
  * @file
  * Form Styling
  */
 /*@import "font-icons";*/
+/* '' */
 .civi-button {
   display: inline-block;
   padding: 0 20px;

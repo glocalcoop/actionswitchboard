@@ -1,11 +1,10 @@
-@charset "UTF-8";
 /**
  * @file
  * Views Styling
  */
 /*@import "font-icons";*/
 #main .scheme-collection .scheme-leader:before {
-  content: '';
+  content: '\e800';
 }
 
 .civi-button {
