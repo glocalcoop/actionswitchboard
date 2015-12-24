@@ -1,5 +1,5 @@
 // Fix for user icon not rendering in Chrome
-%icon-user:before { content: '\e800'; }
+%icon-user:before { content: ''; }
 
 // EntypoRegular Icons
 %entypo-phone:before{ content:'\1F4DE'; }
