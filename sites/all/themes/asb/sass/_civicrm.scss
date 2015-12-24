@@ -228,7 +228,7 @@
 			width: 30px !important;
 			height: 30px !important;
 			&:before {
-				font-family: "entypo";
+				font-family: "entypo-social";
 				// font-size: 2.25em;
 				font-size: 4rem;
 				color: $white;
@@ -238,14 +238,14 @@
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $twitter-color, $hvcolor: $twitter-color);
 			// background-color: #00B0ED !important;
 			&:before {
-				content:'\e837';//\F309
+				content:'\F309'
 			}
 		}
 		a[href*="facebook.com"] {
 			@include button($height: auto, $font-size: 2.25em, $font-color: $white, $hvfontcolor: $white, $color: $facebook-color, $hvcolor: $facebook-color);
 			// background-color: #3B5998 !important;
 			&:before {
-				content:"\e838";//\F30C
+				content:"\F30C";
 			}
 		}
 	}
@@ -258,20 +258,20 @@
 		height: 30px !important;
 		display: inline-block !important;
 		&:before {
-			font-family: "entypo";
+			font-family: "entypo-social";
 			font-size: 4rem;
 		}
 	}
 	a.fa-twitter {
 		background-color: $twitter-color !important;
 		&:before {
-			content:'\e837';//\F309
+			content:'\F309'
 		}
 	}
 	a.fa-facebook {
 		background-color: $facebook-color !important;
 		&:before {
-			content:"\e838";//\F30C
+			content:"\F30C";
 		}
 	}
 

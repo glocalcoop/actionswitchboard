@@ -83,7 +83,7 @@ ul.tabs-primary.primary {
         @extend %entypo-users;
       }
       a[href*="outline"] {
-        @extend %entypo-list;
+        @extend %entypo-numbered-list;
       }
       a[href*="track"] {}
       a[href*="workflow"] {

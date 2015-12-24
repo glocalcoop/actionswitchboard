@@ -466,7 +466,7 @@
   border-right: none;
   padding: 0;
   .title {
-    @include font-icon-base($family:"entypo", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+    @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
   }
   .description {
     line-height: 1;
@@ -476,13 +476,13 @@
 
 #nav-twitter {
   .title {
-    @extend %entypo-twitter;
+    @extend %entypo-social-twitter;
   }
 }
 
 #nav-facebook {
   .title {
-    @extend %entypo-facebook;
+    @extend %entypo-social-facebook;
   }
 }
 

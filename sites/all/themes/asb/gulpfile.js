@@ -22,7 +22,7 @@ gulp.task( 'sass', function() {
 	} )
 	.pipe( plumber( { errorHandler: onError } ) )
 	.pipe( sass() )
-	.pipe( gulp.dest( '.' ) )
+	.pipe( gulp.dest( './css' ) )
 	.pipe( minifycss() )
 	.pipe( rename( { suffix: '.min' } ) )
 	.pipe( gulp.dest( './css' ) )

@@ -107,10 +107,10 @@
       }
     }
     &.pager-previous a {
-      @extend %entypo-left-dir;
+      @extend %entypo-triangle-left;
     }
     &.pager-next a {
-      @extend %entypo-right-dir;
+      @extend %entypo-triangle-right;
     }
     &.pager-last {
       display: none;

@@ -142,7 +142,7 @@ h4 {
     z-index: 10;
     padding-left: .25em;
     // width: 48px;
-    content: "\e802";
+    content: "\1F50D";
   }
 
   input {
@@ -411,14 +411,14 @@ $headers: sprite-map("headers/*.png", $position: -4px);
 
 .field-location {
   @include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
-  @extend %entypo-location; //\e819
+  @extend %entypo-location;
   &:before{
     width: .5em;
     text-align: center;
   }
 }
 .status-info a.icon {
-  @extend %entypo-pencil; //\e818
+  @extend %entypo-pencil;
   color: $text-color;
 }
 
@@ -428,7 +428,7 @@ ul.links.inline {
     a {
       @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2.5rem, $margin: 0.1em, $width: .5em);
     }
-    &.comment-delete a{ @extend %entypo-cancel-circled; }
+    &.comment-delete a{ @extend %entypo-circled-cross; }
     &.comment-edit a { @extend %entypo-pencil; }
     &.comment-reply a { @extend %entypo-reply; }
     &.comment-add a { @extend %entypo-reply; }
@@ -789,19 +789,19 @@ form .form-actions input{
             text-align: center;
             @include font-icon-base($family:"entypo-social", $font-size: 2.25em, $width: .5em, $margin: 0, $align: center );
             &.facebook {
-              @extend %entypo-facebook;
+              @extend %entypo-social-facebook;
               span {
                 display: none;
               }
             }
             &.twitter {
-              @extend %entypo-twitter;
+              @extend %entypo-social-twitter;
               span {
                 display: none;
               }
             }
             &.linkedin {
-              @extend %entypo-linkedin;
+              @extend %entypo-social-linkedin;
               span {
                 display: none;
               }
@@ -1001,7 +1001,7 @@ form .form-actions input{
           @extend %entypo-comment;
         }
         &:nth-child(2) a { // Alerts
-          @extend %entypo-attention;
+          @extend %entypo-warning;
         }
         &:nth-child(3) a { // Updates
           @extend %entypo-megaphone;
@@ -1510,7 +1510,7 @@ form .form-actions input{
       @include font-icon-base($family:"entypo", $color: $text-color, $font-size: 2em, $margin: .4em, $width: .3em);
     }
     .book_add_child a {
-       @extend %entypo-plus-circled;
+       @extend %entypo-circled-plus;
     }
     .book_printer a {
       @extend %entypo-print;
@@ -2171,11 +2171,11 @@ li.sub-goal.sub-sub-goal {
             line-height: $dimension;
           }
           &#scheme-images-previous {
-            @extend %entypo-left-dir;
+            @extend %entypo-triangle-left;
             padding-right: 10px;
           }
           &#scheme-images-next {
-            @extend %entypo-right-dir;
+            @extend %entypo-triangle-right;
           }
         }
       }
