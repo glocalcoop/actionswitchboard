@@ -1,4 +1,8 @@
 .DS_Store
+.sass-cache
+node_modules
+codekit-config.json
+script-ck.js
 
 /.htaccess
 /authorize.php
@@ -13,8 +17,6 @@
 /robots.txt
 /scripts
 /sites/default/
-/sites/all/themes/asb/.sass-cache/
-/sites/all/themes/asb/codekit-config.json
 /sites/all/themes/asb/js/script-ck.js
 /themes
 /update.php
@@ -23,7 +25,6 @@
 *~
 /dev/sync.asb
 /dev/sync.local
-/sites/all/themes/asb/css
 asb_civi.sql.gz
 asb_drup.sql.gz
 /sites/all/modules/contrib/civicrm
