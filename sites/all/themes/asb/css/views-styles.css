@@ -4,7 +4,7 @@
  */
 /*@import "font-icons";*/
 #main .scheme-collection .scheme-leader:before {
-  content: '\1F464';
+  content: '\e800';
 }
 
 .civi-button {
@@ -419,7 +419,7 @@
   margin: 0;
 }
 #main .scheme-collection .scheme-leader:before {
-  font-family: "entypo";
+  font-family: "user";
   font-style: normal;
   font-size: 2em;
   line-height: 1;

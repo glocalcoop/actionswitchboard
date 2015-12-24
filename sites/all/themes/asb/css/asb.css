@@ -242,6 +242,14 @@ html {
   font-style: normal;
   font-stretch: none;
 }
+@font-face {
+  font-family: user;
+  src: url("../fonts/user/fontello.eot");
+  src: url("../fonts/user/fontello.eot?#iefix") format("embedded-opentype"), url("../fonts/user/fontello.woff") format("woff"), url("../fonts/user/fontello.ttf") format("truetype"), url("../fonts/user/fontello.svg#user") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: none;
+}
 h1,
 h2,
 h3,
