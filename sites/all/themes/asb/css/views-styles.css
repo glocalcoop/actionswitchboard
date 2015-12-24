@@ -421,7 +421,7 @@
 #main .scheme-collection .scheme-leader:before {
   font-family: "user";
   font-style: normal;
-  font-size: 2em;
+  font-size: 1em;
   line-height: 1;
   margin-right: 0.25em 0 0 0;
   text-align: left;
@@ -434,7 +434,7 @@
   margin-left: .25em;
 }
 #main .scheme-collection .scheme-leader:before {
-  width: .5em;
+  width: 1em;
   text-align: center;
 }
 #main .scheme-collection div.field-item img {

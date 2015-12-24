@@ -352,13 +352,13 @@ $needs: sprite-map("needs/*.png", $my-needs-position: 2 0);
     //@include font-icon-base($family:"entypo", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
     //@extend %entypo-user;
     // Fixing user icon not rendering in Chrome
-    @include font-icon-base($family:"user", $font-size: 2em, $margin: .25em 0 0 0, $width: .3em);
+    @include font-icon-base($family:"user", $font-size: 1em, $margin: .25em 0 0 0, $width: .3em);
     @extend %icon-user;
     a {
       margin-left: .25em;
     }
     &:before{
-      width: .5em;
+      width: 1em;
       text-align: center;
     }
   }
