@@ -27,97 +27,97 @@ ul.links.inline li.comment-reply a:before, ul.links.inline li.comment-add a:befo
   content: '\E712';
 }
 
-/* line 20, ../sass/includes/_entypo.scss */
+/* line 24, ../sass/includes/_entypo.scss */
 .field-location:before {
   content: '\E724';
 }
 
-/* line 34, ../sass/includes/_entypo.scss */
+/* line 38, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:first-child a:before, .node-type-scheme section.content .view-header .item-list ul li:first-child a:before, #scheme-content .view-header .item-list ul li:first-child a:before {
   content: '\E718';
 }
 
-/* line 38, ../sass/includes/_entypo.scss */
+/* line 42, ../sass/includes/_entypo.scss */
 #nav-find:before, .region-search .views-widget-filter-keys:before, .section-dashboard input[type="text"]:before {
   content: '\1F50D';
 }
 
-/* line 40, ../sass/includes/_entypo.scss */
+/* line 44, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_printer a:before,
 .node-type-book .links.inline .book_printer a:before {
   content: '\E716';
 }
 
-/* line 43, ../sass/includes/_entypo.scss */
+/* line 47, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a:before, li.flag-abuse_node a:before, li.report-user a:before, li.flag-abuse_whitelist_comment a.unflag-action:before, li.flag-abuse_whitelist_node a.unflag-action:before, li.whitelist-user a.unflag-action:before {
   content: '\2691';
 }
 
-/* line 45, ../sass/includes/_entypo.scss */
+/* line 49, ../sass/includes/_entypo.scss */
 #header #block-system-user-menu .userdashboard .icon:before,
 #header #block-asb-scheme-user-message .userdashboard .icon:before,
 #header .block-menu-block ul li .userdashboard .icon:before {
   content: '\2692';
 }
 
-/* line 47, ../sass/includes/_entypo.scss */
+/* line 51, ../sass/includes/_entypo.scss */
 .node-type-document #main #node-content .field-document-type a:before,
 .node-type-book #main #node-content .field-document-type a:before {
   content: '\E70C';
 }
 
-/* line 49, ../sass/includes/_entypo.scss */
+/* line 53, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(3) a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(3) a:before, #scheme-content .view-header .item-list ul li:nth-child(3) a:before {
   content: '\1F4E3';
 }
 
-/* line 65, ../sass/includes/_entypo.scss */
+/* line 69, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:last-child a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(2) a:before, #scheme-content .view-header .item-list ul li:nth-child(2) a:before {
   content: '\1F4C5';
 }
 
-/* line 121, ../sass/includes/_entypo.scss */
+/* line 125, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action:before, li.report-user a.unflag-action:before, li.flag-abuse_whitelist_comment a:before, li.flag-abuse_whitelist_node a:before, li.whitelist-user a:before {
   content: '\2713';
 }
 
-/* line 127, ../sass/includes/_entypo.scss */
+/* line 131, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_add_child a:before,
 .node-type-book .links.inline .book_add_child a:before {
   content: '\2295';
 }
 
-/* line 128, ../sass/includes/_entypo.scss */
+/* line 132, ../sass/includes/_entypo.scss */
 .ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, #newsletterModal .newsletter-modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
-/* line 137, ../sass/includes/_entypo.scss */
+/* line 141, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(2) a:before {
   content: '\26A0';
 }
 
-/* line 203, ../sass/includes/_entypo.scss */
+/* line 207, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-previous a:before, .not-front.one-sidebar ul.pager li.pager-previous a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-previous:before {
   content: '\25C2';
 }
 
-/* line 206, ../sass/includes/_entypo.scss */
+/* line 210, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-next a:before, .not-front.one-sidebar ul.pager li.pager-next a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-next:before {
   content: '\25B8';
 }
 
-/* line 248, ../sass/includes/_entypo.scss */
+/* line 252, ../sass/includes/_entypo.scss */
 #nav-twitter .title:before, .page-user #user-content aside.user-details ul.user-contact li a.twitter:before {
   content: '\F309';
 }
 
-/* line 250, ../sass/includes/_entypo.scss */
+/* line 254, ../sass/includes/_entypo.scss */
 #nav-facebook .title:before, .page-user #user-content aside.user-details ul.user-contact li a.facebook:before {
   content: '\F30C';
 }
 
-/* line 259, ../sass/includes/_entypo.scss */
+/* line 263, ../sass/includes/_entypo.scss */
 .page-user #user-content aside.user-details ul.user-contact li a.linkedin:before {
   content: '\F318';
 }
@@ -413,97 +413,97 @@ ul.links.inline li.comment-reply a:before, ul.links.inline li.comment-add a:befo
   content: '\E712';
 }
 
-/* line 20, ../sass/includes/_entypo.scss */
+/* line 24, ../sass/includes/_entypo.scss */
 .field-location:before {
   content: '\E724';
 }
 
-/* line 34, ../sass/includes/_entypo.scss */
+/* line 38, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:first-child a:before, .node-type-scheme section.content .view-header .item-list ul li:first-child a:before, #scheme-content .view-header .item-list ul li:first-child a:before {
   content: '\E718';
 }
 
-/* line 38, ../sass/includes/_entypo.scss */
+/* line 42, ../sass/includes/_entypo.scss */
 #nav-find:before, .region-search .views-widget-filter-keys:before, .section-dashboard input[type="text"]:before {
   content: '\1F50D';
 }
 
-/* line 40, ../sass/includes/_entypo.scss */
+/* line 44, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_printer a:before,
 .node-type-book .links.inline .book_printer a:before {
   content: '\E716';
 }
 
-/* line 43, ../sass/includes/_entypo.scss */
+/* line 47, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a:before, li.flag-abuse_node a:before, li.report-user a:before, li.flag-abuse_whitelist_comment a.unflag-action:before, li.flag-abuse_whitelist_node a.unflag-action:before, li.whitelist-user a.unflag-action:before {
   content: '\2691';
 }
 
-/* line 45, ../sass/includes/_entypo.scss */
+/* line 49, ../sass/includes/_entypo.scss */
 #header #block-system-user-menu .userdashboard .icon:before,
 #header #block-asb-scheme-user-message .userdashboard .icon:before,
 #header .block-menu-block ul li .userdashboard .icon:before {
   content: '\2692';
 }
 
-/* line 47, ../sass/includes/_entypo.scss */
+/* line 51, ../sass/includes/_entypo.scss */
 .node-type-document #main #node-content .field-document-type a:before,
 .node-type-book #main #node-content .field-document-type a:before {
   content: '\E70C';
 }
 
-/* line 49, ../sass/includes/_entypo.scss */
+/* line 53, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(3) a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(3) a:before, #scheme-content .view-header .item-list ul li:nth-child(3) a:before {
   content: '\1F4E3';
 }
 
-/* line 65, ../sass/includes/_entypo.scss */
+/* line 69, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:last-child a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(2) a:before, #scheme-content .view-header .item-list ul li:nth-child(2) a:before {
   content: '\1F4C5';
 }
 
-/* line 121, ../sass/includes/_entypo.scss */
+/* line 125, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action:before, li.report-user a.unflag-action:before, li.flag-abuse_whitelist_comment a:before, li.flag-abuse_whitelist_node a:before, li.whitelist-user a:before {
   content: '\2713';
 }
 
-/* line 127, ../sass/includes/_entypo.scss */
+/* line 131, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_add_child a:before,
 .node-type-book .links.inline .book_add_child a:before {
   content: '\2295';
 }
 
-/* line 128, ../sass/includes/_entypo.scss */
+/* line 132, ../sass/includes/_entypo.scss */
 .ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, #newsletterModal .newsletter-modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
-/* line 137, ../sass/includes/_entypo.scss */
+/* line 141, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(2) a:before {
   content: '\26A0';
 }
 
-/* line 203, ../sass/includes/_entypo.scss */
+/* line 207, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-previous a:before, .not-front.one-sidebar ul.pager li.pager-previous a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-previous:before {
   content: '\25C2';
 }
 
-/* line 206, ../sass/includes/_entypo.scss */
+/* line 210, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-next a:before, .not-front.one-sidebar ul.pager li.pager-next a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-next:before {
   content: '\25B8';
 }
 
-/* line 248, ../sass/includes/_entypo.scss */
+/* line 252, ../sass/includes/_entypo.scss */
 #nav-twitter .title:before, .page-user #user-content aside.user-details ul.user-contact li a.twitter:before {
   content: '\F309';
 }
 
-/* line 250, ../sass/includes/_entypo.scss */
+/* line 254, ../sass/includes/_entypo.scss */
 #nav-facebook .title:before, .page-user #user-content aside.user-details ul.user-contact li a.facebook:before {
   content: '\F30C';
 }
 
-/* line 259, ../sass/includes/_entypo.scss */
+/* line 263, ../sass/includes/_entypo.scss */
 .page-user #user-content aside.user-details ul.user-contact li a.linkedin:before {
   content: '\F318';
 }
@@ -1071,97 +1071,97 @@ ul.links.inline li.comment-reply a:before, ul.links.inline li.comment-add a:befo
   content: '\E712';
 }
 
-/* line 20, ../sass/includes/_entypo.scss */
+/* line 24, ../sass/includes/_entypo.scss */
 .field-location:before {
   content: '\E724';
 }
 
-/* line 34, ../sass/includes/_entypo.scss */
+/* line 38, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:first-child a:before, .node-type-scheme section.content .view-header .item-list ul li:first-child a:before, #scheme-content .view-header .item-list ul li:first-child a:before {
   content: '\E718';
 }
 
-/* line 38, ../sass/includes/_entypo.scss */
+/* line 42, ../sass/includes/_entypo.scss */
 #nav-find:before, .region-search .views-widget-filter-keys:before, .section-dashboard input[type="text"]:before {
   content: '\1F50D';
 }
 
-/* line 40, ../sass/includes/_entypo.scss */
+/* line 44, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_printer a:before,
 .node-type-book .links.inline .book_printer a:before {
   content: '\E716';
 }
 
-/* line 43, ../sass/includes/_entypo.scss */
+/* line 47, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a:before, li.flag-abuse_node a:before, li.report-user a:before, li.flag-abuse_whitelist_comment a.unflag-action:before, li.flag-abuse_whitelist_node a.unflag-action:before, li.whitelist-user a.unflag-action:before {
   content: '\2691';
 }
 
-/* line 45, ../sass/includes/_entypo.scss */
+/* line 49, ../sass/includes/_entypo.scss */
 #header #block-system-user-menu .userdashboard .icon:before,
 #header #block-asb-scheme-user-message .userdashboard .icon:before,
 #header .block-menu-block ul li .userdashboard .icon:before {
   content: '\2692';
 }
 
-/* line 47, ../sass/includes/_entypo.scss */
+/* line 51, ../sass/includes/_entypo.scss */
 .node-type-document #main #node-content .field-document-type a:before,
 .node-type-book #main #node-content .field-document-type a:before {
   content: '\E70C';
 }
 
-/* line 49, ../sass/includes/_entypo.scss */
+/* line 53, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(3) a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(3) a:before, #scheme-content .view-header .item-list ul li:nth-child(3) a:before {
   content: '\1F4E3';
 }
 
-/* line 65, ../sass/includes/_entypo.scss */
+/* line 69, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:last-child a:before, .node-type-scheme section.content .view-header .item-list ul li:nth-child(2) a:before, #scheme-content .view-header .item-list ul li:nth-child(2) a:before {
   content: '\1F4C5';
 }
 
-/* line 121, ../sass/includes/_entypo.scss */
+/* line 125, ../sass/includes/_entypo.scss */
 li.flag-abuse_comment a.unflag-action:before, li.flag-abuse_node a.unflag-action:before, li.report-user a.unflag-action:before, li.flag-abuse_whitelist_comment a:before, li.flag-abuse_whitelist_node a:before, li.whitelist-user a:before {
   content: '\2713';
 }
 
-/* line 127, ../sass/includes/_entypo.scss */
+/* line 131, ../sass/includes/_entypo.scss */
 .node-type-document .links.inline .book_add_child a:before,
 .node-type-book .links.inline .book_add_child a:before {
   content: '\2295';
 }
 
-/* line 128, ../sass/includes/_entypo.scss */
+/* line 132, ../sass/includes/_entypo.scss */
 .ctools-modal-content .popups-container .modal-header .close:before, .ctools-modal-content .modal-head-wrapper .close:before, #newsletterModal .newsletter-modal-head-wrapper .close:before, ul.links.inline li.comment-delete a:before {
   content: '\2716';
 }
 
-/* line 137, ../sass/includes/_entypo.scss */
+/* line 141, ../sass/includes/_entypo.scss */
 .section-dashboard #block-quicktabs-notifications ul.quicktabs-tabs li:nth-child(2) a:before {
   content: '\26A0';
 }
 
-/* line 203, ../sass/includes/_entypo.scss */
+/* line 207, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-previous a:before, .not-front.one-sidebar ul.pager li.pager-previous a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-previous:before {
   content: '\25C2';
 }
 
-/* line 206, ../sass/includes/_entypo.scss */
+/* line 210, ../sass/includes/_entypo.scss */
 .section-dashboard div.item-list ul.pager li.pager-next a:before, .not-front.one-sidebar ul.pager li.pager-next a:before, .node-type-scheme #outer-carousel-wrapper #scheme-images-nav a#scheme-images-next:before {
   content: '\25B8';
 }
 
-/* line 248, ../sass/includes/_entypo.scss */
+/* line 252, ../sass/includes/_entypo.scss */
 #nav-twitter .title:before, .page-user #user-content aside.user-details ul.user-contact li a.twitter:before {
   content: '\F309';
 }
 
-/* line 250, ../sass/includes/_entypo.scss */
+/* line 254, ../sass/includes/_entypo.scss */
 #nav-facebook .title:before, .page-user #user-content aside.user-details ul.user-contact li a.facebook:before {
   content: '\F30C';
 }
 
-/* line 259, ../sass/includes/_entypo.scss */
+/* line 263, ../sass/includes/_entypo.scss */
 .page-user #user-content aside.user-details ul.user-contact li a.linkedin:before {
   content: '\F318';
 }
@@ -4753,7 +4753,7 @@ form .form-actions input {
   overflow: hidden;
   text-align: left;
   text-transform: capitalize;
-  background-image: url('../images/footer-logo.png?1441137900');
+  background-image: url('../images/footer-logo.png?1450921771');
   background-repeat: no-repeat;
   background-position: 0 25%;
   color: white;
