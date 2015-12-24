@@ -12,7 +12,11 @@
 %entypo-reply:before{ content:'\E712'; }
 %entypo-reply-all:before{ content:'\E713'; }
 %entypo-forward:before{ content:'\27A6'; }
-%entypo-user:before{ content:'\1F464'; }
+%entypo-user:before{ 
+    //content:'\1F464';
+    // http://dquinn.net/how-to-fix-broken-font-icons-in-chrome-32-for-entypo-web-font-in-gumby-framework/
+    content: '\e60d';
+}
 %entypo-users:before{ content:'\1F465'; }
 %entypo-add-user:before{ content:'\E700'; }
 %entypo-vcard:before{ content:'\E722'; }
