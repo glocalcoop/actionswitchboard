@@ -8,7 +8,7 @@
 
 %modal-close {
 		@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
-		@extend %entypo-circled-cross;
+		@extend %entypo-cancel-circled;
 		// overflow: visible ;
 		float: right;
 		position: relative;

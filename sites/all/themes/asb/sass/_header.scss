@@ -15,10 +15,10 @@
       height: 3.25em;
     }
     @media (min-width: $screen-md) {
-      @include zigzag-border (#000,transparent);
+      @include zigzag-border ($black,transparent);
     }
     .region-adhoc-nav {
-      background-color: #000;
+      background-color: $black;
       height: 2.25em;
       @extend .clearfix;
     }
@@ -40,11 +40,11 @@
           display: block;
           height: 1.25em;
           color: $panel;
-          background-color: #000;
+          background-color: $black;
           border-right: 1px #333 solid;
           padding: .5em 1em;
           &:hover {
-            background: #fff;
+            background: $white;
             color: $backdrop;
           }
         }
@@ -466,7 +466,7 @@
   border-right: none;
   padding: 0;
   .title {
-    @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+    @include font-icon-base($family:"entypo", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
   }
   .description {
     line-height: 1;
@@ -476,13 +476,13 @@
 
 #nav-twitter {
   .title {
-    @extend %entypo-social-twitter;
+    @extend %entypo-twitter;
   }
 }
 
 #nav-facebook {
   .title {
-    @extend %entypo-social-facebook;
+    @extend %entypo-facebook;
   }
 }
 
