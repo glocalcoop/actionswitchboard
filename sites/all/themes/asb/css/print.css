@@ -5,7 +5,6 @@
  * We provide some sane print styling for Drupal using Zen's layout method.
  */
 /*@import "font-icons";*/
-/* line 13, ../sass/_extends.scss */
 .civi-button {
   display: inline-block;
   padding: 0 20px;
@@ -22,64 +21,53 @@
   text-shadow: none !important;
   color: white !important;
 }
-/* line 318, ../sass/_mixins.scss */
 .civi-button:hover, .civi-button:focus {
   background-color: #912A1B;
   color: white;
 }
-/* line 19, ../sass/_extends.scss */
 .civi-button span {
   line-height: 2;
 }
-/* line 21, ../sass/_extends.scss */
 .civi-button span .icon {
   display: none !important;
 }
 
-/* line 30, ../sass/_extends.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
-/* line 35, ../sass/_extends.scss */
 .clearfix:after {
   clear: both;
 }
 
 @media print {
-  /* line 13, ../sass/print.scss */
   a:link,
   a:visited {
     /* underline all links */
     text-decoration: underline !important;
   }
-  /* line 17, ../sass/print.scss */
   #site-name a:link, #site-name
   a:visited {
     /* Don't underline header */
     text-decoration: none !important;
   }
 
-  /* line 23, ../sass/print.scss */
   #content a[href]:after {
     /* Add visible URL after links. */
     content: " (" attr(href) ")";
     font-weight: normal;
     font-size: 12px;
   }
-  /* line 29, ../sass/print.scss */
   #content a[href^="javascript:"]:after,
   #content a[href^="#"]:after {
     /* Only display useful links. */
     content: "";
   }
-  /* line 34, ../sass/print.scss */
   #content abbr[title]:after {
     /* Add visible title after abbreviations. */
     content: " (" attr(title) ")";
   }
 
-  /* line 39, ../sass/print.scss */
   #content {
     /* Un-float the content */
     float: none !important;
@@ -88,7 +76,6 @@
     padding: 0 !important;
   }
 
-  /* line 46, ../sass/print.scss */
   body,
   #page,
   #main,
@@ -99,7 +86,6 @@
     background-image: none !important;
   }
 
-  /* line 55, ../sass/print.scss */
   #skip-link,
   #toolbar,
   #navigation,

@@ -9,6 +9,8 @@
 @include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);
 @include font-face( entypo, 'entypo', "../fonts/entypo", normal, normal);
 @include font-face( entypo-social, 'entypo-social', "../fonts/entypo-social", normal, normal );
+// Fix user icon not rendering in Chrome
+@include font-face( user, 'user', "../fonts/user/fontello", normal, normal );
 
 $header-font-family: League, Helvetica, sans;
 
